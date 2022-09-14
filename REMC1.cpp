@@ -2,10 +2,11 @@
 //
 
 #include <iostream>
+#include "sub_main.h"
 
-int main()
+int main(int argc, const char** argv, const char** envp)
 {
-    std::cout << "Hello World!\n";
+    sub_main(argc, argv, envp);
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
