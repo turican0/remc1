@@ -12,7 +12,7 @@
 
 extern __int16 word_A9990;
 extern int dword_A99A0;
-extern int dword_AE450;
+extern int dword_AE450_AE440;
 
 typedef struct {//2049
 	uint32 var_u32_0;
