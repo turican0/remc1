@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Zdrojové soubory\portability">
+      <UniqueIdentifier>{ae832fd9-8219-4c04-a98f-545c30e727f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\engine">
+      <UniqueIdentifier>{955ce148-fcdc-4826-b2d6-2806335e3bff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="REMC1.cpp">
@@ -20,6 +26,18 @@
     </ClCompile>
     <ClCompile Include="sub_main.cpp">
       <Filter>Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="portability\dirent.c">
+      <Filter>Zdrojové soubory\portability</Filter>
+    </ClCompile>
+    <ClCompile Include="portability\fcaseopen.cpp">
+      <Filter>Zdrojové soubory\portability</Filter>
+    </ClCompile>
+    <ClCompile Include="portability\port_filesystem.cpp">
+      <Filter>Zdrojové soubory\portability</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\CommandLineParser.cpp">
+      <Filter>Zdrojové soubory\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,5 +47,8 @@
     <ClInclude Include="sub_main.h">
       <Filter>Hlavičkové soubory</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
