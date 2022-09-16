@@ -56,8 +56,24 @@ typedef struct {
 
 extern Type_str_AE400_AE3F0* str_AE400_AE3F0;
 
+typedef struct {
+	uint8 var_u8_0;
+	uint8 var_u8_8;
+	uint16 var_u16_13;
+	uint16 var_u16_15;
+	uint16 var_u16_17;
+	uint32 var_u32_25;
+	uint8 var_u8_29;
+} Type_str_AE408_AE3F8;
+
+extern Type_str_AE408_AE3F8* str_AE408_AE3F8;
+
 int dword_AE400_AE3F0();
 
 void dword_AE400_AE3F0(int input);
+
+int dword_AE408_AE3F8();
+
+void dword_AE408_AE3F8(int input);
 
 int sub_main(int argc, const char** argv, const char** envp);
