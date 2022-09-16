@@ -644,12 +644,12 @@ char sub_3E8C0(__int16 a1);
 char sub_3E980(__int16 a1);
 void sub_3E9D0(_BYTE *a1);
 _BYTE *sub_3EC50();
-int sub_3EC80_3EFC0(int a1);
-char sub_3EC90_3EFD0(unsigned __int8 a1, const char *a2, char *a3);
+int access_3EC80_3EFC0(char* a1);
+void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2);
 int sub_3EEA0(const char *a1, char *a2);
 int sub_3EF20();
-bool sub_3EF30(int a1);
-char sub_3EF50(const char *a1, const char *a2, const char *a3);
+bool sub_3EF30(char* a1);
+char sub_3EF50(char *a1, char *a2, const char *a3);
 char sub_3F1D0();
 int sub_3F370();
 __int16 sub_3F398(__int16 a1);
@@ -12175,7 +12175,7 @@ _UNKNOWN unk_131BE0; // weak
 //---------------- fixproc
 int nullsub_3(_DWORD a) { return 0; }; // weak
 int nullsub_19(_DWORD a) { return 0; }; // weak
-_DWORD dos_getdiskfree(_DWORD a, uint32 b) { return 0; };// weak
+//_DWORD dos_getdiskfree(_DWORD a, uint32 b) { return 0; };// weak
 _DWORD dos_getdrive(_DWORD a) { return 0; };// weak
 _DWORD dos_getvect(_DWORD a) { return 0; };// weak
 _DWORD dos_setvect(_DWORD a, _DWORD b, _DWORD c) { return 0; };// weak
@@ -12245,9 +12245,9 @@ void __writegsword(int a, int b) {};
 
 int __readeflags() { return 0; };
 void __writeeflags(int a) {};
-_DWORD access(_DWORD a, _DWORD b) { return 0; };// weak
+//_DWORD access(_DWORD a, _DWORD b) { return 0; };// weak
 _DWORD gets(_DWORD a) { return 0; };// weak
-_DWORD mkdir(_DWORD a) { return 0; };// weak
+//_DWORD mkdir(_DWORD a) { return 0; };// weak
 void __outbyte(int a, int b) {};
 _DWORD outp(_DWORD a, char b) { return 0; };// weak
 _DWORD read(_DWORD a, _DWORD b, _DWORD c) { return 0; };// weak
@@ -44983,149 +44983,40 @@ _BYTE *sub_3EC50()
 // AE408: using guessed type int dword_AE408;
 
 //----- (0003EC80) --------------------------------------------------------
-int sub_3EC80_3EFC0(int a1)
+int access_3EC80_3EFC0(char* a1)
 {
   return access(a1, 0);
 }
 // 62F18: using guessed type _DWORD access(_DWORD, _DWORD);
 
 //----- (0003EC90) --------------------------------------------------------
-char sub_3EC90_3EFD0(unsigned __int8 a1, const char *a2, char *a3)
+void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2)
 {
-  char *v4; // esi
-  char *v5; // edi
-  char v6; // al
-  char v7; // al
-  char *v8; // esi
-  char *v9; // edi
-  char v10; // al
-  char v11; // al
-  char *v12; // esi
-  char *v13; // edi
-  char v14; // al
-  char v15; // al
-  char *v16; // esi
-  char *v17; // edi
-  char v18; // al
-  char v19; // al
-  char *v20; // esi
-  char *v21; // edi
-  char v22; // al
-  char v23; // al
-  char *v24; // esi
-  char *v25; // edi
-  char v26; // al
-  char v27; // al
-  char v28[144]; // [esp+0h] [ebp-134h] BYREF
-  char v29[144]; // [esp+90h] [ebp-A4h] BYREF
-  char v30[20]; // [esp+120h] [ebp-14h] BYREF
+  char textBuffer1[144];
+  char textBuffer2[144];
 
-  if ( dos_getdiskfree(a1 - 64, (uint32)v30) )
-    return 1;
-  sprintf(v28, "%c:%s", a1, a2);
-  if ( (__int16)sub_3EC80_3EFC0((int)v28) <= -1 )
+  if (dos_getdiskfree(diskChar - 64, 0))
+      return;
+  sprintf(textBuffer1, "%c:%s", diskChar, dir1);
+  if ( access_3EC80_3EFC0(textBuffer1) <= -1 )
   {
-    if ( mkdir((uint32)v28) )
-      return 2;
-    v16 = v28;
-    v17 = v29;
-    do
-    {
-      v18 = *v16;
-      *v17 = *v16;
-      if ( !v18 )
-        break;
-      v19 = v16[1];
-      v16 += 2;
-      v17[1] = v19;
-      v17 += 2;
-    }
-    while ( v19 );
-    v20 = &aEs_0[2];
-    v21 = &v29[strlen(v29)];
-    do
-    {
-      v22 = *v20;
-      *v21 = *v20;
-      if ( !v22 )
-        break;
-      v23 = v20[1];
-      v20 += 2;
-      v21[1] = v23;
-      v21 += 2;
-    }
-    while ( v23 );
-    v24 = a3;
-    v25 = &v29[strlen(v29)];
-    do
-    {
-      v26 = *v24;
-      *v25 = *v24;
-      if ( !v26 )
-        break;
-      v27 = v24[1];
-      v24 += 2;
-      v25[1] = v27;
-      v25 += 2;
-    }
-    while ( v27 );
-    if ( (sub_3EC80_3EFC0((int)v29) & 0x8000u) != 0 && mkdir((uint32)v29) )
-      return 2;
+    if (mkdir(textBuffer1))
+        return;
+    strcpy(textBuffer2, textBuffer1);
+    strcpy(&textBuffer2[strlen(textBuffer2)], "/");
+    strcpy(&textBuffer2[strlen(textBuffer2)], dir2);
+    if ( (access_3EC80_3EFC0(textBuffer2) & 0x8000u) != 0 && mkdir(textBuffer2) )
+      return;
   }
   else
   {
-    v4 = v28;
-    v5 = v29;
-    do
-    {
-      v6 = *v4;
-      *v5 = *v4;
-      if ( !v6 )
-        break;
-      v7 = v4[1];
-      v4 += 2;
-      v5[1] = v7;
-      v5 += 2;
-    }
-    while ( v7 );
-    v8 = &aEs_0[2];
-    v9 = &v29[strlen(v29)];
-    do
-    {
-      v10 = *v8;
-      *v9 = *v8;
-      if ( !v10 )
-        break;
-      v11 = v8[1];
-      v8 += 2;
-      v9[1] = v11;
-      v9 += 2;
-    }
-    while ( v11 );
-    v12 = a3;
-    v13 = &v29[strlen(v29)];
-    do
-    {
-      v14 = *v12;
-      *v13 = *v12;
-      if ( !v14 )
-        break;
-      v15 = v12[1];
-      v12 += 2;
-      v13[1] = v15;
-      v13 += 2;
-    }
-    while ( v15 );
-    if ( (sub_3EC80_3EFC0((int)v29) & 0x8000u) != 0 && mkdir((uint32)v29) )
-      return 2;
+    strcpy(textBuffer2, textBuffer1);
+    strcpy(&textBuffer2[strlen(textBuffer2)], "/");
+    strcpy(&textBuffer2[strlen(textBuffer2)], dir2);
+    if ( (access_3EC80_3EFC0(textBuffer2) & 0x8000u) != 0 && mkdir(textBuffer2) )
+      return;
   }
-  return 3;
 }
-// 5CEAC: using guessed type _DWORD dos_getdiskfree(_DWORD, _DWORD);
-// 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
-// 62F56: using guessed type _DWORD mkdir(_DWORD);
-// 3EC90: using guessed type char var_14[20];
-// 3EC90: using guessed type char var_A4[144];
 
 //----- (0003EEA0) --------------------------------------------------------
 int sub_3EEA0(const char *a1, char *a2)
@@ -45165,14 +45056,14 @@ int sub_3EF20()
 }
 
 //----- (0003EF30) --------------------------------------------------------
-bool sub_3EF30(int a1)
+bool sub_3EF30(char* a1)
 {
   return (unsigned __int16)access(a1, 0) == 0;
 }
 // 62F18: using guessed type _DWORD access(_DWORD, _DWORD);
 
 //----- (0003EF50) --------------------------------------------------------
-char sub_3EF50(const char *a1, const char *a2, const char *a3)
+char sub_3EF50(char *a1, char *a2, const char *a3)
 {
   int v3; // ebx
   int v4; // esi
@@ -45191,9 +45082,9 @@ char sub_3EF50(const char *a1, const char *a2, const char *a3)
   int v18; // [esp+184h] [ebp-18h]
   int v19; // [esp+188h] [ebp-14h]
 
-  if ( !sub_3EF30((int)a1) )
+  if ( !sub_3EF30(a1) )
     return 2;
-  if ( !sub_3EF30((int)a2) )
+  if ( !sub_3EF30(a2) )
     return 1;
   sprintf(v15, "%s/%s.tab", a1, a3);
   sprintf(v16, "%s/%s.tab", a2, a3);
@@ -46318,9 +46209,9 @@ int sub_main(int argc, const char **argv, const char **envp)//2114f0
   v5 = 0;
   //fix
 
-  sub_3EC90_3EFD0('C', "\\carpet.cd", (char*)"save");
-  sub_3EC90_3EFD0('C', "\\carpet.cd", (char*)"data");
-  sub_3EC90_3EFD0('C', "\\carpet.cd", (char*)"levels");
+  CreateGameDir_3EC90_3EFD0('C', (char*)"\\carpet.cd", (char*)"save");
+  CreateGameDir_3EC90_3EFD0('C', (char*)"\\carpet.cd", (char*)"data");
+  CreateGameDir_3EC90_3EFD0('C', (char*)"\\carpet.cd", (char*)"levels");
   sub_340B0_34470(v4, v5, argc, (int)argv);
   return 0;
 }

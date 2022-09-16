@@ -406,6 +406,10 @@ space_info space(char* path, int* ec)
 	return info;
 }
 
+uint64_t dos_getdiskfree(uint8_t a, int16_t a2) {
+	return dos_getdiskfree(0,0,a,0);
+};
+
 unsigned __int64 dos_getdiskfree(__int16 a1, __int16 a2, uint8_t a, short* b) {
 	unsigned long wanted_size = 0;//fix it
 	char drivename[10];

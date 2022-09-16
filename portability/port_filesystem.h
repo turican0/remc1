@@ -78,6 +78,8 @@ int dos_getdrive(int* a);
 
 std::string get_exe_path();
 
+uint64_t dos_getdiskfree(uint8_t a, int16_t a2);
+
 #ifdef _MSC_VER
 uint64_t dos_getdiskfree(int16_t a1, int16_t a2, uint8_t a, short* b);
 #endif
