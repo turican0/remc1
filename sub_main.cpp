@@ -722,7 +722,7 @@ void sub_428B0_42BF0();
 int sub_42930(_BYTE *a1, char *a2, unsigned __int8 a3);
 int sub_42A00(__int16 a1);
 int sub_42C70(__int16 a1);
-int sub_42CF0(int a1, __int16 a2);
+int sub_42CF0_43030(int a1, __int16 a2);
 int sub_42D40(_BYTE *a1, char *a2);
 int sub_42DE0(_BYTE *a1);
 int sub_42E10(__int16 a1);
@@ -47862,7 +47862,7 @@ int sub_42C70(__int16 a1)
 // 93990: using guessed type int dword_93990[7];
 
 //----- (00042CF0) --------------------------------------------------------
-int sub_42CF0(int a1, __int16 a2)
+int sub_42CF0_43030(int a1, __int16 a2)
 {
   int result; // eax
   unsigned int v3; // [esp-4h] [ebp-4h]
@@ -48177,7 +48177,6 @@ int sub_431A0(unsigned int a1)
 // 636BC: using guessed type _DWORD segread(_DWORD);
 // 636E6: using guessed type _DWORD int386x(_DWORD, _DWORD, _DWORD, _DWORD);
 
-//----- (00043270) --------------------------------------------------------
 void sub_43270_435B0(int a1, __int16 a2)
 {
   int v2; // esi
@@ -48196,7 +48195,7 @@ void sub_43270_435B0(int a1, __int16 a2)
     dword_9398C = v3;
     if ( !v3 )
       goto LABEL_14;
-    result = sub_42CF0(v3, a2);
+    result = sub_42CF0_43030(v3, a2);
     if ( result == -1 )
       return;
     dword_93960 = (int)malloc_425C0_42900(2048);
@@ -48238,13 +48237,6 @@ LABEL_14:
     }
   }
 }
-// 63709: using guessed type _DWORD system(_DWORD);
-// 93958: using guessed type char byte_93958;
-// 93960: using guessed type int dword_93960;
-// 93964: using guessed type int dword_93964;
-// 93968: using guessed type int dword_93968[];
-// 9398C: using guessed type int dword_9398C;
-// 93990: using guessed type int dword_93990[7];
 
 //----- (000433C0) --------------------------------------------------------
 void sub_433C0_43700()
