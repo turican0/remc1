@@ -15,11 +15,18 @@ extern int dword_A99A0;
 extern int dword_AE450_AE440;
 
 typedef struct {//2049
-	uint32 var_u32_0;
+	uint16 var_u16_13325;
+	uint8 var_u8_13327;
+	uint32 var_u32_13347;
 	//2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13347
 
 }
 TypeStrAE400_13347;
+
+typedef union {
+	uint16 a16[2];
+	uint32 a32;
+} un16_32;
 
 typedef struct {
 	uint8 var_u8_1;
@@ -27,6 +34,8 @@ typedef struct {
 	uint16 var_u16_10;
 
 	char textBuffer_117[32];
+
+	un16_32 var_u32_576;
 
 	uint8 var_u8_8597;
 	uint8 var_u8_8598;
@@ -58,10 +67,12 @@ extern Type_str_AE400_AE3F0* str_AE400_AE3F0;
 
 typedef struct {
 	uint8 var_u8_0;
+	uint8 var_u8_1;
 	uint8 var_u8_8;
 	uint16 var_u16_13;
 	uint16 var_u16_15;
 	uint16 var_u16_17;
+	uint8 var_u8_23;
 	uint32 var_u32_25;
 	uint8 var_u8_29;
 } Type_str_AE408_AE3F8;
