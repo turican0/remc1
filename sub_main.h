@@ -12,7 +12,19 @@
 
 extern __int16 word_A9990;
 extern int dword_A99A0;
-extern int dword_AE450_AE440;
+
+extern uint8_t* dword_AE3F4;
+extern uint8_t* dword_AE440;
+extern uint8_t* dword_AE3B8;
+extern uint8_t* dword_AE424;
+extern uint8_t* dword_AE418;
+extern uint8_t* dword_AE450_AE440;
+extern uint8_t* dword_AE428_AE418;
+extern uint8_t* dword_AE41C_AE40C;
+extern uint8_t* dword_AE3F0;
+extern uint8_t* dword_AE3D8;
+extern uint8_t* dword_AE3FC;
+extern uint8_t* dword_AE42C;
 
 typedef struct {//2049
 	uint16 var_u16_13325;
