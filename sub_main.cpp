@@ -391,7 +391,7 @@ int sub_344F0();
 // void sub_34530(__int16 a1, __int16 a2, __int16 a3);
 void sub_34610_349D0(__int16 a2, __int16 a3);
 char sub_34690();
-int sub_34B00_34EC0();
+void sub_34B00_34EC0();
 void sub_34B40_34F00();
 void sub_34C60_35020();
 int sub_34C80_35040();
@@ -667,7 +667,7 @@ void InitDigijoy_3F7D0_3FB10(char* textBuffer);
 void InitAnojoy_3F820_sub_3FB60(__int16 a2, int a3, int a4, int a5, char a6);
 void sub_3FB30_3FE70(__int16 a1, __int16 a2, char* a3);
 char sub_3FCA0_3FFE0(char a5, __int16 a6, __int16 a7, __int16 a8, __int16 a9, __int16 a10, __int16 a11);
-__int16 sub_40440_40780(char* textBuffer);
+void sub_40440_40780(char* textBuffer);
 int sub_40550();
 int sub_407A0_40AE0();
 int sub_408D0_40C10();
@@ -1006,8 +1006,8 @@ int sub_5A3C0_5A8D0(__int16 a1);
 void sub_5A459_5A969();
 int sub_5A4EA();
 int sub_5A560();
-void sub_5ACA0_5B1B0();
-void sub_5AD10_5B220(char* text);
+void DrawStartGameTexts_5ACA0_5B1B0();
+void DrawTextLine_5AD10_5B220(char* text);
 int sub_5AD30_5B240();
 int sub_5ADB0_5B2C0(int a1, int32_t* a2, char* a3);
 int sub_5AE30_5B340(int a1, char *a2);
@@ -1161,7 +1161,7 @@ int sub_62FF0(int a1);
 void sub_63010_63520();
 void sub_63338_63848();
 int sub_6342C(unsigned int a1);
-_DWORD *sub_634A0(int a1);
+_DWORD *sub_634A0_639B0(int a1);
 int sub_634E0(int a1);
 // _DWORD gets(_DWORD); weak
 // _DWORD segread(_DWORD); weak
@@ -9699,7 +9699,7 @@ char aSoundNumber[13] = "Sound Number"; // weak
 char aGameTurn[10] = "Game turn"; // weak
 char aThing[6] = "Thing"; // weak
 char aMemoryUsedFree[19] = "Memory (Used/Free)"; // weak
-void *off_ABCE0_ABCDC = &unk_A7325; // weak
+//void *off_ABCE0_ABCDC = &unk_A7325; // weak
 //char aVipport[8] = "VIPPORT"; // weak
 //char aVfx1Cyberpuck[15] = "VFX1 CyberPuck"; // weak
 char aVesa[5] = "VESA"; // weak
@@ -37377,8 +37377,7 @@ LABEL_61:
 // AE428: using guessed type int dword_AE428_AE418;
 // B7310: using guessed type int dword_B7310;
 
-//----- (00034B00) --------------------------------------------------------
-int sub_34B00_34EC0()
+void sub_34B00_34EC0()
 {
   sub_40440_40780((char*)"*SearchD");
   if ( word_12F02E_12F01E == 1 )
@@ -37386,17 +37385,15 @@ int sub_34B00_34EC0()
   else
     sub_40440_40780((char*)"*WScreen");
   sub_59500_59A10((unsigned int **)&off_99974);
-  return sub_11540();
+  sub_11540();
 }
-// 99974: using guessed type int *off_99974;
-// 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
 void sub_34B40_34F00()
 {
-  sub_5ACA0_5B1B0();
-  sub_5AD10_5B220((char*)"Load all data files");
+  DrawStartGameTexts_5ACA0_5B1B0();
+  DrawTextLine_5AD10_5B220((char*)"Load all data files");
   sub_34B00_34EC0();
-  sub_5AD10_5B220((char*)"Initialise Colour Lookup");
+  DrawTextLine_5AD10_5B220((char*)"Initialise Colour Lookup");
   int index1 = 0;
   uint8_t indexB1 = 3;
   for (int i = 0; i < 16; i++)
@@ -37429,7 +37426,7 @@ void sub_34C60_35020()//205C60
     sub_58F00_59410();
     sub_44840_44B80();
     sub_61610_61B20((char*)"*SearchD");
-    sub_5ACA0_5B1B0();
+    DrawStartGameTexts_5ACA0_5B1B0();
 }
 
 //----- (00034C80) --------------------------------------------------------
@@ -37853,7 +37850,7 @@ void sub_357C0_35B80()
     byte_90AD4 = 1;
     if ( (*(_BYTE *)dword_AE408_AE3F8() & 0x48) != 0 )
     {
-      sub_5AD10_5B220((char*)aSoundDisabled);
+      DrawTextLine_5AD10_5B220((char*)aSoundDisabled);
       byte_939CD = 0;
       byte_939E5 = 0;
       byte_939CC = 0;
@@ -37861,9 +37858,9 @@ void sub_357C0_35B80()
     }
     else
     {
-      sub_5AD10_5B220((char*)aInitialiseMusi);
+      DrawTextLine_5AD10_5B220((char*)aInitialiseMusi);
       sub_3C570();
-      sub_5AD10_5B220((char*)aInitialiseSoun);
+      DrawTextLine_5AD10_5B220((char*)aInitialiseSoun);
       sub_3C800_sub_3CB40();
     }
     if ( byte_939E4 || byte_939CC )
@@ -45901,8 +45898,7 @@ char sub_3FCA0_3FFE0(
 // 12EFE4: using guessed type __int16 word_12EFE4;
 // 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
-//----- (00040440) --------------------------------------------------------
-__int16 sub_40440_40780(char* textBuffer)
+void sub_40440_40780(char* textBuffer)
 {
   char* v1; // ebx
   __int16 v2; // si
@@ -45919,7 +45915,7 @@ __int16 sub_40440_40780(char* textBuffer)
   {
     do
     {
-      sub_634A0((int)v1);
+      sub_634A0_639B0((int)v1);
       v3 = *(_DWORD *)(v1 + 72);
       v1 += 44;
     }
@@ -45943,7 +45939,7 @@ LABEL_9:
       v6 = *(_DWORD *)(v4 + 72);
       v4 += 44;
       if ( !v6 )
-        return v2;
+        return;
     }
     sub_319A0((unsigned __int8 *)dword_AE428_AE418);
     printf("ERROR: Allocation %s.\n", v4);
@@ -45953,11 +45949,7 @@ LABEL_8:
     gets((uint32)&v8);
     goto LABEL_9;
   }
-  return v2;
 }
-// 5CC03: using guessed type _DWORD printf(const char *, ...);
-// 6360F: using guessed type _DWORD gets(_DWORD);
-// AE428: using guessed type int dword_AE428_AE418;
 
 //----- (000404F0) --------------------------------------------------------
 int sub_main(int argc, const char **argv, const char **envp)//2114f0
@@ -46021,16 +46013,16 @@ int sub_407A0_40AE0()
   v0 = byte_939E5;
   byte_939E5 = 0;
   sub_40550();
-  sub_5AD10_5B220((char*)aLoadLevel);
+  DrawTextLine_5AD10_5B220((char*)aLoadLevel);
   sub_3E100(*(_WORD *)(dword_AE408_AE3F8() + 17), (void *)(dword_AE400_AE3F0() + 193795));
   if ( (*(_BYTE *)dword_AE408_AE3F8() & 0x10) == 0 )
     *(_WORD *)(dword_AE400_AE3F0() + 10) = *(_WORD *)&byte_38C95[dword_AE400_AE3F0()];
-  sub_5AD10_5B220((char*)aGenerateMap);
+  DrawTextLine_5AD10_5B220((char*)aGenerateMap);
   sub_31AA0(dword_AE400_AE3F0() + 193795);
   sub_371C0();
-  sub_5AD10_5B220((char*)aGenerateFeatur);
+  DrawTextLine_5AD10_5B220((char*)aGenerateFeatur);
   sub_36430(dword_AE400_AE3F0() + 193795);
-  sub_5AD10_5B220((char*)aInitialiseMode);
+  DrawTextLine_5AD10_5B220((char*)aInitialiseMode);
   memset(&word_AE454, 0, 6);
   sub_37220();
   *(_DWORD *)(dword_AE400_AE3F0() + 4593) = -1;
@@ -63432,27 +63424,18 @@ int sub_5A560()
 // 1314A4: using guessed type int dword_1314A4;
 // 1314A8: using guessed type int dword_1314A8;
 
-//----- (0005ACA0) --------------------------------------------------------
-void sub_5ACA0_5B1B0()
+void DrawStartGameTexts_5ACA0_5B1B0()
 {
   printf("Copyright (c) 1995 Bullfrog Productions Ltd.\n");
   printf("All rights reserved.\n");
   printf("%s \n", "Magic Carpet");
 }
-// 5CC03: using guessed type _DWORD printf(const char *, ...);
 
-//----- (0005AD10) --------------------------------------------------------
-void sub_5AD10_5B220(char* text)
+void DrawTextLine_5AD10_5B220(char* text)
 {
-  int result; // eax
-
-  result = dword_AE408_AE3F8();
-  if ( (*(_BYTE *)(dword_AE408_AE3F8() + 1) & 1) != 0 )
-    printf((const char *)&off_ABCE0_ABCDC, text);
+  if ( (str_AE408_AE3F8->var_u8_1 & 1) != 0 )
+    printf("%s\n", text);
 }
-// 5CC03: using guessed type _DWORD printf(const char *, ...);
-// ABCE0: using guessed type void *off_ABCE0_ABCDC;
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (0005AD30) --------------------------------------------------------
 int sub_5AD30_5B240()
@@ -64934,7 +64917,7 @@ int sub_5CEF0_5D400(unsigned __int16 a1)
     return 1;
   if ( (unsigned __int16)sub_634E0((int)aDataMusic00Tab) != 1 )
   {
-    sub_634A0((int)"data/music0-0.dat");
+    sub_634A0_639B0((int)"data/music0-0.dat");
     return 1;
   }
   sub_5CFA4();
@@ -64997,7 +64980,7 @@ int sub_5D070_5D580(unsigned __int8 a1)
     return 1;
   if ( (unsigned __int16)sub_634E0((int)aDataSnds00Tab) != 1 )
   {
-    sub_634A0((int)"data/snds0-0.dat");
+    sub_634A0_639B0((int)"data/snds0-0.dat");
     return 1;
   }
   sub_5D138();
@@ -68075,7 +68058,7 @@ void sub_61610_61B20(char* path)//232610
   {
     if ( !*(_DWORD *)(path + 28) )
       break;
-    sub_634A0((int)path);
+    sub_634A0_639B0((int)path);
     path += 44;
   }
 }
@@ -68990,7 +68973,7 @@ int sub_6342C(unsigned int a1)
 // 62F78: using guessed type _DWORD int386(_DWORD, _DWORD, _DWORD);
 
 //----- (000634A0) --------------------------------------------------------
-_DWORD *sub_634A0(int a1)
+_DWORD *sub_634A0_639B0(int a1)
 {
   _DWORD *result; // eax
 
@@ -69020,7 +69003,7 @@ int sub_634E0(int a1)
     v6 = malloc_425C0_42900;
   else
     v6 = malloc_42540_42880;
-  sub_634A0(a1);
+  sub_634A0_639B0(a1);
   if ( *(_BYTE *)a1 == 42 )
   {
     v1 = (int)v6(*(_DWORD *)(a1 + 36));
