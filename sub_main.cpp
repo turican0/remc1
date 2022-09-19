@@ -26,6 +26,8 @@ int __DS__;
 //-------------------------------------------------------------------------
 // Function declarations
 
+//!!!!!!!!!!!!!! all arrays with 9999 size is stub !!!!!!!!!!!!!!!!
+
 void sub_10000(); // weak
 void sub_10010(__int16 a1, __int16 a2);
 int sub_1002D(int a1, int a2);
@@ -390,7 +392,7 @@ int sub_344F0();
 void sub_34610_349D0(__int16 a2, __int16 a3);
 char sub_34690();
 int sub_34B00_34EC0();
-int sub_34B40_34F00();
+void sub_34B40_34F00();
 void sub_34C60_35020();
 int sub_34C80_35040();
 int ProcessCommandLine_34DD0_35190(int argc, char** argv);
@@ -1005,7 +1007,7 @@ void sub_5A459_5A969();
 int sub_5A4EA();
 int sub_5A560();
 void sub_5ACA0_5B1B0();
-void sub_5AD10_5B220(int a1);
+void sub_5AD10_5B220(char* text);
 int sub_5AD30_5B240();
 int sub_5ADB0_5B2C0(int a1, int32_t* a2, char* a3);
 int sub_5AE30_5B340(int a1, char *a2);
@@ -1046,7 +1048,7 @@ int sub_5CBD0(int a1, int a2, int a3);
 // _DWORD printf(const char *, ...); weak
 // _DWORD memset(_DWORD, _DWORD, _DWORD); weak
 void sub_5CC54_5D164();
-char sub_5CC70_5D180(unsigned __int8 *a1, unsigned __int8 a2, unsigned __int8 a3, unsigned __int8 a4);
+uint8_t sub_5CC70_5D180(uint8_t* a1, uint8_t a2, uint8_t a3, uint8_t a4);
 int sub_5CD70();
 void sub_5CDA0();
 int sub_5CDE0(int a1, int a2);
@@ -9553,8 +9555,8 @@ char aCCarpetCdSaveS[30] = "c:/carpet.cd/save/scanned.rmd"; // weak
 char aDataSmatitleDa[18] = "data/smatitle.dat"; // weak
 char aDataSmatitlePa[18] = "data/smatitle.pal"; // weak
 char aDataPal00Dat[16] = "data/pal0-0.dat"; // weak
-char aLoadAllDataFil[20] = "Load all data files"; // weak
-char aInitialiseColo[25] = "Initialise Colour Lookup"; // weak
+//char aLoadAllDataFil[20] = "Load all data files"; // weak
+//char aInitialiseColo[25] = "Initialise Colour Lookup"; // weak
 //char aDigijoy[8] = "digijoy"; // weak
 //char aAnojoy[7] = "anojoy"; // weak
 //char aAnojoy4[8] = "anojoy4"; // weak
@@ -37389,55 +37391,36 @@ int sub_34B00_34EC0()
 // 99974: using guessed type int *off_99974;
 // 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
-int sub_34B40_34F00()
+void sub_34B40_34F00()
 {
-  int v0; // ebp
-  int v1; // edi
-  int v2; // ebx
-  int v3; // esi
-  int v5; // [esp+0h] [ebp-2Ch]
-  int v6; // [esp+4h] [ebp-28h]
-  unsigned __int8 v7; // [esp+8h] [ebp-24h]
-  unsigned __int8 v8; // [esp+14h] [ebp-18h]
-  unsigned __int8 v9; // [esp+18h] [ebp-14h]
-
   sub_5ACA0_5B1B0();
-  sub_5AD10_5B220((int)aLoadAllDataFil);
+  sub_5AD10_5B220((char*)"Load all data files");
   sub_34B00_34EC0();
-  sub_5AD10_5B220((int)aInitialiseColo);
-  v5 = 0;
-  v0 = 0;
-  v8 = 3;
-  do
+  sub_5AD10_5B220((char*)"Initialise Colour Lookup");
+  int index1 = 0;
+  uint8_t indexB1 = 3;
+  for (int i = 0; i < 16; i++)
   {
-    v6 = 0;
-    v1 = v0;
-    v7 = 3;
-    do
+    int index2 = index1;
+    uint8_t indexB2 = 3;
+    for (int j = 0; j < 16; j++)
     {
-      v2 = 0;
-      v3 = v1;
-      v9 = 3;
-      do
+      int index3 = index2;
+      uint8_t indexB3 = 3;
+      for (int k = 0; k < 16; k++)
       {
-        ++v3;
-        ++v2;
-        byte_AD167_AD157[v3] = sub_5CC70_5D180((unsigned __int8 *)dword_AE428_AE418, v8, v7, v9);
-        v9 += 4;
+        index3++;
+        byte_AD167_AD157[index3] = sub_5CC70_5D180((unsigned __int8 *)dword_AE428_AE418, indexB1, indexB2, indexB3);
+        indexB3 += 4;
       }
-      while ( v2 < 16 );
-      v1 += 16;
-      v7 += 4;
-      ++v6;
+      index2 += 16;
+      indexB2 += 4;
     }
-    while ( v6 < 16 );
-    v0 += 256;
-    v8 += 4;
-    ++v5;
+    index1 += 256;
+    indexB1 += 4;
   }
-  while ( v5 < 16 );
-  *(_BYTE *)(dword_AE408_AE3F8() + 23) = 1;
-  return sub_5A3C0_5A8D0(0);
+  str_AE408_AE3F8->var_u8_23 = 1;
+  sub_5A3C0_5A8D0(0);
 }
 
 //----- (00034C60) --------------------------------------------------------
@@ -37870,7 +37853,7 @@ void sub_357C0_35B80()
     byte_90AD4 = 1;
     if ( (*(_BYTE *)dword_AE408_AE3F8() & 0x48) != 0 )
     {
-      sub_5AD10_5B220((int)aSoundDisabled);
+      sub_5AD10_5B220((char*)aSoundDisabled);
       byte_939CD = 0;
       byte_939E5 = 0;
       byte_939CC = 0;
@@ -37878,9 +37861,9 @@ void sub_357C0_35B80()
     }
     else
     {
-      sub_5AD10_5B220((int)aInitialiseMusi);
+      sub_5AD10_5B220((char*)aInitialiseMusi);
       sub_3C570();
-      sub_5AD10_5B220((int)aInitialiseSoun);
+      sub_5AD10_5B220((char*)aInitialiseSoun);
       sub_3C800_sub_3CB40();
     }
     if ( byte_939E4 || byte_939CC )
@@ -46038,16 +46021,16 @@ int sub_407A0_40AE0()
   v0 = byte_939E5;
   byte_939E5 = 0;
   sub_40550();
-  sub_5AD10_5B220((int)aLoadLevel);
+  sub_5AD10_5B220((char*)aLoadLevel);
   sub_3E100(*(_WORD *)(dword_AE408_AE3F8() + 17), (void *)(dword_AE400_AE3F0() + 193795));
   if ( (*(_BYTE *)dword_AE408_AE3F8() & 0x10) == 0 )
     *(_WORD *)(dword_AE400_AE3F0() + 10) = *(_WORD *)&byte_38C95[dword_AE400_AE3F0()];
-  sub_5AD10_5B220((int)aGenerateMap);
+  sub_5AD10_5B220((char*)aGenerateMap);
   sub_31AA0(dword_AE400_AE3F0() + 193795);
   sub_371C0();
-  sub_5AD10_5B220((int)aGenerateFeatur);
+  sub_5AD10_5B220((char*)aGenerateFeatur);
   sub_36430(dword_AE400_AE3F0() + 193795);
-  sub_5AD10_5B220((int)aInitialiseMode);
+  sub_5AD10_5B220((char*)aInitialiseMode);
   memset(&word_AE454, 0, 6);
   sub_37220();
   *(_DWORD *)(dword_AE400_AE3F0() + 4593) = -1;
@@ -63459,13 +63442,13 @@ void sub_5ACA0_5B1B0()
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
 
 //----- (0005AD10) --------------------------------------------------------
-void sub_5AD10_5B220(int a1)
+void sub_5AD10_5B220(char* text)
 {
   int result; // eax
 
   result = dword_AE408_AE3F8();
   if ( (*(_BYTE *)(dword_AE408_AE3F8() + 1) & 1) != 0 )
-    printf((const char *)&off_ABCE0_ABCDC, a1);
+    printf((const char *)&off_ABCE0_ABCDC, text);
 }
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
 // ABCE0: using guessed type void *off_ABCE0_ABCDC;
@@ -64866,42 +64849,29 @@ void sub_5CC54_5D164()
   while ( (result & 8) == 0 );
 }
 
-//----- (0005CC70) --------------------------------------------------------
-char sub_5CC70_5D180(unsigned __int8 *a1, unsigned __int8 a2, unsigned __int8 a3, unsigned __int8 a4)
+uint8_t sub_5CC70_5D180(uint8_t *a1, uint8_t a2, uint8_t a3, uint8_t a4)
 {
-  unsigned __int8 v4; // al
-  __int16 v5; // cx
-  unsigned __int8 v6; // al
-  __int16 v7; // bx
-  unsigned __int16 v9; // [esp+0h] [ebp-20h]
-  __int16 v11; // [esp+10h] [ebp-10h]
-  __int16 v12; // [esp+14h] [ebp-Ch]
-  char v13; // [esp+18h] [ebp-8h]
+  int colorsCount;
+  char result;
 
   if ( (word_12F02E_12F01E & 6) != 0 )
-    v9 = 16;
+      colorsCount = 16;
   else
-    v9 = 256;
-  v11 = 0;
-  v12 = 9999;
-  while ( v11 < (int)v9 )
+      colorsCount = 256;
+  int minColors = 0;
+  int maxColors = 9999;
+  while (minColors < colorsCount)
   {
-    v4 = a1[1];
-    v5 = (a2 - *a1) * (a2 - *a1) + (a3 - v4) * (a3 - v4);
-    v6 = a1[2];
-    v7 = a4 - v6;
-    if ( (__int16)(v7 * v7 + v5) < v12 )
+    if ( ((a4 - a1[2]) * (a4 - a1[2]) + (a2 - a1[0]) * (a2 - a1[0]) + (a3 - a1[1]) * (a3 - a1[1])) < maxColors)
     {
-      v12 = v7 * (a4 - v6) + v5;
-      v13 = v11;
+        maxColors = (a4 - a1[2]) * (a4 - a1[2]) + (a2 - a1[0]) * (a2 - a1[0]) + (a3 - a1[1]) * (a3 - a1[1]);
+        result = minColors;
     }
-    ++v11;
+    minColors;
     a1 += 3;
   }
-  return v13;
+  return result;
 }
-// 5CD61: variable 'v13' is possibly undefined
-// 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
 //----- (0005CD70) --------------------------------------------------------
 int sub_5CD70()
