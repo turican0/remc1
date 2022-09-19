@@ -3327,21 +3327,32 @@ const int PSdatahspr00tab = 35;
 //             0x2eb744
 
 uint8_t* test_AE414;
+uint8_t* test_AE430;
+uint8_t* test_AE438;
+uint8_t* test_AE40C;
+uint8_t* test_AE378;
+uint8_t* test_AE398;
+uint8_t* test_AE37C;
+uint8_t* test_AE3BC;
+uint8_t* test_AE39C;
+uint8_t* test_0x2eb744;
+uint8_t* test_AE448;
+uint8_t* test_AE43c;
 
 Pathstruct pathStrArray[] =
 {
     { "*SearchD", &dword_AE3F4, &test_AE414, 4096, 0 },
-    { "data/build0-0.dat", (uint8_t**)0xAE430, (uint8_t**)0xAE438, 0, 0 },
-    { "data/build0-0.tab", &dword_AE440, (uint8_t**)0xAE40c, 0, 0 },
-    { "data/font0.dat", (uint8_t**)0xAE378, 0, 0, 0 },
-    { "data/font0.tab", &dword_AE3B8, (uint8_t**)0xAE398, 0, 0 },
-    { "data/font1.dat", (uint8_t**)0xAE37c, 0, 0, 0 },
-    { "data/font1.tab", (uint8_t**)0xAE3bc, (uint8_t**)0xAE39c, 0, 0 },
-    { "data/tmaps0-0.tab", (uint8_t**)0x2eb744, 0, 0, 0 },
+    { "data/build0-0.dat", &test_AE430, &test_AE438, 0, 0 },
+    { "data/build0-0.tab", &dword_AE440, &test_AE40C, 0, 0 },
+    { "data/font0.dat", &test_AE378, 0, 0, 0 },
+    { "data/font0.tab", &dword_AE3B8, &test_AE398, 0, 0 },
+    { "data/font1.dat", &test_AE37C, 0, 0, 0 },
+    { "data/font1.tab", &test_AE3BC, &test_AE39C, 0, 0 },
+    { "data/tmaps0-0.tab", &test_0x2eb744, 0, 0, 0 },
     { "*PalData", &dword_AE424, 0, 1024, 0 },
     { "*PalMem", &dword_AE418, 0, 1024, 0 },
-    { "data/pointers.dat", (uint8_t**)0xAE448, 0, 0, 0 },
-    { "data/pointers.tab", &dword_AE450_AE440, (uint8_t**)0xAE43c, 0, 0 },
+    { "data/pointers.dat", &test_AE448, 0, 0, 0 },
+    { "data/pointers.tab", &dword_AE450_AE440, &test_AE43c, 0, 0 },
     { "data/pal0-0.dat", &dword_AE428_AE418, 0, 0, 0 },
     { "", 0, 0, 0, 0 },
     { "data/etext.dat", &dword_AE41C_AE40C, 0, 0, 0 },
