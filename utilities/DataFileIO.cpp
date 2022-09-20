@@ -229,6 +229,9 @@ int DataFileIO::Unpack(vars_t* v)
 
 FILE* DataFileIO::CreateOrOpenFile(const char* pathname, int __pmode)
 {
+	if ((pathname[0] != 'c') && (pathname[0] != 'C'))//remove after fix paths
+		printf("\nCreateOrOpenFile problem!!!\n");//remove after fix paths
+
 	FILE* file; // ST10_4
 
 

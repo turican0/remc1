@@ -1,7 +1,14 @@
 #include "sub_main.h"
 
 bool IsHiddenWord = false;
-
+//info
+/*
+0x26C450
+code DOSBOX 234585
+code 63585
+sub_634E0_639F0
+*/
+//info
 //fix
 
 std::string gameDataPath = "c:/prenos/magic1/cd2/CARPET";
@@ -28,6 +35,13 @@ int __DS__;
 void MouseEvents(uint32_t buttons, int x, int y)
 {
 };
+
+char dataPath[MAX_PATH];
+char* FixPath(char* inPath)
+{
+    sprintf(dataPath, "%s/%s", gameDataPath.c_str(), inPath);
+    return dataPath;
+}
 
 //fix
 //-------------------------------------------------------------------------
@@ -659,7 +673,7 @@ void sub_3E9D0(_BYTE *a1);
 _BYTE *sub_3EC50();
 int access_3EC80_3EFC0(char* a1);
 void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2);
-int sub_3EEA0_3F1E0(char* filename, uint8_t* buffer);
+int sub_3EEA0_3F1E0(Pathstruct* pathstruct, uint8_t* buffer);
 int sub_3EF20();
 bool sub_3EF30(char* a1);
 char sub_3EF50(char *a1, char *a2, const char *a3);
@@ -3342,6 +3356,9 @@ uint8_t* test_AE39C;
 uint8_t* test_0x2eb744;
 uint8_t* test_AE448;
 uint8_t* test_AE43c;
+uint8_t* test_0x2ecff4;
+uint8_t* test_0xAE444;
+uint8_t* test_AE434;
 
 Pathstruct pathStrArray[] =
 {
@@ -3372,15 +3389,15 @@ Pathstruct pathStrArray[] =
     { "data/blk0-1.dat", &dword_AE3F0, 0, 0, 0 },
     { "data/sky.dat", &dword_AE3D8, 0, 0, 0 },
     { "", 0, 0, 0, 0 },
-    { "*WScreen", (uint8_t**)0x2ecff4, 0, 71040, 0 },
+    { "*WScreen", &test_0x2ecff4, 0, 71040, 0 },
     { "*BScreen", &dword_AE3FC, 0, 70000, 0 },
-    { "data/mspr0-0.dat", (uint8_t**)0xAE444, 0, 0, 0 },
-    { "data/mspr0-0.tab", &dword_AE42C, (uint8_t**)0xAE434, 0, 0 },
+    { "data/mspr0-0.dat", &test_0xAE444, 0, 0, 0 },
+    { "data/mspr0-0.tab", &dword_AE42C, &test_AE434, 0, 0 },
     { "", 0, 0, 0, 0 },
-    { "*WScreen", (uint8_t**)0x2ecff4, 0, 307200, 0 },
+    { "*WScreen", &test_0x2ecff4, 0, 307200, 0 },
     { "*BScreen", &dword_AE3FC, 0, 70000, 0 },
-    { "data/hspr0-0.dat", (uint8_t**)0xAE444, 0, 0, 0 },
-    { "data/hspr0-0.tab", &dword_AE42C, (uint8_t**)0xAE434, 0, 0 },
+    { "data/hspr0-0.dat", &test_0xAE444, 0, 0, 0 },
+    { "data/hspr0-0.tab", &dword_AE42C, &test_AE434, 0, 0 },
     { "", 0, 0, 0, 0 }
 };
 
@@ -3393,6 +3410,7 @@ char aDataBlk00Dat[16] = "data/blk0-0.dat"; // weak
 char aDataBlk01Dat[16] = "data/blk0-1.dat"; // weak
 //char aWscreen[9] = "*WScreen"; // weak
 //char aWscreen_0[9] = "*WScreen"; // weak
+
 void* off_99974[] = //&dword_AE450_AE440; // weak
 {
 (void*)0x0026C450, (void*)0x0026C43C, (void*)0x0026C448,
@@ -13691,7 +13709,7 @@ int sub_11540()
   char v9; // [esp+8h] [ebp-10h]
 
   v7 = dword_12EFF4;
-  sub_3EEA0_3F1E0(aDataSearchDat, (uint8_t*)dword_12EFF4);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataSearchDat, (uint8_t*)dword_12EFF4);
   for ( i = 6; i != 600; dword_AC5E0[i] = -1 )
     i += 6;
   v1 = (_BYTE *)dword_AE3F4;
@@ -34974,7 +34992,7 @@ int sub_31AA0(int a1)
 {
   word_12C1E0 = *(_WORD *)(a1 + 4);
   *(_DWORD *)(dword_AE400_AE3F0() + 4) = *(_DWORD *)(a1 + 4);
-  if ( (void (*)())sub_3EEA0_3F1E0(aCCarpetCdSaveS, (uint8_t*)byte_DC1E0) != sub_10000 )
+  if ( (void (*)())sub_3EEA0_3F1E0((Pathstruct*)aCCarpetCdSaveS, (uint8_t*)byte_DC1E0) != sub_10000 )
   {
     sub_725C8(word_12C1E0, *(_WORD *)(a1 + 8), *(_WORD *)(a1 + 12));
     sub_32A50();
@@ -37271,12 +37289,12 @@ int sub_34460_34820()
 {
   int result; // eax
 
-  sub_3EEA0_3F1E0(aDataSmatitleDa, (uint8_t*)dword_12EFF4);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataSmatitleDa, (uint8_t*)dword_12EFF4);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0();
   else
     sub_599B0(480);
-  sub_3EEA0_3F1E0(aDataSmatitlePa, (uint8_t*)dword_AE428_AE418);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataSmatitlePa, (uint8_t*)dword_AE428_AE418);
   sub_61CC0_621D0((unsigned __int8 *)dword_AE428_AE418, 0x20u, 0);
   result = dword_AE400_AE3F0();
   *(_DWORD *)(dword_AE400_AE3F0() + 581) = 1;
@@ -37297,7 +37315,7 @@ int sub_344F0()
   sub_61CC0_621D0(0, 0x10u, 0);
   v1 = (char *)dword_AE428_AE418;
   *(_DWORD *)(dword_AE400_AE3F0() + 581) = 0;
-  return sub_3EEA0_3F1E0(aDataPal00Dat, (uint8_t*)v1);
+  return sub_3EEA0_3F1E0((Pathstruct*)aDataPal00Dat, (uint8_t*)v1);
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE428: using guessed type int dword_AE428_AE418;
@@ -44555,7 +44573,7 @@ char sub_3E350(__int16 a1)
     v6 = *(_DWORD *)(dword_AE400_AE3F0() + 8621);
     v7 = *(_DWORD *)(dword_AE400_AE3F0() + 8625);
     v8 = *(_DWORD *)(dword_AE400_AE3F0() + 8629);
-    sub_3EEA0_3F1E0(v5, (uint8_t*)dword_AE400_AE3F0());
+    sub_3EEA0_3F1E0((Pathstruct*)v5, (uint8_t*)dword_AE400_AE3F0());
     v3 = (_DWORD *)dword_AE400_AE3F0();
     v4 = (_DWORD *)(dword_AE400_AE3F0() + 8597);
     *(_DWORD *)(dword_AE400_AE3F0() + 8597) = v12;
@@ -44700,7 +44718,7 @@ char sub_3E690(__int16 a1)
     v6 = *(_DWORD *)(dword_AE400_AE3F0() + 8621);
     v7 = *(_DWORD *)(dword_AE400_AE3F0() + 8625);
     v8 = *(_DWORD *)(dword_AE400_AE3F0() + 8629);
-    sub_3EEA0_3F1E0(v5, (uint8_t*)dword_AE400_AE3F0());
+    sub_3EEA0_3F1E0((Pathstruct*)v5, (uint8_t*)dword_AE400_AE3F0());
     v3 = (_DWORD *)dword_AE400_AE3F0();
     v4 = (_DWORD *)(dword_AE400_AE3F0() + 8597);
     *(_DWORD *)(dword_AE400_AE3F0() + 8597) = v12;
@@ -44967,23 +44985,24 @@ void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2)
 }
 
 //----- (0003EEA0) --------------------------------------------------------
-int sub_3EEA0_3F1E0(char* filename, uint8_t* buffer)
+int sub_3EEA0_3F1E0(Pathstruct* pathstruct, uint8_t* buffer)
 {
-  FILE* file = DataFileIO::CreateOrOpenFile(filename, 512);
+  FILE* file = DataFileIO::CreateOrOpenFile(FixPath(pathstruct->path), 512);
   if (file != nullptr )
   {
       int fileLenght = DataFileIO::FileLengthBytes(file);
     DataFileIO::Read(file, buffer, fileLenght);
     DataFileIO::Close(file);
-    file = (FILE*)sub_62B60(buffer, buffer);
-    if (file >= 0 )
+    int fileLenght2 = sub_62B60(buffer, buffer);
+    if (fileLenght2 >= 0 )
     {
-      if ( !file)
-        return fileLenght;
+      //if ( !fileLenght)
+      return fileLenght2;
     }
     else
     {
-      printf("ERROR decompressing %s\n", filename);
+        if (fileLenght2 == -1) return fileLenght;
+      printf("ERROR decompressing %s\n", pathstruct->path);
       return -2;
     }
   }
@@ -48799,7 +48818,7 @@ char *sub_43E50(const char *a1)
     v1 = v5;
     if ( v5 )
     {
-      if ( sub_3EEA0_3F1E0((char*)a1, (uint8_t*)v5) != v4 )
+      if ( sub_3EEA0_3F1E0((Pathstruct*)(char*)a1, (uint8_t*)v5) != v4 )
       {
         free_426E0_42A20((void*)v6);
         v1 = (char *)(v6 ^ (unsigned int)v1);
@@ -49130,7 +49149,7 @@ int sub_44470_447B0()
   }
   if ( !byte_90B48 )
   {
-    result = sub_3EEA0_3F1E0(aDataTablesDat, (uint8_t*)byte_B7934);
+    result = sub_3EEA0_3F1E0((Pathstruct*)aDataTablesDat, (uint8_t*)byte_B7934);
     if ( result <= 0 )
       byte_90B48 = 1;
   }
@@ -53332,8 +53351,8 @@ void sub_4BB20_4BE60()
 {
   sub_61CC0_621D0(0, 0x10u, 0);
   sub_40440_40780((Pathstruct*)(char*)"data\\screens\\sfont0.dat");
-  sub_3EEA0_3F1E0(aDataScreensGco, (uint8_t*)dword_AE3FC);
-  sub_3EEA0_3F1E0(aDataScreensGco_0, (uint8_t*)dword_12CB9C);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensGco, (uint8_t*)dword_AE3FC);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensGco_0, (uint8_t*)dword_12CB9C);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_65D70_66280(dword_12CAF8, dword_12CAFC, dword_12CB00);
   else
@@ -53895,12 +53914,12 @@ void sub_4C7E0()
     sub_65DC0_662D0(dword_12CB04, dword_12CB08, dword_12CB0C);
   sub_51480((int)&dword_9688C, &dword_12CB34, (unsigned __int8 *)dword_12CB9C);
   byte_96890 &= ~2u;
-  sub_3EEA0_3F1E0(aDataScreensMai, (uint8_t*)dword_AE3FC);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensMai, (uint8_t*)dword_AE3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12CBA8, 0xC8u);
   else
     sub_62FC4_634D4((const void *)dword_AE3FC, (void *)dword_12CBA8, 0x1E0u);
-  sub_3EEA0_3F1E0(aDataScreensMai_0, (uint8_t*)dword_12CB9C);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensMai_0, (uint8_t*)dword_12CB9C);
   sub_504A0();
   sub_51A10();
   v0 = (int)dword_AE3FC;
@@ -54847,8 +54866,8 @@ char sub_4E0E0()
     sub_65DC0_662D0(dword_12CB10, dword_12CB14, dword_12CB18);
   sub_51480((int)&dword_9688C, &dword_12CB34, (unsigned __int8 *)dword_12CB9C);
   byte_96890 &= ~2u;
-  sub_3EEA0_3F1E0(aDataScreensPmu_0, (uint8_t*)dword_12CB9C);
-  sub_3EEA0_3F1E0(aDataScreensPmu_1, (uint8_t*)dword_AE3FC);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensPmu_0, (uint8_t*)dword_12CB9C);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensPmu_1, (uint8_t*)dword_AE3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12EFF4, 0xC8u);
   else
@@ -55126,8 +55145,8 @@ int sub_4E5B0()
       sub_65DC0_662D0(dword_12CB40, dword_12CB44, dword_12CB48);
     word_96898 = 16;
     dword_96894 = dword_12CB40 + 6;
-    sub_3EEA0_3F1E0(aDataScreensPpe, (uint8_t*)dword_12CB9C);
-    sub_3EEA0_3F1E0(aDataScreensPpe_0, (uint8_t*)dword_AE3FC);
+    sub_3EEA0_3F1E0((Pathstruct*)aDataScreensPpe, (uint8_t*)dword_12CB9C);
+    sub_3EEA0_3F1E0((Pathstruct*)aDataScreensPpe_0, (uint8_t*)dword_AE3FC);
     if ( (word_12F02E_12F01E & 1) != 0 )
       sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12EFF4, 0xC8u);
     else
@@ -55572,9 +55591,9 @@ void sub_4F3F0_4F730()
     goto LABEL_57;
   }
   dword_12CBB0 = 0;
-  sub_3EEA0_3F1E0(aDataScreensLan, (uint8_t*)dword_12CB9C);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensLan, (uint8_t*)dword_12CB9C);
   v3 = (short)dword_AE3FC;
-  sub_3EEA0_3F1E0(aDataScreensLan_0, (uint8_t*)dword_AE3FC);
+  sub_3EEA0_3F1E0((Pathstruct*)aDataScreensLan_0, (uint8_t*)dword_AE3FC);
   sub_40440_40780((Pathstruct*)(char*)"data\\screens\\langspr.dat");
   if ( (word_12F02E_12F01E & 1) != 0 )
   {
@@ -62603,9 +62622,9 @@ void sub_59500_59A10(unsigned int **a1)
     do
     {
       if ( (word_12F02E_12F01E & 1) != 0 )
-        sub_65D70_66280(**v1, *v1[1], *v1[2]);
+        sub_65D70_66280(*v1[0], *v1[1], *v1[2]);
       else
-        sub_65DC0_662D0(**v1, *v1[1], *v1[2]);
+        sub_65DC0_662D0(*v1[0], *v1[1], *v1[2]);
       v3 = v1[3];
       v1 += 3;
     }
@@ -69091,7 +69110,7 @@ void sub_634A0_639B0(Pathstruct* pathstruct)
 	}
 }
 
-int sub_634E0_639F0(Pathstruct* pathstruct)
+int sub_634E0_639F0(Pathstruct* pathstruct)//2344e0_
 {
 	void* (*mallocVar)(size_t);
 	sub_63010_63520();
@@ -69114,7 +69133,7 @@ int sub_634E0_639F0(Pathstruct* pathstruct)
 		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
 		if (!(*pathstruct->colorPalette_var28))
 			return -1;
-		if (sub_3EEA0_3F1E0(pathstruct->path, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
+		if (sub_3EEA0_3F1E0(pathstruct, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
 		{
 			*pathstruct->colorPalette_var28 = 0;
 			*pathstruct->var32_end_buffer = 0;
@@ -69179,10 +69198,8 @@ void sub_638F8()
 int GetRNCFilesize_63910_63E20(Pathstruct* pathstruct)
 {
 	uint8_t miniBuffer[8];
-	char dataPath[MAX_PATH];
-	sprintf(dataPath, "%s/%s", gameDataPath.c_str(), pathstruct->path);
 	char RNSSING[5] = "RNC\x1";
-	FILE* file = DataFileIO::CreateOrOpenFile(dataPath, 512);
+	FILE* file = DataFileIO::CreateOrOpenFile(FixPath(pathstruct->path), 512);
 	if (file == nullptr)
 		return -1;
 	DataFileIO::Read(file, miniBuffer, 8);
