@@ -37138,7 +37138,7 @@ void test_malloc() {
     free(test);
 };*/
 
-void TopProcedure_65DC0_662D0(int argc, const char** argv)//2050B0_
+void TopProcedure_65DC0_662D0(int argc, const char** argv)//2050B0_205470
 {
   int someVar;
   uint16_t pseudoRand = 0;
@@ -37163,7 +37163,7 @@ void TopProcedure_65DC0_662D0(int argc, const char** argv)//2050B0_
       byte_939E5 = 0;
       byte_939CC = 0;
       byte_939E4 = 0;
-      sub_40440_40780((Pathstruct*)(char*)"data/ftext.dat");
+      sub_40440_40780(&pathStrArray[PSdataftextdat]);
       sub_44700_44A40((char*)dword_AE41C_AE40C, dword_AE238_AE228, 80);
     }
     else
@@ -37533,7 +37533,7 @@ LABEL_61:
 
 void sub_34B00_34EC0()//205b00_
 {
-  sub_40440_40780(&pathStrArray[PSSearchD]);//Pathstruct
+  sub_40440_40780(&pathStrArray[PSSearchD]);
   if ( word_12F02E_12F01E == 1 )
     sub_40440_40780(&pathStrArray[PSWScreen]);
   else
@@ -37542,36 +37542,36 @@ void sub_34B00_34EC0()//205b00_
   sub_11540();
 }
 
-void sub_34B40_34F00()//205B40_
+void sub_34B40_34F00()//205B40_205F00
 {
-  DrawStartGameTexts_5ACA0_5B1B0();
-  DrawTextLine_5AD10_5B220((char*)"Load all data files");
-  sub_34B00_34EC0();
-  DrawTextLine_5AD10_5B220((char*)"Initialise Colour Lookup");
-  int index1 = 0;
-  uint8_t indexB1 = 3;
-  for (int i = 0; i < 16; i++)
-  {
-    int index2 = index1;
-    uint8_t indexB2 = 3;
-    for (int j = 0; j < 16; j++)
-    {
-      int index3 = index2;
-      uint8_t indexB3 = 3;
-      for (int k = 0; k < 16; k++)
-      {
-        index3++;
-        byte_AD167_AD157[index3] = sub_5CC70_5D180((unsigned __int8 *)dword_AE428_AE418, indexB1, indexB2, indexB3);
-        indexB3 += 4;
-      }
-      index2 += 16;
-      indexB2 += 4;
-    }
-    index1 += 256;
-    indexB1 += 4;
-  }
-  str_AE408_AE3F8->var_u8_23 = 1;
-  sub_5A3C0_5A8D0(0);
+	DrawStartGameTexts_5ACA0_5B1B0();
+	DrawTextLine_5AD10_5B220((char*)"Load all data files");
+	sub_34B00_34EC0();
+	DrawTextLine_5AD10_5B220((char*)"Initialise Colour Lookup");
+    int index1 = 0;
+    uint8_t indexB1 = 3;
+	for (int i = 0; i < 16; i++)
+	{
+		int index2 = index1;
+		uint8_t indexB2 = 3;
+		for (int j = 0; j < 16; j++)
+		{
+			int index3 = index2;
+			uint8_t indexB3 = 3;
+			for (int k = 0; k < 16; k++)
+			{
+				index3++;
+				byte_AD167_AD157[index3] = sub_5CC70_5D180(dword_AE428_AE418, indexB1, indexB2, indexB3);
+				indexB3 += 4;
+			}
+			index2 += 16;
+			indexB2 += 4;
+		}
+		index1 += 256;
+		indexB1 += 4;
+	}
+	str_AE408_AE3F8->var_u8_23 = 1;
+	sub_5A3C0_5A8D0(0);
 }
 
 //----- (00034C60) --------------------------------------------------------
@@ -37662,25 +37662,25 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 	bool varHelp = false;
 	bool varCustom = false;
 	bool varNetwork = false;
-    bool neverRun2 = false;
+	bool neverRun2 = false;
 	int varSome = 1;
-    bool varSetsound = false;
+	bool varSetsound = false;
 	int varDetail = 1;
 	int varCheat = 0;
-    int varLevel = 0;
-    int varMovie = 0;
-    int varRoll = 0;
-    bool varTime = false;
-    int varPassword = 0;
-    bool varVfx = false;
-    int varDemo = 0;
+	int varLevel = 0;
+	int varMovie = 0;
+	int varRoll = 0;
+	bool varTime = false;
+	int varPassword = 0;
+	bool varVfx = false;
+	int varDemo = 0;
 	origDebug_AE45A_AE44A = 0;
-    int varPlayers = 2;
-    bool varDigijoy = false;
-    bool varAnojoy = false;
-    strcpy(textBuffer2, "PLAYER");
+	int varPlayers = 2;
+	bool varDigijoy = false;
+	bool varAnojoy = false;
+	strcpy(textBuffer2, "PLAYER");
 	strcpy(textBuffer3, "CARPET");
-    bool neverRun = 0;
+	bool neverRun = 0;
 	for (int i = 1; i < argc; i++)
 	{
 		firstChar = argv[i][0];
@@ -37735,17 +37735,17 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		else if (!stricmp("demo", textBuffer1))
 		{
 			varDemo = StrToInt(textBuffer4);
-            i++;
+			i++;
 		}
 		else if (!stricmp("detail", textBuffer1))
 		{
 			varDetail = StrToInt(textBuffer4);
-            i++;
+			i++;
 		}
 		else if (!stricmp("cheat", textBuffer1))
 		{
 			varCheat = StrToInt(textBuffer4);
-            i++;
+			i++;
 		}
 		else if (!stricmp("name", textBuffer1))
 		{
@@ -37759,26 +37759,26 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		}
 		else if (!stricmp("movie", textBuffer1))
 		{
-            varMovie = StrToInt(textBuffer4);
+			varMovie = StrToInt(textBuffer4);
 			i++;
 		}
 		else if (!stricmp("roll", textBuffer1))
 		{
-            varRoll = StrToInt(textBuffer4);
+			varRoll = StrToInt(textBuffer4);
 			i++;
 		}
 		else if (!stricmp("time", textBuffer1))
 		{
-            varTime = true;
+			varTime = true;
 		}
 		else if (!stricmp("password", textBuffer1))
 		{
-            varPassword = StrToInt(textBuffer4);
+			varPassword = StrToInt(textBuffer4);
 			i++;
 		}
 		else if (!stricmp("players", textBuffer1))
 		{
-            varPlayers = StrToInt(textBuffer4);
+			varPlayers = StrToInt(textBuffer4);
 			i++;
 		}
 		else
@@ -37786,12 +37786,12 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 			if (stricmp("session", textBuffer1))
 			{
 				printf("ERROR : Incorrect command : %d\n", i);
-                result2 = -1;
+				result2 = -1;
 				result = -1;
 				break;
 			}
-            strcpy(textBuffer3, textBuffer4);
-            i++;
+			strcpy(textBuffer3, textBuffer4);
+			i++;
 		}
 	}
 	if (result != -1)
@@ -37805,7 +37805,7 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		{
 			if (InitVfx_5AF50_5B460())
 			{
-                str_AE400_AE3F0->var_u8_8606 = 1;
+				str_AE400_AE3F0->var_u8_8606 = 1;
 				byte_90B23 |= 8;
 				printf("VFX\n");
 			}
@@ -37835,10 +37835,10 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 			}
 		}
 		dword_12F080_12F070 = malloc_425C0_42900(256);
-        str_AE400_AE3F0 = (Type_str_AE400_AE3F0*)malloc_42540_42880(232713);
-        str_AE408_AE3F8 = (Type_str_AE408_AE3F8*)malloc_42540_42880(36478);
-        str_AE400_AE3F0->var_u8_8621 = 1;
-        str_AE400_AE3F0->var_u8_8621 = 1;
+		str_AE400_AE3F0 = (Type_str_AE400_AE3F0*)malloc_42540_42880(232713);
+		str_AE408_AE3F8 = (Type_str_AE408_AE3F8*)malloc_42540_42880(36478);
+		str_AE400_AE3F0->var_u8_8621 = 1;
+		str_AE400_AE3F0->var_u8_8621 = 1;
 		str_AE400_AE3F0->var_u8_8622 = 1;
 		str_AE400_AE3F0->var_u8_8623 = 1;
 		str_AE400_AE3F0->var_u8_8624 = 1;
@@ -37850,95 +37850,95 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		str_AE400_AE3F0->var_u8_8630 = 1;
 		str_AE400_AE3F0->var_u8_8631 = 1;
 		sub_19470();
-        if (str_AE408_AE3F8->var_u8_8)
+		if (str_AE408_AE3F8->var_u8_8)
 		{
-            str_AE400_AE3F0->var_u8_8597 = 1;
-            str_AE400_AE3F0->var_u8_8599 = 1;
+			str_AE400_AE3F0->var_u8_8597 = 1;
+			str_AE400_AE3F0->var_u8_8599 = 1;
 		}
 		else
 		{
-            str_AE400_AE3F0->var_u8_8597 = 0;
-            str_AE400_AE3F0->var_u8_8599 = 0;
+			str_AE400_AE3F0->var_u8_8597 = 0;
+			str_AE400_AE3F0->var_u8_8599 = 0;
 		}
-        str_AE400_AE3F0->var_u8_8598 = 1;
+		str_AE400_AE3F0->var_u8_8598 = 1;
 		str_AE400_AE3F0->var_u8_8602 = 1;
 		str_AE400_AE3F0->var_u8_8601 = 1;
 		str_AE400_AE3F0->var_u8_8600 = 40;
 		str_AE400_AE3F0->var_u16_10 = varPlayers;
-        strcpy(str_AE400_AE3F0->textBuffer_117, textBuffer3);
-        str_AE408_AE3F8->var_u8_29 = byte_A9058;
+		strcpy(str_AE400_AE3F0->textBuffer_117, textBuffer3);
+		str_AE408_AE3F8->var_u8_29 = byte_A9058;
 		if (!varDetail)
 		{
 			str_AE400_AE3F0->var_u8_8597 = 0;
-            str_AE400_AE3F0->var_u8_8599 = 0;
-            str_AE400_AE3F0->var_u8_8598 = 0;
-            str_AE400_AE3F0->var_u8_8600 = 40;
+			str_AE400_AE3F0->var_u8_8599 = 0;
+			str_AE400_AE3F0->var_u8_8598 = 0;
+			str_AE400_AE3F0->var_u8_8600 = 40;
 		}
 		if (varDemo)
 		{
 			switch (varDemo)
 			{
 			case 1:
-                str_AE400_AE3F0->var_u8_1 |= 2u;
+				str_AE400_AE3F0->var_u8_1 |= 2u;
 				break;
 			case 2:
-                str_AE400_AE3F0->var_u8_1 |= 4u;
+				str_AE400_AE3F0->var_u8_1 |= 4u;
 				break;
 			case 3:
-                str_AE400_AE3F0->var_u8_1 |= 8u;
+				str_AE400_AE3F0->var_u8_1 |= 8u;
 				break;
 			case 4:
-                str_AE400_AE3F0->var_u8_1 |= 0x10u;
+				str_AE400_AE3F0->var_u8_1 |= 0x10u;
 				break;
 			case 5:
-                str_AE400_AE3F0->var_u8_1 |= 0x20u;
+				str_AE400_AE3F0->var_u8_1 |= 0x20u;
 				break;
 			default:
 				break;
 			}
-            str_AE400_AE3F0->var_u8_1 |= 1u;
+			str_AE400_AE3F0->var_u8_1 |= 1u;
 		}
 		if (varTime)
-            str_AE408_AE3F8->var_u8_0 |= 0x40u;
+			str_AE408_AE3F8->var_u8_0 |= 0x40u;
 		if (varCustom)
-            str_AE400_AE3F0->var_u8_1 |= 1u;
+			str_AE400_AE3F0->var_u8_1 |= 1u;
 		if (varHelp)
 			result = -1;
 		if (varNetwork)
 		{
 			if (str_AE400_AE3F0->var_u16_10 > 1u)
 			{
-                str_AE400_AE3F0->var_u16_8 = sub_43430_43770(str_AE400_AE3F0->textBuffer_117, str_AE400_AE3F0->var_u16_10);
+				str_AE400_AE3F0->var_u16_8 = sub_43430_43770(str_AE400_AE3F0->textBuffer_117, str_AE400_AE3F0->var_u16_10);
 				if (str_AE400_AE3F0->var_u16_8 >= 0)
-                    str_AE408_AE3F8->var_u8_0 |= 0x10u;
+					str_AE408_AE3F8->var_u8_0 |= 0x10u;
 				else
-                    str_AE400_AE3F0->var_u16_8 = 0;
+					str_AE400_AE3F0->var_u16_8 = 0;
 			}
-            str_AE400_AE3F0->var_u8_1 |= 1u;
+			str_AE400_AE3F0->var_u8_1 |= 1u;
 		}
 		if (neverRun2)
 		{
-            varSome = 8;
+			varSome = 8;
 			varSetsound = false;
-            str_AE408_AE3F8->var_u8_0 |= 8;
+			str_AE408_AE3F8->var_u8_0 |= 8;
 		}
-        str_AE400_AE3F0->str_13347[str_AE400_AE3F0->var_u16_8].var_u32_13347 = varCheat;
+		str_AE400_AE3F0->str_13347[str_AE400_AE3F0->var_u16_8].var_u32_13347 = varCheat;
 		//*(_DWORD*)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13347) = varCheat;
-        str_AE408_AE3F8->var_u16_17 = varLevel;
+		str_AE408_AE3F8->var_u16_17 = varLevel;
 		if (varMovie)
-            str_AE408_AE3F8->var_u16_13 = varMovie;
-        if (varRoll)
-        {
-            str_AE408_AE3F8->var_u16_13 = 0;
-            str_AE408_AE3F8->var_u16_15 = varRoll;
-            str_AE408_AE3F8->var_u8_0 |= 0x120;
+			str_AE408_AE3F8->var_u16_13 = varMovie;
+		if (varRoll)
+		{
+			str_AE408_AE3F8->var_u16_13 = 0;
+			str_AE408_AE3F8->var_u16_15 = varRoll;
+			str_AE408_AE3F8->var_u8_0 |= 0x120;
 		}
 		if (origDebug_AE45A_AE44A)
 		{
 			origDebug_AE45A_AE44A = 0;
-            str_AE408_AE3F8->var_u8_0 |= 0x80u;
+			str_AE408_AE3F8->var_u8_0 |= 0x80u;
 		}
-        str_AE408_AE3F8->var_u32_25 = varPassword;
+		str_AE408_AE3F8->var_u32_25 = varPassword;
 		if (result != -1)
 			word_12F02E_12F01E = varSome;
 	}
@@ -46049,36 +46049,34 @@ char sub_3FCA0_3FFE0(
 
 void sub_40440_40780(Pathstruct* pathstruct)//211440_211780
 {
-  char input[20];
-  sub_63010_63520();
-  if (pathstruct->colorPalette_var28)
-  {
-      for (int i = 0; pathstruct[i].colorPalette_var28; i++)
-      {
-          sub_634A0_639B0(&pathstruct[i]);
-      }
-  }
-  if (pathstruct->colorPalette_var28)
-  {
-    for (int i = 0; pathstruct[i].colorPalette_var28; i++)
-    {
-      int compVar = sub_634E0_639F0(&pathstruct[i]);
-      if (compVar < 0)
-      {
-          sub_319A0_319E0(dword_AE428_AE418);
-          printf("ERROR: Allocation %s.\n", &pathstruct[i]);
-          printf("Press return to continue\n");
-          gets_s(input);
-      }
-      else if ( !compVar)
-      {
-        sub_319A0_319E0(dword_AE428_AE418);
-        printf("ERROR: File %s.\n", &pathstruct[i]);
-        printf("Press return to continue\n");
-        gets_s(input);
-      }
-    }
-  }
+	char input[20];
+	sub_63010_63520();
+	if (pathstruct->colorPalette_var28)
+	{
+		for (int i = 0; pathstruct[i].colorPalette_var28; i++)
+			sub_634A0_639B0(&pathstruct[i]);
+	}
+	if (pathstruct->colorPalette_var28)
+	{
+		for (int i = 0; pathstruct[i].colorPalette_var28; i++)
+		{
+			int compVar = sub_634E0_639F0(&pathstruct[i]);
+			if (compVar < 0)
+			{
+				sub_319A0_319E0(dword_AE428_AE418);
+				printf("ERROR: Allocation %s.\n", &pathstruct[i]);
+				printf("Press return to continue\n");
+				gets_s(input);
+			}
+			else if (!compVar)
+			{
+				sub_319A0_319E0(dword_AE428_AE418);
+				printf("ERROR: File %s.\n", &pathstruct[i]);
+				printf("Press return to continue\n");
+				gets_s(input);
+			}
+		}
+	}
 }
 
 /*
@@ -46092,8 +46090,8 @@ void convert() {
 
 };*/
 
-//----- (000404F0) --------------------------------------------------------
-int sub_main(int argc, const char **argv, const char **envp)//2114f0_
+//----- (000404F0_00040830) --------------------------------------------------------
+int sub_main(int argc, const char **argv, const char **envp)//2114f0_211830
 {
   //convert();
 
@@ -46103,7 +46101,6 @@ int sub_main(int argc, const char **argv, const char **envp)//2114f0_
   TopProcedure_65DC0_662D0(argc, argv);
   return 0;
 }
-// 40539: variable 'v4' is possibly undefined
 
 //----- (00040550) --------------------------------------------------------
 int sub_40550()
@@ -63565,7 +63562,7 @@ void DrawStartGameTexts_5ACA0_5B1B0()//22bca0_
   printf("%s \n", "Magic Carpet");
 }
 
-void DrawTextLine_5AD10_5B220(char* text)//22bd10_
+void DrawTextLine_5AD10_5B220(char* text)//22bd10_22c220
 {
   if ( (str_AE408_AE3F8->var_u8_1 & 1) != 0 )
     printf("%s\n", text);
@@ -69085,52 +69082,49 @@ int sub_6342C(unsigned int a1)
 }
 // 62F78: using guessed type _DWORD int386(_DWORD, _DWORD, _DWORD);
 
-//----- (000634A0) --------------------------------------------------------
 void sub_634A0_639B0(Pathstruct* pathstruct)
 {
-  if (*pathstruct->colorPalette_var28)
-  {
-    free_426E0_42A20((void*)*pathstruct->colorPalette_var28);
-    *pathstruct->colorPalette_var28 = 0;
-  }
+	if (*pathstruct->colorPalette_var28)
+	{
+		free_426E0_42A20((void*)*pathstruct->colorPalette_var28);
+		*pathstruct->colorPalette_var28 = 0;
+	}
 }
 
-//----- (000634E0) --------------------------------------------------------
 int sub_634E0_639F0(Pathstruct* pathstruct)
 {
-  void* (*mallocVar)(size_t);
-  sub_63010_63520();
-  if ( (pathstruct->var40_alloc_type & 1) != 0 )
-      mallocVar = malloc_425C0_42900;
-  else
-      mallocVar = malloc_42540_42880;
-  sub_634A0_639B0(pathstruct);
-  if ( pathstruct->path[0] == '*' )
-  {
-      *pathstruct->colorPalette_var28 = (uint8_t*)malloc(pathstruct->var36_size_buffer);
-    *pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
-    if ( !(*pathstruct->colorPalette_var28) )
-      return 0;
-  }
-  else
-  {
-    pathstruct->var36_size_buffer = GetRNCFilesize_63910_63E20(pathstruct);
-    if (pathstruct->var36_size_buffer <= 0 )
-      return 0;
-    *pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
-    if ( !(*pathstruct->colorPalette_var28) )
-      return -1;
-    if ( sub_3EEA0_3F1E0(pathstruct->path, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
-    {
-      *pathstruct->colorPalette_var28 = 0;
-      *pathstruct->var32_end_buffer = 0;
-      pathstruct->var36_size_buffer = 0;
-      return 0;
-    }
-  }
-  if (pathstruct->var32_end_buffer)
-    *pathstruct->var32_end_buffer = pathstruct->var36_size_buffer + *pathstruct->colorPalette_var28;
-  return 1;
+	void* (*mallocVar)(size_t);
+	sub_63010_63520();
+	if ((pathstruct->var40_alloc_type & 1) != 0)
+		mallocVar = malloc_425C0_42900;
+	else
+		mallocVar = malloc_42540_42880;
+	sub_634A0_639B0(pathstruct);
+	if (pathstruct->path[0] == '*')
+	{
+		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
+		if (!(*pathstruct->colorPalette_var28))
+			return 0;
+	}
+	else
+	{
+		pathstruct->var36_size_buffer = GetRNCFilesize_63910_63E20(pathstruct);
+		if (pathstruct->var36_size_buffer <= 0)
+			return 0;
+		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
+		if (!(*pathstruct->colorPalette_var28))
+			return -1;
+		if (sub_3EEA0_3F1E0(pathstruct->path, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
+		{
+			*pathstruct->colorPalette_var28 = 0;
+			*pathstruct->var32_end_buffer = 0;
+			pathstruct->var36_size_buffer = 0;
+			return 0;
+		}
+	}
+	if (pathstruct->var32_end_buffer)
+		*pathstruct->var32_end_buffer = pathstruct->var36_size_buffer + *pathstruct->colorPalette_var28;
+	return 1;
 }
 
 //----- (0006377B) --------------------------------------------------------
@@ -69185,23 +69179,21 @@ void sub_638F8()
 int GetRNCFilesize_63910_63E20(Pathstruct* pathstruct)
 {
 	uint8_t miniBuffer[8];
-    char dataPath[MAX_PATH];
-
-    sprintf(dataPath, "%s/%s", gameDataPath.c_str(), pathstruct->path);
-
+	char dataPath[MAX_PATH];
+	sprintf(dataPath, "%s/%s", gameDataPath.c_str(), pathstruct->path);
 	char RNSSING[5] = "RNC\x1";
 	FILE* file = DataFileIO::CreateOrOpenFile(dataPath, 512);
 	if (file == nullptr)
 		return -1;
 	DataFileIO::Read(file, miniBuffer, 8);
-    Type_fileSize fileSize;
+	Type_fileSize fileSize;
 	fileSize.size = -1;
 	if (!memcmp((char*)miniBuffer, RNSSING, 4))
 	{
 		fileSize.bytes[0] = miniBuffer[7];
-        fileSize.bytes[1] = miniBuffer[6];
-        fileSize.bytes[2] = miniBuffer[5];
-        fileSize.bytes[3] = miniBuffer[4];
+		fileSize.bytes[1] = miniBuffer[6];
+		fileSize.bytes[2] = miniBuffer[5];
+		fileSize.bytes[3] = miniBuffer[4];
 	}
 	else
 	{

@@ -28,6 +28,9 @@
     <Filter Include="Zdrojové soubory\utilities">
       <UniqueIdentifier>{455cd179-11e6-4f57-ab32-688e2b921557}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hlavičkové soubory\engine">
+      <UniqueIdentifier>{b55a17b8-3b4c-46ef-831f-1e5cf4949bae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="REMC1.cpp">
@@ -89,14 +92,14 @@
     <ClInclude Include="portability\port_time.h">
       <Filter>Hlavičkové soubory\portability</Filter>
     </ClInclude>
-    <ClInclude Include="engine\CommandLineParser.h">
-      <Filter>Hlavičkové soubory\portability</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\sub_main_mouse.h">
-      <Filter>Hlavičkové soubory\portability</Filter>
-    </ClInclude>
     <ClInclude Include="utilities\DataFileIO.h">
       <Filter>Hlavičkové soubory\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\CommandLineParser.h">
+      <Filter>Hlavičkové soubory\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\sub_main_mouse.h">
+      <Filter>Hlavičkové soubory\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
