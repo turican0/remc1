@@ -3,6 +3,9 @@
 bool IsHiddenWord = false;
 
 //fix
+
+std::string gameDataPath = "c:/prenos/magic1/cd2/CARPET";
+
 int unk_A9998_A99B0;
 int loc_24080;
 int unk_110003;
@@ -21,6 +24,10 @@ int unk_12CA00;
 int16 word_9ADA0;
 int _ZF;
 int __DS__;
+
+void MouseEvents(uint32_t buttons, int x, int y)
+{
+};
 
 //fix
 //-------------------------------------------------------------------------
@@ -652,7 +659,7 @@ void sub_3E9D0(_BYTE *a1);
 _BYTE *sub_3EC50();
 int access_3EC80_3EFC0(char* a1);
 void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2);
-int sub_3EEA0_3F1E0(const char *a1, char *a2);
+int sub_3EEA0_3F1E0(char* filename, uint8_t* buffer);
 int sub_3EF20();
 bool sub_3EF30(char* a1);
 char sub_3EF50(char *a1, char *a2, const char *a3);
@@ -939,7 +946,7 @@ int sub_580A0(int a1);
 int sub_58240(int a1);
 int sub_58768(__int16 a1, __int16 a2, int a3, unsigned __int8 a4);
 char sub_587E0();
-int sub_58860(unsigned __int16 a1, char *a2);
+int sub_58860(unsigned __int16 a1, uint8_t* a2);
 char sub_58910(unsigned __int16 a1);
 char sub_58A00(unsigned __int16 a1);
 int sub_58AD0(unsigned __int16 a1);
@@ -1001,7 +1008,7 @@ int sub_5A120(int a1, int a2);
 int sub_5A180(_BYTE *a1, int a2, __int16 a3, unsigned __int8 a4);
 __int16 sub_5A3A0();
 __int16 sub_5A3B0();
-int sub_5A3C0_5A8D0(__int16 a1);
+void sub_5A3C0_5A8D0(int fontIndex);
 // void sub_5A3E3(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void sub_5A459_5A969();
 int sub_5A4EA();
@@ -1044,15 +1051,12 @@ __int16 sub_5C969();
 int sub_5CA40();
 char sub_5CAE7();
 void sub_5CB73(int a1, __int16 a2);
-int sub_5CBD0(int a1, int a2, int a3);
 // _DWORD printf(const char *, ...); weak
 // _DWORD memset(_DWORD, _DWORD, _DWORD); weak
 void sub_5CC54_5D164();
 uint8_t sub_5CC70_5D180(uint8_t* a1, uint8_t a2, uint8_t a3, uint8_t a4);
 int sub_5CD70();
 void sub_5CDA0();
-int sub_5CDE0(int a1, int a2);
-void sub_5CE50(int a1);
 // _DWORD dos_getdrive(_DWORD); weak
 // _DWORD dos_getdiskfree(_DWORD, _DWORD); weak
 int sub_5CEF0_5D400(unsigned __int16 a1);
@@ -1143,9 +1147,9 @@ void free_62128_62638(void* buffer);
 // _DWORD fscanf(_DWORD, _DWORD, ...); weak
 // _DWORD getenv(_DWORD); weak
 // _DWORD sscanf(_DWORD, _DWORD, ...); weak
-// _DWORD filelength(_DWORD); weak
-int sub_62B30_63040(int a1, int a2, char a3);
-int sub_62B60(int a1, char *a2);
+// _DWORD DataFileIO::FileLengthBytes(_DWORD); weak
+//int DataFileIO::Seek(int a1, int a2, char a3);
+int sub_62B60(uint8_t* input, uint8_t* output);
 char sub_62CF4_63204(int *a1);
 __int16 sub_62CFD_6320D(__int16 *a1, int a2);
 __int16 sub_62D40_63250(unsigned __int8 a1, int a2);
@@ -1174,7 +1178,7 @@ void sub_637C0();
 int sub_637D1(int a1, int a2, unsigned __int16 a3, int a4);
 int sub_638E0(int a1, int a2, int a3);
 void sub_638F8();
-int sub_63910_63E20(int a1);
+int GetRNCFilesize_63910_63E20(Pathstruct* pathstruct);
 // _DWORD strcmp(_DWORD, _DWORD); weak
 void sub_63A8C();
 int sub_63A9D_63FAD(int a3, __int16 a4);
@@ -3256,7 +3260,7 @@ char byte_968E0 = '\x7F'; // weak
 char byte_968E1 = '\0'; // weak
 char byte_968E4 = '\0'; // weak
 char byte_968E8 = '\0'; // weak
-int dword_968EC = -1; // weak
+FILE* dword_968EC = nullptr; // weak
 char byte_968F0 = '\x01'; // weak
 int dword_96902 = 0; // weak
 int dword_96906 = 0; // weak
@@ -9842,7 +9846,7 @@ char aMemoryUsedFree[19] = "Memory (Used/Free)"; // weak
 //char aVipport[8] = "VIPPORT"; // weak
 //char aVfx1Cyberpuck[15] = "VFX1 CyberPuck"; // weak
 char aVesa[5] = "VESA"; // weak
-char aHmidet386[11] = "hmidet.386"; // weak
+//char aHmidet386[11] = "hmidet.386"; // weak
 char aHmidrv386[11] = "hmidrv.386"; // weak
 char IsTable[256] =
 {
@@ -11164,7 +11168,7 @@ unsigned __int8 byte_AC2B8[772] =
   0u
 }; // weak
 int dword_AC5BC = 0; // weak
-int dword_AC5C0 = 0; // weak
+FILE* dword_AC5C0 = 0; // weak
 int (*dword_AC5C4)(_DWORD) = NULL; // weak
 _UNKNOWN unk_AC5C8; // weak
 __int16 word_AC5CE = 0; // weak
@@ -12062,7 +12066,7 @@ int dword_12CB40; // weak
 int dword_12CB44; // weak
 int dword_12CB48; // weak
 int dword_12CB58; // weak
-int dword_12CB5C; // weak
+uint8_t dword_12CB5C; // weak
 int dword_12CB60; // weak
 int dword_12CB64; // weak
 int dword_12CB68; // weak
@@ -12246,9 +12250,9 @@ char byte_12F090[768]; // weak
 _UNKNOWN unk_12F390; // weak
 _UNKNOWN unk_12F68E; // weak
 __int16 word_12F690_12F680; // weak
-int dword_12F6A0[9999]; // weak
-int dword_12F6A4[9999]; // weak
-int dword_12F6A8[9999]; // weak
+int dword_12F6A0[9999]; // weak  //fix IT - dos memory management !!!!
+int dword_12F6A4[9999]; // weak //fix IT - dos memory management !!!!
+int dword_12F6A8[9999]; // weak //2ed6a8_ //fix IT - dos memory management !!!!
 int dword_1302A0; // weak
 int dword_1302A4; // weak
 int dword_1302A8; // weak
@@ -12422,11 +12426,11 @@ void __writeeflags(int a) {};
 //_DWORD mkdir(_DWORD a) { return 0; };// weak
 void __outbyte(int a, int b) {};
 _DWORD outp(_DWORD a, char b) { return 0; };// weak
-_DWORD read(_DWORD a, _DWORD b, _DWORD c) { return 0; };// weak
-_DWORD close(_DWORD a) { return 0; };// weak
-_DWORD creat(_DWORD a, _DWORD b) { return 0; };// weak
+//_DWORD read(_DWORD a, _DWORD b, _DWORD c) { return 0; };// weak
+//_DWORD close(_DWORD a) { return 0; };// weak
+//_DWORD creat(_DWORD a, _DWORD b) { return 0; };// weak
 _DWORD setmode(_DWORD a, _DWORD b) { return 0; };// weak
-_DWORD sopen(_DWORD a, _DWORD b, char c) { return 0; };
+//_DWORD sopen(_DWORD a, _DWORD b, char c) { return 0; };
 //_DWORD lseek(_DWORD a, _DWORD b, char c) { return 0; };// weak
 _DWORD open(_DWORD a, _DWORD b) { return 0; };
 int __inbyte(int a) { return 0; };
@@ -12436,7 +12440,7 @@ _DWORD tolower(_DWORD a) { return 0; };// weak
 void __outword(int a, int b) {};
 int __inword(int a) { return 0; };
 
-//int filelength(int a) { return 0; };
+//int DataFileIO::FileLengthBytes(int a) { return 0; };
 
 //---------------- fixproc
 
@@ -12800,12 +12804,12 @@ int sub_103F0()
   int result; // eax
 
   dword_AC1B0 = dword_90028;
-  sub_5CBD0(dword_AC5C0, (int)&dword_AC1A0, 16);
+  DataFileIO::Read(dword_AC5C0, (uint8_t*)&dword_AC1A0, 16);
   while ( word_AC1A4 != -3590 )
     printf("ERROR UNKNOWN FRAME TYPE\n");
   while ( (unsigned int)dword_AC1A0 >= 0xFA00 )
     printf("PAGE SIZE IS > BSCREEN\n");
-  sub_5CBD0(dword_AC5C0, (int)dword_AE3FC, dword_AC1A0 - 16);
+  DataFileIO::Read(dword_AC5C0, (uint8_t*)dword_AE3FC, dword_AC1A0 - 16);
   result = dword_AC1A0;
   dword_90028 += dword_AC1A0;
   return result;
@@ -13015,8 +13019,8 @@ void sub_107C0(__int16 a1, __int16 a2, int a3)
   word_AC5DA = 0;
   LOWORD(dword_AC5E0[0]) = 0;
   dword_9001C = dword_12EFF4;
-  dword_AC5C0 = sub_5CDE0((int)&unk_9ADC8, 512);
-  sub_5CBD0(dword_AC5C0, (int)&unk_AC5C8, 12);
+  dword_AC5C0 = DataFileIO::CreateOrOpenFile((char*)&unk_9ADC8, 512);
+  DataFileIO::Read(dword_AC5C0, (uint8_t*)&unk_AC5C8, 12);
   word_12EFDC = 0;
   word_12EFDE = 0;
   dword_90028 += 12;
@@ -13031,7 +13035,7 @@ void sub_107C0(__int16 a1, __int16 a2, int a3)
     sub_103F0();
     sub_104D0();
   }
-  sub_5CE50(dword_AC5C0);
+  DataFileIO::Close(dword_AC5C0);
 }
 // 9001C: using guessed type int dword_9001C;
 // 90024: using guessed type __int16 word_90024;
@@ -13687,7 +13691,7 @@ int sub_11540()
   char v9; // [esp+8h] [ebp-10h]
 
   v7 = dword_12EFF4;
-  sub_3EEA0_3F1E0(aDataSearchDat, (char *)dword_12EFF4);
+  sub_3EEA0_3F1E0(aDataSearchDat, (uint8_t*)dword_12EFF4);
   for ( i = 6; i != 600; dword_AC5E0[i] = -1 )
     i += 6;
   v1 = (_BYTE *)dword_AE3F4;
@@ -34970,7 +34974,7 @@ int sub_31AA0(int a1)
 {
   word_12C1E0 = *(_WORD *)(a1 + 4);
   *(_DWORD *)(dword_AE400_AE3F0() + 4) = *(_DWORD *)(a1 + 4);
-  if ( (void (*)())sub_3EEA0_3F1E0(aCCarpetCdSaveS, byte_DC1E0) != sub_10000 )
+  if ( (void (*)())sub_3EEA0_3F1E0(aCCarpetCdSaveS, (uint8_t*)byte_DC1E0) != sub_10000 )
   {
     sub_725C8(word_12C1E0, *(_WORD *)(a1 + 8), *(_WORD *)(a1 + 12));
     sub_32A50();
@@ -37123,6 +37127,17 @@ LABEL_10:
 }
 // AE408: using guessed type int dword_AE408_AE3F8();
 
+/*
+void test_malloc() {
+    void* test = malloc(4096);
+    if (!test)
+    {
+        printf("malloc Failed\n");
+    }
+    printf("malloc OK\n");
+    free(test);
+};*/
+
 void TopProcedure_65DC0_662D0(int argc, const char** argv)//2050B0_
 {
   int someVar;
@@ -37256,12 +37271,12 @@ int sub_34460_34820()
 {
   int result; // eax
 
-  sub_3EEA0_3F1E0(aDataSmatitleDa, (char *)dword_12EFF4);
+  sub_3EEA0_3F1E0(aDataSmatitleDa, (uint8_t*)dword_12EFF4);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0();
   else
     sub_599B0(480);
-  sub_3EEA0_3F1E0(aDataSmatitlePa, (char *)dword_AE428_AE418);
+  sub_3EEA0_3F1E0(aDataSmatitlePa, (uint8_t*)dword_AE428_AE418);
   sub_61CC0_621D0((unsigned __int8 *)dword_AE428_AE418, 0x20u, 0);
   result = dword_AE400_AE3F0();
   *(_DWORD *)(dword_AE400_AE3F0() + 581) = 1;
@@ -37282,7 +37297,7 @@ int sub_344F0()
   sub_61CC0_621D0(0, 0x10u, 0);
   v1 = (char *)dword_AE428_AE418;
   *(_DWORD *)(dword_AE400_AE3F0() + 581) = 0;
-  return sub_3EEA0_3F1E0(aDataPal00Dat, v1);
+  return sub_3EEA0_3F1E0(aDataPal00Dat, (uint8_t*)v1);
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE428: using guessed type int dword_AE428_AE418;
@@ -44451,61 +44466,61 @@ LABEL_28:
 //----- (0003E100) --------------------------------------------------------
 char sub_3E100(__int16 a1, void *a2)
 {
-  int v2; // edi
-  int v3; // ebx
-  int v5; // esi
+  uint8_t* v2; // edi
+  FILE* v3; // ebx
+  FILE* v5; // esi
   int v6; // ebp
   int v7; // edi
   int v8; // edi
   char v9[80]; // [esp+0h] [ebp-50h] BYREF
 
-  v2 = (int)dword_AE3FC;
+  v2 = dword_AE3FC;
   if ( a1 < 1000 )
   {
     sprintf(v9, "%s%s/%s/levels.dat", &aLc_0[1], aCarpetCd_0, aLevels_0);
-    v3 = sub_5CDE0((int)v9, 512);
-    if ( v3 == -1 )
+    v3 = DataFileIO::CreateOrOpenFile((char*)v9, 512);
+    if ( v3 == nullptr )
     {
-      v3 = sub_5CDE0((int)aLevelsLevelsDa, 512);
-      if ( v3 == -1 )
+      v3 = DataFileIO::CreateOrOpenFile((char*)aLevelsLevelsDa, 512);
+      if ( v3 == nullptr)
         return 0;
     }
     sprintf(v9, "%s%s/%s/levels.tab", &aLc_0[1], aCarpetCd_0, aLevels_0);
-    v5 = sub_5CDE0((int)v9, 512);
-    if ( v5 == -1 )
+    v5 = DataFileIO::CreateOrOpenFile((char*)v9, 512);
+    if ( v5 == nullptr)
     {
-      v5 = sub_5CDE0((int)aLevelsLevelsTa, 512);
-      if ( v5 == -1 )
+      v5 = DataFileIO::CreateOrOpenFile((char*)aLevelsLevelsTa, 512);
+      if ( v5 == nullptr)
       {
-        sub_5CE50(v3);
+        DataFileIO::Close(v3);
         return 0;
       }
     }
-    sub_5CBD0(v5, v2, 4000);
+    DataFileIO::Read(v5, v2, 4000);
     v6 = *(_DWORD *)(v2 + 4 * a1);
     v7 = *(_DWORD *)(v2 + 4 * a1 + 4);
-    sub_5CE50(v5);
+    DataFileIO::Close(v5);
     v8 = v7 - v6;
-    if ( filelength )
+    if ( DataFileIO::FileLengthBytes )
     {
-      sub_62B30_63040(v3, v6, 0);
-      sub_5CBD0(v3, (int)dword_AE3FC, v8);
-      if ( sub_62B60((int)dword_AE3FC, (char *)dword_AE3FC) < 0 )
+      DataFileIO::Seek(v3, v6, 0);
+      DataFileIO::Read(v3, dword_AE3FC, v8);
+      if ( sub_62B60(dword_AE3FC, dword_AE3FC) < 0 )
       {
         printf("ERROR decompressing levels.dat\n");
         return 0;
       }
-      qmemcpy(a2, (const void *)dword_AE3FC, 0x979Cu);
+      qmemcpy(a2, dword_AE3FC, 0x979Cu);
       memset((void*)dword_AE3FC, 0, 38812);
     }
-    sub_5CE50(v3);
+    DataFileIO::Close(v3);
   }
   return 1;
 }
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
-// 62AE2: using guessed type _DWORD filelength(_DWORD);
+// 62AE2: using guessed type _DWORD DataFileIO::FileLengthBytes(_DWORD);
 // AE3FC: using guessed type int dword_AE3FC;
 
 //----- (0003E350) --------------------------------------------------------
@@ -44540,7 +44555,7 @@ char sub_3E350(__int16 a1)
     v6 = *(_DWORD *)(dword_AE400_AE3F0() + 8621);
     v7 = *(_DWORD *)(dword_AE400_AE3F0() + 8625);
     v8 = *(_DWORD *)(dword_AE400_AE3F0() + 8629);
-    sub_3EEA0_3F1E0(v5, (char *)dword_AE400_AE3F0());
+    sub_3EEA0_3F1E0(v5, (uint8_t*)dword_AE400_AE3F0());
     v3 = (_DWORD *)dword_AE400_AE3F0();
     v4 = (_DWORD *)(dword_AE400_AE3F0() + 8597);
     *(_DWORD *)(dword_AE400_AE3F0() + 8597) = v12;
@@ -44578,14 +44593,14 @@ _BOOL1 sub_3E410(__int16 a1)
 //----- (0003E460) --------------------------------------------------------
 char sub_3E460(__int16 a1)
 {
-  int v1; // eax
+  FILE* v1; // eax
   char v3[64]; // [esp+0h] [ebp-40h] BYREF
 
   sprintf(v3, "%s/gam%05d.dat", aMovie_0, a1);
-  v1 = sub_5CDE0((int)v3, 512);
-  if ( v1 == -1 )
+  v1 = DataFileIO::CreateOrOpenFile((char*)v3, 512);
+  if ( v1 == nullptr )
     return 0;
-  sub_5CE50(v1);
+  DataFileIO::Close(v1);
   return 1;
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
@@ -44594,21 +44609,21 @@ char sub_3E460(__int16 a1)
 char sub_3E4B0(__int16 a1)
 {
   char result; // al
-  int v2; // ebx
+  FILE* v2; // ebx
   char v3[68]; // [esp+0h] [ebp-44h] BYREF
 
   result = sub_3E640(a1);
   if ( result )
   {
     sprintf(v3, "%s/map%05d.dat", aMovie_0, a1);
-    v2 = sub_5CDE0((int)v3, 512);
-    sub_5CBD0(v2, (int)byte_CC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_DC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_EC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_FC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)word_10C1E0, (int)&loc_1FFFE + 2);
-    sub_5CBD0(v2, (int)byte_B5D40, 4802);
-    sub_5CE50(v2);
+    v2 = DataFileIO::CreateOrOpenFile(v3, 512);
+    DataFileIO::Read(v2, (uint8_t*)byte_CC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_DC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_EC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_FC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)word_10C1E0, (int)&loc_1FFFE + 2);
+    DataFileIO::Read(v2, (uint8_t*)byte_B5D40, 4802);
+    DataFileIO::Close(v2);
     return 1;
   }
   return result;
@@ -44620,18 +44635,18 @@ char sub_3E4B0(__int16 a1)
 //----- (0003E580) --------------------------------------------------------
 char sub_3E580(__int16 a1)
 {
-  int v1; // ebx
+  FILE* v1; // ebx
   char v3[68]; // [esp+0h] [ebp-44h] BYREF
 
   sprintf(v3, "%s/map%05d.dat", aMovie_0, a1);
-  v1 = sub_5CDE0((int)v3, 546);
-  sub_62ED0(v1, (int)byte_CC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_DC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_EC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_FC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)word_10C1E0, (int)&loc_1FFFE + 2);
-  sub_62ED0(v1, (int)byte_B5D40, 4802);
-  sub_5CE50(v1);
+  v1 = DataFileIO::CreateOrOpenFile((char*)v3, 546);
+  sub_62ED0((int)v1, (int)byte_CC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_DC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_EC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_FC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)word_10C1E0, (int)&loc_1FFFE + 2);
+  sub_62ED0((int)v1, (int)byte_B5D40, 4802);
+  DataFileIO::Close(v1);
   return 0;
 }
 // 10000: using guessed type void sub_10000();
@@ -44641,14 +44656,14 @@ char sub_3E580(__int16 a1)
 //----- (0003E640) --------------------------------------------------------
 char sub_3E640(__int16 a1)
 {
-  int v1; // eax
+  FILE* v1; // eax
   char v3[64]; // [esp+0h] [ebp-40h] BYREF
 
   sprintf(v3, "%s/map%05d.dat", aMovie_0, a1);
-  v1 = sub_5CDE0((int)v3, 512);
-  if ( v1 == -1 )
+  v1 = DataFileIO::CreateOrOpenFile((char*)v3, 512);
+  if ( v1 == nullptr )
     return 0;
-  sub_5CE50(v1);
+  DataFileIO::Close(v1);
   return 1;
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
@@ -44685,7 +44700,7 @@ char sub_3E690(__int16 a1)
     v6 = *(_DWORD *)(dword_AE400_AE3F0() + 8621);
     v7 = *(_DWORD *)(dword_AE400_AE3F0() + 8625);
     v8 = *(_DWORD *)(dword_AE400_AE3F0() + 8629);
-    sub_3EEA0_3F1E0(v5, (char *)dword_AE400_AE3F0());
+    sub_3EEA0_3F1E0(v5, (uint8_t*)dword_AE400_AE3F0());
     v3 = (_DWORD *)dword_AE400_AE3F0();
     v4 = (_DWORD *)(dword_AE400_AE3F0() + 8597);
     *(_DWORD *)(dword_AE400_AE3F0() + 8597) = v12;
@@ -44723,14 +44738,14 @@ _BOOL1 sub_3E750(__int16 a1)
 //----- (0003E7A0) --------------------------------------------------------
 char sub_3E7A0(__int16 a1)
 {
-  int v1; // eax
+  FILE* v1; // eax
   char v3[64]; // [esp+0h] [ebp-40h] BYREF
 
   sprintf(v3, "c:/CARPET.CD/%s/gam%05d.dat", "save", a1);
-  v1 = sub_5CDE0((int)v3, 512);
-  if ( v1 == -1 )
+  v1 = DataFileIO::CreateOrOpenFile((char*)v3, 512);
+  if ( v1 == nullptr )
     return 0;
-  sub_5CE50(v1);
+  DataFileIO::Close(v1);
   return 1;
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
@@ -44739,21 +44754,21 @@ char sub_3E7A0(__int16 a1)
 char sub_3E7F0(__int16 a1)
 {
   char result; // al
-  int v2; // ebx
+  FILE* v2; // ebx
   char v3[68]; // [esp+0h] [ebp-44h] BYREF
 
   result = sub_3E980(a1);
   if ( result )
   {
     sprintf(v3, "c:/CARPET.CD/%s/map%05d.dat", "save", a1);
-    v2 = sub_5CDE0((int)v3, 512);
-    sub_5CBD0(v2, (int)byte_CC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_DC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_EC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)byte_FC1E0, (int)sub_10000);
-    sub_5CBD0(v2, (int)word_10C1E0, (int)&loc_1FFFE + 2);
-    sub_5CBD0(v2, (int)byte_B5D40, 4802);
-    sub_5CE50(v2);
+    v2 = DataFileIO::CreateOrOpenFile(v3, 512);
+    DataFileIO::Read(v2, (uint8_t*)byte_CC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_DC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_EC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)byte_FC1E0, (int)sub_10000);
+    DataFileIO::Read(v2, (uint8_t*)word_10C1E0, (int)&loc_1FFFE + 2);
+    DataFileIO::Read(v2, (uint8_t*)byte_B5D40, 4802);
+    DataFileIO::Close(v2);
     return 1;
   }
   return result;
@@ -44765,18 +44780,18 @@ char sub_3E7F0(__int16 a1)
 //----- (0003E8C0) --------------------------------------------------------
 char sub_3E8C0(__int16 a1)
 {
-  int v1; // ebx
+    FILE* v1; // ebx
   char v3[68]; // [esp+0h] [ebp-44h] BYREF
 
   sprintf(v3, "c:/CARPET.CD/%s/map%05d.dat", "save", a1);
-  v1 = sub_5CDE0((int)v3, 546);
-  sub_62ED0(v1, (int)byte_CC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_DC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_EC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)byte_FC1E0, (int)sub_10000);
-  sub_62ED0(v1, (int)word_10C1E0, (int)&loc_1FFFE + 2);
-  sub_62ED0(v1, (int)byte_B5D40, 4802);
-  sub_5CE50(v1);
+  v1 = DataFileIO::CreateOrOpenFile((char*)v3, 546);
+  sub_62ED0((int)v1, (int)byte_CC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_DC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_EC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)byte_FC1E0, (int)sub_10000);
+  sub_62ED0((int)v1, (int)word_10C1E0, (int)&loc_1FFFE + 2);
+  sub_62ED0((int)v1, (int)byte_B5D40, 4802);
+  DataFileIO::Close(v1);
   return 0;
 }
 // 10000: using guessed type void sub_10000();
@@ -44786,14 +44801,14 @@ char sub_3E8C0(__int16 a1)
 //----- (0003E980) --------------------------------------------------------
 char sub_3E980(__int16 a1)
 {
-  int v1; // eax
+  FILE* v1; // eax
   char v3[64]; // [esp+0h] [ebp-40h] BYREF
 
   sprintf(v3, "c:/CARPET.CD/%s/map%05d.dat", "save", a1);
-  v1 = sub_5CDE0((int)v3, 512);
-  if ( v1 == -1 )
+  v1 = DataFileIO::CreateOrOpenFile(v3, 512);
+  if ( v1 == nullptr )
     return 0;
-  sub_5CE50(v1);
+  DataFileIO::Close(v1);
   return 1;
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
@@ -44801,11 +44816,11 @@ char sub_3E980(__int16 a1)
 //----- (0003E9D0) --------------------------------------------------------
 void sub_3E9D0(_BYTE *a1)
 {
-  int v1; // edx
+  FILE* v1; // edx
   int v2; // eax
   char v3; // dl
-  int v4; // ebp
-  int v5; // edx
+  FILE* v4; // ebp
+  FILE* v5; // edx
   int v6; // eax
   char v7; // bl
   int v8; // eax
@@ -44817,10 +44832,10 @@ void sub_3E9D0(_BYTE *a1)
     if ( !*(_DWORD *)(dword_AE408_AE3F8() + 9) && !((int)&a1[-dword_AE400_AE3F0() - 29715] / 10) )
     {
       sprintf(v10, "%s/mvi%05d.dat", aMovie_0, *(__int16 *)(dword_AE408_AE3F8() + 13));
-      v1 = sub_5CDE0((int)v10, 512);
+      v1 = DataFileIO::CreateOrOpenFile((char*)v10, 512);
       v2 = dword_AE408_AE3F8();
-      *(_DWORD *)(dword_AE408_AE3F8() + 9) = v1;
-      if ( v1 == -1 )
+      *(_DWORD *)(dword_AE408_AE3F8() + 9) = (uint32)v1;
+      if ( v1 == nullptr )
       {
         v3 = *(_BYTE *)v2;
         *(_DWORD *)(v2 + 9) = 0;
@@ -44832,7 +44847,7 @@ void sub_3E9D0(_BYTE *a1)
       sub_59420();
       sub_356E0();
     }
-    v4 = *(_DWORD *)(dword_AE408_AE3F8() + 9);
+    v4 = (FILE*)*(_DWORD *)(dword_AE408_AE3F8() + 9);
     if ( v4 )
     {
       if ( *a1 == 2 )
@@ -44842,7 +44857,7 @@ void sub_3E9D0(_BYTE *a1)
         *a1 = 0;
         return;
       }
-      if ( sub_5CBD0(v4, (int)a1, 10) != 10 )
+      if ( DataFileIO::Read(v4, (uint8_t*)a1, 10) != 10 )
       {
         sub_3EC50();
         *(_WORD *)(dword_AE400_AE3F0() + 2049 * *(__int16 *)(dword_AE400_AE3F0() + 8) + 13325) = 8;
@@ -44864,10 +44879,10 @@ LABEL_25:
     if ( !*(_DWORD *)(dword_AE408_AE3F8() + 9) && !((int)&a1[-dword_AE400_AE3F0() - 29715] / 10) )
     {
       sprintf(v10, "%s/mvi%05d.dat", aMovie_0, *(__int16 *)(dword_AE408_AE3F8() + 13));
-      v5 = sub_5CDE0((int)v10, 546);
+      v5 = DataFileIO::CreateOrOpenFile(v10, 546);
       v6 = dword_AE408_AE3F8();
-      *(_DWORD *)(dword_AE408_AE3F8() + 9) = v5;
-      if ( v5 == -1 )
+      *(_DWORD *)(dword_AE408_AE3F8() + 9) = (uint32)v5;
+      if ( v5 == nullptr )
       {
         v7 = *(_BYTE *)v6;
         *(_DWORD *)(v6 + 9) = 0;
@@ -44906,7 +44921,7 @@ _BYTE *sub_3EC50()
   result = (_BYTE *)dword_AE408_AE3F8();
   if ( *(_DWORD *)(dword_AE408_AE3F8() + 9) )
   {
-    sub_5CE50(*(_DWORD *)(dword_AE408_AE3F8() + 9));
+    DataFileIO::Close((FILE*)(*(_DWORD *)(dword_AE408_AE3F8() + 9)));
     result = (_BYTE *)dword_AE408_AE3F8();
     v1 = *(_BYTE *)dword_AE408_AE3F8();
     *(_DWORD *)(dword_AE408_AE3F8() + 9) = 0;
@@ -44952,35 +44967,30 @@ void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2)
 }
 
 //----- (0003EEA0) --------------------------------------------------------
-int sub_3EEA0_3F1E0(const char *a1, char *a2)
+int sub_3EEA0_3F1E0(char* filename, uint8_t* buffer)
 {
-  int result; // eax
-  int v3; // ebx
-  int v4; // esi
-
-  result = sub_5CDE0((int)a1, 512);
-  v3 = result;
-  if ( result != -1 )
+  FILE* file = DataFileIO::CreateOrOpenFile(filename, 512);
+  if (file != nullptr )
   {
-    v4 = filelength(result);
-    sub_5CBD0(v3, (int)a2, v4);
-    sub_5CE50(v3);
-    result = sub_62B60((int)a2, a2);
-    if ( result >= 0 )
+      int fileLenght = DataFileIO::FileLengthBytes(file);
+    DataFileIO::Read(file, buffer, fileLenght);
+    DataFileIO::Close(file);
+    file = (FILE*)sub_62B60(buffer, buffer);
+    if (file >= 0 )
     {
-      if ( !result )
-        return v4;
+      if ( !file)
+        return fileLenght;
     }
     else
     {
-      printf("ERROR decompressing %s\n", a1);
+      printf("ERROR decompressing %s\n", filename);
       return -2;
     }
   }
-  return result;
+  return -1;
 }
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
-// 62AE2: using guessed type _DWORD filelength(_DWORD);
+// 62AE2: using guessed type _DWORD DataFileIO::FileLengthBytes(_DWORD);
 
 //----- (0003EF20) --------------------------------------------------------
 int sub_3EF20()
@@ -44998,12 +45008,12 @@ bool sub_3EF30(char* a1)
 //----- (0003EF50) --------------------------------------------------------
 char sub_3EF50(char *a1, char *a2, const char *a3)
 {
-  int v3; // ebx
-  int v4; // esi
+  FILE* v3; // ebx
+  FILE* v4; // esi
   int v6; // eax
   int v7; // eax
-  int v8; // ebx
-  int v9; // ebp
+  FILE* v8; // ebx
+  FILE* v9; // ebp
   int v10; // edi
   int v11; // ebx
   int v12; // eax
@@ -45012,7 +45022,7 @@ char sub_3EF50(char *a1, char *a2, const char *a3)
   char v15[144]; // [esp+0h] [ebp-19Ch] BYREF
   char v16[144]; // [esp+90h] [ebp-10Ch] BYREF
   char v17[100]; // [esp+120h] [ebp-7Ch] BYREF
-  int v18; // [esp+184h] [ebp-18h]
+  FILE* v18; // [esp+184h] [ebp-18h]
   int v19; // [esp+188h] [ebp-14h]
 
   if ( !sub_3EF30(a1) )
@@ -45021,28 +45031,28 @@ char sub_3EF50(char *a1, char *a2, const char *a3)
     return 1;
   sprintf(v15, "%s/%s.tab", a1, a3);
   sprintf(v16, "%s/%s.tab", a2, a3);
-  v3 = sub_5CDE0((int)v15, 512);
-  if ( v3 == -1 )
+  v3 = DataFileIO::CreateOrOpenFile((char*)v15, 512);
+  if ( v3 == nullptr )
     return 3;
-  v4 = sub_5CDE0((int)v16, 546);
-  if ( v4 == -1 )
+  v4 = DataFileIO::CreateOrOpenFile((char*)v16, 546);
+  if ( v4 == nullptr )
     return 3;
-  v6 = filelength(v3);
-  v7 = sub_5CBD0(v3, dword_12EFF4, v6);
-  sub_62ED0(v4, dword_12EFF4, v7);
-  sub_5CE50(v3);
-  sub_5CE50(v4);
+  v6 = DataFileIO::FileLengthBytes(v3);
+  v7 = DataFileIO::Read(v3, (uint8_t*)dword_12EFF4, v6);
+  sub_62ED0((int)v4, dword_12EFF4, v7);
+  DataFileIO::Close(v3);
+  DataFileIO::Close(v4);
   sprintf(v15, "%s/%s.dat", a1, a3);
   sprintf(v16, "%s/%s.dat", a2, a3);
-  v8 = sub_5CDE0((int)v15, 512);
+  v8 = DataFileIO::CreateOrOpenFile((char*)v15, 512);
   v9 = v8;
-  if ( v8 != -1 )
+  if ( v8 != nullptr )
   {
-    v18 = sub_5CDE0((int)v16, 546);
-    if ( v18 != -1 )
+    v18 = DataFileIO::CreateOrOpenFile((char*)v16, 546);
+    if ( v18 != nullptr )
     {
       v10 = 0;
-      v11 = filelength(v8);
+      v11 = DataFileIO::FileLengthBytes(v8);
       v19 = v11;
       while ( v11 )
       {
@@ -45050,9 +45060,9 @@ char sub_3EF50(char *a1, char *a2, const char *a3)
           v12 = v11;
         else
           v12 = 64000;
-        v13 = sub_5CBD0(v9, dword_12EFF4, v12);
+        v13 = DataFileIO::Read(v9, (uint8_t*)dword_12EFF4, v12);
         v11 -= v13;
-        sub_62ED0(v18, dword_12EFF4, v13);
+        sub_62ED0((int)v18, dword_12EFF4, v13);
         v10 += v13;
         settextposition((__int16)dword_B76F0, SHIWORD(dword_B76F0));
         v14 = 100 * v10 / v19;
@@ -45061,8 +45071,8 @@ char sub_3EF50(char *a1, char *a2, const char *a3)
         sprintf(v17, "%d%c", (__int16)v14, 37);
         outtext((uint32)v17);
       }
-      sub_5CE50(v9);
-      sub_5CE50(v18);
+      DataFileIO::Close(v9);
+      DataFileIO::Close(v18);
     }
   }
   memset((void*)dword_12EFF4, 0, 64000);
@@ -45070,7 +45080,7 @@ char sub_3EF50(char *a1, char *a2, const char *a3)
 }
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
-// 62AE2: using guessed type _DWORD filelength(_DWORD);
+// 62AE2: using guessed type _DWORD DataFileIO::FileLengthBytes(_DWORD);
 // 79CA6: using guessed type _DWORD settextposition(_DWORD, _DWORD);
 // 79F0E: using guessed type _DWORD outtext(_DWORD);
 // B76F0: using guessed type int dword_B76F0;
@@ -46037,15 +46047,16 @@ char sub_3FCA0_3FFE0(
 // 12EFE4: using guessed type __int16 word_12EFE4;
 // 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
-void sub_40440_40780(Pathstruct* pathstruct)//_211780
+void sub_40440_40780(Pathstruct* pathstruct)//211440_211780
 {
   char input[20];
-
   sub_63010_63520();
   if (pathstruct->colorPalette_var28)
   {
-    for(int i = 0; pathstruct[i].colorPalette_var28; i++)
-      sub_634A0_639B0(&pathstruct[i]);
+      for (int i = 0; pathstruct[i].colorPalette_var28; i++)
+      {
+          sub_634A0_639B0(&pathstruct[i]);
+      }
   }
   if (pathstruct->colorPalette_var28)
   {
@@ -46054,14 +46065,14 @@ void sub_40440_40780(Pathstruct* pathstruct)//_211780
       int compVar = sub_634E0_639F0(&pathstruct[i]);
       if (compVar < 0)
       {
-          sub_319A0_319E0((unsigned __int8*)dword_AE428_AE418);
+          sub_319A0_319E0(dword_AE428_AE418);
           printf("ERROR: Allocation %s.\n", &pathstruct[i]);
           printf("Press return to continue\n");
           gets_s(input);
       }
       else if ( !compVar)
       {
-        sub_319A0_319E0((unsigned __int8 *)dword_AE428_AE418);
+        sub_319A0_319E0(dword_AE428_AE418);
         printf("ERROR: File %s.\n", &pathstruct[i]);
         printf("Press return to continue\n");
         gets_s(input);
@@ -48782,7 +48793,7 @@ char *sub_43E50(const char *a1)
 
   v1 = 0;
   v2 = 0;
-  v3 = sub_63910_63E20((int)a1);
+  v3 = GetRNCFilesize_63910_63E20((Pathstruct*)a1);
   v4 = v3;
   if ( v3 > 0 )
   {
@@ -48791,7 +48802,7 @@ char *sub_43E50(const char *a1)
     v1 = v5;
     if ( v5 )
     {
-      if ( sub_3EEA0_3F1E0(a1, v5) != v4 )
+      if ( sub_3EEA0_3F1E0((char*)a1, (uint8_t*)v5) != v4 )
       {
         free_426E0_42A20((void*)v6);
         v1 = (char *)(v6 ^ (unsigned int)v1);
@@ -49122,7 +49133,7 @@ int sub_44470_447B0()
   }
   if ( !byte_90B48 )
   {
-    result = sub_3EEA0_3F1E0(aDataTablesDat, byte_B7934);
+    result = sub_3EEA0_3F1E0(aDataTablesDat, (uint8_t*)byte_B7934);
     if ( result <= 0 )
       byte_90B48 = 1;
   }
@@ -52540,11 +52551,11 @@ int sub_49B50(int a1)
 //----- (0004A980) --------------------------------------------------------
 int sub_4A980_4ACC0()
 {
-  int v0; // eax
-  int v1; // eax
+    FILE* v0; // eax
+    FILE* v1; // eax
   int result; // eax
   char v3[40]; // [esp+0h] [ebp-34h] BYREF
-  int v4[3]; // [esp+28h] [ebp-Ch] BYREF
+  FILE* v4[3]; // [esp+28h] [ebp-Ch] BYREF
 
   if ( sub_505A0() )
     byte_12CBC9 = 7;
@@ -52570,22 +52581,22 @@ int sub_4A980_4ACC0()
   byte_12CBD3 = 0;
   sprintf((char*)(dword_AE408_AE3F8() + 117), "CARPET%d", 0);
   sprintf(v3, "%s%s\\intro.pld", aC, aCarpetCd_1);
-  v0 = sub_5CDE0((int)v3, 514);
+  v0 = DataFileIO::CreateOrOpenFile((char*)v3, 514);
   v4[0] = v0;
-  if ( v0 == -1 )
+  if ( v0 == nullptr )
   {
     byte_12CBD5 &= ~2u;
-    v1 = sub_5CDE0((int)v3, 546);
+    v1 = DataFileIO::CreateOrOpenFile((char*)v3, 546);
     v4[0] = v1;
-    if ( v1 != -1 )
+    if ( v1 != nullptr )
     {
-      sub_62ED0(v1, (int)v4, 4);
-      sub_5CE50(v4[0]);
+      sub_62ED0((int)v1, (int)v4, 4);
+      DataFileIO::Close(v4[0]);
     }
   }
   else
   {
-    sub_5CE50(v0);
+    DataFileIO::Close(v0);
   }
   result = dword_AE408_AE3F8();
   *(_BYTE *)(dword_AE408_AE3F8() + 151) = 0;
@@ -52702,8 +52713,8 @@ void sub_4AC70_4AFB0()
   int v8; // eax
   int v9; // eax
   int v10; // ebx
-  int v11; // eax
-  int v12; // ebx
+  FILE* v11; // eax
+  FILE* v12; // ebx
   char v13[40]; // [esp+0h] [ebp-3Ch] BYREF
   char v14; // [esp+28h] [ebp-14h]
 
@@ -52870,23 +52881,23 @@ LABEL_43:
                     fclose((FILE*)v10);
                   }
                   sprintf(v13, "%s%s\\sndsetup.dat", aC, aCarpetCd_1);
-                  v11 = sub_5CDE0((int)v13, 546);
+                  v11 = DataFileIO::CreateOrOpenFile((char*)v13, 546);
                   v12 = v11;
-                  if ( v11 != -1 )
+                  if ( v11 != nullptr )
                   {
-                    sub_62ED0(v11, (int)byte_12C9A0, 32);
-                    sub_62ED0(v12, (int)&word_12C9C0, 32);
-                    sub_62ED0(v12, (int)byte_12CA00, 32);
-                    sub_62ED0(v12, (int)&word_12C9E0, 32);
-                    sub_62ED0(v12, (int)word_12CA9E, 10);
-                    sub_62ED0(v12, (int)word_12CA80, 10);
-                    sub_62ED0(v12, (int)word_12CAB2, 10);
-                    sub_62ED0(v12, (int)word_12CA8A, 10);
-                    sub_62ED0(v12, (int)&word_12CAC6, 10);
-                    sub_62ED0(v12, (int)word_12CAD0, 10);
-                    sub_62ED0(v12, (int)word_12CAA8, 10);
-                    sub_62ED0(v12, (int)word_12CA94, 10);
-                    sub_5CE50(v12);
+                    sub_62ED0((int)v11, (int)byte_12C9A0, 32);
+                    sub_62ED0((int)v12, (int)&word_12C9C0, 32);
+                    sub_62ED0((int)v12, (int)byte_12CA00, 32);
+                    sub_62ED0((int)v12, (int)&word_12C9E0, 32);
+                    sub_62ED0((int)v12, (int)word_12CA9E, 10);
+                    sub_62ED0((int)v12, (int)word_12CA80, 10);
+                    sub_62ED0((int)v12, (int)word_12CAB2, 10);
+                    sub_62ED0((int)v12, (int)word_12CA8A, 10);
+                    sub_62ED0((int)v12, (int)&word_12CAC6, 10);
+                    sub_62ED0((int)v12, (int)word_12CAD0, 10);
+                    sub_62ED0((int)v12, (int)word_12CAA8, 10);
+                    sub_62ED0((int)v12, (int)word_12CA94, 10);
+                    DataFileIO::Close(v12);
                   }
                   byte_12CBC9 = 7;
                 }
@@ -53324,8 +53335,8 @@ void sub_4BB20_4BE60()
 {
   sub_61CC0_621D0(0, 0x10u, 0);
   sub_40440_40780((Pathstruct*)(char*)"data\\screens\\sfont0.dat");
-  sub_3EEA0_3F1E0(aDataScreensGco, (char *)dword_AE3FC);
-  sub_3EEA0_3F1E0(aDataScreensGco_0, (char *)dword_12CB9C);
+  sub_3EEA0_3F1E0(aDataScreensGco, (uint8_t*)dword_AE3FC);
+  sub_3EEA0_3F1E0(aDataScreensGco_0, (uint8_t*)dword_12CB9C);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_65D70_66280(dword_12CAF8, dword_12CAFC, dword_12CB00);
   else
@@ -53887,12 +53898,12 @@ void sub_4C7E0()
     sub_65DC0_662D0(dword_12CB04, dword_12CB08, dword_12CB0C);
   sub_51480((int)&dword_9688C, &dword_12CB34, (unsigned __int8 *)dword_12CB9C);
   byte_96890 &= ~2u;
-  sub_3EEA0_3F1E0(aDataScreensMai, (char *)dword_AE3FC);
+  sub_3EEA0_3F1E0(aDataScreensMai, (uint8_t*)dword_AE3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12CBA8, 0xC8u);
   else
     sub_62FC4_634D4((const void *)dword_AE3FC, (void *)dword_12CBA8, 0x1E0u);
-  sub_3EEA0_3F1E0(aDataScreensMai_0, (char *)dword_12CB9C);
+  sub_3EEA0_3F1E0(aDataScreensMai_0, (uint8_t*)dword_12CB9C);
   sub_504A0();
   sub_51A10();
   v0 = (int)dword_AE3FC;
@@ -54839,8 +54850,8 @@ char sub_4E0E0()
     sub_65DC0_662D0(dword_12CB10, dword_12CB14, dword_12CB18);
   sub_51480((int)&dword_9688C, &dword_12CB34, (unsigned __int8 *)dword_12CB9C);
   byte_96890 &= ~2u;
-  sub_3EEA0_3F1E0(aDataScreensPmu_0, (char *)dword_12CB9C);
-  sub_3EEA0_3F1E0(aDataScreensPmu_1, (char *)dword_AE3FC);
+  sub_3EEA0_3F1E0(aDataScreensPmu_0, (uint8_t*)dword_12CB9C);
+  sub_3EEA0_3F1E0(aDataScreensPmu_1, (uint8_t*)dword_AE3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12EFF4, 0xC8u);
   else
@@ -55118,8 +55129,8 @@ int sub_4E5B0()
       sub_65DC0_662D0(dword_12CB40, dword_12CB44, dword_12CB48);
     word_96898 = 16;
     dword_96894 = dword_12CB40 + 6;
-    sub_3EEA0_3F1E0(aDataScreensPpe, (char *)dword_12CB9C);
-    sub_3EEA0_3F1E0(aDataScreensPpe_0, (char *)dword_AE3FC);
+    sub_3EEA0_3F1E0(aDataScreensPpe, (uint8_t*)dword_12CB9C);
+    sub_3EEA0_3F1E0(aDataScreensPpe_0, (uint8_t*)dword_AE3FC);
     if ( (word_12F02E_12F01E & 1) != 0 )
       sub_62FA8_634B8((const void *)dword_AE3FC, (void *)dword_12EFF4, 0xC8u);
     else
@@ -55534,7 +55545,7 @@ void sub_4F1E0()
 void sub_4F3F0_4F730()
 {
   int v1; // ebx
-  int v2; // eax
+  FILE* v2; // eax
   __int16 v3; // si
   __int16 v4; // cx
   __int16 v5; // ax
@@ -55548,25 +55559,25 @@ void sub_4F3F0_4F730()
   int v13; // eax
   int v14; // eax
   int v15; // eax
-  int v16; // ebx
+  FILE* v16; // ebx
   char v17[56]; // [esp+0h] [ebp-38h] BYREF
 
   sprintf(v17, "%s%s\\language.inf", aC, aCarpetCd_1);
   v1 = 0;
-  v2 = sub_5CDE0((int)v17, 514);
-  if ( v2 != -1 )
+  v2 = DataFileIO::CreateOrOpenFile((char*)v17, 514);
+  if ( v2 != nullptr )
   {
-    sub_5CE50(v2);
-    v16 = sub_5CDE0((int)v17, 512);
-    if ( v16 == -1 )
+    DataFileIO::Close(v2);
+    v16 = DataFileIO::CreateOrOpenFile((char*)v17, 512);
+    if ( v16 == nullptr)
       goto LABEL_58;
-    sub_5CBD0(v16, dword_AE408_AE3F8() + 151, 1);
+    DataFileIO::Read(v16, (uint8_t*)dword_AE408_AE3F8() + 151, 1);
     goto LABEL_57;
   }
   dword_12CBB0 = 0;
-  sub_3EEA0_3F1E0(aDataScreensLan, (char *)dword_12CB9C);
+  sub_3EEA0_3F1E0(aDataScreensLan, (uint8_t*)dword_12CB9C);
   v3 = (short)dword_AE3FC;
-  sub_3EEA0_3F1E0(aDataScreensLan_0, (char *)dword_AE3FC);
+  sub_3EEA0_3F1E0(aDataScreensLan_0, (uint8_t*)dword_AE3FC);
   sub_40440_40780((Pathstruct*)(char*)"data\\screens\\langspr.dat");
   if ( (word_12F02E_12F01E & 1) != 0 )
   {
@@ -55677,12 +55688,12 @@ void sub_4F3F0_4F730()
     sub_5C05C_5C56C(0);
   byte_12EEF1 = 0;
   byte_12CAE4 &= ~1u;
-  v16 = sub_5CDE0((int)v17, 546);
-  if ( v16 != -1 )
+  v16 = DataFileIO::CreateOrOpenFile((char*)v17, 546);
+  if ( v16 != nullptr )
   {
-    sub_62ED0(v16, dword_AE408_AE3F8() + 151, 1);
+    sub_62ED0((int)v16, dword_AE408_AE3F8() + 151, 1);
 LABEL_57:
-    sub_5CE50(v16);
+    DataFileIO::Close(v16);
   }
 LABEL_58:
   switch ( *(_BYTE *)(dword_AE408_AE3F8() + 151) )
@@ -56165,15 +56176,15 @@ int sub_504A0()
 int sub_505A0()
 {
   int v0; // ebp
-  int v1; // eax
-  int v2; // eax
-  int v3; // ebx
+  FILE* v1; // eax
+  FILE* v2; // eax
+  FILE* v3; // ebx
   char v5[48]; // [esp+0h] [ebp-30h] BYREF
 
   sprintf(v5, "%s%s\\sndsetup.inf", aC, aCarpetCd_1);
   v0 = 0;
-  v1 = sub_5CDE0((int)v5, 514);
-  if ( v1 == -1 )
+  v1 = DataFileIO::CreateOrOpenFile((char*)v5, 514);
+  if ( v1 == nullptr )
   {
     word_12C9C0 = word_A9990;
     word_12C9E0 = word_A9990;
@@ -56190,26 +56201,26 @@ int sub_505A0()
   }
   else
   {
-    sub_5CE50(v1);
+    DataFileIO::Close(v1);
     sprintf(v5, "%s%s\\sndsetup.dat", aC, aCarpetCd_1);
-    v2 = sub_5CDE0((int)v5, 514);
+    v2 = DataFileIO::CreateOrOpenFile((char*)v5, 514);
     v3 = v2;
-    if ( v2 != -1 )
+    if ( v2 != nullptr )
     {
-      sub_5CBD0(v2, (int)byte_12C9A0, 32);
-      sub_5CBD0(v3, (int)&word_12C9C0, 32);
-      sub_5CBD0(v3, (int)byte_12CA00, 32);
-      sub_5CBD0(v3, (int)&word_12C9E0, 32);
-      sub_5CBD0(v3, (int)&word_12CA9E, 10);
-      sub_5CBD0(v3, (int)word_12CA80, 10);
-      sub_5CBD0(v3, (int)&word_12CAB2, 10);
-      sub_5CBD0(v3, (int)word_12CA8A, 10);
-      sub_5CBD0(v3, (int)&word_12CAC6, 10);
-      sub_5CBD0(v3, (int)word_12CAD0, 10);
-      sub_5CBD0(v3, (int)&word_12CAA8, 10);
-      sub_5CBD0(v3, (int)word_12CA94, 10);
+      DataFileIO::Read(v2, (uint8_t*)byte_12C9A0, 32);
+      DataFileIO::Read(v3, (uint8_t*)&word_12C9C0, 32);
+      DataFileIO::Read(v3, (uint8_t*)byte_12CA00, 32);
+      DataFileIO::Read(v3, (uint8_t*)&word_12C9E0, 32);
+      DataFileIO::Read(v3, (uint8_t*)&word_12CA9E, 10);
+      DataFileIO::Read(v3, (uint8_t*)word_12CA80, 10);
+      DataFileIO::Read(v3, (uint8_t*)&word_12CAB2, 10);
+      DataFileIO::Read(v3, (uint8_t*)word_12CA8A, 10);
+      DataFileIO::Read(v3, (uint8_t*)&word_12CAC6, 10);
+      DataFileIO::Read(v3, (uint8_t*)word_12CAD0, 10);
+      DataFileIO::Read(v3, (uint8_t*)&word_12CAA8, 10);
+      DataFileIO::Read(v3, (uint8_t*)word_12CA94, 10);
       v0 = 1;
-      sub_5CE50(v3);
+      DataFileIO::Close(v3);
     }
   }
   dword_12CABC = dword_A99A0;
@@ -57384,7 +57395,7 @@ void sub_51A10()
 {
   int v0; // esi
   int v1; // esi
-  int v2; // ebx
+  FILE* v2; // ebx
   //int result; // eax
   char v4[40]; // [esp+0h] [ebp-40h] BYREF
   int v5; // [esp+28h] [ebp-18h] BYREF
@@ -57396,19 +57407,19 @@ void sub_51A10()
     v0 = i;
     sprintf(v4, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, i);
     v1 = v0;
-    v2 = sub_5CDE0((int)v4, 512);
-    if ( v2 == -1 )
+    v2 = DataFileIO::CreateOrOpenFile((char*)v4, 512);
+    if ( v2 == nullptr )
     {
       sprintf(off_96864[v1], asc_A9ACC);
     }
     else
     {
-      sub_5CBD0(v2, (int)&v5, 4);
+      DataFileIO::Read(v2, (uint8_t*)&v5, 4);
       if ( v5 == 4 )
-        sub_5CBD0(v2, (int)off_96864[v1], 20);
+        DataFileIO::Read(v2, (uint8_t*)off_96864[v1], 20);
       else
         sprintf(off_96864[v1], asc_A9ACC);
-      sub_5CE50(v2);
+      DataFileIO::Close(v2);
     }
   }
 }
@@ -57419,7 +57430,7 @@ void sub_51A10()
 int sub_51AF0(char a1)
 {
   int v1; // esi
-  int v2; // ebx
+  FILE* v2; // ebx
   char v4[40]; // [esp+0h] [ebp-40h] BYREF
   int v5; // [esp+28h] [ebp-18h] BYREF
   int v6[5]; // [esp+2Ch] [ebp-14h] BYREF
@@ -57428,26 +57439,26 @@ int sub_51AF0(char a1)
   v5 = 4 * ((unsigned __int8)byte_12CBD1 + (unsigned __int8)byte_12CBD0 + *(unsigned __int16 *)(dword_AE408_AE3F8() + 17));
   sprintf(v4, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, (unsigned __int8)(a1 - 1));
   v1 = 0;
-  v2 = sub_5CDE0((int)v4, 512);
-  if ( v2 != -1 )
+  v2 = DataFileIO::CreateOrOpenFile((char*)v4, 512);
+  if ( v2 != nullptr )
   {
-    sub_5CBD0(v2, (int)v6, 4);
+    DataFileIO::Read(v2, (uint8_t*)v6, 4);
     if ( v6[0] == 4 )
     {
-      sub_5CBD0(v2, (int)off_96864[(unsigned __int8)(a1 - 1)], 20);
-      sub_5CBD0(v2, dword_AE408_AE3F8() + 29, 32);
-      sub_5CBD0(v2, dword_AE408_AE3F8() + 61, 32);
-      sub_5CBD0(v2, dword_AE400_AE3F0() + 8597, 12);
-      sub_5CBD0(v2, (int)&v5, 4);
-      sub_5CBD0(v2, dword_AE400_AE3F0() + 15318, 24);
-      sub_5CBD0(v2, (int)&byte_12CBD0, 1);
-      sub_5CBD0(v2, (int)&byte_12CBD1, 1);
-      sub_5CBD0(v2, dword_AE400_AE3F0() + 8597, 12);
+      DataFileIO::Read(v2, (uint8_t*)off_96864[(unsigned __int8)(a1 - 1)], 20);
+      DataFileIO::Read(v2, (uint8_t*)dword_AE408_AE3F8() + 29, 32);
+      DataFileIO::Read(v2, (uint8_t*)dword_AE408_AE3F8() + 61, 32);
+      DataFileIO::Read(v2, (uint8_t*)dword_AE400_AE3F0() + 8597, 12);
+      DataFileIO::Read(v2, (uint8_t*)&v5, 4);
+      DataFileIO::Read(v2, (uint8_t*)dword_AE400_AE3F0() + 15318, 24);
+      DataFileIO::Read(v2, (uint8_t*)&byte_12CBD0, 1);
+      DataFileIO::Read(v2, (uint8_t*)&byte_12CBD1, 1);
+      DataFileIO::Read(v2, (uint8_t*)dword_AE400_AE3F0() + 8597, 12);
       byte_9687C = 0;
       v1 = 1;
       *(_WORD *)(dword_AE408_AE3F8() + 17) = v5 / v6[0] - (unsigned __int8)byte_12CBD0 - (unsigned __int8)byte_12CBD1;
     }
-    sub_5CE50(v2);
+    DataFileIO::Close(v2);
   }
   return v1;
 }
@@ -57464,8 +57475,8 @@ int sub_51AF0(char a1)
 int sub_51C90(char a1)
 {
   int v1; // esi
-  int v2; // eax
-  int v3; // ebx
+  FILE* v2; // eax
+  FILE* v3; // ebx
   char v5[40]; // [esp+0h] [ebp-3Ch] BYREF
   int v6; // [esp+28h] [ebp-14h] BYREF
   int v7[4]; // [esp+2Ch] [ebp-10h] BYREF
@@ -57474,22 +57485,22 @@ int sub_51C90(char a1)
   v1 = 0;
   v6 = 4 * (*(unsigned __int16 *)(dword_AE408_AE3F8() + 17) + (unsigned __int8)byte_12CBD0 + (unsigned __int8)byte_12CBD1);
   sprintf(v5, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, (unsigned __int8)(a1 - 1));
-  v2 = sub_5CDE0((int)v5, 546);
+  v2 = DataFileIO::CreateOrOpenFile((char*)v5, 546);
   v3 = v2;
-  if ( v2 != -1 )
+  if ( v2 != nullptr )
   {
-    sub_62ED0(v2, (int)v7, 4);
-    sub_62ED0(v3, (int)off_96864[(unsigned __int8)(a1 - 1)], 20);
-    sub_62ED0(v3, dword_AE408_AE3F8() + 29, 32);
-    sub_62ED0(v3, dword_AE408_AE3F8() + 61, 32);
-    sub_62ED0(v3, dword_AE400_AE3F0() + 8597, 12);
-    sub_62ED0(v3, (int)&v6, 4);
-    sub_62ED0(v3, dword_AE400_AE3F0() + 15318, 24);
-    sub_62ED0(v3, (int)&byte_12CBD0, 1);
-    sub_62ED0(v3, (int)&byte_12CBD1, 1);
-    sub_62ED0(v3, dword_AE400_AE3F0() + 8597, 12);
+    sub_62ED0((int)v2, (int)v7, 4);
+    sub_62ED0((int)v3, (int)off_96864[(unsigned __int8)(a1 - 1)], 20);
+    sub_62ED0((int)v3, dword_AE408_AE3F8() + 29, 32);
+    sub_62ED0((int)v3, dword_AE408_AE3F8() + 61, 32);
+    sub_62ED0((int)v3, dword_AE400_AE3F0() + 8597, 12);
+    sub_62ED0((int)v3, (int)&v6, 4);
+    sub_62ED0((int)v3, dword_AE400_AE3F0() + 15318, 24);
+    sub_62ED0((int)v3, (int)&byte_12CBD0, 1);
+    sub_62ED0((int)v3, (int)&byte_12CBD1, 1);
+    sub_62ED0((int)v3, dword_AE400_AE3F0() + 8597, 12);
     v1 = 1;
-    sub_5CE50(v3);
+    DataFileIO::Close(v3);
   }
   return v1;
 }
@@ -61839,11 +61850,11 @@ char sub_587E0()
   char v1[64]; // [esp+0h] [ebp-40h] BYREF
 
   sprintf(v1, "%s%s/%s/%s.dat", "C:", aCarpetCd_4, aData_1, aTmaps00_0);
-  dword_968EC = sub_5CDE0((int)v1, 512);
-  if ( dword_968EC == -1 )
+  dword_968EC = DataFileIO::CreateOrOpenFile((char*)v1, 512);
+  if ( dword_968EC == nullptr )
   {
     sprintf(v1, "data/%s.dat", aTmaps00_0);
-    dword_968EC = sub_5CDE0((int)v1, 512);
+    dword_968EC = DataFileIO::CreateOrOpenFile((char*)v1, 512);
   }
   return 1;
 }
@@ -61851,19 +61862,19 @@ char sub_587E0()
 // 968EC: using guessed type int dword_968EC;
 
 //----- (00058860) --------------------------------------------------------
-int sub_58860(unsigned __int16 a1, char *a2)
+int sub_58860(unsigned __int16 a1, uint8_t* a2)
 {
   int v2; // esi
   int v3; // esi
   int result; // eax
 
-  if ( dword_968EC == -1 )
-    return dword_968EC;
+  if ( dword_968EC == nullptr )
+    return -1;
   v2 = 10 * a1;
-  sub_62B30_63040(dword_968EC, *(_DWORD *)(v2 + dword_12D744 + 4), 0);
+  DataFileIO::Seek(dword_968EC, *(_DWORD *)(v2 + dword_12D744 + 4), 0);
   v3 = *(_DWORD *)(10 * (a1 + 1) + dword_12D744 + 4) - *(_DWORD *)(dword_12D744 + v2 + 4);
-  sub_5CBD0(dword_968EC, (int)a2, v3);
-  result = sub_62B60((int)a2, a2);
+  DataFileIO::Read(dword_968EC, (uint8_t*)a2, v3);
+  result = sub_62B60(a2, a2);
   if ( result >= 0 )
   {
     if ( !result )
@@ -62016,7 +62027,7 @@ __int16 sub_58B30(unsigned __int16 a1)
       v3 = (int *)v1;
       if ( v1 )
       {
-        v1 = sub_58860(i, *(char **)v1);
+        v1 = sub_58860(i, *(uint8_t**)v1);
         if ( v1 != -1 )
         {
           dword_12D748[i] = (int)v3;
@@ -62228,10 +62239,10 @@ void sub_58F00_59410()//229F00
 //----- (00058F70) --------------------------------------------------------
 void sub_58F70()
 {
-  if ( dword_968EC != -1 )
+  if ( dword_968EC != nullptr )
   {
-    sub_5CE50(dword_968EC);
-    dword_968EC = -1;
+    DataFileIO::Close(dword_968EC);
+    dword_968EC = nullptr;
   }
 }
 // 968EC: using guessed type int dword_968EC;
@@ -62240,14 +62251,14 @@ void sub_58F70()
 void sub_58F90_594A0()
 {
   unsigned __int16 *v0; // ebx
-  int v1; // esi
+  uint8_t* v1; // esi
 
   sub_587E0();
   v0 = (unsigned __int16 *)&unk_99BA0;
-  v1 = dword_12EFF4;
+  v1 = (uint8_t*)dword_12EFF4;
   while ( v0[3] || v0[4] )
   {
-    if ( sub_58860(*v0, (char *)v1) == -1 )
+    if ( sub_58860(*v0, v1) == -1 )
     {
       *(_WORD *)(v1 + 2) = 255;
       *(_WORD *)(v1 + 4) = 255;
@@ -63307,21 +63318,12 @@ __int16 sub_5A3B0()
 }
 // AE44C: using guessed type int dword_AE44C;
 
-//----- (0005A3C0) --------------------------------------------------------
-int sub_5A3C0_5A8D0(__int16 a1)
+void sub_5A3C0_5A8D0(int fontIndex)
 {
-  int result; // eax
-  int v2; // edx
-
-  result = a1;
-  v2 = dword_AE3B8[result];
-  if ( !v2 )
-    v2 = dword_AE3B8[0];
-  dword_AE44C = v2;
-  return result * 4;
+  if ( !dword_AE3B8[fontIndex])
+      dword_AE3B8[fontIndex] = dword_AE3B8[0];
+  dword_AE44C = dword_AE3B8[fontIndex];
 }
-// AE3B8: using guessed type int dword_AE3B8[];
-// AE44C: using guessed type int dword_AE44C;
 
 //----- (0005A3E3) --------------------------------------------------------
 // positive sp value has been detected, the output may be wrong!
@@ -64947,13 +64949,6 @@ void sub_5CB73(int a1, __int16 a2)
 // 9ADB4: using guessed type __int16 word_9ADB4;
 // 9ADC4: using guessed type int dword_9ADC4;
 
-//----- (0005CBD0) --------------------------------------------------------
-int sub_5CBD0(int a1, int a2, int a3)
-{
-  return read(a1, a2, a3);
-}
-// 6692C: using guessed type _DWORD read(_DWORD, _DWORD, _DWORD);
-
 //----- (0005CC54) --------------------------------------------------------
 void sub_5CC54_5D164()
 {
@@ -65013,30 +65008,6 @@ void sub_5CDA0()
 }
 // 9AD96: using guessed type char byte_9AD96;
 // 12EFF4: using guessed type int dword_12EFF4;
-
-//----- (0005CDE0) --------------------------------------------------------
-int sub_5CDE0(int a1, int a2)
-{
-  int v3; // [esp+4h] [ebp-4h]
-
-  if ( a2 == 546 )
-  {
-    v3 = creat(a1, 448);
-    setmode(v3, 512);
-    close(v3);
-  }
-  return sopen(a1, a2, 64);
-}
-// 6691E: using guessed type _DWORD close(_DWORD);
-// 66BA3: using guessed type _DWORD creat(_DWORD, _DWORD);
-// 66BBA: using guessed type _DWORD setmode(_DWORD, _DWORD);
-
-//----- (0005CE50) --------------------------------------------------------
-void sub_5CE50(int a1)
-{
-  close(a1);
-}
-// 6691E: using guessed type _DWORD close(_DWORD);
 
 //----- (0005CEF0) --------------------------------------------------------
 int sub_5CEF0_5D400(unsigned __int16 a1)
@@ -65155,7 +65126,7 @@ int sub_5D1A0(int a1, int a2, unsigned int a3)
   unsigned int i; // [esp+4h] [ebp-4h]
 
   if ( !dword_9AF08 )
-    return sub_5CBD0(a1, a2, a3);
+    return DataFileIO::Read((FILE*)a1, (uint8_t*)a2, a3);
   for ( i = 0; i < a3 && dword_9AF14 + i < dword_9AF10; ++i )
   {
     v3 = (_BYTE *)dword_9AF0C++;
@@ -65175,7 +65146,7 @@ int sub_5D230(int a1, int a2, int a3)
 {
   int result; // eax
 
-  result = read(a1, dword_9AF08, a3);
+  result = read(a1, (void*)dword_9AF08, a3);
   dword_9AF0C = dword_9AF08;
   dword_9AF10 = result;
   dword_9AF14 = 0;
@@ -67038,25 +67009,25 @@ unsigned __int64 sub_60BDC(int a1)
   unsigned int v4; // [esp+Ch] [ebp-10h]
   int v5; // [esp+10h] [ebp-Ch]
   int v6; // [esp+14h] [ebp-8h]
-  int v7; // [esp+18h] [ebp-4h]
+  FILE* v7; // [esp+18h] [ebp-4h]
 
   v5 = 0;
   v3 = 0;
   v2 = 0;
-  v6 = sub_63910_63E20(a1);
+  v6 = GetRNCFilesize_63910_63E20((Pathstruct*)a1);
   if ( v6 > 0 )
   {
-    v7 = sub_5CDE0(a1, 514);
-    if ( v7 != -1 )
+    v7 = DataFileIO::CreateOrOpenFile((char*)a1, 514);
+    if ( v7 != nullptr )
     {
       v5 = (int)malloc_42540_42880(v6);
       if ( v5 )
       {
-        if ( sub_5CBD0(v7, v5, v6) != v6 )
+        if ( DataFileIO::Read(v7, (uint8_t*)v5, v6) != v6 )
           v5 = 0;
       }
     }
-    sub_5CE50(v7);
+    DataFileIO::Close(v7);
   }
   if ( v5 )
   {
@@ -68613,15 +68584,25 @@ void free_62128_62638_orig(int a1)
   free_426E0_42A20((void*)a1);
 }
 
-//----- (00062B30) --------------------------------------------------------
-int sub_62B30_63040(int a1, int a2, char a3)
+int sub_62B60(uint8_t* input, uint8_t* output)
 {
-  return lseek(a1, a2, a3);
+    char RNSSING[5] = "RNC\x1";
+    Type_fileSize fileSize;
+    if (!memcmp((char*)input, RNSSING, 4))
+    {
+        fileSize.bytes[0] = input[7];
+        fileSize.bytes[1] = input[6];
+        fileSize.bytes[2] = input[5];
+        fileSize.bytes[3] = input[4];
+    }
+    else
+        return -1;
+    DataFileIO::Decompress(input, output);
+    return fileSize.size;
 }
-// 6B992: using guessed type _DWORD lseek(_DWORD, _DWORD, char);
 
 //----- (00062B60) --------------------------------------------------------
-int sub_62B60(int a1, char *a2)
+int sub_62B60_orig(int a1, char *a2)
 {
   unsigned int i; // ecx
   int *v3; // esi
@@ -68907,14 +68888,14 @@ char sub_62DC3_632D3(int a1)
 //----- (00062E60) --------------------------------------------------------
 int sub_62E60(int a1, int a2, int a3)
 {
-  int v5; // [esp+4h] [ebp-8h]
+  FILE* v5; // [esp+4h] [ebp-8h]
   int v6; // [esp+8h] [ebp-4h]
 
-  v5 = sub_5CDE0(a1, 546);
-  if ( v5 == -1 )
+  v5 = DataFileIO::CreateOrOpenFile((char*)a1, 546);
+  if ( v5 == nullptr )
     return -1;
-  v6 = sub_62ED0(v5, a2, a3);
-  sub_5CE50(v5);
+  v6 = sub_62ED0((int)v5, a2, a3);
+  DataFileIO::Close(v5);
   return v6;
 }
 
@@ -68944,7 +68925,7 @@ int sub_62FF0(int a1)
 }
 
 //----- (00063010) --------------------------------------------------------
-void sub_63010_63520()
+void sub_63010_63520()//234010_
 {
   int v0; // [esp+0h] [ebp-14h]
   int n; // [esp+4h] [ebp-10h]
@@ -68958,7 +68939,7 @@ void sub_63010_63520()
   int v9; // [esp+Ch] [ebp-8h]
   unsigned int v10; // [esp+10h] [ebp-4h]
 
-  if ( !dword_12F6A8[0] )
+  if ( !dword_12F6A8[0] && false)//fixed(false)
   {
     v0 = sub_6342C(0xFA00u);
     for ( i = 0; i < 256; ++i )
@@ -69117,14 +69098,7 @@ void sub_634A0_639B0(Pathstruct* pathstruct)
 //----- (000634E0) --------------------------------------------------------
 int sub_634E0_639F0(Pathstruct* pathstruct)
 {
-  int v1; // eax
-  int *v2; // edx
-  int v3; // eax
-  int *v4; // edx
-  //int (*v6)(int); // [esp+0h] [ebp-8h]
-
   void* (*mallocVar)(size_t);
-
   sub_63010_63520();
   if ( (pathstruct->var40_alloc_type & 1) != 0 )
       mallocVar = malloc_425C0_42900;
@@ -69133,19 +69107,20 @@ int sub_634E0_639F0(Pathstruct* pathstruct)
   sub_634A0_639B0(pathstruct);
   if ( pathstruct->path[0] == '*' )
   {
+      *pathstruct->colorPalette_var28 = (uint8_t*)malloc(pathstruct->var36_size_buffer);
     *pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
     if ( !(*pathstruct->colorPalette_var28) )
       return 0;
   }
   else
   {
-    pathstruct->var36_size_buffer = sub_63910_63E20((int)pathstruct);
+    pathstruct->var36_size_buffer = GetRNCFilesize_63910_63E20(pathstruct);
     if (pathstruct->var36_size_buffer <= 0 )
       return 0;
     *pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
     if ( !(*pathstruct->colorPalette_var28) )
       return -1;
-    if ( sub_3EEA0_3F1E0((const char *)pathstruct, (char*)*pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
+    if ( sub_3EEA0_3F1E0(pathstruct->path, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
     {
       *pathstruct->colorPalette_var28 = 0;
       *pathstruct->var32_end_buffer = 0;
@@ -69207,40 +69182,34 @@ void sub_638F8()
   ;
 }
 
-//----- (00063910) --------------------------------------------------------
-int sub_63910_63E20(int a1)
+int GetRNCFilesize_63910_63E20(Pathstruct* pathstruct)
 {
-  char v2[8]; // [esp+0h] [ebp-1Ch] BYREF
-  char v3[8]; // [esp+8h] [ebp-14h] BYREF
-  int v5; // [esp+14h] [ebp-8h]
-  int v6; // [esp+18h] [ebp-4h]
+	uint8_t miniBuffer[8];
+    char dataPath[MAX_PATH];
 
-  v5 = -1;
-  qmemcpy(v3, "RNC", 3);
-  v3[3] = 1;
-  v3[4] = 0;
-  v6 = sub_5CDE0(a1, 512);
-  if ( v6 <= 0 )
-    return -1;
-  sub_5CBD0(v6, (int)v2, 8);
-  if ( !strncmp(v2, v3, 4) )
-  {
-    v5 = (unsigned __int8)v2[4] << 8;
-    v5 += (unsigned __int8)v2[5];
-    v5 <<= 8;
-    v5 += (unsigned __int8)v2[6];
-    v5 <<= 8;
-    v5 += (unsigned __int8)v2[7];
-  }
-  else
-  {
-    v5 = filelength(v6);
-  }
-  sub_5CE50(v6);
-  return v5;
+    sprintf(dataPath, "%s/%s", gameDataPath.c_str(), pathstruct->path);
+
+	char RNSSING[5] = "RNC\x1";
+	FILE* file = DataFileIO::CreateOrOpenFile(dataPath, 512);
+	if (file == nullptr)
+		return -1;
+	DataFileIO::Read(file, miniBuffer, 8);
+    Type_fileSize fileSize;
+	fileSize.size = -1;
+	if (!memcmp((char*)miniBuffer, RNSSING, 4))
+	{
+		fileSize.bytes[0] = miniBuffer[7];
+        fileSize.bytes[1] = miniBuffer[6];
+        fileSize.bytes[2] = miniBuffer[5];
+        fileSize.bytes[3] = miniBuffer[4];
+	}
+	else
+	{
+		fileSize.size = DataFileIO::FileLengthBytes(file);
+	}
+	DataFileIO::Close(file);
+	return fileSize.size;
 }
-// 62AE2: using guessed type _DWORD filelength(_DWORD);
-// 65E6F: using guessed type _DWORD strncmp(_DWORD, _DWORD, _DWORD);
 
 //----- (00063A8C) --------------------------------------------------------
 void sub_63A8C()
@@ -69263,16 +69232,16 @@ int sub_63A9D_63FAD(int a3, __int16 a4)
   if ( a3 || a4 )
   {
     strcpy(&unk_A05D1, (char*)a3);
-    strcat(&unk_A05D1, aHmidet386);
+    strcat(&unk_A05D1, "hmidet.386");
   }
   else
   {
-    strcpy(&unk_A05D1, aHmidet386);
+    strcpy(&unk_A05D1, "hmidet.386");
   }
   dword_131574 = open((uint32)&unk_A05D1, 512);
   if ( dword_131574 == -1 )
     return 15;
-  read(dword_131574, (uint32)&unk_131588, 44);
+  read(dword_131574, (void*)&unk_131588, 44);
   dword_131578 = (int)malloc(4096);
   if ( dword_131578 )
   {
@@ -69336,15 +69305,15 @@ int sub_63C5A_6416A(const void *a1, unsigned int a2, char *a3, __int16 a4, unsig
     return 6;
   v9 = 0;
   lseek(dword_131574, 0, 0);
-  read(dword_131574, (uint32)&unk_131588, 44);
+  read(dword_131574, (void*)&unk_131588, 44);
   while ( v10 <= dword_1315A8 && !v9 )
   {
     v7 = lseek(dword_131574, 0, 1);
-    read(dword_131574, (uint32)&unk_131540, 48);
+    read(dword_131574, (void*)&unk_131540, 48);
     if ( dword_131568 == a2 && byte_13156D < 0 )
     {
       v9 = 1;
-      read(dword_131574, dword_131578, dword_131564);
+      read(dword_131574, (void*)dword_131578, dword_131564);
       dword_131584 = dword_131578;
     }
     else
@@ -69383,8 +69352,8 @@ int sub_64248(unsigned int a1, __int16 a2)
   if ( !a1 && !a2 )
     return 2;
   lseek(dword_131574, dword_131570, 0);
-  read(dword_131574, (uint32)&unk_131540, 48);
-  read(dword_131574, dword_131578, dword_131564);
+  read(dword_131574, (void*)&unk_131540, 48);
+  read(dword_131574, (void*)dword_131578, dword_131564);
   sub_67710((int (*)(_DWORD))dword_131584);
   sub_6773B((int (*)(_DWORD))dword_131584);
   __writegsdword(a1, dword_A06DC);
@@ -71483,7 +71452,7 @@ int sub_68622_68B32(
   v14 = open((uint32)&unk_9EE07, 512);
   if ( v14 != -1 )
   {
-    read(v14, (uint32)&unk_9C1D2, 44);
+    read(v14, (void*)&unk_9C1D2, 44);
     while ( 1 )
     {
       if ( v11 > dword_9C1F2 || v12 )
@@ -71495,7 +71464,7 @@ int sub_68622_68B32(
         __writegsdword(a6, v7);
         return 0;
       }
-      read(v14, (uint32)&unk_9C1FE, 44);
+      read(v14, (void*)&unk_9C1FE, 44);
       v13 = dword_9C222;
       if ( dword_9C226 == a3 )
       {
@@ -71506,7 +71475,7 @@ int sub_68622_68B32(
         sub_67557_67A67(a1, a2, v10);
         v8 = a1;
         v7 = sub_67582();
-        read(v14, v10, v13);
+        read(v14, (void*)v10, v13);
         sub_674CD();
         a2 = (int)a5;
         *a5 = v10;
@@ -73972,7 +73941,7 @@ int sub_6DE34_6E344(
   v14 = open((uint32)&unk_A05D1, 512);
   if ( v14 != -1 )
   {
-    read(v14, (uint32)&unk_131BB0, 44);
+    read(v14, (void*)&unk_131BB0, 44);
     while ( 1 )
     {
       if ( v11 > dword_131BD0 || v12 )
@@ -73984,7 +73953,7 @@ int sub_6DE34_6E344(
         __writegsdword(a6, v7);
         return 0;
       }
-      read(v14, (uint32)&unk_131B80, 48);
+      read(v14, (void*)&unk_131B80, 48);
       v13 = dword_131BA4;
       if ( dword_131BA8 == a3 && byte_131BAD < 0 )
       {
@@ -73996,7 +73965,7 @@ int sub_6DE34_6E344(
         sub_67557_67A67(a1, a2, v10);
         v8 = a1;
         v7 = sub_67582();
-        read(v14, v10, v13);
+        read(v14, (void*)v10, v13);
         a2 = (int)a5;
         *a5 = v10;
       }
@@ -74057,7 +74026,7 @@ int sub_6E09A_6E5AA(__int16 a1, int a2, unsigned int a3, int *a4, unsigned int a
   v13 = open((uint32)&unk_A05D1, 512);
   if ( v13 != -1 )
   {
-    read(v13, (uint32)&unk_131BB0, 44);
+    read(v13, (void*)&unk_131BB0, 44);
     while ( 1 )
     {
       if ( v10 > dword_131BD0 || v11 )
@@ -74067,7 +74036,7 @@ int sub_6E09A_6E5AA(__int16 a1, int a2, unsigned int a3, int *a4, unsigned int a
         __writegsdword(a5, v6);
         return 0;
       }
-      read(v13, (uint32)&unk_131B80, 48);
+      read(v13, (void*)&unk_131B80, 48);
       v12 = dword_131BA4;
       if ( dword_131BA8 == a3 )
       {
@@ -74079,7 +74048,7 @@ int sub_6E09A_6E5AA(__int16 a1, int a2, unsigned int a3, int *a4, unsigned int a
         sub_67557_67A67(a1, a2, v9);
         v7 = a1;
         v6 = sub_67582();
-        read(v13, v9, v12);
+        read(v13, (void*)v9, v12);
         a2 = (int)a4;
         *a4 = v9;
       }
