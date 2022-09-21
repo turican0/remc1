@@ -14,18 +14,18 @@
 extern __int16 word_A9990;
 extern int dword_A99A0;
 
-extern uint8_t* dword_AE3F4;
-extern uint8_t* dword_AE440;
-extern uint8_t* dword_AE3B8;
-extern uint8_t* dword_AE424;
-extern uint8_t* dword_AE418;
-extern uint8_t* dword_AE450_AE440;
-extern uint8_t* dword_AE428_AE418;
-extern uint8_t* dword_AE41C_AE40C;
-extern uint8_t* dword_AE3F0;
-extern uint8_t* dword_AE3D8;
-extern uint8_t* dword_AE3FC;
-extern uint8_t* dword_AE42C;
+extern uint8_t* begSearch_AE3F4_26C3F4;
+extern uint8_t* begBuild00Tab_AE440_26C440;
+extern uint8_t* begFont0Tab_AE3B8_26C3B8;
+extern uint8_t* begPalData_AE424_26C424;
+extern uint8_t* begPalMem_AE418_26C418;
+extern uint8_t* begPointersTab_AE450_26C450;
+extern uint8_t* begPal00Dat_AE428_AE418_26C428;
+extern uint8_t* begTextDat_AE41C_AE40C_26C41C;
+extern uint8_t* begBlkDat_AE3F0_26C3F0;
+extern uint8_t* begSky_AE3D8_26C3D8;
+extern uint8_t* begBscreen_AE3FC_26C3FC;
+extern uint8_t* begSpr00Tab_AE42C_26C42C;
 
 typedef struct {//2049
 	uint16 var_u16_13325;
@@ -59,6 +59,7 @@ typedef struct {
 	uint8 var_u8_8602;
 
 	uint8 var_u8_8606;
+	uint8 var_u8_8608;
 
 	uint8 var_u8_8621;
 	uint8 var_u8_8622;
@@ -88,6 +89,8 @@ typedef struct {
 	uint8 var_u8_23;
 	uint32 var_u32_25;
 	uint8 var_u8_29;
+	uint8_t* var_u32_168;
+	uint32 var_u32_172;
 } Type_str_AE408_AE3F8;
 /*
 typedef struct {//66
@@ -127,6 +130,15 @@ typedef struct {//44 lenght
 	int32_t var36_size_buffer;//24 //maybe file size
 	uint32_t var40_alloc_type;//28
 } Pathstruct;
+#pragma pack (16)
+
+#pragma pack (1)
+typedef struct {//lenght 3
+	uint8_t red;
+	uint8_t green;
+	uint8_t blue;
+}
+TColor;
 #pragma pack (16)
 
 typedef union { uint8_t bytes[4]; int32 size; }
