@@ -60,6 +60,14 @@ void MouseEvents(uint32_t buttons, int x, int y)
 char dataPath[MAX_PATH];
 char* FixPath(char* inPath)
 {
+    /*if (strlen(inPath)>3)
+        if ((inPath[0] == 'C') && (inPath[1] == ':')&& (inPath[2] == '\\'))
+        {
+            //sprintf(dataPath, "%s/%s", gameDataPath.c_str(), &inPath[3]);
+            //xx
+            //return dataPath;
+            return inPath;
+        }*/
     sprintf(dataPath, "%s/%s", gameDataPath.c_str(), inPath);
     return dataPath;
 }
@@ -790,7 +798,7 @@ void sub_43EC0_44200();
 void sub_44470_447B0();
 void sub_44700_44A40(char* a1, char** a2, int a3);
 void sub_44730_44A70();
-int sub_44840_44B80();
+void sub_44840_44B80();
 int sub_448E0_44C20();
 __int16 sub_44BE0(int a1, char a2);
 signed int sub_44C10(int a1);
@@ -1046,7 +1054,7 @@ __int16 sub_5A3B0();
 void sub_5A3C0_5A8D0(int fontIndex);
 // void sub_5A3E3(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void sub_5A459_5A969();
-int sub_5A4EA();
+void sub_5A4EA();
 int sub_5A560();
 void DrawStartGameTexts_5ACA0_5B1B0();
 void DrawTextLine_5AD10_5B220(char* text);
@@ -9836,8 +9844,8 @@ char aRoland[7] = "ROLAND"; // weak
 char aGeneral[8] = "GENERAL"; // weak
 
 int dword_A99A0 = 5457241; // weak
-char aCarpetCd_1[11] = "\\carpet.cd"; // weak
-char aC[3] = "C:"; // weak
+//char aCarpetCd_1[11] = "\\carpet.cd"; // weak
+//char aC[3] = "C:"; // weak
 char aE388[5] = "e388"; // weak
 char aNewt[5] = "newt"; // weak
 //char aDataScreensGco[25] = "data/screens/gconfig.dat"; // weak
@@ -12248,7 +12256,7 @@ int dword_12EFAC; // weak
 int dword_12EFB4; // weak
 __int16 word_12EFC4; // weak
 __int16 word_12EFC6; // weak
-int dword_12EFC8; // weak
+uint8_t* dword_12EFC8; // weak
 int dword_12EFCC; // weak
 __int16 word_12EFD0; // weak
 __int16 word_12EFD2; // weak
@@ -12286,7 +12294,7 @@ int dword_12F074; // weak
 int dword_12F07A; // weak
 void* dword_12F080_12F070; // weak
 __int16 word_12F084; // weak
-char byte_12F090[768]; // weak
+uint8_t byte_12F090[768]; // weak
 _UNKNOWN unk_12F390; // weak
 _UNKNOWN unk_12F68E; // weak
 __int16 word_12F690_12F680; // weak
@@ -49222,7 +49230,7 @@ void sub_44730_44A70()
 // 12F02E: using guessed type __int16 word_12F02E_12F01E;
 
 //----- (00044840) --------------------------------------------------------
-int sub_44840_44B80()//215840
+void sub_44840_44B80()//215840
 {
   if ( byte_93A84 != 1 )
     JUMPOUT(0x44836);
@@ -49233,7 +49241,7 @@ int sub_44840_44B80()//215840
     sub_36DC2();
   sub_5CD70();
   sub_433C0_43700();
-  return sub_5A4EA();
+  sub_5A4EA();
 }
 // 44847: control flows out of bounds to 44836
 // 93A84: using guessed type char byte_93A84;
@@ -52541,7 +52549,7 @@ int sub_4A980_4ACC0()
   byte_12CBCE = 6;
   byte_12CBD3 = 0;
   sprintf((char*)(dword_AE408_AE3F8() + 117), "CARPET%d", 0);
-  sprintf(v3, "%s%s\\intro.pld", aC, aCarpetCd_1);
+  sprintf(v3, "%s%s\\intro.pld", "C:", "\\carpet.cd");
   v0 = DataFileIO::CreateOrOpenFile((char*)v3, 514);
   v4[0] = v0;
   if ( v0 == nullptr )
@@ -52826,7 +52834,7 @@ LABEL_43:
                 sprintf((char*)&dword_12CABC, "%s", (const char *)(&off_4A7B8)[2 * (unsigned __int8)byte_12CBCB]);
                 if ( !strcmp((const char*)&dword_12CABC, (const char*)&dword_A99A0) )
                 {
-                  sprintf(v13, "%s%s\\sndsetup.inf", aC, aCarpetCd_1);
+                  sprintf(v13, "%s%s\\sndsetup.inf", "C:", "\\carpet.cd");
                   v2 = (long long)fopen(v13, &aNewt[2]);
                   v10 = v2;
                   if ( (_DWORD)v2 )
@@ -52841,7 +52849,7 @@ LABEL_43:
                     fprintf((FILE*)v10, "MUSIC = %s %s 0 0 \n", byte_12CA00, (const char *)word_12CAA8);
                     fclose((FILE*)v10);
                   }
-                  sprintf(v13, "%s%s\\sndsetup.dat", aC, aCarpetCd_1);
+                  sprintf(v13, "%s%s\\sndsetup.dat", "C:", "\\carpet.cd");
                   v11 = DataFileIO::CreateOrOpenFile((char*)v13, 546);
                   v12 = v11;
                   if ( v11 != nullptr )
@@ -55536,7 +55544,7 @@ void sub_4F3F0_4F730()
   FILE* v16; // ebx
   char v17[56]; // [esp+0h] [ebp-38h] BYREF
 
-  sprintf(v17, "%s%s\\language.inf", aC, aCarpetCd_1);
+  sprintf(v17, "%s%s\\language.inf", "C:", "\\carpet.cd");
   v1 = 0;
   v2 = DataFileIO::CreateOrOpenFile((char*)v17, 514);
   if ( v2 != nullptr )
@@ -56153,11 +56161,11 @@ int sub_505A0()
   FILE* v1; // eax
   FILE* v2; // eax
   FILE* v3; // ebx
-  char v5[48]; // [esp+0h] [ebp-30h] BYREF
+  char pathBuffer[48]; // [esp+0h] [ebp-30h] BYREF
 
-  sprintf(v5, "%s%s\\sndsetup.inf", aC, aCarpetCd_1);
+  sprintf(pathBuffer, "%s%s\\sndsetup.inf", "C:", "\\carpet.cd");
   v0 = 0;
-  v1 = DataFileIO::CreateOrOpenFile((char*)v5, 514);
+  v1 = DataFileIO::CreateOrOpenFile(/*FixPath*/(pathBuffer), 514);
   if ( v1 == nullptr )
   {
     word_12C9C0 = word_A9990;
@@ -56176,8 +56184,8 @@ int sub_505A0()
   else
   {
     DataFileIO::Close(v1);
-    sprintf(v5, "%s%s\\sndsetup.dat", aC, aCarpetCd_1);
-    v2 = DataFileIO::CreateOrOpenFile((char*)v5, 514);
+    sprintf(pathBuffer, "%s%s\\sndsetup.dat", "C:", "\\carpet.cd");
+    v2 = DataFileIO::CreateOrOpenFile((char*)pathBuffer, 514);
     v3 = v2;
     if ( v2 != nullptr )
     {
@@ -57379,7 +57387,7 @@ void sub_51A10()
   for ( i = 0; i < 6u; ++i )
   {
     v0 = i;
-    sprintf(v4, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, i);
+    sprintf(v4, "%s%s\\save\\carpdd%02X.gam", "C:", "\\carpet.cd", i);
     v1 = v0;
     v2 = DataFileIO::CreateOrOpenFile((char*)v4, 512);
     if ( v2 == nullptr )
@@ -57411,7 +57419,7 @@ int sub_51AF0(char a1)
 
   v6[0] = 4;
   v5 = 4 * ((unsigned __int8)byte_12CBD1 + (unsigned __int8)byte_12CBD0 + *(unsigned __int16 *)(dword_AE408_AE3F8() + 17));
-  sprintf(v4, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, (unsigned __int8)(a1 - 1));
+  sprintf(v4, "%s%s\\save\\carpdd%02X.gam", "C:", "\\carpet.cd", (unsigned __int8)(a1 - 1));
   v1 = 0;
   v2 = DataFileIO::CreateOrOpenFile((char*)v4, 512);
   if ( v2 != nullptr )
@@ -57458,7 +57466,7 @@ int sub_51C90(char a1)
   v7[0] = 4;
   v1 = 0;
   v6 = 4 * (*(unsigned __int16 *)(dword_AE408_AE3F8() + 17) + (unsigned __int8)byte_12CBD0 + (unsigned __int8)byte_12CBD1);
-  sprintf(v5, "%s%s\\save\\carpdd%02X.gam", aC, aCarpetCd_1, (unsigned __int8)(a1 - 1));
+  sprintf(v5, "%s%s\\save\\carpdd%02X.gam", "C:", "\\carpet.cd", (unsigned __int8)(a1 - 1));
   v2 = DataFileIO::CreateOrOpenFile((char*)v5, 546);
   v3 = v2;
   if ( v2 != nullptr )
@@ -63358,19 +63366,16 @@ void sub_5A459_5A969()
 // 12EC04: using guessed type __int16 word_12EC04;
 
 //----- (0005A4EA) --------------------------------------------------------
-int sub_5A4EA()
+void sub_5A4EA()
 {
-  int result; // eax
-
   if ( byte_9AD04 == 1 )
   {
     outp(67, 54);
     outp(64, 0);
     outp(64, 0);
-    result = dos_setvect(8, dword_12EC00, (unsigned __int16)word_12EC04);
+    dos_setvect(8, dword_12EC00, (unsigned __int16)word_12EC04);
   }
   byte_9AD04 = 0;
-  return result;
 }
 // 62455: using guessed type _DWORD outp(_DWORD, char);
 // 624B5: using guessed type _DWORD dos_setvect(_DWORD, _DWORD, _DWORD);
@@ -64045,7 +64050,7 @@ int sub_5B650()
     word_12EF86 = word_12EFC6;
   dword_12EFA8 = dword_12EF88;
   dword_12EFA4 = (int)&unk_A0000 + (unsigned __int16)dword_12EF8C;
-  dword_12EFA0 = dword_12EFC8;
+  dword_12EFA0 = (int)dword_12EFC8;
   if ( (word_12F02E_12F01E & 1) != 0 )
   {
     for ( word_12EFD4 = 0; ; ++word_12EFD4 )
@@ -64144,7 +64149,7 @@ int sub_5B95C()
   dword_12EFA8 = dword_12EF98;
   dword_12EFAC = dword_12EF88;
   dword_12EFA4 = dword_12EF9C + (int)readBuffer_12EFF4;
-  dword_12EFA0 = dword_12EFC8;
+  dword_12EFA0 = (int)dword_12EFC8;
   for ( word_12EFD4 = 0; ; ++word_12EFD4 )
   {
     result = dword_12EF94 >> 16;
@@ -64413,12 +64418,15 @@ int sub_5C214()
   __int16 v5[6]; // [esp+38h] [ebp-1Ch] BYREF
   int (*v6)(); // [esp+44h] [ebp-10h]
   int v7; // [esp+48h] [ebp-Ch]
-  int i; // [esp+4Ch] [ebp-8h]
+  //int i; // [esp+4Ch] [ebp-8h]
 
   dword_9AD98 = 0;
   segread((uint32)v5);
   v2[0] = 0;
-  int386(51, (uint32)v2, (uint32)v1);
+  int386(51, (uint32)v2, (uint32)v1);//Mouse Reset/Get Mouse Installed Flag
+  //fix
+  v1[0] = -1;
+  //fix
   if ( v1[0] != -1 )
     return 0;
   v2[0] = 12;
@@ -64427,10 +64435,10 @@ int sub_5C214()
   v6 = (int (*)())sub_5BE6C;
   v4 = (int (*)())sub_5BE6C;
   //fix v5[0] = __CS__;
-  int386x(51, (uint32)v2, (uint32)v1, (uint32)v5);
+  int386x(51, (uint32)v2, (uint32)v1, (uint32)v5);//Set Mouse User Defined Subroutine and Input Mask
   sub_5C468();
   if ( !dword_12EFC8 )
-    dword_12EFC8 = (int)malloc_42540_42880(4096);
+    dword_12EFC8 = (uint8_t*)malloc_42540_42880(4096);
   if ( !dword_12EF98 )
     dword_12EF98 = (int)malloc_42540_42880(4096);
   if ( !dword_12EF88 )
@@ -64440,18 +64448,18 @@ int sub_5C214()
   word_12EFC4 = 0;
   word_12EFC6 = 0;
   LOWORD(dword_12EFCC) = 64;
-  for ( i = 0; i < 4096; ++i )
-    *(_BYTE *)(i + dword_12EFC8) = -2;
+  for ( int i = 0; i < 4096; i++ )
+      dword_12EFC8[i] = 254;
   if ( dword_12EFB4 )
     sub_5C05C_5C56C(dword_12EFB4);
   v2[0] = 2;
-  int386(51, (uint32)v2, (uint32)v1);
+  int386(51, (uint32)v2, (uint32)v1);//Hide Mouse Cursor
   if ( (word_12F02E_12F01E & 8) != 0 )
   {
     v2[0] = 15;
     v3 = 1;
     LOWORD(v4) = 1;
-    int386(51, (uint32)v2, (uint32)v1);
+    int386(51, (uint32)v2, (uint32)v1);//Set Mouse Mickey Pixel Ratio
   }
   dword_9AD98 = 1;
   return 1;
@@ -64921,11 +64929,14 @@ void sub_5CB73(int a1, __int16 a2)
 //----- (0005CC54) --------------------------------------------------------
 void sub_5CC54_5D164()
 {
+  //fix !!! (VSYNC)
+    //BLIT !!!!!
+    /*
   unsigned __int8 result; // al
 
   do
     result = __inbyte(0x3DAu);
-  while ( (result & 8) == 0 );
+  while ( (result & 8) == 0 );*/
 }
 
 uint8_t sub_5CC70_5D180(TColor* colors, uint8_t colR, uint8_t colG, uint8_t colB)
@@ -68411,11 +68422,7 @@ int sub_61C30(unsigned __int8 *a1)
 //----- (00061CC0) --------------------------------------------------------
 void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3)
 {
-  int v3; // eax
-  int v4; // eax
-  unsigned __int8 v6[768]; // [esp+0h] [ebp-30Ch] BYREF
-  int i; // [esp+300h] [ebp-Ch]
-  int v8; // [esp+308h] [ebp-4h]
+  uint8_t v6[768]; // [esp+0h] [ebp-30Ch] BYREF
 
   if ( a3 )
   {
@@ -68434,19 +68441,16 @@ void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3)
     }
     if ( !a1 )
       a1 = (unsigned __int8 *)&unk_12F390;
-    for ( i = 0; (__int16)i < 768; ++i )
+    for ( int i = 0; i < 768; i++ )
     {
-      v4 = (__int16)i;
-      LOWORD(v4) = (unsigned __int8)byte_12F090[(__int16)i];
-      v8 = a1[(__int16)i] - v4;
-      v6[(__int16)i] = byte_12F090[(__int16)i] + (__int16)v8 * ((int)unk_12F68E >> 16) / a2;
+      v6[i] = byte_12F090[i] + (a1[i] - byte_12F090[i]) * ((int)unk_12F68E >> 16) / a2;
     }
     sub_5CC54_5D164();
     sub_319A0_319E0(v6);
   }
   else
   {
-    sub_6B47C((unsigned __int8 *)byte_12F090);
+    sub_6B47C(byte_12F090);
     if ( !a1 )
     {
       a1 = (unsigned __int8 *)&unk_12F390;
@@ -68454,12 +68458,9 @@ void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3)
     }
     for ( word_12F690_12F680 = 0; a2 >= word_12F690_12F680; ++word_12F690_12F680 )
     {
-      for ( i = 0; (__int16)i < 768; ++i )
+      for ( int i = 0; i < 768; i++ )
       {
-        v3 = (__int16)i;
-        LOWORD(v3) = (unsigned __int8)byte_12F090[(__int16)i];
-        v8 = a1[(__int16)i] - v3;
-        v6[(__int16)i] = byte_12F090[(__int16)i] + (__int16)v8 * ((int)unk_12F68E >> 16) / a2;
+        v6[i] = byte_12F090[i] + (a1[i] - byte_12F090[i]) * ((int)unk_12F68E >> 16) / a2;
       }
       sub_5CC54_5D164();
       sub_319A0_319E0(v6);

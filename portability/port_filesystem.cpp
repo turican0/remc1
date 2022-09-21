@@ -224,6 +224,7 @@ FILE* myopen(const char* path, int pmode, uint32_t flags) {
 	const char * type;
 	if ((pmode == 0x222) && (flags == 0x40))type = "rb+";
 	else if ((pmode == 0x200) && (flags == 0x40))type = "rb+";
+	else if (pmode == 0x202) type = "rb+";
 	else
 		exit(1);//error - DOSSetError(DOSERR_ACCESS_CODE_INVALID);
 	FILE* fp = nullptr;
