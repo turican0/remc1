@@ -11,8 +11,7 @@
 #define _WORD  uint16
 #define _DWORD uint32
 
-extern __int16 word_A9990;
-extern int dword_A99A0;
+extern int dword_A99A0_A99B8;
 
 extern uint8_t* begSearch_AE3F4_26C3F4;
 extern uint8_t* begBuild00Tab_AE440_26C440;
@@ -89,6 +88,8 @@ typedef struct {
 	uint8 var_u8_23;
 	uint32 var_u32_25;
 	uint8 var_u8_29;
+	char var_u8_117[32];//fix size
+	uint8 var_u8_151;
 	uint8_t* var_u32_168;
 	uint32 var_u32_172;
 } Type_str_AE408_AE3F8;
