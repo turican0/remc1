@@ -11,6 +11,15 @@
 #define _WORD  uint16
 #define _DWORD uint32
 
+#pragma pack (1)
+typedef struct {//lenght 3
+	uint8_t red;
+	uint8_t green;
+	uint8_t blue;
+}
+TColor;
+#pragma pack (16)
+
 extern int dword_A99A0_A99B8;
 
 extern uint8_t* begSearch_AE3F4_26C3F4;
@@ -19,7 +28,7 @@ extern uint8_t* begFont0Tab_AE3B8_26C3B8;
 extern uint8_t* begPalData_AE424_26C424;
 extern uint8_t* begPalMem_AE418_26C418;
 extern uint8_t* begPointersTab_AE450_26C450;
-extern uint8_t* begPal00Dat_AE428_AE418_26C428;
+extern TColor* begPal00Dat_AE428_AE418_26C428;
 extern uint8_t* begTextDat_AE41C_AE40C_26C41C;
 extern uint8_t* begBlkDat_AE3F0_26C3F0;
 extern uint8_t* begSky_AE3D8_26C3D8;
@@ -133,14 +142,7 @@ typedef struct {//44 lenght
 } Pathstruct;
 #pragma pack (16)
 
-#pragma pack (1)
-typedef struct {//lenght 3
-	uint8_t red;
-	uint8_t green;
-	uint8_t blue;
-}
-TColor;
-#pragma pack (16)
+
 
 typedef union { uint8_t bytes[4]; int32 size; }
 Type_fileSize;
