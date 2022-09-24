@@ -4,9 +4,11 @@
 #include <iostream>
 #include "sub_main.h"
 
-int main(int argc, const char** argv, const char** envp)
+//int main(int argc, const char** argv, const char** envp)
+int main(int argc, char* argv[])
 {
-    sub_main(argc, argv, envp);
+    sub_main(argc, argv);
+    return 0;
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění

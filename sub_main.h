@@ -1,6 +1,7 @@
 #pragma once
 
 #include "portability/port_filesystem.h"
+#include "portability/port_sdl_vga_mouse.h"
 #include "utilities/DataFileIO.h"
 
 #include <stdio.h>
@@ -157,4 +158,4 @@ int dword_AE408_AE3F8();
 
 void dword_AE408_AE3F8(int input);
 
-int sub_main(int argc, const char** argv, const char** envp);
+int sub_main(int argc, char* argv[]);
