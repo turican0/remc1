@@ -27,7 +27,7 @@ extern uint8_t* begSearch_AE3F4_26C3F4;
 extern uint8_t* begBuild00Tab_AE440_26C440;
 extern uint8_t* begFont0Tab_AE3B8_26C3B8;
 extern uint8_t* begPalData_AE424_26C424;
-extern uint8_t* begPalMem_AE418_26C418;
+extern TColor* begPalMem_AE418_26C418;
 extern uint8_t* begPointersTab_AE450_26C450;
 extern TColor* begPal00Dat_AE428_AE418_26C428;
 extern uint8_t* begTextDat_AE41C_AE40C_26C41C;

@@ -443,7 +443,7 @@ int sub_30D30(__int16 a1);
 char sub_30D90(int a1, int a2, int a3, __int16 a4, int a5, int a6, int a7, int a8);
 int sub_315C0();
 void sub_31600();
-void sub_319A0_319E0(unsigned __int8 *a1);
+void sub_319A0_319E0(TColor* palette);
 void sub_31A00_31A40();
 void sub_31A60_31AA0();
 int sub_31AA0(int a1);
@@ -887,7 +887,7 @@ int sub_4B480(int (*a1)(void), int a2);
 int sub_4B520();
 int sub_4B560();
 char **sub_4B6A0();
-void sub_4B6F0(unsigned __int8 **a1);
+void sub_4B6F0(char** texts);
 void sub_4B8D0(__int16 a1);
 void sub_4BB20_4BE60();
 void sub_4BC90_4BFD0();
@@ -936,13 +936,13 @@ char sub_50770_50AB0();
 bool sub_50D40(int a1, __int16 a2, __int16 a3, char *a4, char *a5, char a6, int a7, void (*a8)(void), char a9, int a10);
 char *sub_512D0(char *a1, const char *a2);
 int sub_51330(int a1, __int16 a2);
-int sub_51360(int a1, int a2, int a3, int a4);
+void sub_51360(int a1, int a2, int a3, int a4);
 _DWORD *sub_513A0(_DWORD *a1);
 void sub_513E0();
 void sub_51400();
 int sub_51420(_DWORD *a1, char *a2);
 void sub_51480_517C0(int a1, _DWORD *a2, TColor* colorBuffer);
-void sub_51560(_BYTE *a1, int a2, __int16 a3, char* a4);
+void sub_51560(_BYTE *a1, int a2, __int16 a3, char* text);
 __int16 sub_51650(int a1, int a2, __int16 a3, int a4);
 unsigned int *sub_519E0_51D20(int a1);
 void sub_51A10();
@@ -1204,7 +1204,7 @@ int sub_61A1C(__int16 a1);
 int sub_61AB0();
 int sub_61B90(unsigned __int8 *a1);
 int sub_61C30(unsigned __int8 *a1);
-void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3);
+void sub_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3);
 void sub_61EC8();
 // _DWORD stricmp(_DWORD, _DWORD); weak
 // _DWORD StrToInt(_DWORD); weak
@@ -1235,8 +1235,8 @@ size_t FileWrite_62ED0_633E0(FILE* descriptor, uint8_t* buffer, uint32_t count);
 // _DWORD access(_DWORD, _DWORD); weak
 // _DWORD mkdir(_DWORD); weak
 // _DWORD int386(_DWORD, _DWORD, _DWORD); weak
-void sub_62FA8_634B8(const void *a1, void *a2, unsigned __int16 a3);
-void sub_62FC4_634D4(const void *a1, void *a2, unsigned __int16 a3);
+void sub_62FA8_634B8(void const* src, void* dst, size_t size);
+void sub_62FC4_634D4(void const* src, void* dst, size_t size);
 int sub_62FF0(int a1);
 void sub_63010_63520();
 void sub_63338_63848();
@@ -1450,7 +1450,7 @@ unsigned __int8 sub_6A640(unsigned __int8 a1, unsigned __int8 a2);
 __int16 sub_6A737(void (*a1)(_DWORD), unsigned int a2, int a3, int a4, __int16 a5);
 int sub_6B260(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a5, __int16 a6);
 int sub_6B378(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a5, __int16 a6);
-void sub_6B47C(unsigned __int8 *a1);
+void sub_6B47C(TColor* palette);
 // _DWORD tolower(_DWORD); weak
 int sub_6B87A();
 // _DWORD lseek(_DWORD, _DWORD, char); weak
@@ -3334,12 +3334,25 @@ char *off_96864[5] =
 }; // weak
 char byte_9687C = '\x01'; // weak
 bool bool_96880 = false; // weak
-int dword_96884 = 0; // weak //254884_
-char byte_96888 = '\x01'; // weak
-char byte_9688A = '\0'; // weak
-int dword_9688C = 0; // weak
-char byte_96890 = '\x01'; // weak
-char byte_96892 = '\0'; // weak
+
+typedef struct {
+    uint32_t var32_0;
+    uint8_t var8_4;
+    uint8_t var8_5;
+    uint8_t var8_6;
+    uint8_t var8_7;
+} Type_dword_96884;
+
+Type_dword_96884 str_96884;
+//int dword_96884 = 0; // weak //254884_
+//char byte_96888 = '\x01'; // weak
+//char byte_9688A = '\0'; // weak
+
+Type_dword_96884 str_9688C;
+//int dword_9688C = 0; // weak
+//char byte_96890 = '\x01'; // weak
+//char byte_96892 = '\0'; // weak
+
 int dword_96894 = 0; // weak
 __int16 word_96898 = 16; // weak
 char byte_9689C[] = { '\x01' }; // weak
@@ -3477,7 +3490,7 @@ Pathstruct pathStrArray[] =
     { "data/font1.tab", &begFont1Tab_AE3BC_26C3BC, &test_AE39C, 0, 0 },
     { "data/tmaps0-0.tab", &begTmaps00Tab_12D744_2EB744, 0, 0, 0 },//
     { "*PalData", &begPalData_AE424_26C424, 0, 1024, 0 },
-    { "*PalMem", &begPalMem_AE418_26C418, 0, 1024, 0 },
+    { "*PalMem", (uint8_t**)&begPalMem_AE418_26C418, 0, 1024, 0 },
     { "data/pointers.dat", &begPointersDat_AE448_26C448, 0, 0, 0 },
     { "data/pointers.tab", &begPointersTab_AE450_26C450, &test_AE43c, 0, 0 },
     { "data/pal0-0.dat", (uint8_t**)&begPal00Dat_AE428_AE418_26C428, 0, 0, 0 },
@@ -12367,7 +12380,7 @@ uint8_t* begBscreen_AE3FC_26C3FC; // weak
 void* dword_AE404_AE3F4; // weak
 //int dword_AE408_AE3F8(); // weak
 int dword_AE410; // weak
-uint8_t* begPalMem_AE418_26C418; // weak
+TColor* begPalMem_AE418_26C418; // weak
 uint8_t* begTextDat_AE41C_AE40C_26C41C; // weak
 uint8_t* begPalData_AE424_26C424; // weak
 TColor* begPal00Dat_AE428_AE418_26C428; // weak
@@ -12445,8 +12458,8 @@ char byte_B5D41[4812]; // weak
 char byte_B700D[9999]; // weak
 char byte_B700E[9999]; // weak
 char byte_B700F[9999]; // weak
-char byte_B7010[9999]; // weak
-char byte_B7011[767]; // weak
+uint8_t byte_B7010[256 * 3]; // weak
+//char byte_B7011[767]; // weak
 int dword_B7310; // weak
 __int16 word_B7314; // weak
 __int16 word_B7316; // weak
@@ -12535,12 +12548,12 @@ _UNKNOWN unk_1234DC; // weak
 __int16 word_12C1E0; // weak
 __int16 word_12C1F0[9999]; // weak
 __int16 word_12C1F2[959]; // weak
-int dword_12C970; // weak
-int dword_12C974; // weak
-int dword_12C978; // weak
-int dword_12C97C; // weak
-int dword_12C980; // weak
-int dword_12C984; // weak
+int array_12C970[6]; // weak
+//int dword_12C974; // weak
+//int dword_12C978; // weak
+//int dword_12C97C; // weak
+//int dword_12C980; // weak
+//int dword_12C984; // weak
 _UNKNOWN unk_12C988; // weak
 char string_12C9A0_12C990[32]; // weak
 char string_12C9C0_12C9B0[32]; // weak
@@ -12766,8 +12779,8 @@ int dword_12F074; // weak
 int dword_12F07A; // weak
 void* dword_12F080_12F070; // weak
 __int16 word_12F084; // weak
-uint8_t byte_12F090[768]; // weak//2ED090
-uint8_t byte_12F390[768]; // weak//2ED390
+TColor byte_12F090[256]; // weak//2ED090
+TColor byte_12F390[256]; // weak//2ED390
 //_UNKNOWN unk_12F68E; // weak //2ED68E
 __int16 word_12F690_12F680; // weak
 int dword_12F6A0[9999]; // weak  //fix IT - dos memory management !!!!
@@ -12886,7 +12899,7 @@ int nullsub_11(_DWORD a) { return 0; }; // weak
 int nullsub_1(_DWORD a, _DWORD b) { return 0; }; // weak
 int nullsub_2(void) { return 0; }; // weak
 _DWORD outtext(_DWORD a) { return 0; };// weak
-void qmemcpy(int a, int b, char c) {};
+//void qmemcpy(int a, int b, char c) {};
 _DWORD segread(_DWORD a) { return 0; };// weak
 _DWORD settextposition(_DWORD a, _DWORD b) { return 0; };// weak
 //void sub_111B0(int a1, int a2) {};
@@ -13500,7 +13513,7 @@ LABEL_23:
     sub_5CC54_5D164();
     if ( word_90024 )
     {
-      sub_319A0_319E0((uint8_t*)colorBuffer_AC2B8);
+      sub_319A0_319E0(colorBuffer_AC2B8);
       v20 = sub_5CC70_5D180(colorBuffer_AC2B8, 0x3Fu, 0x3Fu, 0x3Fu);
       sub_24BF0(v20);
     }
@@ -35350,7 +35363,7 @@ void sub_31600()
         ++v50;
       }
       while ( v50 < 8 );
-      sub_319A0_319E0(v49);
+      sub_319A0_319E0((TColor*)v49);
     }
   }
 }
@@ -35370,10 +35383,10 @@ void sub_31600()
 // 12EFF0: using guessed type int dword_12EFF0;
 
 //----- (000319A0) --------------------------------------------------------
-void sub_319A0_319E0(unsigned __int8 *a1)//2029A0_
+void sub_319A0_319E0(TColor* palette)//2029A0_
 {
     FixPerifery((char*)"port0x3C8");
-    VGA_Set_Palette(a1);
+    VGA_Set_Palette((uint8_t*)palette);
     VGA_Blit(readBuffer_12EFF4);
     /*
   unsigned __int8 *v1; // ebx
@@ -35410,7 +35423,7 @@ void sub_319A0_319E0(unsigned __int8 *a1)//2029A0_
 void sub_31A00_31A40()
 {
   unsigned __int8 result; // al
-  unsigned __int8 *v1; // [esp-4h] [ebp-8h]
+  //unsigned __int8 *v1; // [esp-4h] [ebp-8h]
 
   result = dword_AE400_AE3F0();
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8603) )
@@ -35422,9 +35435,9 @@ void sub_31A00_31A40()
     }
     byte_90754 = *(_BYTE *)(dword_AE400_AE3F0() + 8603);
     sub_315C0();
-    v1 = (unsigned __int8 *)begPal00Dat_AE428_AE418_26C428;
+    //v1 = (unsigned __int8 *)begPal00Dat_AE428_AE418_26C428;
     *(_BYTE *)(dword_AE400_AE3F0() + 8603) = 0;
-    sub_319A0_319E0(v1);
+    sub_319A0_319E0(begPal00Dat_AE428_AE418_26C428);
   }
 }
 // 90754: using guessed type char byte_90754;
@@ -37754,7 +37767,7 @@ int sub_34460_34820()
   else
     sub_599B0_59EC0(480);
   sub_3EEA0_3F1E0((char*)"data/smatitle.pal", (uint8_t*)begPal00Dat_AE428_AE418_26C428);
-  sub_61CC0_621D0((unsigned __int8 *)begPal00Dat_AE428_AE418_26C428, 0x20u, 0);
+  sub_61CC0_621D0(begPal00Dat_AE428_AE418_26C428, 0x20u, 0);
   result = dword_AE400_AE3F0();
   *(_DWORD *)(dword_AE400_AE3F0() + 581) = 1;
   *(_DWORD *)(result + 585) = 0;
@@ -37886,7 +37899,7 @@ char sub_34690()
     switch ( (char)v1 )
     {
       case 1:
-        sub_61CC0_621D0((unsigned __int8 *)begPal00Dat_AE428_AE418_26C428, 4u, 1);
+        sub_61CC0_621D0(begPal00Dat_AE428_AE418_26C428, 4u, 1);
         v1 = word_12F690_12F680;
         if (v1 == 4 )
         {
@@ -37914,7 +37927,7 @@ char sub_34690()
             dword_B7310 = 63;
           byte_B7010[j] = dword_B7310;
           v5 = (int)begPal00Dat_AE428_AE418_26C428;
-          byte_B7011[j] = *(_BYTE *)(begPal00Dat_AE428_AE418_26C428 + j + 1);
+          byte_B7010[j+1] = *(_BYTE *)(begPal00Dat_AE428_AE418_26C428 + j + 1);
           dword_B7310 = *(unsigned __int8 *)(v5 + j + 2) + 64;
           if ( dword_B7310 < 0 )
             dword_B7310 = 0;
@@ -37947,7 +37960,7 @@ char sub_34690()
             dword_B7310 = 0;
           if ( dword_B7310 > 63 )
             dword_B7310 = 63;
-          byte_B7011[m] = dword_B7310;
+          byte_B7010[m+1] = dword_B7310;
           dword_B7310 = *(unsigned __int8 *)(begPal00Dat_AE428_AE418_26C428 + m + 2) - 32;
           if ( dword_B7310 < 0 )
             dword_B7310 = 0;
@@ -37970,7 +37983,7 @@ char sub_34690()
             dword_B7310 = 0;
           if ( dword_B7310 > 63 )
             dword_B7310 = 63;
-          byte_B7011[n] = dword_B7310;
+          byte_B7010[n+1] = dword_B7310;
           dword_B7310 = *(unsigned __int8 *)(begPal00Dat_AE428_AE418_26C428 + n + 2) + 32;
           if ( dword_B7310 < 0 )
             dword_B7310 = 0;
@@ -37993,7 +38006,7 @@ char sub_34690()
         }
 LABEL_61:
         sub_61EC8();
-        sub_319A0_319E0((unsigned __int8 *)byte_B7010);
+        sub_319A0_319E0((TColor*)byte_B7010);
         LOBYTE(v1) = dword_AE408_AE3F8();
         *(_BYTE *)(dword_AE408_AE3F8() + 152) = 1;
         break;
@@ -46555,14 +46568,14 @@ void sub_40440_40780(Pathstruct* pathstruct)//211440_211780
 			int compVar = sub_634E0_639F0(&pathstruct[i]);
 			if (compVar < 0)
 			{
-				sub_319A0_319E0((uint8_t*)begPal00Dat_AE428_AE418_26C428);
+				sub_319A0_319E0(begPal00Dat_AE428_AE418_26C428);
 				printf("ERROR: Allocation %s.\n", &pathstruct[i]);
 				printf("Press return to continue\n");
 				gets_s(input);
 			}
 			else if (!compVar)
 			{
-				sub_319A0_319E0((uint8_t*)begPal00Dat_AE428_AE418_26C428);
+				sub_319A0_319E0(begPal00Dat_AE428_AE418_26C428);
 				printf("ERROR: File %s.\n", &pathstruct[i]);
 				printf("Press return to continue\n");
 				gets_s(input);
@@ -46838,127 +46851,6 @@ void convert() {
 
 };
 
-uint8_t beginPal[] =
-{
-0x00, 0x00, 0x00, 0x00, 0x00, 0x2A, 0x00, 0x2A, 0x00, 0x00, 0x2A, 0x2A, 0x2A, 0x00, 0x00, 0x2A,
-0x00, 0x2A, 0x2A, 0x2A, 0x00, 0x2A, 0x2A, 0x2A, 0x00, 0x00, 0x15, 0x00, 0x00, 0x3F, 0x00, 0x2A,
-0x15, 0x00, 0x2A, 0x3F, 0x2A, 0x00, 0x15, 0x2A, 0x00, 0x3F, 0x2A, 0x2A, 0x15, 0x2A, 0x2A, 0x3F,
-0x00, 0x15, 0x00, 0x00, 0x15, 0x2A, 0x00, 0x3F, 0x00, 0x00, 0x3F, 0x2A, 0x2A, 0x15, 0x00, 0x2A,
-0x15, 0x2A, 0x2A, 0x3F, 0x00, 0x2A, 0x3F, 0x2A, 0x00, 0x15, 0x15, 0x00, 0x15, 0x3F, 0x00, 0x3F,
-0x15, 0x00, 0x3F, 0x3F, 0x2A, 0x15, 0x15, 0x2A, 0x15, 0x3F, 0x2A, 0x3F, 0x15, 0x2A, 0x3F, 0x3F,
-0x15, 0x00, 0x00, 0x15, 0x00, 0x2A, 0x15, 0x2A, 0x00, 0x15, 0x2A, 0x2A, 0x3F, 0x00, 0x00, 0x3F,
-0x00, 0x2A, 0x3F, 0x2A, 0x00, 0x3F, 0x2A, 0x2A, 0x15, 0x00, 0x15, 0x15, 0x00, 0x3F, 0x15, 0x2A,
-0x15, 0x15, 0x2A, 0x3F, 0x3F, 0x00, 0x15, 0x3F, 0x00, 0x3F, 0x3F, 0x2A, 0x15, 0x3F, 0x2A, 0x3F,
-0x15, 0x15, 0x00, 0x15, 0x15, 0x2A, 0x15, 0x3F, 0x00, 0x15, 0x3F, 0x2A, 0x3F, 0x15, 0x00, 0x3F,
-0x15, 0x2A, 0x3F, 0x3F, 0x00, 0x3F, 0x3F, 0x2A, 0x15, 0x15, 0x15, 0x15, 0x15, 0x3F, 0x15, 0x3F,
-0x15, 0x15, 0x3F, 0x3F, 0x3F, 0x15, 0x15, 0x3F, 0x15, 0x3F, 0x3F, 0x3F, 0x15, 0x3F, 0x3F, 0x3F,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0xF0, 0xF0, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x38, 0x10, 0x2F, 0x00,
-0x00, 0x00, 0x00, 0x00, 0xC0, 0xDF, 0xD0, 0x00, 0x38, 0x00, 0x1A, 0x00, 0x00, 0x00, 0x00, 0x00,
-0xC0, 0x7F, 0x00, 0x00, 0x90, 0xF5, 0x01, 0x00, 0xC8, 0x01, 0x00, 0x00, 0x00, 0x08, 0x08, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 //----- (000404F0_00040830) --------------------------------------------------------
 int sub_main(int argc, char* argv[])//2114f0_211830
 {
@@ -46970,7 +46862,7 @@ int sub_main(int argc, char* argv[])//2114f0_211830
     VGA_Init(0, 1280, 960, true);
     VGA_Resize(320, 200);
 
-    VGA_Set_Palette(beginPal);
+    //VGA_Set_Palette(beginPal);
 
   CreateGameDir_3EC90_3EFD0('C', (char*)"\\carpet.cd", (char*)"save");
   CreateGameDir_3EC90_3EFD0('C', (char*)"\\carpet.cd", (char*)"data");
@@ -53418,8 +53310,6 @@ void sub_4A980_4ACC0()
 //----- (0004AB20) --------------------------------------------------------
 void sub_4AB20_4AE60()//21BB20_
 {
-  int v5; // eax
-
   if (bool_12CA7C_12CA6C)
   {
     sub_40440_40780(&pathStrArray_21AB80[PSdatascreenssptrsdat]);
@@ -53551,7 +53441,7 @@ void sub_4AC70_4AFB0()//21BC70_
       }
       else
       {
-        v6 = *(unsigned __int8 *)(dword_96884 + 5) - 2;
+        v6 = str_96884.var8_5 - 2;
         LODWORD(v2) = (HIDWORD(v2) - 64) / v6;
         HIDWORD(v2) = (HIDWORD(v2) - 64) % v6;
         byte_12CBCB = v2;
@@ -53715,7 +53605,6 @@ LABEL_43:
   }
   if ( (word_12F02E_12F01E & 1) != 0 )
   {
-    WORD2(v2) = (uint16)readBuffer_12EFF4;
     sub_62FA8_634B8((const void *)begBscreen_AE3FC_26C3FC, (void *)readBuffer_12EFF4, 0xC8u);
   }
   else
@@ -53871,11 +53760,11 @@ int sub_4B520()
 //----- (0004B560) --------------------------------------------------------
 int sub_4B560()//21C560_
 {
-  unsigned __int8 **v0; // eax
+  char** v0; // eax
 
   sub_513E0();
   sub_51360(56, 64, 90, 78);
-  v0 = (unsigned __int8 **)sub_4B6A0();
+  v0 = sub_4B6A0();
   if ( v0 )
     sub_4B6F0(v0);
   else
@@ -53957,9 +53846,9 @@ char **sub_4B6A0()
 // 12CBC9: using guessed type char byte_12CBC9_12CBB9;
 
 //----- (0004B6F0) --------------------------------------------------------
-void sub_4B6F0(unsigned __int8 **a1)//21C6F0_
+void sub_4B6F0(char** texts)//21C6F0_
 {
-  unsigned __int8 **v1; // esi
+  char** v1; // esi
   int v2; // ebp
   char v3; // bl
   char v4; // bh
@@ -53967,15 +53856,16 @@ void sub_4B6F0(unsigned __int8 **a1)//21C6F0_
   int v6; // ebp
   char v7; // al
   __int16 v8; // [esp-8h] [ebp-24h]
-  unsigned __int8 *v9; // [esp-4h] [ebp-20h]
+  char* text; // [esp-4h] [ebp-20h]
   char v10; // [esp+4h] [ebp-18h]
   char v11; // [esp+8h] [ebp-14h]
 
-  v1 = a1;
-  if ( a1 )
+  v1 = texts;
+  if (texts)
   {
-    v2 = *(unsigned __int8 *)(dword_96884 + 5);
-    byte_96888 &= ~2u;
+    v2 = str_96884.var8_5;
+    str_96884.var8_4 &= ~2u;
+    str_96884.var8_5 = 0;
     v10 = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x26u, 0x22u, 0x19u);
     v3 = 0;
     v4 = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x1Eu, 0x18u, 0x11u);
@@ -53985,34 +53875,34 @@ void sub_4B6F0(unsigned __int8 **a1)//21C6F0_
     v11 = v7;
     if ( byte_12CBC9_12CBB9 == 6 )
     {
-      byte_9688A = v10;
+        str_96884.var8_6 = v10;
       if ( !byte_12CBCB )
-        byte_9688A = v7;
+          str_96884.var8_6 = v7;
       if ( !byte_12CBCA_12CBBA )
-        byte_9688A = v4;
-      sub_51560((uint8*)&dword_96884, 0, 0, dword_AE238_AE228[73]);
-      byte_9688A = v10;
+          str_96884.var8_6 = v4;
+      sub_51560((uint8*)&str_96884, 0, 0, dword_AE238_AE228[73]);
+      str_96884.var8_6 = v10;
       if ( byte_12CBCB == 1 )
-        byte_9688A = v11;
+          str_96884.var8_6 = v11;
       if ( byte_12CBCA_12CBBA == 1 )
-        byte_9688A = v4;
-      sub_51560((uint8*)&dword_96884, 0, v6, dword_AE238_AE228[74]);
+          str_96884.var8_6 = v4;
+      sub_51560((uint8*)&str_96884, 0, v6, dword_AE238_AE228[74]);
     }
     else
     {
-      while ( **v1 != 33 )
+      while ( **v1 != '!' )
       {
-        byte_9688A = v10;
+          str_96884.var8_6 = v10;
         if ( v3 == byte_12CBCB )
-          byte_9688A = v11;
+            str_96884.var8_6 = v11;
         if ( v3 == byte_12CBCA_12CBBA )
-          byte_9688A = v4;
-        v9 = *v1;
+            str_96884.var8_6 = v4;
+        text = *v1;
         v8 = v5;
         v1 += 2;
         ++v3;
         v5 += v6;
-        sub_51560((uint8*)&dword_96884, 0, v8, (char*)v9);
+        sub_51560((uint8*)&str_96884, 0, v8, text);
       }
     }
     if ( byte_12CBC9_12CBB9 == 6 )
@@ -54021,9 +53911,9 @@ void sub_4B6F0(unsigned __int8 **a1)//21C6F0_
     {
       sub_513E0();
       sub_51360(66, 43, 84, 14);
-      byte_9688A = v4;
+      str_96884.var8_6 = v4;
       sub_51560(
-          (uint8*)&dword_96884,
+          (uint8_t*)&str_96884,
         1,
         1,
         dword_AE238_AE228[(unsigned __int16)word_968B4[(unsigned __int8)byte_12CBC9_12CBB9]]);
@@ -54065,41 +53955,41 @@ void sub_4B8D0(__int16 a1)
   v14 = 0;
   //fix
 
-  v1 = *(unsigned __int8 *)(dword_96884 + 5);
+  v1 = str_96884.var8_5;
   sub_513A0((uint32*)&v13);
-  byte_9688A = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x1Eu, 0x18u, 0x11u);
+  str_96884.var8_6 = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x1Eu, 0x18u, 0x11u);
   sprintf((char*)v12, "%s :", dword_AE238_AE228[17]);
-  sub_51560((uint8*)&dword_96884, 0, a1, (char*)v12);
+  sub_51560((uint8*)&str_96884, 0, a1, (char*)v12);
   v2 = v1 - 2;
   sprintf((char*)v12, "%s", string_12C9C0_12C9B0);
   v3 = v14 - v13;
-  v4 = sub_51420((uint32*)&dword_96884, (char *)v12);
-  sub_51560((uint8*)&dword_96884, (__int16)(v3 - v4), v2 + a1, (char*)v12);
+  v4 = sub_51420((uint32*)&str_96884, (char *)v12);
+  sub_51560((uint8*)&str_96884, (__int16)(v3 - v4), v2 + a1, (char*)v12);
   sprintf((char*)v12, "%s :", dword_AE238_AE228[18]);
   v5 = v2 + v2 + a1;
-  sub_51560((uint8*)&dword_96884, 0, v5, (char*)v12);
+  sub_51560((uint8*)&str_96884, 0, v5, (char*)v12);
   v6 = v2 + v5;
   sprintf((char*)v12, "%s", string_12C9E0_12C9D0);
   v7 = v14 - v13;
-  v8 = sub_51420((uint32*)&dword_96884, (char *)v12);
-  sub_51560((uint8*)&dword_96884, (__int16)(v7 - v8), v6, (char*)v12);
+  v8 = sub_51420((uint32*)&str_96884, (char *)v12);
+  sub_51560((uint8*)&str_96884, (__int16)(v7 - v8), v6, (char*)v12);
   v9 = v2 + v6;
   if ( strncmp((char*)&unk_12C9A0, aNone, 4) )
   {
     sprintf((char*)v12, "%s : %s\n", dword_AE238_AE228[23], string_12CA80_12CA70);
-    sub_51560((uint8*)&dword_96884, 0, v9, (char*)v12);
+    sub_51560((uint8*)&str_96884, 0, v9, (char*)v12);
     sprintf((char*)v12, "%s : %s\n", dword_AE238_AE228[24], string_12CA8A_12CA7A);
     v10 = v2 + v9;
-    sub_51560((uint8*)&dword_96884, 0, v10, (char*)v12);
+    sub_51560((uint8*)&str_96884, 0, v10, (char*)v12);
     sprintf((char*)v12, "%s : %s\n", dword_AE238_AE228[25], string_12CAD0_12CAC0);
     v11 = v2 + v10;
     v9 = v2 + v2 + v10;
-    sub_51560((uint8*)&dword_96884, 0, v11, (char*)v12);
+    sub_51560((uint8*)&str_96884, 0, v11, (char*)v12);
   }
   if ( strncmp((char*)&unk_12CA00, aNone, 4) )
   {
     sprintf((char*)v12, "%s : %s\n", dword_AE238_AE228[26], string_12CA94_12CA84);
-    sub_51560((uint8*)&dword_96884, 0, v9, (char*)v12);
+    sub_51560((uint8*)&str_96884, 0, v9, (char*)v12);
   }
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
@@ -54131,8 +54021,9 @@ void sub_4BB20_4BE60()
     sub_65D70_66280(begGcSprTab_12CAF8_2EAAF8, text_12CAFC_2EAAFC, begGcsprDat_12CB00_2EAB00);
   else
     sub_65DC0_662D0(begGcSprTab_12CAF8_2EAAF8, text_12CAFC_2EAAFC, begGcsprDat_12CB00_2EAB00);
-  sub_51480_517C0((int)&dword_96884, (uint32*)&begSFont0Tab_12CB28_2EAB28, begPalette_12CB9C_2EAB9C);
-  byte_96888 &= ~2u;
+  sub_51480_517C0((int)&str_96884, (uint32*)&begSFont0Tab_12CB28_2EAB28, begPalette_12CB9C_2EAB9C);
+  str_96884.var8_4 &= ~2u;
+  str_96884.var8_5 = 0;
   if ( !byte_90B23 )
     sub_5C05C_5C56C((int)begSptrsTab_12CAEC_2EAAEC + 6 * (unsigned __int8)byte_12CBCE_12CBBE);
   if ( (word_12F02E_12F01E & 1) != 0 )
@@ -54143,7 +54034,7 @@ void sub_4BB20_4BE60()
     sub_5CDA0_5D2B0();
   else
     sub_599B0_59EC0(480);
-  sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+  sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
   byte_12CBD5_12CBC5 |= 1u;
   byte_12CAE4 &= 0xBEu;
 }
@@ -54699,8 +54590,9 @@ void sub_4C7E0()
     sub_65D70_66280(begMmSprTab_12CB04_2EAB04, text_12CB08_2EAB08, begMmSprDat_12CB0C_2EAB0C);
   else
     sub_65DC0_662D0(begMmSprTab_12CB04_2EAB04, text_12CB08_2EAB08, begMmSprDat_12CB0C_2EAB0C);
-  sub_51480_517C0((int)&dword_9688C, (uint32*)&begSFont1Tab_12CB34_2EAB34, begPalette_12CB9C_2EAB9C);
-  byte_96890 &= ~2u;
+  sub_51480_517C0((int)&str_9688C, (uint32*)&begSFont1Tab_12CB34_2EAB34, begPalette_12CB9C_2EAB9C);
+  str_9688C.var8_4 &= ~2u;
+  str_9688C.var8_5 = 0;
   sub_3EEA0_3F1E0((char*)"data\\screens\\mainmenu.dat", (uint8_t*)begBscreen_AE3FC_26C3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_62FA8_634B8((const void *)begBscreen_AE3FC_26C3FC, (void *)begScreenBackup2_12CBA8_2EABA8, 0xC8u);
@@ -54727,7 +54619,7 @@ void sub_4C7E0()
     sub_599B0_59EC0(480);
   if ( !byte_90B23 )
     sub_5C05C_5C56C((int)begSptrsTab_12CAEC_2EAAEC + 6 * (unsigned __int8)byte_12CBCE_12CBBE);
-  sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+  sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
   dword_12CB76 = 0;
   dword_12CB84 = 0;
   word_12CB8C = 0;
@@ -55025,7 +54917,7 @@ bool sub_4D0F0()
              0,
              (void (*)(void))sub_4D190,
              0,
-             (int)&dword_9688C);
+             (int)&str_9688C);
   byte_12CBD5_12CBC5 &= ~0x40u;
   return result;
 }
@@ -55058,7 +54950,7 @@ int sub_4D190()
   if ( (byte_12CBD5_12CBC5 & 0x40) == 0 )
   {
     sub_51560(
-        (uint8*)&dword_9688C,
+        (uint8*)&str_9688C,
       30,
       12,
       dword_96860[(unsigned __int16)word_4A130[3 * (unsigned __int8)byte_12CBC6_12CBB6]]);
@@ -55086,18 +54978,17 @@ int sub_4D190()
 //----- (0004D300) --------------------------------------------------------
 void sub_4D300()
 {
-  int v0; // ebx
+  //int v0; // ebx
   __int64 v1; // rax
-  unsigned __int8 i; // [esp+0h] [ebp-14h]
 
-  byte_96892 = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x3Fu, 0x3Fu, 0);
+  str_9688C.var8_6 = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x3Fu, 0x3Fu, 0);
   sub_513E0();
-  for ( i = 0; i < 6u; ++i )
+  for ( int i = 0; i < 6; i++ )
   {
-    v0 = 4 * i;
-    sub_51360(dword_4A7EC[v0], dword_4A7F0[v0], dword_4A7F4[v0], dword_4A7F8[v0]);
-    v1 = dword_4A7F8[v0] - *(unsigned __int8 *)(dword_9688C + 5);
-    sub_51560((uint8*)&dword_9688C, 4, ((int)v1 - HIDWORD(v1)) >> 1, off_96864[i]);
+    //v0 = 4 * i;
+    sub_51360(dword_4A7EC[4 * i], dword_4A7F0[4 * i], dword_4A7F4[4 * i], dword_4A7F8[4 * i]);
+    v1 = dword_4A7F8[4 * i] - str_9688C.var8_5;
+    sub_51560((uint8*)&str_9688C, 4, ((int)v1 - HIDWORD(v1)) >> 1, off_96864[i]);
   }
   sub_51400();
 }
@@ -55291,7 +55182,7 @@ void sub_4D680()
     v1 = SHIWORD(dword_12CADC) >> 1;
     if ( v1 >= 72 && v1 <= 133 )
     {
-      word_12CBC0_12CBB0 = (v1 - 72) / (*(unsigned __int8 *)(dword_9688C + 5) - 2);
+      word_12CBC0_12CBB0 = (v1 - 72) / (str_9688C.var8_5 - 2);
       if ( (byte_12CAE4 & 1) != 0 )
         word_12CBC2_12CBB2 = word_12CBC0_12CBB0 + word_12CBBE_12CBAE;
     }
@@ -55386,8 +55277,8 @@ void sub_4D680()
         sub_513E0();
         sub_51360(173, 42, 90, 15);
         v32 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-        v10 = sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-        sub_51560((uint8*)&dword_9688C, (__int16)((90 - v10) / 2), 1, (char*)v32);
+        v10 = sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+        sub_51560((uint8*)&str_9688C, (__int16)((90 - v10) / 2), 1, (char*)v32);
         sub_51400();
         if ( (word_12F02E_12F01E & 1) != 0 )
           sub_5CDA0_5D2B0();
@@ -55403,7 +55294,7 @@ void sub_4D680()
         if ( v11 == -1 )
         {
           sub_4E320();
-          sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+          sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
         }
         else
         {
@@ -55424,8 +55315,8 @@ void sub_4D680()
   sub_513E0();
   sub_51360(173, 42, 90, 15);
   v33 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-  v26 = 90 - sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-  sub_51560((uint8*)&dword_9688C, (__int16)(v26 / 2), 1, (char*)v33);
+  v26 = 90 - sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+  sub_51560((uint8*)&str_9688C, (__int16)(v26 / 2), 1, (char*)v33);
   sub_51400();
   if ( (byte_90B23 & 0x23) != 0 )
   {
@@ -55608,16 +55499,16 @@ LABEL_34:
       v9 = v13;
     else
       v9 = v14;
-    byte_96892 = v9;
+    str_9688C.var8_6 = v9;
     v12 = off_99A84[v8];
-    v10 = sub_51420((uint32*)&dword_9688C, v12);
-    sub_51560((uint8*)&dword_9688C, (__int16)((90 - v10) / 2), v6, v12);
+    v10 = sub_51420((uint32*)&str_9688C, v12);
+    sub_51560((uint8*)&str_9688C, (__int16)((90 - v10) / 2), v6, v12);
     ++v8;
-    v6 += *(unsigned __int8 *)(dword_9688C + 5) - 2;
+    v6 += str_9688C.var8_5 - 2;
   }
   sub_51400();
   result = v14;
-  byte_96892 = v14;
+  str_9688C.var8_6 = v14;
   return result;
 }
 // 4A7CC: using guessed type __int16 word_4A7CC[];
@@ -55651,8 +55542,9 @@ char sub_4E0E0()
     sub_65D70_66280(begPMultSprTab_12CB10_2EAB10, text_12CB14_2EAB14, begPMultSprDat_12CB18_2EAB18);
   else
     sub_65DC0_662D0(begPMultSprTab_12CB10_2EAB10, text_12CB14_2EAB14, begPMultSprDat_12CB18_2EAB18);
-  sub_51480_517C0((int)&dword_9688C, (uint32*)&begSFont1Tab_12CB34_2EAB34, begPalette_12CB9C_2EAB9C);
-  byte_96890 &= ~2u;
+  sub_51480_517C0((int)&str_9688C, (uint32*)&begSFont1Tab_12CB34_2EAB34, begPalette_12CB9C_2EAB9C);
+  str_9688C.var8_4 &= ~2u;
+  str_9688C.var8_5 = 0;
   sub_3EEA0_3F1E0((char*)"data\\screens\\pmulti.pal", (uint8_t*)begPalette_12CB9C_2EAB9C);
   sub_3EEA0_3F1E0((char*)"data\\screens\\pmulti.dat", (uint8_t*)begBscreen_AE3FC_26C3FC);
   if ( (word_12F02E_12F01E & 1) != 0 )
@@ -55665,10 +55557,10 @@ char sub_4E0E0()
     sub_599B0_59EC0(480);
   if ( !byte_90B23 )
     sub_5C05C_5C56C((int)begSptrsTab_12CAEC_2EAAEC + 6 * (unsigned __int8)byte_12CBCE_12CBBE);
-  sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+  sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
   byte_12CBD5_12CBC5 |= 1u;
   result = sub_5CC70_5D180(begPalette_12CB9C_2EAB9C, 0x1Au, 0x12u, 0xDu);
-  byte_96892 = result;
+  str_9688C.var8_6 = result;
   return result;
 }
 // 90B23: using guessed type char byte_90B23;
@@ -55733,8 +55625,8 @@ void sub_4E320()
   sub_513E0();
   sub_51360(173, 42, 90, 15);
   v2 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-  v1 = 90 - sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-  sub_51560((uint8*)&dword_9688C, (__int16)(v1 / 2), 1, (char*)v2);
+  v1 = 90 - sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+  sub_51560((uint8*)&str_9688C, (__int16)(v1 / 2), 1, (char*)v2);
   sub_51400();
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0_5D2B0();
@@ -55758,8 +55650,8 @@ void sub_4E3D0_4E710(unsigned __int8 a1)
   sub_513E0();
   sub_51360(173, 42, 90, 15);
   v2 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-  v1 = 90 - sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-  sub_51560((uint8*)&dword_9688C, (__int16)(v1 / 2), 1, (char*)v2);
+  v1 = 90 - sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+  sub_51560((uint8*)&str_9688C, (__int16)(v1 / 2), 1, (char*)v2);
   sub_51400();
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0_5D2B0();
@@ -55783,8 +55675,8 @@ void sub_4E470_4E7B0(unsigned __int8 a1)
   sub_513E0();
   sub_51360(173, 42, 90, 15);
   v2 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-  v1 = 90 - sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-  sub_51560((uint8*)&dword_9688C, (__int16)(v1 / 2), 1, (char*)v2);
+  v1 = 90 - sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+  sub_51560((uint8*)&str_9688C, (__int16)(v1 / 2), 1, (char*)v2);
   sub_51400();
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0_5D2B0();
@@ -55808,8 +55700,8 @@ void sub_4E510(unsigned __int8 a1)
   sub_513E0();
   sub_51360(173, 42, 90, 15);
   v2 = (unsigned __int8 *)(dword_AE408_AE3F8() + 117);
-  v1 = 90 - sub_51420((uint32*)&dword_9688C, (char *)(dword_AE408_AE3F8() + 117));
-  sub_51560((uint8*)&dword_9688C, (__int16)(v1 / 2), 1, (char*)v2);
+  v1 = 90 - sub_51420((uint32*)&str_9688C, (char *)(dword_AE408_AE3F8() + 117));
+  sub_51560((uint8*)&str_9688C, (__int16)(v1 / 2), 1, (char*)v2);
   sub_51400();
   if ( (word_12F02E_12F01E & 1) != 0 )
     sub_5CDA0_5D2B0();
@@ -55942,7 +55834,7 @@ int sub_4E5B0()
       sub_5CDA0_5D2B0();
     else
       sub_599B0_59EC0(480);
-    sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+    sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
     byte_12EEF1 = 0;
     byte_12CAE4 &= ~1u;
     sub_51360(0, 0, 320, 200);
@@ -56388,7 +56280,7 @@ void sub_4F3F0_4F730()//2203F0_
           sub_599B0_59EC0(480);
       if (!byte_90B23)
           sub_5C05C_5C56C(6 * (unsigned __int8)byte_12CBCE_12CBBE + (int)begSptrsTab_12CAEC_2EAAEC);
-      sub_61CC0_621D0((uint8_t*)begPalette_12CB9C_2EAB9C, 0x20u, 0);
+      sub_61CC0_621D0(begPalette_12CB9C_2EAB9C, 0x20u, 0);
       byte_12CAE4 &= 0xFEu;
       byte_12EEF1 = 0;
       byte_12CBD5_12CBC5 |= 1u;
@@ -56730,8 +56622,8 @@ void sub_4FFE0()
 
   sub_513A0(v2);
   v1 = dword_AE238_AE228[36];
-  v0 = sub_51420((uint32*)&dword_9688C, dword_AE238_AE228[36]);
-  sub_51560((uint8*)&dword_9688C, (__int16)((v2[4] - v0) / 2), 12, (char*)v1);
+  v0 = sub_51420((uint32*)&str_9688C, dword_AE238_AE228[36]);
+  sub_51560((uint8*)&str_9688C, (__int16)((v2[4] - v0) / 2), 12, (char*)v1);
 }
 // 9688C: using guessed type int dword_9688C;
 // AE2C8: using guessed type int dword_AE2C8;
@@ -56766,11 +56658,11 @@ void sub_50030()
   dword_AC5C4 = 0;
   sub_513E0();
   sub_51360(70, 73, 179, 48);
-  sub_50D40(8, 25, 30, 0, (char *)(dword_AE408_AE3F8() + 29), 255, 0, sub_50350, 1, (int)&dword_9688C);
+  sub_50D40(8, 25, 30, 0, (char *)(dword_AE408_AE3F8() + 29), 255, 0, sub_50350, 1, (int)&str_9688C);
   byte_12CBD5_12CBC5 |= 0x20u;
   byte_12EF0C = 0;
   byte_12CAE4 &= ~1u;
-  sub_50D40(8, 25, 8, 0, (char *)(dword_AE408_AE3F8() + 61), 255, 0, sub_503E0, 1, (int)&dword_9688C);
+  sub_50D40(8, 25, 8, 0, (char *)(dword_AE408_AE3F8() + 61), 255, 0, sub_503E0, 1, (int)&str_9688C);
   byte_12EF0C = 0;
   byte_12CBD5_12CBC5 &= ~0x20u;
   byte_12CAE4 &= ~1u;
@@ -56831,8 +56723,8 @@ void sub_50350()
   else
     sub_62FC4_634D4((const void *)begBscreen_AE3FC_26C3FC, (void *)readBuffer_12EFF4, 0x1E0u);
   v1 = dword_AE238_AE228[34];
-  v0 = sub_51420((uint32*)&dword_9688C, dword_AE238_AE228[34]);
-  sub_51560((uint8*)&dword_9688C, (__int16)((v2[4] - v0) / 2), 10, (char*)v1);
+  v0 = sub_51420((uint32*)&str_9688C, dword_AE238_AE228[34]);
+  sub_51560((uint8*)&str_9688C, (__int16)((v2[4] - v0) / 2), 10, (char*)v1);
 }
 // 9688C: using guessed type int dword_9688C;
 // AE2C0: using guessed type int dword_AE2C0;
@@ -56853,8 +56745,8 @@ void sub_503E0()
   else
     sub_62FC4_634D4((const void *)begBscreen_AE3FC_26C3FC, (void *)readBuffer_12EFF4, 0x1E0u);
   v1 = dword_AE238_AE228[35];
-  v0 = sub_51420((uint32*)&dword_9688C, dword_AE238_AE228[35]);
-  sub_51560((uint8*)&dword_9688C, (__int16)((v2[4] - v0) / 2), 10, (char*)v1);
+  v0 = sub_51420((uint32*)&str_9688C, dword_AE238_AE228[35]);
+  sub_51560((uint8*)&str_9688C, (__int16)((v2[4] - v0) / 2), 10, (char*)v1);
 }
 // 9688C: using guessed type int dword_9688C;
 // AE2C4: using guessed type int dword_AE2C4;
@@ -57575,18 +57467,14 @@ int sub_51330(int a1, __int16 a2)
 // 660B5: using guessed type _DWORD memmove(_DWORD, _DWORD, _DWORD);
 
 //----- (00051360) --------------------------------------------------------
-int sub_51360(int a1, int a2, int a3, int a4)
+void sub_51360(int a1, int a2, int a3, int a4)
 {
-  int result; // eax
-
-  dword_12C970 = a1;
-  dword_12C97C = a2 + a4;
-  dword_12C978 = a2;
-  dword_12C980 = a3;
-  result = a4;
-  dword_12C974 = a1 + a3;
-  dword_12C984 = a4;
-  return result;
+  array_12C970[0] = a1;
+  array_12C970[3] = a2 + a4;
+  array_12C970[2] = a2;
+  array_12C970[4] = a3;
+  array_12C970[1] = a1 + a3;
+  array_12C970[5] = a4;
 }
 // 12C970: using guessed type int dword_12C970;
 // 12C974: using guessed type int dword_12C974;
@@ -57601,12 +57489,12 @@ _DWORD *sub_513A0(_DWORD *a1)
   _DWORD *result; // eax
 
   result = a1;
-  *a1 = dword_12C970;
-  a1[1] = dword_12C974;
-  a1[2] = dword_12C978;
-  a1[3] = dword_12C97C;
-  a1[4] = dword_12C980;
-  a1[5] = dword_12C984;
+  a1[0] = array_12C970[0];
+  a1[1] = array_12C970[1];
+  a1[2] = array_12C970[2];
+  a1[3] = array_12C970[3];
+  a1[4] = array_12C970[4];
+  a1[5] = array_12C970[5];
   return result;
 }
 // 12C970: using guessed type int dword_12C970;
@@ -57620,7 +57508,7 @@ _DWORD *sub_513A0(_DWORD *a1)
 void sub_513E0()
 {
   dword_12CA78 = 0;
-  qmemcpy(&unk_12C988, &dword_12C970, 0x18u);
+  qmemcpy(&unk_12C988, array_12C970, 0x18u);
 }
 // 12C970: using guessed type int dword_12C970;
 // 12CA78: using guessed type int dword_12CA78;
@@ -57629,7 +57517,7 @@ void sub_513E0()
 void sub_51400()
 {
   dword_12CA78 = 0;
-  qmemcpy(&dword_12C970, &unk_12C988, 0x18u);
+  qmemcpy(array_12C970, &unk_12C988, 0x18u);
 }
 // 12C970: using guessed type int dword_12C970;
 // 12CA78: using guessed type int dword_12CA78;
@@ -57682,7 +57570,7 @@ void sub_51480_517C0(int a1, _DWORD *a2, TColor* colorBuffer)
 }
 
 //----- (00051560) --------------------------------------------------------
-void sub_51560(_BYTE *a1, int a2, __int16 a3, char* a4)
+void sub_51560(_BYTE *a1, int a2, __int16 a3, char* text)
 {
   int v4; // edi
   char* v5; // ebx
@@ -57693,8 +57581,8 @@ void sub_51560(_BYTE *a1, int a2, __int16 a3, char* a4)
   int v10; // ebp
 
   v4 = a2;
-  v5 = a4;
-  if ( a4 )
+  v5 = text;
+  if ( text )
   {
     while ( 1 )
     {
@@ -57753,7 +57641,7 @@ void sub_51560(_BYTE *a1, int a2, __int16 a3, char* a4)
       }
     }
   }
-  //fix !!!! sub_4D300();
+  sub_4D300();
 }
 // 51578: control flows out of bounds to 4D39E
 
@@ -57795,8 +57683,8 @@ __int16 sub_51650(int a1, int a2, __int16 a3, int a4)
   unsigned __int8 v38; // [esp+30h] [ebp-18h]
   unsigned __int8 v39; // [esp+34h] [ebp-14h]
 
-  LOWORD(v4) = dword_12C970 + a2;
-  v5 = dword_12C978 + a3;
+  LOWORD(v4) = array_12C970[0] + a2;
+  v5 = array_12C970[2] + a3;
   v6 = *(_BYTE *)(a4 + 4);
   v7 = -a2;
   v8 = *(_BYTE *)(a4 + 5);
@@ -57810,12 +57698,12 @@ __int16 sub_51650(int a1, int a2, __int16 a3, int a4)
       return v7;
     v37 = -(char)a2;
   }
-  LOWORD(v7) = v6 + (_WORD)v4 - dword_12C974;
+  LOWORD(v7) = v6 + (_WORD)v4 - array_12C970[1];
   if ( (__int16)v7 > 0 )
   {
     if ( (__int16)v7 >= v6 )
       return v7;
-    v6 = dword_12C974 - v4;
+    v6 = array_12C970[1] - v4;
   }
   v39 = v6;
   LOWORD(v7) = -a3;
@@ -57829,12 +57717,12 @@ __int16 sub_51650(int a1, int a2, __int16 a3, int a4)
       return v7;
     LOBYTE(v9) = -(char)a3;
   }
-  LOWORD(v7) = v5 + v8 - dword_12C97C;
+  LOWORD(v7) = v5 + v8 - array_12C970[3];
   if ( (__int16)v7 > 0 )
   {
     if ( (__int16)v7 >= v8 )
       return v7;
-    v8 = dword_12C97C - v5;
+    v8 = array_12C970[3] - v5;
   }
   v4 = (__int16)v4;
   v36 = v8 - v9;
@@ -65491,7 +65379,7 @@ void sub_5C8F4()
       v0 = v11 - 1;
     }
     while ( v11 != 1 );
-    sub_319A0_319E0((unsigned __int8 *)begPalMem_AE418_26C418);
+    sub_319A0_319E0(begPalMem_AE418_26C418);
   }
 }
 // 9ADBC: using guessed type int dword_9ADBC;
@@ -69218,7 +69106,7 @@ int sub_61B90(unsigned __int8 *a1)
   dword_12EFF8 = 200;
   int386(16, (uint32)v3, (uint32)v2);
   */
-  sub_319A0_319E0(a1);
+  sub_319A0_319E0((TColor*)a1);
   sub_5C468();
   return sub_65EB0(0, 0, 320, 200);
 }
@@ -69242,7 +69130,7 @@ int sub_61C30(unsigned __int8 *a1)
   dword_12EFF0 = 640;
   dword_12EFF8 = 480;
   sub_619B8(257);
-  sub_319A0_319E0(a1);
+  sub_319A0_319E0((TColor*)a1);
   sub_5C468();
   return sub_65EB0(0, 0, 640, 480);
 }
@@ -69254,9 +69142,9 @@ int sub_61C30(unsigned __int8 *a1)
 // 61C30: using guessed type char var_38[28];
 
 //----- (00061CC0) --------------------------------------------------------
-void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3)//232CC0_
+void sub_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3)//232CC0_
 {
-  uint8_t v6[768]; // [esp+0h] [ebp-30Ch] BYREF
+  TColor palette2[256]; // [esp+0h] [ebp-30Ch] BYREF
 
   if ( a3 )
   {
@@ -69269,35 +69157,39 @@ void sub_61CC0_621D0(unsigned __int8 *a1, unsigned __int8 a2, char a3)//232CC0_
     {
       word_12F690_12F680 = 0;
       byte_9AFA8 = 1;
-      sub_6B47C((unsigned __int8 *)byte_12F090);
-      if ( !a1 )
+      sub_6B47C(byte_12F090);
+      if ( !palette)
         memset(byte_12F390, 0, 768);
     }
-    if ( !a1 )
-      a1 = byte_12F390;
-    for ( int i = 0; i < 768; i++ )
+    if ( !palette)
+        palette = byte_12F390;
+    for ( int i = 0; i < 256; i++ )
     {
-      v6[i] = byte_12F090[i] + (a1[i] - byte_12F090[i]) * word_12F690_12F680 / a2;
+        palette2[i].red = byte_12F090[i].red + (palette[i].red - byte_12F090[i].red) * word_12F690_12F680 / a2;
+        palette2[i].green = byte_12F090[i].green + (palette[i].green - byte_12F090[i].green) * word_12F690_12F680 / a2;
+        palette2[i].blue = byte_12F090[i].blue + (palette[i].blue - byte_12F090[i].blue) * word_12F690_12F680 / a2;
     }
     sub_5CC54_5D164();
-    sub_319A0_319E0(v6);
+    sub_319A0_319E0(palette2);
   }
   else
   {
     sub_6B47C(byte_12F090);
-    if ( !a1 )
+    if ( !palette)
     {
-      a1 = byte_12F390;
+        palette = byte_12F390;
       memset(byte_12F390, 0, 768);
     }
     for ( word_12F690_12F680 = 0; a2 >= word_12F690_12F680; ++word_12F690_12F680 )
     {
-      for ( int i = 0; i < 768; i++ )
+      for ( int i = 0; i < 256; i++ )
       {
-        v6[i] = byte_12F090[i] + (a1[i] - byte_12F090[i]) * word_12F690_12F680 / a2;
+          palette2[i].red = byte_12F090[i].red + (palette[i].red - byte_12F090[i].red) * word_12F690_12F680 / a2;
+          palette2[i].green = byte_12F090[i].green + (palette[i].green - byte_12F090[i].green) * word_12F690_12F680 / a2;
+          palette2[i].blue = byte_12F090[i].blue + (palette[i].blue - byte_12F090[i].blue) * word_12F690_12F680 / a2;
       }
       sub_5CC54_5D164();
-      sub_319A0_319E0(v6);
+      sub_319A0_319E0(palette2);
     }
     byte_9AFA8 = 0;
   }
@@ -69710,15 +69602,17 @@ size_t FileWrite_62ED0_633E0(FILE* descriptor, uint8_t* buffer, uint32_t count)
 // 6C8EC: using guessed type _DWORD write(_DWORD, _DWORD, _DWORD);
 
 //----- (00062FA8) --------------------------------------------------------
-void sub_62FA8_634B8(const void *a1, void *a2, unsigned __int16 a3)
+void sub_62FA8_634B8(void const* src, void* dst, size_t size)
 {
-  qmemcpy(a2, a1, 320 * a3);
+  //qmemcpy(a2, a1, 320 * a3);
+  memcpy(dst, src, 320 * size);
 }
 
 //----- (00062FC4) --------------------------------------------------------
-void sub_62FC4_634D4(const void *a1, void *a2, unsigned __int16 a3)
+void sub_62FC4_634D4(void const* src, void* dst, size_t size)
 {
-  qmemcpy(a2, a1, 640 * a3);
+  //qmemcpy(a2, a1, 640 * a3);
+    memcpy(dst, src, 640 * size);
 }
 
 //----- (00062FF0) --------------------------------------------------------
@@ -73704,11 +73598,11 @@ int sub_6B378(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
 // 12F024: using guessed type int dword_12F024;
 
 //----- (0006B47C) --------------------------------------------------------
-void sub_6B47C(unsigned __int8 *a1)
+void sub_6B47C(TColor* palette)
 {
     FixPerifery((char*)"port0x3C7");
     //VGA_Set_Palette(a1);
-    memcpy(a1, VGA_Get_Palette(), 768);
+    memcpy((uint8_t*)palette, VGA_Get_Palette(), 768);
     /*
   int v3; // [esp+4h] [ebp-4h]
 
