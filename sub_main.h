@@ -23,18 +23,18 @@ TColor;
 
 extern int dword_A99A0_A99B8;
 
-extern uint8_t* begSearch_AE3F4_26C3F4;
-extern uint8_t* begBuild00Tab_AE440_26C440;
-extern uint8_t* begFont0Tab_AE3B8_26C3B8;
-extern uint8_t* begPalData_AE424_26C424;
-extern TColor* begPalMem_AE418_26C418;
-extern uint8_t* begPointersTab_AE450_AE440_26C450;
-extern TColor* begPal00Dat_AE428_AE418_26C428;
-extern uint8_t* begTextDat_AE41C_AE40C_26C41C;
-extern uint8_t* begBlkDat_AE3F0_26C3F0;
-extern uint8_t* begSky_AE3D8_26C3D8;
-extern uint8_t* begBscreen_AE3FC_26C3FC;
-extern uint8_t* begSpr00Tab_AE42C_26C42C;
+extern uint8_t* begSearch_AE3F4_26C3F4_26C3E4;
+extern uint8_t* begBuildTab_AE440_AE430_26C440_26C430;
+extern uint8_t* begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8;
+extern uint8_t* begPalData_AE424_AE414_26C424_26C414;
+extern TColor* begPalMem_AE418_AE408_26C418_26C408;
+extern uint8_t* begPointersTab_AE450_AE440_26C450_26C440;
+extern TColor* begPalDat_AE428_AE418_26C428_26C418;
+extern uint8_t* begTextDat_AE41C_AE40C_26C41C_26C40C;
+extern uint8_t* begBlkDat_AE3F0_26C3F0_26C3E0;
+extern uint8_t* begSky_AE3D8_AE3C8_26C3D8_26C3C8;
+extern uint8_t* begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
+extern uint8_t* begSprTab_AE42C_AE41C_26C42C_26C41C;
 
 typedef struct {//2049
 	uint16 var_u16_13325;
