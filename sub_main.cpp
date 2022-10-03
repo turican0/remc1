@@ -3563,74 +3563,91 @@ const int PSintrotitle02dat = 31;
 
 uint8_t* begSptrsDat_12CB64_2EAB64_2EAAE4;//begSptrsDat_12CB64_2EAB64_2EAAE4
 uint8_t* begSptrsTab_12CAEC_2EAAEC_2EAADC;//begSptrsTab_12CAEC_2EAAEC_2EAADC
-uint8_t* test_12CAF0_2EAAF0_2EAAE0;//test_12CAF0_2EAAF0_2EAAE0
+uint8_t* endSptrsTab_12CAF0_2EAAF0_2EAAE0;//endSptrsTab_12CAF0_2EAAF0_2EAAE0
+
 TColor* begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C;//TColor begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C[256]; // weak
 uint8_t* begScreenBackup_12CBA4_2EABA4_2EAB94;//begScreenBackup_12CBA4_2EABA4_2EAB94
 uint8_t* begScreenBackup2_12CBA8_2EABA8_2EAB98;//begScreenBackup2_12CBA8_2EABA8_2EAB98
 
-uint8_t* begSFont0Dat_12CB30_2EAB30_2EAB20;
+typedef struct {
+    uint8_t* bTab;
+    uint8_t* eTab;
+    uint8_t* Dat;
+} TypeStrFont;
+
+TypeStrFont sFont0Tab_12CB28_2EAB28_2EAB18;
+
+TypeStrFont sFont1Tab_12CB34_2EAB34_2EAB24;
+
+/*
 uint8_t* begSFont0Tab_12CB28_2EAB28_2EAB18;//begSFont0Tab_12CB28_2EAB28_2EAB18
-uint8_t* test_12CB2C_2EAB2C_2EAB1C;
+uint8_t* endSFont0Tab_12CB2C_2EAB2C_2EAB1C;
+uint8_t* begSFont0Dat_12CB30_2EAB30_2EAB20;
+
+uint8_t* begSFont1Tab_12CB34_2EAB34_2EAB24;//begSFont1Tab_12CB34_2EAB34_2EAB24
+uint8_t* endSFont1Tab_12CB38_2EAB38_2EAB28;
+uint8_t* begSFont1Dat_12CB3C_2EAB3C_2EAB2C;
+*/
+
 uint8_t* begGcSprDat_12CB00_2EAB00_2EAAF0;//begGcSprDat_12CB00_2EAB00_2EAAF0
 uint8_t* begGcSprTab_12CAF8_2EAAF8_2EAAE8;//begGcSprTab_12CAF8_2EAAF8_2EAAE8
-uint8_t* test_12CAFC_2EAAFC_2EAAEC;//test_12CAFC_2EAAFC_2EAAEC
+uint8_t* endGcSprTab_12CAFC_2EAAFC_2EAAEC;//endGcSprTab_12CAFC_2EAAFC_2EAAEC
 
 uint8_t* begMmSprDat_12CB0C_2EAB0C_2EAAFC;//begMmSprDat_12CB0C_2EAB0C_2EAAFC
 uint8_t* begMmSprTab_12CB04_2EAB04_2EAAF4;//begMmSprTab_12CB04_2EAB04_2EAAF4
-uint8_t* test_12CB08_2EAB08_2EAAF8;//test_12CB08_2EAB08_2EAAF8
+uint8_t* endMmSprTab_12CB08_2EAB08_2EAAF8;//endMmSprTab_12CB08_2EAB08_2EAAF8
+
 uint8_t* begMmMaskDat_12CBA0_2EABA0_2EAB90;//begMmMaskDat_12CBA0_2EABA0_2EAB90
-uint8_t* begSFont1Dat_12CB3C_2EAB3C_2EAB2C;
-uint8_t* begSFont1Tab_12CB34_2EAB34_2EAB24;//begSFont1Tab_12CB34_2EAB34_2EAB24
-uint8_t* test_12CB38_2EAB38_2EAB28;
+
 uint8_t* begGlobeDat_12CB72_2EAB72_2EAB62;//begGlobeDat_12CB72_2EAB72_2EAB62
 uint8_t* begTimerDat_12CB80_2EAB80_2EAB70;//begTimerDat_12CB80_2EAB80_2EAB70
 uint8_t* begBrightTable_12CBAC_2EABAC_2EAB9C;//begBrightTable_12CBAC_2EABAC_2EAB9C
 
 uint8_t* begPMultSprDat_12CB18_2EAB18_2EAB08;//begPMultSprDat_12CB18_2EAB18_2EAB08
 uint8_t* begPMultSprTab_12CB10_2EAB10_2EAB00;//begPMultSprTab_12CB10_2EAB10_2EAB00
-uint8_t* test_12CB14_2EAB14_2EAB04;//test_12CB14_2EAB14_2EAB04
+uint8_t* endPMultSprTab_12CB14_2EAB14_2EAB04;//endPMultSprTab_12CB14_2EAB14_2EAB04
 
 uint8_t* begSFont2Dat_12CB48_2EAB48_2EAB38;//begSFont2Dat_12CB48_2EAB48_2EAB38
 uint8_t* begSFont2Tab_12CB40_2EAB40_2EAB30;//begSFont2Tab_12CB40_2EAB40_2EAB30
-uint8_t* test_12CB44_2EAB44_2EAB34;//test_12CB44_2EAB44_2EAB34
+uint8_t* endSFont2Tab_12CB44_2EAB44_2EAB34;//endSFont2Tab_12CB44_2EAB44_2EAB34
 
 uint8_t* begLangSprDat_12CB60_2EAB60_2EAB50;//begLangSprDat_12CB60_2EAB60_2EAB50begSptrsDat
 uint8_t* begLangSprTab_12CB58_2EAB58_2EAB48;//begLangSprTab_12CB58_2EAB58_2EAB48
-uint8_t* test_12CB5C_2EAB5C_2EAB4C;//test_12CB5C_2EAB5C_2EAB4C
+uint8_t* endLangSprTab_12CB5C_2EAB5C_2EAB4C;//endLangSprTab_12CB5C_2EAB5C_2EAB4C
 
 uint8_t* begTitle02Dat_12CB64_2EAB64_2EAB54;//begTitle02Dat_12CB64_2EAB64_2EAB54
 
 Pathstruct pathStrArray_21AB80_21AEC0[] = {
 { "data/screens/sptrs.dat", &begSptrsDat_12CB64_2EAB64_2EAAE4, 0, 0, 0 },
-{ "data/screens/sptrs.tab", &begSptrsTab_12CAEC_2EAAEC_2EAADC, &test_12CAF0_2EAAF0_2EAAE0, 0, 0 },
+{ "data/screens/sptrs.tab", &begSptrsTab_12CAEC_2EAAEC_2EAADC, &endSptrsTab_12CAF0_2EAAF0_2EAAE0, 0, 0 },
 { "*PALETTE", (uint8_t**)&begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C, 0, 768, 0 },
 { "*SCREEN BACKUP", &begScreenBackup_12CBA4_2EABA4_2EAB94, 0, 64000, 0 },
 { "*SCREEN BACKUP", &begScreenBackup2_12CBA8_2EABA8_2EAB98, 0, 64000, 0 },
 { "", 0, 0, 0, 0 },
-{ "data/screens/sfont0.dat", &begSFont0Dat_12CB30_2EAB30_2EAB20, 0, 0, 0 },
-{ "data/screens/sfont0.tab", &begSFont0Tab_12CB28_2EAB28_2EAB18, &test_12CB2C_2EAB2C_2EAB1C, 0, 0 },
+{ "data/screens/sfont0.dat", &sFont0Tab_12CB28_2EAB28_2EAB18.Dat, 0, 0, 0 },
+{ "data/screens/sfont0.tab", &sFont0Tab_12CB28_2EAB28_2EAB18.bTab, &sFont0Tab_12CB28_2EAB28_2EAB18.eTab, 0, 0 },
 { "data/screens/gcspr.dat", &begGcSprDat_12CB00_2EAB00_2EAAF0, 0, 0, 0 },
-{ "data/screens/gcspr.tab", &begGcSprTab_12CAF8_2EAAF8_2EAAE8, &test_12CAFC_2EAAFC_2EAAEC, 0, 0 },
+{ "data/screens/gcspr.tab", &begGcSprTab_12CAF8_2EAAF8_2EAAE8, &endGcSprTab_12CAFC_2EAAFC_2EAAEC, 0, 0 },
 { "", 0, 0, 0, 0 },
 { "data/screens/mmspr.dat", &begMmSprDat_12CB0C_2EAB0C_2EAAFC, 0, 0, 0 },
-{ "data/screens/mmspr.tab", &begMmSprTab_12CB04_2EAB04_2EAAF4, &test_12CB08_2EAB08_2EAAF8, 0, 0 },
+{ "data/screens/mmspr.tab", &begMmSprTab_12CB04_2EAB04_2EAAF4, &endMmSprTab_12CB08_2EAB08_2EAAF8, 0, 0 },
 { "data/screens/mmmask.dat", &begMmMaskDat_12CBA0_2EABA0_2EAB90, 0, 0, 0 },
-{ "data/screens/sfont1.dat", &begSFont1Dat_12CB3C_2EAB3C_2EAB2C, 0, 0, 0 },
-{ "data/screens/sfont1.tab", &begSFont1Tab_12CB34_2EAB34_2EAB24, &test_12CB38_2EAB38_2EAB28, 0, 0 },
+{ "data/screens/sfont1.dat", &sFont1Tab_12CB34_2EAB34_2EAB24.Dat, 0, 0, 0 },
+{ "data/screens/sfont1.tab", &sFont1Tab_12CB34_2EAB34_2EAB24.bTab, &sFont1Tab_12CB34_2EAB34_2EAB24.eTab, 0, 0 },
 { "data/screens/globe.dat", &begGlobeDat_12CB72_2EAB72_2EAB62, 0, 0, 0 },
 { "data/screens/timer.dat", &begTimerDat_12CB80_2EAB80_2EAB70, 0, 0, 0 },
 { "*BRIGHT TABLE", &begBrightTable_12CBAC_2EABAC_2EAB9C, 0, 256, 0 },
 { "", 0, 0, 0, 0 },
 { "data/screens/pmultspr.dat", &begPMultSprDat_12CB18_2EAB18_2EAB08, 0, 0, 0 },
-{ "data/screens/pmultspr.tab", &begPMultSprTab_12CB10_2EAB10_2EAB00, &test_12CB14_2EAB14_2EAB04, 0, 0 },
-{ "data/screens/sfont1.dat", &begSFont1Dat_12CB3C_2EAB3C_2EAB2C, 0, 0, 0 },
-{ "data/screens/sfont1.tab", &begSFont1Tab_12CB34_2EAB34_2EAB24, &test_12CB38_2EAB38_2EAB28, 0, 0 },
+{ "data/screens/pmultspr.tab", &begPMultSprTab_12CB10_2EAB10_2EAB00, &endPMultSprTab_12CB14_2EAB14_2EAB04, 0, 0 },
+{ "data/screens/sfont1.dat", &sFont1Tab_12CB34_2EAB34_2EAB24.Dat, 0, 0, 0 },
+{ "data/screens/sfont1.tab", &sFont1Tab_12CB34_2EAB34_2EAB24.bTab, &sFont1Tab_12CB34_2EAB34_2EAB24.eTab, 0, 0 },
 { "", 0, 0, 0, 0 },
 { "data/screens/sfont2.dat", &begSFont2Dat_12CB48_2EAB48_2EAB38, 0, 0, 0 },
-{ "data/screens/sfont2.tab", &begSFont2Tab_12CB40_2EAB40_2EAB30, &test_12CB44_2EAB44_2EAB34, 0, 0 },
+{ "data/screens/sfont2.tab", &begSFont2Tab_12CB40_2EAB40_2EAB30, &endSFont2Tab_12CB44_2EAB44_2EAB34, 0, 0 },
 { "", 0, 0, 0, 0 },
 { "data/screens/langspr.dat", &begLangSprDat_12CB60_2EAB60_2EAB50, 0, 0, 0 },
-{ "data/screens/langspr.tab", &begLangSprTab_12CB58_2EAB58_2EAB48, &test_12CB5C_2EAB5C_2EAB4C, 0, 0 },
+{ "data/screens/langspr.tab", &begLangSprTab_12CB58_2EAB58_2EAB48, &endLangSprTab_12CB5C_2EAB5C_2EAB4C, 0, 0 },
 { "", 0, 0, 0, 0 },
 { "intro/title-02.dat", &begTitle02Dat_12CB64_2EAB64_2EAB54, 0, 0, 0 },
 { "", 0, 0, 0, 0 }};
@@ -12609,7 +12626,7 @@ char byte_12CAE8_12CAD8; // weak
 //int text_12CB44_2EAB44; // weak
 //int begSFont2Dat_12CB48_2EAB48_2EAB38; // weak
 //int begLangSprTab_12CB58_2EAB58_2EAB48; // weak
-//uint8_t test_12CB5C_2EAB5C_2EAB4C; // weak
+//uint8_t endLangSprTab_12CB5C_2EAB5C_2EAB4C; // weak
 //int begLangSprDat_12CB60_2EAB60_2EAB50; // weak
 //int begTitle02Dat_12CB64_2EAB64_2EAB54; // weak
 int dword_12CB68; // weak
@@ -47050,7 +47067,7 @@ void convert() {
 //----- (000404F0_00040830) --------------------------------------------------------
 int sub_main(int argc, char* argv[])//2114f0_211830
 {
-	convert();
+	//convert();
 	//fix
 	mkdir(gameDataPath2.c_str());
 	//fix
@@ -53510,15 +53527,18 @@ void sub_4AB20_4AE60()//21BB20_
     sub_40440_40780(&pathStrArray_21AB80_21AEC0[PSdatascreenssptrsdat]);
     if ( (typeResolution_12F02E_12F01E & 1) != 0 )
     {
-      sub_65D70_66280(begSptrsTab_12CAEC_2EAAEC_2EAADC, test_12CAF0_2EAAF0_2EAAE0, begSptrsDat_12CB64_2EAB64_2EAAE4);
+      sub_65D70_66280(begSptrsTab_12CAEC_2EAAEC_2EAADC, endSptrsTab_12CAF0_2EAAF0_2EAAE0, begSptrsDat_12CB64_2EAB64_2EAAE4);
     }
     else
     {
-      sub_65DC0_662D0(begSptrsTab_12CAEC_2EAAEC_2EAADC, test_12CAF0_2EAAF0_2EAAE0, begSptrsDat_12CB64_2EAB64_2EAAE4);
+      sub_65DC0_662D0(begSptrsTab_12CAEC_2EAAEC_2EAADC, endSptrsTab_12CAF0_2EAAF0_2EAAE0, begSptrsDat_12CB64_2EAB64_2EAAE4);
     }
     bool_12CA7C_12CA6C = false;
   }
   sub_50770_50AB0();
+  //fix
+  byte_12CBCE_12CBBE =1;
+  //fix
   switch ( byte_12CBCE_12CBBE )
   {
     case 0:
@@ -54213,10 +54233,10 @@ void sub_4BB20_4BE60()
   sub_3EEA0_3F1E0((char*)"data/screens/gconfig.dat", begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
   sub_3EEA0_3F1E0((char*)"data\\screens\\gconfig.pal", (uint8_t*)begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-    sub_65D70_66280(begGcSprTab_12CAF8_2EAAF8_2EAAE8, test_12CAFC_2EAAFC_2EAAEC, begGcSprDat_12CB00_2EAB00_2EAAF0);
+    sub_65D70_66280(begGcSprTab_12CAF8_2EAAF8_2EAAE8, endGcSprTab_12CAFC_2EAAFC_2EAAEC, begGcSprDat_12CB00_2EAB00_2EAAF0);
   else
-    sub_65DC0_662D0(begGcSprTab_12CAF8_2EAAF8_2EAAE8, test_12CAFC_2EAAFC_2EAAEC, begGcSprDat_12CB00_2EAB00_2EAAF0);
-  sub_51480_517C0((int)&str_96884, &begSFont0Tab_12CB28_2EAB28_2EAB18, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
+    sub_65DC0_662D0(begGcSprTab_12CAF8_2EAAF8_2EAAE8, endGcSprTab_12CAFC_2EAAFC_2EAAEC, begGcSprDat_12CB00_2EAB00_2EAAF0);
+  sub_51480_517C0((int)&str_96884, (uint8_t**)&sFont0Tab_12CB28_2EAB28_2EAB18, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
   str_96884.var8_4 &= ~2u;
   str_96884.var8_5 = 0;
   if ( !byte_90B23 )
@@ -54782,10 +54802,10 @@ void sub_4C7E0()
   sub_5CEF0_5D400(0);
   sub_40440_40780((Pathstruct*)(char*)"data\\screens\\mmspr.dat");
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-    sub_65D70_66280(begMmSprTab_12CB04_2EAB04_2EAAF4, test_12CB08_2EAB08_2EAAF8, begMmSprDat_12CB0C_2EAB0C_2EAAFC);
+    sub_65D70_66280(begMmSprTab_12CB04_2EAB04_2EAAF4, endMmSprTab_12CB08_2EAB08_2EAAF8, begMmSprDat_12CB0C_2EAB0C_2EAAFC);
   else
-    sub_65DC0_662D0(begMmSprTab_12CB04_2EAB04_2EAAF4, test_12CB08_2EAB08_2EAAF8, begMmSprDat_12CB0C_2EAB0C_2EAAFC);
-  sub_51480_517C0((int)&str_9688C, &begSFont1Tab_12CB34_2EAB34_2EAB24, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
+    sub_65DC0_662D0(begMmSprTab_12CB04_2EAB04_2EAAF4, endMmSprTab_12CB08_2EAB08_2EAAF8, begMmSprDat_12CB0C_2EAB0C_2EAAFC);
+  sub_51480_517C0((int)&str_9688C, (uint8_t**)&sFont1Tab_12CB34_2EAB34_2EAB24, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
   str_9688C.var8_4 &= ~2u;
   str_9688C.var8_5 = 0;
   sub_3EEA0_3F1E0((char*)"data\\screens\\mainmenu.dat", (uint8_t*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
@@ -55731,10 +55751,10 @@ char sub_4E0E0()
   sub_20E60_20E60();
   sub_40440_40780(&pathStrArray_21AB80_21AEC0[PSdatascreenspmultsprdat]);
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-    sub_65D70_66280(begPMultSprTab_12CB10_2EAB10_2EAB00, test_12CB14_2EAB14_2EAB04, begPMultSprDat_12CB18_2EAB18_2EAB08);
+    sub_65D70_66280(begPMultSprTab_12CB10_2EAB10_2EAB00, endPMultSprTab_12CB14_2EAB14_2EAB04, begPMultSprDat_12CB18_2EAB18_2EAB08);
   else
-    sub_65DC0_662D0(begPMultSprTab_12CB10_2EAB10_2EAB00, test_12CB14_2EAB14_2EAB04, begPMultSprDat_12CB18_2EAB18_2EAB08);
-  sub_51480_517C0((int)&str_9688C, &begSFont1Tab_12CB34_2EAB34_2EAB24, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
+    sub_65DC0_662D0(begPMultSprTab_12CB10_2EAB10_2EAB00, endPMultSprTab_12CB14_2EAB14_2EAB04, begPMultSprDat_12CB18_2EAB18_2EAB08);
+  sub_51480_517C0((int)&str_9688C, (uint8_t**)&sFont1Tab_12CB34_2EAB34_2EAB24, begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
   str_9688C.var8_4 &= ~2u;
   str_9688C.var8_5 = 0;
   sub_3EEA0_3F1E0((char*)"data\\screens\\pmulti.pal", (uint8_t*)begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
@@ -56011,9 +56031,9 @@ int sub_4E5B0()
     byte_12CBCE_12CBBE = 2;
     sub_40440_40780((Pathstruct*)(char*)"data\\screens\\sfont2.dat");
     if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-      sub_65D70_66280(begSFont2Tab_12CB40_2EAB40_2EAB30, test_12CB44_2EAB44_2EAB34, begSFont2Dat_12CB48_2EAB48_2EAB38);
+      sub_65D70_66280(begSFont2Tab_12CB40_2EAB40_2EAB30, endSFont2Tab_12CB44_2EAB44_2EAB34, begSFont2Dat_12CB48_2EAB48_2EAB38);
     else
-      sub_65DC0_662D0(begSFont2Tab_12CB40_2EAB40_2EAB30, test_12CB44_2EAB44_2EAB34, begSFont2Dat_12CB48_2EAB48_2EAB38);
+      sub_65DC0_662D0(begSFont2Tab_12CB40_2EAB40_2EAB30, endSFont2Tab_12CB44_2EAB44_2EAB34, begSFont2Dat_12CB48_2EAB48_2EAB38);
     word_96898 = 16;
     dword_96894 = (int)begSFont2Tab_12CB40_2EAB40_2EAB30 + 6;
     sub_3EEA0_3F1E0((char*)"data/screens/pperf.pal", (uint8_t*)begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C);
@@ -56452,11 +56472,11 @@ void sub_4F3F0_4F730()//2203F0_
 		sub_40440_40780(&pathStrArray_21AB80_21AEC0[PSdatascreenslangsprdat]);
 		if ((typeResolution_12F02E_12F01E & 1) != 0)
 		{
-			sub_65D70_66280(begLangSprTab_12CB58_2EAB58_2EAB48, test_12CB5C_2EAB5C_2EAB4C, begLangSprDat_12CB60_2EAB60_2EAB50);
+			sub_65D70_66280(begLangSprTab_12CB58_2EAB58_2EAB48, endLangSprTab_12CB5C_2EAB5C_2EAB4C, begLangSprDat_12CB60_2EAB60_2EAB50);
 		}
 		else
 		{
-			sub_65DC0_662D0(begLangSprTab_12CB58_2EAB58_2EAB48, test_12CB5C_2EAB5C_2EAB4C, begLangSprDat_12CB60_2EAB60_2EAB50);
+			sub_65DC0_662D0(begLangSprTab_12CB58_2EAB58_2EAB48, endLangSprTab_12CB5C_2EAB5C_2EAB4C, begLangSprDat_12CB60_2EAB60_2EAB50);
 		}
 		if ((typeResolution_12F02E_12F01E & 1) != 0)
 		{
