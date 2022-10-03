@@ -65790,9 +65790,9 @@ void sub_5CDA0_5D2B0()
     FixPerifery((char*)"blit320");
     if (!byte_9AD96)
         sub_5BDF8_5C308();
+    VGA_Blit(readBuffer_12EFF4);
     if (!byte_9AD96)
         sub_5BE50_5C360();
-    VGA_Blit(readBuffer_12EFF4);
 
     //tempScreenBuffer_A0000 = readBuffer_12EFF4;
     /*
