@@ -53556,7 +53556,7 @@ void sub_4AB20_4AE60()//21BB20_
   }
   sub_50770_50AB0();
   //fix
-  byte_12CBCE_12CBBE =1;
+  //byte_12CBCE_12CBBE =1;
   //fix
   switch ( byte_12CBCE_12CBBE )
   {
