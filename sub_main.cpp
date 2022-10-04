@@ -721,7 +721,7 @@ int sub_3C4B0();
 int sub_3C4E0();
 int sub_3C510();
 int sub_3C540();
-char sub_3C570();
+void sub_3C570();
 void sub_3C800_sub_3CB40();
 int sub_3C9D0();
 char sub_3DC90(int a1, char a2);
@@ -834,7 +834,7 @@ int sub_43760(__int16 a1);
 void sub_43870(unsigned __int16 a1, char *a2, unsigned int a3);
 void sub_438D0(unsigned __int16 a1, char *a2, unsigned int a3);
 void sub_43930(char *a1, unsigned int a2);
-char sub_43B20_sub_43E60(int a1, unsigned int a2);
+void sub_43B20_sub_43E60(unsigned int a2);
 char *sub_43E50(const char *a1);
 void sub_43EC0_44200();
 void sub_44470_447B0();
@@ -10299,16 +10299,16 @@ char aPstamp[8] = "PSTAMP "; // weak
 //char aPlayers[8] = "players"; // weak
 //char aSession[8] = "session"; // weak
 char byte_A9058 = '\0'; // weak
-char aInitialiseMusi[17] = "Initialise Music"; // weak
-char aInitialiseSoun[17] = "Initialise Sound"; // weak
-char aSoundDisabled[15] = "Sound Disabled"; // weak
+//char aInitialiseMusi[17] = "Initialise Music"; // weak
+//char aInitialiseSoun[17] = "Initialise Sound"; // weak
+//char aSoundDisabled[15] = "Sound Disabled"; // weak
 //char aCarpetCd_2[11] = "\\carpet.cd"; // weak
 //char aSc[4] = "sC:"; // weak
-_UNKNOWN unk_A90B8; // weak
-_UNKNOWN unk_A90BC; // weak
-char aSoundfxNone000[22] = "SOUNDFX = none 0 0 0\n"; // weak
-char aMusicNone38800[22] = "MUSIC = none 388 0 0\n"; // weak
-char aBfMusic[9] = "BF_MUSIC"; // weak
+//_UNKNOWN unk_A90B8; // weak
+//_UNKNOWN unk_A90BC; // weak
+//char aSoundfxNone000[22] = "SOUNDFX = none 0 0 0\n"; // weak
+//char aMusicNone38800[22] = "MUSIC = none 388 0 0\n"; // weak
+//char aBfMusic[9] = "BF_MUSIC"; // weak
 //char aNone_0[5] = "none"; // weak
 //char aAdlib[6] = "ADLIB"; // weak
 //char aSblast[7] = "SBLAST"; // weak
@@ -10322,13 +10322,13 @@ char aBfMusic[9] = "BF_MUSIC"; // weak
 //char aSbawe32_0[8] = "SBAWE32"; // weak
 //char aGeneral_0[8] = "GENERAL"; // weak
 //char aWblast_0[7] = "WBLAST"; // weak
-char aCarpetCd_3[11] = "\\carpet.cd"; // weak
-_UNKNOWN unk_A91B4; // weak
-_UNKNOWN unk_A91B8; // weak
-char aSoundfxNone000_0[22] = "SOUNDFX = none 0 0 0\n"; // weak
-char aMusicNone38800_0[22] = "MUSIC = none 388 0 0\n"; // weak
-char aBfSound[9] = "BF_SOUND"; // weak
-char aNone_1[5] = "none"; // weak
+//char aCarpetCd_3[11] = "\\carpet.cd"; // weak
+//_UNKNOWN unk_A91B4; // weak
+//_UNKNOWN unk_A91B8; // weak
+//char aSoundfxNone000_0[22] = "SOUNDFX = none 0 0 0\n"; // weak
+//char aMusicNone38800_0[22] = "MUSIC = none 388 0 0\n"; // weak
+//char aBfSound[9] = "BF_SOUND"; // weak
+//char aNone_1[5] = "none"; // weak
 //char aLevels_0[7] = "levels"; // weak
 //char aCarpetCd_0[11] = "\\carpet.cd"; // weak
 //char aLc_0[4] = "lC:"; // weak
@@ -38738,9 +38738,9 @@ void sub_357C0_35B80()
   if ( !byte_90AD4 )
   {
     byte_90AD4 = 1;
-    if ( (*(_BYTE *)dword_AE408_AE3F8() & 0x48) != 0 )
+    if ( (str_AE408_AE3F8->var_u8_0 & 0x48) != 0 )
     {
-      DrawTextLine_5AD10_5B220((char*)aSoundDisabled);
+      DrawTextLine_5AD10_5B220((char*)"Sound Disabled");
       byte_939CD = 0;
       byte_939E5 = 0;
       byte_939CC = 0;
@@ -38748,9 +38748,9 @@ void sub_357C0_35B80()
     }
     else
     {
-      DrawTextLine_5AD10_5B220((char*)aInitialiseMusi);
+      DrawTextLine_5AD10_5B220((char*)"Initialise Music");
       sub_3C570();
-      DrawTextLine_5AD10_5B220((char*)aInitialiseSoun);
+      DrawTextLine_5AD10_5B220((char*)"Initialise Sound");
       sub_3C800_sub_3CB40();
     }
     if ( byte_939E4 || byte_939CC )
@@ -38762,16 +38762,15 @@ void sub_357C0_35B80()
     {
       sub_5A459_5A969();
     }
-    switch ( *(_BYTE *)(dword_AE408_AE3F8() + 151) )
+    switch (str_AE408_AE3F8->var_u8_151)
     {
       case 0:
         if ( !byte_939E4 )
-          goto LABEL_11;
+            byte_90090 = 1;
         break;
       case 1:
       case 2:
       case 3:
-LABEL_11:
         byte_90090 = 1;
         break;
       default:
@@ -44168,38 +44167,32 @@ int sub_3C540()
 }
 
 //----- (0003C570) --------------------------------------------------------
-char sub_3C570()
+void sub_3C570()
 {
-  int v0; // ebx
-  int v1; // ebx
-  int v2; // eax
-  int v3; // eax
-  char v5; // [esp+0h] [ebp-ACh] BYREF
-  char v6[64]; // [esp+64h] [ebp-48h] BYREF
-  char v7; // [esp+A4h] [ebp-8h] BYREF
+  //int v0; // ebx
+  //int v1; // ebx
+  char* varBfMusic; // eax
+  char v5[64]; // [esp+0h] [ebp-ACh] BYREF
+  char pathBuffer[64];
+  uint32_t v7; // [esp+A4h] [ebp-8h] BYREF
 
-  //fix
-  v5 = 0;
-  //fix
-
-  sprintf(v6, "%s%s/sndsetup.inf", 'C', "\\carpet.cd");
-  v0 = (int)fopen(v6, &unk_A90B8);
-  if ( !v0 )
+  sprintf(pathBuffer, "%s%s/sndsetup.inf", "C:", "\\carpet.cd");
+  FILE* file = fopen(FixPath(pathBuffer), "r");
+  if ( !file)
   {
-    v1 = (int)fopen(v6, &unk_A90BC);
-    fprintf((FILE*)v1, aSoundfxNone000, v5);
-    fprintf((FILE*)v1, aMusicNone38800, v5);
-    fclose((FILE*)v1);
-    v0 = (int)fopen(v6, &unk_A90B8);
+    file = fopen(FixPath(pathBuffer), "w+t");
+    fprintf(file, "SOUNDFX = none 0 0 0\n");
+    fprintf(file, "MUSIC = none 388 0 0\n");
+    fclose(file);
+    file = fopen(FixPath(pathBuffer), "r");
   }
-  fscanf((FILE*)v0, "%s = %s %x %d %d", &v5, &v5, &v7, &v7, &v7);
-  fscanf((FILE*)v0, "%s = %s %x", &v5, &unk_CBF74, &dword_CBF70);
-  fclose((FILE*)v0);
-  v2 = (int)getenv(aBfMusic);
-  if ( v2 )
-    sscanf((const char*)v2, "%s %x", &unk_CBF74, &dword_CBF70);
-  v3 = stricmp(&unk_CBF74, "none");
-  if ( !v3 )
+  fscanf(file, "%s = %s %x %d %d", &v5, &v5, &v7, &v7, &v7);
+  fscanf(file, "%s = %s %x", &v5, &unk_CBF74, &dword_CBF70);
+  fclose(file);
+  varBfMusic = getenv("BF_MUSIC");
+  if (varBfMusic)
+    sscanf(varBfMusic, "%s %x", &unk_CBF74, &dword_CBF70);
+  if ( !stricmp(&unk_CBF74, "none"))
   {
     byte_939CC = 0;
     byte_939CD = 0;
@@ -44215,22 +44208,21 @@ char sub_3C570()
       || !stricmp(&unk_CBF74, "PASFM")
       || !stricmp(&unk_CBF74, "COMPATIBLE") )
     {
-      LOBYTE(v3) = sub_43B20_sub_43E60(v0, 0xA002u);
+      sub_43B20_sub_43E60(0xA002u);
     }
     else if ( !stricmp(&unk_CBF74, "ROLAND") )
     {
-      LOBYTE(v3) = sub_43B20_sub_43E60(v0, 0xA004u);
+      sub_43B20_sub_43E60(0xA004u);
     }
     else if ( !stricmp(&unk_CBF74, "SBAWE32") )
     {
-      LOBYTE(v3) = sub_43B20_sub_43E60(v0, 0xA008u);
+      sub_43B20_sub_43E60(0xA008u);
     }
-    else if ( !stricmp(&unk_CBF74, "GENERAL") || (v3 = stricmp(&unk_CBF74, "WBLAST")) == 0 )
+    else if ( !stricmp(&unk_CBF74, "GENERAL") || !stricmp(&unk_CBF74, "WBLAST") )
     {
-      LOBYTE(v3) = sub_43B20_sub_43E60(v0, 0xA001u);
+      sub_43B20_sub_43E60(0xA001u);
     }
   }
-  return v3;
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
 // 61EF5: using guessed type _DWORD stricmp(_DWORD, _DWORD);
@@ -44247,39 +44239,34 @@ char sub_3C570()
 //----- (0003C800) --------------------------------------------------------
 void sub_3C800_sub_3CB40()
 {
-  __int64 v3; // rax
-  int v4; // ebx
-  int v5; // ebx
-  int v6; // eax
-  int result; // eax
-  char v8; // [esp+0h] [ebp-A8h] BYREF
-  char v9[68]; // [esp+64h] [ebp-44h] BYREF
+    //__int64 v3; // rax
+    //int v4; // ebx
+    //int v5; // ebx
+    char* v6; // eax
+    //int result; // eax
+    char v8[64]; // [esp+0h] [ebp-A8h] BYREF
+    char pathBuffer[68]; // [esp+64h] [ebp-44h] BYREF
 
-  //fix
-  v8 = 0;
-  //fix
-
-  sprintf(v9, "%s%s/sndsetup.inf", "C:", aCarpetCd_3);
-  v3 = (__int64)fopen(v9, &unk_A91B4);
-  v4 = v3;
-  if ( !(_DWORD)v3 )
+    sprintf(pathBuffer, "%s%s/sndsetup.inf", "C:", "\\carpet.cd");
+    FILE* file = fopen(FixPath(pathBuffer), "r");
+  //v4 = v3;
+  if ( !file)
   {
-    v5 = (int)fopen(v9, &unk_A91B8);
-    fprintf((FILE*)v5, aSoundfxNone000_0, v8);
-    fprintf((FILE*)v5, aMusicNone38800_0, v8);
-    fclose((FILE*)v5);
-    v3 = (__int64)fopen(v9, &unk_A91B4);
-    v4 = v3;
+      file = fopen(FixPath(pathBuffer), "w+t");
+    fprintf(file, "SOUNDFX = none 0 0 0\n");
+    fprintf(file, "MUSIC = none 388 0 0\n");
+    fclose(file);
+    file = fopen(FixPath(pathBuffer), "r");
+    //v4 = v3;
   }
-  fscanf((FILE*)v4, "%s = %s %x %d %d", &v8, &unk_CC158, &dword_CC14C, &dword_CC150, &dword_CC1BC);
-  fclose((FILE*)v4);
-  v6 = (int)getenv((const char*)aBfSound);
+  fscanf(file, "%s = %s %x %d %d", &v8, &unk_CC158, &dword_CC14C, &dword_CC150, &dword_CC1BC);
+  fclose(file);
+  v6 = getenv("BF_SOUND");
   if ( v6 )
     sscanf((const char*)v6, "%s %x %d %d", &unk_CC158, &dword_CC14C, &dword_CC150, &dword_CC1BC);
-  result = stricmp(&unk_CC158, aNone_1);
-  if ( !result )
+  //result = stricmp(&unk_CC158, "none");
+  if ( !stricmp(&unk_CC158, "none"))
   {
-    BYTE1(result) = 0;
     byte_939E4 = 0;
     byte_939E5 = 0;
   }
@@ -49569,7 +49556,7 @@ void sub_43930(char *a1, unsigned int a2)
 // 9398A: using guessed type __int16 word_9398A;
 
 //----- (00043B20) --------------------------------------------------------
-char sub_43B20_sub_43E60(int a1, unsigned int a2)
+void sub_43B20_sub_43E60(unsigned int a2)
 {
   int v2; // eax
   char *v3; // eax
@@ -49719,7 +49706,6 @@ char sub_43B20_sub_43E60(int a1, unsigned int a2)
       }
     }
   }
-  return v4;
 }
 // 43D1D: conditional instruction was optimized away because dx.2==0
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
@@ -53762,7 +53748,7 @@ void sub_4AC70_4AFB0()//21BC70_
 									fclose(file);
 								}
 								sprintf(textBuffer, "%s%s\\sndsetup.dat", "C:", "\\carpet.cd");
-								file = DataFileIO::CreateOrOpenFile(textBuffer, 546);
+								file = DataFileIO::CreateOrOpenFile(FixPath(textBuffer), 546);
 								if (file != nullptr)
 								{
 									FileWrite_62ED0_633E0(file, (uint8_t*)string_12C9A0_12C990, 32);
@@ -54086,7 +54072,7 @@ void sub_4B8D0_4BC10(__int16 a1)//21C8D0_
   __int16 v9; // bx
   __int16 v10; // bx
   __int16 v11; // [esp-8h] [ebp-58h]
-  unsigned __int8 v12[40]; // [esp+0h] [ebp-50h] BYREF
+  char v12[40]; // [esp+0h] [ebp-50h] BYREF
   int v13[6]; // [esp+28h] [ebp-28h] BYREF
   //int v14[6]; // [esp+2Ch] [ebp-24h]
 
@@ -54097,38 +54083,38 @@ void sub_4B8D0_4BC10(__int16 a1)//21C8D0_
   v1 = str_96884.var32_0->var8_5;
   sub_513A0((uint32*)&v13);
   str_96884.var8_6 = sub_5CC70_5D180(begPalette_12CB9C_12CB8C_2EAB9C_2EAB8C, 0x1Eu, 0x18u, 0x11u);
-  sprintf((char*)v12, "%s :", &dword_AE238_AE228[17]);
-  sub_51560((uint8*)&str_96884, 0, a1, (char*)v12);
+  sprintf(v12, "%s :", dword_AE238_AE228[17]);
+  sub_51560((uint8*)&str_96884, 0, a1, v12);
   v2 = v1 - 2;
-  sprintf((char*)v12, "%s", string_12C9C0_12C9B0);
+  sprintf(v12, "%s", string_12C9C0_12C9B0);
   v3 = v13[1] - v13[0];
-  v4 = sub_51420((uint32*)&str_96884, (char *)v12);
-  sub_51560((uint8*)&str_96884, (__int16)(v3 - v4), v2 + a1, (char*)v12);
-  sprintf((char*)v12, "%s :", &dword_AE238_AE228[18]);
+  v4 = sub_51420((uint32*)&str_96884, v12);
+  sub_51560((uint8*)&str_96884, (__int16)(v3 - v4), v2 + a1, v12);
+  sprintf(v12, "%s :", dword_AE238_AE228[18]);
   v5 = v2 + v2 + a1;
-  sub_51560((uint8*)&str_96884, 0, v5, (char*)v12);
+  sub_51560((uint8*)&str_96884, 0, v5, v12);
   v6 = v2 + v5;
-  sprintf((char*)v12, "%s", string_12C9E0_12C9D0);
+  sprintf(v12, "%s", string_12C9E0_12C9D0);
   v7 = v13[1] - v13[0];
-  v8 = sub_51420((uint32*)&str_96884, (char *)v12);
-  sub_51560((uint8*)&str_96884, (__int16)(v7 - v8), v6, (char*)v12);
+  v8 = sub_51420((uint32*)&str_96884, v12);
+  sub_51560((uint8*)&str_96884, (__int16)(v7 - v8), v6, v12);
   v9 = v2 + v6;
   if ( strncmp((char*)&string_12C9A0_12C990, "NONE", 4) )
   {
-    sprintf((char*)v12, "%s : %s\n", &dword_AE238_AE228[23], string_12CA80_12CA70);
-    sub_51560((uint8*)&str_96884, 0, v9, (char*)v12);
-    sprintf((char*)v12, "%s : %s\n", &dword_AE238_AE228[24], string_12CA8A_12CA7A);
+    sprintf(v12, "%s : %s\n", dword_AE238_AE228[23], string_12CA80_12CA70);
+    sub_51560((uint8*)&str_96884, 0, v9, v12);
+    sprintf(v12, "%s : %s\n", dword_AE238_AE228[24], string_12CA8A_12CA7A);
     v10 = v2 + v9;
-    sub_51560((uint8*)&str_96884, 0, v10, (char*)v12);
-    sprintf((char*)v12, "%s : %s\n", &dword_AE238_AE228[25], string_12CAD0_12CAC0);
+    sub_51560((uint8*)&str_96884, 0, v10, v12);
+    sprintf(v12, "%s : %s\n", dword_AE238_AE228[25], string_12CAD0_12CAC0);
     v11 = v2 + v10;
     v9 = v2 + v2 + v10;
-    sub_51560((uint8*)&str_96884, 0, v11, (char*)v12);
+    sub_51560((uint8*)&str_96884, 0, v11, v12);
   }
   if ( strncmp((char*)&string_12CA00_12C9F0, "NONE", 4) )
   {
-    sprintf((char*)v12, "%s : %s\n", &dword_AE238_AE228[26], string_12CA94_12CA84);
-    sub_51560((uint8*)&str_96884, 0, v9, (char*)v12);
+    sprintf(v12, "%s : %s\n", dword_AE238_AE228[26], string_12CA94_12CA84);
+    sub_51560((uint8*)&str_96884, 0, v9, v12);
   }
 }
 // 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
