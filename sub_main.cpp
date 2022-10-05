@@ -35,6 +35,8 @@ test sub_519E0_51D20
 
 begSFont0Tab_12CB28_2EAB28_2EAB18 0x9baaa
 
+dword_4A620
+
 */
 //info
 //fix
