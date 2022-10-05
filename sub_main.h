@@ -7,6 +7,14 @@
 #include <stdio.h>
 #include <defs.h>
 
+#include <chrono>
+#include <thread>
+
+#include <thread>
+#include <chrono>
+#include <functional>
+#include <cstdio>
+#include <atomic>
 
 #define _BYTE  uint8
 #define _WORD  uint16
@@ -102,6 +110,8 @@ typedef struct {
 	uint8 var_u8_151;
 	uint8_t* var_u32_168;
 	uint32 var_u32_172;
+	uint32 var_u32_206;
+	uint32 var_u32_210;
 } Type_str_AE408_AE3F8;
 /*
 typedef struct {//66
