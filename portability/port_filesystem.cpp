@@ -139,6 +139,7 @@ void debug_printf(const char* format, ...) {
 	}
 	else
 		debug_output = fcaseopen(path.c_str(), "at");
+
 	fprintf(debug_output, "%s", prbuffer);
 	fclose(debug_output);
 	#ifdef DEBUG_PRINT_DEBUG_TO_SCREEN
