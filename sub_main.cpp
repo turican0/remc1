@@ -53,7 +53,7 @@ int loc_50005;
 int loc_70000;
 int _no_support_loaded;
 int unk_A7325;
-uint8_t* unk_AC2B8[0x300];
+//uint8_t* unk_AC2B8[0x300];
 typedef struct {
     int16 x;
     int16 y;
@@ -13897,7 +13897,7 @@ void sub_108C0()
   char v6[20]; // [esp+8h] [ebp-14h] BYREF
 
   sub_103C0(&v5, 2u);
-  v1 = (char *)&unk_AC2B8;
+  v1 = (char *)&colorBuffer_AC2B8_AC2A8;
   for ( i = 0; (unsigned __int16)i < (unsigned __int16)v5; ++i )
   {
     sub_103C0(v6, 1u);
