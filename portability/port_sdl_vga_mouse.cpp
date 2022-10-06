@@ -68,6 +68,10 @@ void VGA_Init(Uint32  /*flags*/, int width, int height, bool maintainAspectRatio
 		{
 			//fix it !!!! init_sound();
 
+			/*if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear")) {//pixel perfect
+				printf("Warning: linear render scale not set");
+			}*/
+
 			SDL_ShowCursor(0);
 			// Set hint before you create the Renderer!
 			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
