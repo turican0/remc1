@@ -58,7 +58,7 @@ void VGA_cleanKeyBuffer();
 void Draw_debug_matrix1();
 void Draw_black();
 
-extern uint8_t LastPressedKey_1806E4; // weak//3516e4
-extern int8_t pressedKeys_180664[128]; // idb
+extern uint8_t lastPressedKey_12EF70; // weak//3516e4
+extern int8_t pressedKeys_12EEF0[128]; // idb
 
 #endif //PORT_SDL_VGA_MOUSE

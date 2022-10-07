@@ -18,8 +18,8 @@ SDL_Surface* m_gamePalletisedSurface = NULL;
 SDL_Surface* m_gameRGBASurface = NULL;
 SDL_Color m_currentPalletColours[256];
 
-uint8_t LastPressedKey_1806E4; //3516e4
-int8_t pressedKeys_180664[128]; // idb
+uint8_t lastPressedKey_12EF70; //3516e4
+int8_t pressedKeys_12EEF0[128]; // idb
 
 uint16_t m_iOrigw = 640;
 uint16_t m_iOrigh = 480;
@@ -68,15 +68,18 @@ void VGA_Init(Uint32  /*flags*/, int width, int height, bool maintainAspectRatio
 		{
 			//fix it !!!! init_sound();
 
-			/*if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear")) {//pixel perfect
+			/*if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest")) {//pixel perfect
 				printf("Warning: linear render scale not set");
 			}*/
+			//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+			//GPU_SetImageFilter();
 
 			SDL_ShowCursor(0);
 			// Set hint before you create the Renderer!
 			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
 			SDL_SetHint(SDL_HINT_FRAMEBUFFER_ACCELERATION, "1");
-			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+			//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
 
 			SDL_DisplayMode dm;
 			if (SDL_GetDesktopDisplayMode(0, &dm) != 0) {
@@ -1286,16 +1289,16 @@ void setPress(bool locpressed, uint16_t loclastchar) {
 
 	if (locpressed)
 	{
-		LastPressedKey_1806E4 = (loclastchar & 0xff00) >> 8;// VGA_read_char_from_buffer();
-		pressedKeys_180664[LastPressedKey_1806E4 & 0x7F] = LastPressedKey_1806E4;
+		lastPressedKey_12EF70 = (loclastchar & 0xff00) >> 8;// VGA_read_char_from_buffer();
+		pressedKeys_12EEF0[lastPressedKey_12EF70 & 0x7F] = lastPressedKey_12EF70;
 	}
 	else
 	{
-		pressedKeys_180664[((loclastchar & 0xff00) >> 8) & 0x7F] = 0;
+		pressedKeys_12EEF0[((loclastchar & 0xff00) >> 8) & 0x7F] = 0;
 	}
 }
 
 void VGA_mouse_clear_keys() {
 	for (int i = 0; i < 128; i++)
-		pressedKeys_180664[i] = 0;
+		pressedKeys_12EEF0[i] = 0;
 }

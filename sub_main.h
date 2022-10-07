@@ -105,7 +105,8 @@ typedef struct {
 	uint16 var_u16_17;
 	uint8 var_u8_23;
 	uint32 var_u32_25;
-	uint8 var_u8_29;
+	char var_u8_29[32];
+	char var_u8_61[32];
 	char var_u8_117[32];//fix size
 	uint8 var_u8_151;
 	uint8_t* var_u32_168;
