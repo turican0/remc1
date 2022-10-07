@@ -58,15 +58,35 @@ typedef union {
 	uint32 a32;
 } un16_32;
 
+typedef struct {// len 20
+	uint8_t stub[20];
+}
+Type_AE400_20;
+typedef struct {// len 48
+	uint8_t stub[48];
+}
+Type_AE400_9177;
+typedef struct {// len 164000
+	uint8_t stub[164000];
+}
+Type_AE400_29795;
+typedef struct {// len 106
+	uint8_t stub[106];
+}
+Type_AE400_232607;
+
 typedef struct {
 	uint8 var_u8_1;
 	uint16 var_u16_8;
 	uint16 var_u16_10;
-
+	Type_AE400_20 str_20;// len 20
+	uint32 var_u32_32;
+	uint16 var_u16_36;
+	uint16 var_u16_38;
+	uint32 var_u32_40;
 	char textBuffer_117[32];
-
 	un16_32 var_u32_576;
-
+	uint8 var_u8_580;
 	uint8 var_u8_8597;
 	uint8 var_u8_8598;
 	uint8 var_u8_8599;
@@ -89,16 +109,34 @@ typedef struct {
 	uint8 var_u8_8629;
 	uint8 var_u8_8630;
 	uint8 var_u8_8631;
-
+	Type_AE400_9177 str_9177;// len 48
 	TypeStrAE400_13347 str_13347[80];//fix
-
+	Type_AE400_29795 str_29795;// len 164000
+	Type_AE400_232607 str_232607;// len 106
 } Type_str_AE400_AE3F0;
 
 extern Type_str_AE400_AE3F0* str_AE400_AE3F0;
 
+typedef struct {// len 16
+	uint8_t stub[16];
+}
+Type_AE408_93;
+typedef struct {// len 14
+	uint8_t stub[14];
+}
+Type_AE408_184;
+typedef struct {// len 80
+	uint8_t stub[80];
+}
+Type_AE408_36382;
+
+
 typedef struct {
 	uint8 var_u8_0;
 	uint8 var_u8_1;
+	uint8 var_u8_2;
+	uint8 var_u8_3;
+
 	uint8 var_u8_8;
 	uint16 var_u16_13;
 	uint16 var_u16_15;
@@ -107,12 +145,22 @@ typedef struct {
 	uint32 var_u32_25;
 	char var_u8_29[32];
 	char var_u8_61[32];
+	Type_AE408_93 str_93;// len 16
 	char var_u8_117[32];//fix size
+	uint8 var_u8_150;
 	uint8 var_u8_151;
+	uint8 var_u8_152;
 	uint8_t* var_u32_168;
 	uint32 var_u32_172;
+	Type_AE408_184 str_184;// len 14
 	uint32 var_u32_206;
 	uint32 var_u32_210;
+	uint32 var_u32_36378;
+	Type_AE408_36382 str_36382;// len 80
+	uint32 var_u32_36462;
+	uint32 var_u32_36466;
+	uint32 var_u32_36470;
+	uint32 var_u32_36474;
 } Type_str_AE408_AE3F8;
 /*
 typedef struct {//66
