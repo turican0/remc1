@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\Basic.cpp" />
     <ClCompile Include="engine\CommandLineParser.cpp" />
     <ClCompile Include="portability\dirent.c" />
     <ClCompile Include="portability\fcaseopen.cpp" />
@@ -152,10 +153,12 @@
     <ClCompile Include="portability\port_time.cpp" />
     <ClCompile Include="sub_main.cpp" />
     <ClCompile Include="REMC1.cpp" />
+    <ClCompile Include="utilities\Compare.cpp" />
     <ClCompile Include="utilities\DataFileIO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defs.h" />
+    <ClInclude Include="engine\Basic.h" />
     <ClInclude Include="engine\CommandLineParser.h" />
     <ClInclude Include="engine\sub_main_mouse.h" />
     <ClInclude Include="portability\dirent-x.h" />
@@ -166,6 +169,7 @@
     <ClInclude Include="portability\port_sdl_vga_mouse.h" />
     <ClInclude Include="portability\port_time.h" />
     <ClInclude Include="sub_main.h" />
+    <ClInclude Include="utilities\Compare.h" />
     <ClInclude Include="utilities\DataFileIO.h" />
   </ItemGroup>
   <ItemGroup>
