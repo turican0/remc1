@@ -51,7 +51,8 @@ typedef struct {// len 48
 }
 Type_AE400_9177;
 typedef struct {// len 164
-	uint8_t stub[164];
+	uint8_t stub[160];
+	uint32 var_u32_29955;
 }
 Type_AE400_29795;
 typedef struct {// len 106
@@ -81,7 +82,8 @@ typedef struct {//size 232713
 	uint8 stub4[532];
 	un16_32 var_u32_576;
 	uint8 var_u8_580;
-	uint8 stub6[4012];
+	uint8 stub4b[12];
+	Type_AE400_29795* var_u32_593[1000];
 	uint32 var_u32_4593;
 	uint8 stub7[4000];
 	uint8 var_u8_8597;
@@ -111,8 +113,7 @@ typedef struct {//size 232713
 	uint8 stub12[4100];
 	TypeStrAE400_13325 str_13325[8];//fix
 	uint8 stub13[16262];
-	Type_AE400_29795 str_29795[100];// len 164000
-	uint8 stub14[147600];
+	Type_AE400_29795 str_29795[1000];// len 164000	
 	Type_AE400_193795 str_193795;
 	Type_AE400_232607 str_232607;// len 106
 } Type_str_AE400_AE3F0;
@@ -216,7 +217,7 @@ extern Type_str_AE408_AE3F8* str_AE408_AE3F8;
 
 int dword_AE400_AE3F0();
 
-void dword_AE400_AE3F0(int input);
+//void dword_AE400_AE3F0(int input);
 
 int dword_AE408_AE3F8();
 

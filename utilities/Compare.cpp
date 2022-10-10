@@ -222,7 +222,7 @@ void add_compare(uint32_t adress, bool debugafterload, int stopstep, bool skip, 
 					comp20 = compare_with_sequence(buffer1, (uint8_t*)mapHeightmap_DC1E0, 0x28A1E0, index - skip2, 0x70000, 0x10000, &origbyte20, &remakebyte20, 0x10000, (exitindex != 1000000));
 					comp20 = compare_with_sequence(buffer1, (uint8_t*)mapShading_EC1E0, 0x28A1E0, index - skip2, 0x70000, 0x10000, &origbyte20, &remakebyte20, 0x20000, (exitindex != 1000000));
 					comp20 = compare_with_sequence(buffer1, (uint8_t*)mapAngle_FC1E0, 0x28A1E0, index - skip2, 0x70000, 0x10000, &origbyte20, &remakebyte20, 0x30000, (exitindex != 1000000));
-					comp20 = compare_with_sequence(buffer1, (uint8_t*)mapEntityIndex_10C1E0, 0x28A1E0, index - skip2, 0x70000, 0x20000, &origbyte20, &remakebyte20, 0x50000, (exitindex != 1000000));
+					comp20 = compare_with_sequence(buffer1, (uint8_t*)mapEntityIndex_10C1E0, 0x28A1E0, index - skip2, 0x70000, 0x20000, &origbyte20, &remakebyte20, 0x40000, (exitindex != 1000000));
 
 #ifdef TEST_x64
 					type_shadow_D41A0_BYTESTR_0 shadow_D41A0_BYTESTR_0;
