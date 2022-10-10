@@ -97,6 +97,8 @@ uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint
 };
 
 int test_D41A0_id_pointer(uint32_t adress) {
+
+	if ((adress >= 593) && (adress < 593 + 1000 * 4))return 2;//event
 	/*if ((adress >= 0x2fc4) && (adress < 0x2fc5))return 2;//event
 
 	if ((adress >= 0x314d) && (adress < 0x3151))return 2;//clock - 4 bytes
