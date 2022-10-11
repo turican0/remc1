@@ -26,6 +26,7 @@
 #pragma pack (1)
 
 typedef struct {//2049
+	uint32 var_u32_13323;
 	uint16 var_u16_13325;
 	uint8 var_u8_13327;
 	uint8 stub0[5];
@@ -35,7 +36,7 @@ typedef struct {//2049
 	//2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13347
 
 }
-TypeStrAE400_13325;
+TypeStrAE400_13323;
 
 typedef union {
 	uint16 a16[2];
@@ -51,12 +52,20 @@ typedef struct {// len 48
 }
 Type_AE400_9177;
 typedef struct {// len 164
-	uint8_t stub[160];
-	uint32 var_u32_29955;
+	uint8_t stub1[16];
+	uint32 var_u32_29811;
+	uint8_t stub2[44];
+	uint8_t var_u8_29859;
+	uint8_t stub3[68];
+	uint32 var_u32_29931;//136
+	uint8_t stub4[20];
+	uint32 var_u32_29955;//160
 }
 Type_AE400_29795;
 typedef struct {// len 106
-	uint8_t stub[106];
+	uint32 var_u32_232607;
+	uint8_t var_u8_232611[96];
+	uint8_t stubb[6];
 }
 Type_AE400_232607;
 
@@ -103,7 +112,7 @@ typedef struct {//size 232713
 	uint8 stub4b[12];
 	Type_AE400_29795* var_u32_593[1000];
 	uint32 var_u32_4593;
-	uint8 stub7[4000];
+	Type_AE400_29795* var_u32_4597[1000];
 	uint8 var_u8_8597;
 	uint8 var_u8_8598;
 	uint8 var_u8_8599;
@@ -129,7 +138,7 @@ typedef struct {//size 232713
 	uint8 stub11[545];
 	Type_AE400_9177 str_9177;// len 48
 	uint8 stub12[4100];
-	TypeStrAE400_13325 str_13325[8];//fix
+	TypeStrAE400_13323 str_13323[8];//fix
 	uint8 stub13[16262];
 	Type_AE400_29795 str_29795[1000];// len 164000	
 	Type_AE400_193795 str_193795;
@@ -171,6 +180,8 @@ typedef struct {//size 36478
 	uint8_t* var_u32_168;
 	uint32 var_u32_172;
 	Type_AE408_184 str_184;// len 14
+	uint32 var_u32_188;
+	uint32 var_u32_192;
 	uint32 var_u32_206;
 	uint32 var_u32_210;
 	uint32 var_u32_36378;
