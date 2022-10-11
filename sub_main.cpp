@@ -53408,7 +53408,7 @@ void sub_48230(int a1)
 
   v1 = 0;
   //str_AE400_AE3F0->str_13323[0].var_u32_13323
-  for ( i = str_AE400_AE3F0->str_13323; ; i ++ )
+  for ( i = str_AE400_AE3F0->str_13323; ; i++ )
   {
     //v4 = dword_AE400_AE3F0();
     if ( v1 >= str_AE400_AE3F0->var_u16_10 )

@@ -26,15 +26,15 @@
 #pragma pack (1)
 
 typedef struct {//2049
-	uint32 var_u32_13323;
+	uint16 var_u16_13323;
 	uint16 var_u16_13325;
 	uint8 var_u8_13327;
 	uint8 stub0[5];
 	uint16 var_u16_13333;
 	uint8 stub1[12];
 	uint32 var_u32_13347;
+	uint8 stub2[2021];
 	//2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13347
-
 }
 TypeStrAE400_13323;
 
@@ -56,7 +56,7 @@ typedef struct {// len 164
 	uint32 var_u32_29811;
 	uint8_t stub2[44];
 	uint8_t var_u8_29859;
-	uint8_t stub3[68];
+	uint8_t stub3[71];
 	uint32 var_u32_29931;//136
 	uint8_t stub4[20];
 	uint32 var_u32_29955;//160
@@ -137,9 +137,9 @@ typedef struct {//size 232713
 	uint8 var_u8_8631;
 	uint8 stub11[545];
 	Type_AE400_9177 str_9177;// len 48
-	uint8 stub12[4100];
+	uint8 stub12[4098];
 	TypeStrAE400_13323 str_13323[8];//fix
-	uint8 stub13[16262];
+	uint8 stub13[80];
 	Type_AE400_29795 str_29795[1000];// len 164000	
 	Type_AE400_193795 str_193795;
 	Type_AE400_232607 str_232607;// len 106
