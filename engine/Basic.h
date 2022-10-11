@@ -60,8 +60,26 @@ typedef struct {// len 106
 }
 Type_AE400_232607;
 
+typedef struct {// len 18
+	uint16_t data_0;
+	uint16_t data_2;
+	uint16_t data_4;
+	uint16_t data_6;
+	uint16_t data_8;
+	uint16_t data_10;
+	uint16_t data_12;
+	uint16_t data_14;
+	uint16_t data_16;
+}
+Type_1090;
+
 typedef struct {//len 38812
-	uint8 stub_193795[38802];
+	uint8 stub_0[1072];
+	Type_1090 str_1072[1];	
+	Type_1090 var_u16_1090[1999];//size 9 count 1000
+	//37072 end
+	uint8 stub_37072[1730];
+	//uint8 stub_193795[37710];
 	uint16 var_u16_232597;
 	uint8 stub15[8];
 }
