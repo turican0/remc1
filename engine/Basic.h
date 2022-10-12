@@ -123,13 +123,13 @@ typedef struct {//size 232713
 	uint32 var_u32_32;
 	uint16 var_u16_36;
 	uint16 var_u16_38;
-	uint32 var_u32_40;
+	int32 var_u32_40;
 	uint8 stub4[532];
 	un16_32 var_u32_576;
 	uint8 var_u8_580;
 	uint8 stub4b[12];
 	Type_AE400_29795* var_u32_593[1000];
-	uint32 var_u32_4593;
+	int32 var_u32_4593;
 	Type_AE400_29795* var_u32_4597[1000];
 	uint8 var_u8_8597;
 	uint8 var_u8_8598;
@@ -249,15 +249,26 @@ typedef struct {//44 lenght
 
 typedef union { uint8_t bytes[4]; int32 size; }
 Type_fileSize;
+
+typedef struct {
+	uint8_t x;
+	uint8_t y;
+} baxis_2d;
+
+typedef union {
+	baxis_2d _axis_2d;
+	uint16_t word;
+}
+uaxis_2d;
 #pragma pack (16)
 
 extern uint8_t* readBuffer_12EFF4;
 
-extern __int16 mapEntityIndex_10C1E0[0x10000];
-extern char mapTerrainType_CC1E0[0x10000];
-extern char mapHeightmap_DC1E0[0x10000];
-extern char mapShading_EC1E0[0x10000];
-extern char mapAngle_FC1E0[0x10000];
+extern int16_t mapEntityIndex_10C1E0[0x10000];
+extern uint8_t mapTerrainType_CC1E0[0x10000];
+extern uint8_t mapHeightmap_DC1E0[0x10000];
+extern uint8_t mapShading_EC1E0[0x10000];
+extern uint8_t mapAngle_FC1E0[0x10000];
 
 extern Type_str_AE400_AE3F0* str_AE400_AE3F0;
 extern Type_str_AE408_AE3F8* str_AE408_AE3F8;
