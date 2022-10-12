@@ -51,12 +51,30 @@ typedef struct {// len 48
 	uint8_t stub[48];
 }
 Type_AE400_9177;
+
+typedef union {
+	uint8_t byte[4];
+	uint32_t dword;
+} Type_29811;
+
 typedef struct {// len 164
 	uint8_t stub1[16];
-	uint32 var_u32_29811;
-	uint8_t stub2[44];
-	uint8_t var_u8_29859;
-	uint8_t stub3[71];
+	Type_29811 var_29811_16;//16
+	//uint8 var_u8_29812;//17
+	uint16 var_u16_29815_20;//20
+	uint16 var_u16_29817_22;//22
+	uint8_t stub2[40];
+	uint8_t var_u8_29859_64;//64
+	uint8_t var_u8_29860;//65
+	uint8_t stub2b[4];
+	uint8_t var_u8_29865;//70
+
+	uint8_t stub2c[2];
+	uint8_t var_u8_29868_73;//73
+	uint8_t stub2d[1];
+	uint8_t var_u8_29870_75;//75
+
+	uint8_t stub3[60];
 	uint32 var_u32_29931;//136
 	uint8_t stub4[20];
 	uint32 var_u32_29955;//160
@@ -84,8 +102,8 @@ Type_1090;
 
 typedef struct {//len 38812
 	uint8 stub_0[1072];
-	Type_1090 str_1072[1];	
-	Type_1090 var_u16_1090[1999];//size 9 count 1000
+	Type_1090 str_1072[2000];	
+	//Type_1090 var_u16_1090[1999];//size 9 count 1000
 	//37072 end
 	uint8 stub_37072[1730];
 	//uint8 stub_193795[37710];
