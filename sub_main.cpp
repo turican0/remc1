@@ -540,7 +540,7 @@ _WORD *sub_37130(_WORD *a1, __int16 a2, __int16 a3);
 unsigned int sub_37150(_WORD *a1, __int16 a2);
 void sub_371C0();
 void sub_37220();
-int NewEvent_372C0();
+Type_AE400_29795* NewEvent_372C0();
 int sub_373F0(int a1, int a2, int a3);
 int sub_37440(int a1, char a2);
 char sub_37560(unsigned __int16 *a1);
@@ -1150,7 +1150,7 @@ char sub_5CAE7();
 void sub_5CB73(int a1, __int16 a2);
 // _DWORD printf(const char *, ...); weak
 // _DWORD memset(_DWORD, _DWORD, _DWORD); weak
-void sub_5CC54_5D164();
+void WaitForBeam_5CC54_5D164();
 uint8_t sub_5CC70_5D180(TColor* colors, uint8_t colR, uint8_t colG, uint8_t colB);
 int sub_5CD70_5D280();
 void sub_5CDA0_5D2B0();
@@ -14456,7 +14456,7 @@ void sub_104D0()
   sub_10300();
   if ( v23 )
   {
-    sub_5CC54_5D164();
+    WaitForBeam_5CC54_5D164();
     if ( word_90024 )
     {
       sub_319A0_319E0(colorBuffer_AC2B8_AC2A8);
@@ -40917,13 +40917,13 @@ void sub_37220()//208220_
 // AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (000372C0) --------------------------------------------------------
-int NewEvent_372C0()
+Type_AE400_29795* NewEvent_372C0()
 {
   //int v0; // edx
-  int v1; // ebx
-  int v3; // eax
+    Type_AE400_29795* v1; // ebx
+  //int v3; // eax
   //int v4; // eax
-  int v5; // ecx
+  //int v5; // ecx
   int v6; // eax
   int v7; // edx
 
@@ -40931,32 +40931,32 @@ int NewEvent_372C0()
   {
     if (str_AE400_AE3F0->var_u32_4593 < 0 )
       return 0;
-    memset((void*)(dword_AE408_AE3F8() + 36382), 0, 80);
-    v3 = dword_AE408_AE3F8();
-    *(_DWORD *)(dword_AE408_AE3F8() + 36466) = 0;
-    *(_DWORD *)(v3 + 36470) = 0;
-    *(_DWORD *)(v3 + 36462) = 0;
-    *(_DWORD *)(v3 + 36474) = 0;
-    v1 = *(_DWORD *)(dword_AE400_AE3F0() + 4 * str_AE400_AE3F0->var_u32_4593 + 4597);
-    sub_41DD0_sub_42110((Type_AE400_29795*)v1);
+    memset(&str_AE408_AE3F8->str_36382, 0, 80);
+    //v3 = dword_AE408_AE3F8();
+    str_AE408_AE3F8->var_u32_36466 = 0;
+    str_AE408_AE3F8->var_u32_36470 = 0;
+    str_AE408_AE3F8->var_u32_36462 = 0;
+    str_AE408_AE3F8->var_u32_36474 = 0;
+    v1 = str_AE400_AE3F0->var_u32_4597[str_AE400_AE3F0->var_u32_4593];
+    sub_41DD0_sub_42110(v1);
     //v4 = dword_AE400_AE3F0();
-    *(_BYTE *)(v1 + 64) = 0;
+    v1->var_u8_29859_64 = 0;
     str_AE400_AE3F0->var_u32_4593--;
   }
   else
   {
-    v1 = *(_DWORD *)(dword_AE400_AE3F0() + 4 * str_AE400_AE3F0->var_u32_40 + 593);
+    v1 = str_AE400_AE3F0->var_u32_593[str_AE400_AE3F0->var_u32_40];
     str_AE400_AE3F0->var_u32_40--;
   }
   memset((void*)v1, 0, 164);
-  v5 = dword_AE400_AE3F0();
-  v6 = (v1 - (dword_AE400_AE3F0() + 29795)) / 164;
+  //v5 = dword_AE400_AE3F0();
+  v6 = v1 - str_AE400_AE3F0->str_29795;
   *(_DWORD *)(v1 + 8) = 300;
   *(_DWORD *)(v1 + 16) = 8;
   *(_WORD *)(v1 + 126) = 16;
   *(_WORD *)(v1 + 44) = 100;
   *(_WORD *)(v1 + 24) = v6;
-  v7 = *(_DWORD *)(v5 + 4);
+  v7 = *(_DWORD *)(str_AE400_AE3F0 + 4);
   *(_BYTE *)(v1 + 66) = -1;
   *(_BYTE *)(v1 + 67) = -1;
   *(_DWORD *)(v1 + 156) = (uint32)&unk_98F38;
@@ -41251,7 +41251,7 @@ int sub_37820(int a1)
   int v2; // ebx
   int v3; // edx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -41280,7 +41280,7 @@ int sub_378A0(int a1)
   int v2; // ebx
   int v3; // edx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -41312,7 +41312,7 @@ int sub_37920(int a1)
 
   *(_DWORD *)&word_AE454[0] = *(_DWORD *)a1;
   word_AE454[2] = *(_WORD *)(a1 + 4);
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -41347,7 +41347,7 @@ int sub_37A00(int a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -41372,7 +41372,7 @@ int sub_37A80(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41383,7 +41383,7 @@ int sub_37AA0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41394,7 +41394,7 @@ int sub_37AC0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41405,7 +41405,7 @@ int sub_37AE0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41416,7 +41416,7 @@ int sub_37B00(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41427,7 +41427,7 @@ int sub_37B20(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41438,7 +41438,7 @@ int sub_37B40(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41449,7 +41449,7 @@ int sub_37B60(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41460,7 +41460,7 @@ int sub_37B80(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41471,7 +41471,7 @@ int sub_37BA0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -41490,7 +41490,7 @@ int sub_37BC0(int a1)
   int v9; // [esp+0h] [ebp-18h] BYREF
   __int16 v10; // [esp+4h] [ebp-14h]
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   v3 = v1;
   if ( !v1 )
@@ -41532,7 +41532,7 @@ int sub_37CF0(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -41556,7 +41556,7 @@ int sub_37D70(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -41581,7 +41581,7 @@ int sub_37E00(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -41605,7 +41605,7 @@ int sub_37E80(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -41628,7 +41628,7 @@ int sub_37EF0(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -41664,7 +41664,7 @@ int sub_38030(int a1)
 
   if ( sub_37710() < 16 )
     return 0;
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   v3 = (_DWORD *)v1;
   if ( !v1 )
@@ -41709,7 +41709,7 @@ int sub_38030(int a1)
   v14 = 19;
   do
   {
-    v7 = NewEvent_372C0();
+    v7 = (int)NewEvent_372C0();
     v8 = v7;
     v12 = v7;
     if ( v7 )
@@ -41749,7 +41749,7 @@ int sub_38270(int a1)
   int v5; // edx
   int v6; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( !v1 )
     return 0;
@@ -41796,7 +41796,7 @@ int sub_38370(int a1)
   int v7; // eax
   int v8; // ecx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( !v1 )
     return 0;
@@ -41935,7 +41935,7 @@ int sub_384B0(uint16_t* a1)//2094B0_
         v13 = 89;
         do
         {
-            v7 = NewEvent_372C0();//NewEvent_372C0(v6);
+            v7 = (int)NewEvent_372C0();//NewEvent_372C0(v6);
             v8 = v7;
             v10 = v7;
             if (v7)
@@ -41977,7 +41977,7 @@ int sub_386DE(uint16_t* a1)
     int v6; // ecx
     int v7; // ecx
 
-    v1 = NewEvent_372C0();// v1 = NewEvent_372C0(a1);
+    v1 = (int)NewEvent_372C0();// v1 = NewEvent_372C0(a1);
     v2 = v1;
     if (!v1)
         return 0;
@@ -42045,7 +42045,7 @@ int sub_38890(int a1)
   int v7; // ecx
   int v8; // ecx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( !v1 )
     return 0;
@@ -42105,7 +42105,7 @@ int sub_389E0(int a1)
 
   if ( sub_37710() < 16 )
     return 0;
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   v10 = (_DWORD *)v1;
   if ( !v1 )
@@ -42145,7 +42145,7 @@ int sub_389E0(int a1)
   *(_BYTE *)(v2 + 63) = BYTE4(v3);
   for ( i = 0; i <= 1; ++i )
   {
-    v5 = NewEvent_372C0();
+    v5 = (int)NewEvent_372C0();
     v6 = v5;
     if ( v5 )
     {
@@ -42207,7 +42207,7 @@ int sub_38C60(uint16_t* a1)
     int v6; // edx
     int v7; // eax
 
-    result = NewEvent_372C0();
+    result = (int)NewEvent_372C0();
     v2 = result;
     if (result)
     {
@@ -42278,7 +42278,7 @@ int sub_38D60(int a1)
   int v6; // edx
   int v7; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42330,7 +42330,7 @@ int sub_38E70(int a1)
   int v5; // esi
   int v6; // ecx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( !v1 )
     return 0;
@@ -42382,7 +42382,7 @@ int sub_38FC0(int a1)
   int v6; // edx
   int v7; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42436,7 +42436,7 @@ int sub_390D0(int a1)
   int v7; // edx
   int v8; // edx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42492,7 +42492,7 @@ int sub_39200(int a1)
   int v6; // edx
   int v7; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42548,7 +42548,7 @@ int sub_39340(uint16_t* a1)
     int v9; // ecx
     unsigned int v10; // eax
 
-    result = NewEvent_372C0();
+    result = (int)NewEvent_372C0();
     v2 = result;
     v3 = result;
     if (result)
@@ -42620,7 +42620,7 @@ int sub_39490(int a1)
   int v6; // edx
   int v7; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42673,7 +42673,7 @@ int sub_395B0(int a1)
   int v5; // ecx
   char v6; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( !v1 )
     return 0;
@@ -42724,7 +42724,7 @@ int sub_396E0(int a1)
   int v6; // edx
   int v7; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42772,7 +42772,7 @@ int sub_39800(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42783,7 +42783,7 @@ int sub_39820(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42794,7 +42794,7 @@ int sub_39840(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42805,7 +42805,7 @@ int sub_39860(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42816,7 +42816,7 @@ int sub_39880(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42827,7 +42827,7 @@ int sub_398A0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42843,7 +42843,7 @@ int sub_398C0(int a1)
   int v4; // edx
   int v5; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v1 = result;
   if ( result )
   {
@@ -42873,7 +42873,7 @@ int sub_39940(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42884,7 +42884,7 @@ int sub_39960(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42895,7 +42895,7 @@ int sub_39980(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42906,7 +42906,7 @@ int sub_399A0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42917,7 +42917,7 @@ int sub_399C0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42928,7 +42928,7 @@ int sub_399E0(int a1)
 {
   int v0; // eax
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   if ( v0 )
     sub_36DE0(v0);
   return 0;
@@ -42941,7 +42941,7 @@ int sub_39A10(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -42972,7 +42972,7 @@ int sub_39A90(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43004,7 +43004,7 @@ int sub_39B40(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43034,7 +43034,7 @@ int sub_39BC0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43064,7 +43064,7 @@ int sub_39C40(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43094,7 +43094,7 @@ int sub_39CC0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43124,7 +43124,7 @@ int sub_39D40(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43154,7 +43154,7 @@ int sub_39DC0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43184,7 +43184,7 @@ int sub_39E40(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43215,7 +43215,7 @@ int sub_39EC0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43246,7 +43246,7 @@ int sub_39F40(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43276,7 +43276,7 @@ int sub_39FC0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43306,7 +43306,7 @@ int sub_3A040(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43335,7 +43335,7 @@ int sub_3A0C0(int a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -43360,7 +43360,7 @@ int sub_3A1A0(int a1)
   int result; // eax
   int v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43385,7 +43385,7 @@ int sub_3A210(int a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43410,7 +43410,7 @@ int sub_3A270(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43441,7 +43441,7 @@ int sub_3A2F0(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43472,7 +43472,7 @@ int sub_3A390(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43503,7 +43503,7 @@ int sub_3A410(int a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43534,7 +43534,7 @@ int sub_3A490(uint16_t* a1)
   _WORD *v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -43562,7 +43562,7 @@ int sub_3A510(uint16_t* a1)
   int v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43588,7 +43588,7 @@ int sub_3A570(uint16_t* a1)
   int v2; // ebx
   unsigned int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43614,7 +43614,7 @@ int sub_3A5D0(uint16_t* a1)
   int v3; // edx
   char v4; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43642,7 +43642,7 @@ int sub_3A640(uint16_t* a1)
   int v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43671,7 +43671,7 @@ int sub_3A6B0(uint16_t* a1)
   int v3; // edx
   char v4; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43700,7 +43700,7 @@ int sub_3A730(uint16_t* a1)
   _WORD *v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -43732,7 +43732,7 @@ int sub_3A7D0(uint16_t* a1)
   int v4; // ecx
   unsigned int v5; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43766,7 +43766,7 @@ int sub_3A870(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43791,7 +43791,7 @@ int sub_3A8D0(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -43816,7 +43816,7 @@ int sub_3A930(uint16_t* a1)
   _WORD *v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -43843,7 +43843,7 @@ int sub_3A9A0(uint16_t* a1)
   _WORD *v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -43869,7 +43869,7 @@ int sub_3AA10(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -43902,7 +43902,7 @@ int sub_3AAA0(uint16_t* a1)
   unsigned int v7; // ecx
   unsigned int v8; // et2
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43945,7 +43945,7 @@ int sub_3AB40(uint16_t* a1)
   unsigned int v7; // ecx
   unsigned int v8; // et2
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -43984,7 +43984,7 @@ int sub_3ABE0(uint16_t* a1)
   int v3; // edx
   int v4; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44014,7 +44014,7 @@ int sub_3AC70(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44044,7 +44044,7 @@ int sub_3ACC0(uint16_t* a1)
   unsigned int v8; // edx
   int v9; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -44088,7 +44088,7 @@ int sub_3ADB0(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44114,7 +44114,7 @@ int sub_3AE00(uint16_t* a1)
   int v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44142,7 +44142,7 @@ int sub_3AE80(uint16_t* a1)
   int v2; // ebx
   int v3; // edx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44169,7 +44169,7 @@ int sub_3AF00(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -44195,7 +44195,7 @@ int sub_3AF80(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -44222,7 +44222,7 @@ int sub_3B000(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44246,7 +44246,7 @@ int sub_3B060(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44269,7 +44269,7 @@ int sub_3B0C0(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44292,7 +44292,7 @@ int sub_3B120(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44316,7 +44316,7 @@ int sub_3B180(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44340,7 +44340,7 @@ int sub_3B1D0(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44364,7 +44364,7 @@ int sub_3B230(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44390,7 +44390,7 @@ int sub_3B2A0(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44414,7 +44414,7 @@ int sub_3B300(uint16_t* a1)
   int v2; // ebx
   int v3; // eax
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -44445,7 +44445,7 @@ int sub_3B300(uint16_t* a1)
 //----- (0003B3D0) --------------------------------------------------------
 int sub_3B3D0(uint16_t* a1)
 {
-  return NewEvent_372C0();
+  return (int)NewEvent_372C0();
 }
 
 //----- (0003B3E0) --------------------------------------------------------
@@ -44454,7 +44454,7 @@ int sub_3B3E0(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -44481,7 +44481,7 @@ int sub_3B460(uint16_t* a1)
   int v2; // ebx
   char v3; // ah
 
-  v1 = (_BYTE *)NewEvent_372C0();
+  v1 = (_BYTE *)(int)NewEvent_372C0();
   v2 = (int)v1;
   if ( v1 )
   {
@@ -44505,7 +44505,7 @@ int sub_3B4D0(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -44528,7 +44528,7 @@ int sub_3B5A0(uint16_t* a1)
   int v2; // ebx
   int v3; // edx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = result;
   if ( result )
   {
@@ -44561,7 +44561,7 @@ int sub_3B620(uint16_t* a1)
   int result; // eax
   _WORD *v2; // ebx
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v2 = (_WORD *)result;
   if ( result )
   {
@@ -44585,7 +44585,7 @@ int sub_3B690(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44609,7 +44609,7 @@ int sub_3B6F0(uint16_t* a1)
   int v1; // eax
   _WORD *v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = (_WORD *)v1;
   if ( v1 )
   {
@@ -44633,7 +44633,7 @@ int sub_3B760(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44655,7 +44655,7 @@ int sub_3B7B0(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44678,7 +44678,7 @@ int sub_3B800(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44701,7 +44701,7 @@ int sub_3B860(uint16_t* a1)
   int v1; // eax
   int v2; // ebx
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44729,7 +44729,7 @@ int sub_3B8E0(uint16_t* a1)
   int v3; // edx
   int v4; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44762,7 +44762,7 @@ int sub_3B970(uint16_t* a1)
   int v3; // edx
   int v4; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44795,7 +44795,7 @@ int sub_3BA00(uint16_t* a1)
   int v3; // edx
   int v4; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44828,7 +44828,7 @@ int sub_3BA90(uint16_t* a1)
   int v3; // edx
   int v4; // eax
 
-  v1 = NewEvent_372C0();
+  v1 = (int)NewEvent_372C0();
   v2 = v1;
   if ( v1 )
   {
@@ -44860,7 +44860,7 @@ int sub_3BB20(int a1, char a2, char a3)
   int v4; // ebx
   char v5; // dl
 
-  v3 = NewEvent_372C0();
+  v3 = (int)NewEvent_372C0();
   v4 = v3;
   if ( v3 )
   {
@@ -45078,7 +45078,7 @@ int sub_3BF70(int a1, char a2, char a3, int a4, __int16 a5, char a6, char a7, in
   int v11; // ecx
   char v12; // ah
 
-  result = NewEvent_372C0();
+  result = (int)NewEvent_372C0();
   v10 = result;
   if ( result )
   {
@@ -45260,7 +45260,7 @@ int sub_3C4B0(int a1)
   int v1; // ebx
   int v2; // edx
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   v1 = v0;
   if ( v0 )
   {
@@ -45281,7 +45281,7 @@ int sub_3C4E0(int a1)
   int v1; // ebx
   int v2; // edx
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   v1 = v0;
   if ( v0 )
   {
@@ -45302,7 +45302,7 @@ int sub_3C510(int a1)
   int v1; // ebx
   int v2; // edx
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   v1 = v0;
   if ( v0 )
   {
@@ -45323,7 +45323,7 @@ int sub_3C540(int a1)
   int v1; // ebx
   int v2; // edx
 
-  v0 = NewEvent_372C0();
+  v0 = (int)NewEvent_372C0();
   v1 = v0;
   if ( v0 )
   {
@@ -47508,7 +47508,7 @@ void sub_3FB30_3FE70(__int16 a1, __int16 a2, char* a3)
       sub_599B0_59EC0(480);
   }
   while ( (byte_B772A & 0x10) != 0 );
-  sub_5CC54_5D164();
+  WaitForBeam_5CC54_5D164();
   do
   {
     if ( (typeResolution_12F02E_12F01E & 1) != 0 )
@@ -47531,7 +47531,7 @@ void sub_3FB30_3FE70(__int16 a1, __int16 a2, char* a3)
       sub_599B0_59EC0(480);
   }
   while ( (byte_B772A & 0x10) == 0 );
-  sub_5CC54_5D164();
+  WaitForBeam_5CC54_5D164();
 }
 // AE3FC: using guessed type int begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
 // B772A: using guessed type char byte_B772A;
@@ -60930,7 +60930,7 @@ __int16 sub_535E0(unsigned int a1)
   {
     while ( 1 )
     {
-      v7 = NewEvent_372C0();
+      v7 = (int)NewEvent_372C0();
       v8 = v7;
       if ( v7 )
       {
@@ -67272,7 +67272,7 @@ void sub_5CB73(int a1, __int16 a2)
 // 9ADC4: using guessed type int dword_9ADC4;
 
 //----- (0005CC54) --------------------------------------------------------
-void sub_5CC54_5D164()
+void WaitForBeam_5CC54_5D164()
 {
     FixPerifery((char*)"VSYNC");
     VGA_Blit(readBuffer_12EFF4);
@@ -70854,7 +70854,7 @@ void FadeInOut_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3)//232CC0
         palette2[i].green = byte_12F090_12F080[i].green + (palette[i].green - byte_12F090_12F080[i].green) * word_12F690_12F680 / a2;
         palette2[i].blue = byte_12F090_12F080[i].blue + (palette[i].blue - byte_12F090_12F080[i].blue) * word_12F690_12F680 / a2;
     }
-    sub_5CC54_5D164();
+    WaitForBeam_5CC54_5D164();
     sub_319A0_319E0(palette2);
   }
   else
@@ -70873,7 +70873,7 @@ void FadeInOut_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3)//232CC0
           palette2[i].green = byte_12F090_12F080[i].green + (palette[i].green - byte_12F090_12F080[i].green) * word_12F690_12F680 / a2;
           palette2[i].blue = byte_12F090_12F080[i].blue + (palette[i].blue - byte_12F090_12F080[i].blue) * word_12F690_12F680 / a2;
       }
-      sub_5CC54_5D164();
+      WaitForBeam_5CC54_5D164();
       sub_319A0_319E0(palette2);
     }
     byte_9AFA8 = 0;
