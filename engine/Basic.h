@@ -58,26 +58,45 @@ typedef union {
 } Type_29811;
 
 typedef struct {// len 164
-	uint8_t stub1[16];
+	uint8_t stub0[4];
+	uint32 rand_29799_4;//4
+	uint32 maxLife_29803_8;//8
+	uint8_t stub1[4];
 	Type_29811 var_29811_16;//16
 	//uint8 var_u8_29812;//17
 	uint16 var_u16_29815_20;//20
 	uint16 var_u16_29817_22;//22
-	uint8_t stub2[40];
+	uint16 id_29819_24;//24
+	uint16 var_u16_29821_26;//26
+	uint16 var_u16_29823_28;//28
+	uint8_t stub2a[14];
+	uint16 var_u16_29839_44;//44
+
+	uint8_t stub2[12];
+	int8_t var_u8_29853_58;//58
+	uint8_t stub2ax[4];
+	uint8_t var_u8_29858_63;//63
 	uint8_t var_u8_29859_64;//64
-	uint8_t var_u8_29860;//65
-	uint8_t stub2b[4];
-	uint8_t var_u8_29865;//70
+	uint8_t var_u8_29860_65;//65
+	int8_t sClass_29861_66;//66
+	int8_t sModel_29862_67;//67
+	int8_t var_u8_29863_68;//68
+	uint8_t stub2b[1];
+	uint8_t var_u8_29865_70;//70
 
 	uint8_t stub2c[2];
 	uint8_t var_u8_29868_73;//73
 	uint8_t stub2d[1];
 	uint8_t var_u8_29870_75;//75
 
-	uint8_t stub3[60];
+	uint8_t stub3a[50];
+	uint16 actSpeed_29831_126;//126
+
+	uint8_t stub3[8];
 	uint32 var_u32_29931;//136
-	uint8_t stub4[20];
-	uint32 var_u32_29955;//160
+	uint8_t stub4[16];
+	uint32 var_u32_29951_156;//156
+	uint32 var_u32_29955_160;//160
 }
 Type_AE400_29795;
 typedef struct {// len 106
@@ -116,7 +135,7 @@ typedef struct {//size 232713
 	uint8 stub0[1];
 	uint8 var_u8_1;
 	uint8 stub0b[2];
-	uint32 var_u32_4;
+	uint32 rand_4;
 	uint16 var_u16_8;
 	uint16 var_u16_10;
 	Type_AE400_20 str_12;// len 20
