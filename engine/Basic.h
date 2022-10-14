@@ -57,6 +57,11 @@ typedef union {
 	uint32_t dword;
 } Type_29811;
 
+typedef struct {
+	Type_29811 v0;//0
+	uint16_t v4;//4
+} Type_29811x;
+
 typedef struct {// len 164
 	uint8_t stub0[4];
 	uint32 rand_29799_4;//4
@@ -84,12 +89,17 @@ typedef struct {// len 164
 	uint8_t stub2b[1];
 	uint8_t var_u8_29865_70;//70
 
-	uint8_t stub2c[2];
-	uint8_t var_u8_29868_73;//73
-	uint8_t stub2d[1];
-	uint8_t var_u8_29870_75;//75
-
-	uint8_t stub3a[50];
+	uint8_t stub2c[1];
+	Type_29811 var_u32_29867_72;//72
+	uint16_t var_u16_29871_76;//76
+	uint16_t var_u16_29873_78;//78
+	uint16_t var_u16_29875_80;//80
+	uint16_t var_u16_29877_82;//82
+	uint16_t var_u16_29879_84;//84
+	uint16_t var_u16_29881_86;//86
+	uint8_t var_u8_29883_88;//88
+	uint8_t var_u8_29884_89;//89
+	uint8_t stub3ax[36];
 	uint16 actSpeed_29831_126;//126
 
 	uint8_t stub3[8];
@@ -281,7 +291,7 @@ typedef union {
 uaxis_2d;
 #pragma pack (16)
 
-extern uint8_t* readBuffer_12EFF4;
+extern uint8_t* pdwScreenBuffer_12EFF4;
 
 extern int16_t mapEntityIndex_10C1E0[0x10000];
 extern uint8_t mapTerrainType_CC1E0[0x10000];

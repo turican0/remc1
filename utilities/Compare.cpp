@@ -71,10 +71,10 @@ uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint
 	fread(buffer, size2, 1, fptestepc);
 	if (size2 == 320 * 200)
 	{
-		VGA_Debug_Blit(320, 200, readBuffer_12EFF4);
+		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
 		/*for (int iii = 0; iii < 320 * 200; iii++)pdwScreenBuffer_351628[iii] = buffer[iii];*/
-		VGA_Debug_Blit(320, 200, readBuffer_12EFF4);
-		VGA_Debug_Blit(320, 200, readBuffer_12EFF4);
+		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
+		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
 	}
 	//for (i = size-1; i >0; i--)
 	for (i = 0; i < size2; i++)
