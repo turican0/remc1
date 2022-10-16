@@ -25,6 +25,12 @@
 
 #pragma pack (1)
 
+typedef struct {
+	uint16_t x;
+	uint16_t y;
+	int16_t z;
+}axis_3d;
+
 typedef struct {//2049
 	uint16 var_u16_13323;
 	uint16 var_u16_13325;
@@ -57,16 +63,11 @@ typedef union {
 	uint32_t dword;
 } Type_29811;
 
-typedef struct {
-	Type_29811 v0;//0
-	uint16_t v4;//4
-} Type_29811x;
-
 typedef struct {// len 164
 	uint8_t stub0[4];
 	uint32 rand_29799_4;//4
 	uint32 maxLife_29803_8;//8
-	uint8_t stub1[4];
+	uint32 var_u32_29807_12;//12
 	Type_29811 var_29811_16;//16
 	//uint8 var_u8_29812;//17
 	uint16 var_u16_29815_20;//20
@@ -88,10 +89,9 @@ typedef struct {// len 164
 	int8_t var_u8_29863_68;//68
 	uint8_t stub2b[1];
 	uint8_t var_u8_29865_70;//70
-
-	uint8_t stub2c[1];
-	Type_29811 var_u32_29867_72;//72
-	uint16_t var_u16_29871_76;//76
+	uint8_t var_u8_29866_71;//71
+	axis_3d var_u32_29867_72;//72
+	//uint16_t var_u16_29871_76;//76
 	uint16_t var_u16_29873_78;//78
 	uint16_t var_u16_29875_80;//80
 	uint16_t var_u16_29877_82;//82
@@ -101,8 +101,9 @@ typedef struct {// len 164
 	uint8_t var_u8_29884_89;//89
 	uint8_t stub3ax[36];
 	uint16 actSpeed_29831_126;//126
+	uint16 actSpeed_29833_128;//128
 
-	uint8_t stub3[8];
+	uint8_t stub3[6];
 	uint32 var_u32_29931;//136
 	uint8_t stub4[16];
 	uint32 var_u32_29951_156;//156
