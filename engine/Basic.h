@@ -67,7 +67,7 @@ typedef struct {// len 164
 	uint8_t stub0[4];
 	uint32 rand_29799_4;//4
 	uint32 maxLife_29803_8;//8
-	uint32 var_u32_29807_12;//12
+	uint32 var_u32_29807_12;//12 //act live?
 	Type_29811 var_29811_16;//16
 	//uint8 var_u8_29812;//17
 	uint16 var_u16_29815_20;//20

@@ -30,9 +30,12 @@ typedef struct {//lenght 3
 TColor;
 
 typedef struct {
+	uint8_t x;//4
+	uint8_t y;//5
+} TypeTabDimm;
+typedef struct {
 	uint8_t* Tab_0;//0
-	uint8_t Tab_4;//4
-	uint8_t Tab_5;//5
+	TypeTabDimm dim;//4	
 } TypeTab;
 
 typedef struct {
