@@ -75,7 +75,9 @@ typedef struct {// len 164
 	uint16 id_29819_24;//24
 	uint16 var_u16_29821_26;//26
 	uint16 var_u16_29823_28;//28
-	uint8_t stub2a[14];
+	uint16 var_u16_29825_30;//30
+	uint16 var_u16_29827_32;//32
+	uint8_t stub2a[10];
 	uint16 var_u16_29839_44;//44
 
 	uint8_t stub2[12];

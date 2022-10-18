@@ -155,7 +155,7 @@ void SetPalette(SDL_Color* colours) {
 	if (m_gamePalletisedSurface)
 	{
 		SDL_SetPaletteColors(m_gamePalletisedSurface->format->palette, m_currentPalletColours, 0, 256);
-		SubBlit(m_iOrigw, m_iOrigh);
+		//SubBlit(m_iOrigw, m_iOrigh);
 	}
 }
 
