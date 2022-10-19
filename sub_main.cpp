@@ -29868,7 +29868,7 @@ void sub_27D30(Type_AE400_29795* event)//1F8D30_
                 //1F8e3f
 //debug
 #ifdef debug1
-                if (compare_27D30 == 0x93)
+                if (compare_27D30 == 0xf3)
                 {
                     compare_27D30++;
                     compare_27D30--;
@@ -38918,7 +38918,7 @@ unsigned __int16 sub_33AE0(unsigned __int16 a1, char a2)
 }
 
 //----- (00033B90) --------------------------------------------------------
-void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)
+void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)//204B90_
 {
 	uaxis_2d tempAxis;
 	uint8_t nextAngle;
@@ -38981,7 +38981,7 @@ void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)
 				else
 				{
                     word_12C1E0 = 9377 * word_12C1E0 + 9439;
-                    nextAngle = (mapAngle_FC1E0[tempAxis.word] & 0x87) + 16 * (word_12C1E0 % 7u);
+                    nextAngle = (mapAngle_FC1E0[tempAxis.word] & 0x87) + 16 * ((uint16_t)word_12C1E0 % 7u);
 				}
                 mapAngle_FC1E0[tempAxis.word] = nextAngle;
 			}
@@ -40898,13 +40898,13 @@ void sub_36620()//207620_
 		{
             //2076e4
             //debug
-            if (i == 7)
+            if (i == 8)
             {
                 i++;
                 i--;
             }
             #ifdef debug1
-            add_compare(0x2076e4, true);
+            add_compare(0x2076e9, true);
             #endif debug1
             //debug
 			if (str_AE400_AE3F0->str_29795[i].var_u8_29859_64)
