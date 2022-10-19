@@ -67,7 +67,7 @@ typedef struct {// len 164
 	uint8_t stub0[4];
 	uint32 rand_29799_4;//4
 	uint32 maxLife_29803_8;//8
-	uint32 var_u32_29807_12;//12 //act live?
+	int32 var_u32_29807_12;//12 //act live?
 	Type_29811 var_29811_16;//16
 	//uint8 var_u8_29812;//17
 	uint16 var_u16_29815_20;//20
@@ -77,7 +77,8 @@ typedef struct {// len 164
 	uint16 var_u16_29823_28;//28
 	uint16 var_u16_29825_30;//30
 	uint16 var_u16_29827_32;//32
-	uint8_t stub2a[10];
+	uint8_t stub2a[8];
+	uint16 var_u16_29837_42;//42
 	uint16 var_u16_29839_44;//44
 
 	uint8_t stub2[12];
