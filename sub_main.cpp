@@ -44,6 +44,10 @@ void sub_50350()
 
 begBscreen_AE3FC_AE3EC_26C3FC_26C3EC
 
+&str_AE400_AE3F0->str_29795[7] + 72 00 fd 00 fb
+0x26f13 00 41 00 34 a0
+0x26ecb
+0x26c400 +0x7507
 */
 //info
 //fix
@@ -29868,7 +29872,7 @@ void sub_27D30(Type_AE400_29795* event)//1F8D30_
                 //1F8e3f
 //debug
 #ifdef debug1
-                if (compare_27D30 == 0xf3)
+                if (compare_27D30 == 0x1ff)
                 {
                     compare_27D30++;
                     compare_27D30--;
@@ -40885,7 +40889,97 @@ LABEL_11:
   return result;
 }
 
+int counter_sub_36620 = 0;
 void sub_36620()//207620_
+{
+    bool runAgain;
+    void (*locFunction)(Type_AE400_29795*);
+    str_AE400_AE3F0->rand_4 = 9377 * str_AE400_AE3F0->rand_4 + 9439;
+    do
+    {
+        runAgain = false;
+        for (int i = 1; i < 1000; i++)
+        {
+    //2076e4
+    //debug
+                if (counter_sub_36620 == 0x3ed)
+                {
+                    counter_sub_36620++;
+                    counter_sub_36620--;
+                }
+                counter_sub_36620++;
+    #ifdef debug1
+                add_compare(0x2076e9, true);
+    #endif debug1
+    //debug
+                if (str_AE400_AE3F0->str_29795[i].var_u8_29859_64)
+                {
+                    if (str_AE400_AE3F0->str_29795[i].var_u8_29859_64 != 10)
+                    {
+                        sub_41E80(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                    else
+                    if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 < 0x1Bu)
+                    {
+                        if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 >= 9u && str_AE400_AE3F0->str_29795[i].var_u8_29860_65 <= 0xBu)
+                        {
+                        //LABEL_16:
+                            runAgain = true;
+                            locFunction = dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data6;
+                            if (locFunction && dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data10)
+                                locFunction(&str_AE400_AE3F0->str_29795[i]);
+                            //goto LABEL_20;
+                        }
+                        else
+                            sub_41E80(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                    else if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 <= 0x20u)
+                    {
+                        runAgain = true;
+                        locFunction = dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data6;
+                        if (locFunction && dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data10)
+                            locFunction(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                    else if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 < 0x2Du)
+                    {
+                        sub_41E80(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                    else if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 > 0x2Du)
+                    {
+                        if (str_AE400_AE3F0->str_29795[i].var_u8_29860_65 >= 0x32u && str_AE400_AE3F0->str_29795[i].var_u8_29860_65 <= 0x33u)
+                        {
+                            runAgain = true;
+                            locFunction = dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data6;
+                            if (locFunction && dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data10)
+                                locFunction(&str_AE400_AE3F0->str_29795[i]);
+                            //goto LABEL_20;
+                        }
+                        else
+                    //LABEL_19:
+                        sub_41E80(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                    else if (str_AE400_AE3F0->str_29795[i].var_u8_29865_70 == 51)
+                    {
+                        runAgain = true;
+                        locFunction = dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data6;
+                        if (locFunction && dword_96902[str_AE400_AE3F0->str_29795[i].var_u8_29859_64].str_0[str_AE400_AE3F0->str_29795[i].var_u8_29865_70].data10)
+                            locFunction(&str_AE400_AE3F0->str_29795[i]);
+                        //goto LABEL_20;
+                    }
+                //LABEL_20:
+                    if ((str_AE400_AE3F0->str_29795[i].var_29811_16.byte[1] & 4) != 0)
+                        sub_41E90_421D0(&str_AE400_AE3F0->str_29795[i]);
+                }
+        }
+    } while (runAgain);
+}
+
+void sub_36620_new()//207620_
 {
 	bool runAgain;
 	//_WORD v2w; // eax
