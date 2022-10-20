@@ -109,6 +109,12 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
             printf("external pefifery - Blit640\n");
         else if (!strcmp(text, "VSYNC"))
             printf("external pefifery - VSYNC\n");
+        else if (!strcmp(text, "CLEAN_KEYS"))
+            printf("external pefifery - clean pressed keys\n");
+        else if (!strcmp(text, "START_TIMER"))
+            printf("external pefifery - start timer\n");
+        else if (!strcmp(text, "COMPUTE_TIMER"))
+            printf("external pefifery - compute timer\n");
         else
             printf("unknown external pefifery!!!! - Fix It\n");
     }
@@ -531,7 +537,7 @@ int sub_369E0(int a1, unsigned int a2, __int16 a3);
 __int16 sub_36A90(int a1, int a2);
 void sub_36C10(int *a1);
 // void sub_36C65(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
-int sub_36D83(int a1, __int16 a2);
+void cleanPressedKeys_36D83();
 int sub_36DC2_37182();
 void sub_36DE0(Type_AE400_29795* event);
 void sub_36DF0(Type_AE400_29795* event, unsigned __int16 a2);
@@ -13779,8 +13785,8 @@ int dword_B7310; // weak
 __int16 word_B7314; // weak
 __int16 word_B7316; // weak
 __int16 word_B7318; // weak
-int dword_B7320; // weak
-__int16 word_B7324; // weak
+int keysVect2_B7320; // weak
+__int16 keysVect1_B7324; // weak
 uint8_t unk_B7330[9999]; // fix size of array
 int dword_B76F0_B76E0; // weak
 char byte_B7700_B76F0; // weak
@@ -40902,14 +40908,15 @@ void sub_36620()//207620_
         {
     //2076e4
     //debug
-                if (counter_sub_36620 == 0x3ed)
+            if (counter_sub_36620 == 0xf9c)
+                //if (counter_sub_36620 == 0x3ed)
                 {
                     counter_sub_36620++;
                     counter_sub_36620--;
                 }
                 counter_sub_36620++;
     #ifdef debug1
-                add_compare(0x2076e9, true);
+                add_compare(0x207653, true);
     #endif debug1
     //debug
                 if (str_AE400_AE3F0->str_29795[i].var_u8_29859_64)
@@ -41326,44 +41333,39 @@ void sub_36C65(
 // 62460: using guessed type _DWORD chain_intr(_DWORD);
 // AE408: using guessed type int dword_AE408_AE3F8();
 // AE45A: using guessed type char origDebug_AE45A_AE44A;
-// B7320: using guessed type int dword_B7320;
-// B7324: using guessed type __int16 word_B7324;
+// B7320: using guessed type int keysVect2_B7320;
+// B7324: using guessed type __int16 keysVect1_B7324;
 // B7326: using guessed type char byte_B7326;
 // B7327: using guessed type char byte_B7327;
 // 12EF70: using guessed type char lastPressedKey_12EF70;
 
 //----- (00036D83) --------------------------------------------------------
-int sub_36D83(int a1, __int16 a2)
+void cleanPressedKeys_36D83()
 {
-    FixPerifery();
-
-  __int16 i; // ax
-  int v3; // eax
-
-  for ( i = 0; i < 128; ++i )
+    FixPerifery((char*)"CLEAN_KEYS");
+  __int16 lastPressedKey;
+  for ( int i = 0; i < 128; i++ )
   {
-    a2 = i;
     pressedKeys_12EEF0[i] = 0;
   }
-  v3 = dos_getvect(9);
-  word_B7324 = a2;
-  dword_B7320 = v3;
+  keysVect1_B7324 = 127;
+  keysVect2_B7320 = dos_getvect(9);
   //fix return dos_setvect(9, sub_36C65, (unsigned __int16)__CS__);
 }
 // 62481: using guessed type _DWORD dos_getvect(_DWORD);
 // 624B5: using guessed type _DWORD dos_setvect(_DWORD, _DWORD, _DWORD);
-// B7320: using guessed type int dword_B7320;
-// B7324: using guessed type __int16 word_B7324;
+// B7320: using guessed type int keysVect2_B7320;
+// B7324: using guessed type __int16 keysVect1_B7324;
 
 //----- (00036DC2) --------------------------------------------------------
 int sub_36DC2_37182()
 {
     FixPerifery();
-  return dos_setvect(9, dword_B7320, (unsigned __int16)word_B7324);
+  return dos_setvect(9, keysVect2_B7320, (unsigned __int16)keysVect1_B7324);
 }
 // 624B5: using guessed type _DWORD dos_setvect(_DWORD, _DWORD, _DWORD);
-// B7320: using guessed type int dword_B7320;
-// B7324: using guessed type __int16 word_B7324;
+// B7320: using guessed type int keysVect2_B7320;
+// B7324: using guessed type __int16 keysVect1_B7324;
 
 //----- (00036DE0) --------------------------------------------------------
 void sub_36DE0(Type_AE400_29795* event)
@@ -52266,7 +52268,7 @@ void sub_44730_44A70()//215730_
     if ( (*(_BYTE *)dword_AE408_AE3F8() & 8) != 0 )
       sub_5B5E0();
     else
-      sub_36D83(dword_AE408_AE3F8(), v1);
+      cleanPressedKeys_36D83();
   }
 }
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
@@ -66101,7 +66103,7 @@ void sub_5A3C0_5A8D0(int fontIndex)
 // positive sp value has been detected, the output may be wrong!
 void sub_5A3E3()
 {
-    FixPerifery();
+    FixPerifery((char*)"COMPUTE_TIMER");
     dword_AC5D4++;
     str_AE408_AE3F8->var_u32_210 += str_AE408_AE3F8->var_u32_206;
     if (str_AE408_AE3F8->var_u32_210 >= 0x10000)
@@ -66208,7 +66210,7 @@ TimerClass* timer;
 //----- (0005A459) --------------------------------------------------------
 void sub_5A459_5A969()
 {
-    FixPerifery();
+    FixPerifery((char*)"START_TIMER");
 
   str_AE408_AE3F8->var_u32_206 = 9903;
   str_AE408_AE3F8->var_u32_210 = 0;
