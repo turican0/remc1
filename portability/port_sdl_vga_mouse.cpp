@@ -137,9 +137,10 @@ void VGA_Init(Uint32  /*flags*/, int width, int height, bool maintainAspectRatio
 			exit(-1);
 		}
 
-		Set_basic_Palette1();
+		SetBlackPalette();
 		//Draw_debug_matrix1();
 		Draw_black();
+		Set_basic_Palette1();
 		inited = true;
 	}
 }
@@ -155,7 +156,7 @@ void SetPalette(SDL_Color* colours) {
 	if (m_gamePalletisedSurface)
 	{
 		SDL_SetPaletteColors(m_gamePalletisedSurface->format->palette, m_currentPalletColours, 0, 256);
-		//SubBlit(m_iOrigw, m_iOrigh);
+		SubBlit(m_iOrigw, m_iOrigh);
 	}
 }
 
@@ -168,6 +169,18 @@ void Set_basic_Palette0() {
 		colors[i].r = tempPalettebuffer[i * 3];
 		colors[i].g = tempPalettebuffer[i * 3 + 1];
 		colors[i].b = tempPalettebuffer[i * 3 + 2];
+	}
+	SetPalette(colors);
+}
+
+void SetBlackPalette() {
+	SDL_Color colors[256];
+	for (int i = 0; i < 256; i++) {
+		{
+			colors[i].r = 0;
+			colors[i].g = 0;
+			colors[i].b = 0;
+		}
 	}
 	SetPalette(colors);
 }

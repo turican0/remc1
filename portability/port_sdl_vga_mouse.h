@@ -57,6 +57,7 @@ void VGA_mouse_clear_keys();
 void VGA_cleanKeyBuffer();
 void Draw_debug_matrix1();
 void Draw_black();
+void SetBlackPalette();
 
 extern uint8_t lastPressedKey_12EF70; // weak//3516e4
 extern int8_t pressedKeys_12EEF0[128]; // idb
