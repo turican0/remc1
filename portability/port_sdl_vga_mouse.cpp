@@ -86,7 +86,6 @@ void VGA_Init(Uint32  /*flags*/, int width, int height, bool maintainAspectRatio
 				SDL_Log("SDL_GetDesktopDisplayMode failed: %s", SDL_GetError());
 				return;
 			}
-
 			SDL_WindowFlags test_fullscr = SDL_WINDOW_SHOWN;
 			m_window = SDL_CreateWindow(default_caption, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/*dm.w*/, height/*dm.h*/, test_fullscr);
 			SDL_SetWindowGrab(m_window, settingWindowGrabbed ? SDL_TRUE : SDL_FALSE);
@@ -156,7 +155,7 @@ void SetPalette(SDL_Color* colours) {
 	if (m_gamePalletisedSurface)
 	{
 		SDL_SetPaletteColors(m_gamePalletisedSurface->format->palette, m_currentPalletColours, 0, 256);
-		SubBlit(m_iOrigw, m_iOrigh);
+		//SubBlit(m_iOrigw, m_iOrigh);
 	}
 }
 
@@ -507,7 +506,6 @@ void VGA_Set_Palette(Uint8* Palettebuffer) {
 		colors[i].g = 4 * Palettebuffer[i * 3 + 1];
 		colors[i].b = 4 * Palettebuffer[i * 3 + 2];
 	}
-
 	SetPalette(colors);
 }
 
