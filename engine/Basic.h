@@ -40,12 +40,23 @@ typedef struct {
 typedef struct {//size 8
 	uint8 stub_a[48];
 	uint32 var_48;
-	uint8 stub_aa[256];
+	uint16 var_50;
+	uint8 stub_aa[254];
 	uint32 u32_308;
 	uint8 stub_b[10];
 	uint32 u32_322;
 	uint8 stub_c[134];
 	Type_460 str_460[8];//fix size
+	uint8 stub_cc[8];
+	uint32 var_532[8];//fix size
+	uint8 stub_c2[236];
+	uint8 var_772[24];
+	uint8 stub_c3[48];
+	uint8 var_844[8];//fix size
+	uint8 stub_d[88];//?
+	uint16 var_940;//?
+	uint8 stub_e[2];//?
+	uint16 var_944;//?
 }Type_160;
 
 typedef struct {//14
@@ -70,7 +81,9 @@ typedef struct {//2049
 	uint32 var_u32_13341_18;//24
 	uint8 stub1[2];
 	uint32 var_u32_13347_24;//24
-	uint8 stub1b[68];
+	uint8 stub1b[64];
+	uint16 var_u16_13415;
+	uint8 stub1b2[2];
 	uint32 var_u32_13419[24];
 	uint8 stub1c[380];//13515
 
@@ -153,8 +166,8 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint8_t var_u8_29883_88;//88
 	uint8_t var_u8_29884_89;//89
 	uint8_t stub3ax[36];
-	uint16 actSpeed_29831_126;//126
-	uint16 actSpeed_29833_128;//128
+	uint16 actSpeed_29921_126;//126
+	uint16 actSpeed_29923_128;//128
 
 	uint8_t stub3[6];
 	uint32 var_u32_29931;//136
