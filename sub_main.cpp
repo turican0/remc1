@@ -807,7 +807,7 @@ void sub_41540_41880();
 unsigned __int16 sub_415C0();
 unsigned int sub_416B0();
 void sub_41780();
-void sub_41B20(int a1, int a2);
+void sub_41B20(TypeStrAE400_13323* a1, Type_AE400_29795* a2);
 int sub_41C70_41FB0(Type_AE400_29795* event, axis_3d* position);
 // int sub_41CC0(__int16 a1, int a2, int a3);
 void sub_41CF0(Type_AE400_29795* event, axis_3d* position);
@@ -46183,7 +46183,7 @@ void sub_3C800_sub_3CB40()
 // CC1BC: using guessed type int dword_CC1BC;
 
 //----- (0003C9D0) --------------------------------------------------------
-void sub_3C9D0()
+void sub_3C9D0()//20D9D0_
 {
   //int v0; // ebx
   //_BYTE *v1; // ebp
@@ -46301,6 +46301,14 @@ void sub_3C9D0()
   char v110; // [esp+124h] [ebp-1Ch]
   char v111; // [esp+128h] [ebp-18h]
   char v112; // [esp+12Ch] [ebp-14h]
+
+
+  //adress 20D9DC
+         //debug
+#ifdef debug1
+  add_compare(0x20D9DC, true);
+#endif debug1
+  //debug
 
   //fix
   v19 = 0;
@@ -46431,7 +46439,7 @@ void sub_3C9D0()
         }
         goto LABEL_150;
       case 8:
-          str_AE400_AE3F0->str_13323[v106x].str_13895_572.var_u16_13907_584 += str_AE400_AE3F0->var_29715[v102x][1];
+          str_AE400_AE3F0->str_13323[v106x].str_13895_572[0].var_12 += str_AE400_AE3F0->var_29715[v102x][1];
         goto LABEL_150;
       case 0xA:
         if ( (str_AE408_AE3F8->var_u8_0 & 0x10) == 0 )
@@ -46852,8 +46860,14 @@ LABEL_150:
         str_AE408_AE3F8->var_u16_13++;
       }
     }
+    //adress 20DC0E
+       //debug
+#ifdef debug1
+    add_compare(0x20EC0E, true);
+#endif debug1
+    //debug
     //str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[v106x].var_u16_13333]
-    sub_41B20((int)&str_AE400_AE3F0->str_13323[v106x], (int)&str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[v106x].var_u16_13333]);
+    sub_41B20(&str_AE400_AE3F0->str_13323[v106x], &str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[v106x].var_u16_13333]);
     //v95 = str_AE400_AE3F0->var_29715[v102x];
     memset(str_AE400_AE3F0->var_29715[v102x], 0, 10);
     //str_AE400_AE3F0->var_29715[v102x] = v95 + 10;
@@ -46985,7 +46999,7 @@ void sub_3DD50()//20ED50_
         str_AE400_AE3F0->str_13323[v0x].var_u8_13332_9 = 1;
     str_AE400_AE3F0->str_13323[v0x].var_u16_13339_16 = 32;
     str_AE400_AE3F0->str_13323[v0x].var_u16_13337_14 = str_AE400_AE3F0->str_13323[v0x].var_u16_13339_16 - 1;
-    str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u16_13907_584 = 128;
+    str_AE400_AE3F0->str_13323[v0x].str_13895_572[0].var_12 = 128;
     strcpy(str_AE400_AE3F0->str_13323[v23x].str_14357, off_99B68[v27]);
     /*v3 = &str_AE400_AE3F0->str_13323[v23x].str_14357[v18x];
     v4 = off_99B68[v27];
@@ -47009,10 +47023,10 @@ void sub_3DD50()//20ED50_
       //if ( v7 >= str_AE400_AE3F0->str_13323[v0x].var_u16_13339_16)
       //  break;
       //str_AE400_AE3F0->str_13323[v0x].str_13909_586[v8].var_u32_13895_572
-      str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u32_13895_572 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u32_13895_572;
-      str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u32_13899_576 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u32_13899_576;
-      str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u32_13903_580 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u32_13903_580;
-      str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u16_13907_584 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u16_13907_584;
+      str_AE400_AE3F0->str_13323[v0x].str_13895_572[i+1] = str_AE400_AE3F0->str_13323[v0x].str_13895_572[0];
+      //str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u32_13899_576 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u32_13899_576;
+      //str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u32_13903_580 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u32_13903_580;
+      //str_AE400_AE3F0->str_13323[v0x].str_13909_586[i].var_u16_13907_584 = str_AE400_AE3F0->str_13323[v0x].str_13895_572.var_u16_13907_584;
       //++v7;
     }
     //v9 = v0;//str_AE400_AE3F0->str_13323[v0x].var_u16_2047
@@ -50182,12 +50196,17 @@ LABEL_52:
 // 41780: using guessed type char var_168[256];
 
 //----- (00041B20) --------------------------------------------------------
-void sub_41B20(int a1, int a2)
+void sub_41B20(TypeStrAE400_13323* a1x, Type_AE400_29795* a2x)
 {
-  int v2; // esi
-
-  if ( (*(_BYTE *)(dword_AE408_AE3F8() + 2) & 1) == 0 )
+  if ( (str_AE408_AE3F8->var_u8_2 & 1) == 0 )
   {
+      sub_11F50(&a2x->var_u32_29867_72);
+      a1x->str_13895_572[a1x->var_u16_13339_16].axis = a2x->var_u32_29867_72;
+      a1x->str_13895_572[a1x->var_u16_13339_16].var_6 = a2x->var_u16_29825_30;
+      a1x->str_13895_572[a1x->var_u16_13339_16].var_12 = a1x->str_13895_572[0].var_12;
+      a1x->str_13895_572[a1x->var_u16_13339_16].var_10 = a2x->var_u32_29955_160->u16_327;
+
+          /*
     *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 586) = *(_WORD *)(a2 + 72);
     *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 588) = *(_WORD *)(a2 + 74);
     sub_11F50((axis_3d*)(__int16 *)(a2 + 72));
@@ -50195,21 +50214,29 @@ void sub_41B20(int a1, int a2)
     *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 592) = *(_WORD *)(a2 + 30);
     *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 598) = *(_WORD *)(a1 + 584);
     *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 596) = *(_WORD *)(*(_DWORD *)(a2 + 160) + 327);
-    v2 = *(_DWORD *)(a2 + 160);
-    *(_WORD *)(a1 + 14 * (*(unsigned __int16 *)(a1 + 16) - 1) + 594) = *(__int16 *)(v2 + 329) / 2
-                                                                     + ((int)(*(__int16 *)(v2 + 22)
+    */
+    //v2 = *(_DWORD *)(a2 + 160);
+      int v4 = a2x->var_u32_29955_160->v_22;
+    a1x->str_13895_572[a1x->var_u16_13339_16].var_8 = a2x->var_u32_29955_160->u16_329 / 2
+        + str_AE408_AE3F8->str_93.var_u8[1]
+        * ((v4 - (my_sign32(v4) << 4) + my_sign32(v4)) >> 4)
+        - ((v4 - (my_sign32(v4) << 3) + my_sign32(v4)) >> 3);
+    /*
+    *(_WORD *)(a1 + 14 * (a1x->var_u16_13339_16 - 1) + 594) = a2x->var_u32_29955_160->u16_329 / 2
+                                                                     + ((int)(v4
                                                                             - (__CFSHL__(
-                                                                                 (unsigned __int64)*(__int16 *)(v2 + 22) >> 32,
+                                                                                 (unsigned __int64)v4 >> 32,
                                                                                  4)
                                                                              + 16
-                                                                             * ((unsigned __int64)*(__int16 *)(v2 + 22) >> 32))) >> 4)
-                                                                     * *(unsigned __int8 *)(dword_AE408_AE3F8() + 94)
-                                                                     - ((int)(*(__int16 *)(v2 + 22)
+                                                                             * ((unsigned __int64)v4 >> 32))) >> 4)
+                                                                     * str_AE408_AE3F8->str_93.var_u8[1]
+                                                                     - ((int)(v4
                                                                             - (__CFSHL__(
-                                                                                 (unsigned __int64)*(__int16 *)(v2 + 22) >> 32,
+                                                                                 (unsigned __int64)v4 >> 32,
                                                                                  3)
                                                                              + 8
-                                                                             * ((unsigned __int64)*(__int16 *)(v2 + 22) >> 32))) >> 3);
+                                                                             * ((unsigned __int64)v4 >> 32))) >> 3);
+    */
   }
 }
 // AE408: using guessed type int dword_AE408_AE3F8();
