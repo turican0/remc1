@@ -137,8 +137,8 @@ typedef struct {//2049
 	uint8 stub2bx[5];
 	uint8 var_14422_1099;
 	uint8 stub2bxx[3];
-	Type_160* var_1103;
-	uint8 stub2b[528];
+	Type_160 var_1103;//fix it
+	/*uint8 stub2b[528];
 	int32 var_14958_1635[60];//fix size
 	uint8 var_15198_1875[24];//fix size
 	uint8 var_15222_1899[96];//fix size
@@ -146,7 +146,7 @@ typedef struct {//2049
 	uint8 stub3[24];
 	uint16 var_u16_2043;
 	uint8 stub2[2];
-	uint16 var_u16_2047;
+	uint16 var_u16_2047;*/
 	//2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13347
 }
 TypeStrAE400_13323;
@@ -322,7 +322,7 @@ typedef struct {//size 232713
 	uint8 var_u8_8631;
 	uint8 stub11[545];
 	Type_AE400_9177 str_9177[8];// len 48
-	uint8 stub12[2049];
+	uint8 stub12[2033];
 	TypeStrAE400_13323 str_11274;
 	TypeStrAE400_13323 str_13323[8];//fix
 	char var_29715[8][10];

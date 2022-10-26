@@ -46466,7 +46466,14 @@ void sub_3C9D0()//20D9D0_
           goto LABEL_45;
         //*(_BYTE *)(v106 + 2) |= 0xCu;
         str_AE400_AE3F0->str_13323[v106x].var_u16_13325 |= 0xCu;
-LABEL_23:
+    LABEL_23:
+        //adress 20D9D0
+        //debug
+#ifdef debug1
+        add_compare(0x20DC7D, true);
+#endif debug1
+        //debug
+
         sub_44D30(&str_AE400_AE3F0->str_13323[v106x], actEvent);
         sub_3DC90((int)&str_AE400_AE3F0->str_13323[v106x], 0);
         goto LABEL_150;
@@ -52612,15 +52619,15 @@ signed int sub_44C90(int a1)
 // AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (00044D30) --------------------------------------------------------
-void sub_44D30(TypeStrAE400_13323* a1, Type_AE400_29795* event)
+void sub_44D30(TypeStrAE400_13323* a1x, Type_AE400_29795* event)//215D30_
 {
   Type_AE400_29795* v2x; // ebx
   int v3; // edx
   __int16 v4; // ax
   //int v5; // ecx
   char v6; // dh
-  int v7; // eax
-  unsigned __int16 v8; // dx
+  //int v7; // eax
+  //unsigned __int16 v8; // dx
   //int v9; // esi
   int v10; // eax
   Type_AE400_29795* v11x; // eax
@@ -52645,7 +52652,7 @@ void sub_44D30(TypeStrAE400_13323* a1, Type_AE400_29795* event)
   //int k; // eax
   int result; // eax
   axis_3d v32x; // [esp+0h] [ebp-24h] BYREF
-  __int16 v33; // [esp+4h] [ebp-20h]
+  //__int16 v33; // [esp+4h] [ebp-20h]
   int v34; // [esp+8h] [ebp-1Ch]
   int i; // [esp+Ch] [ebp-18h]
   //int v36; // [esp+10h] [ebp-14h]
@@ -52654,34 +52661,34 @@ void sub_44D30(TypeStrAE400_13323* a1, Type_AE400_29795* event)
   v34 = 0;
   sub_37220();
   //v3 = (a1 - (dword_AE400_AE3F0() + 13323)) / 2049;
-  v3 = a1 - str_AE400_AE3F0->str_13323;
+  v3 = a1x - str_AE400_AE3F0->str_13323;
   v32x = str_AE400_AE3F0->str_9177[v3].v_9177;
   //v33 = str_AE400_AE3F0->str_9177[v3].v_9181;
   v4 = sub_11F50(&v32x);
   ++HIBYTE(v4);
   //v5 = dword_AE400_AE3F0();
-  v33 = v4;  
+  //v33 = v4;   //fix it
   if (event == str_AE400_AE3F0->str_29795)
   {
-      v2x = sub_373F0(&v32x, 3, *(_BYTE *)(a1 + 9) == 1);
+      v2x = sub_373F0(&v32x, 3, a1x->var_u8_13332_9 == 1);
     v34 = 1;
   }
   else
   {
-    v6 = *(_BYTE *)(event + 16);
-    *(_BYTE *)(event + 70) = *(_BYTE *)(a1 + 9) == 1;
-    v7 = *(_DWORD *)(event + 160);
-    *(_BYTE *)(event + 16) = v6 & 0xDF;
-    if ( *(_WORD *)(v7 + 50) )
+    event->var_u8_29865_70 = a1x->var_u8_13332_9 == 1;
+    //v7 = *(_DWORD *)(event + 160);
+    //event->var_u32_29955_160->var_50
+    event->var_29811_16.byte[0] &= 0xDF;
+    if (event->var_u32_29955_160->var_50)
     {
-      v8 = *(_WORD *)(v7 + 50);
-      v32x = str_AE400_AE3F0->str_29795[v8].var_u32_29867_72;
+      //v8 = *(_WORD *)(v7 + 50);
+      v32x = str_AE400_AE3F0->str_29795[event->var_u32_29955_160->var_50].var_u32_29867_72;
       //v33 = *(_WORD *)(dword_AE400_AE3F0() + 164 * v8 + 29871);
     }
     sub_41C70_41FB0(event, &v32x);
   }  
-  v2x->var_u32_29955_160 = a1->var_1103;
-  v2x->var_u32_29955_160->var_48 = a1 - str_AE400_AE3F0->str_13323;
+  v2x->var_u32_29955_160 = a1x->var_1103;
+  v2x->var_u32_29955_160->var_48 = a1x - str_AE400_AE3F0->str_13323;
   v2x->var_u32_29955_160->u16_331 = 100;
   v2x->var_u32_29955_160->u32_351 = 2000;
   v2x->var_u32_29955_160->v_12 = 0;
@@ -52759,7 +52766,7 @@ void sub_44D30(TypeStrAE400_13323* a1, Type_AE400_29795* event)
         break;
     }
     sub_45C10(v2x);
-    if ( *(_BYTE *)(a1 + 9) == 1 )
+    if (a1x->var_u8_13332_9 == 1 )
     {
         //str_AE400_AE3F0->str_193795.str_230867_37072[v2x->var_u32_29955_160->var_48].var_230875
         /*v2x->var_u32_29955_160->var_48
@@ -52834,10 +52841,10 @@ void sub_44D30(TypeStrAE400_13323* a1, Type_AE400_29795* event)
     *(_DWORD *)(v2x->var_u32_29955_160 + 359) = 0;
   }
   //v25 = dword_AE400_AE3F0();
-  *(_WORD *)(a1 + 10) = v2x - str_AE400_AE3F0->str_29795;
+  a1x->var_u16_13333 = v2x - str_AE400_AE3F0->str_29795;
   if (str_AE400_AE3F0->var_u16_8 == v2x->var_u32_29955_160->var_48)
       v2x->var_29811_16.byte[0] |= 1u;
-  if ( *(_UNKNOWN **)(a1 + 24) == &unk_AE89E )
+  if (a1x->var_u32_13347_24 == (uint32)&unk_AE89E )
   {
     v2x->var_u32_29931 = 1000000;
     v2x->maxLife_29803_8 = 1000000;
