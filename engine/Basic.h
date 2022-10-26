@@ -31,38 +31,68 @@ typedef struct {
 	int16_t z;
 }axis_3d;
 
-typedef struct {
-	uint16 var_u16_0;
-	uint16 var_u16_2;
+typedef struct {//size 8
 	uint8 stub_a[4];
-}Type_460;
+	int16 var_u16_4;
+	uint16 var_u16_6;
+}Type_456;
 
 typedef struct {//size 8
 	uint16 word_0x0_0;
 	uint8 stub_a[2];
 	uint16 word_0x4_4;
 	uint16 word_0x6_6;
-	uint8 stub_a1[14];
+	uint8 stub_a0[4];
+	uint16 v_12;
+	uint8 stub_a00[2];
+	uint16 v_16;
+	uint8 stub_a1[4];
 	uint16 v_22;
-	uint8 stub_a2[24];
+	uint16 v_24;
+	uint16 v_26;
+	uint8 stub_a2[18];
+	uint16 v_46;
 	uint32 var_48;
 	uint16 var_50;
 	uint8 stub_aa[254];
 	uint32 u32_308;
-	uint8 stub_b[10];
+	uint8 stub_b[2];
+	uint16 u16_314;
+	uint16 u16_316;
+	uint8 stub_bx[2];
 	uint32 u32_322;
 	uint8 stub_b2[1];
 	uint16 u16_327;
 	uint16 u16_329;
-	uint8 stub_c[129];
-	Type_460 str_460[8];//fix size
-	uint8 stub_cc[8];
-	uint32 var_532[8];//fix size
-	uint8 stub_c2[236];
+	uint16 u16_331;
+	uint8 u8_333[8];
+	uint8 stub_b3[10];
+	uint32 u32_351;
+	uint8 stub_c[24];
+	uint32 u32_379;
+	uint8 stub_c2[13];
+	uint32 u32_396;
+	uint32 u32_400;
+	uint8 stub_c3[9];
+	uint8 var_415;
+	uint8 stub_c4[40];	
+	Type_456 str_456[8];//fix size
+	uint8 stub_cc1[2];
+	uint16 u16_522;
+	uint16 u16_524;
+	uint16 u16_526;
+	uint8 stub_cc[4];
+	int32 var_532[8];//fix size
+	uint8 stub_c2x[144];
+	uint16 var_708;
+	uint8 stub_c3b[46];
+	uint16 var_756;
+	uint8 stub_c2b[14];
 	uint8 var_772[24];
-	uint8 stub_c3[48];
+	uint8 stub_c3bx[48];
 	uint8 var_844[8];//fix size
-	uint8 stub_d[88];//?
+	uint8 stub_d[64];//?
+	uint8 var_916[24];
 	uint16 var_940;//?
 	uint8 stub_e[2];//?
 	uint16 var_944;//?
@@ -101,13 +131,14 @@ typedef struct {//2049
 	Type_str_28 str_13351_28[8];//28
 
 	Type_13895 str_13895_572[33];
-
 	//Type_13895 str_13909_586[32];//fix size
 	char str_14357[12];
 	char str_14369_1046[48];//fix size
 	uint8 stub2bx[5];
 	uint8 var_14422_1099;
-	uint8 stub2b[535];
+	uint8 stub2bxx[3];
+	Type_160* var_1103;
+	uint8 stub2b[528];
 	int32 var_14958_1635[60];//fix size
 	uint8 var_15198_1875[24];//fix size
 	uint8 var_15222_1899[96];//fix size
@@ -132,7 +163,8 @@ typedef struct {// len 20
 }
 Type_AE400_20;
 typedef struct {// len 48
-	uint8_t stub[48];
+	axis_3d v_9177;
+	uint16 v_9181;
 }
 Type_AE400_9177;
 
@@ -183,13 +215,16 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint8_t stub3ax[36];
 	uint16 actSpeed_29921_126;//126
 	uint16 actSpeed_29923_128;//128
-
-	uint8_t stub3[6];
+	uint8_t stub3ay[2];
+	uint16 var_u16_29927_132;//132
+	uint8_t stub3[2];
 	uint32 var_u32_29931;//136
 	uint32 var_u32_29935_140;//140
 	uint16 var_u16_29939_144;//144
 	uint16 var_u16_29941_146;//146
-	uint8_t stub4[8];
+	uint8_t stub4[2];
+	axis_3d var_u32_150;
+	//uint16 var_u16_154;
 	uint32 var_u32_29951_156;//156
 	Type_160* var_u32_29955_160;//160
 }
@@ -215,7 +250,14 @@ typedef struct {// len 18
 Type_1090;
 
 typedef struct {// len 216
-	uint8 stub[16];
+	uint8 stub[4];
+	uint16 var_230871;
+	uint8 stub2[2];
+	uint16 var_230875;
+	uint8 stub3[2];
+	uint16 var_230879;
+	uint8 stub4[2];
+	
 	uint8 var_230883[100];
 	uint8 var_230983[100];
 }
@@ -279,7 +321,7 @@ typedef struct {//size 232713
 	uint8 var_u8_8630;
 	uint8 var_u8_8631;
 	uint8 stub11[545];
-	Type_AE400_9177 str_9177;// len 48
+	Type_AE400_9177 str_9177[8];// len 48
 	uint8 stub12[2049];
 	TypeStrAE400_13323 str_11274;
 	TypeStrAE400_13323 str_13323[8];//fix
