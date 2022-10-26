@@ -82,7 +82,19 @@ typedef struct {//size 8
 	uint16 u16_524;
 	uint16 u16_526;
 	uint8 stub_cc[4];
-	int32 var_532[8];//fix size
+	int32 var_14958_1635_532[44];//fix size
+	uint16 var_708[24];
+	uint16 var_756;
+	uint8 stub_c2b[14];
+	int8 var_15198_1875_772[24];//fix size
+	uint8 var_15222_1899_796[48];//fix size
+	uint8 var_844[48];
+	uint8 var_15318_1995_892[24];
+	uint8 var_916[24];
+	uint16 var_u16_2043_940;
+	uint8 stub2[2];
+	uint16 var_u16_2047_944;
+	/*int32 var_532[8];//fix size
 	uint8 stub_c2x[144];
 	uint16 var_708;
 	uint8 stub_c3b[46];
@@ -95,7 +107,7 @@ typedef struct {//size 8
 	uint8 var_916[24];
 	uint16 var_940;//?
 	uint8 stub_e[2];//?
-	uint16 var_944;//?
+	uint16 var_944;//?*/
 }Type_160;
 
 typedef struct {//14
@@ -137,7 +149,7 @@ typedef struct {//2049
 	uint8 stub2bx[5];
 	uint8 var_14422_1099;
 	uint8 stub2bxx[3];
-	Type_160 var_1103;//fix it
+	Type_160 str_1103;//fix it
 	/*uint8 stub2b[528];
 	int32 var_14958_1635[60];//fix size
 	uint8 var_15198_1875[24];//fix size
