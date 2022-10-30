@@ -238,8 +238,10 @@ uint16_t var_u16_29889_94;//94
 
 uint32_t var_u16_29891_96;//96
 uint16_t var_u16_29895_100;//100
-uint8_t stub3axx[10];
-uint16_t var_u16_29907_112;//118
+uint8_t stub3axx[6];
+uint16_t var_u16_29903_108;//108
+uint8_t stub3axx1[2];
+uint16_t var_u16_29907_112;//112
 uint8_t stub3axx2[4];
 uint16_t var_u16_29913_118;//118
 uint8_t stub3axx3[6];
