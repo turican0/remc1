@@ -49,14 +49,19 @@ typedef struct {//size 48
 	//uint16 var_708[8];
 }Type_48x;
 
+typedef union {
+	uint32 dword;
+	uint16 word[2];
+	uint8 byte[4];
+}Type_dword_0x0_0;
+
 typedef struct {//size 946
-	uint16 word_0x0_0;
-	uint8 stub_a[2];
+	Type_dword_0x0_0 dw_0;
 	uint16 word_0x4_4;
 	uint16 word_0x6_6;
 	uint8 stub_a0[4];
 	uint16 v_12;
-	uint8 stub_a00[2];
+	uint16 v_14;
 	uint16 v_16;
 	uint8 stub_a1[4];
 	uint16 v_22;
@@ -75,18 +80,20 @@ typedef struct {//size 946
 	uint16 u16_316;
 	uint8 stub_bx[4];
 	uint32 u32_322;
-	uint8 stub_b2[1];
+	uint8 u8_326;
 	uint16 u16_327;
 	uint16 u16_329;
 	uint16 u16_331;
 	uint8 u8_333[8];
-	uint8 stub_b3[10];
+	uint16 u16_341;
+	uint8 stub_b3[8];
 	uint32 u32_351;
 	uint8 stub_c4[4];
 	uint32 u32_359;
 	uint8 stub_c[16];
 	uint32 u32_379;
-	uint8 stub_c2[8];
+	uint32 u32_383;
+	uint8 stub_c2[4];
 	uint8 u8_391;
 	uint8 u8_392;
 	uint8 u8_393;
@@ -268,7 +275,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 var_u16_29837_42;//42
 	uint16 var_u16_29839_44;//44
 	uint16 var_u16_29841_46;//46
-	uint16 var_48;
+	uint16 var_48;//29843
 	uint16 var_50;
 	uint8_t stub2e[6];
 	int8_t var_u8_29853_58;//58
