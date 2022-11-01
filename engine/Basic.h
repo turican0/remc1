@@ -433,8 +433,11 @@ typedef struct {// len 16
 	uint8_t var_u8[16];
 }
 Type_AE408_93;
-typedef struct {// len 14
-	uint8_t stub[14];
+typedef struct {// len 14 //184
+	uint8_t stuba[4];
+	uint32 var_u32_188;
+	uint32 var_u32_192;
+	uint8_t stubb[2];
 }
 Type_AE408_184;
 typedef struct {// len 80
@@ -492,7 +495,9 @@ typedef struct {//size 36478
 	char var_u8_29[32];
 	char var_u8_61[32];
 	Type_AE408_93 str_93;// len 16
+	uint8 stubb[8];
 	char textBuffer_117[32];//fix size
+	uint8 stubc[1];
 	uint8 var_u8_150;
 	uint8 var_u8_151;
 	uint8 var_u8_152;
@@ -503,11 +508,12 @@ typedef struct {//size 36478
 	uint16 var_u16_166;
 	Type_168* var_u32_168;
 	uint32 var_u32_172;
+	uint8 stubd[8];
 	Type_AE408_184 str_184;// len 14
-	uint32 var_u32_188;
-	uint32 var_u32_192;
+	uint8 stube[8];
 	uint32 var_u32_206;
 	uint32 var_u32_210;
+	uint8 stubf[36164];
 	uint32 var_u32_36378;
 	Type_AE408_36382 str_36382;// len 80
 	Type_AE400_29795* var_u32_36462[4];
