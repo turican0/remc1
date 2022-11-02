@@ -78,7 +78,7 @@ typedef struct {//size 946
 	uint8 stub_b[2];
 	uint16 u16_314;
 	uint16 u16_316;
-	uint8 stub_bx[4];
+	uint32 u32_318;
 	uint32 u32_322;
 	uint8 u8_326;
 	uint16 u16_327;

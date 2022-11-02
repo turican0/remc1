@@ -48981,8 +48981,8 @@ void InitAnojoy_3F820_sub_3FB60(__int16 a2, int a3, int a4, int a5, char a6)
 			index2++;
 			index3 += word_B7704_B76F4;
 		} while ((unsigned __int16)index2 < 0x10u);
-		v24 = (int)(index1 - (__CFSHL__((unsigned __int64)v8 >> 32, 4) + 16 * ((unsigned __int64)index1 >> 32))) >> 4;
-		v25 = (int)(index3 - (__CFSHL__((unsigned __int64)v9 >> 32, 4) + 16 * ((unsigned __int64)index3 >> 32))) >> 4;
+		v24 = (int)(index1 - (__CFSHL__((unsigned __int64)index1 >> 32, 4) + 16 * ((unsigned __int64)index1 >> 32))) >> 4;
+		v25 = (int)(index3 - (__CFSHL__((unsigned __int64)index3 >> 32, 4) + 16 * ((unsigned __int64)index3 >> 32))) >> 4;
 		index2 = 0;
 		index1 = 0;
 		index3 = 0;
@@ -48995,7 +48995,7 @@ void InitAnojoy_3F820_sub_3FB60(__int16 a2, int a3, int a4, int a5, char a6)
 			index3 += word_B7704_B76F4;
 		} while ((unsigned __int16)index2 < 0x10u);
 		v26 = (int)(index1 - (__CFSHL__((unsigned __int64)index1 >> 32, 4) + 16 * ((unsigned __int64)index1 >> 32))) >> 4;
-		v23 = (int)(index3 - (__CFSHL__((unsigned __int64)v13 >> 32, 4) + 16 * ((unsigned __int64)index3 >> 32))) >> 4;
+		v23 = (int)(index3 - (__CFSHL__((unsigned __int64)index3 >> 32, 4) + 16 * ((unsigned __int64)index3 >> 32))) >> 4;
 		index1 = 0;
 		index2 = 0;
 		index3 = 0;
@@ -53587,7 +53587,7 @@ int sub_45410(Type_AE400_29795* a1x)
 // AE458: using guessed type __int16 word_AE454.z;
 
 //----- (000455D0) --------------------------------------------------------
-void sub_455D0(Type_AE400_29795* a1x)
+void sub_455D0(Type_AE400_29795* a1x)//2165D0_
 {
   int v1; // eax
   int v2; // eax
@@ -53621,11 +53621,11 @@ void sub_455D0(Type_AE400_29795* a1x)
 
   word_AE454 = a1x->var_u32_29867_72;
   //a1x->var_u16_29827_32
-  *(_WORD *)(a1x->var_u32_29955_160 + 327) += *(_WORD *)(a1x->var_u32_29955_160 + 4);
-  a1x->var_u32_29955_160->u16_329 += *(_WORD *)(a1x->var_u32_29955_160 + 6);
-  v1 = *(__int16 *)(a1x->var_u32_29955_160 + 327);
+  a1x->var_u32_29955_160->u16_327 += a1x->var_u32_29955_160->word_0x4_4;
+  a1x->var_u32_29955_160->u16_329 += a1x->var_u32_29955_160->word_0x6_6;
+  v1 = a1x->var_u32_29955_160->u16_327;
   a1x->var_u16_29825_30 = (a1x->var_u16_29825_30 + ((v1 - (__CFSHL__(v1 >> 31, 3) + 8 * (v1 >> 31))) >> 3)) & 0x7FF;
-  v2 = *(__int16 *)(a1x->var_u32_29955_160 + 12) - a1x->actSpeed_29921_126;
+  v2 = a1x->var_u32_29955_160->v_12 - a1x->actSpeed_29921_126;
   if ( v2 )
     v2 /= (int)abs32(v2);
   a1x->actSpeed_29921_126 += v2 * dword_93A88;
@@ -53649,7 +53649,7 @@ void sub_455D0(Type_AE400_29795* a1x)
       {
         if (a1x->actSpeed_29921_126 <= 0 || v6 <= 0 )
         {
-          if ( !a1x->actSpeed_29921_126 && word_AE454.z > *(__int16 *)(a1x->var_u32_29951_156 + 10) + v3 )
+          if ( !a1x->actSpeed_29921_126 && word_AE454.z > a1x->var_u32_29951_156->v_10 + v3 )
             word_AE454.z -= 8;
         }
         else
@@ -53676,7 +53676,7 @@ void sub_455D0(Type_AE400_29795* a1x)
   HIBYTE(v8) &= 7u;
   a1x->var_u32_29955_160->v_28 = v8;
   sub_41EC0(&word_AE454, a1x->var_u16_29825_30, a1x->var_u32_29955_160->v_28, a1x->actSpeed_29921_126);
-  v9 = *(_WORD *)(a1x->var_u32_29955_160 + 16);
+  v9 = a1x->var_u32_29955_160->v_16;
   if ( v9 )
   {
     v10 = a1x->var_u16_29825_30;
@@ -53720,7 +53720,7 @@ void sub_455D0(Type_AE400_29795* a1x)
       a1x->var_u32_29955_160->u16_316 = 0;
     }
     v22 = 3 * a1x->actSpeed_29923_128 / 2;
-    v23 = (v21 - *(_DWORD *)(a1x->var_u32_29955_160 + 318)) / (1024 / (__int16)v22);
+    v23 = (v21 - a1x->var_u32_29955_160->u32_318) / (1024 / (__int16)v22);
     if ( (__int16)v23 < -(__int16)v22 )
       v23 = 3 * a1x->actSpeed_29923_128 / -2;
     if ( (__int16)v23 > (__int16)v22 )
@@ -53730,7 +53730,7 @@ void sub_455D0(Type_AE400_29795* a1x)
     HIBYTE(v25) &= 7u;
     a1x->var_u16_29825_30 = v25;
     sub_41EC0(&word_AE454, v24, a1x->var_u16_29827_32, v23);
-    ++*(_WORD *)(a1x->var_u32_29955_160 + 316);
+    a1x->var_u32_29955_160->u16_316++;
   }
   v26 = sub_45410(a1x);
   if ( v26 )
@@ -53745,35 +53745,35 @@ void sub_455D0(Type_AE400_29795* a1x)
     sub_55370(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 2);
     sub_55890(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 1);
   }
-  if ( *(int *)(a1x->var_u32_29955_160 + 396) >= 1536 )
+  if ( a1x->var_u32_29955_160->u32_396 >= 1536 )
   {
     sub_55890(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 5);
   }
   else
   {
     sub_55370(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 5);
-    *(_DWORD *)(a1x->var_u32_29955_160 + 396) = 2048;
+    a1x->var_u32_29955_160->u32_396 = 2048;
   }
-  if ( *(int *)(a1x->var_u32_29955_160 + 400) >= 1536 )
+  if ( a1x->var_u32_29955_160->u32_400 >= 1536 )
   {
     sub_55890(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 31);
   }
   else
   {
     sub_55370(0, *(_WORD *)(dword_AE400_AE3F0() + 8), 31);
-    *(_DWORD *)(a1x->var_u32_29955_160 + 400) = 2048;
+    a1x->var_u32_29955_160->u32_400 = 2048;
   }
   //v27 = a1x->var_u32_29955_160;
-  if ( *(_WORD *)(a1x->var_u32_29955_160 + 48) == *(_WORD *)(dword_AE400_AE3F0() + 8) )
+  if ( a1x->var_u32_29955_160->var_48 == *(_WORD *)(dword_AE400_AE3F0() + 8) )
   {
-    v28 = *(_WORD *)(a1x->var_u32_29955_160 + 46);
+    v28 = a1x->var_u32_29955_160->v_46;
     if ( v28 <= 0 )
     {
       sub_20D00(1);
     }
     else
     {
-      *(_WORD *)(a1x->var_u32_29955_160 + 46) = v28 - 1;
+        a1x->var_u32_29955_160->v_46 = v28 - 1;
       sub_20D00(2);
     }
   }

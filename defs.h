@@ -384,7 +384,8 @@ inline typename std::enable_if<sizeof(T) <= sizeof(F), T>::type __coerce(F f)
 #define COERCE_UNSIGNED_INT(v) __coerce<unsigned int>(v)
 #define COERCE_UNSIGNED_INT64(v) __coerce<uint64>(v)
 
-#define __CFSHL__(x, y) printf("invalid_operation:__CFSHL__(x, y)") // Generate carry flag for (x<<y)
+//#define __CFSHL__(x, y) printf("invalid_operation:__CFSHL__(x, y)") // Generate carry flag for (x<<y)
+#define __CFSHL__(x, y) (x<<y)
 #else // C++
 // For C, we just provide macros, they are not quite correct.
 #define __ROL__(x, y) __rotl__(x, y)      // Rotate left
