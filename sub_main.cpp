@@ -66,6 +66,8 @@ sub_196E0
 sub_41EC0
 
 addprocedurestop(0x205367, 0x0, true, true, 0x26C454, 0x12345678);
+
+after sub_455D0 !!!
 */
 //info
 //fix
@@ -50759,7 +50761,16 @@ LABEL_40:
       //adress 212A70
 //debug
 #ifdef debug1
-      if (compareindex_41780 == 22)
+
+      if ((word_AE454.x == 0x2e7f) &&
+          (word_AE454.y == 0x4c80) &&
+          (word_AE454.z == 0x0818))
+      {
+          compareindex_41780++;
+          compareindex_41780--;
+      }
+
+      if (compareindex_41780 == 629)
       {
           compareindex_41780++;
           compareindex_41780--;
