@@ -71,6 +71,11 @@ after sub_455D0 !!!
 
 diff 30D90 sub_30D90
 DrawGameFrame_20FB0
+
+dword_93ACC 251ACC
+
+24a4b1 794B1(sub_79495)
+201b18 30B18(sub_30A70)
 */
 //info
 //fix
