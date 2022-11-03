@@ -197,7 +197,7 @@ uint32_t compare_with_sequence_D41A0(const char* filename, uint8_t* adress, uint
 };
 
 type_compstr lastcompstr;
-void add_compare(uint32_t adress, bool debugafterload, int stopstep, bool skip, int exitindex, int skip2) {
+void add_compare(uint32_t adress, bool debugafterload, bool compareGraphics, int stopstep, bool skip, int exitindex, int skip2) {
 	uint8_t origbyte20 = 0;
 	uint8_t remakebyte20 = 0;
 	int comp20;
@@ -246,7 +246,8 @@ void add_compare(uint32_t adress, bool debugafterload, int stopstep, bool skip, 
 					//comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_351628, 0x3aa0a4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20);
 				}
 				//if(debugcounter_271478>5)
-				comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_12EFF4, 0x6D080, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
+				if(compareGraphics)
+					comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_12EFF4, 0x6D080, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
 				if (stopstep > -1)
 				{
 					comp20 = index;

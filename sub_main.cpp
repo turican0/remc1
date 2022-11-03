@@ -68,6 +68,9 @@ sub_41EC0
 addprocedurestop(0x205367, 0x0, true, true, 0x26C454, 0x12345678);
 
 after sub_455D0 !!!
+
+diff 30D90 sub_30D90
+DrawGameFrame_20FB0
 */
 //info
 //fix
@@ -26754,7 +26757,7 @@ void sub_20E60_20E60()
 // 12F074: using guessed type int dword_12F074;
 
 //----- (00020FB0) --------------------------------------------------------
-void DrawGameFrame_20FB0()
+void DrawGameFrame_20FB0()//1F1FB0_
 {
   int v0; // eax
   //int v1; // ebx
@@ -37594,7 +37597,7 @@ void sub_30D90(uint8* a1, int a2, int a3, __int16 a4, int a5, int a6, int a7, in
 // 12EFF8: using guessed type int dword_12EFF8_12EFE8;
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
-void sub_315C0_31600()
+void sub_315C0_31600()//2025C0_
 {
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
     sub_61B90_620A0((unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418);
@@ -37604,7 +37607,7 @@ void sub_315C0_31600()
 }
 
 //----- (00031600) --------------------------------------------------------
-void sub_31600()
+void sub_31600()//202600_
 {
   __int16 v0; // bx
   _WORD *v1; // esi
@@ -40103,7 +40106,7 @@ char sub_33E10(unsigned __int16 a1, __int16 a2)
 // 12C1E0: using guessed type __int16 word_12C1E0;
 
 //----- (00034070) --------------------------------------------------------
-unsigned __int16 sub_34070()
+unsigned __int16 sub_34070()//205070_
 {
   unsigned __int16 result; // ax
 
@@ -40355,7 +40358,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true);
+        add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4 - str_AE408_AE3F8->var_u32_153;
