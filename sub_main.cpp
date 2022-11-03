@@ -40269,7 +40269,7 @@ void TopProcedure_340B0_34470(int argc, const char** argv)//2050B0_205470
 }
 
 //----- (00034460) --------------------------------------------------------
-int sub_34460_34820()
+int sub_34460_34820()//205460_
 {
   int result; // eax
 
@@ -47680,12 +47680,12 @@ LABEL_110:
         break;
     }
 LABEL_150:
-
+    //20EB27
     int rollEnv = 2 * str_AE400_AE3F0->var_29715[v102x][3] - actEvent->var_u32_29955_160->u16_327;
     actEvent->var_u32_29955_160->word_0x4_4 = (rollEnv - (my_sign32(rollEnv) << 2) + my_sign32(rollEnv)) >> 2;
     int pitchEnv = 2 * str_AE400_AE3F0->var_29715[v102x][4] - actEvent->var_u32_29955_160->u16_329;
     actEvent->var_u32_29955_160->word_0x6_6 = (pitchEnv - (my_sign32(pitchEnv) << 2) + my_sign32(pitchEnv)) >> 2;
-    actEvent->var_u32_29955_160->dw_0.word[0] = str_AE400_AE3F0->var_29715[v102x][5];
+    actEvent->var_u32_29955_160->dw_0.dword = str_AE400_AE3F0->var_29715[v102x][5];
     if ( str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u8_13327 || v112 )
     {
       v92 = v112;
@@ -66342,7 +66342,7 @@ void sub_59750(int16 x, int16 y)
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (000599B0) --------------------------------------------------------
-void sub_599B0_59EC0(__int16 a1)
+void sub_599B0_59EC0(__int16 a1)//22A9B0_
 {
     FixPerifery((char*)"blit640");
 
@@ -68009,7 +68009,7 @@ void sub_5BB60_5C070()
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (0005BD40) --------------------------------------------------------
-int sub_5BD40()
+int sub_5BD40()//22CD40_
 {
   int result; // eax
   _BYTE *v1; // eax

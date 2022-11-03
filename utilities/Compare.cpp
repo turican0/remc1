@@ -209,7 +209,7 @@ void add_compare(uint32_t adress, bool debugafterload, int stopstep, bool skip, 
 	char buffer3[500];
 	sprintf(buffer3, "%08X-002B3A74", adress);
 	char buffer4[500];
-	sprintf(buffer4, "%08X-003AA0A4", adress);
+	sprintf(buffer4, "%08X-0006D080", adress);
 
 	if (debugafterload)
 	{
@@ -246,7 +246,7 @@ void add_compare(uint32_t adress, bool debugafterload, int stopstep, bool skip, 
 					//comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_351628, 0x3aa0a4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20);
 				}
 				//if(debugcounter_271478>5)
-				//comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_351628, 0x3aa0a4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20);
+				comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_12EFF4, 0x6D080, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
 				if (stopstep > -1)
 				{
 					comp20 = index;
