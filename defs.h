@@ -259,6 +259,8 @@ inline uint16 __ROR2__(uint16 value, int count) { return __ROL__((uint16)value, 
 inline uint32 __ROR4__(uint32 value, int count) { return __ROL__((uint32)value, -count); }
 inline uint64 __ROR8__(uint64 value, int count) { return __ROL__((uint64)value, -count); }
 
+inline uint32 __ROL4_16__(uint32  value) { return (value << 16) | (value >> 16); }
+
 // sign flag
 template<class T> int8 __SETS__(T x)
 {
