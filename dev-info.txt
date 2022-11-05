@@ -1,0 +1,75 @@
+&buffer[4]			&adress[4]
+pdwScreenBuffer_12EFF4+4
+__int16 sub_30730(__int16 a1)//201730_
+
+sky
+-------------
+v18 ff01 versus ebx b082
+
+BYTE2(v27) ff versus esp+508 B0 2F08D4
+BYTE2(v21) ff versus esp+50C 80
+
+dword_B5D08 01 versus 273d08 a0
+---------------------
+char sub_2A700(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8)//1FB700_
+----------------------
+
+
+&buffer[0x17e] 0xac
+&adress[0x17e] 0x72
+pdwScreenBuffer_12EFF4+0x17e
+
+diference in sub_23940 under sub_23940
+
+void sub_22E50(Type_AE400_29795* a1x)//1F3E50_
+--------------------------------
+&buffer[0xa2b] 0xd1
+&adress[0xa2b] 0x16
+pdwScreenBuffer_12EFF4+0xa2b
+
+21a055 49055 sub_48710
+
+goto LABEL_97;
+v43 = (char *)(v42 * dword_12EFF0 + v41 + v65);
+if ( v29 <= 1u )
+{
+*v43 = v74;
+
+-------------------
+void sub_5A3C0_5A8D0(int fontIndex) / 22B3C0
+
+26C3B8 -> 9F6A0 63220 - find it
+233C6B(62C6B) sub_62B60
+20FEE1(3EEE1) sub_3EEA0
+234597(63597) sub_634E0
+211478(40478) sub_40440
+
+sub_51480_517C0
+
+26C3AC -> 0     0
+
+6 - 1
+4 - 2
+7 - 1
+
+a2x->bTab->Tab_0
+
+pathStrArray_F1EF0
+
+begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8
+
+
+sFont0Tab_12CB28_2EAB28_2EAB18
+sFont1Tab_12CB34_2EAB34_2EAB24
+
+sFont0Tab_12CB28_2EAB28_2EAB18
+sFont0Tab_12CB28_2EAB28_2EAB18
+
+pathStrArray_21AB80_21AEC0[7]
+
+colorPalette_var28
+----------------
+&buffer[0x3815] 0x5a
+&adress[0x3815] 0x66
+str_AE400_AE3F0+0x3815
+

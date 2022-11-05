@@ -572,6 +572,31 @@ typedef union {
 	uint16_t word;
 }
 uaxis_2d;
+
+typedef struct {
+	uint8_t x;//4
+	uint8_t y;//5
+} TypeTabDimm;
+
+typedef struct {
+	uint8_t* Tab_0;//0
+	TypeTabDimm dim;//4	
+} TypeTab;
+
+typedef struct {
+	TypeTab* bTab;
+	TypeTab* eTab;
+	uint8_t* Dat;
+} TypeStrFont;
+
+typedef struct _Type_dword_96884 {
+	//Type_sub_96884* var32_0;
+	TypeTab* next;
+	uint8_t var8_4;
+	uint8_t var8_5;
+	uint8_t var8_6;
+	uint8_t var8_7;
+} Type_dword_96884;
 #pragma pack (16)
 
 extern uint8_t* pdwScreenBuffer_12EFF4;
