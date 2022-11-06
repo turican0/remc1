@@ -71,5 +71,39 @@ colorPalette_var28
 ----------------
 &buffer[0x3815] 0x5a
 &adress[0x3815] 0x66
-str_AE400_AE3F0+0x3815
+((uint8*)str_AE400_AE3F0)+0x3815
 
+&buffer[0xa2b] 0x5a
+&adress[0xa2b] 0x66
+((uint8*)pdwScreenBuffer_12EFF4)+0xa2b
+
+TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12CB34_2EAB34_2EAB24 };
+
+char sub_48710(int a1, int a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8)//219710_
+
+byte_AE077 26c067
+205bf3 34BF3 int sub_34B40()
+
+byte_AD167_AD157
+
+byte_AD167_AD157[3856]
+
+&buffer[0xa657] 0x49
+&adress[0xa657] 0xb4
+pdwScreenBuffer_12EFF4+0xa657
+
+1fdefa 2CEFA sub_2C410
+sub_2DCB0_2DCF0 1FECB0
+sub_2FC50_sub_2FC90 200C50
+sub_2F170_2F1B0 200170 *
+
+sub_2A700
+
+sub_30D90
+sub_2A700
+sub_2FC50_sub_2FC90/sub_2DCB0_2DCF0 
+sub_2C410
+
+
+
+ 
