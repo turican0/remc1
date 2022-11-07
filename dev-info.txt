@@ -104,6 +104,26 @@ sub_2A700
 sub_2FC50_sub_2FC90/sub_2DCB0_2DCF0 
 sub_2C410
 
+dword_9074C
+
+unk_902B4 24E2B4->d ds:24e2b4
+
+begTmapsTab_12D744_2EB744_2EB734 2EB744
+234585 63585 sub_634E0
+211473 40473 sub_40440
+205B05 34B05 sub_34B00()
+
+unk_93AE0
+244258 251AE0
+243d89 72D89
+
+sub_2C410
+
+&buffer[0xacc6] 0x49
+&adress[0xacc6] 0xb4
+pdwScreenBuffer_12EFF4+0xa657
+
+
 
 
  
