@@ -27651,7 +27651,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
         //adress 1F2257
         //debug
 #ifdef debug1
-        add_compare(0x1F2257, true);
+        add_compare(0x1F2257, true, true);
 #endif debug1
         //debug
 
@@ -27661,7 +27661,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
         //adress 1F225E
         //debug
 #ifdef debug1
-        add_compare(0x1F225E, true);
+        add_compare(0x1F225E, true, true);
 #endif debug1
         //debug
         /*
@@ -27696,7 +27696,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
         //adress 1F2341
         //debug
 #ifdef debug1
-        add_compare(0x1F2341, true);
+        add_compare(0x1F2341, true, true);
 #endif debug1
         //debug
 
@@ -28121,7 +28121,7 @@ LABEL_132:
 //adress 1F256A
 //debug
 #ifdef debug1
-        add_compare(0x1F356A, true);
+        add_compare(0x1F356A, true, true);
 #endif debug1
         //debug
       sub_5A3C0_5A8D0(1);
@@ -33726,6 +33726,12 @@ LABEL_24:
     goto LABEL_26;
   }
   sub_30730(a7);
+  //adress 1FBB02
+ //debug
+#ifdef debug1
+  add_compare(0x1FBB02, true, true);
+#endif debug1
+  //debug
 LABEL_26:
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8597) && (*(_BYTE *)(dword_AE400_AE3F0() + 8603) != 2 || *(_BYTE *)(dword_AE400_AE3F0() + 8606)) )
   {
@@ -34265,6 +34271,12 @@ LABEL_122:
       }
     }
   }
+  //adress 1FC930
+//debug
+#ifdef debug1
+  add_compare(0x1FC930, true, true);
+#endif debug1
+  //debug
   v238 = 21;
   do
   {
@@ -34339,6 +34351,12 @@ LABEL_163:
     --v238;
   }
   while ( v238 );
+  //adress 1FCBE3
+//debug
+#ifdef debug1
+  add_compare(0x1FCBE3, true, true);
+#endif debug1
+  //debug
   v138 = a7 & 0x7FF;
   v139 = 840;
   v140 = dword_90B4C[v138];
@@ -34378,6 +34396,12 @@ LABEL_163:
     --v139;
   }
   while ( v139 );
+  //adress 1FCCA3
+//debug
+#ifdef debug1
+  add_compare(0x1FCCA3, true, true);
+#endif debug1
+  //debug
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8603) != 2 || *(_BYTE *)(dword_AE400_AE3F0() + 8606) )
   {
     v168 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
@@ -38194,7 +38218,7 @@ void sub_30D90(uint8* a1, int a2, int a3, __int16 a4, int a5, int a6, int a7, in
         //adress 202527
         //debug
 #ifdef debug1
-        add_compare(0x202527, true);
+        add_compare(0x202527, true, true);
 #endif debug1
         //debug
         if ( *(_BYTE *)(dword_AE400_AE3F0() + 8605) )
@@ -41111,7 +41135,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055F4
             //debug
 #ifdef debug1
-        add_compare(0x2055F4, true);
+        add_compare(0x2055F4, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4;
