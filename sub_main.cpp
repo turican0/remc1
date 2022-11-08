@@ -33335,6 +33335,8 @@ LABEL_63:
 // B5D30: using guessed type int dword_B5D30;
 // B5D34: using guessed type int dword_B5D34;
 
+int compare_index_2A700 = 0;
+
 //----- (0002A700) --------------------------------------------------------
 char sub_2A700(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8)//1FB700_
 {
@@ -33738,6 +33740,12 @@ LABEL_26:
     v233 = 21;
     while ( 1 )
     {
+      //  adress 1FBB90
+         //debug
+#ifdef debug1
+        add_compare(0x1FBB90, true, true);
+#endif debug1
+        //debug
       v242 = 40;
       do
       {
@@ -34043,10 +34051,28 @@ LABEL_102:
         v239 = 20;
         while ( 2 )
         {
+            //  adress 1FC3D0
+   //debug
+#ifdef debug1
+            add_compare(0x1FC3D0, true, true);
+#endif debug1
+            //debug
           v90 = (int *)&unk_902DC;
           v91 = v89;
           v237 = 39;
-LABEL_104:
+      LABEL_104:
+          //  adress 1FC3E0
+//debug
+#ifdef debug1
+          if (compare_index_2A700 == 0x26)
+          {
+              compare_index_2A700++;
+              compare_index_2A700--;
+          }
+          add_compare(0x1FC3E0, true, true);
+          compare_index_2A700++;
+#endif debug1
+          //debug
           v213 = *(_DWORD *)(v91 + 16);
           v214 = *(_DWORD *)(v91 + 20);
           v92 = *(_DWORD *)(v91 + 32);
