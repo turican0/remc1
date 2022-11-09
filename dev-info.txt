@@ -130,4 +130,9 @@ pdwScreenBuffer_12EFF4+0xd419
 
 0x1FBB02
 
+begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200+44*0xf+16
+
+after add_compare(0x1FBB90, true, true);
+*(_DWORD *)(v29 + 16) = dword_B5D14 * *(_DWORD *)v29 / v37;
+
  

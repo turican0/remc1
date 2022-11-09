@@ -34064,7 +34064,7 @@ LABEL_102:
           //  adress 1FC3E0
 //debug
 #ifdef debug1
-          if (compare_index_2A700 == 0x26)
+          if (compare_index_2A700 == 0x0f)
           {
               compare_index_2A700++;
               compare_index_2A700--;
