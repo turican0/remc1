@@ -33688,6 +33688,7 @@ LABEL_6:
   dword_B5CEC = 8912896;
   v26 = *v221;
   dword_B5CFC = ((unsigned __int16)dword_93AD8 * a6) >> 8;
+  //  adress 1FBA52
   LOBYTE(v231) = v26 + HIBYTE(a2);
   HIBYTE(v231) = v221[1] + HIBYTE(a3);
   v27 = a7 & 0x7FF;
@@ -33762,8 +33763,8 @@ LABEL_26:
         if ( v37 < 128 )
           v37 = 128;
         v39 = v231;
-        *(_DWORD *)(v29 + 16) = dword_B5D14 * *(_DWORD *)v29 / v37;
-        *(_DWORD *)(v29 + 4) = 32 * (unsigned __int8)mapHeightmap_DC1E0[v39] - a5;
+        *(_DWORD *)(v29 + 16) = dword_B5D14 * *(int32*)v29 / v37;
+        *(_DWORD *)(v29 + 4) = 32 * mapHeightmap_DC1E0[v39] - a5;
         v40 = (unsigned __int16)*(_DWORD *)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13341) << 6;
         v227 = dword_90B4C[(v40 + (HIBYTE(v231) << 7)) & 0x7FF] >> 8;
         v41 = v227 * (dword_90B4C[(((unsigned __int8)v231 << 7) + v40) & 0x7FF] >> 8);

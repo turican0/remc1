@@ -134,5 +134,12 @@ begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200+44*0xf+16
 
 after add_compare(0x1FBB90, true, true);
 *(_DWORD *)(v29 + 16) = dword_B5D14 * *(_DWORD *)v29 / v37;
+-back this after next fix
+-------------------------------
+v231 4d1e versus 4d1d
+
+341d
+
+*(_DWORD *)(v29 + 8)
 
  
