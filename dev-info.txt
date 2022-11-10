@@ -142,4 +142,13 @@ v231 4d1e versus 4d1d
 
 *(_DWORD *)(v29 + 8)
 
+&buffer[0x45] 0xb5
+&adress[0x45] 0x36
+pdwScreenBuffer_12EFF4+0x45
+
+v376[11] = strPal.byte_B7934_B7924[v366];
+BYTE1(v366) += BYTE2(v1121) + v171;
+
+
+sub_729A3
  
