@@ -167,3 +167,38 @@ v62 + 24
 
 v52 = ((dword_B5CE8 * *(_DWORD *)(v51 + 16) - dword_B5CD4 * *(_DWORD *)(v51 + 28)) >> 16) + dword_B5D08;
 
+---------------------
+&buffer[0x45] 0xb5
+&adress[0x45] 0x36
+pdwScreenBuffer_12EFF4+0x45
+0x2f0958
+
+1fbff3 2AFF3
+
+sub_729A3((uint32*)&v213, (uint32*)&v198, (uint32*)&v208);
+sub_729A3((uint32*)&v198, (uint32*)&v203, (uint32*)&v208);
+sub_729A3((uint32*)&v213, (uint32*)&v203, (uint32*)&v208);
+sub_729A3((uint32*)&v213, (uint32*)&v198, (uint32*)&v203);
+
+v198 v203 v208 v213
+
+---------------------
+&buffer[0xaf] 0xb5
+&adress[0xaf] 0x6d
+pdwScreenBuffer_12EFF4+0xaf
+
+begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 0x00008cc4 + 20
+
+*(int32*)(v51 + 20)
+begBscreen_AE3FC_AE3EC_26C3FC_26C3EC+0x00008cd8
+
+---------------------
+&buffer[0xcb4a] 0xb4
+&adress[0xcb4a] 0xab
+pdwScreenBuffer_12EFF4+0xcb4a
+0x2ECFF4 065be0 + 0xcb4a
+
+&buffer[0xd562] 0x36
+&adress[0xd562] 0xb4
+pdwScreenBuffer_12EFF4+0xd562
+0x2ECFF4 065be0 + 0xd562
