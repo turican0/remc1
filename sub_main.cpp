@@ -80989,6 +80989,7 @@ char sub_72807_72D17(unsigned __int8 *a1, _BYTE *a2)
 // 9334C: using guessed type int dword_9334C;
 
 int compare_index_729A3 = 0;
+int compare_index_245FFB = 0;
 
 //----- (000729A3) --------------------------------------------------------
 void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
@@ -84950,6 +84951,19 @@ LABEL_474:
         HIWORD(v367) = 0;
         while ( 1 )
         {
+            //adress 0x245FFB
+            //debug
+#ifdef debug1
+            if (compare_index_245FFB == 1)
+            {
+                compare_index_245FFB++;
+                compare_index_245FFB--;
+            }
+            add_compare(0x245FFB, true, true);
+            compare_index_245FFB++;
+#endif debug1
+            //debug
+
           v368 = v1259;
           v1259 += 20;
           LOWORD(v366) = *((_WORD *)v368 + 1);
@@ -85129,7 +85143,13 @@ LABEL_495:
                   v373 += v1166;
                   v376[10] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
-LABEL_496:
+              LABEL_496:
+//adress 0x24629B 
+//debug
+#ifdef debug1
+add_compare(0x24629B, true, true);
+#endif debug1
+//debug
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
                   LOBYTE(v366) = *(_BYTE *)(v367 + v377);
@@ -85139,7 +85159,7 @@ LABEL_496:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, v373);
                   v373 += v1166;
-                  v376[11] = strPal.byte_B7934_B7924[v366];
+                  v376[11] = strPal.byte_B7934_B7924[v366];//here
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_497:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
