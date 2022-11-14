@@ -229,5 +229,23 @@ LABEL_496:
 
 v376 = (_BYTE *)(dword_74F95[v373 & 0xF] + v370);
 v373
+v370
 
 v373 = __ROL4__(*((_DWORD *)v368 + 4) + v1121 * v371, 16);
+LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+
+&buffer[0xefd1] 0x34
+&adress[0xefd1] 0x35
+pdwScreenBuffer_12EFF4+0xefd1
+0x2ECFF4 065be0 + 0xefd1
+
+LOBYTE(v391) = *(_BYTE *)(v392 + v399);
+
+v121 + 39 08 versus 18
+&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[0x000079dc]+39
+
+sem byse to nemelo dostat(33812)
+if ( byte_90168[*(unsigned __int8 *)(v29 + 41)] )
+          *(_BYTE *)(v29 + 39) |= 0x10u;
+
+v242 == 0xb

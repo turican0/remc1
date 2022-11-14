@@ -2098,7 +2098,11 @@ _UNKNOWN loc_4AFFD; // weak
 _UNKNOWN loc_4E200; // weak
 _UNKNOWN sub_5BE6C; // weak
 // extern _UNKNOWN _GETDS; weak
-int dword_74F95[] = { 0 }; // weak
+int dword_74F95[] = {
+0x00000000, 0xFFFFFFF1, 0xFFFFFFF2, 0xFFFFFFF3,
+0xFFFFFFF4, 0xFFFFFFF5, 0xFFFFFFF6, 0xFFFFFFF7,
+0xFFFFFFF8, 0xFFFFFFF9, 0xFFFFFFFA, 0xFFFFFFFB,
+0xFFFFFFFC, 0xFFFFFFFD, 0xFFFFFFFE, 0xFFFFFFFF }; // weak //245f95_
 int dword_80000; // weak
 int dword_80010; // weak
 int dword_80120; // weak
@@ -33748,7 +33752,7 @@ LABEL_26:
       //  adress 1FBB90
          //debug
 #ifdef debug1
-        if (compare_index_1FBB90 == 0x14)
+        if (compare_index_1FBB90 == 0x11)
         {
             compare_index_1FBB90++;
             compare_index_1FBB90--;
@@ -34130,7 +34134,7 @@ LABEL_145:
 //  adress 1FC68A
 //debug
 #ifdef debug1
-if (compare_index_1FC68A == 0x20)
+if (compare_index_1FC68A == 0x45)
 {
     compare_index_1FC68A++;
     compare_index_1FC68A--;
@@ -80990,6 +80994,7 @@ char sub_72807_72D17(unsigned __int8 *a1, _BYTE *a2)
 
 int compare_index_729A3 = 0;
 int compare_index_245FFB = 0;
+int compare_index_24674B = 0;
 
 //----- (000729A3) --------------------------------------------------------
 void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
@@ -82280,7 +82285,7 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  if (compare_index_729A3 == 0x4ec)
+  if (compare_index_729A3 == 0x536)
   {
       compare_index_729A3++;
       compare_index_729A3--;
@@ -84954,7 +84959,7 @@ LABEL_474:
             //adress 0x245FFB
             //debug
 #ifdef debug1
-            if (compare_index_245FFB == 1)
+            if (compare_index_245FFB == 0x6d)
             {
                 compare_index_245FFB++;
                 compare_index_245FFB--;
@@ -85557,7 +85562,19 @@ LABEL_562:
         goto LABEL_513;
       case 7:
       case 11:
-LABEL_564:
+      LABEL_564:
+//adress 0x24674B 
+//debug
+#ifdef debug1
+          if (compare_index_24674B == 0)
+          {
+              compare_index_24674B++;
+              compare_index_24674B--;
+          }
+          add_compare(0x24674B, true, true);
+          compare_index_24674B++;
+#endif debug1
+//debug
         v390 = (unsigned __int16 *)&unk_93AE0;
         v1152 = v1110 << 16;
         HIWORD(v391) = 0;
