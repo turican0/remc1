@@ -249,3 +249,5 @@ if ( byte_90168[*(unsigned __int8 *)(v29 + 41)] )
           *(_BYTE *)(v29 + 39) |= 0x10u;
 
 v242 == 0xb
+
+v231 - compare
