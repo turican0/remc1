@@ -276,4 +276,14 @@ if (compare_index_245FFB == 0x1A8) - ok
 if (compare_index_245FFB == 0x1AB) - ok
 if (compare_index_245FFB == 0x1AD) - ok
 if (compare_index_245FFB == 0x1AE) - ok
-if (compare_index_245FFB == 0x1B0) - fail
+if (compare_index_245FFB == 0x1AF) - ok
+if (compare_index_245FFB == 0x1B0) - ok
+if (compare_index_245FFB == 0x1C1) - ok
+if (compare_index_245FFB == 0x1CA) - ok
+if (compare_index_245FFB == 0x1CE) - ok
+if (compare_index_245FFB == 0x1CF) - ok
+if (compare_index_245FFB == 0x1D1) - e4ff versus 2a
+
+  if (compare_index_729A3 == 0x5b1)
+
+  if (compare_index_729A3 == 0x5b6) - fail inputs

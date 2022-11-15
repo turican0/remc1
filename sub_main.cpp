@@ -82155,7 +82155,7 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  if (compare_index_729A3 == 0x536)
+  if (compare_index_729A3 == 0x5b6)
   {
       compare_index_729A3++;
       compare_index_729A3--;
@@ -84830,7 +84830,7 @@ LABEL_474:
             //debug
 #ifdef debug1
             //if (compare_index_245FFB == 0x1d3)
-            if (compare_index_245FFB == 0x1AF)
+            if (compare_index_245FFB == 0x1D0)
             {
                 compare_index_245FFB++;
                 compare_index_245FFB--;
