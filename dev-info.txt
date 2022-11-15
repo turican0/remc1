@@ -251,3 +251,29 @@ if ( byte_90168[*(unsigned __int8 *)(v29 + 41)] )
 v242 == 0xb
 
 v231 - compare
+
+if (compare_index_1FBBA0 == 0x2c5)
+
+v43 = dword_B5D14 * *(_DWORD *)(v29 + 8);?
+
+byte_90168[256]
+byte_9020C[v45] 256
+
+-------------------
+&buffer[0xb2e6] 0xb4
+&adress[0xb2e6] 0x4e
+pdwScreenBuffer_12EFF4+0xb2e6
+0x2ECFF4 065be0 + 0xb2e6
+
+if (compare_index_245FFB == 0x1d3) - fail
+v368 0000eeffaaaaf6ff versus 00260094242700 
+
+if (compare_index_245FFB == 0x100) - ok
+if (compare_index_245FFB == 0x160) - ok
+if (compare_index_245FFB == 0x190) - ok
+if (compare_index_245FFB == 0x1A0) - ok
+if (compare_index_245FFB == 0x1A8) - ok
+if (compare_index_245FFB == 0x1AB) - ok
+if (compare_index_245FFB == 0x1AD) - ok
+if (compare_index_245FFB == 0x1AE) - ok
+if (compare_index_245FFB == 0x1B0) - fail
