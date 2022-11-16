@@ -82178,7 +82178,7 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  if (compare_index_729A7 == 0x5e3)
+  if (compare_index_729A7 == 0x639)
   {
       compare_index_729A7++;
       compare_index_729A7--;

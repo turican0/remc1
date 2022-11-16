@@ -329,3 +329,16 @@ LABEL_490:
                   BYTE1(v366) += BYTE2(v1121) + v171;
 
 versus 0x2461C2
+
+-------------------
+&buffer[0xb545] 0x35
+&adress[0xb545] 0x4c
+pdwScreenBuffer_12EFF4+0xb545
+0x2ECFF4 065be0 + 0xb545
+-------------------
+&buffer[0xb042] 0xb4
+&adress[0xb042] 0x4b
+pdwScreenBuffer_12EFF4+0xb042
+0x2ECFF4 065be0 + 0xb042
+
+639
