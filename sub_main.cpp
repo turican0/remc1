@@ -1,6 +1,7 @@
 #include "sub_main.h"
 
 #define debug1
+#define autostart
 
 #define FIX_MOUSE
 
@@ -33204,6 +33205,7 @@ int compare_index_1FBFF0 = 0;
 int compare_index_next1 = 0;
 int compare_index_1FC68A = 0;
 int compare_index_1FBBA0 = 0;
+int compare_index_1FBFCB = 0;
 
 //----- (0002A700) --------------------------------------------------------
 char sub_2A700(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8)//1FB700_
@@ -33768,6 +33770,19 @@ LABEL_49:
         while ( v50 );
         if ( a5 < 4096 )
         {
+
+//adress 0x1FBFCB
+//debug
+#ifdef debug1
+            if (compare_index_1FBFCB == 0x0)
+            {
+                compare_index_1FBFCB++;
+                compare_index_1FBFCB--;
+            }
+            //add_compare(0x1FBFCB, true, true);
+            compare_index_1FBFCB++;
+#endif debug1
+            //debug
           v61 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
           v240 = 20;
           while ( 1 )
@@ -57419,6 +57434,10 @@ void sub_4AC70_4AFB0()//21BC70_
 		sub_5CDA0_5D2B0();
 	else
 		sub_599B0_59EC0(480);
+#ifdef autostart
+    bool1 = true;//end loop
+    bool2 = true;//no videos
+#endif
 	if (bool1)
 	{
 		sub_51DF0(word_4A8BE[4 * (unsigned __int8)byte_12CBD3_12CBC3 + 3]);
@@ -57900,6 +57919,10 @@ void sub_4BD60()//21CD60_
     if ( !sub_4C6A0() )
       byte_12CBC6_12CBB6 = 0;
   }
+#ifdef autostart
+  byte_12CAE4_12CAD4 = 5;//start game
+  byte_12CBC6_12CBB6 = 1;
+#endif
   if ( (byte_12CAE4_12CAD4 & 1) != 0 )
   {
     byte_12CAE4_12CAD4 &= ~1u;
@@ -80861,7 +80884,7 @@ char sub_72807_72D17(unsigned __int8 *a1, _BYTE *a2)
 }
 // 9334C: using guessed type int dword_9334C;
 
-int compare_index_729A3 = 0;
+int compare_index_729A7 = 0;
 int compare_index_245FFB = 0;
 int compare_index_24674B = 0;
 int compare_index_24629B = 0;
@@ -82155,13 +82178,16 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  if (compare_index_729A3 == 0x5b6)
+  if (compare_index_729A7 == 0x5e3)
   {
-      compare_index_729A3++;
-      compare_index_729A3--;
+      compare_index_729A7++;
+      compare_index_729A7--;
   }
-  add_compare(0x2439A3, true, true);
-  compare_index_729A3++;
+  add_compare(0x2439A7, true, true);
+  uint8 origbyte20;
+  uint8 remakebyte20;
+  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&a1[1], 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  compare_index_729A7++;
 #endif debug1
   //debug
 
@@ -84830,13 +84856,13 @@ LABEL_474:
             //debug
 #ifdef debug1
             //if (compare_index_245FFB == 0x1d3)
-            if (compare_index_245FFB == 0x1D0)
+            /*if (compare_index_245FFB == 0x1D0)
             {
                 compare_index_245FFB++;
                 compare_index_245FFB--;
             }
             add_compare(0x245FFB, true, true);
-            compare_index_245FFB++;
+            compare_index_245FFB++;*/
 #endif debug1
             //debug
 
@@ -85023,7 +85049,7 @@ LABEL_495:
 //adress 0x24629B 
 //debug
 #ifdef debug1
-                  if (compare_index_24629B == 0x5b)
+                  if (compare_index_24629B == 0xa5)
                   {
                       compare_index_24629B++;
                       compare_index_24629B--;
@@ -90243,7 +90269,7 @@ LABEL_1352:
   }
   if ( v7 == v8 )
   {
-    if ( *a3 <= *a2 )
+    if (*(int32*)a3 <= *(int32*)a2 )
       return;
     v3 = (int32*)a2;
     v4 = (int32*)a3;

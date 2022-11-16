@@ -284,6 +284,48 @@ if (compare_index_245FFB == 0x1CE) - ok
 if (compare_index_245FFB == 0x1CF) - ok
 if (compare_index_245FFB == 0x1D1) - e4ff versus 2a
 
-  if (compare_index_729A3 == 0x5b1)
-
+  if (compare_index_729A7 == 0x0)
+  if (compare_index_729A7 == 0xc) - ok
+  if (compare_index_729A7 == 0xd) - ok
+  if (compare_index_729A7 == 0xe) - fail inputs
+  if (compare_index_729A7 == 0x20) - fail inputs
+  if (compare_index_729A7 == 0x5b1) - fail inputs
+  if (compare_index_729A7 == 0x5b3) - fail inputs
+  if (compare_index_729A7 == 0x5b5) - fail inputs
   if (compare_index_729A3 == 0x5b6) - fail inputs
+
+if (compare_index_245FFB == 0x1D1) / 0x245FFB
+
+00F
+
+LABEL_500:(85108)
+                  v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+versus 0x24632F
+
+v376[15] = strPal.byte_B7934_B7924[v366](ok);
+
+70EB7
+70EC6
+
+-------------------
+&buffer[0xb545] 0x35
+&adress[0xb545] 0x4c
+pdwScreenBuffer_12EFF4+0xb545
+0x2ECFF4 065be0 + 0xb545
+
+  if (compare_index_729A7 == 0x5e3)
+
+LABEL_490:
+                  v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                  LOWORD(v372) = v1099 + v372;
+                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  v171 = __CFADD__(v1150, v372);
+                  v372 += v1150;
+                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  v171 = __CFADD__(v1166, v373);
+                  v373 += v1166;
+                  v376[5] = strPal.byte_B7934_B7924[v366];
+                  BYTE1(v366) += BYTE2(v1121) + v171;
+
+versus 0x2461C2
