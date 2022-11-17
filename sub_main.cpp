@@ -33627,13 +33627,13 @@ LABEL_26:
       do
       {
 #ifdef debug1
-          if (compare_index_1FBBA0 == 0x2c5)
+          /*if (compare_index_1FBBA0 == 0x183a)
           {
               compare_index_1FBBA0++;
               compare_index_1FBBA0--;
           }
           add_compare(0x1FBBA0, true, true);
-          compare_index_1FBBA0++;
+          compare_index_1FBBA0++;*/
 #endif debug1
         v36 = *(_DWORD *)v29 * *(_DWORD *)v29;
         v37 = *(_DWORD *)(v29 + 12);
@@ -33799,7 +33799,7 @@ LABEL_49:
                     compare_index_1FBFF0++;
                     compare_index_1FBFF0--;
                 }
-                add_compare(0x1FBFF0, true, true);
+                //add_compare(0x1FBFF0, true, true);
                 compare_index_1FBFF0++;
 #endif debug1
                 //debug
@@ -33983,13 +33983,13 @@ LABEL_102:
           //  adress 1FC3E0
 //debug
 #ifdef debug1
-          if (compare_index_2A700 == 0x13)
+          /*if (compare_index_2A700 == 0xad6)
           {
               compare_index_2A700++;
               compare_index_2A700--;
           }
           add_compare(0x1FC3E0, true, true);
-          compare_index_2A700++;
+          compare_index_2A700++;*/
 #endif debug1
           //debug
           v213x[0] = *(_DWORD *)(v91 + 16);
@@ -34023,7 +34023,7 @@ if (compare_index_1FC68A == 0x45)
     compare_index_1FC68A++;
     compare_index_1FC68A--;
 }
-                add_compare(0x1FC68A, true, true);
+                //add_compare(0x1FC68A, true, true);
                 compare_index_1FC68A++;
 #endif debug1
 //debug
@@ -51500,13 +51500,13 @@ LABEL_40:
           compareindex_41780--;
       }
 
-      if (compareindex_41780 == 629)
+      if (compareindex_41780 == 0x240c)
       {
           compareindex_41780++;
           compareindex_41780--;
       }
-      compareindex_41780++;
       add_compare(0x212A0A, true);
+      compareindex_41780++;
 #endif debug1
       //debug
     v17 = str_AE400_AE3F0->str_29795[jx].var_u8_29859_64;
@@ -51519,13 +51519,13 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 360)
+            if (compareindex_41780_2 == 0x1713)
             {
                 compareindex_41780_2++;
                 compareindex_41780_2--;
-            }
-            compareindex_41780_2++;
+            }            
             add_compare(0x212A70, true);
+            compareindex_41780_2++;
 #endif debug1
             //debug
             dword_96902[v17].str_0[str_AE400_AE3F0->str_29795[jx].var_u8_29865_70].data6(&str_AE400_AE3F0->str_29795[jx]);
@@ -82178,16 +82178,17 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  if (compare_index_729A7 == 0x639)
+  /*if (compare_index_729A7 == 0x240c)
   {
       compare_index_729A7++;
       compare_index_729A7--;
   }
-  add_compare(0x2439A7, true, true);
+  //add_compare(0x2439A7, true, true);
+  add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   uint8 origbyte20;
   uint8 remakebyte20;
   int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&a1[1], 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
-  compare_index_729A7++;
+  compare_index_729A7++;*/
 #endif debug1
   //debug
 
@@ -82195,6 +82196,8 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
   v16 = 0;
   v27 = 0;
   v1022 = 0;
+  v1099 = 0;
+  v1110 = 0;
   //fix
 
   v3 = (int32*)a1;
@@ -82209,14 +82212,14 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
       return;
     if ( v6 >= v8 )
     {
-      if ( *a1 <= *a2 )
+      if ( *(int32*)a1 <= *(int32*)a2 )
         return;
       v3 = (int32*)a3;
       v4 = (int32*)a1;
       v5 = (int32*)a2;
       goto LABEL_225;
     }
-    if ( *a2 <= *a1 )
+    if ( *(int32*)a2 <= *(int32*)a1 )
       return;
     goto LABEL_268;
   }
@@ -83174,7 +83177,7 @@ LABEL_47:
           goto LABEL_24;
         goto LABEL_124;
       }
-      if ( *a2 <= *a3 )
+      if ( *(int32*)a2 <= *(int32*)a3 )
         return;
 LABEL_225:
       v108 = v3[1];
@@ -83626,7 +83629,7 @@ LABEL_225:
           }
       }
     }
-    if ( *a1 <= *a3 )
+    if ( *(int32*)a1 <= *(int32*)a3 )
       return;
     v3 = (int32*)a3;
     v4 = (int32*)a1;
@@ -85048,7 +85051,7 @@ LABEL_495:
               LABEL_496:
 //adress 0x24629B 
 //debug
-#ifdef debug1
+/*#ifdef debug1
                   if (compare_index_24629B == 0xa5)
                   {
                       compare_index_24629B++;
@@ -85056,7 +85059,7 @@ LABEL_495:
                   }
 add_compare(0x24629B, true, true);
 compare_index_24629B++;
-#endif debug1
+#endif debug1*/
 //debug
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
