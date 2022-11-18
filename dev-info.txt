@@ -377,3 +377,5 @@ adress[0x4] 0x96
 ((uint8*)str_AE400_AE3F0)+0x4
 0x1F690+4
 
+DrawGameFrame_20FB0
+
