@@ -504,7 +504,7 @@ typedef struct {//size 36478
 	uint32 var_u32_153;
 	uint32 var_u32_157;
 	uint8 var_u8_161;
-	uint32 var_u32_162;
+	int32 var_u32_162;
 	uint16 var_u16_166;
 	Type_168* var_u32_168;
 	uint32 var_u32_172;
