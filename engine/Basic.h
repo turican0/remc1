@@ -146,10 +146,10 @@ typedef struct {//size 946
 
 typedef struct {//14
 	axis_3d axis;
-	uint16 var_6;
-	uint16 var_8;
-	uint16 var_10;
-	uint16 var_12;
+	uint16 yaw_6;
+	uint16 pitch_8;
+	uint16 roll_10;
+	uint16 fov_12;
 } Type_13895;
 
 typedef struct {//68
@@ -167,11 +167,11 @@ typedef struct {//2049
 	uint8 var_u8_13329_6;//6
 	uint16 var_u16_13330_7;//7
 	uint8 var_u8_13332_9;//9
-	uint16 var_u16_13333;//10
+	uint16 playIndex_13333;//10
 	uint8 stub0b[2];
 	uint16 var_u16_13337_14;//14
 	uint16 var_u16_13339_16;//16	
-	uint32 var_u32_13341_18;//24
+	uint32 var_u32_13341_18;//24 //diameter
 	uint8 stub1[2];
 	uint32 var_u32_13347_24;//24
 	Type_str_28 str_13351_28[8];//28
@@ -402,7 +402,8 @@ typedef struct {//size 232713
 	uint8 var_u8_8601;
 	uint8 var_u8_8602;
 	uint8 var_u8_8603;
-	uint8 stub8[2];
+	uint8 var_u8_8604;
+	uint8 var_u8_8605;
 	uint8 var_u8_8606;
 	uint8 stub9[1];
 	uint8 var_u8_8608;
@@ -567,6 +568,11 @@ typedef struct {
 	uint8_t y;
 } baxis_2d;
 
+typedef struct {
+	int8_t x;
+	int8_t y;
+} bsaxis_2d;
+
 typedef union {
 	baxis_2d _axis_2d;
 	uint16_t word;
@@ -597,15 +603,34 @@ typedef struct _Type_dword_96884 {
 	uint8_t var8_6;
 	uint8_t var8_7;
 } Type_dword_96884;
+
+typedef struct {//size 44
+	int32 x_0;
+	uint32 var_4;
+	uint32 var_8;
+	int32 y_12;
+	int32 var_16;
+	int32 var_20;
+	int32 var_24;
+	int32 var_28;
+	uint32 var_32;
+	uint16 var_36;
+	uaxis_2d var_38;
+	uint8 stubc[1];
+	uint8 var_41;
+	uint8 var_42;
+	uint8 var_43;
+} Type_BegBscreen;
+
 #pragma pack (16)
 
 extern uint8_t* pdwScreenBuffer_12EFF4;
 
 extern int16_t mapEntityIndex_10C1E0[0x10000];
-extern uint8_t mapTerrainType_CC1E0[0x10000];
-extern uint8_t mapHeightmap_DC1E0[0x10000];
-extern uint8_t mapShading_EC1E0[0x10000];
-extern uint8_t mapAngle_FC1E0[0x10000];
+extern uint8_t mapTerrainType_CC1E0_CC1D0[0x10000];
+extern uint8_t mapHeightmap_DC1E0_DC1D0[0x10000];
+extern uint8_t mapShading_EC1E0_EC1D0[0x10000];
+extern uint8_t mapAngle_FC1E0_FC1D0[0x10000];
 
 extern Type_str_AE400_AE3F0* str_AE400_AE3F0;
 extern Type_str_AE408_AE3F8* str_AE408_AE3F8;
