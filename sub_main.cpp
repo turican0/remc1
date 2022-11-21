@@ -33530,7 +33530,7 @@ LABEL_24:
   //adress 1FBB02
  //debug
 #ifdef debug1
-  add_compare(0x1FBB02, true, true);
+  //add_compare(0x1FBB02, true, true);
 #endif debug1
   //debug
 LABEL_26:
@@ -33547,7 +33547,7 @@ LABEL_26:
             compare_index_1FBB90++;
             compare_index_1FBB90--;
         }
-        add_compare(0x1FBB90, true, true);
+        //add_compare(0x1FBB90, true, true);
         compare_index_1FBB90++;
 #endif debug1
         //debug
@@ -38097,14 +38097,14 @@ void sub_30D90_30DD0(uint8* a1, int a2, int a3, __int16 a4, int a5, int a6, int 
         //adress 202509
         //debug
 #ifdef debug1
-          add_compare(0x202509, true);
+          //add_compare(0x202509, true);
 #endif debug1
           //debug
         sub_2A700(a5, v77, v78, v20, a5, a6, a7, a8);
         //adress 202527
         //debug
 #ifdef debug1
-        add_compare(0x202527, true, true);
+        //add_compare(0x202527, true, true);
 #endif debug1
         //debug
         if ( *(_BYTE *)(dword_AE400_AE3F0() + 8605) )
@@ -38599,21 +38599,21 @@ void sub_31AA0(int a1)//202AA0_
       //202AF1
         //debug
 #ifdef debug1
-      add_compare(0x202AF1, true);
+      //add_compare(0x202AF1, true);
 #endif debug1
   //debug
     sub_725C8(word_12C1E0, *(_WORD *)(a1 + 8), *(_WORD *)(a1 + 12));
     //202AF7 
       //debug
 #ifdef debug1
-    add_compare(0x202AF7, true);
+    //add_compare(0x202AF7, true);
 #endif debug1
   //debug
     sub_32A50();//!!
     //202AFF
 //debug
 #ifdef debug1
-    add_compare(0x202AFF, true);
+    //add_compare(0x202AFF, true);
 #endif debug1
   //debug
   }
@@ -38622,68 +38622,68 @@ void sub_31AA0(int a1)//202AA0_
   sub_33500();
   //debug
 #ifdef debug1
-  add_compare(0x202B31, true);
+  //add_compare(0x202B31, true);
 #endif debug1
   //debug
   sub_320A0(*(_WORD *)(a1 + 32));
   //debug
 #ifdef debug1
-  add_compare(0x202B47, true);
+  //add_compare(0x202B47, true);
 #endif debug1
   //debug
   sub_32D00(*(_WORD *)(a1 + 36), *(_WORD *)(a1 + 40));
   //debug
 #ifdef debug1
-  add_compare(0x202B4D, true);
+  //add_compare(0x202B4D, true);
 #endif debug1
   //debug
   sub_32300();
   //debug
 #ifdef debug1
-  add_compare(0x202B62, true);
+  //add_compare(0x202B62, true);
 #endif debug1
   //debug
   sub_32EB0(*(_WORD *)(a1 + 36), *(_WORD *)(a1 + 40));
   //debug
 #ifdef debug1
-  add_compare(0x202B71, true);
+  //add_compare(0x202B71, true);
 #endif debug1
   //debug
   sub_33180(*(_WORD *)(a1 + 44));
   //debug
 #ifdef debug1
-  add_compare(0x202B77, true);
+  //add_compare(0x202B77, true);
 #endif debug1
   //debug
   sub_31FA0();
   memset(mapTerrainType_CC1E0, 0, 0x10000);
   //debug
 #ifdef debug1
-  add_compare(0x202B90, true);
+  //add_compare(0x202B90, true);
 #endif debug1
   //debug
   sub_31BB0();
   //debug
 #ifdef debug1
-  add_compare(0x202B98, true);
+  //add_compare(0x202B98, true);
 #endif debug1
   //debug
   sub_31EC0();
   //debug
 #ifdef debug1
-  add_compare(0x202B9D, true);
+  //add_compare(0x202B9D, true);
 #endif debug1
   //debug
   sub_32560();//!!
   //debug
 #ifdef debug1
-  add_compare(0x202BA2, true);
+  //add_compare(0x202BA2, true);
 #endif debug1
   //debug
   sub_31D40();
   //debug
 #ifdef debug1
-  add_compare(0x202BA7, true);
+  //add_compare(0x202BA7, true);
 #endif debug1
   //debug
   sub_329C0();
@@ -40489,7 +40489,7 @@ void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)//204B90_
         counter_33B90--;
     }
     counter_33B90++;
-        add_compare(0x204B93, true);
+        //add_compare(0x204B93, true);
 #endif debug1
         //debug
 
@@ -40893,7 +40893,7 @@ void TopProcedure_340B0_34470(int argc, const char** argv)//2050B0_205470
         //205367
                 //debug
 #ifdef debug1
-        add_compare(0x205367, true);
+        //add_compare(0x205367, true);
 #endif debug1
         //debug
         sub_34610_349D0();
@@ -40999,21 +40999,21 @@ void DrawAndEventsInGame_34530()//205530_
     //2055C1
             //debug
 #ifdef debug1
-        add_compare(0x2055C1, true);
+        //add_compare(0x2055C1, true);
 #endif debug1
         //debug
 	sub_55100();
     //2055C6
             //debug
 #ifdef debug1
-        add_compare(0x2055C6, true);
+        //add_compare(0x2055C6, true);
 #endif debug1
         //debug
 	DrawGameFrame_20FB0();
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4 - str_AE408_AE3F8->var_u32_153;
@@ -41021,7 +41021,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055F4
             //debug
 #ifdef debug1
-        add_compare(0x2055F4, true, true);
+        //add_compare(0x2055F4, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4;
@@ -43222,7 +43222,7 @@ void sub_37440(int a1, char a2)//208440_
     {
         //debug
 #ifdef debug1
-        add_compare(0x20847D, true);
+        //add_compare(0x20847D, true);
 #endif debug1
         //debug
       sub_59160(str_AE400_AE3F0->str_193795.str_1072[i].data_0, str_AE400_AE3F0->str_193795.str_1072[i].data_2, -1);
@@ -43254,7 +43254,7 @@ void sub_37440(int a1, char a2)//208440_
           counter_37440--;
       }
       counter_37440++;
-      add_compare(0x208549, true);
+      //add_compare(0x208549, true);
 #endif debug1
       //debug
     //if ( j >= &str_AE400_AE3F0->str_193795.var_u16_1090[1999])
@@ -47783,7 +47783,7 @@ void sub_3C9D0()//20D9D0_
   //adress 20D9DC
          //debug
 #ifdef debug1
-  add_compare(0x20D9DC, true);
+  //add_compare(0x20D9DC, true);
 #endif debug1
   //debug
 
@@ -47947,7 +47947,7 @@ void sub_3C9D0()//20D9D0_
         //adress 20D9D0
         //debug
 #ifdef debug1
-        add_compare(0x20DC7D, true);
+        //add_compare(0x20DC7D, true);
 #endif debug1
         //debug
 
@@ -47955,7 +47955,7 @@ void sub_3C9D0()//20D9D0_
         //adress 0x20DC8F
         //debug
 #ifdef debug1
-        add_compare(0x20DC8F, true);
+        //add_compare(0x20DC8F, true);
 #endif debug1
         //debug
         sub_3DC90(&str_AE400_AE3F0->str_13323[v106x], 0);
@@ -48357,7 +48357,7 @@ LABEL_150:
     //adress 20DC0E
        //debug
 #ifdef debug1
-    add_compare(0x20EC0E, true);
+    //add_compare(0x20EC0E, true);
 #endif debug1
     //debug
     //str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[v106x].var_u16_13333]
@@ -50612,19 +50612,19 @@ void sub_407A0_40AE0()//2117A0_
   DrawTextLine_5AD10_5B220((char*)"Generate map");
   sub_31AA0((int)&str_AE400_AE3F0->str_193795);
 #ifdef debug1
-  add_compare(0x211817, true);
+  //add_compare(0x211817, true);
 #endif debug1
   sub_371C0();
   //debug
 #ifdef debug1
-  add_compare(0x21181F, true);
+  //add_compare(0x21181F, true);
 #endif debug1
   //debug
   DrawTextLine_5AD10_5B220((char*)"Generate features");
   GenerateFeatures_36430(&str_AE400_AE3F0->str_193795);
   //debug
 #ifdef debug1
-  add_compare(0x21183F, true);
+  //add_compare(0x21183F, true);
 #endif debug1
   //debug
   DrawTextLine_5AD10_5B220((char*)"Initialise Models");
@@ -50632,21 +50632,21 @@ void sub_407A0_40AE0()//2117A0_
   sub_37220();
   //debug
 #ifdef debug1
-  add_compare(0x21186B, true);
+  //add_compare(0x21186B, true);
 #endif debug1
   //debug
   str_AE400_AE3F0->var_u32_4593 = -1;
   sub_37440(0, 1);
   //debug
 #ifdef debug1
-  add_compare(0x21187D, true);
+  //add_compare(0x21187D, true);
 #endif debug1
   //debug
   byte_939E5 = tempByte_939E5;
   sub_3DD50();
   //debug
 #ifdef debug1
-  add_compare(0x2118C4, true);
+  //add_compare(0x2118C4, true);
 #endif debug1
   //debug
   //return sub_48230(dword_AE400_AE3F0() + 29795 + 164
@@ -50654,7 +50654,7 @@ void sub_407A0_40AE0()//2117A0_
   sub_48230(&str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13333]);
   //debug
 #ifdef debug1
-  add_compare(0x2118CA, true);
+  //add_compare(0x2118CA, true);
 #endif debug1
   //debug
 }
@@ -51301,7 +51301,7 @@ void sub_41780()//212780_
  //21278A
  //debug
 #ifdef debug1
-    add_compare(0x212790, true);
+    //add_compare(0x212790, true);
 #endif debug1
 //debug
   str_AE400_AE3F0->rand_4 = 9377 * str_AE400_AE3F0->rand_4 + 9439;
@@ -51433,7 +51433,7 @@ LABEL_40:
           compareindex_41780++;
           compareindex_41780--;
       }
-      add_compare(0x212A0A, true);
+      //add_compare(0x212A0A, true);
       compareindex_41780++;
 #endif debug1
       //debug
@@ -51452,7 +51452,7 @@ LABEL_40:
                 compareindex_41780_2++;
                 compareindex_41780_2--;
             }            
-            add_compare(0x212A70, true);
+            //add_compare(0x212A70, true);
             compareindex_41780_2++;
 #endif debug1
             //debug
@@ -53977,7 +53977,7 @@ void sub_44D30(TypeStrAE400_13323* a1x, Type_AE400_29795* event)//215D30_
   //adress 215EAB
 //debug
 #ifdef debug1
-  add_compare(0x215EAB, true);
+  //add_compare(0x215EAB, true);
 #endif debug1
   //debug
   //v9 = 0;
@@ -53988,7 +53988,7 @@ void sub_44D30(TypeStrAE400_13323* a1x, Type_AE400_29795* event)//215D30_
       //adress 0x215EC6
 //debug
 #ifdef debug1
-      add_compare(0x215EC6, true);
+      //add_compare(0x215EC6, true);
 #endif debug1
       //debug
     //v10 = v9 + *(_DWORD *)(v2 + 160);
@@ -54059,7 +54059,7 @@ void sub_44D30(TypeStrAE400_13323* a1x, Type_AE400_29795* event)//215D30_
     //adress 216003
 //debug
 #ifdef debug1
-    add_compare(0x216003, true);
+    //add_compare(0x216003, true);
 #endif debug1
     //debug
     sub_45C10(v2x);
@@ -54140,7 +54140,7 @@ void sub_44D30(TypeStrAE400_13323* a1x, Type_AE400_29795* event)//215D30_
   //adress 2161E7
 //debug
 #ifdef debug1
-  add_compare(0x2161E7, true);
+  //add_compare(0x2161E7, true);
 #endif debug1
   //debug
   //v25 = dword_AE400_AE3F0();
