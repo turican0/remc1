@@ -606,8 +606,8 @@ typedef struct _Type_dword_96884 {
 
 typedef struct {//size 44
 	int32 x_0;
-	uint32 var_4;
-	uint32 var_8;
+	int32 var_4;
+	int32 var_8;
 	int32 y_12;
 	int32 var_16;
 	int32 var_20;

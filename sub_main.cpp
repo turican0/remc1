@@ -95,6 +95,8 @@ unk_B3EA0 271EA0
 
 1FB6DC 2A6DC sub_29C30
 
+0x1FBB02
+
 */
 //info
 //fix
@@ -32481,7 +32483,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
   int sumPowXY; // ebx
   //unsigned __int16 v39; // dx
   __int16 tempDiameter; // ax
-  int tempPowCos; // eax
+  int tempCosXSin; // eax
   int tempShadCos; // eax
   //int v43; // edx
   //unsigned __int16 v44; // bx
@@ -32668,7 +32670,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
   int32 tempSin;
   int32 tempCos; // [esp+7Ch] [ebp-64h]
   int yawX; // [esp+80h] [ebp-60h]
-  int tempCosDia; // [esp+84h] [ebp-5Ch]
+  int tempCosDiaX;
+  int tempCosDiaY; // [esp+84h] [ebp-5Ch]
   int tempHeightm;
   int tempSinCount; // [esp+88h] [ebp-58h]
   //int v229; // [esp+8Ch] [ebp-54h]
@@ -32814,8 +32817,15 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
     //v25 = v33;
     //LOBYTE(v33) = 64;
     pattern = 0x400040;
-    goto LABEL_24;
+    for (index = heightViewPort_93ADC; index < heightViewPort_93ADC; index++)
+    {
+        uint8* drawBuffer = beginFrame_93ACC;
+        memset(drawBuffer, pattern, widthViewPort_93AD8 >> 2);
+        drawBuffer += 4 * (widthViewPort_93AD8 >> 2) + drawShift;
+        //--v31;
+    }
   }
+  else
   if ( !str_AE400_AE3F0->var_u8_8599 )
   {
     drawShift = pitchViewPort_93AD4 - widthViewPort_93AD8;
@@ -32825,7 +32835,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
     //v25 = v33;
     //LOBYTE(v33) = -1;
     pattern = 0xffffffff;
-LABEL_24:
+//LABEL_24:
     //BYTE1(v33) = v33;
     //v34 = v33;
     //v35 = v33 << 16;
@@ -32838,16 +32848,17 @@ LABEL_24:
       //--v31;
     }
     //while ( v31 );
-    goto LABEL_26;
+    //goto LABEL_26;
   }
-  DrawSky_30730_30770(roll);//draw sky
+  else
+    DrawSky_30730_30770(roll);//draw sky
   //adress 1FBB02_
  //debug
 #ifdef debug1
   //add_compare(0x1FBB02, true, true);
 #endif debug1
   //debug
-  LABEL_26:
+  //LABEL_26:
   index = 0;
   if ( str_AE400_AE3F0->var_u8_8597 && (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606) )
   {
@@ -32866,9 +32877,8 @@ LABEL_24:
         //add_compare(0x1FBB90, true, true);
         compare_index_1FBB90++;
 #endif debug1
-        //debug
-      int indexR = textRows;
-      do
+        //debug      
+      for(int indexR = 0; indexR < textRows; indexR++)
       {
 #ifdef debug1
           /*if (compare_index_1FBBA0 == 0x183a)
@@ -32895,15 +32905,16 @@ LABEL_24:
         tempBegBscreen[index].var_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempY;
         tempBegBscreen[index].var_4 = 32 * mapHeightmap_DC1E0_DC1D0[yawXY.word] - posZ;
         tempDiameter = str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6;
-        tempCosDia = cos_90B4C[((yawXY._axis_2d.y << 7) + tempDiameter) & 0x7FF] >> 8;
-        tempPowCos = pow(tempCosDia,2);
+        tempCosDiaY = cos_90B4C[((yawXY._axis_2d.y << 7) + tempDiameter) & 0x7FF] >> 8;
+        tempCosDiaX = cos_90B4C[((yawXY._axis_2d.x << 7) + tempDiameter) & 0x7FF] >> 8;
+        tempCosXSin = tempCosDiaY * tempCosDiaX;
         tempHeightm = mapHeightmap_DC1E0_DC1D0[yawXY.word];
-        tempBegBscreen[index].var_8 = -((tempHeightm * ((tempPowCos >> 4) + 0x8000)) >> 10) - posZ;
+        tempBegBscreen[index].var_8 = -((tempHeightm * ((tempCosXSin >> 4) + 0x8000)) >> 10) - posZ;
         if ( (mapAngle_FC1E0_FC1D0[yawXY.word] & 8) != 0 )
-            tempBegBscreen[index].var_4 -= tempPowCos >> 10;
+            tempBegBscreen[index].var_4 -= tempCosXSin >> 10;
         else
-            tempPowCos = 0;
-        tempShadCos = (tempShad << 8) + 8 * tempPowCos;
+            tempCosXSin = 0;
+        tempShadCos = (tempShad << 8) + 8 * tempCosXSin;
         if (sumPowXY <= dword_B5CF0_B5CE0 )
           goto LABEL_42;
         if (sumPowXY < dword_B5D0C_B5CFC )
@@ -32941,9 +32952,9 @@ LABEL_49:
         yawXY._axis_2d.y += yawQuartal[9];
         //v29 += 44;
         index++;
-        --indexR;
+        //--indexR;
       }
-      while (indexR);
+     // while (indexR);
       //v49 = yawQuartal[6] + yawXY._axis_2d.x;
       yawXY._axis_2d.y += yawQuartal[7]/* + yawQuartal[9]*/;
       yawXY._axis_2d.x += yawQuartal[6];
@@ -33532,13 +33543,13 @@ LABEL_122:
         tempBegBscreen[index].var_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempBegBscreen[index].y_12;
         tempBegBscreen[index].var_4 = 32 * mapHeightmap_DC1E0_DC1D0[yawXY.word] - posZ;
         //v131 = str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6;
-        tempCosDia = cos_90B4C[((str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6) + (yawXY._axis_2d.y << 7)) & 0x7FF] >> 8;
-        tempPowCos = pow(tempCosDia,2);
+        tempCosDiaY = cos_90B4C[((str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6) + (yawXY._axis_2d.y << 7)) & 0x7FF] >> 8;
+        tempCosXSin = pow(tempCosDiaY,2);
         if ( (mapAngle_FC1E0_FC1D0[yawXY.word] & 8) != 0 )
-            tempBegBscreen[index].var_4 -= tempPowCos >> 10;
+            tempBegBscreen[index].var_4 -= tempCosXSin >> 10;
         else
-            tempPowCos = 0;
-        tempVar32 = (((mapShading_EC1E0_EC1D0[yawXY.word] << 8) + 128) << 8) + 8 * tempPowCos;
+            tempCosXSin = 0;
+        tempVar32 = (((mapShading_EC1E0_EC1D0[yawXY.word] << 8) + 128) << 8) + 8 * tempCosXSin;
         if (powY + powX > dword_B5CF0_B5CE0 )
         {
           if (powY + powX >= dword_B5D0C_B5CFC )
