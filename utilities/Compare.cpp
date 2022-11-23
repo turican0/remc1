@@ -2,10 +2,28 @@
 
 std::string regressionsDataPath = "c:/prenos/remc1/Debug/regressions/";
 
+uint32 HashFromStr(char* name, int plus) {
+	int index = 0;
+	uint32 result = 0;
+	while (name[index])
+	{
+		result += name[index];
+		result <<= 3;
+		index++;
+	}
+	result += plus;
+	return result;
+}
+
 char buffer[512];
 void SaveCompare(char* name, int value, int len, uint8* sequence)
 {
-	//uint32 locIndex=getcompindex(HashFromStr(name,0));
+	uint32 locIndex = getcompindex(HashFromStr(name, 0));
+	if (locIndex == 0)
+	{
+		sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
+		remove(buffer);
+	}
 
 	sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
 	bool exist = true;

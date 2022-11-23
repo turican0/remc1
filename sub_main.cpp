@@ -33624,6 +33624,7 @@ LABEL_49:
         v48 = v221[9] + HIBYTE(v231);
         HIBYTE(v231) = v48;
         v29 += 44;
+        SaveCompare((char*)"_axis_2d", 0,2,(uint8*)&v231);
         --v242;
       }
       while ( v242 );
