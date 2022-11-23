@@ -33554,6 +33554,7 @@ LABEL_26:
       v242 = 40;
       do
       {
+          SaveCompare((char*)"indexR", 40-v242);
 #ifdef debug1
           /*if (compare_index_1FBBA0 == 0x183a)
           {
