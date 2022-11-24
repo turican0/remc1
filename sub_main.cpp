@@ -33533,6 +33533,9 @@ LABEL_24:
   //add_compare(0x1FBB02, true, true);
 #endif debug1
   //debug
+
+  SaveCompare((char*)"tempBegBscreen", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
+
 LABEL_26:
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8597) && (*(_BYTE *)(dword_AE400_AE3F0() + 8603) != 2 || *(_BYTE *)(dword_AE400_AE3F0() + 8606)) )
   {
@@ -33554,6 +33557,7 @@ LABEL_26:
       v242 = 40;
       do
       {
+          SaveCompare((char*)"tempBegBscreen2", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
           SaveCompare((char*)"indexR", 40-v242);
 #ifdef debug1
           /*if (compare_index_1FBBA0 == 0x183a)
@@ -33628,11 +33632,14 @@ LABEL_49:
         --v242;
       }
       while ( v242 );
+      SaveCompare((char*)"_axis_2d-4", 0, 2, (uint8*)&v231);
       v49 = v221[6] + v231;
       HIBYTE(v231) = v221[7] + v48;
       LOBYTE(v231) = v49;
+      SaveCompare((char*)"_axis_2d-3", 0, 2, (uint8*)&v231);
       if ( !--v233 )
       {
+        SaveCompare((char*)"_axis_2d-2", 0, 2, (uint8*)&v231);
         v50 = 840;
         v51 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
         do

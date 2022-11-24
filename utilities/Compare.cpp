@@ -19,25 +19,6 @@ char buffer[512];
 void SaveCompare(char* name, int value, int len, uint8* sequence)
 {
 	uint32 locIndex = getcompindex(HashFromStr(name, 0));
-	if (locIndex == 0)
-	{
-		sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
-		remove(buffer);
-	}
-
-	sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
-	bool exist = true;
-	while (exist)
-	{
-		if (access(buffer, F_OK) == 0) {
-			// file exists			
-		}
-		else {
-			// file doesn't exist
-			exist = false;
-		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
-	}
 
 	if (len == -1)
 	{
@@ -45,32 +26,17 @@ void SaveCompare(char* name, int value, int len, uint8* sequence)
 		sequence = (uint8*)&value;
 	}
 	sprintf(buffer, "%s%s.dat", regressionsDataPath.c_str(), name);
-	FILE* file = fopen(buffer, "wb");
+	FILE* file;
+	if (locIndex == 0)
+		file = fopen(buffer, "wb");
+	else
+		file = fopen(buffer, "ab");
 	fwrite(sequence, 1, len, file);
-	fclose(file);
-
-	sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
-	file = fopen(buffer, "wb");
-	//fwrite(&locIndex, 1, 4, file);
 	fclose(file);
 };
 void CompareWith(char* name, int value, int len, uint8* sequence)
 {
-	//int locIndex = getcompindex(HashFromStr(name, 0));
-
-	sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
-	bool not_exist = false;
-	while (not_exist)
-	{
-		if (access(buffer, F_OK) == 0) {
-			// file exists			
-			not_exist = true;
-		}
-		else {
-			// file doesn't exist			
-		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
-	}
+	uint32 locIndex = getcompindex(HashFromStr(name, 0));
 
 	uint8 compBuffer[512];
 	if (len == -1)
@@ -80,6 +46,7 @@ void CompareWith(char* name, int value, int len, uint8* sequence)
 	}
 	sprintf(buffer, "%s%s.dat", regressionsDataPath.c_str(), name);
 	FILE* file = fopen(buffer, "rb");
+	fseek(file, len * locIndex, SEEK_SET);
 	fread(compBuffer, 1, len, file);
 	fclose(file);
 	for (int i = 0; i < len; i++)
@@ -89,9 +56,6 @@ void CompareWith(char* name, int value, int len, uint8* sequence)
 			allert_error();
 		}
 	}
-
-	sprintf(buffer, "%s%s.lock", regressionsDataPath.c_str(), name);
-	remove(buffer);
 };
 
 void allert_error() {
