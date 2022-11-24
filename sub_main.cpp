@@ -32685,15 +32685,15 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	char v237; // [esp+ACh] [ebp-34h]
 	char v238; // [esp+B0h] [ebp-30h]
 	char v239; // [esp+B4h] [ebp-2Ch]
-	char v240; // [esp+B8h] [ebp-28h]
-	char v241; // [esp+BCh] [ebp-24h]
+	//char v240; // [esp+B8h] [ebp-28h]
+	//char v241; // [esp+BCh] [ebp-24h]
 	//char v242; // [esp+C0h] [ebp-20h]
 	char v243; // [esp+C4h] [ebp-1Ch]
 	//char v244; // [esp+C8h] [ebp-18h]
 	char v245; // [esp+CCh] [ebp-14h]
 
 	const int textRows = 40;
-	const int textCells = 21;
+	const int textColumns = 21;
 
 	int yawY;
 
@@ -32758,7 +32758,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	for (int indexR = 0; indexR < textRows; indexR++)
 	{
 		tempSinCountSh = tempSinCount >> 16;
-		for (int indexC = 0; indexC < textCells; indexC++)
+		for (int indexC = 0; indexC < textColumns; indexC++)
 		{
 			tempBegBscreen[index].x_0 = tempSinCountSh;
 			tempBegBscreen[index].y_12 = tempCosCount >> 16;
@@ -32768,7 +32768,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				tempBegBscreen[index].var_38.word = 4;
 			index += textRows;
 		}
-		index -= textRows * textCells - 1;
+		index -= textRows * textColumns - 1;
 		yawY += 256;
 		tempCosCount += tempCosShift;
 		tempSinCount += tempSinShift;
@@ -32778,7 +32778,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	tempCosShift = tempCos << 8;
 	tempCosCount = tempCos * yawX;
 	index = 0;
-	for (int indexC = 0; indexC < textCells; indexC++)
+	for (int indexC = 0; indexC < textColumns; indexC++)
 	{
 		for (int indexR = 0; indexR < textRows; indexR++)
 		{
@@ -32857,14 +32857,16 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 #ifdef debug1
   //add_compare(0x1FBB02, true, true);
 #endif debug1
+    
+   CompareWith((char*)"tempBegBscreen",0,200,(uint8*)tempBegBscreen);
   //debug
   //LABEL_26:
 	index = 0;
 	if (str_AE400_AE3F0->var_u8_8597 && (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606))
 	{
-		//v233 = textCells;
-		int indexC = textCells;
-		while (1)
+		//v233 = textColumns;
+		//int indexC = textColumns;
+        for (int indexC = 0; indexC < textColumns; indexC++)
 		{
 			//  adress 1FBB90_
 			   //debug
@@ -32880,6 +32882,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			//debug      
 			for (int indexR = 0; indexR < textRows; indexR++)
 			{
+                CompareWith((char*)"tempBegBscreen2", 0, 200, (uint8*)tempBegBscreen);
 				CompareWith((char*)"indexR", indexR);
 #ifdef debug1
 				/*if (compare_index_1FBBA0 == 0x183a)
@@ -32955,19 +32958,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				//v48 = yawQuartal[9] + yawXY._axis_2d.y;
 				yawXY._axis_2d.y += yawQuartal[9];
 				//v29 += 44;
+                CompareWith((char*)"_axis_2d", 0, 2, (uint8*)&yawXY.word);
 				index++;
 				//--indexR;
 			}
 			// while (indexR);
 			 //v49 = yawQuartal[6] + yawXY._axis_2d.x;
+            CompareWith((char*)"_axis_2d-4", 0, 2, (uint8*)&yawXY.word);
 			yawXY._axis_2d.y += yawQuartal[7]/* + yawQuartal[9]*/;
 			yawXY._axis_2d.x += yawQuartal[6];
-			if (!--indexC)
-			{
-				int index2 = textCells * textRows;
-				//v51 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
-				int index = 0;
-				do
+            CompareWith((char*)"_axis_2d-3", 0, 2, (uint8*)&yawXY.word);
+			//if (!--indexC)
+         }
+        {
+            CompareWith((char*)"_axis_2d-2", 0, 2, (uint8*)&yawXY.word);
+
+            //int index2 = textColumns * textRows;
+            //v51 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
+            //int index = 0;
+                for(int indexCR = 0; indexCR < textColumns * textRows; indexCR++)
 				{
 					//adress 1FBEB6_
 					if (compare_index_next1 == 0x347)
@@ -32977,240 +32986,251 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					}
 					compare_index_next1++;
 					//tempBegBscreen[index].var_24
-					tempBegBscreen[index].var_24 = ((dword_B5CE8_B5CD8 * tempBegBscreen[index].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[index].var_28) >> 16) + dword_B5D08_B5CF8;
+					tempBegBscreen[indexCR].var_24 = ((dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[indexCR].var_28) >> 16) + dword_B5D08_B5CF8;
 					//v53 = tempBegBscreen[index].var_16 * dword_B5CD4_B5CC4;
 					//v55 = dword_B5CE8_B5CD8 * tempBegBscreen[index].var_28;
-					subTempVar28 = tempBegBscreen[index].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[index].var_28;
-					tempVar20 = heightViewPort_B5CE4_B5CD4 - ((tempBegBscreen[index].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[index].var_20) >> 16);
-					tempBegBscreen[index].var_16 = ((dword_B5CE8_B5CD8 * tempBegBscreen[index].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[index].var_20) >> 16)
+					subTempVar28 = tempBegBscreen[indexCR].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[index].var_28;
+					tempVar20 = heightViewPort_B5CE4_B5CD4 - ((tempBegBscreen[indexCR].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_20) >> 16);
+					tempBegBscreen[indexCR].var_16 = ((dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[indexCR].var_20) >> 16)
 						+ dword_B5D08_B5CF8;
 
 					//v57 = heightViewPort_B5CE4_B5CD4;
 					//tempBegBscreen[index].var_24 = v52;
-					tempBegBscreen[index].var_28 = heightViewPort_B5CE4_B5CD4 - (subTempVar28 >> 16);
+					tempBegBscreen[indexCR].var_28 = heightViewPort_B5CE4_B5CD4 - (subTempVar28 >> 16);
 					//v58 = tempBegBscreen[index].var_16;
-					tempBegBscreen[index].var_20 = tempVar20;
-					if (tempBegBscreen[index].var_16 >= 0)
+					tempBegBscreen[indexCR].var_20 = tempVar20;
+					if (tempBegBscreen[indexCR].var_16 >= 0)
 					{
-						if (widthViewPort_93AD8 <= tempBegBscreen[index].var_16)
-							tempBegBscreen[index].var_38._axis_2d.x |= 0x10u;
+						if (widthViewPort_93AD8 <= tempBegBscreen[indexCR].var_16)
+							tempBegBscreen[indexCR].var_38._axis_2d.x |= 0x10u;
 					}
 					else
 					{
-						tempBegBscreen[index].var_38._axis_2d.x |= 8u;
+						tempBegBscreen[indexCR].var_38._axis_2d.x |= 8u;
 					}
 					//v59 = tempBegBscreen[index].var_20;
-					if (tempBegBscreen[index].var_20 >= 0)
+					if (tempBegBscreen[indexCR].var_20 >= 0)
 					{
 						if (heightViewPort_93ADC <= tempBegBscreen[index].var_20)
-							tempBegBscreen[index].var_38._axis_2d.x |= 0x40u;
+							tempBegBscreen[indexCR].var_38._axis_2d.x |= 0x40u;
 					}
 					else
 					{
-						tempBegBscreen[index].var_38._axis_2d.x |= 0x20u;
+						tempBegBscreen[indexCR].var_38._axis_2d.x |= 0x20u;
 					}
-					if (tempBegBscreen[index].var_24 >= 0)
+					if (tempBegBscreen[indexCR].var_24 >= 0)
 					{
-						if (widthViewPort_93AD8 <= tempBegBscreen[index].var_24)
-							tempBegBscreen[index].var_38._axis_2d.y |= 2u;
+						if (widthViewPort_93AD8 <= tempBegBscreen[indexCR].var_24)
+							tempBegBscreen[indexCR].var_38._axis_2d.y |= 2u;
 					}
 					else
 					{
-						tempBegBscreen[index].var_38._axis_2d.y |= 1u;
+						tempBegBscreen[indexCR].var_38._axis_2d.y |= 1u;
 					}
 					//v60 = tempBegBscreen[index].var_28;
-					if (tempBegBscreen[index].var_28 >= 0)
+					if (tempBegBscreen[indexCR].var_28 >= 0)
 					{
-						if (heightViewPort_93ADC <= tempBegBscreen[index].var_28)
-							tempBegBscreen[index].var_38._axis_2d.y |= 8u;
+						if (heightViewPort_93ADC <= tempBegBscreen[indexCR].var_28)
+							tempBegBscreen[indexCR].var_38._axis_2d.y |= 8u;
 					}
 					else
 					{
-						tempBegBscreen[index].var_38._axis_2d.y |= 4u;
+						tempBegBscreen[indexCR].var_38._axis_2d.y |= 4u;
 					}
 					//v51 += 44;
-					index++;
-					index2--;
-				} while (index2);
-				if (posZ < 4096)
-				{
+					//index++;
+					//index2--;
+				} //while (index2);
+                if (posZ < 4096)
+                {
 
-					//adress 0x1FBFCB_
-					//debug
+                    //adress 0x1FBFCB_
+                    //debug
 #ifdef debug1
-					if (compare_index_1FBFCB == 0x0)
-					{
-						compare_index_1FBFCB++;
-						compare_index_1FBFCB--;
-					}
-					//add_compare(0x1FBFCB, true, true);
-					compare_index_1FBFCB++;
+                    if (compare_index_1FBFCB == 0x0)
+                    {
+                        compare_index_1FBFCB++;
+                        compare_index_1FBFCB--;
+                    }
+                    //add_compare(0x1FBFCB, true, true);
+                    compare_index_1FBFCB++;
 #endif debug1
-					//debug
-					int index = 0;
-					int index62 = (textCells - 1) * textRows;
-					v240 = textCells - 1;
-					while (1)
-					{
-						//v62 = tempBegBscreen;
-						index62 = index;
-						v241 = textRows - 1;
-						do
-						{
-							//adress 0x1FBFF0_
-									   //debug
+                    //debug
+                    int index = 0;
+                    int index62 = (textColumns - 1) * textRows;
+                    //v240 = textColumns - 1;
+                    for (int indexC = 0; indexC < textColumns; indexC++)
+                    //while (1)
+                    {
+                        //v62 = tempBegBscreen;
+                        //index62 = index;
+                        //v241 = textRows - 1;
+                        for (int indexR = 0; indexR < textRows; indexR++)
+                        {
+                            //adress 0x1FBFF0_
+                                       //debug
 #ifdef debug1
-							if (compare_index_1FBFF0 == 0x18f)
-							{
-								compare_index_1FBFF0++;
-								compare_index_1FBFF0--;
-							}
-							//add_compare(0x1FBFF0, true, true);
-							compare_index_1FBFF0++;
+                            if (compare_index_1FBFF0 == 0x18f)
+                            {
+                                compare_index_1FBFF0++;
+                                compare_index_1FBFF0--;
+                            }
+                            //add_compare(0x1FBFF0, true, true);
+                            compare_index_1FBFF0++;
 #endif debug1
-							//debug
-							if ((tempBegBscreen[index62 + 1].var_38._axis_2d.x & 4) != 0)
-								break;
+                            //debug
+                            if ((tempBegBscreen[index62 + 1].var_38._axis_2d.x & 4) != 0)
+                                break;
 
-							v213x[0] = tempBegBscreen[index62].var_24;
-							v213x[1] = tempBegBscreen[index62].var_28;
-							v213x[4] = tempBegBscreen[index62].var_32;
-							v208x[0] = tempBegBscreen[index62 + 1].var_24;
-							v208x[1] = tempBegBscreen[index62 + 1].var_28;
-							v208x[4] = tempBegBscreen[index62 + 1].var_32;
-							v203x[0] = tempBegBscreen[index62 + 1 - textRows].var_24;
-							v203x[1] = tempBegBscreen[index62 + 1 - textRows].var_28;
-							v203x[4] = tempBegBscreen[index62 + 1 - textRows].var_32;
-							v198x[0] = tempBegBscreen[index62 - textRows].var_24;
-							v198x[1] = tempBegBscreen[index62 - textRows].var_28;
-							v198x[4] = tempBegBscreen[index62 - textRows].var_32;
+                            v213x[0] = tempBegBscreen[index62].var_24;
+                            v213x[1] = tempBegBscreen[index62].var_28;
+                            v213x[4] = tempBegBscreen[index62].var_32;
+                            v208x[0] = tempBegBscreen[index62 + 1].var_24;
+                            v208x[1] = tempBegBscreen[index62 + 1].var_28;
+                            v208x[4] = tempBegBscreen[index62 + 1].var_32;
+                            v203x[0] = tempBegBscreen[index62 + 1 - textRows].var_24;
+                            v203x[1] = tempBegBscreen[index62 + 1 - textRows].var_28;
+                            v203x[4] = tempBegBscreen[index62 + 1 - textRows].var_32;
+                            v198x[0] = tempBegBscreen[index62 - textRows].var_24;
+                            v198x[1] = tempBegBscreen[index62 - textRows].var_28;
+                            v198x[4] = tempBegBscreen[index62 - textRows].var_32;
 
-							if (tempBegBscreen[index62].var_41)
-							{
-								if ((tempBegBscreen[index62].var_38._axis_2d.y & 0x10) != 0)
-								{
-									byte_967E1 = 7;
-									byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
-								}
-								else
-								{
-									byte_967E1 = 5;
-								}
-								if (((tempBegBscreen[index62 - textRows].var_38.word | tempBegBscreen[index62].var_38.word | tempBegBscreen[index62 + 1].var_38.word | tempBegBscreen[index62].var_38.word) & 2) == 0)
-								{
-									v213x[2] = unk_902DC[tempBegBscreen[index62].var_42][0];
-									v213x[3] = unk_902DC[tempBegBscreen[index62].var_42][1];
-									v208x[2] = unk_902DC[tempBegBscreen[index62].var_42][2];
-									v208x[3] = unk_902DC[tempBegBscreen[index62].var_42][3];
-									v203x[2] = unk_902DC[tempBegBscreen[index62].var_42][4];
-									v203x[3] = unk_902DC[tempBegBscreen[index62].var_42][5];
-									v198x[2] = unk_902DC[tempBegBscreen[index62].var_42][6];
-									v198x[3] = unk_902DC[tempBegBscreen[index62].var_42][7];
-									dword_93AD0 = dword_9334C[tempBegBscreen[index62].var_41];
-									byte_967E1 = 5;
-									if ((tempBegBscreen[index62].var_38._axis_2d.x & 1) != 0)
-									{
-										sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-										sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-									}
-									else
-									{
-										sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-										sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
-									}
-								}
-								if (!tempBegBscreen[index62].var_36)
-									goto LABEL_85;
-							LABEL_84:
-								sub_2FC50_sub_2FC90((int)&tempBegBscreen[index62]);//fix it
-								goto LABEL_85;
-							}
-							if (tempBegBscreen[index62].var_36)
-								goto LABEL_84;
-						LABEL_85:
-							//v62 = v71 + 44;
-							index62++;
-							v241--;
-						} while (v241);
-						if (v241)
-							break;
-					LABEL_101:
-						//v61 -= 1760;
-						index -= textRows;
-						if (!--v240)
-							goto LABEL_102;
-					}
-					//v75 = v62 - 44;
-					//v76 = v61 + 1672;
-					//v76 = (int)&tempBegBscreen[index + (textRows - 2)];
-					int indexv76 = (textCells - 1) * textRows;
-					while (2)
-					{
-						v213x[0] = tempBegBscreen[indexv76].var_24;
-						v213x[1] = tempBegBscreen[indexv76].var_28;
-						v213x[4] = tempBegBscreen[indexv76].var_32;
-						v208x[0] = tempBegBscreen[indexv76 + 1].var_24;
-						v208x[1] = tempBegBscreen[indexv76 + 1].var_28;
-						v208x[4] = tempBegBscreen[indexv76 + 1].var_32;
-						v203x[0] = tempBegBscreen[indexv76 + 1 - textRows].var_24;
-						v203x[1] = tempBegBscreen[indexv76 + 1 - textRows].var_28;
-						v203x[4] = tempBegBscreen[indexv76 + 1 - textRows].var_32;
-						v198x[0] = tempBegBscreen[indexv76 - textRows].var_24;
-						v198x[1] = tempBegBscreen[indexv76 - textRows].var_28;
-						v198x[4] = tempBegBscreen[indexv76 - textRows].var_32;
-						if (tempBegBscreen[indexv76].var_41)
-						{
-							if ((tempBegBscreen[indexv76].var_38._axis_2d.y & 0x10) != 0)
-							{
-								byte_967E1 = 7;
-								byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
-							}
-							else
-							{
-								byte_967E1 = 5;
-							}
-							if (((tempBegBscreen[indexv76 - textRows].var_38.word | tempBegBscreen[indexv76].var_38.word | tempBegBscreen[indexv76 + 1].var_38.word | tempBegBscreen[indexv76].var_38.word) & 2) == 0)
-							{
-								v213x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][0];
-								v213x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][1];
-								v208x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][2];
-								v208x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][3];
-								v203x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][4];
-								v203x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][5];
-								v198x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][6];
-								v198x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][7];
-								byte_967E1 = 5;
-								dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].var_41];
-								if ((tempBegBscreen[indexv76].var_38._axis_2d.x & 1) != 0)
-								{
-									sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-									sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-								}
-								else
-								{
-									sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-									sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
-								}
-							}
-							if (tempBegBscreen[indexv76].var_36)
-								LABEL_99:
-							sub_2FC50_sub_2FC90((int)&tempBegBscreen[indexv76]);//fix it
-						}
-						else if (tempBegBscreen[indexv76].var_36)
-						{
-							goto LABEL_99;
-						}
-						//v76 = v84 - 44;
-						indexv76--;
-						if (indexv76 < index - 1)
-							goto LABEL_101;
-						continue;
-					}
+                            if (tempBegBscreen[index62].var_41)
+                            {
+                                if ((tempBegBscreen[index62].var_38._axis_2d.y & 0x10) != 0)
+                                {
+                                    byte_967E1 = 7;
+                                    byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+                                }
+                                else
+                                {
+                                    byte_967E1 = 5;
+                                }
+                                if (((tempBegBscreen[index62 - textRows].var_38.word | tempBegBscreen[index62].var_38.word | tempBegBscreen[index62 + 1].var_38.word | tempBegBscreen[index62].var_38.word) & 2) == 0)
+                                {
+                                    v213x[2] = unk_902DC[tempBegBscreen[index62].var_42][0];
+                                    v213x[3] = unk_902DC[tempBegBscreen[index62].var_42][1];
+                                    v208x[2] = unk_902DC[tempBegBscreen[index62].var_42][2];
+                                    v208x[3] = unk_902DC[tempBegBscreen[index62].var_42][3];
+                                    v203x[2] = unk_902DC[tempBegBscreen[index62].var_42][4];
+                                    v203x[3] = unk_902DC[tempBegBscreen[index62].var_42][5];
+                                    v198x[2] = unk_902DC[tempBegBscreen[index62].var_42][6];
+                                    v198x[3] = unk_902DC[tempBegBscreen[index62].var_42][7];
+                                    dword_93AD0 = dword_9334C[tempBegBscreen[index62].var_41];
+                                    byte_967E1 = 5;
+                                    if ((tempBegBscreen[index62].var_38._axis_2d.x & 1) != 0)
+                                    {
+                                        sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
+                                        sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                    }
+                                    else
+                                    {
+                                        sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                        sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+                                    }
+                                }
+                                /*if (tempBegBscreen[index62].var_36)
+                                {
+                                //LABEL_84:
+                                    sub_2FC50_sub_2FC90((int)&tempBegBscreen[index62]);//fix it
+                                    //goto LABEL_85;
+                                }*/
+                            }
+                            //else
+                            //{
+                            if (tempBegBscreen[index62].var_36)
+                                sub_2FC50_sub_2FC90((int)&tempBegBscreen[index62]);//fix it
+                        //}
+                    //LABEL_85:
+                        //v62 = v71 + 44;
+                            index62++;
+                            //v241--;
+                        } //while (v241);
+                        //if (v241)
+                            //break;
+                    //LABEL_101:                        
+                        //v61 -= 1760;
+                        index -= textRows;
+                        for (int indexv76 = 0; indexv76 < textRows; indexv76++)
+                        {
+                            //if (--v240)
+                            {
+                                //goto LABEL_102;
+                        //}
+                        //v75 = v62 - 44;
+                        //v76 = v61 + 1672;
+                        //v76 = (int)&tempBegBscreen[index + (textRows - 2)];
+                                //int indexv76 = (textColumns - 1) * textRows;
+                                //while (2)
+                                //{
+                                    v213x[0] = tempBegBscreen[indexv76].var_24;
+                                    v213x[1] = tempBegBscreen[indexv76].var_28;
+                                    v213x[4] = tempBegBscreen[indexv76].var_32;
+                                    v208x[0] = tempBegBscreen[indexv76 + 1].var_24;
+                                    v208x[1] = tempBegBscreen[indexv76 + 1].var_28;
+                                    v208x[4] = tempBegBscreen[indexv76 + 1].var_32;
+                                    v203x[0] = tempBegBscreen[indexv76 + 1 - textRows].var_24;
+                                    v203x[1] = tempBegBscreen[indexv76 + 1 - textRows].var_28;
+                                    v203x[4] = tempBegBscreen[indexv76 + 1 - textRows].var_32;
+                                    v198x[0] = tempBegBscreen[indexv76 - textRows].var_24;
+                                    v198x[1] = tempBegBscreen[indexv76 - textRows].var_28;
+                                    v198x[4] = tempBegBscreen[indexv76 - textRows].var_32;
+                                    if (tempBegBscreen[indexv76].var_41)
+                                    {
+                                        if ((tempBegBscreen[indexv76].var_38._axis_2d.y & 0x10) != 0)
+                                        {
+                                            byte_967E1 = 7;
+                                            byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+                                        }
+                                        else
+                                        {
+                                            byte_967E1 = 5;
+                                        }
+                                        if (((tempBegBscreen[indexv76 - textRows].var_38.word | tempBegBscreen[indexv76].var_38.word | tempBegBscreen[indexv76 + 1].var_38.word | tempBegBscreen[indexv76].var_38.word) & 2) == 0)
+                                        {
+                                            v213x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][0];
+                                            v213x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][1];
+                                            v208x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][2];
+                                            v208x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][3];
+                                            v203x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][4];
+                                            v203x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][5];
+                                            v198x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][6];
+                                            v198x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][7];
+                                            byte_967E1 = 5;
+                                            dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].var_41];
+                                            if ((tempBegBscreen[indexv76].var_38._axis_2d.x & 1) != 0)
+                                            {
+                                                sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
+                                                sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                            }
+                                            else
+                                            {
+                                                sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                                sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+                                            }
+                                        }
+                                        /*if (tempBegBscreen[indexv76].var_36)
+                                            LABEL_99:
+                                        sub_2FC50_sub_2FC90((int)&tempBegBscreen[indexv76]);//fix it*/
+                                    }
+                                    if (tempBegBscreen[indexv76].var_36)
+                                    {
+                                        sub_2FC50_sub_2FC90((int)&tempBegBscreen[indexv76]);//fix it
+                                    }
+                                    //v76 = v84 - 44;
+                                    //indexv76--;
+                                    //if (indexv76 < index - 1)
+                                        //goto LABEL_101;
+                                    //continue;
+                                //}
+                            }
+                        }
+                }
 				}
-			LABEL_102:
+			//LABEL_102:
 				//v89 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
-				int indexv89 = (textCells - 1) * textRows;
-				v239 = textCells - 1;
+				int indexv89 = (textColumns - 1) * textRows;
+				v239 = textColumns - 1;
 				while (2)
 				{
 					//  adress 1FC3D0_
@@ -33517,7 +33537,6 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					goto LABEL_124;
 				goto LABEL_104;
 			}
-		}
 	}
 	//adress 1FC930_
   //debug
@@ -33525,7 +33544,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	add_compare(0x1FC930, true, true);
 #endif debug1
 	//debug
-	v238 = textCells;
+	v238 = textColumns;
 	do
 	{
 		v243 = textRows;
@@ -33604,13 +33623,13 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 #endif debug1
 	//debug
 	//v138 = roll & 0x7FF;
-	//int count = textRows*(textCells-1);
+	//int count = textRows*(textColumns-1);
 	//v140 = cos_90B4C[roll & 0x7FF];
 	//v141x = sin_9134C[roll & 0x7FF];
 	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
 	dword_B5CE8_B5CD8 = sin_9134C[roll & 0x7FF];
 	//v142 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
-	for (int index = 0; index < textRows * (textCells - 1); index++)
+	for (int index = 0; index < textRows * (textColumns - 1); index++)
 	{
 		//v143 = heightViewPort_B5CE4_B5CD4;
 		tempSubVar20 = (dword_B5CD4_B5CC4 * tempBegBscreen[index].var_16 + dword_B5CE8_B5CD8 * tempBegBscreen[index].var_20) >> 16;
@@ -33651,9 +33670,9 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	if (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606)
 	{
 		//v168 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
-		int index168 = textRows * (textCells - 1);
-		//v244 = textCells-1;
-		for (int indexC = 0; indexC < textCells - 1; indexC++)
+		int index168 = textRows * (textColumns - 1);
+		//v244 = textColumns-1;
+		for (int indexC = 0; indexC < textColumns - 1; indexC++)
 		{
 			//v169 = v168;
 			//v232 = textRows-1;
@@ -33834,10 +33853,10 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	{
 		byte_967E1 = 1;
 		//v148 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
-		int index148 = textRows * (textCells - 1);
+		int index148 = textRows * (textColumns - 1);
 		//v245 = 20;
 		//do
-		for (int indexC = 0; indexC < textCells - 1; indexC++)
+		for (int indexC = 0; indexC < textColumns - 1; indexC++)
 		{
 			//v149 = v148;
 			//v236 = 39;
@@ -36540,6 +36559,7 @@ unsigned __int16 sub_2FC50_sub_2FC90(int a2)//200C50_
 
   //fix
   int a1 = 0;
+  v33 = 0;
   //fix
 
   result = *(_WORD *)(a2 + 36);
