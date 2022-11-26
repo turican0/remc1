@@ -626,7 +626,7 @@ typedef struct {//size 44
 
 extern uint8_t* pdwScreenBuffer_12EFF4;
 
-extern int16_t mapEntityIndex_10C1E0[0x10000];
+extern int16_t mapEntityIndex_10C1E0_10C1D0[0x10000];
 extern uint8_t mapTerrainType_CC1E0_CC1D0[0x10000];
 extern uint8_t mapHeightmap_DC1E0_DC1D0[0x10000];
 extern uint8_t mapShading_EC1E0_EC1D0[0x10000];
