@@ -26838,7 +26838,8 @@ void DrawGameFrame_20FB0()//1F1FB0_
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].pitch_8,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].roll_10,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].fov_12);
-		if (str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].var_u32_29807_12 >= 0
+        CompareWith((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+        if (str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].var_u32_29807_12 >= 0
 			&& (str_AE408_AE3F8->var_u8_0 & 4) == 0)
 		{
 			if (str_AE400_AE3F0->var_u8_8601)
@@ -32682,9 +32683,9 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	//char v234; // [esp+A0h] [ebp-40h]
 	//char v235; // [esp+yawh] [ebp-3Ch]
 	//char v236; // [esp+A8h] [ebp-38h]
-	char v237; // [esp+ACh] [ebp-34h]
+	//char v237; // [esp+ACh] [ebp-34h]
 	char v238; // [esp+B0h] [ebp-30h]
-	char v239; // [esp+B4h] [ebp-2Ch]
+	//char v239; // [esp+B4h] [ebp-2Ch]
 	//char v240; // [esp+B8h] [ebp-28h]
 	//char v241; // [esp+BCh] [ebp-24h]
 	//char v242; // [esp+C0h] [ebp-20h]
@@ -32760,6 +32761,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		tempSinCountSh = tempSinCount >> 16;
 		for (int indexC = 0; indexC < textColumns; indexC++)
 		{
+            CompareWith((char*)"tempBegBscreen5", 0, 200, (uint8*)tempBegBscreen);
 			tempBegBscreen[index].x_0 = tempSinCountSh;
 			tempBegBscreen[index].y_12 = tempCosCount >> 16;
 			if (yawY < 0)
@@ -32782,6 +32784,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	{
 		for (int indexR = 0; indexR < textRows; indexR++)
 		{
+            CompareWith((char*)"tempBegBscreen4", 0, 200, (uint8*)tempBegBscreen);
 			tempBegBscreen[index].x_0 -= tempCosCount >> 16;
 			tempBegBscreen[index].y_12 += (tempSinCount >> 16);
 			index++;
@@ -32819,6 +32822,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		pattern = 0x400040;
 		for (index = heightViewPort_93ADC; index < heightViewPort_93ADC; index++)
 		{
+            CompareWith((char*)"tempBegBscreen3", 0, 200, (uint8*)tempBegBscreen);
 			uint8* drawBuffer = beginFrame_93ACC;
 			memset(drawBuffer, pattern, widthViewPort_93AD8 >> 2);
 			drawBuffer += 4 * (widthViewPort_93AD8 >> 2) + drawShift;
@@ -32925,7 +32929,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						tempBegBscreen[index].var_32 = tempShadCos;
 					else if (sumPowXY < dword_B5D0C_B5CFC)
 					{
-						tempShadCos *= (__int64)(dword_B5D0C_B5CFC - sumPowXY) / dword_B5CEC_B5CDC;
+						tempShadCos = tempShadCos * (__int64)(dword_B5D0C_B5CFC - sumPowXY) / dword_B5CEC_B5CDC;
 						tempBegBscreen[index].var_32 = tempShadCos;
 						//goto LABEL_43;
 					}
@@ -32989,7 +32993,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					tempBegBscreen[indexCR].var_24 = ((dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[indexCR].var_28) >> 16) + dword_B5D08_B5CF8;
 					//v53 = tempBegBscreen[index].var_16 * dword_B5CD4_B5CC4;
 					//v55 = dword_B5CE8_B5CD8 * tempBegBscreen[index].var_28;
-					subTempVar28 = tempBegBscreen[indexCR].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[index].var_28;
+					subTempVar28 = tempBegBscreen[indexCR].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_28;
 					tempVar20 = heightViewPort_B5CE4_B5CD4 - ((tempBegBscreen[indexCR].var_16 * dword_B5CD4_B5CC4 + dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_20) >> 16);
 					tempBegBscreen[indexCR].var_16 = ((dword_B5CE8_B5CD8 * tempBegBscreen[indexCR].var_16 - dword_B5CD4_B5CC4 * tempBegBscreen[indexCR].var_20) >> 16)
 						+ dword_B5D08_B5CF8;
@@ -33011,7 +33015,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					//v59 = tempBegBscreen[index].var_20;
 					if (tempBegBscreen[indexCR].var_20 >= 0)
 					{
-						if (heightViewPort_93ADC <= tempBegBscreen[index].var_20)
+						if (heightViewPort_93ADC <= tempBegBscreen[indexCR].var_20)
 							tempBegBscreen[indexCR].var_38._axis_2d.x |= 0x40u;
 					}
 					else
@@ -33150,8 +33154,9 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                             //break;
                     //LABEL_101:                        
                         //v61 -= 1760;
-                        index -= textRows;
-                        for (int indexv76 = 0; indexv76 < textRows; indexv76++)
+                        //index -= textRows;
+                        int indexv76 = (textColumns - 1) * textRows;
+                        for (int indexR = 0; indexR < textRows; indexR++)
                         {
                             //if (--v240)
                             {
@@ -33175,6 +33180,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                                     v198x[0] = tempBegBscreen[indexv76 - textRows].var_24;
                                     v198x[1] = tempBegBscreen[indexv76 - textRows].var_28;
                                     v198x[4] = tempBegBscreen[indexv76 - textRows].var_32;
+
                                     if (tempBegBscreen[indexv76].var_41)
                                     {
                                         if ((tempBegBscreen[indexv76].var_38._axis_2d.y & 0x10) != 0)
@@ -33217,6 +33223,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                                     {
                                         sub_2FC50_sub_2FC90((int)&tempBegBscreen[indexv76]);//fix it
                                     }
+                                    indexv76--;
                                     //v76 = v84 - 44;
                                     //indexv76--;
                                     //if (indexv76 < index - 1)
@@ -33229,9 +33236,10 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				}
 			//LABEL_102:
 				//v89 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 35200;
-				int indexv89 = (textColumns - 1) * textRows;
-				v239 = textColumns - 1;
-				while (2)
+				int indexv89x = (textColumns - 1) * textRows;
+				//v239 = textColumns - 1;
+                
+                for (int indexC = 0; indexC < textColumns-1; indexC++)
 				{
 					//  adress 1FC3D0_
 		   //debug
@@ -33241,8 +33249,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			//debug
 		  //v90 = (int *)&unk_902DC;
 		  //v91 = v89;
-					v237 = textRows - 1;
-				LABEL_104:
+					//v237 = textRows - 1;
+				//LABEL_104:
 					//  adress 1FC3E0_
 		  //debug
 #ifdef debug1
@@ -33255,38 +33263,157 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		  compare_index_2A700++;*/
 #endif debug1
 		  //debug
-					v213x[0] = tempBegBscreen[indexv89].var_16;
-					v213x[1] = tempBegBscreen[indexv89].var_20;
-					v213x[4] = tempBegBscreen[indexv89].var_32;
-					//v213x[0] = *(_DWORD *)(v91 + 16);
-					//v213x[1] = *(_DWORD *)(v91 + 20);
-					//v92 = *(_DWORD *)(v91 + 32);
-					//v91 += 44;
-					//v213x[4] = v92;
-					//v93 = tempBegBscreen[indexv89].var_38.word;
-					//v94 = v93;
-					if ((tempBegBscreen[indexv89 + 1].var_38._axis_2d.x & 4) != 0)
-					{
-					LABEL_124:
-						if (!v237)
-						{
-						LABEL_145:
-							//v89 -= 1760;
-							//LOBYTE(v125) = --v239;
-							--v239;
-							if (!v239)
-								return;
-							continue;
-						}
-						//v108 = v91 - 44;
-						//v109 = v89 + 1672;
-						int index109 = indexv89 + textRows + 2;
-						while (2)
+                    int indexv91 = indexv89x;
+
+                    int indexR;
+                    for (indexR = 0; indexR < textRows; indexR++)
+                    {
+                        CompareWith((char*)"tempBegBscreen10", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
+                        CompareWith((char*)"fullframe2", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+                        CompareWith((char*)"v91", indexv91);
+
+                        if ((tempBegBscreen[indexv91 + 1].var_38._axis_2d.x & 4) != 0)
+                            break;
+
+                        v213x[0] = tempBegBscreen[indexv91].var_16;
+                        v213x[1] = tempBegBscreen[indexv91].var_20;
+                        v213x[4] = tempBegBscreen[indexv91].var_32;
+
+                        v208x[0] = tempBegBscreen[indexv91 + 1].var_16;
+                        v208x[1] = tempBegBscreen[indexv91 + 1].var_20;
+                        v208x[4] = tempBegBscreen[indexv91 + 1].var_32;
+                        //v95 = tempBegBscreen[indexv89 + 1].var_38.word;
+                        //v96 = v95 | v93;
+                        //v97 = v95 & v94;
+                        v203x[0] = tempBegBscreen[indexv91 + 1 - textRows].var_16;
+                        v203x[1] = tempBegBscreen[indexv91 + 1 - textRows].var_20;
+                        //v98 = *(_DWORD *)(v91 - 1728);
+                        //v99 = v91 - 1760;
+                        v203x[4] = tempBegBscreen[indexv91 + 1 - textRows].var_32;
+                        //v100 = *(_BYTE *)(v99 + 38);
+                        v198x[0] = tempBegBscreen[indexv91 - textRows].var_16;
+                        //v101 = tempBegBscreen[indexv89 - textRows].var_20;
+                        //v99 -= 44;
+                        v198x[1] = tempBegBscreen[indexv91 - textRows].var_20;
+                        v198x[4] = tempBegBscreen[indexv91 - textRows].var_32;
+                        //BYTE1(v101) = *(_BYTE *)(v99 + 38);
+                        //v102 = v99 + 1760;
+                        //v103 = BYTE1(v101) | v100 | v96;
+                        //v104 = BYTE1(v101) & v100 & v97;
+                        if (tempBegBscreen[indexv91].var_38._axis_2d.x >= 0)
+                        {
+                            if ((tempBegBscreen[indexv91].var_38._axis_2d.y & 0x10) != 0)
+                            {
+                                byte_967E1 = 7;
+                                byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+                            }
+                            else
+                            {
+                                byte_967E1 = 5;
+                            }
+                            if ((((tempBegBscreen[indexv91 - textRows].var_38.word | tempBegBscreen[indexv91].var_38.word | tempBegBscreen[indexv91 + 1].var_38.word | tempBegBscreen[indexv91].var_38.word)) & 2) == 0 &&
+                                ((tempBegBscreen[indexv91 - textRows].var_38.word & tempBegBscreen[indexv91].var_38.word & tempBegBscreen[indexv91 + 1].var_38.word & tempBegBscreen[indexv91].var_38.word) & 0x78) == 0)
+                            {
+                                //v106 = 32 * *(unsigned __int8 *)(v102 + 42);
+                                /*v213x[2] = *(_DWORD*)((char*)&unk_902DC + v106);
+                                v213x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 4);
+                                v208x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 8);
+                                v208x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 12);
+                                v203x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 16);
+                                v203x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 20);
+                                v198x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 24);
+                                v198x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 28);*/
+
+                                v213x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][0];
+                                v213x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][1];
+                                v208x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][2];
+                                v208x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][3];
+                                v203x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][4];
+                                v203x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][5];
+                                v198x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][6];
+                                v198x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][7];
+                                //v107 = tempBegBscreen[indexv89].var_38._axis_2d.x;
+                                dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].var_41];
+                                if ((tempBegBscreen[indexv91].var_38._axis_2d.x & 1) != 0)
+                                {
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                                    sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                }
+                                else
+                                {
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                                }
+                            }
+                            if (tempBegBscreen[indexv91].var_36)
+                                //LABEL_122:
+                                sub_2DCB0_2DCF0((int)&tempBegBscreen[indexv91]);
+                        }
+                        else
+                        {
+                            byte_967E1 = 26;
+                            if ((((tempBegBscreen[indexv91 - textRows].var_38.word | tempBegBscreen[indexv91].var_38.word | tempBegBscreen[indexv91 + 1].var_38.word | tempBegBscreen[indexv91].var_38.word)) & 2) == 0 &&
+                                ((tempBegBscreen[indexv91 - textRows].var_38.word & tempBegBscreen[indexv91].var_38.word & tempBegBscreen[indexv91 + 1].var_38.word & tempBegBscreen[indexv91].var_38.word) & 0x78) == 0)
+                            {
+                                v213x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][0];
+                                v213x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][1];
+                                v208x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][2];
+                                v208x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][3];
+                                v203x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][4];
+                                v203x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][5];
+                                v198x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][6];
+                                v198x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][7];
+                                dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].var_41];
+                                if ((tempBegBscreen[indexv91].var_38._axis_2d.x & 1) != 0)
+                                {
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                                    sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                }
+                                else
+                                {
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                    sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                                }
+                            }
+                            if (tempBegBscreen[indexv91].var_36)
+                                sub_2DCB0_2DCF0((int)&tempBegBscreen[indexv91]);
+                        }
+                        //v91 = v102 + 44;
+                        indexv91++;
+                        //if (!--v237)
+                        //	goto LABEL_124;
+                        //goto LABEL_104;
+                        //v213x[0] = *(_DWORD *)(v91 + 16);
+                        //v213x[1] = *(_DWORD *)(v91 + 20);
+                        //v92 = *(_DWORD *)(v91 + 32);
+                        //v91 += 44;
+                        //v213x[4] = v92;
+                        //v93 = tempBegBscreen[indexv89].var_38.word;
+                        //v94 = v93;
+                        //if ((tempBegBscreen[indexv89 + 1].var_38._axis_2d.x & 4) != 0)
+                        //{
+                        /*LABEL_124:
+                            if (!v237)
+                            {
+                            LABEL_145:
+                                //v89 -= 1760;
+                                //LOBYTE(v125) = --v239;
+                                --v239;
+                                if (!v239)
+                                    return;
+                                continue;
+                            }*/
+                            //v108 = v91 - 44;
+                            //v109 = v89 + 1672;
+                            //int index109 = indexv89 + textRows + 2;
+                    }
+                        for (int index109 = indexv89x + textRows - 2; index109 >= indexv91; index109--)
+                        //for (int indexR = 0; indexR < textRows; indexR++)
 						{
 							//  adress 1FC68A_
 							//debug
 #ifdef debug1
-							if (compare_index_1FC68A == 0x45)
+							if (compare_index_1FC68A == 0x20)
 							{
 								compare_index_1FC68A++;
 								compare_index_1FC68A--;
@@ -33295,6 +33422,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 							compare_index_1FC68A++;
 #endif debug1
 							//debug
+                            CompareWith((char*)"fullframe5", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+
 							v213x[0] = tempBegBscreen[index109].var_16;
 							v213x[1] = tempBegBscreen[index109].var_20;
 							v213x[4] = tempBegBscreen[index109].var_32;
@@ -33381,7 +33510,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 									}
 								}
 								if (tempBegBscreen[index109].var_36)
-									LABEL_143:
+									//LABEL_143:
 								sub_2DCB0_2DCF0((int)&tempBegBscreen[index109]);
 							}
 							else
@@ -33421,121 +33550,23 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 									}
 								}
 								if (tempBegBscreen[index109].var_36)
-									goto LABEL_143;
+                                    sub_2DCB0_2DCF0((int)&tempBegBscreen[index109]);
 							}
 							//v109 = v121 - 44;
-							index109--;
-							if (index109 < 100/*v108*/)//fix
-								goto LABEL_145;
-							continue;
+							//index109--;
+                            //index109--;
+							//if (index109 < 100/*v108*/)//fix
+							//	goto LABEL_145;
+							//continue;
 						}
-					}
-					break;
+					//}
+					//break;
+                   indexv89x -= textRows;
 				}
-				v208x[0] = tempBegBscreen[indexv89 + 1].var_16;
-				v208x[1] = tempBegBscreen[indexv89 + 1].var_20;
-				v208x[4] = tempBegBscreen[indexv89 + 1].var_32;
-				//v95 = tempBegBscreen[indexv89 + 1].var_38.word;
-				//v96 = v95 | v93;
-				//v97 = v95 & v94;
-				v203x[0] = tempBegBscreen[indexv89 + 1 - textRows].var_16;
-				v203x[1] = tempBegBscreen[indexv89 + 1 - textRows].var_20;
-				//v98 = *(_DWORD *)(v91 - 1728);
-				//v99 = v91 - 1760;
-				v203x[4] = tempBegBscreen[indexv89 + 1 - textRows].var_32;
-				//v100 = *(_BYTE *)(v99 + 38);
-				v198x[0] = tempBegBscreen[indexv89 - textRows].var_16;
-				//v101 = tempBegBscreen[indexv89 - textRows].var_20;
-				//v99 -= 44;
-				v198x[1] = tempBegBscreen[indexv89 - textRows].var_20;
-				v198x[4] = tempBegBscreen[indexv89 - textRows].var_32;
-				//BYTE1(v101) = *(_BYTE *)(v99 + 38);
-				//v102 = v99 + 1760;
-				//v103 = BYTE1(v101) | v100 | v96;
-				//v104 = BYTE1(v101) & v100 & v97;
-				if (tempBegBscreen[indexv89].var_38._axis_2d.x >= 0)
-				{
-					if ((tempBegBscreen[indexv89].var_38._axis_2d.y & 0x10) != 0)
-					{
-						byte_967E1 = 7;
-						byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
-					}
-					else
-					{
-						byte_967E1 = 5;
-					}
-					if ((((tempBegBscreen[indexv89 - textRows].var_38.word | tempBegBscreen[indexv89].var_38.word | tempBegBscreen[indexv89 + 1].var_38.word | tempBegBscreen[indexv89].var_38.word)) & 2) == 0 &&
-						((tempBegBscreen[indexv89 - textRows].var_38.word & tempBegBscreen[indexv89].var_38.word & tempBegBscreen[indexv89 + 1].var_38.word & tempBegBscreen[indexv89].var_38.word) & 0x78) == 0)
-					{
-						//v106 = 32 * *(unsigned __int8 *)(v102 + 42);
-						/*v213x[2] = *(_DWORD*)((char*)&unk_902DC + v106);
-						v213x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 4);
-						v208x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 8);
-						v208x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 12);
-						v203x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 16);
-						v203x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 20);
-						v198x[2] = *(_DWORD *)((char *)&unk_902DC + v106 + 24);
-						v198x[3] = *(_DWORD *)((char *)&unk_902DC + v106 + 28);*/
 
-						v213x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][7];
-						//v107 = tempBegBscreen[indexv89].var_38._axis_2d.x;
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv89].var_41];
-						if ((tempBegBscreen[indexv89].var_38._axis_2d.x & 1) != 0)
-						{
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-						}
-						else
-						{
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
-						}
-					}
-					if (tempBegBscreen[indexv89].var_36)
-						LABEL_122:
-					sub_2DCB0_2DCF0((int)&tempBegBscreen[indexv89]);
-				}
-				else
-				{
-					byte_967E1 = 26;
-					if ((((tempBegBscreen[indexv89 - textRows].var_38.word | tempBegBscreen[indexv89].var_38.word | tempBegBscreen[indexv89 + 1].var_38.word | tempBegBscreen[indexv89].var_38.word)) & 2) == 0 &&
-						((tempBegBscreen[indexv89 - textRows].var_38.word & tempBegBscreen[indexv89].var_38.word & tempBegBscreen[indexv89 + 1].var_38.word & tempBegBscreen[indexv89].var_38.word) & 0x78) == 0)
-					{
-						v213x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[indexv89].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[indexv89].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv89].var_41];
-						if ((tempBegBscreen[indexv89].var_38._axis_2d.x & 1) != 0)
-						{
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							sub_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-						}
-						else
-						{
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							sub_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
-						}
-					}
-					if (tempBegBscreen[indexv89].var_36)
-						goto LABEL_122;
-				}
-				//v91 = v102 + 44;
-				indexv89++;
-				if (!--v237)
-					goto LABEL_124;
-				goto LABEL_104;
+                return;//fix it
+
+
 			}
 	}
 	//adress 1FC930_
@@ -33544,6 +33575,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	add_compare(0x1FC930, true, true);
 #endif debug1
 	//debug
+    CompareWith((char*)"tempBegBscreen6", 0, 200, (uint8*)tempBegBscreen);
+
 	v238 = textColumns;
 	do
 	{
@@ -33616,6 +33649,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		yawXY._axis_2d.y += yawQuartal[7];
 		--v238;
 	} while (v238);
+    CompareWith((char*)"tempBegBscreen7", 0, 200, (uint8*)tempBegBscreen);
+
 	//adress 1FCBE3_
   //debug
 #ifdef debug1
@@ -33662,6 +33697,9 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	}
 	//while (count);
 	//adress 1FCCA3_
+    CompareWith((char*)"tempBegBscreen8", 0, 200, (uint8*)tempBegBscreen);
+
+    
   //debug
 #ifdef debug1
 	add_compare(0x1FCCA3, true, true);
@@ -36900,7 +36938,6 @@ void DrawSky_30730_30770(int16_t roll)//201730_
         index++;
         width--;
     }
-  //201847_
   uint8_t* viewPortRenderBufferStart = beginFrame_93ACC;
   int addX = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
   int addY = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
@@ -36910,19 +36947,22 @@ void DrawSky_30730_30770(int16_t roll)//201730_
     {
       index = 0;
       uint8_t* viewPortLineRenderBufferStart = viewPortRenderBufferStart;
-      int texturePixelIndex = (beginX / (256 * 256)) + skyTextSize * (int)(beginY / (256 * 256));
+      int texturePixelIndex = ((uint32)beginX / (256 * 256)) % skyTextSize + ((uint32)beginY / (256 * 256)) * skyTextSize;
       texturePixelIndex = (texturePixelIndex + lineWidthSQ * 2) % lineWidthSQ;
+
+      int texturePixelIndexX = texturePixelIndex % skyTextSize;
+      int texturePixelIndexY = (int32)(texturePixelIndex / skyTextSize);
+
       for (uint8_t* endLine = viewPortLineRenderBufferStart + widthViewPort_93AD8; viewPortLineRenderBufferStart < endLine; viewPortLineRenderBufferStart++)
       {
-          *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[texturePixelIndex];
-          texturePixelIndex += errLine[index].x + skyTextSize * errLine[index].y;
-          texturePixelIndex = (texturePixelIndex + lineWidthSQ) % lineWidthSQ;
-        index++;
+          *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[texturePixelIndexX + skyTextSize * texturePixelIndexY];
+          texturePixelIndexX = (texturePixelIndexX + errLine[index].x + skyTextSize) % skyTextSize;
+          texturePixelIndexY = (texturePixelIndexY + errLine[index].y + skyTextSize) % skyTextSize;
+          index++;
       }
       viewPortRenderBufferStart += pitchViewPort_93AD4;
-      height = SubtrackUntilZero(height, 1);
-      beginX -= sinRoll;
-      beginY += cosRoll;
+      beginX -= cosRoll;
+      beginY += sinRoll;
     }
 }
 

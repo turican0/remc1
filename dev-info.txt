@@ -379,12 +379,64 @@ adress[0x4] 0x96
 
 DrawGameFrame_20FB0
 
-((int)tempBegBscreen)+0x1c
-((int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC)+0x1c
-0x94
-0x64
+((int)tempBegBscreen)+0x26
+((int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC)+0x26
+0x48
+0x08
 
-v58 = *(_DWORD *)(v51 + 16);
+pdwScreenBuffer_12EFF4+0x3
+0xb4 versus 0xb5
+
+sub_30730 versus DrawSky_30730_30770 - revize
+
+v13  a v19 prvni 4 byte
+*(_BYTE *)(v18 + v16);
+
+errors
+00 00
+00 00
+01 00
+01 00
+
+------------
+pdwScreenBuffer_12EFF4+0xa3
+0x0b versus 0x35
+
+0xb101
+versus
+0xb001
+
+b0ff
+0-0 0-0
+b0ff
+1-0
+
+------------
+pdwScreenBuffer_12EFF4+0x140
+0xb4 versus 0x36
+------------
+pdwScreenBuffer_12EFF4+0x140
+0xb4 versus 0xb5
+------------
+pdwScreenBuffer_12EFF4+0xa657
+0x49 versus 0xb4
+------------
+pdwScreenBuffer_12EFF4+0xd562
+0xb4 versus 0x36
+
+problem here:
+if ((((tempBegBscreen[index109 - textRows].var_38.word | tempBegBscreen[index109].var_38.word | tempBegBscreen[index109 + 1].var_38.word | tempBegBscreen[index109].var_38.word)) & 2) == 0 &&
+									((tempBegBscreen[index109 - textRows].var_38.word & tempBegBscreen[index109].var_38.word & tempBegBscreen[index109 + 1].var_38.word & tempBegBscreen[index109].var_38.word) & 0x78) == 0)
+
+index109 - 312
+v121 - 338
+
+compare v89
+0x332
+
+------------
+pdwScreenBuffer_12EFF4+0xa657
+0xb4 versus 0x49
 
 
 
