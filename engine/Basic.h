@@ -622,6 +622,14 @@ typedef struct {//size 44
 	uint8 var_43;
 } Type_BegBscreen;
 
+typedef struct {//size 4*5
+	int32 var_0;
+	int32 var_1;
+	int32 var_2;
+	int32 var_3;
+	int32 var_4;
+} Type_RenderPoint;
+
 #pragma pack (16)
 
 extern uint8_t* pdwScreenBuffer_12EFF4;

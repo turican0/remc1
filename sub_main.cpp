@@ -1633,7 +1633,8 @@ void sub_725C8(__int16 a1, unsigned __int16 a2, __int16 a3);
 void sub_72652_72B62(__int16 a1, uint16_t* a2, int a3, uint16_t* a4);
 void sub_726E7_72BF7(__int16 a1, uint16_t* a2, int a3, uint16_t* a4);
 char sub_72807_72D17(unsigned __int8 *a1, _BYTE *a2);
-void DrawTriangle_729A3_72EB3(_DWORD *a1, _DWORD *a2, _DWORD *a3);
+void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3);
+void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Type_RenderPoint* pnt3);
 void SetViewPort2_79495_799A5(uint8* a1, int a2, int a3, int a4, int a5);
 void sub_79906(int a1);
 void sub_79A1B(int a1);
@@ -26838,7 +26839,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].pitch_8,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].roll_10,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].fov_12);
-        //CompareWith((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+        CompareWith((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
         if (str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].var_u32_29807_12 >= 0
 			&& (str_AE408_AE3F8->var_u8_0 & 4) == 0)
 		{
@@ -33454,13 +33455,13 @@ LABEL_26:
                                     byte_967E1 = 5;
                                     if ((v74 & 1) != 0)
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
                                     }
                                     else
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
                                     }
                                 }
                                 if (!*(_WORD*)(v71 + 36))
@@ -33538,13 +33539,13 @@ LABEL_26:
                                 dword_93AD0 = dword_9334C[v87];
                                 if ((v88 & 1) != 0)
                                 {
-                                    DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-                                    DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                    DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
+                                    DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
                                 }
                                 else
                                 {
-                                    DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-                                    DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+                                    DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+                                    DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
                                 }
                             }
                             if (*(_WORD*)(v84 + 36))
@@ -33684,13 +33685,13 @@ LABEL_26:
                                     dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)];
                                     if ((*(_BYTE*)(v121 + 38) & 1) != 0)
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                                     }
                                     else
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                                     }
                                 }
                                 if (*(_WORD*)(v121 + 36))
@@ -33715,13 +33716,13 @@ LABEL_26:
                                     dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)];
                                     if ((v124 & 1) != 0)
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                                     }
                                     else
                                     {
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-                                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                                     }
                                 }
                                 if (*(_WORD*)(v121 + 36))
@@ -33782,13 +33783,13 @@ LABEL_26:
                         dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)];
                         if ((v107 & 1) != 0)
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-                            DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         }
                         else
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                         }
                     }
                     if (*(_WORD*)(v102 + 36))
@@ -33812,13 +33813,13 @@ LABEL_26:
                         dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)];
                         if ((*(_BYTE*)(v102 + 38) & 1) != 0)
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-                            DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         }
                         else
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                         }
                     }
                     if (*(_WORD*)(v102 + 36))
@@ -34028,15 +34029,15 @@ LABEL_26:
                     dword_93AD0 = dword_9334C[*(unsigned __int8*)(v179 + 41)];
                     if ((v182 & 1) != 0)
                     {
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
                         v125 = (int)&v198x[0];
-                        DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                     }
                     else
                     {
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         v125 = (int)&v213x[0];
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                     }
                 }
                 if (*(_WORD*)(v179 + 36))
@@ -34103,15 +34104,15 @@ LABEL_26:
                         dword_93AD0 = dword_9334C[*(unsigned __int8*)(v194 + 41)];
                         if ((*(_BYTE*)(v194 + 38) & 1) != 0)
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
                             v125 = (int)&v198x[0];
-                            DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         }
                         else
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                             v125 = (int)&v213x[0];
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                         }
                     }
                     if (*(_WORD*)(v194 + 36))
@@ -34163,15 +34164,15 @@ LABEL_26:
                 {
                     if ((*(_BYTE*)(v157 + 38) & 1) != 0)
                     {
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
                         v125 = (int)&v198x[0];
-                        DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                     }
                     else
                     {
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         v125 = (int)&v213x[0];
-                        DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                        DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                     }
                 }
                 if (*(_WORD*)(v157 + 36))
@@ -34211,15 +34212,15 @@ LABEL_26:
                     {
                         if ((*(_BYTE*)(v167 + 38) & 1) != 0)
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
                             v125 = (int)&v198x[0];
-                            DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                         }
                         else
                         {
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
                             v125 = (int)&v213x[0];
-                            DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+                            DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
                         }
                     }
                     if (*(_WORD*)(v167 + 36))
@@ -34252,10 +34253,10 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	int tempVar32; // eax
 	void (*v141)(); // eax
 	int tempSubVar20; // edx
-	int v198x[5]; // [esp+0h] [ebp-E0h] BYREF
-	int v203x[5]; // [esp+18h] [ebp-C8h] BYREF
-	int v208x[5]; // [esp+30h] [ebp-B0h] BYREF
-	int v213x[5]; // [esp+48h] [ebp-98h] BYREF
+    Type_RenderPoint v198x; // [esp+0h] [ebp-E0h] BYREF
+    Type_RenderPoint v203x; // [esp+18h] [ebp-C8h] BYREF
+    Type_RenderPoint v208x; // [esp+30h] [ebp-B0h] BYREF
+    Type_RenderPoint v213x; // [esp+48h] [ebp-98h] BYREF
 	int tempSinShift; // [esp+60h] [ebp-80h]
 	int tempShad; // [esp+68h] [ebp-78h]
 	_BYTE* yawQuartal; // [esp+6Ch] [ebp-74h]
@@ -34589,25 +34590,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((tempBegBscreen[index62 + 1].triangleDir_38._axis_2d.x & 4) != 0)
 						break;
 
-					v213x[0] = tempBegBscreen[index62].pnt3_24;
-					v213x[1] = tempBegBscreen[index62].pnt4_28;
-					v213x[4] = tempBegBscreen[index62].pnt5_32;
-					v208x[0] = tempBegBscreen[index62 + 1].pnt3_24;
-					v208x[1] = tempBegBscreen[index62 + 1].pnt4_28;
-					v208x[4] = tempBegBscreen[index62 + 1].pnt5_32;
-					v203x[0] = tempBegBscreen[index62 + 1 - textRows].pnt3_24;
-					v203x[1] = tempBegBscreen[index62 + 1 - textRows].pnt4_28;
-					v203x[4] = tempBegBscreen[index62 + 1 - textRows].pnt5_32;
-					v198x[0] = tempBegBscreen[index62 - textRows].pnt3_24;
-					v198x[1] = tempBegBscreen[index62 - textRows].pnt4_28;
-					v198x[4] = tempBegBscreen[index62 - textRows].pnt5_32;
+					v213x.var_0 = tempBegBscreen[index62].pnt3_24;
+					v213x.var_1 = tempBegBscreen[index62].pnt4_28;
+					v213x.var_4 = tempBegBscreen[index62].pnt5_32;
+					v208x.var_0 = tempBegBscreen[index62 + 1].pnt3_24;
+					v208x.var_1 = tempBegBscreen[index62 + 1].pnt4_28;
+					v208x.var_4 = tempBegBscreen[index62 + 1].pnt5_32;
+					v203x.var_0 = tempBegBscreen[index62 + 1 - textRows].pnt3_24;
+					v203x.var_1 = tempBegBscreen[index62 + 1 - textRows].pnt4_28;
+					v203x.var_4 = tempBegBscreen[index62 + 1 - textRows].pnt5_32;
+					v198x.var_0 = tempBegBscreen[index62 - textRows].pnt3_24;
+					v198x.var_1 = tempBegBscreen[index62 - textRows].pnt4_28;
+					v198x.var_4 = tempBegBscreen[index62 - textRows].pnt5_32;
 
 					if (tempBegBscreen[index62].haveTexture_41)
 					{
 						if ((tempBegBscreen[index62].triangleDir_38._axis_2d.y & 0x10) != 0)
 						{
 							byte_967E1 = 7;
-							byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+							byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 						}
 						else
 						{
@@ -34615,25 +34616,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						}
 						if (((tempBegBscreen[index62 - textRows].triangleDir_38.word | tempBegBscreen[index62].triangleDir_38.word | tempBegBscreen[index62 + 1].triangleDir_38.word | tempBegBscreen[index62].triangleDir_38.word) & 2) == 0)
 						{
-							v213x[2] = unk_902DC[tempBegBscreen[index62].var_42][0];
-							v213x[3] = unk_902DC[tempBegBscreen[index62].var_42][1];
-							v208x[2] = unk_902DC[tempBegBscreen[index62].var_42][2];
-							v208x[3] = unk_902DC[tempBegBscreen[index62].var_42][3];
-							v203x[2] = unk_902DC[tempBegBscreen[index62].var_42][4];
-							v203x[3] = unk_902DC[tempBegBscreen[index62].var_42][5];
-							v198x[2] = unk_902DC[tempBegBscreen[index62].var_42][6];
-							v198x[3] = unk_902DC[tempBegBscreen[index62].var_42][7];
+							v213x.var_2 = unk_902DC[tempBegBscreen[index62].var_42][0];
+							v213x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][1];
+							v208x.var_2 = unk_902DC[tempBegBscreen[index62].var_42][2];
+							v208x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][3];
+							v203x.var_2 = unk_902DC[tempBegBscreen[index62].var_42][4];
+							v203x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][5];
+							v198x.var_2 = unk_902DC[tempBegBscreen[index62].var_42][6];
+							v198x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][7];
 							dword_93AD0 = dword_9334C[tempBegBscreen[index62].haveTexture_41];
 							byte_967E1 = 5;
 							if ((tempBegBscreen[index62].triangleDir_38._axis_2d.x & 1) != 0)
 							{
-								DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-								DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+								DrawTriangle_729A3_72EB3(&v213x, &v198x, &v208x);
+								DrawTriangle_729A3_72EB3(&v198x, &v203x, &v208x);
 							}
 							else
 							{
-								DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-								DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+								DrawTriangle_729A3_72EB3(&v213x, &v203x, &v208x);
+								DrawTriangle_729A3_72EB3(&v213x, &v198x, &v203x);
 							}
 						}
 					}
@@ -34645,25 +34646,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				for (int indexR = 0; indexR < textRows; indexR++)
 				{
 					{
-						v213x[0] = tempBegBscreen[indexv76].pnt3_24;
-						v213x[1] = tempBegBscreen[indexv76].pnt4_28;
-						v213x[4] = tempBegBscreen[indexv76].pnt5_32;
-						v208x[0] = tempBegBscreen[indexv76 + 1].pnt3_24;
-						v208x[1] = tempBegBscreen[indexv76 + 1].pnt4_28;
-						v208x[4] = tempBegBscreen[indexv76 + 1].pnt5_32;
-						v203x[0] = tempBegBscreen[indexv76 + 1 - textRows].pnt3_24;
-						v203x[1] = tempBegBscreen[indexv76 + 1 - textRows].pnt4_28;
-						v203x[4] = tempBegBscreen[indexv76 + 1 - textRows].pnt5_32;
-						v198x[0] = tempBegBscreen[indexv76 - textRows].pnt3_24;
-						v198x[1] = tempBegBscreen[indexv76 - textRows].pnt4_28;
-						v198x[4] = tempBegBscreen[indexv76 - textRows].pnt5_32;
+						v213x.var_0 = tempBegBscreen[indexv76].pnt3_24;
+						v213x.var_1 = tempBegBscreen[indexv76].pnt4_28;
+						v213x.var_4 = tempBegBscreen[indexv76].pnt5_32;
+						v208x.var_0 = tempBegBscreen[indexv76 + 1].pnt3_24;
+						v208x.var_1 = tempBegBscreen[indexv76 + 1].pnt4_28;
+						v208x.var_4 = tempBegBscreen[indexv76 + 1].pnt5_32;
+						v203x.var_0 = tempBegBscreen[indexv76 + 1 - textRows].pnt3_24;
+						v203x.var_1 = tempBegBscreen[indexv76 + 1 - textRows].pnt4_28;
+						v203x.var_4 = tempBegBscreen[indexv76 + 1 - textRows].pnt5_32;
+						v198x.var_0 = tempBegBscreen[indexv76 - textRows].pnt3_24;
+						v198x.var_1 = tempBegBscreen[indexv76 - textRows].pnt4_28;
+						v198x.var_4 = tempBegBscreen[indexv76 - textRows].pnt5_32;
 
 						if (tempBegBscreen[indexv76].haveTexture_41)
 						{
 							if ((tempBegBscreen[indexv76].triangleDir_38._axis_2d.y & 0x10) != 0)
 							{
 								byte_967E1 = 7;
-								byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+								byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 							}
 							else
 							{
@@ -34671,25 +34672,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 							}
 							if (((tempBegBscreen[indexv76 - textRows].triangleDir_38.word | tempBegBscreen[indexv76].triangleDir_38.word | tempBegBscreen[indexv76 + 1].triangleDir_38.word | tempBegBscreen[indexv76].triangleDir_38.word) & 2) == 0)
 							{
-								v213x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][0];
-								v213x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][1];
-								v208x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][2];
-								v208x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][3];
-								v203x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][4];
-								v203x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][5];
-								v198x[2] = unk_902DC[tempBegBscreen[indexv76].var_42][6];
-								v198x[3] = unk_902DC[tempBegBscreen[indexv76].var_42][7];
+								v213x.var_2 = unk_902DC[tempBegBscreen[indexv76].var_42][0];
+								v213x.var_3 = unk_902DC[tempBegBscreen[indexv76].var_42][1];
+								v208x.var_2 = unk_902DC[tempBegBscreen[indexv76].var_42][2];
+								v208x.var_3 = unk_902DC[tempBegBscreen[indexv76].var_42][3];
+								v203x.var_2 = unk_902DC[tempBegBscreen[indexv76].var_42][4];
+								v203x.var_3 = unk_902DC[tempBegBscreen[indexv76].var_42][5];
+								v198x.var_2 = unk_902DC[tempBegBscreen[indexv76].var_42][6];
+								v198x.var_3 = unk_902DC[tempBegBscreen[indexv76].var_42][7];
 								byte_967E1 = 5;
 								dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].haveTexture_41];
 								if ((tempBegBscreen[indexv76].triangleDir_38._axis_2d.x & 1) != 0)
 								{
-									DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
-									DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
+									DrawTriangle_729A3_72EB3(&v213x, &v198x, &v208x);
+									DrawTriangle_729A3_72EB3(&v198x, &v203x, &v208x);
 								}
 								else
 								{
-									DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v208x[0]);
-									DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v203x[0]);
+									DrawTriangle_729A3_72EB3(&v213x, &v203x, &v208x);
+									DrawTriangle_729A3_72EB3(&v213x, &v198x, &v203x);
 								}
 							}
 						}
@@ -34733,24 +34734,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				if ((tempBegBscreen[indexv91 + 1].triangleDir_38._axis_2d.x & 4) != 0)
 					break;
 
-				v213x[0] = tempBegBscreen[indexv91].pnt1_16;
-				v213x[1] = tempBegBscreen[indexv91].pnt2_20;
-				v213x[4] = tempBegBscreen[indexv91].pnt5_32;
-				v208x[0] = tempBegBscreen[indexv91 + 1].pnt1_16;
-				v208x[1] = tempBegBscreen[indexv91 + 1].pnt2_20;
-				v208x[4] = tempBegBscreen[indexv91 + 1].pnt5_32;
-				v203x[0] = tempBegBscreen[indexv91 + 1 - textRows].pnt1_16;
-				v203x[1] = tempBegBscreen[indexv91 + 1 - textRows].pnt2_20;
-				v203x[4] = tempBegBscreen[indexv91 + 1 - textRows].pnt5_32;
-				v198x[0] = tempBegBscreen[indexv91 - textRows].pnt1_16;
-				v198x[1] = tempBegBscreen[indexv91 - textRows].pnt2_20;
-				v198x[4] = tempBegBscreen[indexv91 - textRows].pnt5_32;
+				v213x.var_0 = tempBegBscreen[indexv91].pnt1_16;
+				v213x.var_1 = tempBegBscreen[indexv91].pnt2_20;
+				v213x.var_4 = tempBegBscreen[indexv91].pnt5_32;
+				v208x.var_0 = tempBegBscreen[indexv91 + 1].pnt1_16;
+				v208x.var_1 = tempBegBscreen[indexv91 + 1].pnt2_20;
+				v208x.var_4 = tempBegBscreen[indexv91 + 1].pnt5_32;
+				v203x.var_0 = tempBegBscreen[indexv91 + 1 - textRows].pnt1_16;
+				v203x.var_1 = tempBegBscreen[indexv91 + 1 - textRows].pnt2_20;
+				v203x.var_4 = tempBegBscreen[indexv91 + 1 - textRows].pnt5_32;
+				v198x.var_0 = tempBegBscreen[indexv91 - textRows].pnt1_16;
+				v198x.var_1 = tempBegBscreen[indexv91 - textRows].pnt2_20;
+				v198x.var_4 = tempBegBscreen[indexv91 - textRows].pnt5_32;
 				if (tempBegBscreen[indexv91].triangleDir_38._axis_2d.x >= 0)
 				{
 					if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.y & 0x10) != 0)
 					{
 						byte_967E1 = 7;
-						byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+						byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 					}
 					else
 					{
@@ -34759,24 +34760,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((((tempBegBscreen[indexv91 - textRows].triangleDir_38.word | tempBegBscreen[indexv91].triangleDir_38.word | tempBegBscreen[indexv91 + 1].triangleDir_38.word | tempBegBscreen[indexv91].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[indexv91 - textRows].triangleDir_38.word & tempBegBscreen[indexv91].triangleDir_38.word & tempBegBscreen[indexv91 + 1].triangleDir_38.word & tempBegBscreen[indexv91].triangleDir_38.word) & 0x78) == 0)
 					{
-						v213x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][7];
+						v213x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][0];
+						v213x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][1];
+						v208x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][2];
+						v208x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][3];
+						v203x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][4];
+						v203x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
+						v198x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
+						v198x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
 						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41];
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[indexv91].haveSprite_36)
@@ -34788,24 +34789,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((((tempBegBscreen[indexv91 - textRows].triangleDir_38.word | tempBegBscreen[indexv91].triangleDir_38.word | tempBegBscreen[indexv91 + 1].triangleDir_38.word | tempBegBscreen[indexv91].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[indexv91 - textRows].triangleDir_38.word & tempBegBscreen[indexv91].triangleDir_38.word & tempBegBscreen[indexv91 + 1].triangleDir_38.word & tempBegBscreen[indexv91].triangleDir_38.word) & 0x78) == 0)
 					{
-						v213x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[indexv91].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[indexv91].var_42][7];
+						v213x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][0];
+						v213x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][1];
+						v208x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][2];
+						v208x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][3];
+						v203x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][4];
+						v203x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
+						v198x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
+						v198x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
 						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41];
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[indexv91].haveSprite_36)
@@ -34827,24 +34828,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				compare_index_1FC68A++;
 #endif debug1
 				//debug
-				v213x[0] = tempBegBscreen[index109].pnt1_16;
-				v213x[1] = tempBegBscreen[index109].pnt2_20;
-				v213x[4] = tempBegBscreen[index109].pnt5_32;
-				v208x[0] = tempBegBscreen[index109 + 1].pnt1_16;
-				v208x[1] = tempBegBscreen[index109 + 1].pnt2_20;
-				v208x[4] = tempBegBscreen[index109 + 1].pnt5_32;
-				v203x[0] = tempBegBscreen[index109 + 1 - textRows].pnt1_16;
-				v203x[1] = tempBegBscreen[index109 + 1 - textRows].pnt2_20;
-				v203x[4] = tempBegBscreen[index109 + 1 - textRows].pnt5_32;
-				v198x[0] = tempBegBscreen[index109 - textRows].pnt1_16;
-				v198x[1] = tempBegBscreen[index109 - textRows].pnt2_20;
-				v198x[4] = tempBegBscreen[index109 - textRows].pnt5_32;
+				v213x.var_0 = tempBegBscreen[index109].pnt1_16;
+				v213x.var_1 = tempBegBscreen[index109].pnt2_20;
+				v213x.var_4 = tempBegBscreen[index109].pnt5_32;
+				v208x.var_0 = tempBegBscreen[index109 + 1].pnt1_16;
+				v208x.var_1 = tempBegBscreen[index109 + 1].pnt2_20;
+				v208x.var_4 = tempBegBscreen[index109 + 1].pnt5_32;
+				v203x.var_0 = tempBegBscreen[index109 + 1 - textRows].pnt1_16;
+				v203x.var_1 = tempBegBscreen[index109 + 1 - textRows].pnt2_20;
+				v203x.var_4 = tempBegBscreen[index109 + 1 - textRows].pnt5_32;
+				v198x.var_0 = tempBegBscreen[index109 - textRows].pnt1_16;
+				v198x.var_1 = tempBegBscreen[index109 - textRows].pnt2_20;
+				v198x.var_4 = tempBegBscreen[index109 - textRows].pnt5_32;
 				if (tempBegBscreen[index109].triangleDir_38._axis_2d.x >= 0)
 				{
 					if ((tempBegBscreen[index109].triangleDir_38._axis_2d.y & 0x10) != 0)
 					{
 						byte_967E1 = 7;
-						byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+						byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 					}
 					else
 					{
@@ -34853,24 +34854,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((((tempBegBscreen[index109 - textRows].triangleDir_38.word | tempBegBscreen[index109].triangleDir_38.word | tempBegBscreen[index109 + 1].triangleDir_38.word | tempBegBscreen[index109].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[index109 - textRows].triangleDir_38.word & tempBegBscreen[index109].triangleDir_38.word & tempBegBscreen[index109 + 1].triangleDir_38.word & tempBegBscreen[index109].triangleDir_38.word) & 0x78) == 0)
 					{
-						v213x[2] = unk_902DC[tempBegBscreen[index109].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[index109].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[index109].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[index109].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[index109].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[index109].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[index109].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[index109].var_42][7];
+						v213x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][0];
+						v213x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][1];
+						v208x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][2];
+						v208x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][3];
+						v203x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][4];
+						v203x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
+						v198x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
+						v198x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
 						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41];
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[index109].haveSprite_36)
@@ -34882,24 +34883,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((((tempBegBscreen[index109 - textRows].triangleDir_38.word | tempBegBscreen[index109].triangleDir_38.word | tempBegBscreen[index109 + 1].triangleDir_38.word | tempBegBscreen[index109].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[index109 - textRows].triangleDir_38.word & tempBegBscreen[index109].triangleDir_38.word & tempBegBscreen[index109 + 1].triangleDir_38.word & tempBegBscreen[index109].triangleDir_38.word) & 0x78) == 0)
 					{
-						v213x[2] = unk_902DC[tempBegBscreen[index109].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[index109].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[index109].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[index109].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[index109].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[index109].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[index109].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[index109].var_42][7];
+						v213x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][0];
+						v213x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][1];
+						v208x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][2];
+						v208x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][3];
+						v203x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][4];
+						v203x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
+						v198x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
+						v198x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
 						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41];
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[index109].haveSprite_36)
@@ -35023,24 +35024,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			int indexR;
 			for (indexR = 0; indexR < textRows - 1; indexR++)
 			{
-				v213x[0] = tempBegBscreen[index168].pnt1_16;
-				v213x[1] = tempBegBscreen[index168].pnt2_20;
-				v213x[4] = tempBegBscreen[index168].pnt5_32;
+				v213x.var_0 = tempBegBscreen[index168].pnt1_16;
+				v213x.var_1 = tempBegBscreen[index168].pnt2_20;
+				v213x.var_4 = tempBegBscreen[index168].pnt5_32;
 				if ((tempBegBscreen[index168 + 1].triangleDir_38._axis_2d.x & 4) != 0)
 					break;
-				v208x[0] = tempBegBscreen[index168 + 1].pnt1_16;
-				v208x[1] = tempBegBscreen[index168 + 1].pnt2_20;
-				v208x[4] = tempBegBscreen[index168 + 1].pnt5_32;
-				v203x[0] = tempBegBscreen[index168 + 1 - textRows].pnt1_16;
-				v203x[1] = tempBegBscreen[index168 + 1 - textRows].pnt2_20;
-				v203x[4] = tempBegBscreen[index168 + 1 - textRows].pnt5_32;
-				v198x[0] = tempBegBscreen[index168 - textRows].pnt1_16;
-				v198x[1] = tempBegBscreen[index168 - textRows].pnt2_20;
-				v198x[4] = tempBegBscreen[index168 - textRows].pnt5_32;
+				v208x.var_0 = tempBegBscreen[index168 + 1].pnt1_16;
+				v208x.var_1 = tempBegBscreen[index168 + 1].pnt2_20;
+				v208x.var_4 = tempBegBscreen[index168 + 1].pnt5_32;
+				v203x.var_0 = tempBegBscreen[index168 + 1 - textRows].pnt1_16;
+				v203x.var_1 = tempBegBscreen[index168 + 1 - textRows].pnt2_20;
+				v203x.var_4 = tempBegBscreen[index168 + 1 - textRows].pnt5_32;
+				v198x.var_0 = tempBegBscreen[index168 - textRows].pnt1_16;
+				v198x.var_1 = tempBegBscreen[index168 - textRows].pnt2_20;
+				v198x.var_4 = tempBegBscreen[index168 - textRows].pnt5_32;
 				if ((tempBegBscreen[index168].triangleDir_38._axis_2d.y & 0x10) != 0)
 				{
 					byte_967E1 = 7;
-					byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+					byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 				}
 				else
 				{
@@ -35049,25 +35050,25 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				if ((((tempBegBscreen[index168 - textRows].triangleDir_38.word | tempBegBscreen[index168].triangleDir_38.word | tempBegBscreen[index168 + 1].triangleDir_38.word | tempBegBscreen[index168].triangleDir_38.word)) & 2) == 0 &&
 					((tempBegBscreen[index168 - textRows].triangleDir_38.word & tempBegBscreen[index168].triangleDir_38.word & tempBegBscreen[index168 + 1].triangleDir_38.word & tempBegBscreen[index168].triangleDir_38.word) & 0x78) == 0)
 				{
-					v213x[2] = unk_902DC[tempBegBscreen[index168].var_42][0];
-					v213x[3] = unk_902DC[tempBegBscreen[index168].var_42][1];
-					v208x[2] = unk_902DC[tempBegBscreen[index168].var_42][2];
-					v208x[3] = unk_902DC[tempBegBscreen[index168].var_42][3];
-					v203x[2] = unk_902DC[tempBegBscreen[index168].var_42][4];
-					v203x[3] = unk_902DC[tempBegBscreen[index168].var_42][5];
-					v198x[2] = unk_902DC[tempBegBscreen[index168].var_42][6];
-					v198x[3] = unk_902DC[tempBegBscreen[index168].var_42][7];
+					v213x.var_2 = unk_902DC[tempBegBscreen[index168].var_42][0];
+					v213x.var_3 = unk_902DC[tempBegBscreen[index168].var_42][1];
+					v208x.var_2 = unk_902DC[tempBegBscreen[index168].var_42][2];
+					v208x.var_3 = unk_902DC[tempBegBscreen[index168].var_42][3];
+					v203x.var_2 = unk_902DC[tempBegBscreen[index168].var_42][4];
+					v203x.var_3 = unk_902DC[tempBegBscreen[index168].var_42][5];
+					v198x.var_2 = unk_902DC[tempBegBscreen[index168].var_42][6];
+					v198x.var_3 = unk_902DC[tempBegBscreen[index168].var_42][7];
 
 					dword_93AD0 = dword_9334C[tempBegBscreen[index168].haveTexture_41];
 					if ((tempBegBscreen[index168].triangleDir_38._axis_2d.x & 1) != 0)
 					{
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-						DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+						DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 					}
 					else
 					{
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+						DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 					}
 				}
 				if (tempBegBscreen[index168].haveSprite_36)
@@ -35079,22 +35080,22 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				int index183 = index168;
 				do
 				{
-					v213x[0] = tempBegBscreen[index183].pnt1_16;
-					v213x[1] = tempBegBscreen[index183].pnt2_20;
-					v213x[4] = tempBegBscreen[index183].pnt5_32;
-					v208x[0] = tempBegBscreen[index183 + 1].pnt1_16;
-					v208x[1] = tempBegBscreen[index183 + 1].pnt2_20;
-					v208x[4] = tempBegBscreen[index183 + 1].pnt5_32;
-					v203x[0] = tempBegBscreen[index183 + 1 - textRows].pnt1_16;
-					v203x[1] = tempBegBscreen[index183 + 1 - textRows].pnt2_20;
-					v203x[4] = tempBegBscreen[index183 + 1 - textRows].pnt5_32;
-					v198x[0] = tempBegBscreen[index183 - textRows].pnt1_16;
-					v198x[1] = tempBegBscreen[index183 - textRows].pnt2_20;
-					v198x[4] = tempBegBscreen[index183 - textRows].pnt5_32;
+					v213x.var_0 = tempBegBscreen[index183].pnt1_16;
+					v213x.var_1 = tempBegBscreen[index183].pnt2_20;
+					v213x.var_4 = tempBegBscreen[index183].pnt5_32;
+					v208x.var_0 = tempBegBscreen[index183 + 1].pnt1_16;
+					v208x.var_1 = tempBegBscreen[index183 + 1].pnt2_20;
+					v208x.var_4 = tempBegBscreen[index183 + 1].pnt5_32;
+					v203x.var_0 = tempBegBscreen[index183 + 1 - textRows].pnt1_16;
+					v203x.var_1 = tempBegBscreen[index183 + 1 - textRows].pnt2_20;
+					v203x.var_4 = tempBegBscreen[index183 + 1 - textRows].pnt5_32;
+					v198x.var_0 = tempBegBscreen[index183 - textRows].pnt1_16;
+					v198x.var_1 = tempBegBscreen[index183 - textRows].pnt2_20;
+					v198x.var_4 = tempBegBscreen[index183 - textRows].pnt5_32;
 					if ((tempBegBscreen[index183].triangleDir_38._axis_2d.y & 0x10) != 0)
 					{
 						byte_967E1 = 7;
-						byte_967E0 = (v198x[4] + v203x[4] + v208x[4] + v213x[4]) >> 18;
+						byte_967E0 = (v198x.var_4 + v203x.var_4 + v208x.var_4 + v213x.var_4) >> 18;
 					}
 					else
 					{
@@ -35103,24 +35104,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					if ((((tempBegBscreen[index183 - textRows].triangleDir_38.word | tempBegBscreen[index183].triangleDir_38.word | tempBegBscreen[index183 + 1].triangleDir_38.word | tempBegBscreen[index183].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[index183 - textRows].triangleDir_38.word & tempBegBscreen[index183].triangleDir_38.word & tempBegBscreen[index183 + 1].triangleDir_38.word & tempBegBscreen[index183].triangleDir_38.word) & 0x78) == 0)
 					{
-						v213x[2] = unk_902DC[tempBegBscreen[index183].var_42][0];
-						v213x[3] = unk_902DC[tempBegBscreen[index183].var_42][1];
-						v208x[2] = unk_902DC[tempBegBscreen[index183].var_42][2];
-						v208x[3] = unk_902DC[tempBegBscreen[index183].var_42][3];
-						v203x[2] = unk_902DC[tempBegBscreen[index183].var_42][4];
-						v203x[3] = unk_902DC[tempBegBscreen[index183].var_42][5];
-						v198x[2] = unk_902DC[tempBegBscreen[index183].var_42][6];
-						v198x[3] = unk_902DC[tempBegBscreen[index183].var_42][7];
+						v213x.var_2 = unk_902DC[tempBegBscreen[index183].var_42][0];
+						v213x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][1];
+						v208x.var_2 = unk_902DC[tempBegBscreen[index183].var_42][2];
+						v208x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][3];
+						v203x.var_2 = unk_902DC[tempBegBscreen[index183].var_42][4];
+						v203x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][5];
+						v198x.var_2 = unk_902DC[tempBegBscreen[index183].var_42][6];
+						v198x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][7];
 						dword_93AD0 = dword_9334C[tempBegBscreen[index183].haveTexture_41];
 						if ((tempBegBscreen[index183].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[index183].haveSprite_36)
@@ -35139,32 +35140,32 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			int indexR;
 			for (indexR = 0; indexR < textRows - 1; indexR++)
 			{
-				v213x[0] = tempBegBscreen[index148].pnt1_16;
-				v213x[1] = tempBegBscreen[index148].pnt2_20;
-				v213x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index148].y_12);
+				v213x.var_0 = tempBegBscreen[index148].pnt1_16;
+				v213x.var_1 = tempBegBscreen[index148].pnt2_20;
+				v213x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148].y_12);
 				if ((tempBegBscreen[index148 + 1].triangleDir_38._axis_2d.x & 4) != 0)
 					break;
-				v208x[0] = tempBegBscreen[index148 + 1].pnt1_16;
-				v208x[1] = tempBegBscreen[index148 + 1].pnt2_20;
-				v208x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1].y_12);
-				v203x[0] = tempBegBscreen[index148 + 1 - textRows].pnt1_16;
-				v203x[1] = tempBegBscreen[index148 + 1 - textRows].pnt2_20;
-				v203x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1 - textRows].y_12);
-				v198x[0] = tempBegBscreen[index148 - textRows].pnt1_16;
-				v198x[1] = tempBegBscreen[index148 - textRows].pnt2_20;
-				v198x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index148 - textRows].y_12);
+				v208x.var_0 = tempBegBscreen[index148 + 1].pnt1_16;
+				v208x.var_1 = tempBegBscreen[index148 + 1].pnt2_20;
+				v208x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1].y_12);
+				v203x.var_0 = tempBegBscreen[index148 + 1 - textRows].pnt1_16;
+				v203x.var_1 = tempBegBscreen[index148 + 1 - textRows].pnt2_20;
+				v203x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1 - textRows].y_12);
+				v198x.var_0 = tempBegBscreen[index148 - textRows].pnt1_16;
+				v198x.var_1 = tempBegBscreen[index148 - textRows].pnt2_20;
+				v198x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 - textRows].y_12);
 				if ((((tempBegBscreen[index148 - textRows].triangleDir_38.word | tempBegBscreen[index148].triangleDir_38.word | tempBegBscreen[index148 + 1].triangleDir_38.word | tempBegBscreen[index148].triangleDir_38.word)) & 2) == 0 &&
 					((tempBegBscreen[index148 - textRows].triangleDir_38.word & tempBegBscreen[index148].triangleDir_38.word & tempBegBscreen[index148 + 1].triangleDir_38.word & tempBegBscreen[index148].triangleDir_38.word) & 0x78) == 0)
 				{
 					if ((tempBegBscreen[index148].triangleDir_38._axis_2d.x & 1) != 0)
 					{
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-						DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+						DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 					}
 					else
 					{
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-						DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+						DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 					}
 				}
 				if (tempBegBscreen[index148].haveSprite_36)
@@ -35176,30 +35177,30 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				int index158 = index148;
 				do
 				{
-					v213x[0] = tempBegBscreen[index158].pnt1_16;
-					v213x[1] = tempBegBscreen[index158].pnt2_20;
-					v213x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index158].y_12);
-					v208x[0] = tempBegBscreen[index158 + 1].pnt1_16;
-					v208x[1] = tempBegBscreen[index158 + 1].pnt2_20;
-					v208x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1].y_12);
-					v203x[0] = tempBegBscreen[index158 + 1 - textRows].pnt1_16;
-					v203x[1] = tempBegBscreen[index158 + 1 - textRows].pnt2_20;
-					v203x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1 - textRows].y_12);
-					v198x[0] = tempBegBscreen[index158 - textRows].pnt1_16;
-					v198x[1] = tempBegBscreen[index158 - textRows].pnt2_20;
-					v198x[4] = 0x400000 - 350 * (5120 - tempBegBscreen[index158 - textRows].y_12);
+					v213x.var_0 = tempBegBscreen[index158].pnt1_16;
+					v213x.var_1 = tempBegBscreen[index158].pnt2_20;
+					v213x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158].y_12);
+					v208x.var_0 = tempBegBscreen[index158 + 1].pnt1_16;
+					v208x.var_1 = tempBegBscreen[index158 + 1].pnt2_20;
+					v208x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1].y_12);
+					v203x.var_0 = tempBegBscreen[index158 + 1 - textRows].pnt1_16;
+					v203x.var_1 = tempBegBscreen[index158 + 1 - textRows].pnt2_20;
+					v203x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1 - textRows].y_12);
+					v198x.var_0 = tempBegBscreen[index158 - textRows].pnt1_16;
+					v198x.var_1 = tempBegBscreen[index158 - textRows].pnt2_20;
+					v198x.var_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 - textRows].y_12);
 					if ((((tempBegBscreen[index158 - textRows].triangleDir_38.word | tempBegBscreen[index158].triangleDir_38.word | tempBegBscreen[index158 + 1].triangleDir_38.word | tempBegBscreen[index158].triangleDir_38.word)) & 2) == 0 &&
 						((tempBegBscreen[index158 - textRows].triangleDir_38.word & tempBegBscreen[index158].triangleDir_38.word & tempBegBscreen[index158 + 1].triangleDir_38.word & tempBegBscreen[index158].triangleDir_38.word) & 0x78) == 0)
 					{
 						if ((tempBegBscreen[index158].triangleDir_38._axis_2d.x & 1) != 0)
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v198x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
+							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
 						}
 						else
 						{
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v203x[0]);
-							DrawTriangle_729A3_72EB3((uint32*)&v213x[0], (uint32*)&v203x[0], (uint32*)&v198x[0]);
+							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v203x);
+							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
 					if (tempBegBscreen[index158].haveSprite_36)
@@ -81296,19 +81297,10324 @@ int compare_index_245FFB = 0;
 int compare_index_24674B = 0;
 int compare_index_24629B = 0;
 
-//SYNCHRONIZED WITH REMC2
-void DrawTriangle_729A3_72EB3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_ // draw textured triangle
+void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
 {
-  int32* v3; // esi
-  int32* v4; // edi
-  int32* v5; // ecx
-  int32 v6; // eax
-  int32 v7; // ebx
-  int32 v8; // edx
-  int v9; // eax
-  int v10; // ebx
-  int v11; // ebx
-  int v12; // ebx
+    int32* v3; // esi
+    int32* v4; // edi
+    int32* v5; // ecx
+    int32 v6; // eax
+    int32 v7; // ebx
+    int32 v8; // edx
+    int v9; // eax
+    int v10; // ebx
+    int v11; // ebx
+    int v12; // ebx
+    int v13; // eax
+    int v14; // ebx
+    _BOOL1 v15; // zf
+    char v16; // cc
+    int v17; // ebx
+    int v18; // ebx
+    int v19; // eax
+    int v20; // ebx
+    int v21; // ecx
+    int v22; // edx
+    int v23; // esi
+    int v24; // ebx
+    _DWORD* v25; // edi
+    int v26; // edi
+    _BOOL1 v27; // of
+    int v28; // edi
+    unsigned int v29; // eax
+    int v30; // eax
+    int v31; // ebx
+    _BOOL1 v32; // zf
+    int v33; // ebx
+    int v34; // ebx
+    int v35; // eax
+    int v36; // ebx
+    int v37; // ecx
+    int v38; // edx
+    int v39; // ebx
+    _DWORD* v40; // edi
+    int v41; // edi
+    int v42; // edi
+    int v43; // eax
+    int v44; // ebx
+    _BOOL1 v45; // zf
+    int v46; // ebx
+    int v47; // eax
+    int v48; // ebx
+    int v49; // esi
+    int v50; // ebx
+    _DWORD* v51; // edi
+    int v52; // edi
+    int v53; // edi
+    int v54; // eax
+    int v55; // ebx
+    int v56; // ebx
+    _DWORD* v57; // edi
+    int v58; // edi
+    int v59; // edi
+    int v60; // eax
+    int v61; // ebx
+    int v62; // ebx
+    int v63; // ebx
+    int v64; // eax
+    int v65; // ebx
+    _BOOL1 v66; // zf
+    int v67; // ebx
+    int v68; // ebx
+    int v69; // eax
+    int v70; // ebx
+    int v71; // ecx
+    int v72; // edx
+    int v73; // esi
+    int v74; // eax
+    _DWORD* v75; // edi
+    int v76; // edi
+    int v77; // edi
+    int v78; // eax
+    int v79; // ebx
+    _BOOL1 v80; // zf
+    int v81; // ebx
+    int v82; // ebx
+    int v83; // eax
+    int v84; // ebx
+    int v85; // ecx
+    int v86; // edx
+    int v87; // eax
+    _DWORD* v88; // edi
+    int v89; // edi
+    int v90; // edi
+    int v91; // eax
+    int v92; // ebx
+    _BOOL1 v93; // zf
+    int v94; // ebx
+    int v95; // eax
+    int v96; // ebx
+    int v97; // esi
+    int v98; // eax
+    _DWORD* v99; // edi
+    int v100; // edi
+    int v101; // edi
+    int v102; // eax
+    int v103; // ebx
+    int v104; // eax
+    _DWORD* v105; // edi
+    int v106; // edi
+    int v107; // edi
+    int v108; // eax
+    int v109; // ebx
+    int v110; // ebx
+    int v111; // eax
+    int v112; // ebx
+    int v113; // ecx
+    int v114; // edx
+    int v115; // esi
+    int v116; // edi
+    _DWORD* v117; // edi
+    int v118; // ebx
+    int v119; // eax
+    int v120; // ebx
+    int v121; // ecx
+    int v122; // edx
+    int v123; // edi
+    _DWORD* v124; // edi
+    int v125; // eax
+    int v126; // ebx
+    int v127; // esi
+    int v128; // edi
+    _DWORD* v129; // edi
+    int v130; // eax
+    int v131; // ebx
+    int v132; // edi
+    _DWORD* v133; // edi
+    int v134; // eax
+    int v135; // ebx
+    int v136; // ebx
+    int v137; // eax
+    int v138; // ebx
+    int v139; // ecx
+    int v140; // edx
+    int v141; // esi
+    int v142; // edi
+    _DWORD* v143; // edi
+    int v144; // ebx
+    int v145; // eax
+    int v146; // ebx
+    int v147; // ecx
+    int v148; // edx
+    int v149; // edi
+    _DWORD* v150; // edi
+    int v151; // eax
+    int v152; // ebx
+    int v153; // esi
+    int v154; // edi
+    _DWORD* v155; // edi
+    int v156; // eax
+    int v157; // ebx
+    int v158; // edi
+    _DWORD* v159; // edi
+    unsigned __int16* v160; // esi
+    char* v161; // edx
+    char v162; // al
+    int v163; // ebx
+    signed int v164; // ecx
+    char* v165; // edi
+    _WORD* i; // esi
+    int v167; // ecx
+    _BYTE* v168; // edi
+    unsigned int v169; // eax
+    __int16 v170; // bx
+    _BOOL1 v171; // cf
+    __int16 v172; // bx
+    __int16 v173; // bx
+    char v174; // ah
+    __int16 v175; // cx
+    __int16 v176; // bx
+    char v177; // ah
+    __int16 v178; // cx
+    __int16 v179; // bx
+    char v180; // ah
+    __int16 v181; // cx
+    __int16 v182; // bx
+    char v183; // ah
+    __int16 v184; // cx
+    __int16 v185; // bx
+    char v186; // ah
+    __int16 v187; // cx
+    __int16 v188; // bx
+    char v189; // ah
+    __int16 v190; // cx
+    __int16 v191; // bx
+    char v192; // ah
+    __int16 v193; // cx
+    __int16 v194; // bx
+    char v195; // ah
+    __int16 v196; // cx
+    __int16 v197; // bx
+    char v198; // ah
+    __int16 v199; // cx
+    __int16 v200; // bx
+    char v201; // ah
+    __int16 v202; // cx
+    __int16 v203; // bx
+    char v204; // ah
+    __int16 v205; // cx
+    __int16 v206; // bx
+    char v207; // ah
+    __int16 v208; // cx
+    __int16 v209; // bx
+    char v210; // ah
+    __int16 v211; // cx
+    __int16 v212; // bx
+    char v213; // ah
+    __int16 v214; // cx
+    __int16 v215; // bx
+    char v216; // ah
+    __int16 v217; // cx
+    unsigned __int16* v218; // esi
+    int v219; // eax
+    int v220; // ebx
+    int v221; // ecx
+    _BYTE* v222; // edi
+    int v223; // eax
+    unsigned int v224; // eax
+    int v225; // edx
+    unsigned int v226; // eax
+    int v227; // esi
+    char v228; // al
+    int v229; // edx
+    __int16 v230; // cx
+    char v231; // al
+    int v232; // edx
+    __int16 v233; // cx
+    char v234; // al
+    int v235; // edx
+    __int16 v236; // cx
+    char v237; // al
+    int v238; // edx
+    __int16 v239; // cx
+    char v240; // al
+    int v241; // edx
+    __int16 v242; // cx
+    char v243; // al
+    int v244; // edx
+    __int16 v245; // cx
+    char v246; // al
+    int v247; // edx
+    __int16 v248; // cx
+    char v249; // al
+    int v250; // edx
+    __int16 v251; // cx
+    char v252; // al
+    int v253; // edx
+    __int16 v254; // cx
+    char v255; // al
+    int v256; // edx
+    __int16 v257; // cx
+    char v258; // al
+    int v259; // edx
+    __int16 v260; // cx
+    char v261; // al
+    int v262; // edx
+    __int16 v263; // cx
+    char v264; // al
+    int v265; // edx
+    __int16 v266; // cx
+    char v267; // al
+    int v268; // edx
+    __int16 v269; // cx
+    char v270; // al
+    int v271; // edx
+    __int16 v272; // cx
+    char v273; // al
+    unsigned __int16* v274; // esi
+    int v275; // eax
+    int v276; // ebx
+    int v277; // ecx
+    _BYTE* v278; // edi
+    int v279; // eax
+    unsigned int v280; // eax
+    int v281; // edx
+    unsigned int v282; // eax
+    int v283; // esi
+    char v284; // al
+    int v285; // edx
+    __int16 v286; // cx
+    char v287; // al
+    int v288; // edx
+    __int16 v289; // cx
+    char v290; // al
+    int v291; // edx
+    __int16 v292; // cx
+    char v293; // al
+    int v294; // edx
+    __int16 v295; // cx
+    char v296; // al
+    int v297; // edx
+    __int16 v298; // cx
+    char v299; // al
+    int v300; // edx
+    __int16 v301; // cx
+    char v302; // al
+    int v303; // edx
+    __int16 v304; // cx
+    char v305; // al
+    int v306; // edx
+    __int16 v307; // cx
+    char v308; // al
+    int v309; // edx
+    __int16 v310; // cx
+    char v311; // al
+    int v312; // edx
+    __int16 v313; // cx
+    char v314; // al
+    int v315; // edx
+    __int16 v316; // cx
+    char v317; // al
+    int v318; // edx
+    __int16 v319; // cx
+    char v320; // al
+    int v321; // edx
+    __int16 v322; // cx
+    char v323; // al
+    int v324; // edx
+    __int16 v325; // cx
+    char v326; // al
+    int v327; // edx
+    __int16 v328; // cx
+    char v329; // al
+    _WORD* j; // esi
+    int v331; // ecx
+    _BYTE* v332; // edi
+    unsigned int v333; // eax
+    __int16 v334; // bx
+    __int16 v335; // bx
+    __int16 v336; // bx
+    __int16 v337; // cx
+    __int16 v338; // bx
+    __int16 v339; // cx
+    __int16 v340; // bx
+    __int16 v341; // cx
+    __int16 v342; // bx
+    __int16 v343; // cx
+    __int16 v344; // bx
+    __int16 v345; // cx
+    __int16 v346; // bx
+    __int16 v347; // cx
+    __int16 v348; // bx
+    __int16 v349; // cx
+    __int16 v350; // bx
+    __int16 v351; // cx
+    __int16 v352; // bx
+    __int16 v353; // cx
+    __int16 v354; // bx
+    __int16 v355; // cx
+    __int16 v356; // bx
+    __int16 v357; // cx
+    __int16 v358; // bx
+    __int16 v359; // cx
+    __int16 v360; // bx
+    __int16 v361; // cx
+    __int16 v362; // bx
+    __int16 v363; // cx
+    __int16 v364; // bx
+    __int16 v365; // cx
+    unsigned int v366; // eax
+    int v367; // ebx
+    char* v368; // esi
+    int v369; // ecx
+    uint8* v370; // edi
+    int v371; // ecx
+    int v372; // edx
+    int v373; // ecx
+    __int16 v374; // cx
+    __int16 v375; // bp
+    _BYTE* v376; // edi
+    int v377; // ebp
+    unsigned int v378; // eax
+    int v379; // ebx
+    char* v380; // esi
+    int v381; // ecx
+    uint8* v382; // edi
+    int v383; // ecx
+    int v384; // edx
+    int v385; // ecx
+    __int16 v386; // cx
+    __int16 v387; // bp
+    _BYTE* v388; // edi
+    int v389; // ebp
+    unsigned __int16* v390; // esi
+    int v391; // eax
+    int v392; // ebx
+    int v393; // ecx
+    _BYTE* v394; // edi
+    int v395; // eax
+    unsigned int v396; // eax
+    int v397; // edx
+    unsigned int v398; // eax
+    int v399; // esi
+    int v400; // edx
+    __int16 v401; // cx
+    int v402; // edx
+    __int16 v403; // cx
+    int v404; // edx
+    __int16 v405; // cx
+    int v406; // edx
+    __int16 v407; // cx
+    int v408; // edx
+    __int16 v409; // cx
+    int v410; // edx
+    __int16 v411; // cx
+    int v412; // edx
+    __int16 v413; // cx
+    int v414; // edx
+    __int16 v415; // cx
+    int v416; // edx
+    __int16 v417; // cx
+    int v418; // edx
+    __int16 v419; // cx
+    int v420; // edx
+    __int16 v421; // cx
+    int v422; // edx
+    __int16 v423; // cx
+    int v424; // edx
+    __int16 v425; // cx
+    int v426; // edx
+    __int16 v427; // cx
+    int v428; // edx
+    __int16 v429; // cx
+    unsigned __int16* v430; // esi
+    int v431; // eax
+    int v432; // ebx
+    int v433; // ecx
+    _BYTE* v434; // edi
+    int v435; // eax
+    unsigned int v436; // eax
+    int v437; // edx
+    unsigned int v438; // eax
+    int v439; // esi
+    int v440; // edx
+    __int16 v441; // cx
+    int v442; // edx
+    __int16 v443; // cx
+    int v444; // edx
+    __int16 v445; // cx
+    int v446; // edx
+    __int16 v447; // cx
+    int v448; // edx
+    __int16 v449; // cx
+    int v450; // edx
+    __int16 v451; // cx
+    int v452; // edx
+    __int16 v453; // cx
+    int v454; // edx
+    __int16 v455; // cx
+    int v456; // edx
+    __int16 v457; // cx
+    int v458; // edx
+    __int16 v459; // cx
+    int v460; // edx
+    __int16 v461; // cx
+    int v462; // edx
+    __int16 v463; // cx
+    int v464; // edx
+    __int16 v465; // cx
+    int v466; // edx
+    __int16 v467; // cx
+    int v468; // edx
+    __int16 v469; // cx
+    unsigned __int16* v470; // esi
+    int v471; // eax
+    int v472; // ebx
+    int v473; // ecx
+    _BYTE* v474; // edi
+    int v475; // eax
+    unsigned int v476; // eax
+    int v477; // edx
+    unsigned int v478; // eax
+    int v479; // esi
+    int v480; // edx
+    __int16 v481; // cx
+    int v482; // edx
+    __int16 v483; // cx
+    int v484; // edx
+    __int16 v485; // cx
+    int v486; // edx
+    __int16 v487; // cx
+    int v488; // edx
+    __int16 v489; // cx
+    int v490; // edx
+    __int16 v491; // cx
+    int v492; // edx
+    __int16 v493; // cx
+    int v494; // edx
+    __int16 v495; // cx
+    int v496; // edx
+    __int16 v497; // cx
+    int v498; // edx
+    __int16 v499; // cx
+    int v500; // edx
+    __int16 v501; // cx
+    int v502; // edx
+    __int16 v503; // cx
+    int v504; // edx
+    __int16 v505; // cx
+    int v506; // edx
+    __int16 v507; // cx
+    int v508; // edx
+    __int16 v509; // cx
+    unsigned __int16* v510; // esi
+    int v511; // eax
+    int v512; // ebx
+    int v513; // ecx
+    _BYTE* v514; // edi
+    int v515; // eax
+    unsigned int v516; // eax
+    int v517; // edx
+    unsigned int v518; // eax
+    int v519; // esi
+    int v520; // edx
+    __int16 v521; // cx
+    int v522; // edx
+    __int16 v523; // cx
+    int v524; // edx
+    __int16 v525; // cx
+    int v526; // edx
+    __int16 v527; // cx
+    int v528; // edx
+    __int16 v529; // cx
+    int v530; // edx
+    __int16 v531; // cx
+    int v532; // edx
+    __int16 v533; // cx
+    int v534; // edx
+    __int16 v535; // cx
+    int v536; // edx
+    __int16 v537; // cx
+    int v538; // edx
+    __int16 v539; // cx
+    int v540; // edx
+    __int16 v541; // cx
+    int v542; // edx
+    __int16 v543; // cx
+    int v544; // edx
+    __int16 v545; // cx
+    int v546; // edx
+    __int16 v547; // cx
+    int v548; // edx
+    __int16 v549; // cx
+    unsigned __int16* v550; // esi
+    int v551; // eax
+    int v552; // ebx
+    int v553; // ecx
+    _BYTE* v554; // edi
+    int v555; // eax
+    unsigned int v556; // eax
+    int v557; // edx
+    unsigned int v558; // eax
+    int v559; // esi
+    int v560; // edx
+    __int16 v561; // cx
+    int v562; // edx
+    __int16 v563; // cx
+    int v564; // edx
+    __int16 v565; // cx
+    int v566; // edx
+    __int16 v567; // cx
+    int v568; // edx
+    __int16 v569; // cx
+    int v570; // edx
+    __int16 v571; // cx
+    int v572; // edx
+    __int16 v573; // cx
+    int v574; // edx
+    __int16 v575; // cx
+    int v576; // edx
+    __int16 v577; // cx
+    int v578; // edx
+    __int16 v579; // cx
+    int v580; // edx
+    __int16 v581; // cx
+    int v582; // edx
+    __int16 v583; // cx
+    int v584; // edx
+    __int16 v585; // cx
+    int v586; // edx
+    __int16 v587; // cx
+    int v588; // edx
+    __int16 v589; // cx
+    unsigned __int16* v590; // esi
+    _BYTE* v591; // edx
+    int v592; // eax
+    int v593; // ebx
+    int v594; // ecx
+    _BYTE* k; // edi
+    __int16 v596; // cx
+    __int16 v597; // cx
+    __int16 v598; // cx
+    __int16 v599; // cx
+    __int16 v600; // cx
+    __int16 v601; // cx
+    __int16 v602; // cx
+    __int16 v603; // cx
+    __int16 v604; // cx
+    __int16 v605; // cx
+    __int16 v606; // cx
+    __int16 v607; // cx
+    __int16 v608; // cx
+    __int16 v609; // cx
+    __int16 v610; // cx
+    unsigned __int16* v611; // esi
+    _BYTE* v612; // edx
+    int v613; // eax
+    int v614; // ebx
+    int v615; // ecx
+    _BYTE* m; // edi
+    __int16 v617; // cx
+    __int16 v618; // cx
+    __int16 v619; // cx
+    __int16 v620; // cx
+    __int16 v621; // cx
+    __int16 v622; // cx
+    __int16 v623; // cx
+    __int16 v624; // cx
+    __int16 v625; // cx
+    __int16 v626; // cx
+    __int16 v627; // cx
+    __int16 v628; // cx
+    __int16 v629; // cx
+    __int16 v630; // cx
+    __int16 v631; // cx
+    unsigned __int16* v632; // esi
+    int v633; // edx
+    int v634; // ecx
+    _BYTE* v635; // edi
+    unsigned int v636; // eax
+    __int16 v637; // bx
+    unsigned __int16 v638; // bx
+    __int16 v639; // bx
+    __int16 v640; // cx
+    __int16 v641; // bx
+    __int16 v642; // cx
+    __int16 v643; // bx
+    __int16 v644; // cx
+    __int16 v645; // bx
+    __int16 v646; // cx
+    __int16 v647; // bx
+    __int16 v648; // cx
+    __int16 v649; // bx
+    __int16 v650; // cx
+    __int16 v651; // bx
+    __int16 v652; // cx
+    __int16 v653; // bx
+    __int16 v654; // cx
+    __int16 v655; // bx
+    __int16 v656; // cx
+    __int16 v657; // bx
+    __int16 v658; // cx
+    __int16 v659; // bx
+    __int16 v660; // cx
+    __int16 v661; // bx
+    __int16 v662; // cx
+    __int16 v663; // bx
+    __int16 v664; // cx
+    __int16 v665; // bx
+    __int16 v666; // cx
+    __int16 v667; // bx
+    __int16 v668; // cx
+    unsigned __int16* v669; // esi
+    int v670; // edx
+    int v671; // ecx
+    _BYTE* v672; // edi
+    unsigned int v673; // eax
+    __int16 v674; // bx
+    unsigned __int16 v675; // bx
+    __int16 v676; // bx
+    __int16 v677; // cx
+    __int16 v678; // bx
+    __int16 v679; // cx
+    __int16 v680; // bx
+    __int16 v681; // cx
+    __int16 v682; // bx
+    __int16 v683; // cx
+    __int16 v684; // bx
+    __int16 v685; // cx
+    __int16 v686; // bx
+    __int16 v687; // cx
+    __int16 v688; // bx
+    __int16 v689; // cx
+    __int16 v690; // bx
+    __int16 v691; // cx
+    __int16 v692; // bx
+    __int16 v693; // cx
+    __int16 v694; // bx
+    __int16 v695; // cx
+    __int16 v696; // bx
+    __int16 v697; // cx
+    __int16 v698; // bx
+    __int16 v699; // cx
+    __int16 v700; // bx
+    __int16 v701; // cx
+    __int16 v702; // bx
+    __int16 v703; // cx
+    __int16 v704; // bx
+    __int16 v705; // cx
+    unsigned __int16* v706; // esi
+    int v707; // eax
+    int v708; // ebx
+    int v709; // ecx
+    _BYTE* v710; // edi
+    int v711; // eax
+    unsigned int v712; // eax
+    int v713; // edx
+    unsigned int v714; // eax
+    int v715; // esi
+    int v716; // edx
+    __int16 v717; // cx
+    int v718; // edx
+    __int16 v719; // cx
+    int v720; // edx
+    __int16 v721; // cx
+    int v722; // edx
+    __int16 v723; // cx
+    int v724; // edx
+    __int16 v725; // cx
+    int v726; // edx
+    __int16 v727; // cx
+    int v728; // edx
+    __int16 v729; // cx
+    int v730; // edx
+    __int16 v731; // cx
+    int v732; // edx
+    __int16 v733; // cx
+    int v734; // edx
+    __int16 v735; // cx
+    int v736; // edx
+    __int16 v737; // cx
+    int v738; // edx
+    __int16 v739; // cx
+    int v740; // edx
+    __int16 v741; // cx
+    int v742; // edx
+    __int16 v743; // cx
+    int v744; // edx
+    __int16 v745; // cx
+    unsigned __int16* v746; // esi
+    int v747; // eax
+    int v748; // ebx
+    int v749; // ecx
+    _BYTE* v750; // edi
+    int v751; // eax
+    unsigned int v752; // eax
+    int v753; // edx
+    unsigned int v754; // eax
+    int v755; // esi
+    int v756; // edx
+    __int16 v757; // cx
+    int v758; // edx
+    __int16 v759; // cx
+    int v760; // edx
+    __int16 v761; // cx
+    int v762; // edx
+    __int16 v763; // cx
+    int v764; // edx
+    __int16 v765; // cx
+    int v766; // edx
+    __int16 v767; // cx
+    int v768; // edx
+    __int16 v769; // cx
+    int v770; // edx
+    __int16 v771; // cx
+    int v772; // edx
+    __int16 v773; // cx
+    int v774; // edx
+    __int16 v775; // cx
+    int v776; // edx
+    __int16 v777; // cx
+    int v778; // edx
+    __int16 v779; // cx
+    int v780; // edx
+    __int16 v781; // cx
+    int v782; // edx
+    __int16 v783; // cx
+    int v784; // edx
+    __int16 v785; // cx
+    unsigned __int16* v786; // esi
+    unsigned int v787; // eax
+    int v788; // ebx
+    int v789; // ecx
+    _BYTE* v790; // edi
+    int v791; // ecx
+    int v792; // edx
+    int v793; // ecx
+    int v794; // esi
+    int v795; // edx
+    int v796; // ecx
+    int v797; // edx
+    int v798; // ecx
+    int v799; // edx
+    int v800; // ecx
+    int v801; // edx
+    int v802; // ecx
+    int v803; // edx
+    int v804; // ecx
+    int v805; // edx
+    int v806; // ecx
+    int v807; // edx
+    int v808; // ecx
+    int v809; // edx
+    int v810; // ecx
+    int v811; // edx
+    int v812; // ecx
+    int v813; // edx
+    int v814; // ecx
+    int v815; // edx
+    int v816; // ecx
+    int v817; // edx
+    int v818; // ecx
+    int v819; // edx
+    int v820; // ecx
+    int v821; // edx
+    int v822; // ecx
+    int v823; // edx
+    int v824; // ecx
+    unsigned __int16* v825; // esi
+    unsigned int v826; // eax
+    int v827; // ebx
+    int v828; // ecx
+    _BYTE* v829; // edi
+    int v830; // ecx
+    int v831; // edx
+    int v832; // ecx
+    int v833; // esi
+    int v834; // edx
+    int v835; // ecx
+    int v836; // edx
+    int v837; // ecx
+    int v838; // edx
+    int v839; // ecx
+    int v840; // edx
+    int v841; // ecx
+    int v842; // edx
+    int v843; // ecx
+    int v844; // edx
+    int v845; // ecx
+    int v846; // edx
+    int v847; // ecx
+    int v848; // edx
+    int v849; // ecx
+    int v850; // edx
+    int v851; // ecx
+    int v852; // edx
+    int v853; // ecx
+    int v854; // edx
+    int v855; // ecx
+    int v856; // edx
+    int v857; // ecx
+    int v858; // edx
+    int v859; // ecx
+    int v860; // edx
+    int v861; // ecx
+    int v862; // edx
+    int v863; // ecx
+    unsigned __int16* v864; // esi
+    int v865; // eax
+    int v866; // ebx
+    int v867; // ecx
+    _BYTE* v868; // edi
+    int v869; // eax
+    unsigned int v870; // eax
+    int v871; // edx
+    unsigned int v872; // eax
+    int v873; // esi
+    int v874; // edx
+    __int16 v875; // cx
+    int v876; // edx
+    __int16 v877; // cx
+    int v878; // edx
+    __int16 v879; // cx
+    int v880; // edx
+    __int16 v881; // cx
+    int v882; // edx
+    __int16 v883; // cx
+    int v884; // edx
+    __int16 v885; // cx
+    int v886; // edx
+    __int16 v887; // cx
+    int v888; // edx
+    __int16 v889; // cx
+    int v890; // edx
+    __int16 v891; // cx
+    int v892; // edx
+    __int16 v893; // cx
+    int v894; // edx
+    __int16 v895; // cx
+    int v896; // edx
+    __int16 v897; // cx
+    int v898; // edx
+    __int16 v899; // cx
+    int v900; // edx
+    __int16 v901; // cx
+    int v902; // edx
+    __int16 v903; // cx
+    unsigned __int16* v904; // esi
+    int v905; // eax
+    int v906; // ebx
+    int v907; // ecx
+    _BYTE* v908; // edi
+    int v909; // eax
+    unsigned int v910; // eax
+    int v911; // edx
+    unsigned int v912; // eax
+    int v913; // esi
+    int v914; // edx
+    __int16 v915; // cx
+    int v916; // edx
+    __int16 v917; // cx
+    int v918; // edx
+    __int16 v919; // cx
+    int v920; // edx
+    __int16 v921; // cx
+    int v922; // edx
+    __int16 v923; // cx
+    int v924; // edx
+    __int16 v925; // cx
+    int v926; // edx
+    __int16 v927; // cx
+    int v928; // edx
+    __int16 v929; // cx
+    int v930; // edx
+    __int16 v931; // cx
+    int v932; // edx
+    __int16 v933; // cx
+    int v934; // edx
+    __int16 v935; // cx
+    int v936; // edx
+    __int16 v937; // cx
+    int v938; // edx
+    __int16 v939; // cx
+    int v940; // edx
+    __int16 v941; // cx
+    int v942; // edx
+    __int16 v943; // cx
+    unsigned __int16* v944; // esi
+    unsigned int v945; // eax
+    int v946; // ebx
+    int v947; // ecx
+    _BYTE* v948; // edi
+    int v949; // ecx
+    int v950; // edx
+    int v951; // ecx
+    int v952; // esi
+    int v953; // edx
+    int v954; // ecx
+    int v955; // edx
+    int v956; // ecx
+    int v957; // edx
+    int v958; // ecx
+    int v959; // edx
+    int v960; // ecx
+    int v961; // edx
+    int v962; // ecx
+    int v963; // edx
+    int v964; // ecx
+    int v965; // edx
+    int v966; // ecx
+    int v967; // edx
+    int v968; // ecx
+    int v969; // edx
+    int v970; // ecx
+    int v971; // edx
+    int v972; // ecx
+    int v973; // edx
+    int v974; // ecx
+    int v975; // edx
+    int v976; // ecx
+    int v977; // edx
+    int v978; // ecx
+    int v979; // edx
+    int v980; // ecx
+    int v981; // edx
+    int v982; // ecx
+    unsigned __int16* v983; // esi
+    unsigned int v984; // eax
+    int v985; // ebx
+    int v986; // ecx
+    _BYTE* v987; // edi
+    int v988; // ecx
+    int v989; // edx
+    int v990; // ecx
+    int v991; // esi
+    int v992; // edx
+    int v993; // ecx
+    int v994; // edx
+    int v995; // ecx
+    int v996; // edx
+    int v997; // ecx
+    int v998; // edx
+    int v999; // ecx
+    int v1000; // edx
+    int v1001; // ecx
+    int v1002; // edx
+    int v1003; // ecx
+    int v1004; // edx
+    int v1005; // ecx
+    int v1006; // edx
+    int v1007; // ecx
+    int v1008; // edx
+    int v1009; // ecx
+    int v1010; // edx
+    int v1011; // ecx
+    int v1012; // edx
+    int v1013; // ecx
+    int v1014; // edx
+    int v1015; // ecx
+    int v1016; // edx
+    int v1017; // ecx
+    int v1018; // edx
+    int v1019; // ecx
+    int v1020; // edx
+    int v1021; // ecx
+    unsigned __int16* v1022; // esi
+    unsigned int v1023; // eax
+    int v1024; // ebx
+    int v1025; // ecx
+    char* v1026; // edi
+    int v1027; // ecx
+    int v1028; // edx
+    int v1029; // ecx
+    int v1030; // esi
+    char v1031; // al
+    int v1032; // edx
+    int v1033; // ecx
+    char v1034; // al
+    int v1035; // edx
+    int v1036; // ecx
+    char v1037; // al
+    int v1038; // edx
+    int v1039; // ecx
+    char v1040; // al
+    int v1041; // edx
+    int v1042; // ecx
+    char v1043; // al
+    int v1044; // edx
+    int v1045; // ecx
+    char v1046; // al
+    int v1047; // edx
+    int v1048; // ecx
+    char v1049; // al
+    int v1050; // edx
+    int v1051; // ecx
+    char v1052; // al
+    int v1053; // edx
+    int v1054; // ecx
+    char v1055; // al
+    int v1056; // edx
+    int v1057; // ecx
+    char v1058; // al
+    int v1059; // edx
+    int v1060; // ecx
+    char v1061; // al
+    int v1062; // edx
+    int v1063; // ecx
+    char v1064; // al
+    int v1065; // edx
+    int v1066; // ecx
+    char v1067; // al
+    int v1068; // edx
+    int v1069; // ecx
+    char v1070; // al
+    int v1071; // edx
+    int v1072; // ecx
+    char v1073; // al
+    int v1074; // edx
+    int v1075; // ecx
+    char v1076; // al
+    uint8* v1077; // [esp+0h] [ebp-88h]
+    int v1078; // [esp+4h] [ebp-84h]
+    int v1079; // [esp+4h] [ebp-84h]
+    int v1080; // [esp+4h] [ebp-84h]
+    int v1081; // [esp+4h] [ebp-84h]
+    int v1082; // [esp+8h] [ebp-80h]
+    int v1083; // [esp+8h] [ebp-80h]
+    int v1084; // [esp+8h] [ebp-80h]
+    int v1085; // [esp+8h] [ebp-80h]
+    int v1086; // [esp+Ch] [ebp-7Ch]
+    int v1087; // [esp+Ch] [ebp-7Ch]
+    int v1088; // [esp+10h] [ebp-78h]
+    int v1089; // [esp+10h] [ebp-78h]
+    int v1090; // [esp+10h] [ebp-78h]
+    int v1091; // [esp+10h] [ebp-78h]
+    int v1092; // [esp+14h] [ebp-74h]
+    int v1093; // [esp+14h] [ebp-74h]
+    int v1094; // [esp+18h] [ebp-70h]
+    int v1095; // [esp+18h] [ebp-70h]
+    int v1096; // [esp+1Ch] [ebp-6Ch]
+    int v1097; // [esp+1Ch] [ebp-6Ch]
+    int v1098; // [esp+20h] [ebp-68h]
+    int v1099; // [esp+24h] [ebp-64h]
+    int v1100; // [esp+28h] [ebp-60h]
+    int v1101; // [esp+28h] [ebp-60h]
+    int v1102; // [esp+28h] [ebp-60h]
+    int v1103; // [esp+28h] [ebp-60h]
+    int v1104; // [esp+28h] [ebp-60h]
+    int v1105; // [esp+28h] [ebp-60h]
+    int v1106; // [esp+28h] [ebp-60h]
+    int v1107; // [esp+28h] [ebp-60h]
+    int v1108; // [esp+2Ch] [ebp-5Ch]
+    int v1109; // [esp+2Ch] [ebp-5Ch]
+    int v1110; // [esp+30h] [ebp-58h]
+    int v1111; // [esp+34h] [ebp-54h]
+    int v1112; // [esp+34h] [ebp-54h]
+    int v1113; // [esp+34h] [ebp-54h]
+    int v1114; // [esp+34h] [ebp-54h]
+    int v1115; // [esp+34h] [ebp-54h]
+    int v1116; // [esp+34h] [ebp-54h]
+    int v1117; // [esp+34h] [ebp-54h]
+    int v1118; // [esp+34h] [ebp-54h]
+    int v1119; // [esp+38h] [ebp-50h]
+    int v1120; // [esp+38h] [ebp-50h]
+    int v1121; // [esp+3Ch] [ebp-4Ch]
+    int v1122; // [esp+40h] [ebp-48h]
+    int v1123; // [esp+40h] [ebp-48h]
+    int v1124; // [esp+40h] [ebp-48h]
+    int v1125; // [esp+40h] [ebp-48h]
+    int v1126; // [esp+40h] [ebp-48h]
+    int v1127; // [esp+40h] [ebp-48h]
+    int v1128; // [esp+40h] [ebp-48h]
+    int v1129; // [esp+40h] [ebp-48h]
+    int v1130; // [esp+44h] [ebp-44h]
+    int v1131; // [esp+44h] [ebp-44h]
+    int v1132; // [esp+48h] [ebp-40h]
+    int v1133; // [esp+48h] [ebp-40h]
+    int v1134; // [esp+48h] [ebp-40h]
+    int v1135; // [esp+48h] [ebp-40h]
+    int v1136; // [esp+48h] [ebp-40h]
+    int v1137; // [esp+48h] [ebp-40h]
+    int v1138; // [esp+48h] [ebp-40h]
+    int v1139; // [esp+48h] [ebp-40h]
+    int v1140; // [esp+48h] [ebp-40h]
+    int v1141; // [esp+48h] [ebp-40h]
+    int v1142; // [esp+48h] [ebp-40h]
+    int v1143; // [esp+48h] [ebp-40h]
+    int v1144; // [esp+48h] [ebp-40h]
+    int v1145; // [esp+48h] [ebp-40h]
+    int v1146; // [esp+48h] [ebp-40h]
+    int v1147; // [esp+48h] [ebp-40h]
+    int v1148; // [esp+4Ch] [ebp-3Ch]
+    int v1149; // [esp+4Ch] [ebp-3Ch]
+    int v1150; // [esp+4Ch] [ebp-3Ch]
+    int v1151; // [esp+4Ch] [ebp-3Ch]
+    int v1152; // [esp+4Ch] [ebp-3Ch]
+    int v1153; // [esp+4Ch] [ebp-3Ch]
+    int v1154; // [esp+4Ch] [ebp-3Ch]
+    int v1155; // [esp+4Ch] [ebp-3Ch]
+    int v1156; // [esp+4Ch] [ebp-3Ch]
+    int v1157; // [esp+4Ch] [ebp-3Ch]
+    int v1158; // [esp+4Ch] [ebp-3Ch]
+    int v1159; // [esp+4Ch] [ebp-3Ch]
+    int v1160; // [esp+4Ch] [ebp-3Ch]
+    int v1161; // [esp+4Ch] [ebp-3Ch]
+    int v1162; // [esp+4Ch] [ebp-3Ch]
+    int v1163; // [esp+4Ch] [ebp-3Ch]
+    int v1164; // [esp+4Ch] [ebp-3Ch]
+    int v1165; // [esp+4Ch] [ebp-3Ch]
+    int v1166; // [esp+50h] [ebp-38h]
+    int v1167; // [esp+50h] [ebp-38h]
+    int v1168; // [esp+50h] [ebp-38h]
+    int v1169; // [esp+50h] [ebp-38h]
+    int v1170; // [esp+50h] [ebp-38h]
+    int v1171; // [esp+50h] [ebp-38h]
+    int v1172; // [esp+50h] [ebp-38h]
+    int v1173; // [esp+54h] [ebp-34h]
+    int v1174; // [esp+54h] [ebp-34h]
+    int v1175; // [esp+54h] [ebp-34h]
+    int v1176; // [esp+54h] [ebp-34h]
+    int v1177; // [esp+58h] [ebp-30h]
+    int v1178; // [esp+58h] [ebp-30h]
+    int v1179; // [esp+58h] [ebp-30h]
+    int v1180; // [esp+58h] [ebp-30h]
+    int v1181; // [esp+58h] [ebp-30h]
+    int v1182; // [esp+58h] [ebp-30h]
+    int v1183; // [esp+58h] [ebp-30h]
+    int v1184; // [esp+58h] [ebp-30h]
+    int v1185; // [esp+58h] [ebp-30h]
+    int v1186; // [esp+58h] [ebp-30h]
+    int v1187; // [esp+58h] [ebp-30h]
+    int v1188; // [esp+58h] [ebp-30h]
+    int v1189; // [esp+58h] [ebp-30h]
+    int v1190; // [esp+58h] [ebp-30h]
+    int v1191; // [esp+58h] [ebp-30h]
+    int v1192; // [esp+58h] [ebp-30h]
+    int v1193; // [esp+58h] [ebp-30h]
+    int v1194; // [esp+58h] [ebp-30h]
+    int v1195; // [esp+58h] [ebp-30h]
+    int v1196; // [esp+58h] [ebp-30h]
+    int v1197; // [esp+58h] [ebp-30h]
+    int v1198; // [esp+58h] [ebp-30h]
+    int v1199; // [esp+58h] [ebp-30h]
+    int v1200; // [esp+58h] [ebp-30h]
+    int v1201; // [esp+58h] [ebp-30h]
+    int v1202; // [esp+58h] [ebp-30h]
+    int v1203; // [esp+58h] [ebp-30h]
+    int v1204; // [esp+58h] [ebp-30h]
+    int v1205; // [esp+58h] [ebp-30h]
+    int v1206; // [esp+58h] [ebp-30h]
+    int v1207; // [esp+58h] [ebp-30h]
+    int v1208; // [esp+58h] [ebp-30h]
+    int v1209; // [esp+58h] [ebp-30h]
+    int v1210; // [esp+58h] [ebp-30h]
+    int v1211; // [esp+58h] [ebp-30h]
+    int v1212; // [esp+58h] [ebp-30h]
+    int v1213; // [esp+58h] [ebp-30h]
+    int v1214; // [esp+58h] [ebp-30h]
+    int v1215; // [esp+58h] [ebp-30h]
+    int v1216; // [esp+58h] [ebp-30h]
+    int v1217; // [esp+58h] [ebp-30h]
+    int v1218; // [esp+58h] [ebp-30h]
+    int v1219; // [esp+58h] [ebp-30h]
+    int v1220; // [esp+58h] [ebp-30h]
+    int v1221; // [esp+58h] [ebp-30h]
+    int v1222; // [esp+58h] [ebp-30h]
+    int v1223; // [esp+58h] [ebp-30h]
+    int v1224; // [esp+58h] [ebp-30h]
+    int v1225; // [esp+58h] [ebp-30h]
+    int v1226; // [esp+58h] [ebp-30h]
+    int v1227; // [esp+58h] [ebp-30h]
+    int v1228; // [esp+58h] [ebp-30h]
+    int v1229; // [esp+58h] [ebp-30h]
+    int v1230; // [esp+58h] [ebp-30h]
+    int v1231; // [esp+58h] [ebp-30h]
+    int v1232; // [esp+58h] [ebp-30h]
+    int v1233; // [esp+58h] [ebp-30h]
+    int v1234; // [esp+58h] [ebp-30h]
+    int v1235; // [esp+58h] [ebp-30h]
+    int v1236; // [esp+58h] [ebp-30h]
+    int v1237; // [esp+58h] [ebp-30h]
+    int v1238; // [esp+58h] [ebp-30h]
+    int v1239; // [esp+58h] [ebp-30h]
+    int v1240; // [esp+58h] [ebp-30h]
+    int v1241; // [esp+58h] [ebp-30h]
+    int v1242; // [esp+58h] [ebp-30h]
+    int v1243; // [esp+58h] [ebp-30h]
+    int v1244; // [esp+58h] [ebp-30h]
+    int v1245; // [esp+58h] [ebp-30h]
+    int v1246; // [esp+58h] [ebp-30h]
+    int v1247; // [esp+58h] [ebp-30h]
+    int v1248; // [esp+58h] [ebp-30h]
+    int v1249; // [esp+58h] [ebp-30h]
+    int v1250; // [esp+58h] [ebp-30h]
+    int v1251; // [esp+58h] [ebp-30h]
+    int v1252; // [esp+58h] [ebp-30h]
+    int v1253; // [esp+58h] [ebp-30h]
+    int v1254; // [esp+58h] [ebp-30h]
+    int v1255; // [esp+58h] [ebp-30h]
+    int v1256; // [esp+58h] [ebp-30h]
+    unsigned __int16* v1257; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1258; // [esp+5Ch] [ebp-2Ch]
+    char* v1259; // [esp+5Ch] [ebp-2Ch]
+    char* v1260; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1261; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1262; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1263; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1264; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1265; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1266; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1267; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1268; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1269; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1270; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1271; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1272; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1273; // [esp+5Ch] [ebp-2Ch]
+    unsigned __int16* v1274; // [esp+5Ch] [ebp-2Ch]
+    char v1275; // [esp+62h] [ebp-26h]
+    char v1276; // [esp+62h] [ebp-26h]
+    char v1277; // [esp+62h] [ebp-26h]
+    char v1278; // [esp+62h] [ebp-26h]
+    char v1279; // [esp+63h] [ebp-25h]
+    char v1280; // [esp+63h] [ebp-25h]
+    _BOOL1 v1281; // [esp+63h] [ebp-25h]
+    _BOOL1 v1282; // [esp+63h] [ebp-25h]
+    _BOOL1 v1283; // [esp+64h] [ebp-24h]
+    _BOOL1 v1284; // [esp+64h] [ebp-24h]
+
+    //  adress 2439A3_
+    //debug
+#ifdef debug1
+  /*if (compare_index_729A7 == 0x240c)
+  {
+      compare_index_729A7++;
+      compare_index_729A7--;
+  }
+  //add_compare(0x2439A7, true, true);
+  add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
+  uint8 origbyte20;
+  uint8 remakebyte20;
+  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&a1[1], 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  compare_index_729A7++;*/
+#endif debug1
+  //debug
+
+  //fix
+    v16 = 0;
+    v27 = 0;
+    v1022 = 0;
+    v1099 = 0;
+    v1110 = 0;
+    //fix
+
+    v3 = (int32*)a1;
+    v4 = (int32*)a2;
+    v5 = (int32*)a3;
+    v6 = a1[1];
+    v7 = a2[1];
+    v8 = a3[1];
+    if (v6 == v7)
+    {
+        if (v6 == v8)
+            return;
+        if (v6 >= v8)
+        {
+            if (*(int32*)a1 <= *(int32*)a2)
+                return;
+            v3 = (int32*)a3;
+            v4 = (int32*)a1;
+            v5 = (int32*)a2;
+            goto LABEL_225;
+        }
+        if (*(int32*)a2 <= *(int32*)a1)
+            return;
+        goto LABEL_268;
+    }
+    if (v6 <= v7)
+    {
+        if (v6 != v8)
+        {
+            if (v6 >= v8)
+            {
+                v3 = (int32*)a3;
+                v4 = (int32*)a1;
+                v5 = (int32*)a2;
+            LABEL_24:
+                v9 = v3[1];
+                v1173 = v9;
+                if (v9 >= 0)
+                {
+                    if (v9 >= heightViewPort_93ADC)
+                        return;
+                    v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v9;
+                    v1275 = 0;
+                }
+                else
+                {
+                    v1077 = beginPrevLineFrame_93AC8;
+                    v1275 = 1;
+                }
+                v10 = v5[1];
+                v1283 = v10 > heightViewPort_93ADC;
+                v1088 = v10 - v9;
+                v1098 = v10 - v9;
+                v11 = v4[1];
+                v1279 = v11 > heightViewPort_93ADC;
+                v12 = v11 - v9;
+                v1092 = v12;
+                v1078 = ((*v5 - *v3) << 16) / v1088;
+                if (((*v4 - *v3) << 16) / v12 > v1078)
+                {
+                    v1082 = ((*v4 - *v3) << 16) / v12;
+                    v1086 = ((*v5 - *v4) << 16) / (v5[1] - v4[1]);
+                    v1094 = v5[1] - v4[1];
+                    v1096 = *v4 << 16;
+                    switch (byte_967E1)
+                    {
+                    case 0:
+                    case 14:
+                    case 15:
+                        v54 = *v3 << 16;
+                        v55 = v54;
+                        if (!v1275)
+                        {
+                            if (v1283)
+                            {
+                                v58 = heightViewPort_93ADC - v1173;
+                                v1098 = heightViewPort_93ADC - v1173;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC - v1173;
+                                }
+                                else
+                                {
+                                    v27 = __OFSUB__(v58, v1092);
+                                    v59 = v58 - v1092;
+                                    v1279 = (v59 < 0) ^ v27 | (v59 == 0);
+                                    v1094 = v59;
+                                }
+                            }
+                            goto LABEL_116;
+                        }
+                        v16 = v1098 <= -v1173;
+                        v1098 += v1173;
+                        if (!v16)
+                        {
+                            v1138 = -v1173;
+                            if (-v1173 - v1092 >= 0)
+                            {
+                                v1094 -= v1138 - v1092;
+                                v1139 = v1138 - v1092;
+                                v54 += v1078 * v1139 + v1092 * v1078;
+                                v56 = v1086 * v1139 + v1096;
+                                if (v1283)
+                                {
+                                    v1094 = heightViewPort_93ADC;
+                                    v1098 = heightViewPort_93ADC;
+                                }
+                                v57 = (uint32*)&unk_93AE0;
+                            LABEL_119:
+                                if (v1279)
+                                {
+                                    v29 = (unsigned __int8)byte_967E1;
+                                    switch (byte_967E1)
+                                    {
+                                    case 0:
+                                        goto LABEL_309;
+                                    case 1:
+                                        goto LABEL_322;
+                                    case 2:
+                                        goto LABEL_351;
+                                    case 3:
+                                        goto LABEL_382;
+                                    case 4:
+                                        goto LABEL_445;
+                                    case 5:
+                                        goto LABEL_474;
+                                    case 6:
+                                        goto LABEL_503;
+                                    case 7:
+                                    case 11:
+                                        goto LABEL_564;
+                                    case 8:
+                                        goto LABEL_595;
+                                    case 9:
+                                    case 10:
+                                        goto LABEL_658;
+                                    case 12:
+                                        goto LABEL_721;
+                                    case 13:
+                                        goto LABEL_752;
+                                    case 14:
+                                        goto LABEL_783;
+                                    case 15:
+                                        goto LABEL_812;
+                                    case 16:
+                                        goto LABEL_841;
+                                    case 17:
+                                        goto LABEL_870;
+                                    case 18:
+                                        goto LABEL_899;
+                                    case 19:
+                                        goto LABEL_930;
+                                    case 20:
+                                        goto LABEL_961;
+                                    case 21:
+                                        goto LABEL_992;
+                                    case 22:
+                                        goto LABEL_1023;
+                                    case 23:
+                                        goto LABEL_1086;
+                                    case 24:
+                                        goto LABEL_1149;
+                                    case 25:
+                                        goto LABEL_1212;
+                                    case 26:
+                                        goto LABEL_1275;
+                                    }
+                                }
+                                do
+                                {
+                                    *v57 = v54;
+                                    v54 += v1078;
+                                    v57[1] = v56;
+                                    v56 += v1086;
+                                    v57 += 5;
+                                    --v1094;
+                                } while (v1094);
+                                v29 = (unsigned __int8)byte_967E1;
+                                switch (byte_967E1)
+                                {
+                                case 0:
+                                    goto LABEL_309;
+                                case 1:
+                                    goto LABEL_322;
+                                case 2:
+                                    goto LABEL_351;
+                                case 3:
+                                    goto LABEL_382;
+                                case 4:
+                                    goto LABEL_445;
+                                case 5:
+                                    goto LABEL_474;
+                                case 6:
+                                    goto LABEL_503;
+                                case 7:
+                                case 11:
+                                    goto LABEL_564;
+                                case 8:
+                                    goto LABEL_595;
+                                case 9:
+                                case 10:
+                                    goto LABEL_658;
+                                case 12:
+                                    goto LABEL_721;
+                                case 13:
+                                    goto LABEL_752;
+                                case 14:
+                                    goto LABEL_783;
+                                case 15:
+                                    goto LABEL_812;
+                                case 16:
+                                    goto LABEL_841;
+                                case 17:
+                                    goto LABEL_870;
+                                case 18:
+                                    goto LABEL_899;
+                                case 19:
+                                    goto LABEL_930;
+                                case 20:
+                                    goto LABEL_961;
+                                case 21:
+                                    goto LABEL_992;
+                                case 22:
+                                    goto LABEL_1023;
+                                case 23:
+                                    goto LABEL_1086;
+                                case 24:
+                                    goto LABEL_1149;
+                                case 25:
+                                    goto LABEL_1212;
+                                case 26:
+                                    goto LABEL_1275;
+                                }
+                            }
+                            v1092 += v1173;
+                            v54 += v1078 * v1138;
+                            v55 += v1138 * v1082;
+                            if (v1283)
+                            {
+                                v1098 = heightViewPort_93ADC;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC;
+                                }
+                                else
+                                {
+                                    v1279 = heightViewPort_93ADC <= v1092;
+                                    v1094 = heightViewPort_93ADC - v1092;
+                                }
+                            }
+                        LABEL_116:
+                            v57 = (uint32*)&unk_93AE0;
+                            do
+                            {
+                                *v57 = v54;
+                                v54 += v1078;
+                                v57[1] = v55;
+                                v55 += v1082;
+                                v57 += 5;
+                                --v1092;
+                            } while (v1092);
+                            v56 = v1096;
+                            goto LABEL_119;
+                        }
+                        return;
+                    case 1:
+                    case 4:
+                    case 16:
+                    case 17:
+                        v43 = v12 * (__int64)(*v3 - *v5) / v1088;
+                        v44 = *v4 - *v3;
+                        v45 = v43 + v44 == 0;
+                        v16 = (v43 + v44 < 0) ^ __OFADD__(v43, v44);
+                        v46 = v43 + v44;
+                        if (v16)
+                            return;
+                        if (!v45)
+                            v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / (v46 + 1);
+                        v1123 = (v5[4] - v3[4]) / v1088;
+                        v47 = *v3 << 16;
+                        v48 = v47;
+                        v49 = v3[4];
+                        if (!v1275)
+                        {
+                            if (v1283)
+                            {
+                                v52 = heightViewPort_93ADC - v1173;
+                                v1098 = heightViewPort_93ADC - v1173;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC - v1173;
+                                }
+                                else
+                                {
+                                    v27 = __OFSUB__(v52, v1092);
+                                    v53 = v52 - v1092;
+                                    v1279 = (v53 < 0) ^ v27 | (v53 == 0);
+                                    v1094 = v53;
+                                }
+                            }
+                            goto LABEL_95;
+                        }
+                        v16 = v1098 <= -v1173;
+                        v1098 += v1173;
+                        if (!v16)
+                        {
+                            v1136 = -v1173;
+                            if (-v1173 - v1092 >= 0)
+                            {
+                                v1094 -= v1136 - v1092;
+                                v1137 = v1136 - v1092;
+                                v47 += v1078 * v1137 + v1092 * v1078;
+                                v50 = v1086 * v1137 + v1096;
+                                v49 += v1137 * v1123 + v1092 * v1123;
+                                if (v1283)
+                                {
+                                    v1094 = heightViewPort_93ADC;
+                                    v1098 = heightViewPort_93ADC;
+                                }
+                                v51 = (uint32*)&unk_93AE0;
+                            LABEL_98:
+                                if (v1279)
+                                {
+                                    v29 = (unsigned __int8)byte_967E1;
+                                    switch (byte_967E1)
+                                    {
+                                    case 0:
+                                        goto LABEL_309;
+                                    case 1:
+                                        goto LABEL_322;
+                                    case 2:
+                                        goto LABEL_351;
+                                    case 3:
+                                        goto LABEL_382;
+                                    case 4:
+                                        goto LABEL_445;
+                                    case 5:
+                                        goto LABEL_474;
+                                    case 6:
+                                        goto LABEL_503;
+                                    case 7:
+                                    case 11:
+                                        goto LABEL_564;
+                                    case 8:
+                                        goto LABEL_595;
+                                    case 9:
+                                    case 10:
+                                        goto LABEL_658;
+                                    case 12:
+                                        goto LABEL_721;
+                                    case 13:
+                                        goto LABEL_752;
+                                    case 14:
+                                        goto LABEL_783;
+                                    case 15:
+                                        goto LABEL_812;
+                                    case 16:
+                                        goto LABEL_841;
+                                    case 17:
+                                        goto LABEL_870;
+                                    case 18:
+                                        goto LABEL_899;
+                                    case 19:
+                                        goto LABEL_930;
+                                    case 20:
+                                        goto LABEL_961;
+                                    case 21:
+                                        goto LABEL_992;
+                                    case 22:
+                                        goto LABEL_1023;
+                                    case 23:
+                                        goto LABEL_1086;
+                                    case 24:
+                                        goto LABEL_1149;
+                                    case 25:
+                                        goto LABEL_1212;
+                                    case 26:
+                                        goto LABEL_1275;
+                                    }
+                                }
+                                do
+                                {
+                                    *v51 = v47;
+                                    v47 += v1078;
+                                    v51[1] = v50;
+                                    v50 += v1086;
+                                    v51[4] = v49;
+                                    v49 += v1123;
+                                    v51 += 5;
+                                    --v1094;
+                                } while (v1094);
+                                v29 = (unsigned __int8)byte_967E1;
+                                switch (byte_967E1)
+                                {
+                                case 0:
+                                    goto LABEL_309;
+                                case 1:
+                                    goto LABEL_322;
+                                case 2:
+                                    goto LABEL_351;
+                                case 3:
+                                    goto LABEL_382;
+                                case 4:
+                                    goto LABEL_445;
+                                case 5:
+                                    goto LABEL_474;
+                                case 6:
+                                    goto LABEL_503;
+                                case 7:
+                                case 11:
+                                    goto LABEL_564;
+                                case 8:
+                                    goto LABEL_595;
+                                case 9:
+                                case 10:
+                                    goto LABEL_658;
+                                case 12:
+                                    goto LABEL_721;
+                                case 13:
+                                    goto LABEL_752;
+                                case 14:
+                                    goto LABEL_783;
+                                case 15:
+                                    goto LABEL_812;
+                                case 16:
+                                    goto LABEL_841;
+                                case 17:
+                                    goto LABEL_870;
+                                case 18:
+                                    goto LABEL_899;
+                                case 19:
+                                    goto LABEL_930;
+                                case 20:
+                                    goto LABEL_961;
+                                case 21:
+                                    goto LABEL_992;
+                                case 22:
+                                    goto LABEL_1023;
+                                case 23:
+                                    goto LABEL_1086;
+                                case 24:
+                                    goto LABEL_1149;
+                                case 25:
+                                    goto LABEL_1212;
+                                case 26:
+                                    goto LABEL_1275;
+                                }
+                            }
+                            v1092 += v1173;
+                            v47 += v1078 * v1136;
+                            v48 += v1136 * v1082;
+                            v49 += v1136 * v1123;
+                            if (v1283)
+                            {
+                                v1098 = heightViewPort_93ADC;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC;
+                                }
+                                else
+                                {
+                                    v1279 = heightViewPort_93ADC <= v1092;
+                                    v1094 = heightViewPort_93ADC - v1092;
+                                }
+                            }
+                        LABEL_95:
+                            v51 = (uint32*)&unk_93AE0;
+                            do
+                            {
+                                *v51 = v47;
+                                v47 += v1078;
+                                v51[1] = v48;
+                                v48 += v1082;
+                                v51[4] = v49;
+                                v49 += v1123;
+                                v51 += 5;
+                                --v1092;
+                            } while (v1092);
+                            v50 = v1096;
+                            goto LABEL_98;
+                        }
+                        return;
+                    case 2:
+                    case 3:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 18:
+                    case 19:
+                    case 22:
+                    case 23:
+                        v30 = v12 * (__int64)(*v3 - *v5) / v1088;
+                        v31 = *v4 - *v3;
+                        v32 = v30 + v31 == 0;
+                        v16 = (v30 + v31 < 0) ^ __OFADD__(v30, v31);
+                        v33 = v30 + v31;
+                        if (v16)
+                            return;
+                        if (!v32)
+                        {
+                            v34 = v33 + 1;
+                            v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v34;
+                            v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v34;
+                        }
+                        v1101 = (v5[2] - v3[2]) / v1088;
+                        v1112 = (v5[3] - v3[3]) / v1088;
+                        v35 = *v3 << 16;
+                        v36 = v35;
+                        v37 = v3[2];
+                        v38 = v3[3];
+                        if (!v1275)
+                        {
+                            if (v1283)
+                            {
+                                v41 = heightViewPort_93ADC - v1173;
+                                v1098 = heightViewPort_93ADC - v1173;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC - v1173;
+                                }
+                                else
+                                {
+                                    v27 = __OFSUB__(v41, v1092);
+                                    v42 = v41 - v1092;
+                                    v1279 = (v42 < 0) ^ v27 | (v42 == 0);
+                                    v1094 = v42;
+                                }
+                            }
+                            goto LABEL_71;
+                        }
+                        v16 = v1098 <= -v1173;
+                        v1098 += v1173;
+                        if (!v16)
+                        {
+                            v1134 = -v1173;
+                            if (-v1173 - v1092 >= 0)
+                            {
+                                v1094 -= v1134 - v1092;
+                                v1135 = v1134 - v1092;
+                                v35 += v1078 * v1135 + v1092 * v1078;
+                                v39 = v1086 * v1135 + v1096;
+                                v37 += v1135 * v1101 + v1092 * v1101;
+                                v38 += v1135 * v1112 + v1092 * v1112;
+                                if (v1283)
+                                {
+                                    v1094 = heightViewPort_93ADC;
+                                    v1098 = heightViewPort_93ADC;
+                                }
+                                v40 = (uint32*)&unk_93AE0;
+                            LABEL_74:
+                                if (v1279)
+                                {
+                                    v29 = (unsigned __int8)byte_967E1;
+                                    switch (byte_967E1)
+                                    {
+                                    case 0:
+                                        goto LABEL_309;
+                                    case 1:
+                                        goto LABEL_322;
+                                    case 2:
+                                        goto LABEL_351;
+                                    case 3:
+                                        goto LABEL_382;
+                                    case 4:
+                                        goto LABEL_445;
+                                    case 5:
+                                        goto LABEL_474;
+                                    case 6:
+                                        goto LABEL_503;
+                                    case 7:
+                                    case 11:
+                                        goto LABEL_564;
+                                    case 8:
+                                        goto LABEL_595;
+                                    case 9:
+                                    case 10:
+                                        goto LABEL_658;
+                                    case 12:
+                                        goto LABEL_721;
+                                    case 13:
+                                        goto LABEL_752;
+                                    case 14:
+                                        goto LABEL_783;
+                                    case 15:
+                                        goto LABEL_812;
+                                    case 16:
+                                        goto LABEL_841;
+                                    case 17:
+                                        goto LABEL_870;
+                                    case 18:
+                                        goto LABEL_899;
+                                    case 19:
+                                        goto LABEL_930;
+                                    case 20:
+                                        goto LABEL_961;
+                                    case 21:
+                                        goto LABEL_992;
+                                    case 22:
+                                        goto LABEL_1023;
+                                    case 23:
+                                        goto LABEL_1086;
+                                    case 24:
+                                        goto LABEL_1149;
+                                    case 25:
+                                        goto LABEL_1212;
+                                    case 26:
+                                        goto LABEL_1275;
+                                    }
+                                }
+                                do
+                                {
+                                    *v40 = v35;
+                                    v35 += v1078;
+                                    v40[1] = v39;
+                                    v39 += v1086;
+                                    v40[2] = v37;
+                                    v37 += v1101;
+                                    v40[3] = v38;
+                                    v38 += v1112;
+                                    v40 += 5;
+                                    --v1094;
+                                } while (v1094);
+                                v29 = (unsigned __int8)byte_967E1;
+                                switch (byte_967E1)
+                                {
+                                case 0:
+                                    goto LABEL_309;
+                                case 1:
+                                    goto LABEL_322;
+                                case 2:
+                                    goto LABEL_351;
+                                case 3:
+                                    goto LABEL_382;
+                                case 4:
+                                    goto LABEL_445;
+                                case 5:
+                                    goto LABEL_474;
+                                case 6:
+                                    goto LABEL_503;
+                                case 7:
+                                case 11:
+                                    goto LABEL_564;
+                                case 8:
+                                    goto LABEL_595;
+                                case 9:
+                                case 10:
+                                    goto LABEL_658;
+                                case 12:
+                                    goto LABEL_721;
+                                case 13:
+                                    goto LABEL_752;
+                                case 14:
+                                    goto LABEL_783;
+                                case 15:
+                                    goto LABEL_812;
+                                case 16:
+                                    goto LABEL_841;
+                                case 17:
+                                    goto LABEL_870;
+                                case 18:
+                                    goto LABEL_899;
+                                case 19:
+                                    goto LABEL_930;
+                                case 20:
+                                    goto LABEL_961;
+                                case 21:
+                                    goto LABEL_992;
+                                case 22:
+                                    goto LABEL_1023;
+                                case 23:
+                                    goto LABEL_1086;
+                                case 24:
+                                    goto LABEL_1149;
+                                case 25:
+                                    goto LABEL_1212;
+                                case 26:
+                                    goto LABEL_1275;
+                                }
+                            }
+                            v1092 += v1173;
+                            v35 += v1078 * v1134;
+                            v36 += v1134 * v1082;
+                            v37 += v1134 * v1101;
+                            v38 += v1134 * v1112;
+                            if (v1283)
+                            {
+                                v1098 = heightViewPort_93ADC;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC;
+                                }
+                                else
+                                {
+                                    v1279 = heightViewPort_93ADC <= v1092;
+                                    v1094 = heightViewPort_93ADC - v1092;
+                                }
+                            }
+                        LABEL_71:
+                            v40 = (uint32*)&unk_93AE0;
+                            do
+                            {
+                                *v40 = v35;
+                                v35 += v1078;
+                                v40[1] = v36;
+                                v36 += v1082;
+                                v40[2] = v37;
+                                v37 += v1101;
+                                v40[3] = v38;
+                                v38 += v1112;
+                                v40 += 5;
+                                --v1092;
+                            } while (v1092);
+                            v39 = v1096;
+                            goto LABEL_74;
+                        }
+                        return;
+                    case 5:
+                    case 6:
+                    case 20:
+                    case 21:
+                    case 24:
+                    case 25:
+                    case 26:
+                        v13 = v12 * (__int64)(*v3 - *v5) / v1088;
+                        v14 = *v4 - *v3;
+                        v15 = v13 + v14 == 0;
+                        v16 = (v13 + v14 < 0) ^ __OFADD__(v13, v14);
+                        v17 = v13 + v14;
+                        if (v16)
+                            return;
+                        if (!v15)
+                        {
+                            v18 = v17 + 1;
+                            v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v18;
+                            v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v18;
+                            v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / v18;
+                        }
+                        v1100 = (v5[2] - v3[2]) / v1088;
+                        v1111 = (v5[3] - v3[3]) / v1088;
+                        v1122 = (v5[4] - v3[4]) / v1088;
+                        v19 = *v3 << 16;
+                        v20 = v19;
+                        v21 = v3[2];
+                        v22 = v3[3];
+                        v23 = v3[4];
+                        if (!v1275)
+                        {
+                            if (v1283)
+                            {
+                                v26 = heightViewPort_93ADC - v1173;
+                                v1098 = heightViewPort_93ADC - v1173;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC - v1173;
+                                }
+                                else
+                                {
+                                    v27 = __OFSUB__(v26, v1092);
+                                    v28 = v26 - v1092;
+                                    v1279 = (v28 < 0) ^ v27 | (v28 == 0);
+                                    v1094 = v28;
+                                }
+                            }
+                            goto LABEL_47;
+                        }
+                        v16 = v1098 <= -v1173;
+                        v1098 += v1173;
+                        if (!v16)
+                        {
+                            v1132 = -v1173;
+                            if (-v1173 - v1092 >= 0)
+                            {
+                                v1094 -= v1132 - v1092;
+                                v1133 = v1132 - v1092;
+                                v19 += v1078 * v1133 + v1092 * v1078;
+                                v24 = v1086 * v1133 + v1096;
+                                v21 += v1133 * v1100 + v1092 * v1100;
+                                v22 += v1133 * v1111 + v1092 * v1111;
+                                v23 += v1133 * v1122 + v1092 * v1122;
+                                if (v1283)
+                                {
+                                    v1094 = heightViewPort_93ADC;
+                                    v1098 = heightViewPort_93ADC;
+                                }
+                                v25 = (uint32*)&unk_93AE0;
+                            LABEL_50:
+                                if (v1279)
+                                {
+                                    v29 = (unsigned __int8)byte_967E1;
+                                    switch (byte_967E1)
+                                    {
+                                    case 0:
+                                        goto LABEL_309;
+                                    case 1:
+                                        goto LABEL_322;
+                                    case 2:
+                                        goto LABEL_351;
+                                    case 3:
+                                        goto LABEL_382;
+                                    case 4:
+                                        goto LABEL_445;
+                                    case 5:
+                                        goto LABEL_474;
+                                    case 6:
+                                        goto LABEL_503;
+                                    case 7:
+                                    case 11:
+                                        goto LABEL_564;
+                                    case 8:
+                                        goto LABEL_595;
+                                    case 9:
+                                    case 10:
+                                        goto LABEL_658;
+                                    case 12:
+                                        goto LABEL_721;
+                                    case 13:
+                                        goto LABEL_752;
+                                    case 14:
+                                        goto LABEL_783;
+                                    case 15:
+                                        goto LABEL_812;
+                                    case 16:
+                                        goto LABEL_841;
+                                    case 17:
+                                        goto LABEL_870;
+                                    case 18:
+                                        goto LABEL_899;
+                                    case 19:
+                                        goto LABEL_930;
+                                    case 20:
+                                        goto LABEL_961;
+                                    case 21:
+                                        goto LABEL_992;
+                                    case 22:
+                                        goto LABEL_1023;
+                                    case 23:
+                                        goto LABEL_1086;
+                                    case 24:
+                                        goto LABEL_1149;
+                                    case 25:
+                                        goto LABEL_1212;
+                                    case 26:
+                                        goto LABEL_1275;
+                                    }
+                                }
+                                do
+                                {
+                                    *v25 = v19;
+                                    v19 += v1078;
+                                    v25[1] = v24;
+                                    v24 += v1086;
+                                    v25[2] = v21;
+                                    v21 += v1100;
+                                    v25[3] = v22;
+                                    v22 += v1111;
+                                    v25[4] = v23;
+                                    v23 += v1122;
+                                    v25 += 5;
+                                    --v1094;
+                                } while (v1094);
+                                v29 = (unsigned __int8)byte_967E1;
+                                switch (byte_967E1)
+                                {
+                                case 0:
+                                    goto LABEL_309;
+                                case 1:
+                                    goto LABEL_322;
+                                case 2:
+                                    goto LABEL_351;
+                                case 3:
+                                    goto LABEL_382;
+                                case 4:
+                                    goto LABEL_445;
+                                case 5:
+                                    goto LABEL_474;
+                                case 6:
+                                    goto LABEL_503;
+                                case 7:
+                                case 11:
+                                    goto LABEL_564;
+                                case 8:
+                                    goto LABEL_595;
+                                case 9:
+                                case 10:
+                                    goto LABEL_658;
+                                case 12:
+                                    goto LABEL_721;
+                                case 13:
+                                    goto LABEL_752;
+                                case 14:
+                                    goto LABEL_783;
+                                case 15:
+                                    goto LABEL_812;
+                                case 16:
+                                    goto LABEL_841;
+                                case 17:
+                                    goto LABEL_870;
+                                case 18:
+                                    goto LABEL_899;
+                                case 19:
+                                    goto LABEL_930;
+                                case 20:
+                                    goto LABEL_961;
+                                case 21:
+                                    goto LABEL_992;
+                                case 22:
+                                    goto LABEL_1023;
+                                case 23:
+                                    goto LABEL_1086;
+                                case 24:
+                                    goto LABEL_1149;
+                                case 25:
+                                    goto LABEL_1212;
+                                case 26:
+                                    goto LABEL_1275;
+                                }
+                            }
+                            v1092 += v1173;
+                            v19 += v1078 * v1132;
+                            v20 += v1132 * v1082;
+                            v21 += v1132 * v1100;
+                            v22 += v1132 * v1111;
+                            v23 += v1132 * v1122;
+                            if (v1283)
+                            {
+                                v1098 = heightViewPort_93ADC;
+                                if (v1279)
+                                {
+                                    v1092 = heightViewPort_93ADC;
+                                }
+                                else
+                                {
+                                    v1279 = heightViewPort_93ADC <= v1092;
+                                    v1094 = heightViewPort_93ADC - v1092;
+                                }
+                            }
+                        LABEL_47:
+                            v25 = (uint32*)&unk_93AE0;
+                            do
+                            {
+                                *v25 = v19;
+                                v19 += v1078;
+                                v25[1] = v20;
+                                v20 += v1082;
+                                v25[2] = v21;
+                                v21 += v1100;
+                                v25[3] = v22;
+                                v22 += v1111;
+                                v25[4] = v23;
+                                v23 += v1122;
+                                v25 += 5;
+                                --v1092;
+                            } while (v1092);
+                            v24 = v1096;
+                            goto LABEL_50;
+                        }
+                        break;
+                    }
+                }
+                return;
+            }
+            if (v7 != v8)
+            {
+                if (v7 <= v8)
+                    goto LABEL_24;
+                goto LABEL_124;
+            }
+            if (*(int32*)a2 <= *(int32*)a3)
+                return;
+        LABEL_225:
+            v108 = v3[1];
+            v1175 = v108;
+            if (v108 >= 0)
+            {
+                if (v108 >= heightViewPort_93ADC)
+                    return;
+                v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
+                v1277 = 0;
+            }
+            else
+            {
+                v1077 = beginPrevLineFrame_93AC8;
+                v1277 = 1;
+            }
+            v109 = v5[1];
+            v1281 = v109 > heightViewPort_93ADC;
+            v1090 = v109 - v108;
+            v1098 = v109 - v108;
+            v1080 = ((*v5 - *v3) << 16) / (v109 - v108);
+            v1084 = ((*v4 - *v3) << 16) / (v109 - v108);
+            switch (byte_967E1)
+            {
+            case 0:
+            case 14:
+            case 15:
+                v130 = *v3 << 16;
+                v131 = v130;
+                if (v1277)
+                {
+                    v132 = -v1175;
+                    v1090 += v1175;
+                    v16 = v1098 <= -v1175;
+                    v1098 += v1175;
+                    if (v16)
+                        return;
+                    v130 += v1080 * v132;
+                    v131 += v132 * v1084;
+                    if (v1281)
+                    {
+                        v1098 = heightViewPort_93ADC;
+                        v1090 = heightViewPort_93ADC;
+                    }
+                }
+                else if (v1281)
+                {
+                    v1098 = heightViewPort_93ADC - v1175;
+                    v1090 = heightViewPort_93ADC - v1175;
+                }
+                v133 = (uint32*)&unk_93AE0;
+                do
+                {
+                    *v133 = v130;
+                    v130 += v1080;
+                    v133[1] = v131;
+                    v131 += v1084;
+                    v133 += 5;
+                    --v1090;
+                } while (v1090);
+                v29 = (unsigned __int8)byte_967E1;
+                switch (byte_967E1)
+                {
+                case 0:
+                    goto LABEL_309;
+                case 1:
+                    goto LABEL_322;
+                case 2:
+                    goto LABEL_351;
+                case 3:
+                    goto LABEL_382;
+                case 4:
+                    goto LABEL_445;
+                case 5:
+                    goto LABEL_474;
+                case 6:
+                    goto LABEL_503;
+                case 7:
+                case 11:
+                    goto LABEL_564;
+                case 8:
+                    goto LABEL_595;
+                case 9:
+                case 10:
+                    goto LABEL_658;
+                case 12:
+                    goto LABEL_721;
+                case 13:
+                    goto LABEL_752;
+                case 14:
+                    goto LABEL_783;
+                case 15:
+                    goto LABEL_812;
+                case 16:
+                    goto LABEL_841;
+                case 17:
+                    goto LABEL_870;
+                case 18:
+                    goto LABEL_899;
+                case 19:
+                    goto LABEL_930;
+                case 20:
+                    goto LABEL_961;
+                case 21:
+                    goto LABEL_992;
+                case 22:
+                    goto LABEL_1023;
+                case 23:
+                    goto LABEL_1086;
+                case 24:
+                    goto LABEL_1149;
+                case 25:
+                    goto LABEL_1212;
+                case 26:
+                    goto LABEL_1275;
+                }
+            case 1:
+            case 4:
+            case 16:
+            case 17:
+                v1121 = (v4[4] - v5[4]) / (*v4 - *v5);
+                v1127 = (v5[4] - v3[4]) / v1098;
+                v125 = *v3 << 16;
+                v126 = v125;
+                v127 = v3[4];
+                if (v1277)
+                {
+                    v128 = -v1175;
+                    v1090 += v1175;
+                    v16 = v1098 <= -v1175;
+                    v1098 += v1175;
+                    if (v16)
+                        return;
+                    v125 += v1080 * v128;
+                    v126 += v128 * v1084;
+                    v127 += v128 * v1127;
+                    if (v1281)
+                    {
+                        v1098 = heightViewPort_93ADC;
+                        v1090 = heightViewPort_93ADC;
+                    }
+                }
+                else if (v1281)
+                {
+                    v1098 = heightViewPort_93ADC - v1175;
+                    v1090 = heightViewPort_93ADC - v1175;
+                }
+                v129 = (uint32*)&unk_93AE0;
+                do
+                {
+                    *v129 = v125;
+                    v125 += v1080;
+                    v129[1] = v126;
+                    v126 += v1084;
+                    v129[4] = v127;
+                    v127 += v1127;
+                    v129 += 5;
+                    --v1090;
+                } while (v1090);
+                v29 = (unsigned __int8)byte_967E1;
+                switch (byte_967E1)
+                {
+                case 0:
+                    goto LABEL_309;
+                case 1:
+                    goto LABEL_322;
+                case 2:
+                    goto LABEL_351;
+                case 3:
+                    goto LABEL_382;
+                case 4:
+                    goto LABEL_445;
+                case 5:
+                    goto LABEL_474;
+                case 6:
+                    goto LABEL_503;
+                case 7:
+                case 11:
+                    goto LABEL_564;
+                case 8:
+                    goto LABEL_595;
+                case 9:
+                case 10:
+                    goto LABEL_658;
+                case 12:
+                    goto LABEL_721;
+                case 13:
+                    goto LABEL_752;
+                case 14:
+                    goto LABEL_783;
+                case 15:
+                    goto LABEL_812;
+                case 16:
+                    goto LABEL_841;
+                case 17:
+                    goto LABEL_870;
+                case 18:
+                    goto LABEL_899;
+                case 19:
+                    goto LABEL_930;
+                case 20:
+                    goto LABEL_961;
+                case 21:
+                    goto LABEL_992;
+                case 22:
+                    goto LABEL_1023;
+                case 23:
+                    goto LABEL_1086;
+                case 24:
+                    goto LABEL_1149;
+                case 25:
+                    goto LABEL_1212;
+                case 26:
+                    goto LABEL_1275;
+                }
+            case 2:
+            case 3:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 18:
+            case 19:
+            case 22:
+            case 23:
+                v118 = *v4 - *v5;
+                v1099 = (v4[2] - v5[2]) / v118;
+                v1110 = (v4[3] - v5[3]) / v118;
+                v1105 = (v5[2] - v3[2]) / v1098;
+                v1116 = (v5[3] - v3[3]) / v1098;
+                v119 = *v3 << 16;
+                v120 = v119;
+                v121 = v3[2];
+                v122 = v3[3];
+                if (v1277)
+                {
+                    v123 = -v1175;
+                    v1090 += v1175;
+                    v16 = v1098 <= -v1175;
+                    v1098 += v1175;
+                    if (v16)
+                        return;
+                    v119 += v1080 * v123;
+                    v120 += v123 * v1084;
+                    v121 += v123 * v1105;
+                    v122 += v123 * v1116;
+                    if (v1281)
+                    {
+                        v1098 = heightViewPort_93ADC;
+                        v1090 = heightViewPort_93ADC;
+                    }
+                }
+                else if (v1281)
+                {
+                    v1098 = heightViewPort_93ADC - v1175;
+                    v1090 = heightViewPort_93ADC - v1175;
+                }
+                v124 = (uint32*)&unk_93AE0;
+                do
+                {
+                    *v124 = v119;
+                    v119 += v1080;
+                    v124[1] = v120;
+                    v120 += v1084;
+                    v124[2] = v121;
+                    v121 += v1105;
+                    v124[3] = v122;
+                    v122 += v1116;
+                    v124 += 5;
+                    --v1090;
+                } while (v1090);
+                v29 = (unsigned __int8)byte_967E1;
+                switch (byte_967E1)
+                {
+                case 0:
+                    goto LABEL_309;
+                case 1:
+                    goto LABEL_322;
+                case 2:
+                    goto LABEL_351;
+                case 3:
+                    goto LABEL_382;
+                case 4:
+                    goto LABEL_445;
+                case 5:
+                    goto LABEL_474;
+                case 6:
+                    goto LABEL_503;
+                case 7:
+                case 11:
+                    goto LABEL_564;
+                case 8:
+                    goto LABEL_595;
+                case 9:
+                case 10:
+                    goto LABEL_658;
+                case 12:
+                    goto LABEL_721;
+                case 13:
+                    goto LABEL_752;
+                case 14:
+                    goto LABEL_783;
+                case 15:
+                    goto LABEL_812;
+                case 16:
+                    goto LABEL_841;
+                case 17:
+                    goto LABEL_870;
+                case 18:
+                    goto LABEL_899;
+                case 19:
+                    goto LABEL_930;
+                case 20:
+                    goto LABEL_961;
+                case 21:
+                    goto LABEL_992;
+                case 22:
+                    goto LABEL_1023;
+                case 23:
+                    goto LABEL_1086;
+                case 24:
+                    goto LABEL_1149;
+                case 25:
+                    goto LABEL_1212;
+                case 26:
+                    goto LABEL_1275;
+                }
+            case 5:
+            case 6:
+            case 20:
+            case 21:
+            case 24:
+            case 25:
+            case 26:
+                v110 = *v4 - *v5;
+                v1099 = (v4[2] - v5[2]) / v110;
+                v1110 = (v4[3] - v5[3]) / v110;
+                v1121 = (v4[4] - v5[4]) / v110;
+                v1104 = (v5[2] - v3[2]) / v1098;
+                v1115 = (v5[3] - v3[3]) / v1098;
+                v1126 = (v5[4] - v3[4]) / v1098;
+                v111 = *v3 << 16;
+                v112 = v111;
+                v113 = v3[2];
+                v114 = v3[3];
+                v115 = v3[4];
+                if (v1277)
+                {
+                    v116 = -v1175;
+                    v1090 += v1175;
+                    v16 = v1098 <= -v1175;
+                    v1098 += v1175;
+                    if (v16)
+                        return;
+                    v111 += v1080 * v116;
+                    v112 += v116 * v1084;
+                    v113 += v116 * v1104;
+                    v114 += v116 * v1115;
+                    v115 += v116 * v1126;
+                    if (v1281)
+                    {
+                        v1098 = heightViewPort_93ADC;
+                        v1090 = heightViewPort_93ADC;
+                    }
+                }
+                else if (v1281)
+                {
+                    v1098 = heightViewPort_93ADC - v1175;
+                    v1090 = heightViewPort_93ADC - v1175;
+                }
+                v117 = (uint32*)&unk_93AE0;
+                do
+                {
+                    *v117 = v111;
+                    v111 += v1080;
+                    v117[1] = v112;
+                    v112 += v1084;
+                    v117[2] = v113;
+                    v113 += v1104;
+                    v117[3] = v114;
+                    v114 += v1115;
+                    v117[4] = v115;
+                    v115 += v1126;
+                    v117 += 5;
+                    --v1090;
+                } while (v1090);
+                v29 = (unsigned __int8)byte_967E1;
+                switch (byte_967E1)
+                {
+                case 0:
+                    goto LABEL_309;
+                case 1:
+                    goto LABEL_322;
+                case 2:
+                    goto LABEL_351;
+                case 3:
+                    goto LABEL_382;
+                case 4:
+                    goto LABEL_445;
+                case 5:
+                    goto LABEL_474;
+                case 6:
+                    goto LABEL_503;
+                case 7:
+                case 11:
+                    goto LABEL_564;
+                case 8:
+                    goto LABEL_595;
+                case 9:
+                case 10:
+                    goto LABEL_658;
+                case 12:
+                    goto LABEL_721;
+                case 13:
+                    goto LABEL_752;
+                case 14:
+                    goto LABEL_783;
+                case 15:
+                    goto LABEL_812;
+                case 16:
+                    goto LABEL_841;
+                case 17:
+                    goto LABEL_870;
+                case 18:
+                    goto LABEL_899;
+                case 19:
+                    goto LABEL_930;
+                case 20:
+                    goto LABEL_961;
+                case 21:
+                    goto LABEL_992;
+                case 22:
+                    goto LABEL_1023;
+                case 23:
+                    goto LABEL_1086;
+                case 24:
+                    goto LABEL_1149;
+                case 25:
+                    goto LABEL_1212;
+                case 26:
+                    goto LABEL_1275;
+                }
+            }
+        }
+        if (*(int32*)a1 <= *(int32*)a3)
+            return;
+        v3 = (int32*)a3;
+        v4 = (int32*)a1;
+        v5 = (int32*)a2;
+    LABEL_268:
+        v134 = v3[1];
+        v1176 = v134;
+        if (v134 >= 0)
+        {
+            if (v134 >= heightViewPort_93ADC)
+                return;
+            v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
+            v1278 = 0;
+        }
+        else
+        {
+            v1077 = beginPrevLineFrame_93AC8;
+            v1278 = 1;
+        }
+        v135 = v5[1];
+        v1282 = v135 > heightViewPort_93ADC;
+        v1091 = v135 - v134;
+        v1098 = v135 - v134;
+        v1081 = ((*v5 - *v3) << 16) / (v135 - v134);
+        v1085 = ((*v5 - *v4) << 16) / (v135 - v134);
+        switch (byte_967E1)
+        {
+        case 0:
+        case 14:
+        case 15:
+            v156 = *v3 << 16;
+            v157 = *v4 << 16;
+            if (v1278)
+            {
+                v158 = -v1176;
+                v1091 += v1176;
+                v16 = v1098 <= -v1176;
+                v1098 += v1176;
+                if (v16)
+                    return;
+                v156 += v1081 * v158;
+                v157 += v158 * v1085;
+                if (v1282)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    v1091 = heightViewPort_93ADC;
+                }
+            }
+            else if (v1282)
+            {
+                v1098 = heightViewPort_93ADC - v1176;
+                v1091 = heightViewPort_93ADC - v1176;
+            }
+            v159 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v159 = v156;
+                v156 += v1081;
+                v159[1] = v157;
+                v157 += v1085;
+                v159 += 5;
+                --v1091;
+            } while (v1091);
+            v29 = (unsigned __int8)byte_967E1;
+            switch (byte_967E1)
+            {
+            case 0:
+                goto LABEL_309;
+            case 1:
+                goto LABEL_322;
+            case 2:
+                goto LABEL_351;
+            case 3:
+                goto LABEL_382;
+            case 4:
+                goto LABEL_445;
+            case 5:
+                goto LABEL_474;
+            case 6:
+                goto LABEL_503;
+            case 7:
+            case 11:
+                goto LABEL_564;
+            case 8:
+                goto LABEL_595;
+            case 9:
+            case 10:
+                goto LABEL_658;
+            case 12:
+                goto LABEL_721;
+            case 13:
+                goto LABEL_752;
+            case 14:
+                goto LABEL_783;
+            case 15:
+                goto LABEL_812;
+            case 16:
+                goto LABEL_841;
+            case 17:
+                goto LABEL_870;
+            case 18:
+                goto LABEL_899;
+            case 19:
+                goto LABEL_930;
+            case 20:
+                goto LABEL_961;
+            case 21:
+                goto LABEL_992;
+            case 22:
+                goto LABEL_1023;
+            case 23:
+                goto LABEL_1086;
+            case 24:
+                goto LABEL_1149;
+            case 25:
+                goto LABEL_1212;
+            case 26:
+                goto LABEL_1275;
+            }
+        case 1:
+        case 4:
+        case 16:
+        case 17:
+            v1121 = (v4[4] - v3[4]) / (*v4 - *v3);
+            v1129 = (v5[4] - v3[4]) / v1098;
+            v151 = *v3 << 16;
+            v152 = *v4 << 16;
+            v153 = v3[4];
+            if (v1278)
+            {
+                v154 = -v1176;
+                v1091 += v1176;
+                v16 = v1098 <= -v1176;
+                v1098 += v1176;
+                if (v16)
+                    return;
+                v151 += v1081 * v154;
+                v152 += v154 * v1085;
+                v153 += v154 * v1129;
+                if (v1282)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    v1091 = heightViewPort_93ADC;
+                }
+            }
+            else if (v1282)
+            {
+                v1098 = heightViewPort_93ADC - v1176;
+                v1091 = heightViewPort_93ADC - v1176;
+            }
+            v155 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v155 = v151;
+                v151 += v1081;
+                v155[1] = v152;
+                v152 += v1085;
+                v155[4] = v153;
+                v153 += v1129;
+                v155 += 5;
+                --v1091;
+            } while (v1091);
+            v29 = (unsigned __int8)byte_967E1;
+            switch (byte_967E1)
+            {
+            case 0:
+                goto LABEL_309;
+            case 1:
+                goto LABEL_322;
+            case 2:
+                goto LABEL_351;
+            case 3:
+                goto LABEL_382;
+            case 4:
+                goto LABEL_445;
+            case 5:
+                goto LABEL_474;
+            case 6:
+                goto LABEL_503;
+            case 7:
+            case 11:
+                goto LABEL_564;
+            case 8:
+                goto LABEL_595;
+            case 9:
+            case 10:
+                goto LABEL_658;
+            case 12:
+                goto LABEL_721;
+            case 13:
+                goto LABEL_752;
+            case 14:
+                goto LABEL_783;
+            case 15:
+                goto LABEL_812;
+            case 16:
+                goto LABEL_841;
+            case 17:
+                goto LABEL_870;
+            case 18:
+                goto LABEL_899;
+            case 19:
+                goto LABEL_930;
+            case 20:
+                goto LABEL_961;
+            case 21:
+                goto LABEL_992;
+            case 22:
+                goto LABEL_1023;
+            case 23:
+                goto LABEL_1086;
+            case 24:
+                goto LABEL_1149;
+            case 25:
+                goto LABEL_1212;
+            case 26:
+                goto LABEL_1275;
+            }
+        case 2:
+        case 3:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 18:
+        case 19:
+        case 22:
+        case 23:
+            v144 = *v4 - *v3;
+            v1099 = (v4[2] - v3[2]) / v144;
+            v1110 = (v4[3] - v3[3]) / v144;
+            v1107 = (v5[2] - v3[2]) / v1098;
+            v1118 = (v5[3] - v3[3]) / v1098;
+            v145 = *v3 << 16;
+            v146 = *v4 << 16;
+            v147 = v3[2];
+            v148 = v3[3];
+            if (v1278)
+            {
+                v149 = -v1176;
+                v1091 += v1176;
+                v16 = v1098 <= -v1176;
+                v1098 += v1176;
+                if (v16)
+                    return;
+                v145 += v1081 * v149;
+                v146 += v149 * v1085;
+                v147 += v149 * v1107;
+                v148 += v149 * v1118;
+                if (v1282)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    v1091 = heightViewPort_93ADC;
+                }
+            }
+            else if (v1282)
+            {
+                v1098 = heightViewPort_93ADC - v1176;
+                v1091 = heightViewPort_93ADC - v1176;
+            }
+            v150 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v150 = v145;
+                v145 += v1081;
+                v150[1] = v146;
+                v146 += v1085;
+                v150[2] = v147;
+                v147 += v1107;
+                v150[3] = v148;
+                v148 += v1118;
+                v150 += 5;
+                --v1091;
+            } while (v1091);
+            v29 = (unsigned __int8)byte_967E1;
+            switch (byte_967E1)
+            {
+            case 0:
+                goto LABEL_309;
+            case 1:
+                goto LABEL_322;
+            case 2:
+                goto LABEL_351;
+            case 3:
+                goto LABEL_382;
+            case 4:
+                goto LABEL_445;
+            case 5:
+                goto LABEL_474;
+            case 6:
+                goto LABEL_503;
+            case 7:
+            case 11:
+                goto LABEL_564;
+            case 8:
+                goto LABEL_595;
+            case 9:
+            case 10:
+                goto LABEL_658;
+            case 12:
+                goto LABEL_721;
+            case 13:
+                goto LABEL_752;
+            case 14:
+                goto LABEL_783;
+            case 15:
+                goto LABEL_812;
+            case 16:
+                goto LABEL_841;
+            case 17:
+                goto LABEL_870;
+            case 18:
+                goto LABEL_899;
+            case 19:
+                goto LABEL_930;
+            case 20:
+                goto LABEL_961;
+            case 21:
+                goto LABEL_992;
+            case 22:
+                goto LABEL_1023;
+            case 23:
+                goto LABEL_1086;
+            case 24:
+                goto LABEL_1149;
+            case 25:
+                goto LABEL_1212;
+            case 26:
+                goto LABEL_1275;
+            }
+        case 5:
+        case 6:
+        case 20:
+        case 21:
+        case 24:
+        case 25:
+        case 26:
+            v136 = *v4 - *v3;
+            v1099 = (v4[2] - v3[2]) / v136;
+            v1110 = (v4[3] - v3[3]) / v136;
+            v1121 = (v4[4] - v3[4]) / v136;
+            v1106 = (v5[2] - v3[2]) / v1098;
+            v1117 = (v5[3] - v3[3]) / v1098;
+            v1128 = (v5[4] - v3[4]) / v1098;
+            v137 = *v3 << 16;
+            v138 = *v4 << 16;
+            v139 = v3[2];
+            v140 = v3[3];
+            v141 = v3[4];
+            if (v1278)
+            {
+                v142 = -v1176;
+                v1091 += v1176;
+                v16 = v1098 <= -v1176;
+                v1098 += v1176;
+                if (v16)
+                    return;
+                v137 += v1081 * v142;
+                v138 += v142 * v1085;
+                v139 += v142 * v1106;
+                v140 += v142 * v1117;
+                v141 += v142 * v1128;
+                if (v1282)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    v1091 = heightViewPort_93ADC;
+                }
+            }
+            else if (v1282)
+            {
+                v1098 = heightViewPort_93ADC - v1176;
+                v1091 = heightViewPort_93ADC - v1176;
+            }
+            v143 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v143 = v137;
+                v137 += v1081;
+                v143[1] = v138;
+                v138 += v1085;
+                v143[2] = v139;
+                v139 += v1106;
+                v143[3] = v140;
+                v140 += v1117;
+                v143[4] = v141;
+                v141 += v1128;
+                v143 += 5;
+                --v1091;
+            } while (v1091);
+            break;
+        }
+        v29 = (unsigned __int8)byte_967E1;
+        switch (byte_967E1)
+        {
+        case 0:
+        LABEL_309:
+            v160 = (unsigned __int16*)&unk_93AE0;
+            v161 = (char*)v1077;
+            v162 = byte_967E0;
+            HIWORD(v163) = 0;
+            while (1)
+            {
+                LOWORD(v163) = v160[1];
+                v164 = v160[3];
+                v161 += pitchViewPort_93AD4;
+                if ((v163 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v164 > 0)
+                {
+                    if (v164 > widthViewPort_93AD8)
+                        v164 = widthViewPort_93AD8;
+                    v165 = v161;
+                LABEL_319:
+                    memset(v165, v162, v164);
+                }
+            LABEL_320:
+                v160 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v164 > widthViewPort_93AD8)
+                v164 = widthViewPort_93AD8;
+            v16 = (__int16)v164 <= (__int16)v163;
+            LOWORD(v164) = v164 - v163;
+            if (v16)
+                goto LABEL_320;
+            v165 = &v161[v163];
+            goto LABEL_319;
+        case 1:
+        LABEL_322:
+            for (i = (uint16*)&unk_93AE0; ; i += 10)
+            {
+                LOWORD(v29) = i[1];
+                v167 = (unsigned __int16)i[3];
+                v168 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v29 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v167 > 0)
+                {
+                    v169 = v1121 * (unsigned __int16)-(__int16)v29;
+                    v170 = v169;
+                    v29 = v169 >> 8;
+                    v171 = __CFADD__(i[8], v170);
+                    v172 = i[8] + v170;
+                    BYTE1(v29) += *((_BYTE*)i + 18) + v171;
+                    if (v167 > widthViewPort_93AD8)
+                        LOWORD(v167) = widthViewPort_93AD8;
+                    v29 = (unsigned __int16)v29;
+                LABEL_332:
+                    while (1)
+                    {
+                        *v168 = BYTE1(v29);
+                        v171 = __CFADD__((_WORD)v1121, v172);
+                        v173 = v1121 + v172;
+                        v174 = BYTE2(v1121) + v171 + BYTE1(v29);
+                        v175 = v167 - 1;
+                        if (!v175)
+                            break;
+                        v168[1] = v174;
+                        v171 = __CFADD__((_WORD)v1121, v173);
+                        v176 = v1121 + v173;
+                        v177 = BYTE2(v1121) + v171 + v174;
+                        v178 = v175 - 1;
+                        if (!v178)
+                            break;
+                        v168[2] = v177;
+                        v171 = __CFADD__((_WORD)v1121, v176);
+                        v179 = v1121 + v176;
+                        v180 = BYTE2(v1121) + v171 + v177;
+                        v181 = v178 - 1;
+                        if (!v181)
+                            break;
+                        v168[3] = v180;
+                        v171 = __CFADD__((_WORD)v1121, v179);
+                        v182 = v1121 + v179;
+                        v183 = BYTE2(v1121) + v171 + v180;
+                        v184 = v181 - 1;
+                        if (!v184)
+                            break;
+                        v168[4] = v183;
+                        v171 = __CFADD__((_WORD)v1121, v182);
+                        v185 = v1121 + v182;
+                        v186 = BYTE2(v1121) + v171 + v183;
+                        v187 = v184 - 1;
+                        if (!v187)
+                            break;
+                        v168[5] = v186;
+                        v171 = __CFADD__((_WORD)v1121, v185);
+                        v188 = v1121 + v185;
+                        v189 = BYTE2(v1121) + v171 + v186;
+                        v190 = v187 - 1;
+                        if (!v190)
+                            break;
+                        v168[6] = v189;
+                        v171 = __CFADD__((_WORD)v1121, v188);
+                        v191 = v1121 + v188;
+                        v192 = BYTE2(v1121) + v171 + v189;
+                        v193 = v190 - 1;
+                        if (!v193)
+                            break;
+                        v168[7] = v192;
+                        v171 = __CFADD__((_WORD)v1121, v191);
+                        v194 = v1121 + v191;
+                        v195 = BYTE2(v1121) + v171 + v192;
+                        v196 = v193 - 1;
+                        if (!v196)
+                            break;
+                        v168[8] = v195;
+                        v171 = __CFADD__((_WORD)v1121, v194);
+                        v197 = v1121 + v194;
+                        v198 = BYTE2(v1121) + v171 + v195;
+                        v199 = v196 - 1;
+                        if (!v199)
+                            break;
+                        v168[9] = v198;
+                        v171 = __CFADD__((_WORD)v1121, v197);
+                        v200 = v1121 + v197;
+                        v201 = BYTE2(v1121) + v171 + v198;
+                        v202 = v199 - 1;
+                        if (!v202)
+                            break;
+                        v168[10] = v201;
+                        v171 = __CFADD__((_WORD)v1121, v200);
+                        v203 = v1121 + v200;
+                        v204 = BYTE2(v1121) + v171 + v201;
+                        v205 = v202 - 1;
+                        if (!v205)
+                            break;
+                        v168[11] = v204;
+                        v171 = __CFADD__((_WORD)v1121, v203);
+                        v206 = v1121 + v203;
+                        v207 = BYTE2(v1121) + v171 + v204;
+                        v208 = v205 - 1;
+                        if (!v208)
+                            break;
+                        v168[12] = v207;
+                        v171 = __CFADD__((_WORD)v1121, v206);
+                        v209 = v1121 + v206;
+                        v210 = BYTE2(v1121) + v171 + v207;
+                        v211 = v208 - 1;
+                        if (!v211)
+                            break;
+                        v168[13] = v210;
+                        v171 = __CFADD__((_WORD)v1121, v209);
+                        v212 = v1121 + v209;
+                        v213 = BYTE2(v1121) + v171 + v210;
+                        v214 = v211 - 1;
+                        if (!v214)
+                            break;
+                        v168[14] = v213;
+                        v171 = __CFADD__((_WORD)v1121, v212);
+                        v215 = v1121 + v212;
+                        v216 = BYTE2(v1121) + v171 + v213;
+                        v217 = v214 - 1;
+                        if (!v217)
+                            break;
+                        v168[15] = v216;
+                        v171 = __CFADD__((_WORD)v1121, v215);
+                        v172 = v1121 + v215;
+                        BYTE1(v29) = BYTE2(v1121) + v171 + v216;
+                        LOWORD(v167) = v217 - 1;
+                        if (!(_WORD)v167)
+                            break;
+                        v168 += 16;
+                    }
+                }
+            LABEL_349:
+                if (!--v1098)
+                    return;
+            }
+            if (v167 > widthViewPort_93AD8)
+                LOWORD(v167) = widthViewPort_93AD8;
+            v16 = (__int16)v167 <= (__int16)v29;
+            LOWORD(v167) = v167 - v29;
+            if (v16)
+                goto LABEL_349;
+            v168 += v29;
+            v29 = (unsigned __int8)byte_967E0;
+            v172 = i[8];
+            BYTE1(v29) = *((_BYTE*)i + 18);
+            goto LABEL_332;
+        case 2:
+        LABEL_351:
+            v218 = (unsigned __int16*)&unk_93AE0;
+            v1148 = v1110 << 16;
+            HIWORD(v219) = 0;
+            HIWORD(v220) = 0;
+            while (1)
+            {
+                LOWORD(v219) = v218[1];
+                v221 = v218[3];
+                v222 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v219 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v221 > 0)
+                {
+                    v223 = (unsigned __int16)-(__int16)v219;
+                    v225 = __ROL4__(*((_DWORD*)v218 + 3) + v1110 * v223, 16);
+                    BYTE1(v220) = v225;
+                    v224 = *((_DWORD*)v218 + 2) + v1099 * v223;
+                    LOWORD(v225) = v224;
+                    v226 = v224 >> 8;
+                    LOBYTE(v220) = BYTE1(v226);
+                    if (v221 > widthViewPort_93AD8)
+                        LOWORD(v221) = widthViewPort_93AD8;
+                    v219 = (unsigned __int16)v226;
+                LABEL_361:
+                    v1257 = v218;
+                    v227 = dword_93AD0;
+                    while (1)
+                    {
+                        v228 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v225);
+                        LOWORD(v225) = v1099 + v225;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        *v222 = v228;
+                        v171 = __CFADD__(v1148, v225);
+                        v229 = v1148 + v225;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v230 = v221 - 1;
+                        if (!v230)
+                            break;
+                        v231 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v229);
+                        LOWORD(v229) = v1099 + v229;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[1] = v231;
+                        v171 = __CFADD__(v1148, v229);
+                        v232 = v1148 + v229;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v233 = v230 - 1;
+                        if (!v233)
+                            break;
+                        v234 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v232);
+                        LOWORD(v232) = v1099 + v232;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[2] = v234;
+                        v171 = __CFADD__(v1148, v232);
+                        v235 = v1148 + v232;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v236 = v233 - 1;
+                        if (!v236)
+                            break;
+                        v237 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v235);
+                        LOWORD(v235) = v1099 + v235;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[3] = v237;
+                        v171 = __CFADD__(v1148, v235);
+                        v238 = v1148 + v235;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v239 = v236 - 1;
+                        if (!v239)
+                            break;
+                        v240 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v238);
+                        LOWORD(v238) = v1099 + v238;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[4] = v240;
+                        v171 = __CFADD__(v1148, v238);
+                        v241 = v1148 + v238;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v242 = v239 - 1;
+                        if (!v242)
+                            break;
+                        v243 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v241);
+                        LOWORD(v241) = v1099 + v241;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[5] = v243;
+                        v171 = __CFADD__(v1148, v241);
+                        v244 = v1148 + v241;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v245 = v242 - 1;
+                        if (!v245)
+                            break;
+                        v246 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v244);
+                        LOWORD(v244) = v1099 + v244;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[6] = v246;
+                        v171 = __CFADD__(v1148, v244);
+                        v247 = v1148 + v244;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v248 = v245 - 1;
+                        if (!v248)
+                            break;
+                        v249 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v247);
+                        LOWORD(v247) = v1099 + v247;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[7] = v249;
+                        v171 = __CFADD__(v1148, v247);
+                        v250 = v1148 + v247;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v251 = v248 - 1;
+                        if (!v251)
+                            break;
+                        v252 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v250);
+                        LOWORD(v250) = v1099 + v250;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[8] = v252;
+                        v171 = __CFADD__(v1148, v250);
+                        v253 = v1148 + v250;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v254 = v251 - 1;
+                        if (!v254)
+                            break;
+                        v255 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v253);
+                        LOWORD(v253) = v1099 + v253;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[9] = v255;
+                        v171 = __CFADD__(v1148, v253);
+                        v256 = v1148 + v253;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v257 = v254 - 1;
+                        if (!v257)
+                            break;
+                        v258 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v256);
+                        LOWORD(v256) = v1099 + v256;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[10] = v258;
+                        v171 = __CFADD__(v1148, v256);
+                        v259 = v1148 + v256;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v260 = v257 - 1;
+                        if (!v260)
+                            break;
+                        v261 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v259);
+                        LOWORD(v259) = v1099 + v259;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[11] = v261;
+                        v171 = __CFADD__(v1148, v259);
+                        v262 = v1148 + v259;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v263 = v260 - 1;
+                        if (!v263)
+                            break;
+                        v264 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v262);
+                        LOWORD(v262) = v1099 + v262;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[12] = v264;
+                        v171 = __CFADD__(v1148, v262);
+                        v265 = v1148 + v262;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v266 = v263 - 1;
+                        if (!v266)
+                            break;
+                        v267 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v265);
+                        LOWORD(v265) = v1099 + v265;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[13] = v267;
+                        v171 = __CFADD__(v1148, v265);
+                        v268 = v1148 + v265;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v269 = v266 - 1;
+                        if (!v269)
+                            break;
+                        v270 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v268);
+                        LOWORD(v268) = v1099 + v268;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[14] = v270;
+                        v171 = __CFADD__(v1148, v268);
+                        v271 = v1148 + v268;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        v272 = v269 - 1;
+                        if (!v272)
+                            break;
+                        v273 = *(_BYTE*)(v220 + v227);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v271);
+                        LOWORD(v271) = v1099 + v271;
+                        LOBYTE(v220) = BYTE2(v1099) + v171 + v220;
+                        v222[15] = v273;
+                        v171 = __CFADD__(v1148, v271);
+                        v225 = v1148 + v271;
+                        BYTE1(v220) += BYTE2(v1110) + v171;
+                        LOWORD(v221) = v272 - 1;
+                        if (!(_WORD)v221)
+                            break;
+                        v222 += 16;
+                    }
+                    v218 = v1257;
+                }
+            LABEL_380:
+                v218 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v221 > widthViewPort_93AD8)
+                LOWORD(v221) = widthViewPort_93AD8;
+            v16 = (__int16)v221 <= (__int16)v219;
+            LOWORD(v221) = v221 - v219;
+            if (v16)
+                goto LABEL_380;
+            v222 += v219;
+            v225 = __ROL4__(*((_DWORD*)v218 + 3), 16);
+            BYTE1(v220) = v225;
+            LOWORD(v225) = v218[4];
+            LOBYTE(v220) = *((_BYTE*)v218 + 10);
+            goto LABEL_361;
+        case 3:
+        LABEL_382:
+            v274 = (unsigned __int16*)&unk_93AE0;
+            v1149 = v1110 << 16;
+            HIWORD(v275) = 0;
+            HIWORD(v276) = 0;
+            while (1)
+            {
+                LOWORD(v275) = v274[1];
+                v277 = v274[3];
+                v278 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v275 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v277 > 0)
+                {
+                    v279 = (unsigned __int16)-(__int16)v275;
+                    v281 = __ROL4__(*((_DWORD*)v274 + 3) + v1110 * v279, 16);
+                    BYTE1(v276) = v281;
+                    v280 = *((_DWORD*)v274 + 2) + v1099 * v279;
+                    LOWORD(v281) = v280;
+                    v282 = v280 >> 8;
+                    LOBYTE(v276) = BYTE1(v282);
+                    if (v277 > widthViewPort_93AD8)
+                        LOWORD(v277) = widthViewPort_93AD8;
+                    v275 = (unsigned __int16)v282;
+                LABEL_392:
+                    v1258 = v274;
+                    v283 = dword_93AD0;
+                    while (1)
+                    {
+                        v284 = *(_BYTE*)(v276 + v283);
+                        if (v284)
+                            *v278 = v284;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v281);
+                        LOWORD(v281) = v1099 + v281;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v281);
+                        v285 = v1149 + v281;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v286 = v277 - 1;
+                        if (!v286)
+                            break;
+                        v287 = *(_BYTE*)(v276 + v283);
+                        if (v287)
+                            v278[1] = v287;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v285);
+                        LOWORD(v285) = v1099 + v285;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v285);
+                        v288 = v1149 + v285;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v289 = v286 - 1;
+                        if (!v289)
+                            break;
+                        v290 = *(_BYTE*)(v276 + v283);
+                        if (v290)
+                            v278[2] = v290;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v288);
+                        LOWORD(v288) = v1099 + v288;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v288);
+                        v291 = v1149 + v288;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v292 = v289 - 1;
+                        if (!v292)
+                            break;
+                        v293 = *(_BYTE*)(v276 + v283);
+                        if (v293)
+                            v278[3] = v293;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v291);
+                        LOWORD(v291) = v1099 + v291;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v291);
+                        v294 = v1149 + v291;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v295 = v292 - 1;
+                        if (!v295)
+                            break;
+                        v296 = *(_BYTE*)(v276 + v283);
+                        if (v296)
+                            v278[4] = v296;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v294);
+                        LOWORD(v294) = v1099 + v294;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v294);
+                        v297 = v1149 + v294;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v298 = v295 - 1;
+                        if (!v298)
+                            break;
+                        v299 = *(_BYTE*)(v276 + v283);
+                        if (v299)
+                            v278[5] = v299;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v297);
+                        LOWORD(v297) = v1099 + v297;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v297);
+                        v300 = v1149 + v297;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v301 = v298 - 1;
+                        if (!v301)
+                            break;
+                        v302 = *(_BYTE*)(v276 + v283);
+                        if (v302)
+                            v278[6] = v302;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v300);
+                        LOWORD(v300) = v1099 + v300;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v300);
+                        v303 = v1149 + v300;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v304 = v301 - 1;
+                        if (!v304)
+                            break;
+                        v305 = *(_BYTE*)(v276 + v283);
+                        if (v305)
+                            v278[7] = v305;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v303);
+                        LOWORD(v303) = v1099 + v303;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v303);
+                        v306 = v1149 + v303;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v307 = v304 - 1;
+                        if (!v307)
+                            break;
+                        v308 = *(_BYTE*)(v276 + v283);
+                        if (v308)
+                            v278[8] = v308;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v306);
+                        LOWORD(v306) = v1099 + v306;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v306);
+                        v309 = v1149 + v306;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v310 = v307 - 1;
+                        if (!v310)
+                            break;
+                        v311 = *(_BYTE*)(v276 + v283);
+                        if (v311)
+                            v278[9] = v311;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v309);
+                        LOWORD(v309) = v1099 + v309;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v309);
+                        v312 = v1149 + v309;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v313 = v310 - 1;
+                        if (!v313)
+                            break;
+                        v314 = *(_BYTE*)(v276 + v283);
+                        if (v314)
+                            v278[10] = v314;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v312);
+                        LOWORD(v312) = v1099 + v312;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v312);
+                        v315 = v1149 + v312;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v316 = v313 - 1;
+                        if (!v316)
+                            break;
+                        v317 = *(_BYTE*)(v276 + v283);
+                        if (v317)
+                            v278[11] = v317;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v315);
+                        LOWORD(v315) = v1099 + v315;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v315);
+                        v318 = v1149 + v315;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v319 = v316 - 1;
+                        if (!v319)
+                            break;
+                        v320 = *(_BYTE*)(v276 + v283);
+                        if (v320)
+                            v278[12] = v320;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v318);
+                        LOWORD(v318) = v1099 + v318;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v318);
+                        v321 = v1149 + v318;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v322 = v319 - 1;
+                        if (!v322)
+                            break;
+                        v323 = *(_BYTE*)(v276 + v283);
+                        if (v323)
+                            v278[13] = v323;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v321);
+                        LOWORD(v321) = v1099 + v321;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v321);
+                        v324 = v1149 + v321;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v325 = v322 - 1;
+                        if (!v325)
+                            break;
+                        v326 = *(_BYTE*)(v276 + v283);
+                        if (v326)
+                            v278[14] = v326;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v324);
+                        LOWORD(v324) = v1099 + v324;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v324);
+                        v327 = v1149 + v324;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        v328 = v325 - 1;
+                        if (!v328)
+                            break;
+                        v329 = *(_BYTE*)(v276 + v283);
+                        if (v329)
+                            v278[15] = v329;
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v327);
+                        LOWORD(v327) = v1099 + v327;
+                        LOBYTE(v276) = BYTE2(v1099) + v171 + v276;
+                        v171 = __CFADD__(v1149, v327);
+                        v281 = v1149 + v327;
+                        BYTE1(v276) += BYTE2(v1110) + v171;
+                        LOWORD(v277) = v328 - 1;
+                        if (!(_WORD)v277)
+                            break;
+                        v278 += 16;
+                    }
+                    v274 = v1258;
+                }
+            LABEL_443:
+                v274 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v277 > widthViewPort_93AD8)
+                LOWORD(v277) = widthViewPort_93AD8;
+            v16 = (__int16)v277 <= (__int16)v275;
+            LOWORD(v277) = v277 - v275;
+            if (v16)
+                goto LABEL_443;
+            v278 += v275;
+            v281 = __ROL4__(*((_DWORD*)v274 + 3), 16);
+            BYTE1(v276) = v281;
+            LOWORD(v281) = v274[4];
+            LOBYTE(v276) = *((_BYTE*)v274 + 10);
+            goto LABEL_392;
+        case 4:
+        LABEL_445:
+            for (j = (uint16*)&unk_93AE0; ; j += 10)
+            {
+                LOWORD(v29) = j[1];
+                v331 = (unsigned __int16)j[3];
+                v332 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v29 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v331 > 0)
+                {
+                    v333 = v1121 * (unsigned __int16)-(__int16)v29;
+                    v334 = v333;
+                    v29 = v333 >> 8;
+                    v171 = __CFADD__(j[8], v334);
+                    v335 = j[8] + v334;
+                    BYTE1(v29) += *((_BYTE*)j + 18) + v171;
+                    if (v331 > widthViewPort_93AD8)
+                        LOWORD(v331) = widthViewPort_93AD8;
+                    v29 = (unsigned __int16)v29;
+                    LOBYTE(v29) = byte_967E0;
+                LABEL_455:
+                    while (1)
+                    {
+                        *v332 = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v335);
+                        v336 = v1121 + v335;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v337 = v331 - 1;
+                        if (!v337)
+                            break;
+                        v332[1] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v336);
+                        v338 = v1121 + v336;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v339 = v337 - 1;
+                        if (!v339)
+                            break;
+                        v332[2] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v338);
+                        v340 = v1121 + v338;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v341 = v339 - 1;
+                        if (!v341)
+                            break;
+                        v332[3] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v340);
+                        v342 = v1121 + v340;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v343 = v341 - 1;
+                        if (!v343)
+                            break;
+                        v332[4] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v342);
+                        v344 = v1121 + v342;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v345 = v343 - 1;
+                        if (!v345)
+                            break;
+                        v332[5] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v344);
+                        v346 = v1121 + v344;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v347 = v345 - 1;
+                        if (!v347)
+                            break;
+                        v332[6] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v346);
+                        v348 = v1121 + v346;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v349 = v347 - 1;
+                        if (!v349)
+                            break;
+                        v332[7] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v348);
+                        v350 = v1121 + v348;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v351 = v349 - 1;
+                        if (!v351)
+                            break;
+                        v332[8] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v350);
+                        v352 = v1121 + v350;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v353 = v351 - 1;
+                        if (!v353)
+                            break;
+                        v332[9] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v352);
+                        v354 = v1121 + v352;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v355 = v353 - 1;
+                        if (!v355)
+                            break;
+                        v332[10] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v354);
+                        v356 = v1121 + v354;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v357 = v355 - 1;
+                        if (!v357)
+                            break;
+                        v332[11] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v356);
+                        v358 = v1121 + v356;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v359 = v357 - 1;
+                        if (!v359)
+                            break;
+                        v332[12] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v358);
+                        v360 = v1121 + v358;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v361 = v359 - 1;
+                        if (!v361)
+                            break;
+                        v332[13] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v360);
+                        v362 = v1121 + v360;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v363 = v361 - 1;
+                        if (!v363)
+                            break;
+                        v332[14] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v362);
+                        v364 = v1121 + v362;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v365 = v363 - 1;
+                        if (!v365)
+                            break;
+                        v332[15] = strPal.byte_B7934_B7924[v29];
+                        v171 = __CFADD__((_WORD)v1121, v364);
+                        v335 = v1121 + v364;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        LOWORD(v331) = v365 - 1;
+                        if (!(_WORD)v331)
+                            break;
+                        v332 += 16;
+                    }
+                }
+            LABEL_472:
+                if (!--v1098)
+                    return;
+            }
+            if (v331 > widthViewPort_93AD8)
+                LOWORD(v331) = widthViewPort_93AD8;
+            v16 = (__int16)v331 <= (__int16)v29;
+            LOWORD(v331) = v331 - v29;
+            if (v16)
+                goto LABEL_472;
+            v332 += v29;
+            v29 = (unsigned __int8)byte_967E0;
+            v335 = j[8];
+            BYTE1(v29) = *((_BYTE*)j + 18);
+            goto LABEL_455;
+        case 5:
+        LABEL_474:
+            v1259 = (char*)&unk_93AE0;
+            v1150 = v1110 << 16;
+            v1166 = v1121 << 16;
+            HIWORD(v366) = 0;
+            HIWORD(v367) = 0;
+            while (1)
+            {
+                //adress 0x245FFB_
+                //debug
+#ifdef debug1
+            //if (compare_index_245FFB == 0x1d3)
+            /*if (compare_index_245FFB == 0x1D0)
+            {
+                compare_index_245FFB++;
+                compare_index_245FFB--;
+            }
+            add_compare(0x245FFB, true, true);
+            compare_index_245FFB++;*/
+#endif debug1
+            //debug
+
+                v368 = v1259;
+                v1259 += 20;
+                LOWORD(v366) = *((_WORD*)v368 + 1);
+                v369 = *((unsigned __int16*)v368 + 3);
+                v370 = pitchViewPort_93AD4 + v1077;
+                v1077 += pitchViewPort_93AD4;
+                if ((v366 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v369 > 0)
+                {
+                    v371 = (unsigned __int16)-(__int16)v366;
+                    v372 = __ROL4__(*((_DWORD*)v368 + 3) + v1110 * v371, 16);
+                    BYTE1(v367) = v372;
+                    LOWORD(v372) = *((_WORD*)v368 + 4) + v1099 * v371;
+                    v366 = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 8;
+                    LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 16;
+                    v373 = __ROL4__(*((_DWORD*)v368 + 4) + v1121 * v371, 16);
+                    BYTE1(v366) = v373;
+                    LOWORD(v373) = *((_WORD*)v368 + 3);
+                    v366 = (unsigned __int16)v366;
+                    if ((__int16)v373 > (__int16)widthViewPort_93AD8)
+                        LOWORD(v373) = widthViewPort_93AD8;
+                LABEL_484:
+                    v376 = (_BYTE*)(dword_74F95_754A5[v373 & 0xF] + v370);
+                    v377 = dword_93AD0;
+                    switch (v373 & 0xF)
+                    {
+                    case 0:
+                        goto LABEL_485;
+                    case 1:
+                        goto LABEL_500;
+                    case 2:
+                        goto LABEL_499;
+                    case 3:
+                        goto LABEL_498;
+                    case 4:
+                        goto LABEL_497;
+                    case 5:
+                        goto LABEL_496;
+                    case 6:
+                        goto LABEL_495;
+                    case 7:
+                        goto LABEL_494;
+                    case 8:
+                        goto LABEL_493;
+                    case 9:
+                        goto LABEL_492;
+                    case 0xA:
+                        goto LABEL_491;
+                    case 0xB:
+                        goto LABEL_490;
+                    case 0xC:
+                        goto LABEL_489;
+                    case 0xD:
+                        goto LABEL_488;
+                    case 0xE:
+                        goto LABEL_487;
+                    case 0xF:
+                        while (1)
+                        {
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[1] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_487:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[2] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_488:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[3] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_489:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[4] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_490:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[5] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_491:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[6] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_492:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[7] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_493:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[8] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_494:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[9] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_495:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[10] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_496:
+                            //adress 0x24629B_ 
+                            //debug
+                            /*#ifdef debug1
+                                              if (compare_index_24629B == 0xa5)
+                                              {
+                                                  compare_index_24629B++;
+                                                  compare_index_24629B--;
+                                              }
+                            add_compare(0x24629B, true, true);
+                            compare_index_24629B++;
+                            #endif debug1*/
+                            //debug
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[11] = strPal.byte_B7934_B7924[v366];//here
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_497:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[12] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_498:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[13] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_499:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[14] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        LABEL_500:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            v376[15] = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                            v376 += 16;
+                            v16 = (__int16)v373 <= 16;
+                            LOWORD(v373) = v373 - 16;
+                            if (v16)
+                                break;
+                        LABEL_485:
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                            LOWORD(v372) = v1099 + v372;
+                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                            v171 = __CFADD__(v1150, v372);
+                            v372 += v1150;
+                            BYTE1(v367) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1166, v373);
+                            v373 += v1166;
+                            *v376 = strPal.byte_B7934_B7924[v366];
+                            BYTE1(v366) += BYTE2(v1121) + v171;
+                        }
+                        break;
+                    }
+                }
+            LABEL_501:
+                if (!--v1098)
+                    return;
+            }
+            if (v369 > widthViewPort_93AD8)
+                LOWORD(v369) = widthViewPort_93AD8;
+            v16 = (__int16)v369 <= (__int16)v366;
+            v374 = v369 - v366;
+            if (v16)
+                goto LABEL_501;
+            v370 += v366;
+            LOBYTE(v367) = v368[10];
+            v372 = __ROL4__(*((_DWORD*)v368 + 3), 16);
+            v375 = v374;
+            BYTE1(v367) = v372;
+            LOWORD(v372) = *((_WORD*)v368 + 4);
+            v373 = __ROL4__(*((_DWORD*)v368 + 4), 16);
+            BYTE1(v366) = v373;
+            LOWORD(v373) = v375;
+            goto LABEL_484;
+        case 6:
+        LABEL_503:
+            v1260 = (char*)&unk_93AE0;
+            v1151 = v1110 << 16;
+            v1167 = v1121 << 16;
+            HIWORD(v378) = 0;
+            HIWORD(v379) = 0;
+            while (1)
+            {
+                v380 = v1260;
+                v1260 += 20;
+                LOWORD(v378) = *((_WORD*)v380 + 1);
+                v381 = *((unsigned __int16*)v380 + 3);
+                v382 = pitchViewPort_93AD4 + v1077;
+                v1077 += pitchViewPort_93AD4;
+                if ((v378 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v381 > 0)
+                {
+                    v383 = (unsigned __int16)-(__int16)v378;
+                    v384 = __ROL4__(*((_DWORD*)v380 + 3) + v1110 * v383, 16);
+                    BYTE1(v379) = v384;
+                    LOWORD(v384) = *((_WORD*)v380 + 4) + v1099 * v383;
+                    v378 = (unsigned int)(*((_DWORD*)v380 + 2) + v1099 * v383) >> 8;
+                    LOBYTE(v379) = (unsigned int)(*((_DWORD*)v380 + 2) + v1099 * v383) >> 16;
+                    v385 = __ROL4__(*((_DWORD*)v380 + 4) + v1121 * v383, 16);
+                    BYTE1(v378) = v385;
+                    LOWORD(v385) = *((_WORD*)v380 + 3);
+                    v378 = (unsigned __int16)v378;
+                    if ((__int16)v385 > (__int16)widthViewPort_93AD8)
+                        LOWORD(v385) = widthViewPort_93AD8;
+                LABEL_513:
+                    v388 = (_BYTE*)(dword_74F95_754A5[v385 & 0xF] + v382);
+                    v389 = dword_93AD0;
+                    switch (v385 & 0xF)
+                    {
+                    case 0:
+                        goto LABEL_514;
+                    case 1:
+                        goto LABEL_559;
+                    case 2:
+                        goto LABEL_556;
+                    case 3:
+                        goto LABEL_553;
+                    case 4:
+                        goto LABEL_550;
+                    case 5:
+                        goto LABEL_547;
+                    case 6:
+                        goto LABEL_544;
+                    case 7:
+                        goto LABEL_541;
+                    case 8:
+                        goto LABEL_538;
+                    case 9:
+                        goto LABEL_535;
+                    case 0xA:
+                        goto LABEL_532;
+                    case 0xB:
+                        goto LABEL_529;
+                    case 0xC:
+                        goto LABEL_526;
+                    case 0xD:
+                        goto LABEL_523;
+                    case 0xE:
+                        goto LABEL_520;
+                    case 0xF:
+                        while (1)
+                        {
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[1] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_520:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[2] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_523:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[3] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_526:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[4] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_529:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[5] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_532:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[6] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_535:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[7] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_538:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[8] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_541:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[9] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_544:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[10] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_547:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[11] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_550:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[12] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_553:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[13] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_556:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[14] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        LABEL_559:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                v388[15] = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                            v388 += 16;
+                            v16 = (__int16)v385 <= 16;
+                            LOWORD(v385) = v385 - 16;
+                            if (v16)
+                                break;
+                        LABEL_514:
+                            LOBYTE(v378) = *(_BYTE*)(v379 + v389);
+                            if ((_BYTE)v378)
+                                *v388 = strPal.byte_B7934_B7924[v378];
+                            v171 = __CFADD__((_WORD)v1099, (_WORD)v384);
+                            LOWORD(v384) = v1099 + v384;
+                            LOBYTE(v379) = BYTE2(v1099) + v171 + v379;
+                            v171 = __CFADD__(v1151, v384);
+                            v384 += v1151;
+                            BYTE1(v379) += BYTE2(v1110) + v171;
+                            v171 = __CFADD__(v1167, v385);
+                            v385 += v1167;
+                            BYTE1(v378) += BYTE2(v1121) + v171;
+                        }
+                        break;
+                    }
+                }
+            LABEL_562:
+                if (!--v1098)
+                    return;
+            }
+            if (v381 > widthViewPort_93AD8)
+                LOWORD(v381) = widthViewPort_93AD8;
+            v16 = (__int16)v381 <= (__int16)v378;
+            v386 = v381 - v378;
+            if (v16)
+                goto LABEL_562;
+            v382 += v378;
+            LOBYTE(v379) = v380[10];
+            v384 = __ROL4__(*((_DWORD*)v380 + 3), 16);
+            v387 = v386;
+            BYTE1(v379) = v384;
+            LOWORD(v384) = *((_WORD*)v380 + 4);
+            v385 = __ROL4__(*((_DWORD*)v380 + 4), 16);
+            BYTE1(v378) = v385;
+            LOWORD(v385) = v387;
+            goto LABEL_513;
+        case 7:
+        case 11:
+        LABEL_564:
+            //adress 0x24674B_
+            //debug
+#ifdef debug1
+            if (compare_index_24674B == 0)
+            {
+                compare_index_24674B++;
+                compare_index_24674B--;
+            }
+            //add_compare(0x24674B, true, true);
+            compare_index_24674B++;
+#endif debug1
+            //debug
+            v390 = (unsigned __int16*)&unk_93AE0;
+            v1152 = v1110 << 16;
+            HIWORD(v391) = 0;
+            HIWORD(v392) = 0;
+            while (1)
+            {
+                LOWORD(v391) = v390[1];
+                v393 = v390[3];
+                v394 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v391 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v393 > 0)
+                {
+                    v395 = (unsigned __int16)-(__int16)v391;
+                    v397 = __ROL4__(*((_DWORD*)v390 + 3) + v1110 * v395, 16);
+                    BYTE1(v392) = v397;
+                    v396 = *((_DWORD*)v390 + 2) + v1099 * v395;
+                    LOWORD(v397) = v396;
+                    v398 = v396 >> 8;
+                    LOBYTE(v392) = BYTE1(v398);
+                    if (v393 > widthViewPort_93AD8)
+                        LOWORD(v393) = widthViewPort_93AD8;
+                    v391 = (unsigned __int16)v398;
+                LABEL_574:
+                    v1261 = v390;
+                    v399 = dword_93AD0;
+                    BYTE1(v391) = byte_967E0;
+                    while (1)
+                    {
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v397);
+                        LOWORD(v397) = v1099 + v397;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v397);
+                        v400 = v1152 + v397;
+                        *v394 = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v401 = v393 - 1;
+                        if (!v401)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v400);
+                        LOWORD(v400) = v1099 + v400;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v400);
+                        v402 = v1152 + v400;
+                        v394[1] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v403 = v401 - 1;
+                        if (!v403)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v402);
+                        LOWORD(v402) = v1099 + v402;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v402);
+                        v404 = v1152 + v402;
+                        v394[2] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v405 = v403 - 1;
+                        if (!v405)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v404);
+                        LOWORD(v404) = v1099 + v404;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v404);
+                        v406 = v1152 + v404;
+                        v394[3] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v407 = v405 - 1;
+                        if (!v407)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v406);
+                        LOWORD(v406) = v1099 + v406;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v406);
+                        v408 = v1152 + v406;
+                        v394[4] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v409 = v407 - 1;
+                        if (!v409)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v408);
+                        LOWORD(v408) = v1099 + v408;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v408);
+                        v410 = v1152 + v408;
+                        v394[5] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v411 = v409 - 1;
+                        if (!v411)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v410);
+                        LOWORD(v410) = v1099 + v410;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v410);
+                        v412 = v1152 + v410;
+                        v394[6] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v413 = v411 - 1;
+                        if (!v413)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v412);
+                        LOWORD(v412) = v1099 + v412;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v412);
+                        v414 = v1152 + v412;
+                        v394[7] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v415 = v413 - 1;
+                        if (!v415)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v414);
+                        LOWORD(v414) = v1099 + v414;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v414);
+                        v416 = v1152 + v414;
+                        v394[8] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v417 = v415 - 1;
+                        if (!v417)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v416);
+                        LOWORD(v416) = v1099 + v416;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v416);
+                        v418 = v1152 + v416;
+                        v394[9] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v419 = v417 - 1;
+                        if (!v419)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v418);
+                        LOWORD(v418) = v1099 + v418;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v418);
+                        v420 = v1152 + v418;
+                        v394[10] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v421 = v419 - 1;
+                        if (!v421)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v420);
+                        LOWORD(v420) = v1099 + v420;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v420);
+                        v422 = v1152 + v420;
+                        v394[11] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v423 = v421 - 1;
+                        if (!v423)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v422);
+                        LOWORD(v422) = v1099 + v422;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v422);
+                        v424 = v1152 + v422;
+                        v394[12] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v425 = v423 - 1;
+                        if (!v425)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v424);
+                        LOWORD(v424) = v1099 + v424;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v424);
+                        v426 = v1152 + v424;
+                        v394[13] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v427 = v425 - 1;
+                        if (!v427)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v426);
+                        LOWORD(v426) = v1099 + v426;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v426);
+                        v428 = v1152 + v426;
+                        v394[14] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        v429 = v427 - 1;
+                        if (!v429)
+                            break;
+                        LOBYTE(v391) = *(_BYTE*)(v392 + v399);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v428);
+                        LOWORD(v428) = v1099 + v428;
+                        LOBYTE(v392) = BYTE2(v1099) + v171 + v392;
+                        v171 = __CFADD__(v1152, v428);
+                        v397 = v1152 + v428;
+                        v394[15] = strPal.byte_B7934_B7924[v391];
+                        BYTE1(v392) += BYTE2(v1110) + v171;
+                        LOWORD(v393) = v429 - 1;
+                        if (!(_WORD)v393)
+                            break;
+                        v394 += 16;
+                    }
+                    v390 = v1261;
+                }
+            LABEL_593:
+                v390 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v393 > widthViewPort_93AD8)
+                LOWORD(v393) = widthViewPort_93AD8;
+            v16 = (__int16)v393 <= (__int16)v391;
+            LOWORD(v393) = v393 - v391;
+            if (v16)
+                goto LABEL_593;
+            v394 += v391;
+            v397 = __ROL4__(*((_DWORD*)v390 + 3), 16);
+            BYTE1(v392) = v397;
+            LOWORD(v397) = v390[4];
+            LOBYTE(v392) = *((_BYTE*)v390 + 10);
+            goto LABEL_574;
+        case 8:
+        LABEL_595:
+            v430 = (unsigned __int16*)&unk_93AE0;
+            v1153 = v1110 << 16;
+            HIWORD(v431) = 0;
+            HIWORD(v432) = 0;
+            while (1)
+            {
+                LOWORD(v431) = v430[1];
+                v433 = v430[3];
+                v434 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v431 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v433 > 0)
+                {
+                    v435 = (unsigned __int16)-(__int16)v431;
+                    v437 = __ROL4__(*((_DWORD*)v430 + 3) + v1110 * v435, 16);
+                    BYTE1(v432) = v437;
+                    v436 = *((_DWORD*)v430 + 2) + v1099 * v435;
+                    LOWORD(v437) = v436;
+                    v438 = v436 >> 8;
+                    LOBYTE(v432) = BYTE1(v438);
+                    if (v433 > widthViewPort_93AD8)
+                        LOWORD(v433) = widthViewPort_93AD8;
+                    v431 = (unsigned __int16)v438;
+                LABEL_605:
+                    v1262 = v430;
+                    v439 = dword_93AD0;
+                    BYTE1(v431) = byte_967E0;
+                    while (1)
+                    {
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v437);
+                        LOWORD(v437) = v1099 + v437;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            *v434 = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v437);
+                        v440 = v1153 + v437;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v441 = v433 - 1;
+                        if (!v441)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v440);
+                        LOWORD(v440) = v1099 + v440;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[1] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v440);
+                        v442 = v1153 + v440;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v443 = v441 - 1;
+                        if (!v443)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v442);
+                        LOWORD(v442) = v1099 + v442;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[2] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v442);
+                        v444 = v1153 + v442;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v445 = v443 - 1;
+                        if (!v445)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v444);
+                        LOWORD(v444) = v1099 + v444;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[3] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v444);
+                        v446 = v1153 + v444;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v447 = v445 - 1;
+                        if (!v447)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v446);
+                        LOWORD(v446) = v1099 + v446;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[4] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v446);
+                        v448 = v1153 + v446;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v449 = v447 - 1;
+                        if (!v449)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v448);
+                        LOWORD(v448) = v1099 + v448;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[5] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v448);
+                        v450 = v1153 + v448;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v451 = v449 - 1;
+                        if (!v451)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v450);
+                        LOWORD(v450) = v1099 + v450;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[6] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v450);
+                        v452 = v1153 + v450;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v453 = v451 - 1;
+                        if (!v453)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v452);
+                        LOWORD(v452) = v1099 + v452;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[7] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v452);
+                        v454 = v1153 + v452;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v455 = v453 - 1;
+                        if (!v455)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v454);
+                        LOWORD(v454) = v1099 + v454;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[8] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v454);
+                        v456 = v1153 + v454;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v457 = v455 - 1;
+                        if (!v457)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v456);
+                        LOWORD(v456) = v1099 + v456;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[9] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v456);
+                        v458 = v1153 + v456;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v459 = v457 - 1;
+                        if (!v459)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v458);
+                        LOWORD(v458) = v1099 + v458;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[10] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v458);
+                        v460 = v1153 + v458;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v461 = v459 - 1;
+                        if (!v461)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v460);
+                        LOWORD(v460) = v1099 + v460;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[11] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v460);
+                        v462 = v1153 + v460;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v463 = v461 - 1;
+                        if (!v463)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v462);
+                        LOWORD(v462) = v1099 + v462;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[12] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v462);
+                        v464 = v1153 + v462;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v465 = v463 - 1;
+                        if (!v465)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v464);
+                        LOWORD(v464) = v1099 + v464;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[13] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v464);
+                        v466 = v1153 + v464;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v467 = v465 - 1;
+                        if (!v467)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v466);
+                        LOWORD(v466) = v1099 + v466;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[14] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v466);
+                        v468 = v1153 + v466;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        v469 = v467 - 1;
+                        if (!v469)
+                            break;
+                        LOBYTE(v431) = *(_BYTE*)(v432 + v439);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v468);
+                        LOWORD(v468) = v1099 + v468;
+                        LOBYTE(v432) = BYTE2(v1099) + v171 + v432;
+                        if ((_BYTE)v431)
+                            v434[15] = strPal.byte_B7934_B7924[v431];
+                        v171 = __CFADD__(v1153, v468);
+                        v437 = v1153 + v468;
+                        BYTE1(v432) += BYTE2(v1110) + v171;
+                        LOWORD(v433) = v469 - 1;
+                        if (!(_WORD)v433)
+                            break;
+                        v434 += 16;
+                    }
+                    v430 = v1262;
+                }
+            LABEL_656:
+                v430 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v433 > widthViewPort_93AD8)
+                LOWORD(v433) = widthViewPort_93AD8;
+            v16 = (__int16)v433 <= (__int16)v431;
+            LOWORD(v433) = v433 - v431;
+            if (v16)
+                goto LABEL_656;
+            v434 += v431;
+            v437 = __ROL4__(*((_DWORD*)v430 + 3), 16);
+            BYTE1(v432) = v437;
+            LOWORD(v437) = v430[4];
+            LOBYTE(v432) = *((_BYTE*)v430 + 10);
+            goto LABEL_605;
+        case 9:
+        case 10:
+        LABEL_658:
+            v470 = (unsigned __int16*)&unk_93AE0;
+            v1154 = v1110 << 16;
+            HIWORD(v471) = 0;
+            HIWORD(v472) = 0;
+            while (1)
+            {
+                LOWORD(v471) = v470[1];
+                v473 = v470[3];
+                v474 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v471 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v473 > 0)
+                {
+                    v475 = (unsigned __int16)-(__int16)v471;
+                    v477 = __ROL4__(*((_DWORD*)v470 + 3) + v1110 * v475, 16);
+                    BYTE1(v472) = v477;
+                    v476 = *((_DWORD*)v470 + 2) + v1099 * v475;
+                    LOWORD(v477) = v476;
+                    v478 = v476 >> 8;
+                    LOBYTE(v472) = BYTE1(v478);
+                    if (v473 > widthViewPort_93AD8)
+                        LOWORD(v473) = widthViewPort_93AD8;
+                    v471 = (unsigned __int16)v478;
+                LABEL_668:
+                    v1263 = v470;
+                    v479 = dword_93AD0;
+                    while (1)
+                    {
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v477);
+                        LOWORD(v477) = v1099 + v477;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = *v474;
+                            *v474 = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v477);
+                        v480 = v1154 + v477;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v481 = v473 - 1;
+                        if (!v481)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v480);
+                        LOWORD(v480) = v1099 + v480;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[1];
+                            v474[1] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v480);
+                        v482 = v1154 + v480;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v483 = v481 - 1;
+                        if (!v483)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v482);
+                        LOWORD(v482) = v1099 + v482;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[2];
+                            v474[2] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v482);
+                        v484 = v1154 + v482;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v485 = v483 - 1;
+                        if (!v485)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v484);
+                        LOWORD(v484) = v1099 + v484;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[3];
+                            v474[3] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v484);
+                        v486 = v1154 + v484;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v487 = v485 - 1;
+                        if (!v487)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v486);
+                        LOWORD(v486) = v1099 + v486;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[4];
+                            v474[4] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v486);
+                        v488 = v1154 + v486;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v489 = v487 - 1;
+                        if (!v489)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v488);
+                        LOWORD(v488) = v1099 + v488;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[5];
+                            v474[5] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v488);
+                        v490 = v1154 + v488;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v491 = v489 - 1;
+                        if (!v491)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v490);
+                        LOWORD(v490) = v1099 + v490;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[6];
+                            v474[6] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v490);
+                        v492 = v1154 + v490;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v493 = v491 - 1;
+                        if (!v493)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v492);
+                        LOWORD(v492) = v1099 + v492;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[7];
+                            v474[7] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v492);
+                        v494 = v1154 + v492;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v495 = v493 - 1;
+                        if (!v495)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v494);
+                        LOWORD(v494) = v1099 + v494;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[8];
+                            v474[8] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v494);
+                        v496 = v1154 + v494;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v497 = v495 - 1;
+                        if (!v497)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v496);
+                        LOWORD(v496) = v1099 + v496;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[9];
+                            v474[9] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v496);
+                        v498 = v1154 + v496;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v499 = v497 - 1;
+                        if (!v499)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v498);
+                        LOWORD(v498) = v1099 + v498;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[10];
+                            v474[10] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v498);
+                        v500 = v1154 + v498;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v501 = v499 - 1;
+                        if (!v501)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v500);
+                        LOWORD(v500) = v1099 + v500;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[11];
+                            v474[11] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v500);
+                        v502 = v1154 + v500;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v503 = v501 - 1;
+                        if (!v503)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v502);
+                        LOWORD(v502) = v1099 + v502;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[12];
+                            v474[12] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v502);
+                        v504 = v1154 + v502;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v505 = v503 - 1;
+                        if (!v505)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v504);
+                        LOWORD(v504) = v1099 + v504;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[13];
+                            v474[13] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v504);
+                        v506 = v1154 + v504;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v507 = v505 - 1;
+                        if (!v507)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v506);
+                        LOWORD(v506) = v1099 + v506;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[14];
+                            v474[14] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v506);
+                        v508 = v1154 + v506;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        v509 = v507 - 1;
+                        if (!v509)
+                            break;
+                        BYTE1(v471) = *(_BYTE*)(v472 + v479);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v508);
+                        LOWORD(v508) = v1099 + v508;
+                        LOBYTE(v472) = BYTE2(v1099) + v171 + v472;
+                        if (BYTE1(v471))
+                        {
+                            LOBYTE(v471) = v474[15];
+                            v474[15] = strPal.byte_B7934_B7924[v471];
+                        }
+                        v171 = __CFADD__(v1154, v508);
+                        v477 = v1154 + v508;
+                        BYTE1(v472) += BYTE2(v1110) + v171;
+                        LOWORD(v473) = v509 - 1;
+                        if (!(_WORD)v473)
+                            break;
+                        v474 += 16;
+                    }
+                    v470 = v1263;
+                }
+            LABEL_719:
+                v470 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v473 > widthViewPort_93AD8)
+                LOWORD(v473) = widthViewPort_93AD8;
+            v16 = (__int16)v473 <= (__int16)v471;
+            LOWORD(v473) = v473 - v471;
+            if (v16)
+                goto LABEL_719;
+            v474 += v471;
+            v477 = __ROL4__(*((_DWORD*)v470 + 3), 16);
+            BYTE1(v472) = v477;
+            LOWORD(v477) = v470[4];
+            LOBYTE(v472) = *((_BYTE*)v470 + 10);
+            goto LABEL_668;
+        case 12:
+        LABEL_721:
+            v510 = (unsigned __int16*)&unk_93AE0;
+            v1155 = v1110 << 16;
+            HIWORD(v511) = 0;
+            HIWORD(v512) = 0;
+            while (1)
+            {
+                LOWORD(v511) = v510[1];
+                v513 = v510[3];
+                v514 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v511 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v513 > 0)
+                {
+                    v515 = (unsigned __int16)-(__int16)v511;
+                    v517 = __ROL4__(*((_DWORD*)v510 + 3) + v1110 * v515, 16);
+                    BYTE1(v512) = v517;
+                    v516 = *((_DWORD*)v510 + 2) + v1099 * v515;
+                    LOWORD(v517) = v516;
+                    v518 = v516 >> 8;
+                    LOBYTE(v512) = BYTE1(v518);
+                    if (v513 > widthViewPort_93AD8)
+                        LOWORD(v513) = widthViewPort_93AD8;
+                    v511 = (unsigned __int16)v518;
+                LABEL_731:
+                    v1264 = v510;
+                    v519 = dword_93AD0;
+                    LOBYTE(v511) = byte_967E0;
+                    while (1)
+                    {
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v517);
+                        LOWORD(v517) = v1099 + v517;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v517);
+                        v520 = v1155 + v517;
+                        *v514 = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v521 = v513 - 1;
+                        if (!v521)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v520);
+                        LOWORD(v520) = v1099 + v520;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v520);
+                        v522 = v1155 + v520;
+                        v514[1] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v523 = v521 - 1;
+                        if (!v523)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v522);
+                        LOWORD(v522) = v1099 + v522;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v522);
+                        v524 = v1155 + v522;
+                        v514[2] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v525 = v523 - 1;
+                        if (!v525)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v524);
+                        LOWORD(v524) = v1099 + v524;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v524);
+                        v526 = v1155 + v524;
+                        v514[3] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v527 = v525 - 1;
+                        if (!v527)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v526);
+                        LOWORD(v526) = v1099 + v526;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v526);
+                        v528 = v1155 + v526;
+                        v514[4] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v529 = v527 - 1;
+                        if (!v529)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v528);
+                        LOWORD(v528) = v1099 + v528;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v528);
+                        v530 = v1155 + v528;
+                        v514[5] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v531 = v529 - 1;
+                        if (!v531)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v530);
+                        LOWORD(v530) = v1099 + v530;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v530);
+                        v532 = v1155 + v530;
+                        v514[6] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v533 = v531 - 1;
+                        if (!v533)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v532);
+                        LOWORD(v532) = v1099 + v532;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v532);
+                        v534 = v1155 + v532;
+                        v514[7] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v535 = v533 - 1;
+                        if (!v535)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v534);
+                        LOWORD(v534) = v1099 + v534;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v534);
+                        v536 = v1155 + v534;
+                        v514[8] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v537 = v535 - 1;
+                        if (!v537)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v536);
+                        LOWORD(v536) = v1099 + v536;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v536);
+                        v538 = v1155 + v536;
+                        v514[9] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v539 = v537 - 1;
+                        if (!v539)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v538);
+                        LOWORD(v538) = v1099 + v538;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v538);
+                        v540 = v1155 + v538;
+                        v514[10] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v541 = v539 - 1;
+                        if (!v541)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v540);
+                        LOWORD(v540) = v1099 + v540;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v540);
+                        v542 = v1155 + v540;
+                        v514[11] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v543 = v541 - 1;
+                        if (!v543)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v542);
+                        LOWORD(v542) = v1099 + v542;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v542);
+                        v544 = v1155 + v542;
+                        v514[12] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v545 = v543 - 1;
+                        if (!v545)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v544);
+                        LOWORD(v544) = v1099 + v544;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v544);
+                        v546 = v1155 + v544;
+                        v514[13] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v547 = v545 - 1;
+                        if (!v547)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v546);
+                        LOWORD(v546) = v1099 + v546;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v546);
+                        v548 = v1155 + v546;
+                        v514[14] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        v549 = v547 - 1;
+                        if (!v549)
+                            break;
+                        BYTE1(v511) = *(_BYTE*)(v512 + v519);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v548);
+                        LOWORD(v548) = v1099 + v548;
+                        LOBYTE(v512) = BYTE2(v1099) + v171 + v512;
+                        v171 = __CFADD__(v1155, v548);
+                        v517 = v1155 + v548;
+                        v514[15] = strPal.byte_BB934_BB924[v511];
+                        BYTE1(v512) += BYTE2(v1110) + v171;
+                        LOWORD(v513) = v549 - 1;
+                        if (!(_WORD)v513)
+                            break;
+                        v514 += 16;
+                    }
+                    v510 = v1264;
+                }
+            LABEL_750:
+                v510 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v513 > widthViewPort_93AD8)
+                LOWORD(v513) = widthViewPort_93AD8;
+            v16 = (__int16)v513 <= (__int16)v511;
+            LOWORD(v513) = v513 - v511;
+            if (v16)
+                goto LABEL_750;
+            v514 += v511;
+            v517 = __ROL4__(*((_DWORD*)v510 + 3), 16);
+            BYTE1(v512) = v517;
+            LOWORD(v517) = v510[4];
+            LOBYTE(v512) = *((_BYTE*)v510 + 10);
+            goto LABEL_731;
+        case 13:
+        LABEL_752:
+            v550 = (unsigned __int16*)&unk_93AE0;
+            v1156 = v1110 << 16;
+            HIWORD(v551) = 0;
+            HIWORD(v552) = 0;
+            while (1)
+            {
+                LOWORD(v551) = v550[1];
+                v553 = v550[3];
+                v554 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v551 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v553 > 0)
+                {
+                    v555 = (unsigned __int16)-(__int16)v551;
+                    v557 = __ROL4__(*((_DWORD*)v550 + 3) + v1110 * v555, 16);
+                    BYTE1(v552) = v557;
+                    v556 = *((_DWORD*)v550 + 2) + v1099 * v555;
+                    LOWORD(v557) = v556;
+                    v558 = v556 >> 8;
+                    LOBYTE(v552) = BYTE1(v558);
+                    if (v553 > widthViewPort_93AD8)
+                        LOWORD(v553) = widthViewPort_93AD8;
+                    v551 = (unsigned __int16)v558;
+                LABEL_762:
+                    v1265 = v550;
+                    v559 = dword_93AD0;
+                    BYTE1(v551) = byte_967E0;
+                    while (1)
+                    {
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v557);
+                        LOWORD(v557) = v1099 + v557;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v557);
+                        v560 = v1156 + v557;
+                        *v554 = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v561 = v553 - 1;
+                        if (!v561)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v560);
+                        LOWORD(v560) = v1099 + v560;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v560);
+                        v562 = v1156 + v560;
+                        v554[1] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v563 = v561 - 1;
+                        if (!v563)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v562);
+                        LOWORD(v562) = v1099 + v562;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v562);
+                        v564 = v1156 + v562;
+                        v554[2] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v565 = v563 - 1;
+                        if (!v565)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v564);
+                        LOWORD(v564) = v1099 + v564;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v564);
+                        v566 = v1156 + v564;
+                        v554[3] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v567 = v565 - 1;
+                        if (!v567)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v566);
+                        LOWORD(v566) = v1099 + v566;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v566);
+                        v568 = v1156 + v566;
+                        v554[4] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v569 = v567 - 1;
+                        if (!v569)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v568);
+                        LOWORD(v568) = v1099 + v568;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v568);
+                        v570 = v1156 + v568;
+                        v554[5] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v571 = v569 - 1;
+                        if (!v571)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v570);
+                        LOWORD(v570) = v1099 + v570;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v570);
+                        v572 = v1156 + v570;
+                        v554[6] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v573 = v571 - 1;
+                        if (!v573)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v572);
+                        LOWORD(v572) = v1099 + v572;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v572);
+                        v574 = v1156 + v572;
+                        v554[7] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v575 = v573 - 1;
+                        if (!v575)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v574);
+                        LOWORD(v574) = v1099 + v574;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v574);
+                        v576 = v1156 + v574;
+                        v554[8] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v577 = v575 - 1;
+                        if (!v577)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v576);
+                        LOWORD(v576) = v1099 + v576;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v576);
+                        v578 = v1156 + v576;
+                        v554[9] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v579 = v577 - 1;
+                        if (!v579)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v578);
+                        LOWORD(v578) = v1099 + v578;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v578);
+                        v580 = v1156 + v578;
+                        v554[10] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v581 = v579 - 1;
+                        if (!v581)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v580);
+                        LOWORD(v580) = v1099 + v580;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v580);
+                        v582 = v1156 + v580;
+                        v554[11] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v583 = v581 - 1;
+                        if (!v583)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v582);
+                        LOWORD(v582) = v1099 + v582;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v582);
+                        v584 = v1156 + v582;
+                        v554[12] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v585 = v583 - 1;
+                        if (!v585)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v584);
+                        LOWORD(v584) = v1099 + v584;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v584);
+                        v586 = v1156 + v584;
+                        v554[13] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v587 = v585 - 1;
+                        if (!v587)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v586);
+                        LOWORD(v586) = v1099 + v586;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v586);
+                        v588 = v1156 + v586;
+                        v554[14] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        v589 = v587 - 1;
+                        if (!v589)
+                            break;
+                        LOBYTE(v551) = *(_BYTE*)(v552 + v559);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v588);
+                        LOWORD(v588) = v1099 + v588;
+                        LOBYTE(v552) = BYTE2(v1099) + v171 + v552;
+                        v171 = __CFADD__(v1156, v588);
+                        v557 = v1156 + v588;
+                        v554[15] = strPal.byte_BB934_BB924[v551];
+                        BYTE1(v552) += BYTE2(v1110) + v171;
+                        LOWORD(v553) = v589 - 1;
+                        if (!(_WORD)v553)
+                            break;
+                        v554 += 16;
+                    }
+                    v550 = v1265;
+                }
+            LABEL_781:
+                v550 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v553 > widthViewPort_93AD8)
+                LOWORD(v553) = widthViewPort_93AD8;
+            v16 = (__int16)v553 <= (__int16)v551;
+            LOWORD(v553) = v553 - v551;
+            if (v16)
+                goto LABEL_781;
+            v554 += v551;
+            v557 = __ROL4__(*((_DWORD*)v550 + 3), 16);
+            BYTE1(v552) = v557;
+            LOWORD(v557) = v550[4];
+            LOBYTE(v552) = *((_BYTE*)v550 + 10);
+            goto LABEL_762;
+        case 14:
+        LABEL_783:
+            v590 = (unsigned __int16*)&unk_93AE0;
+            v591 = (_BYTE*)v1077;
+            HIWORD(v592) = 0;
+            BYTE1(v592) = byte_967E0;
+            HIWORD(v593) = 0;
+            while (1)
+            {
+                LOWORD(v593) = v590[1];
+                v594 = v590[3];
+                v591 += pitchViewPort_93AD4;
+                if ((v593 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v594 > 0)
+                {
+                    if (v594 > widthViewPort_93AD8)
+                        LOWORD(v594) = widthViewPort_93AD8;
+                LABEL_793:
+                    for (k = v591; ; k += 16)
+                    {
+                        LOBYTE(v592) = *k;
+                        *k = strPal.byte_BB934_BB924[v592];
+                        v596 = v594 - 1;
+                        if (!v596)
+                            break;
+                        LOBYTE(v592) = k[1];
+                        k[1] = strPal.byte_BB934_BB924[v592];
+                        v597 = v596 - 1;
+                        if (!v597)
+                            break;
+                        LOBYTE(v592) = k[2];
+                        k[2] = strPal.byte_BB934_BB924[v592];
+                        v598 = v597 - 1;
+                        if (!v598)
+                            break;
+                        LOBYTE(v592) = k[3];
+                        k[3] = strPal.byte_BB934_BB924[v592];
+                        v599 = v598 - 1;
+                        if (!v599)
+                            break;
+                        LOBYTE(v592) = k[4];
+                        k[4] = strPal.byte_BB934_BB924[v592];
+                        v600 = v599 - 1;
+                        if (!v600)
+                            break;
+                        LOBYTE(v592) = k[5];
+                        k[5] = strPal.byte_BB934_BB924[v592];
+                        v601 = v600 - 1;
+                        if (!v601)
+                            break;
+                        LOBYTE(v592) = k[6];
+                        k[6] = strPal.byte_BB934_BB924[v592];
+                        v602 = v601 - 1;
+                        if (!v602)
+                            break;
+                        LOBYTE(v592) = k[7];
+                        k[7] = strPal.byte_BB934_BB924[v592];
+                        v603 = v602 - 1;
+                        if (!v603)
+                            break;
+                        LOBYTE(v592) = k[8];
+                        k[8] = strPal.byte_BB934_BB924[v592];
+                        v604 = v603 - 1;
+                        if (!v604)
+                            break;
+                        LOBYTE(v592) = k[9];
+                        k[9] = strPal.byte_BB934_BB924[v592];
+                        v605 = v604 - 1;
+                        if (!v605)
+                            break;
+                        LOBYTE(v592) = k[10];
+                        k[10] = strPal.byte_BB934_BB924[v592];
+                        v606 = v605 - 1;
+                        if (!v606)
+                            break;
+                        LOBYTE(v592) = k[11];
+                        k[11] = strPal.byte_BB934_BB924[v592];
+                        v607 = v606 - 1;
+                        if (!v607)
+                            break;
+                        LOBYTE(v592) = k[12];
+                        k[12] = strPal.byte_BB934_BB924[v592];
+                        v608 = v607 - 1;
+                        if (!v608)
+                            break;
+                        LOBYTE(v592) = k[13];
+                        k[13] = strPal.byte_BB934_BB924[v592];
+                        v609 = v608 - 1;
+                        if (!v609)
+                            break;
+                        LOBYTE(v592) = k[14];
+                        k[14] = strPal.byte_BB934_BB924[v592];
+                        v610 = v609 - 1;
+                        if (!v610)
+                            break;
+                        LOBYTE(v592) = k[15];
+                        k[15] = strPal.byte_BB934_BB924[v592];
+                        LOWORD(v594) = v610 - 1;
+                        if (!(_WORD)v594)
+                            break;
+                    }
+                }
+            LABEL_810:
+                v590 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v594 > widthViewPort_93AD8)
+                LOWORD(v594) = widthViewPort_93AD8;
+            v16 = (__int16)v594 <= (__int16)v593;
+            LOWORD(v594) = v594 - v593;
+            if (v16)
+                goto LABEL_810;
+            k = &v591[v593];
+            goto LABEL_793;
+        case 15:
+        LABEL_812:
+            v611 = (unsigned __int16*)&unk_93AE0;
+            v612 = (_BYTE*)v1077;
+            v613 = (unsigned __int8)byte_967E0;
+            HIWORD(v614) = 0;
+            while (1)
+            {
+                LOWORD(v614) = v611[1];
+                v615 = v611[3];
+                v612 += pitchViewPort_93AD4;
+                if ((v614 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v615 > 0)
+                {
+                    if (v615 > widthViewPort_93AD8)
+                        LOWORD(v615) = widthViewPort_93AD8;
+                LABEL_822:
+                    for (m = v612; ; m += 16)
+                    {
+                        BYTE1(v613) = *m;
+                        *m = strPal.byte_BB934_BB924[v613];
+                        v617 = v615 - 1;
+                        if (!v617)
+                            break;
+                        BYTE1(v613) = m[1];
+                        m[1] = strPal.byte_BB934_BB924[v613];
+                        v618 = v617 - 1;
+                        if (!v618)
+                            break;
+                        BYTE1(v613) = m[2];
+                        m[2] = strPal.byte_BB934_BB924[v613];
+                        v619 = v618 - 1;
+                        if (!v619)
+                            break;
+                        BYTE1(v613) = m[3];
+                        m[3] = strPal.byte_BB934_BB924[v613];
+                        v620 = v619 - 1;
+                        if (!v620)
+                            break;
+                        BYTE1(v613) = m[4];
+                        m[4] = strPal.byte_BB934_BB924[v613];
+                        v621 = v620 - 1;
+                        if (!v621)
+                            break;
+                        BYTE1(v613) = m[5];
+                        m[5] = strPal.byte_BB934_BB924[v613];
+                        v622 = v621 - 1;
+                        if (!v622)
+                            break;
+                        BYTE1(v613) = m[6];
+                        m[6] = strPal.byte_BB934_BB924[v613];
+                        v623 = v622 - 1;
+                        if (!v623)
+                            break;
+                        BYTE1(v613) = m[7];
+                        m[7] = strPal.byte_BB934_BB924[v613];
+                        v624 = v623 - 1;
+                        if (!v624)
+                            break;
+                        BYTE1(v613) = m[8];
+                        m[8] = strPal.byte_BB934_BB924[v613];
+                        v625 = v624 - 1;
+                        if (!v625)
+                            break;
+                        BYTE1(v613) = m[9];
+                        m[9] = strPal.byte_BB934_BB924[v613];
+                        v626 = v625 - 1;
+                        if (!v626)
+                            break;
+                        BYTE1(v613) = m[10];
+                        m[10] = strPal.byte_BB934_BB924[v613];
+                        v627 = v626 - 1;
+                        if (!v627)
+                            break;
+                        BYTE1(v613) = m[11];
+                        m[11] = strPal.byte_BB934_BB924[v613];
+                        v628 = v627 - 1;
+                        if (!v628)
+                            break;
+                        BYTE1(v613) = m[12];
+                        m[12] = strPal.byte_BB934_BB924[v613];
+                        v629 = v628 - 1;
+                        if (!v629)
+                            break;
+                        BYTE1(v613) = m[13];
+                        m[13] = strPal.byte_BB934_BB924[v613];
+                        v630 = v629 - 1;
+                        if (!v630)
+                            break;
+                        BYTE1(v613) = m[14];
+                        m[14] = strPal.byte_BB934_BB924[v613];
+                        v631 = v630 - 1;
+                        if (!v631)
+                            break;
+                        BYTE1(v613) = m[15];
+                        m[15] = strPal.byte_BB934_BB924[v613];
+                        LOWORD(v615) = v631 - 1;
+                        if (!(_WORD)v615)
+                            break;
+                    }
+                }
+            LABEL_839:
+                v611 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v615 > widthViewPort_93AD8)
+                LOWORD(v615) = widthViewPort_93AD8;
+            v16 = (__int16)v615 <= (__int16)v614;
+            LOWORD(v615) = v615 - v614;
+            if (v16)
+                goto LABEL_839;
+            m = &v612[v614];
+            goto LABEL_822;
+        case 16:
+        LABEL_841:
+            v632 = (unsigned __int16*)&unk_93AE0;
+            HIWORD(v633) = 0;
+            while (1)
+            {
+                LOWORD(v29) = v632[1];
+                v634 = v632[3];
+                v635 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v29 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v634 > 0)
+                {
+                    v636 = v1121 * (unsigned __int16)-(__int16)v29;
+                    v637 = v636;
+                    v29 = v636 >> 8;
+                    v171 = __CFADD__(v632[8], v637);
+                    v638 = v632[8] + v637;
+                    BYTE1(v29) += *((_BYTE*)v632 + 18) + v171;
+                    if (v634 > widthViewPort_93AD8)
+                        LOWORD(v634) = widthViewPort_93AD8;
+                    v29 = (unsigned __int16)v29;
+                    LOBYTE(v29) = byte_967E0;
+                LABEL_851:
+                    while (1)
+                    {
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = *v635;
+                        *v635 = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v638);
+                        v639 = v1121 + v638;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v640 = v634 - 1;
+                        if (!v640)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[1];
+                        v635[1] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v639);
+                        v641 = v1121 + v639;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v642 = v640 - 1;
+                        if (!v642)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[2];
+                        v635[2] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v641);
+                        v643 = v1121 + v641;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v644 = v642 - 1;
+                        if (!v644)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[3];
+                        v635[3] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v643);
+                        v645 = v1121 + v643;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v646 = v644 - 1;
+                        if (!v646)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[4];
+                        v635[4] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v645);
+                        v647 = v1121 + v645;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v648 = v646 - 1;
+                        if (!v648)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[5];
+                        v635[5] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v647);
+                        v649 = v1121 + v647;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v650 = v648 - 1;
+                        if (!v650)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[6];
+                        v635[6] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v649);
+                        v651 = v1121 + v649;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v652 = v650 - 1;
+                        if (!v652)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[7];
+                        v635[7] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v651);
+                        v653 = v1121 + v651;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v654 = v652 - 1;
+                        if (!v654)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[8];
+                        v635[8] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v653);
+                        v655 = v1121 + v653;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v656 = v654 - 1;
+                        if (!v656)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[9];
+                        v635[9] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v655);
+                        v657 = v1121 + v655;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v658 = v656 - 1;
+                        if (!v658)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[10];
+                        v635[10] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v657);
+                        v659 = v1121 + v657;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v660 = v658 - 1;
+                        if (!v660)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[11];
+                        v635[11] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v659);
+                        v661 = v1121 + v659;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v662 = v660 - 1;
+                        if (!v662)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[12];
+                        v635[12] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v661);
+                        v663 = v1121 + v661;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v664 = v662 - 1;
+                        if (!v664)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[13];
+                        v635[13] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v663);
+                        v665 = v1121 + v663;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v666 = v664 - 1;
+                        if (!v666)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[14];
+                        v635[14] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v665);
+                        v667 = v1121 + v665;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v668 = v666 - 1;
+                        if (!v668)
+                            break;
+                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v633) = v635[15];
+                        v635[15] = strPal.byte_BB934_BB924[v633];
+                        v171 = __CFADD__((_WORD)v1121, v667);
+                        v638 = v1121 + v667;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        LOWORD(v634) = v668 - 1;
+                        if (!(_WORD)v634)
+                            break;
+                        v635 += 16;
+                    }
+                }
+            LABEL_868:
+                v632 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v634 > widthViewPort_93AD8)
+                LOWORD(v634) = widthViewPort_93AD8;
+            v16 = (__int16)v634 <= (__int16)v29;
+            LOWORD(v634) = v634 - v29;
+            if (v16)
+                goto LABEL_868;
+            v635 += v29;
+            v29 = (unsigned __int8)byte_967E0;
+            v638 = v632[8];
+            BYTE1(v29) = *((_BYTE*)v632 + 18);
+            goto LABEL_851;
+        case 17:
+        LABEL_870:
+            v669 = (unsigned __int16*)&unk_93AE0;
+            HIWORD(v670) = 0;
+            while (1)
+            {
+                LOWORD(v29) = v669[1];
+                v671 = v669[3];
+                v672 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v29 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v671 > 0)
+                {
+                    v673 = v1121 * (unsigned __int16)-(__int16)v29;
+                    v674 = v673;
+                    v29 = v673 >> 8;
+                    v171 = __CFADD__(v669[8], v674);
+                    v675 = v669[8] + v674;
+                    BYTE1(v29) += *((_BYTE*)v669 + 18) + v171;
+                    if (v671 > widthViewPort_93AD8)
+                        LOWORD(v671) = widthViewPort_93AD8;
+                    v29 = (unsigned __int16)v29;
+                    LOBYTE(v29) = byte_967E0;
+                LABEL_880:
+                    while (1)
+                    {
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = *v672;
+                        *v672 = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v675);
+                        v676 = v1121 + v675;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v677 = v671 - 1;
+                        if (!v677)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[1];
+                        v672[1] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v676);
+                        v678 = v1121 + v676;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v679 = v677 - 1;
+                        if (!v679)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[2];
+                        v672[2] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v678);
+                        v680 = v1121 + v678;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v681 = v679 - 1;
+                        if (!v681)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[3];
+                        v672[3] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v680);
+                        v682 = v1121 + v680;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v683 = v681 - 1;
+                        if (!v683)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[4];
+                        v672[4] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v682);
+                        v684 = v1121 + v682;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v685 = v683 - 1;
+                        if (!v685)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[5];
+                        v672[5] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v684);
+                        v686 = v1121 + v684;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v687 = v685 - 1;
+                        if (!v687)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[6];
+                        v672[6] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v686);
+                        v688 = v1121 + v686;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v689 = v687 - 1;
+                        if (!v689)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[7];
+                        v672[7] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v688);
+                        v690 = v1121 + v688;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v691 = v689 - 1;
+                        if (!v691)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[8];
+                        v672[8] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v690);
+                        v692 = v1121 + v690;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v693 = v691 - 1;
+                        if (!v693)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[9];
+                        v672[9] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v692);
+                        v694 = v1121 + v692;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v695 = v693 - 1;
+                        if (!v695)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[10];
+                        v672[10] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v694);
+                        v696 = v1121 + v694;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v697 = v695 - 1;
+                        if (!v697)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[11];
+                        v672[11] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v696);
+                        v698 = v1121 + v696;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v699 = v697 - 1;
+                        if (!v699)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[12];
+                        v672[12] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v698);
+                        v700 = v1121 + v698;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v701 = v699 - 1;
+                        if (!v701)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[13];
+                        v672[13] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v700);
+                        v702 = v1121 + v700;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v703 = v701 - 1;
+                        if (!v703)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[14];
+                        v672[14] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v702);
+                        v704 = v1121 + v702;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        v705 = v703 - 1;
+                        if (!v705)
+                            break;
+                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v670) = v672[15];
+                        v672[15] = strPal.byte_BB934_BB924[v670];
+                        v171 = __CFADD__((_WORD)v1121, v704);
+                        v675 = v1121 + v704;
+                        BYTE1(v29) += BYTE2(v1121) + v171;
+                        LOWORD(v671) = v705 - 1;
+                        if (!(_WORD)v671)
+                            break;
+                        v672 += 16;
+                    }
+                }
+            LABEL_897:
+                v669 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v671 > widthViewPort_93AD8)
+                LOWORD(v671) = widthViewPort_93AD8;
+            v16 = (__int16)v671 <= (__int16)v29;
+            LOWORD(v671) = v671 - v29;
+            if (v16)
+                goto LABEL_897;
+            v672 += v29;
+            v29 = (unsigned __int8)byte_967E0;
+            v675 = v669[8];
+            BYTE1(v29) = *((_BYTE*)v669 + 18);
+            goto LABEL_880;
+        case 18:
+        LABEL_899:
+            v706 = (unsigned __int16*)&unk_93AE0;
+            v1157 = v1110 << 16;
+            HIWORD(v707) = 0;
+            HIWORD(v708) = 0;
+            while (1)
+            {
+                LOWORD(v707) = v706[1];
+                v709 = v706[3];
+                v710 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v707 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v709 > 0)
+                {
+                    v711 = (unsigned __int16)-(__int16)v707;
+                    v713 = __ROL4__(*((_DWORD*)v706 + 3) + v1110 * v711, 16);
+                    BYTE1(v708) = v713;
+                    v712 = *((_DWORD*)v706 + 2) + v1099 * v711;
+                    LOWORD(v713) = v712;
+                    v714 = v712 >> 8;
+                    LOBYTE(v708) = BYTE1(v714);
+                    if (v709 > widthViewPort_93AD8)
+                        LOWORD(v709) = widthViewPort_93AD8;
+                    v707 = (unsigned __int16)v714;
+                LABEL_909:
+                    v1266 = v706;
+                    v715 = dword_93AD0;
+                    while (1)
+                    {
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v713);
+                        LOWORD(v713) = v1099 + v713;
+                        LOBYTE(v707) = *v710;
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v713);
+                        v716 = v1157 + v713;
+                        *v710 = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v717 = v709 - 1;
+                        if (!v717)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v716);
+                        LOWORD(v716) = v1099 + v716;
+                        LOBYTE(v707) = v710[1];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v716);
+                        v718 = v1157 + v716;
+                        v710[1] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v719 = v717 - 1;
+                        if (!v719)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v718);
+                        LOWORD(v718) = v1099 + v718;
+                        LOBYTE(v707) = v710[2];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v718);
+                        v720 = v1157 + v718;
+                        v710[2] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v721 = v719 - 1;
+                        if (!v721)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v720);
+                        LOWORD(v720) = v1099 + v720;
+                        LOBYTE(v707) = v710[3];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v720);
+                        v722 = v1157 + v720;
+                        v710[3] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v723 = v721 - 1;
+                        if (!v723)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v722);
+                        LOWORD(v722) = v1099 + v722;
+                        LOBYTE(v707) = v710[4];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v722);
+                        v724 = v1157 + v722;
+                        v710[4] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v725 = v723 - 1;
+                        if (!v725)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v724);
+                        LOWORD(v724) = v1099 + v724;
+                        LOBYTE(v707) = v710[5];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v724);
+                        v726 = v1157 + v724;
+                        v710[5] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v727 = v725 - 1;
+                        if (!v727)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v726);
+                        LOWORD(v726) = v1099 + v726;
+                        LOBYTE(v707) = v710[6];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v726);
+                        v728 = v1157 + v726;
+                        v710[6] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v729 = v727 - 1;
+                        if (!v729)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v728);
+                        LOWORD(v728) = v1099 + v728;
+                        LOBYTE(v707) = v710[7];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v728);
+                        v730 = v1157 + v728;
+                        v710[7] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v731 = v729 - 1;
+                        if (!v731)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v730);
+                        LOWORD(v730) = v1099 + v730;
+                        LOBYTE(v707) = v710[8];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v730);
+                        v732 = v1157 + v730;
+                        v710[8] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v733 = v731 - 1;
+                        if (!v733)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v732);
+                        LOWORD(v732) = v1099 + v732;
+                        LOBYTE(v707) = v710[9];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v732);
+                        v734 = v1157 + v732;
+                        v710[9] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v735 = v733 - 1;
+                        if (!v735)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v734);
+                        LOWORD(v734) = v1099 + v734;
+                        LOBYTE(v707) = v710[10];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v734);
+                        v736 = v1157 + v734;
+                        v710[10] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v737 = v735 - 1;
+                        if (!v737)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v736);
+                        LOWORD(v736) = v1099 + v736;
+                        LOBYTE(v707) = v710[11];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v736);
+                        v738 = v1157 + v736;
+                        v710[11] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v739 = v737 - 1;
+                        if (!v739)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v738);
+                        LOWORD(v738) = v1099 + v738;
+                        LOBYTE(v707) = v710[12];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v738);
+                        v740 = v1157 + v738;
+                        v710[12] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v741 = v739 - 1;
+                        if (!v741)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v740);
+                        LOWORD(v740) = v1099 + v740;
+                        LOBYTE(v707) = v710[13];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v740);
+                        v742 = v1157 + v740;
+                        v710[13] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v743 = v741 - 1;
+                        if (!v743)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v742);
+                        LOWORD(v742) = v1099 + v742;
+                        LOBYTE(v707) = v710[14];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v742);
+                        v744 = v1157 + v742;
+                        v710[14] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        v745 = v743 - 1;
+                        if (!v745)
+                            break;
+                        BYTE1(v707) = *(_BYTE*)(v708 + v715);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v744);
+                        LOWORD(v744) = v1099 + v744;
+                        LOBYTE(v707) = v710[15];
+                        LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
+                        v171 = __CFADD__(v1157, v744);
+                        v713 = v1157 + v744;
+                        v710[15] = strPal.byte_BB934_BB924[v707];
+                        BYTE1(v708) += BYTE2(v1110) + v171;
+                        LOWORD(v709) = v745 - 1;
+                        if (!(_WORD)v709)
+                            break;
+                        v710 += 16;
+                    }
+                    v706 = v1266;
+                }
+            LABEL_928:
+                v706 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v709 > widthViewPort_93AD8)
+                LOWORD(v709) = widthViewPort_93AD8;
+            v16 = (__int16)v709 <= (__int16)v707;
+            LOWORD(v709) = v709 - v707;
+            if (v16)
+                goto LABEL_928;
+            v710 += v707;
+            v713 = __ROL4__(*((_DWORD*)v706 + 3), 16);
+            BYTE1(v708) = v713;
+            LOWORD(v713) = v706[4];
+            LOBYTE(v708) = *((_BYTE*)v706 + 10);
+            goto LABEL_909;
+        case 19:
+        LABEL_930:
+            v746 = (unsigned __int16*)&unk_93AE0;
+            v1158 = v1110 << 16;
+            HIWORD(v747) = 0;
+            HIWORD(v748) = 0;
+            while (1)
+            {
+                LOWORD(v747) = v746[1];
+                v749 = v746[3];
+                v750 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v747 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v749 > 0)
+                {
+                    v751 = (unsigned __int16)-(__int16)v747;
+                    v753 = __ROL4__(*((_DWORD*)v746 + 3) + v1110 * v751, 16);
+                    BYTE1(v748) = v753;
+                    v752 = *((_DWORD*)v746 + 2) + v1099 * v751;
+                    LOWORD(v753) = v752;
+                    v754 = v752 >> 8;
+                    LOBYTE(v748) = BYTE1(v754);
+                    if (v749 > widthViewPort_93AD8)
+                        LOWORD(v749) = widthViewPort_93AD8;
+                    v747 = (unsigned __int16)v754;
+                LABEL_940:
+                    v1267 = v746;
+                    v755 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v753);
+                        LOWORD(v753) = v1099 + v753;
+                        BYTE1(v747) = *v750;
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v753);
+                        v756 = v1158 + v753;
+                        *v750 = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v757 = v749 - 1;
+                        if (!v757)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v756);
+                        LOWORD(v756) = v1099 + v756;
+                        BYTE1(v747) = v750[1];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v756);
+                        v758 = v1158 + v756;
+                        v750[1] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v759 = v757 - 1;
+                        if (!v759)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v758);
+                        LOWORD(v758) = v1099 + v758;
+                        BYTE1(v747) = v750[2];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v758);
+                        v760 = v1158 + v758;
+                        v750[2] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v761 = v759 - 1;
+                        if (!v761)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v760);
+                        LOWORD(v760) = v1099 + v760;
+                        BYTE1(v747) = v750[3];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v760);
+                        v762 = v1158 + v760;
+                        v750[3] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v763 = v761 - 1;
+                        if (!v763)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v762);
+                        LOWORD(v762) = v1099 + v762;
+                        BYTE1(v747) = v750[4];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v762);
+                        v764 = v1158 + v762;
+                        v750[4] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v765 = v763 - 1;
+                        if (!v765)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v764);
+                        LOWORD(v764) = v1099 + v764;
+                        BYTE1(v747) = v750[5];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v764);
+                        v766 = v1158 + v764;
+                        v750[5] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v767 = v765 - 1;
+                        if (!v767)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v766);
+                        LOWORD(v766) = v1099 + v766;
+                        BYTE1(v747) = v750[6];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v766);
+                        v768 = v1158 + v766;
+                        v750[6] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v769 = v767 - 1;
+                        if (!v769)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v768);
+                        LOWORD(v768) = v1099 + v768;
+                        BYTE1(v747) = v750[7];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v768);
+                        v770 = v1158 + v768;
+                        v750[7] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v771 = v769 - 1;
+                        if (!v771)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v770);
+                        LOWORD(v770) = v1099 + v770;
+                        BYTE1(v747) = v750[8];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v770);
+                        v772 = v1158 + v770;
+                        v750[8] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v773 = v771 - 1;
+                        if (!v773)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v772);
+                        LOWORD(v772) = v1099 + v772;
+                        BYTE1(v747) = v750[9];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v772);
+                        v774 = v1158 + v772;
+                        v750[9] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v775 = v773 - 1;
+                        if (!v775)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v774);
+                        LOWORD(v774) = v1099 + v774;
+                        BYTE1(v747) = v750[10];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v774);
+                        v776 = v1158 + v774;
+                        v750[10] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v777 = v775 - 1;
+                        if (!v777)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v776);
+                        LOWORD(v776) = v1099 + v776;
+                        BYTE1(v747) = v750[11];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v776);
+                        v778 = v1158 + v776;
+                        v750[11] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v779 = v777 - 1;
+                        if (!v779)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v778);
+                        LOWORD(v778) = v1099 + v778;
+                        BYTE1(v747) = v750[12];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v778);
+                        v780 = v1158 + v778;
+                        v750[12] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v781 = v779 - 1;
+                        if (!v781)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v780);
+                        LOWORD(v780) = v1099 + v780;
+                        BYTE1(v747) = v750[13];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v780);
+                        v782 = v1158 + v780;
+                        v750[13] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v783 = v781 - 1;
+                        if (!v783)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v782);
+                        LOWORD(v782) = v1099 + v782;
+                        BYTE1(v747) = v750[14];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v782);
+                        v784 = v1158 + v782;
+                        v750[14] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        v785 = v783 - 1;
+                        if (!v785)
+                            break;
+                        LOBYTE(v747) = *(_BYTE*)(v748 + v755);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v784);
+                        LOWORD(v784) = v1099 + v784;
+                        BYTE1(v747) = v750[15];
+                        LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
+                        v171 = __CFADD__(v1158, v784);
+                        v753 = v1158 + v784;
+                        v750[15] = strPal.byte_BB934_BB924[v747];
+                        BYTE1(v748) += BYTE2(v1110) + v171;
+                        LOWORD(v749) = v785 - 1;
+                        if (!(_WORD)v749)
+                            break;
+                        v750 += 16;
+                    }
+                    v746 = v1267;
+                }
+            LABEL_959:
+                v746 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v749 > widthViewPort_93AD8)
+                LOWORD(v749) = widthViewPort_93AD8;
+            v16 = (__int16)v749 <= (__int16)v747;
+            LOWORD(v749) = v749 - v747;
+            if (v16)
+                goto LABEL_959;
+            v750 += v747;
+            v753 = __ROL4__(*((_DWORD*)v746 + 3), 16);
+            BYTE1(v748) = v753;
+            LOWORD(v753) = v746[4];
+            LOBYTE(v748) = *((_BYTE*)v746 + 10);
+            goto LABEL_940;
+        case 20:
+        LABEL_961:
+            v786 = (unsigned __int16*)&unk_93AE0;
+            v1159 = v1110 << 16;
+            v1168 = v1121 << 16;
+            HIWORD(v787) = 0;
+            HIWORD(v788) = 0;
+            while (1)
+            {
+                LOWORD(v787) = v786[1];
+                v789 = v786[3];
+                v790 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v787 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v789 > 0)
+                {
+                    if (v789 > widthViewPort_93AD8)
+                        v789 = widthViewPort_93AD8;
+                    v1177 = v789;
+                    v791 = (unsigned __int16)-(__int16)v787;
+                    v792 = __ROL4__(*((_DWORD*)v786 + 3) + v1110 * v791, 16);
+                    BYTE1(v788) = v792;
+                    LOWORD(v792) = v786[4] + v1099 * v791;
+                    v787 = (unsigned int)(*((_DWORD*)v786 + 2) + v1099 * v791) >> 8;
+                    LOBYTE(v788) = (unsigned int)(*((_DWORD*)v786 + 2) + v1099 * v791) >> 16;
+                    v793 = __ROL4__(*((_DWORD*)v786 + 4) + v1121 * v791, 16);
+                    v787 = (unsigned __int16)v787;
+                LABEL_971:
+                    v1268 = v786;
+                    v794 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v792);
+                        LOWORD(v792) = v1099 + v792;
+                        BYTE1(v787) = v793;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v792);
+                        v795 = v1159 + v792;
+                        LOBYTE(v787) = *v790;
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v793);
+                        v796 = v1168 + v793;
+                        *v790 = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v796) = BYTE2(v1121) + v171 + v796;
+                        v1178 = v1177 - 1;
+                        if (!v1178)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v795);
+                        LOWORD(v795) = v1099 + v795;
+                        BYTE1(v787) = v796;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v795);
+                        v797 = v1159 + v795;
+                        LOBYTE(v787) = v790[1];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v796);
+                        v798 = v1168 + v796;
+                        v790[1] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v798) = BYTE2(v1121) + v171 + v798;
+                        v1179 = v1178 - 1;
+                        if (!v1179)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v797);
+                        LOWORD(v797) = v1099 + v797;
+                        BYTE1(v787) = v798;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v797);
+                        v799 = v1159 + v797;
+                        LOBYTE(v787) = v790[2];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v798);
+                        v800 = v1168 + v798;
+                        v790[2] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v800) = BYTE2(v1121) + v171 + v800;
+                        v1180 = v1179 - 1;
+                        if (!v1180)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v799);
+                        LOWORD(v799) = v1099 + v799;
+                        BYTE1(v787) = v800;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v799);
+                        v801 = v1159 + v799;
+                        LOBYTE(v787) = v790[3];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v800);
+                        v802 = v1168 + v800;
+                        v790[3] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v802) = BYTE2(v1121) + v171 + v802;
+                        v1181 = v1180 - 1;
+                        if (!v1181)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v801);
+                        LOWORD(v801) = v1099 + v801;
+                        BYTE1(v787) = v802;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v801);
+                        v803 = v1159 + v801;
+                        LOBYTE(v787) = v790[4];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v802);
+                        v804 = v1168 + v802;
+                        v790[4] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v804) = BYTE2(v1121) + v171 + v804;
+                        v1182 = v1181 - 1;
+                        if (!v1182)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v803);
+                        LOWORD(v803) = v1099 + v803;
+                        BYTE1(v787) = v804;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v803);
+                        v805 = v1159 + v803;
+                        LOBYTE(v787) = v790[5];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v804);
+                        v806 = v1168 + v804;
+                        v790[5] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v806) = BYTE2(v1121) + v171 + v806;
+                        v1183 = v1182 - 1;
+                        if (!v1183)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v805);
+                        LOWORD(v805) = v1099 + v805;
+                        BYTE1(v787) = v806;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v805);
+                        v807 = v1159 + v805;
+                        LOBYTE(v787) = v790[6];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v806);
+                        v808 = v1168 + v806;
+                        v790[6] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v808) = BYTE2(v1121) + v171 + v808;
+                        v1184 = v1183 - 1;
+                        if (!v1184)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v807);
+                        LOWORD(v807) = v1099 + v807;
+                        BYTE1(v787) = v808;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v807);
+                        v809 = v1159 + v807;
+                        LOBYTE(v787) = v790[7];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v808);
+                        v810 = v1168 + v808;
+                        v790[7] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v810) = BYTE2(v1121) + v171 + v810;
+                        v1185 = v1184 - 1;
+                        if (!v1185)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v809);
+                        LOWORD(v809) = v1099 + v809;
+                        BYTE1(v787) = v810;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v809);
+                        v811 = v1159 + v809;
+                        LOBYTE(v787) = v790[8];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v810);
+                        v812 = v1168 + v810;
+                        v790[8] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v812) = BYTE2(v1121) + v171 + v812;
+                        v1186 = v1185 - 1;
+                        if (!v1186)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v811);
+                        LOWORD(v811) = v1099 + v811;
+                        BYTE1(v787) = v812;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v811);
+                        v813 = v1159 + v811;
+                        LOBYTE(v787) = v790[9];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v812);
+                        v814 = v1168 + v812;
+                        v790[9] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v814) = BYTE2(v1121) + v171 + v814;
+                        v1187 = v1186 - 1;
+                        if (!v1187)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v813);
+                        LOWORD(v813) = v1099 + v813;
+                        BYTE1(v787) = v814;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v813);
+                        v815 = v1159 + v813;
+                        LOBYTE(v787) = v790[10];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v814);
+                        v816 = v1168 + v814;
+                        v790[10] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v816) = BYTE2(v1121) + v171 + v816;
+                        v1188 = v1187 - 1;
+                        if (!v1188)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v815);
+                        LOWORD(v815) = v1099 + v815;
+                        BYTE1(v787) = v816;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v815);
+                        v817 = v1159 + v815;
+                        LOBYTE(v787) = v790[11];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v816);
+                        v818 = v1168 + v816;
+                        v790[11] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v818) = BYTE2(v1121) + v171 + v818;
+                        v1189 = v1188 - 1;
+                        if (!v1189)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v817);
+                        LOWORD(v817) = v1099 + v817;
+                        BYTE1(v787) = v818;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v817);
+                        v819 = v1159 + v817;
+                        LOBYTE(v787) = v790[12];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v818);
+                        v820 = v1168 + v818;
+                        v790[12] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v820) = BYTE2(v1121) + v171 + v820;
+                        v1190 = v1189 - 1;
+                        if (!v1190)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v819);
+                        LOWORD(v819) = v1099 + v819;
+                        BYTE1(v787) = v820;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v819);
+                        v821 = v1159 + v819;
+                        LOBYTE(v787) = v790[13];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v820);
+                        v822 = v1168 + v820;
+                        v790[13] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v822) = BYTE2(v1121) + v171 + v822;
+                        v1191 = v1190 - 1;
+                        if (!v1191)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v821);
+                        LOWORD(v821) = v1099 + v821;
+                        BYTE1(v787) = v822;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v821);
+                        v823 = v1159 + v821;
+                        LOBYTE(v787) = v790[14];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v822);
+                        v824 = v1168 + v822;
+                        v790[14] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v824) = BYTE2(v1121) + v171 + v824;
+                        v1192 = v1191 - 1;
+                        if (!v1192)
+                            break;
+                        LOBYTE(v787) = *(_BYTE*)(v788 + v794);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v823);
+                        LOWORD(v823) = v1099 + v823;
+                        BYTE1(v787) = v824;
+                        LOBYTE(v788) = BYTE2(v1099) + v171 + v788;
+                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        v171 = __CFADD__(v1159, v823);
+                        v792 = v1159 + v823;
+                        LOBYTE(v787) = v790[15];
+                        BYTE1(v788) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1168, v824);
+                        v793 = v1168 + v824;
+                        v790[15] = strPal.byte_BB934_BB924[v787];
+                        LOBYTE(v793) = BYTE2(v1121) + v171 + v793;
+                        v1177 = v1192 - 1;
+                        if (!v1177)
+                            break;
+                        v790 += 16;
+                    }
+                    v786 = v1268;
+                }
+            LABEL_990:
+                v786 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v789 > widthViewPort_93AD8)
+                v789 = widthViewPort_93AD8;
+            v16 = (__int16)v789 <= (__int16)v787;
+            LOWORD(v789) = v789 - v787;
+            if (v16)
+                goto LABEL_990;
+            v790 += v787;
+            v792 = __ROL4__(*((_DWORD*)v786 + 3), 16);
+            BYTE1(v788) = v792;
+            LOWORD(v792) = v786[4];
+            LOBYTE(v788) = *((_BYTE*)v786 + 10);
+            v1177 = v789;
+            v793 = __ROL4__(*((_DWORD*)v786 + 4), 16);
+            goto LABEL_971;
+        case 21:
+        LABEL_992:
+            v825 = (unsigned __int16*)&unk_93AE0;
+            v1160 = v1110 << 16;
+            v1169 = v1121 << 16;
+            HIWORD(v826) = 0;
+            HIWORD(v827) = 0;
+            while (1)
+            {
+                LOWORD(v826) = v825[1];
+                v828 = v825[3];
+                v829 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v826 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v828 > 0)
+                {
+                    if (v828 > widthViewPort_93AD8)
+                        v828 = widthViewPort_93AD8;
+                    v1193 = v828;
+                    v830 = (unsigned __int16)-(__int16)v826;
+                    v831 = __ROL4__(*((_DWORD*)v825 + 3) + v1110 * v830, 16);
+                    BYTE1(v827) = v831;
+                    LOWORD(v831) = v825[4] + v1099 * v830;
+                    v826 = (unsigned int)(*((_DWORD*)v825 + 2) + v1099 * v830) >> 8;
+                    LOBYTE(v827) = (unsigned int)(*((_DWORD*)v825 + 2) + v1099 * v830) >> 16;
+                    v832 = __ROL4__(*((_DWORD*)v825 + 4) + v1121 * v830, 16);
+                    v826 = (unsigned __int16)v826;
+                LABEL_1002:
+                    v1269 = v825;
+                    v833 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v831);
+                        LOWORD(v831) = v1099 + v831;
+                        BYTE1(v826) = v832;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v831);
+                        v834 = v1160 + v831;
+                        BYTE1(v826) = *v829;
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v832);
+                        v835 = v1169 + v832;
+                        *v829 = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v835) = BYTE2(v1121) + v171 + v835;
+                        v1194 = v1193 - 1;
+                        if (!v1194)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v834);
+                        LOWORD(v834) = v1099 + v834;
+                        BYTE1(v826) = v835;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v834);
+                        v836 = v1160 + v834;
+                        BYTE1(v826) = v829[1];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v835);
+                        v837 = v1169 + v835;
+                        v829[1] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v837) = BYTE2(v1121) + v171 + v837;
+                        v1195 = v1194 - 1;
+                        if (!v1195)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v836);
+                        LOWORD(v836) = v1099 + v836;
+                        BYTE1(v826) = v837;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v836);
+                        v838 = v1160 + v836;
+                        BYTE1(v826) = v829[2];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v837);
+                        v839 = v1169 + v837;
+                        v829[2] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v839) = BYTE2(v1121) + v171 + v839;
+                        v1196 = v1195 - 1;
+                        if (!v1196)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v838);
+                        LOWORD(v838) = v1099 + v838;
+                        BYTE1(v826) = v839;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v838);
+                        v840 = v1160 + v838;
+                        BYTE1(v826) = v829[3];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v839);
+                        v841 = v1169 + v839;
+                        v829[3] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v841) = BYTE2(v1121) + v171 + v841;
+                        v1197 = v1196 - 1;
+                        if (!v1197)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v840);
+                        LOWORD(v840) = v1099 + v840;
+                        BYTE1(v826) = v841;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v840);
+                        v842 = v1160 + v840;
+                        BYTE1(v826) = v829[4];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v841);
+                        v843 = v1169 + v841;
+                        v829[4] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v843) = BYTE2(v1121) + v171 + v843;
+                        v1198 = v1197 - 1;
+                        if (!v1198)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v842);
+                        LOWORD(v842) = v1099 + v842;
+                        BYTE1(v826) = v843;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v842);
+                        v844 = v1160 + v842;
+                        BYTE1(v826) = v829[5];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v843);
+                        v845 = v1169 + v843;
+                        v829[5] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v845) = BYTE2(v1121) + v171 + v845;
+                        v1199 = v1198 - 1;
+                        if (!v1199)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v844);
+                        LOWORD(v844) = v1099 + v844;
+                        BYTE1(v826) = v845;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v844);
+                        v846 = v1160 + v844;
+                        BYTE1(v826) = v829[6];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v845);
+                        v847 = v1169 + v845;
+                        v829[6] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v847) = BYTE2(v1121) + v171 + v847;
+                        v1200 = v1199 - 1;
+                        if (!v1200)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v846);
+                        LOWORD(v846) = v1099 + v846;
+                        BYTE1(v826) = v847;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v846);
+                        v848 = v1160 + v846;
+                        BYTE1(v826) = v829[7];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v847);
+                        v849 = v1169 + v847;
+                        v829[7] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v849) = BYTE2(v1121) + v171 + v849;
+                        v1201 = v1200 - 1;
+                        if (!v1201)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v848);
+                        LOWORD(v848) = v1099 + v848;
+                        BYTE1(v826) = v849;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v848);
+                        v850 = v1160 + v848;
+                        BYTE1(v826) = v829[8];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v849);
+                        v851 = v1169 + v849;
+                        v829[8] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v851) = BYTE2(v1121) + v171 + v851;
+                        v1202 = v1201 - 1;
+                        if (!v1202)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v850);
+                        LOWORD(v850) = v1099 + v850;
+                        BYTE1(v826) = v851;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v850);
+                        v852 = v1160 + v850;
+                        BYTE1(v826) = v829[9];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v851);
+                        v853 = v1169 + v851;
+                        v829[9] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v853) = BYTE2(v1121) + v171 + v853;
+                        v1203 = v1202 - 1;
+                        if (!v1203)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v852);
+                        LOWORD(v852) = v1099 + v852;
+                        BYTE1(v826) = v853;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v852);
+                        v854 = v1160 + v852;
+                        BYTE1(v826) = v829[10];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v853);
+                        v855 = v1169 + v853;
+                        v829[10] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v855) = BYTE2(v1121) + v171 + v855;
+                        v1204 = v1203 - 1;
+                        if (!v1204)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v854);
+                        LOWORD(v854) = v1099 + v854;
+                        BYTE1(v826) = v855;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v854);
+                        v856 = v1160 + v854;
+                        BYTE1(v826) = v829[11];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v855);
+                        v857 = v1169 + v855;
+                        v829[11] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v857) = BYTE2(v1121) + v171 + v857;
+                        v1205 = v1204 - 1;
+                        if (!v1205)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v856);
+                        LOWORD(v856) = v1099 + v856;
+                        BYTE1(v826) = v857;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v856);
+                        v858 = v1160 + v856;
+                        BYTE1(v826) = v829[12];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v857);
+                        v859 = v1169 + v857;
+                        v829[12] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v859) = BYTE2(v1121) + v171 + v859;
+                        v1206 = v1205 - 1;
+                        if (!v1206)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v858);
+                        LOWORD(v858) = v1099 + v858;
+                        BYTE1(v826) = v859;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v858);
+                        v860 = v1160 + v858;
+                        BYTE1(v826) = v829[13];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v859);
+                        v861 = v1169 + v859;
+                        v829[13] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v861) = BYTE2(v1121) + v171 + v861;
+                        v1207 = v1206 - 1;
+                        if (!v1207)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v860);
+                        LOWORD(v860) = v1099 + v860;
+                        BYTE1(v826) = v861;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v860);
+                        v862 = v1160 + v860;
+                        BYTE1(v826) = v829[14];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v861);
+                        v863 = v1169 + v861;
+                        v829[14] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v863) = BYTE2(v1121) + v171 + v863;
+                        v1208 = v1207 - 1;
+                        if (!v1208)
+                            break;
+                        LOBYTE(v826) = *(_BYTE*)(v827 + v833);
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v862);
+                        LOWORD(v862) = v1099 + v862;
+                        BYTE1(v826) = v863;
+                        LOBYTE(v827) = BYTE2(v1099) + v171 + v827;
+                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        v171 = __CFADD__(v1160, v862);
+                        v831 = v1160 + v862;
+                        BYTE1(v826) = v829[15];
+                        BYTE1(v827) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1169, v863);
+                        v832 = v1169 + v863;
+                        v829[15] = strPal.byte_BB934_BB924[v826];
+                        LOBYTE(v832) = BYTE2(v1121) + v171 + v832;
+                        v1193 = v1208 - 1;
+                        if (!v1193)
+                            break;
+                        v829 += 16;
+                    }
+                    v825 = v1269;
+                }
+            LABEL_1021:
+                v825 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v828 > widthViewPort_93AD8)
+                v828 = widthViewPort_93AD8;
+            v16 = (__int16)v828 <= (__int16)v826;
+            LOWORD(v828) = v828 - v826;
+            if (v16)
+                goto LABEL_1021;
+            v829 += v826;
+            v831 = __ROL4__(*((_DWORD*)v825 + 3), 16);
+            BYTE1(v827) = v831;
+            LOWORD(v831) = v825[4];
+            LOBYTE(v827) = *((_BYTE*)v825 + 10);
+            v1193 = v828;
+            v832 = __ROL4__(*((_DWORD*)v825 + 4), 16);
+            goto LABEL_1002;
+        case 22:
+        LABEL_1023:
+            v864 = (unsigned __int16*)&unk_93AE0;
+            v1161 = v1110 << 16;
+            HIWORD(v865) = 0;
+            HIWORD(v866) = 0;
+            while (1)
+            {
+                LOWORD(v865) = v864[1];
+                v867 = v864[3];
+                v868 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v865 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v867 > 0)
+                {
+                    v869 = (unsigned __int16)-(__int16)v865;
+                    v871 = __ROL4__(*((_DWORD*)v864 + 3) + v1110 * v869, 16);
+                    BYTE1(v866) = v871;
+                    v870 = *((_DWORD*)v864 + 2) + v1099 * v869;
+                    LOWORD(v871) = v870;
+                    v872 = v870 >> 8;
+                    LOBYTE(v866) = BYTE1(v872);
+                    if (v867 > widthViewPort_93AD8)
+                        LOWORD(v867) = widthViewPort_93AD8;
+                    v865 = (unsigned __int16)v872;
+                LABEL_1033:
+                    v1270 = v864;
+                    v873 = dword_93AD0;
+                    while (1)
+                    {
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = *v868;
+                            *v868 = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v871);
+                        LOWORD(v871) = v1099 + v871;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v871);
+                        v874 = v1161 + v871;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v875 = v867 - 1;
+                        if (!v875)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[1];
+                            v868[1] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v874);
+                        LOWORD(v874) = v1099 + v874;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v874);
+                        v876 = v1161 + v874;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v877 = v875 - 1;
+                        if (!v877)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[2];
+                            v868[2] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v876);
+                        LOWORD(v876) = v1099 + v876;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v876);
+                        v878 = v1161 + v876;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v879 = v877 - 1;
+                        if (!v879)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[3];
+                            v868[3] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v878);
+                        LOWORD(v878) = v1099 + v878;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v878);
+                        v880 = v1161 + v878;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v881 = v879 - 1;
+                        if (!v881)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[4];
+                            v868[4] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v880);
+                        LOWORD(v880) = v1099 + v880;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v880);
+                        v882 = v1161 + v880;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v883 = v881 - 1;
+                        if (!v883)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[5];
+                            v868[5] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v882);
+                        LOWORD(v882) = v1099 + v882;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v882);
+                        v884 = v1161 + v882;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v885 = v883 - 1;
+                        if (!v885)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[6];
+                            v868[6] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v884);
+                        LOWORD(v884) = v1099 + v884;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v884);
+                        v886 = v1161 + v884;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v887 = v885 - 1;
+                        if (!v887)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[7];
+                            v868[7] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v886);
+                        LOWORD(v886) = v1099 + v886;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v886);
+                        v888 = v1161 + v886;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v889 = v887 - 1;
+                        if (!v889)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[8];
+                            v868[8] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v888);
+                        LOWORD(v888) = v1099 + v888;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v888);
+                        v890 = v1161 + v888;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v891 = v889 - 1;
+                        if (!v891)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[9];
+                            v868[9] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v890);
+                        LOWORD(v890) = v1099 + v890;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v890);
+                        v892 = v1161 + v890;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v893 = v891 - 1;
+                        if (!v893)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[10];
+                            v868[10] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v892);
+                        LOWORD(v892) = v1099 + v892;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v892);
+                        v894 = v1161 + v892;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v895 = v893 - 1;
+                        if (!v895)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[11];
+                            v868[11] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v894);
+                        LOWORD(v894) = v1099 + v894;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v894);
+                        v896 = v1161 + v894;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v897 = v895 - 1;
+                        if (!v897)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[12];
+                            v868[12] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v896);
+                        LOWORD(v896) = v1099 + v896;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v896);
+                        v898 = v1161 + v896;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v899 = v897 - 1;
+                        if (!v899)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[13];
+                            v868[13] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v898);
+                        LOWORD(v898) = v1099 + v898;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v898);
+                        v900 = v1161 + v898;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v901 = v899 - 1;
+                        if (!v901)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[14];
+                            v868[14] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v900);
+                        LOWORD(v900) = v1099 + v900;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v900);
+                        v902 = v1161 + v900;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        v903 = v901 - 1;
+                        if (!v903)
+                            break;
+                        BYTE1(v865) = *(_BYTE*)(v866 + v873);
+                        if (BYTE1(v865))
+                        {
+                            LOBYTE(v865) = v868[15];
+                            v868[15] = strPal.byte_BB934_BB924[v865];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v902);
+                        LOWORD(v902) = v1099 + v902;
+                        LOBYTE(v866) = BYTE2(v1099) + v171 + v866;
+                        v171 = __CFADD__(v1161, v902);
+                        v871 = v1161 + v902;
+                        BYTE1(v866) += BYTE2(v1110) + v171;
+                        LOWORD(v867) = v903 - 1;
+                        if (!(_WORD)v867)
+                            break;
+                        v868 += 16;
+                    }
+                    v864 = v1270;
+                }
+            LABEL_1084:
+                v864 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v867 > widthViewPort_93AD8)
+                LOWORD(v867) = widthViewPort_93AD8;
+            v16 = (__int16)v867 <= (__int16)v865;
+            LOWORD(v867) = v867 - v865;
+            if (v16)
+                goto LABEL_1084;
+            v868 += v865;
+            v871 = __ROL4__(*((_DWORD*)v864 + 3), 16);
+            BYTE1(v866) = v871;
+            LOWORD(v871) = v864[4];
+            LOBYTE(v866) = *((_BYTE*)v864 + 10);
+            goto LABEL_1033;
+        case 23:
+        LABEL_1086:
+            v904 = (unsigned __int16*)&unk_93AE0;
+            v1162 = v1110 << 16;
+            HIWORD(v905) = 0;
+            HIWORD(v906) = 0;
+            while (1)
+            {
+                LOWORD(v905) = v904[1];
+                v907 = v904[3];
+                v908 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v905 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v907 > 0)
+                {
+                    v909 = (unsigned __int16)-(__int16)v905;
+                    v911 = __ROL4__(*((_DWORD*)v904 + 3) + v1110 * v909, 16);
+                    BYTE1(v906) = v911;
+                    v910 = *((_DWORD*)v904 + 2) + v1099 * v909;
+                    LOWORD(v911) = v910;
+                    v912 = v910 >> 8;
+                    LOBYTE(v906) = BYTE1(v912);
+                    if (v907 > widthViewPort_93AD8)
+                        LOWORD(v907) = widthViewPort_93AD8;
+                    v905 = (unsigned __int16)v912;
+                LABEL_1096:
+                    v1271 = v904;
+                    v913 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = *v908;
+                            *v908 = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v911);
+                        LOWORD(v911) = v1099 + v911;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v911);
+                        v914 = v1162 + v911;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v915 = v907 - 1;
+                        if (!v915)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[1];
+                            v908[1] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v914);
+                        LOWORD(v914) = v1099 + v914;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v914);
+                        v916 = v1162 + v914;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v917 = v915 - 1;
+                        if (!v917)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[2];
+                            v908[2] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v916);
+                        LOWORD(v916) = v1099 + v916;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v916);
+                        v918 = v1162 + v916;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v919 = v917 - 1;
+                        if (!v919)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[3];
+                            v908[3] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v918);
+                        LOWORD(v918) = v1099 + v918;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v918);
+                        v920 = v1162 + v918;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v921 = v919 - 1;
+                        if (!v921)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[4];
+                            v908[4] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v920);
+                        LOWORD(v920) = v1099 + v920;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v920);
+                        v922 = v1162 + v920;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v923 = v921 - 1;
+                        if (!v923)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[5];
+                            v908[5] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v922);
+                        LOWORD(v922) = v1099 + v922;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v922);
+                        v924 = v1162 + v922;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v925 = v923 - 1;
+                        if (!v925)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[6];
+                            v908[6] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v924);
+                        LOWORD(v924) = v1099 + v924;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v924);
+                        v926 = v1162 + v924;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v927 = v925 - 1;
+                        if (!v927)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[7];
+                            v908[7] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v926);
+                        LOWORD(v926) = v1099 + v926;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v926);
+                        v928 = v1162 + v926;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v929 = v927 - 1;
+                        if (!v929)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[8];
+                            v908[8] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v928);
+                        LOWORD(v928) = v1099 + v928;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v928);
+                        v930 = v1162 + v928;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v931 = v929 - 1;
+                        if (!v931)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[9];
+                            v908[9] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v930);
+                        LOWORD(v930) = v1099 + v930;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v930);
+                        v932 = v1162 + v930;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v933 = v931 - 1;
+                        if (!v933)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[10];
+                            v908[10] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v932);
+                        LOWORD(v932) = v1099 + v932;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v932);
+                        v934 = v1162 + v932;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v935 = v933 - 1;
+                        if (!v935)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[11];
+                            v908[11] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v934);
+                        LOWORD(v934) = v1099 + v934;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v934);
+                        v936 = v1162 + v934;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v937 = v935 - 1;
+                        if (!v937)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[12];
+                            v908[12] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v936);
+                        LOWORD(v936) = v1099 + v936;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v936);
+                        v938 = v1162 + v936;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v939 = v937 - 1;
+                        if (!v939)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[13];
+                            v908[13] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v938);
+                        LOWORD(v938) = v1099 + v938;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v938);
+                        v940 = v1162 + v938;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v941 = v939 - 1;
+                        if (!v941)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[14];
+                            v908[14] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v940);
+                        LOWORD(v940) = v1099 + v940;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v940);
+                        v942 = v1162 + v940;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        v943 = v941 - 1;
+                        if (!v943)
+                            break;
+                        LOBYTE(v905) = *(_BYTE*)(v906 + v913);
+                        if ((_BYTE)v905)
+                        {
+                            BYTE1(v905) = v908[15];
+                            v908[15] = strPal.byte_BB934_BB924[v905];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v942);
+                        LOWORD(v942) = v1099 + v942;
+                        LOBYTE(v906) = BYTE2(v1099) + v171 + v906;
+                        v171 = __CFADD__(v1162, v942);
+                        v911 = v1162 + v942;
+                        BYTE1(v906) += BYTE2(v1110) + v171;
+                        LOWORD(v907) = v943 - 1;
+                        if (!(_WORD)v907)
+                            break;
+                        v908 += 16;
+                    }
+                    v904 = v1271;
+                }
+            LABEL_1147:
+                v904 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v907 > widthViewPort_93AD8)
+                LOWORD(v907) = widthViewPort_93AD8;
+            v16 = (__int16)v907 <= (__int16)v905;
+            LOWORD(v907) = v907 - v905;
+            if (v16)
+                goto LABEL_1147;
+            v908 += v905;
+            v911 = __ROL4__(*((_DWORD*)v904 + 3), 16);
+            BYTE1(v906) = v911;
+            LOWORD(v911) = v904[4];
+            LOBYTE(v906) = *((_BYTE*)v904 + 10);
+            goto LABEL_1096;
+        case 24:
+        LABEL_1149:
+            v944 = (unsigned __int16*)&unk_93AE0;
+            v1163 = v1110 << 16;
+            v1170 = v1121 << 16;
+            HIWORD(v945) = 0;
+            HIWORD(v946) = 0;
+            while (1)
+            {
+                LOWORD(v945) = v944[1];
+                v947 = v944[3];
+                v948 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v945 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v947 > 0)
+                {
+                    if (v947 > widthViewPort_93AD8)
+                        v947 = widthViewPort_93AD8;
+                    v1209 = v947;
+                    v949 = (unsigned __int16)-(__int16)v945;
+                    v950 = __ROL4__(*((_DWORD*)v944 + 3) + v1110 * v949, 16);
+                    BYTE1(v946) = v950;
+                    LOWORD(v950) = v944[4] + v1099 * v949;
+                    v945 = (unsigned int)(*((_DWORD*)v944 + 2) + v1099 * v949) >> 8;
+                    LOBYTE(v946) = (unsigned int)(*((_DWORD*)v944 + 2) + v1099 * v949) >> 16;
+                    v951 = __ROL4__(*((_DWORD*)v944 + 4) + v1121 * v949, 16);
+                    v945 = (unsigned __int16)v945;
+                LABEL_1159:
+                    v1272 = v944;
+                    v952 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v951;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = *v948;
+                            *v948 = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v950);
+                        LOWORD(v950) = v1099 + v950;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v950);
+                        v953 = v1163 + v950;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v951);
+                        v954 = v1170 + v951;
+                        LOBYTE(v954) = BYTE2(v1121) + v171 + v954;
+                        v1210 = v1209 - 1;
+                        if (!v1210)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v954;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[1];
+                            v948[1] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v953);
+                        LOWORD(v953) = v1099 + v953;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v953);
+                        v955 = v1163 + v953;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v954);
+                        v956 = v1170 + v954;
+                        LOBYTE(v956) = BYTE2(v1121) + v171 + v956;
+                        v1211 = v1210 - 1;
+                        if (!v1211)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v956;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[2];
+                            v948[2] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v955);
+                        LOWORD(v955) = v1099 + v955;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v955);
+                        v957 = v1163 + v955;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v956);
+                        v958 = v1170 + v956;
+                        LOBYTE(v958) = BYTE2(v1121) + v171 + v958;
+                        v1212 = v1211 - 1;
+                        if (!v1212)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v958;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[3];
+                            v948[3] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v957);
+                        LOWORD(v957) = v1099 + v957;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v957);
+                        v959 = v1163 + v957;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v958);
+                        v960 = v1170 + v958;
+                        LOBYTE(v960) = BYTE2(v1121) + v171 + v960;
+                        v1213 = v1212 - 1;
+                        if (!v1213)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v960;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[4];
+                            v948[4] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v959);
+                        LOWORD(v959) = v1099 + v959;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v959);
+                        v961 = v1163 + v959;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v960);
+                        v962 = v1170 + v960;
+                        LOBYTE(v962) = BYTE2(v1121) + v171 + v962;
+                        v1214 = v1213 - 1;
+                        if (!v1214)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v962;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[5];
+                            v948[5] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v961);
+                        LOWORD(v961) = v1099 + v961;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v961);
+                        v963 = v1163 + v961;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v962);
+                        v964 = v1170 + v962;
+                        LOBYTE(v964) = BYTE2(v1121) + v171 + v964;
+                        v1215 = v1214 - 1;
+                        if (!v1215)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v964;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[6];
+                            v948[6] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v963);
+                        LOWORD(v963) = v1099 + v963;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v963);
+                        v965 = v1163 + v963;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v964);
+                        v966 = v1170 + v964;
+                        LOBYTE(v966) = BYTE2(v1121) + v171 + v966;
+                        v1216 = v1215 - 1;
+                        if (!v1216)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v966;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[7];
+                            v948[7] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v965);
+                        LOWORD(v965) = v1099 + v965;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v965);
+                        v967 = v1163 + v965;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v966);
+                        v968 = v1170 + v966;
+                        LOBYTE(v968) = BYTE2(v1121) + v171 + v968;
+                        v1217 = v1216 - 1;
+                        if (!v1217)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v968;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[8];
+                            v948[8] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v967);
+                        LOWORD(v967) = v1099 + v967;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v967);
+                        v969 = v1163 + v967;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v968);
+                        v970 = v1170 + v968;
+                        LOBYTE(v970) = BYTE2(v1121) + v171 + v970;
+                        v1218 = v1217 - 1;
+                        if (!v1218)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v970;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[9];
+                            v948[9] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v969);
+                        LOWORD(v969) = v1099 + v969;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v969);
+                        v971 = v1163 + v969;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v970);
+                        v972 = v1170 + v970;
+                        LOBYTE(v972) = BYTE2(v1121) + v171 + v972;
+                        v1219 = v1218 - 1;
+                        if (!v1219)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v972;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[10];
+                            v948[10] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v971);
+                        LOWORD(v971) = v1099 + v971;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v971);
+                        v973 = v1163 + v971;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v972);
+                        v974 = v1170 + v972;
+                        LOBYTE(v974) = BYTE2(v1121) + v171 + v974;
+                        v1220 = v1219 - 1;
+                        if (!v1220)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v974;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[11];
+                            v948[11] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v973);
+                        LOWORD(v973) = v1099 + v973;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v973);
+                        v975 = v1163 + v973;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v974);
+                        v976 = v1170 + v974;
+                        LOBYTE(v976) = BYTE2(v1121) + v171 + v976;
+                        v1221 = v1220 - 1;
+                        if (!v1221)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v976;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[12];
+                            v948[12] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v975);
+                        LOWORD(v975) = v1099 + v975;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v975);
+                        v977 = v1163 + v975;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v976);
+                        v978 = v1170 + v976;
+                        LOBYTE(v978) = BYTE2(v1121) + v171 + v978;
+                        v1222 = v1221 - 1;
+                        if (!v1222)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v978;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[13];
+                            v948[13] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v977);
+                        LOWORD(v977) = v1099 + v977;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v977);
+                        v979 = v1163 + v977;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v978);
+                        v980 = v1170 + v978;
+                        LOBYTE(v980) = BYTE2(v1121) + v171 + v980;
+                        v1223 = v1222 - 1;
+                        if (!v1223)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v980;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[14];
+                            v948[14] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v979);
+                        LOWORD(v979) = v1099 + v979;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v979);
+                        v981 = v1163 + v979;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v980);
+                        v982 = v1170 + v980;
+                        LOBYTE(v982) = BYTE2(v1121) + v171 + v982;
+                        v1224 = v1223 - 1;
+                        if (!v1224)
+                            break;
+                        LOBYTE(v945) = *(_BYTE*)(v946 + v952);
+                        if ((_BYTE)v945)
+                        {
+                            BYTE1(v945) = v982;
+                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            LOBYTE(v945) = v948[15];
+                            v948[15] = strPal.byte_BB934_BB924[v945];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v981);
+                        LOWORD(v981) = v1099 + v981;
+                        LOBYTE(v946) = BYTE2(v1099) + v171 + v946;
+                        v171 = __CFADD__(v1163, v981);
+                        v950 = v1163 + v981;
+                        BYTE1(v946) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1170, v982);
+                        v951 = v1170 + v982;
+                        LOBYTE(v951) = BYTE2(v1121) + v171 + v951;
+                        v1209 = v1224 - 1;
+                        if (!v1209)
+                            break;
+                        v948 += 16;
+                    }
+                    v944 = v1272;
+                }
+            LABEL_1210:
+                v944 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v947 > widthViewPort_93AD8)
+                v947 = widthViewPort_93AD8;
+            v16 = (__int16)v947 <= (__int16)v945;
+            LOWORD(v947) = v947 - v945;
+            if (v16)
+                goto LABEL_1210;
+            v948 += v945;
+            v950 = __ROL4__(*((_DWORD*)v944 + 3), 16);
+            BYTE1(v946) = v950;
+            LOWORD(v950) = v944[4];
+            LOBYTE(v946) = *((_BYTE*)v944 + 10);
+            v1209 = v947;
+            v951 = __ROL4__(*((_DWORD*)v944 + 4), 16);
+            goto LABEL_1159;
+        case 25:
+        LABEL_1212:
+            v983 = (unsigned __int16*)&unk_93AE0;
+            v1164 = v1110 << 16;
+            v1171 = v1121 << 16;
+            HIWORD(v984) = 0;
+            HIWORD(v985) = 0;
+            while (1)
+            {
+                LOWORD(v984) = v983[1];
+                v986 = v983[3];
+                v987 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
+                v1077 += pitchViewPort_93AD4;
+                if ((v984 & 0x8000u) == 0)
+                    break;
+                if ((__int16)v986 > 0)
+                {
+                    if (v986 > widthViewPort_93AD8)
+                        v986 = widthViewPort_93AD8;
+                    v1225 = v986;
+                    v988 = (unsigned __int16)-(__int16)v984;
+                    v989 = __ROL4__(*((_DWORD*)v983 + 3) + v1110 * v988, 16);
+                    BYTE1(v985) = v989;
+                    LOWORD(v989) = v983[4] + v1099 * v988;
+                    v984 = (unsigned int)(*((_DWORD*)v983 + 2) + v1099 * v988) >> 8;
+                    LOBYTE(v985) = (unsigned int)(*((_DWORD*)v983 + 2) + v1099 * v988) >> 16;
+                    v990 = __ROL4__(*((_DWORD*)v983 + 4) + v1121 * v988, 16);
+                    v984 = (unsigned __int16)v984;
+                LABEL_1222:
+                    v1273 = v983;
+                    v991 = dword_93AD0;
+                    while (1)
+                    {
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v990;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = *v987;
+                            *v987 = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v989);
+                        LOWORD(v989) = v1099 + v989;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v989);
+                        v992 = v1164 + v989;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v990);
+                        v993 = v1171 + v990;
+                        LOBYTE(v993) = BYTE2(v1121) + v171 + v993;
+                        v1226 = v1225 - 1;
+                        if (!v1226)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v993;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[1];
+                            v987[1] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v992);
+                        LOWORD(v992) = v1099 + v992;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v992);
+                        v994 = v1164 + v992;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v993);
+                        v995 = v1171 + v993;
+                        LOBYTE(v995) = BYTE2(v1121) + v171 + v995;
+                        v1227 = v1226 - 1;
+                        if (!v1227)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v995;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[2];
+                            v987[2] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v994);
+                        LOWORD(v994) = v1099 + v994;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v994);
+                        v996 = v1164 + v994;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v995);
+                        v997 = v1171 + v995;
+                        LOBYTE(v997) = BYTE2(v1121) + v171 + v997;
+                        v1228 = v1227 - 1;
+                        if (!v1228)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v997;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[3];
+                            v987[3] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v996);
+                        LOWORD(v996) = v1099 + v996;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v996);
+                        v998 = v1164 + v996;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v997);
+                        v999 = v1171 + v997;
+                        LOBYTE(v999) = BYTE2(v1121) + v171 + v999;
+                        v1229 = v1228 - 1;
+                        if (!v1229)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v999;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[4];
+                            v987[4] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v998);
+                        LOWORD(v998) = v1099 + v998;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v998);
+                        v1000 = v1164 + v998;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v999);
+                        v1001 = v1171 + v999;
+                        LOBYTE(v1001) = BYTE2(v1121) + v171 + v1001;
+                        v1230 = v1229 - 1;
+                        if (!v1230)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1001;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[5];
+                            v987[5] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1000);
+                        LOWORD(v1000) = v1099 + v1000;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1000);
+                        v1002 = v1164 + v1000;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1001);
+                        v1003 = v1171 + v1001;
+                        LOBYTE(v1003) = BYTE2(v1121) + v171 + v1003;
+                        v1231 = v1230 - 1;
+                        if (!v1231)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1003;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[6];
+                            v987[6] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1002);
+                        LOWORD(v1002) = v1099 + v1002;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1002);
+                        v1004 = v1164 + v1002;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1003);
+                        v1005 = v1171 + v1003;
+                        LOBYTE(v1005) = BYTE2(v1121) + v171 + v1005;
+                        v1232 = v1231 - 1;
+                        if (!v1232)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1005;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[7];
+                            v987[7] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1004);
+                        LOWORD(v1004) = v1099 + v1004;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1004);
+                        v1006 = v1164 + v1004;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1005);
+                        v1007 = v1171 + v1005;
+                        LOBYTE(v1007) = BYTE2(v1121) + v171 + v1007;
+                        v1233 = v1232 - 1;
+                        if (!v1233)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1007;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[8];
+                            v987[8] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1006);
+                        LOWORD(v1006) = v1099 + v1006;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1006);
+                        v1008 = v1164 + v1006;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1007);
+                        v1009 = v1171 + v1007;
+                        LOBYTE(v1009) = BYTE2(v1121) + v171 + v1009;
+                        v1234 = v1233 - 1;
+                        if (!v1234)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1009;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[9];
+                            v987[9] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1008);
+                        LOWORD(v1008) = v1099 + v1008;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1008);
+                        v1010 = v1164 + v1008;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1009);
+                        v1011 = v1171 + v1009;
+                        LOBYTE(v1011) = BYTE2(v1121) + v171 + v1011;
+                        v1235 = v1234 - 1;
+                        if (!v1235)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1011;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[10];
+                            v987[10] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1010);
+                        LOWORD(v1010) = v1099 + v1010;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1010);
+                        v1012 = v1164 + v1010;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1011);
+                        v1013 = v1171 + v1011;
+                        LOBYTE(v1013) = BYTE2(v1121) + v171 + v1013;
+                        v1236 = v1235 - 1;
+                        if (!v1236)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1013;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[11];
+                            v987[11] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1012);
+                        LOWORD(v1012) = v1099 + v1012;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1012);
+                        v1014 = v1164 + v1012;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1013);
+                        v1015 = v1171 + v1013;
+                        LOBYTE(v1015) = BYTE2(v1121) + v171 + v1015;
+                        v1237 = v1236 - 1;
+                        if (!v1237)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1015;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[12];
+                            v987[12] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1014);
+                        LOWORD(v1014) = v1099 + v1014;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1014);
+                        v1016 = v1164 + v1014;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1015);
+                        v1017 = v1171 + v1015;
+                        LOBYTE(v1017) = BYTE2(v1121) + v171 + v1017;
+                        v1238 = v1237 - 1;
+                        if (!v1238)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1017;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[13];
+                            v987[13] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1016);
+                        LOWORD(v1016) = v1099 + v1016;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1016);
+                        v1018 = v1164 + v1016;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1017);
+                        v1019 = v1171 + v1017;
+                        LOBYTE(v1019) = BYTE2(v1121) + v171 + v1019;
+                        v1239 = v1238 - 1;
+                        if (!v1239)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1019;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[14];
+                            v987[14] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1018);
+                        LOWORD(v1018) = v1099 + v1018;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1018);
+                        v1020 = v1164 + v1018;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1019);
+                        v1021 = v1171 + v1019;
+                        LOBYTE(v1021) = BYTE2(v1121) + v171 + v1021;
+                        v1240 = v1239 - 1;
+                        if (!v1240)
+                            break;
+                        LOBYTE(v984) = *(_BYTE*)(v985 + v991);
+                        if ((_BYTE)v984)
+                        {
+                            BYTE1(v984) = v1021;
+                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            BYTE1(v984) = v987[15];
+                            v987[15] = strPal.byte_BB934_BB924[v984];
+                        }
+                        v171 = __CFADD__((_WORD)v1099, (_WORD)v1020);
+                        LOWORD(v1020) = v1099 + v1020;
+                        LOBYTE(v985) = BYTE2(v1099) + v171 + v985;
+                        v171 = __CFADD__(v1164, v1020);
+                        v989 = v1164 + v1020;
+                        BYTE1(v985) += BYTE2(v1110) + v171;
+                        v171 = __CFADD__(v1171, v1021);
+                        v990 = v1171 + v1021;
+                        LOBYTE(v990) = BYTE2(v1121) + v171 + v990;
+                        v1225 = v1240 - 1;
+                        if (!v1225)
+                            break;
+                        v987 += 16;
+                    }
+                    v983 = v1273;
+                }
+            LABEL_1273:
+                v983 += 10;
+                if (!--v1098)
+                    return;
+            }
+            if (v986 > widthViewPort_93AD8)
+                v986 = widthViewPort_93AD8;
+            v16 = (__int16)v986 <= (__int16)v984;
+            LOWORD(v986) = v986 - v984;
+            if (v16)
+                goto LABEL_1273;
+            v987 += v984;
+            v989 = __ROL4__(*((_DWORD*)v983 + 3), 16);
+            BYTE1(v985) = v989;
+            LOWORD(v989) = v983[4];
+            LOBYTE(v985) = *((_BYTE*)v983 + 10);
+            v1225 = v986;
+            v990 = __ROL4__(*((_DWORD*)v983 + 4), 16);
+            goto LABEL_1222;
+        case 26:
+        LABEL_1275:
+            v1022 = (unsigned __int16*)&unk_93AE0;
+            v1165 = v1110 << 16;
+            v1172 = v1121 << 16;
+            HIWORD(v1023) = 0;
+            HIWORD(v1024) = 0;
+            break;
+        }
+        while (1)
+        {
+            LOWORD(v1023) = v1022[1];
+            v1025 = v1022[3];
+            v1026 = (char*)(pitchViewPort_93AD4 + v1077);
+            v1077 += pitchViewPort_93AD4;
+            if ((v1023 & 0x8000u) == 0)
+                break;
+            if ((__int16)v1025 > 0)
+            {
+                if (v1025 > widthViewPort_93AD8)
+                    v1025 = widthViewPort_93AD8;
+                v1241 = v1025;
+                v1027 = (unsigned __int16)-(__int16)v1023;
+                v1028 = __ROL4__(*((_DWORD*)v1022 + 3) + v1110 * v1027, 16);
+                BYTE1(v1024) = v1028;
+                LOWORD(v1028) = v1022[4] + v1099 * v1027;
+                v1023 = (unsigned int)(*((_DWORD*)v1022 + 2) + v1099 * v1027) >> 8;
+                LOBYTE(v1024) = (unsigned int)(*((_DWORD*)v1022 + 2) + v1099 * v1027) >> 16;
+                v1029 = __ROL4__(*((_DWORD*)v1022 + 4) + v1121 * v1027, 16);
+                v1023 = (unsigned __int16)v1023;
+            LABEL_1285:
+                v1274 = v1022;
+                v1030 = dword_93AD0;
+                while (1)
+                {
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1028);
+                    LOWORD(v1028) = v1099 + v1028;
+                    BYTE1(v1023) = v1029;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1031 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = *v1026;
+                        v1031 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1028);
+                    v1032 = v1165 + v1028;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1029);
+                    v1033 = v1172 + v1029;
+                    *v1026 = v1031;
+                    LOBYTE(v1033) = BYTE2(v1121) + v171 + v1033;
+                    v1242 = v1241 - 1;
+                    if (!v1242)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1032);
+                    LOWORD(v1032) = v1099 + v1032;
+                    BYTE1(v1023) = v1033;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1034 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[1];
+                        v1034 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1032);
+                    v1035 = v1165 + v1032;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1033);
+                    v1036 = v1172 + v1033;
+                    v1026[1] = v1034;
+                    LOBYTE(v1036) = BYTE2(v1121) + v171 + v1036;
+                    v1243 = v1242 - 1;
+                    if (!v1243)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1035);
+                    LOWORD(v1035) = v1099 + v1035;
+                    BYTE1(v1023) = v1036;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1037 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[2];
+                        v1037 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1035);
+                    v1038 = v1165 + v1035;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1036);
+                    v1039 = v1172 + v1036;
+                    v1026[2] = v1037;
+                    LOBYTE(v1039) = BYTE2(v1121) + v171 + v1039;
+                    v1244 = v1243 - 1;
+                    if (!v1244)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1038);
+                    LOWORD(v1038) = v1099 + v1038;
+                    BYTE1(v1023) = v1039;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1040 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[3];
+                        v1040 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1038);
+                    v1041 = v1165 + v1038;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1039);
+                    v1042 = v1172 + v1039;
+                    v1026[3] = v1040;
+                    LOBYTE(v1042) = BYTE2(v1121) + v171 + v1042;
+                    v1245 = v1244 - 1;
+                    if (!v1245)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1041);
+                    LOWORD(v1041) = v1099 + v1041;
+                    BYTE1(v1023) = v1042;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1043 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[4];
+                        v1043 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1041);
+                    v1044 = v1165 + v1041;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1042);
+                    v1045 = v1172 + v1042;
+                    v1026[4] = v1043;
+                    LOBYTE(v1045) = BYTE2(v1121) + v171 + v1045;
+                    v1246 = v1245 - 1;
+                    if (!v1246)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1044);
+                    LOWORD(v1044) = v1099 + v1044;
+                    BYTE1(v1023) = v1045;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1046 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[5];
+                        v1046 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1044);
+                    v1047 = v1165 + v1044;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1045);
+                    v1048 = v1172 + v1045;
+                    v1026[5] = v1046;
+                    LOBYTE(v1048) = BYTE2(v1121) + v171 + v1048;
+                    v1247 = v1246 - 1;
+                    if (!v1247)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1047);
+                    LOWORD(v1047) = v1099 + v1047;
+                    BYTE1(v1023) = v1048;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1049 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[6];
+                        v1049 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1047);
+                    v1050 = v1165 + v1047;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1048);
+                    v1051 = v1172 + v1048;
+                    v1026[6] = v1049;
+                    LOBYTE(v1051) = BYTE2(v1121) + v171 + v1051;
+                    v1248 = v1247 - 1;
+                    if (!v1248)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1050);
+                    LOWORD(v1050) = v1099 + v1050;
+                    BYTE1(v1023) = v1051;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1052 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[7];
+                        v1052 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1050);
+                    v1053 = v1165 + v1050;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1051);
+                    v1054 = v1172 + v1051;
+                    v1026[7] = v1052;
+                    LOBYTE(v1054) = BYTE2(v1121) + v171 + v1054;
+                    v1249 = v1248 - 1;
+                    if (!v1249)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1053);
+                    LOWORD(v1053) = v1099 + v1053;
+                    BYTE1(v1023) = v1054;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1055 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[8];
+                        v1055 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1053);
+                    v1056 = v1165 + v1053;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1054);
+                    v1057 = v1172 + v1054;
+                    v1026[8] = v1055;
+                    LOBYTE(v1057) = BYTE2(v1121) + v171 + v1057;
+                    v1250 = v1249 - 1;
+                    if (!v1250)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1056);
+                    LOWORD(v1056) = v1099 + v1056;
+                    BYTE1(v1023) = v1057;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1058 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[9];
+                        v1058 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1056);
+                    v1059 = v1165 + v1056;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1057);
+                    v1060 = v1172 + v1057;
+                    v1026[9] = v1058;
+                    LOBYTE(v1060) = BYTE2(v1121) + v171 + v1060;
+                    v1251 = v1250 - 1;
+                    if (!v1251)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1059);
+                    LOWORD(v1059) = v1099 + v1059;
+                    BYTE1(v1023) = v1060;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1061 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[10];
+                        v1061 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1059);
+                    v1062 = v1165 + v1059;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1060);
+                    v1063 = v1172 + v1060;
+                    v1026[10] = v1061;
+                    LOBYTE(v1063) = BYTE2(v1121) + v171 + v1063;
+                    v1252 = v1251 - 1;
+                    if (!v1252)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1062);
+                    LOWORD(v1062) = v1099 + v1062;
+                    BYTE1(v1023) = v1063;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1064 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[11];
+                        v1064 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1062);
+                    v1065 = v1165 + v1062;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1063);
+                    v1066 = v1172 + v1063;
+                    v1026[11] = v1064;
+                    LOBYTE(v1066) = BYTE2(v1121) + v171 + v1066;
+                    v1253 = v1252 - 1;
+                    if (!v1253)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1065);
+                    LOWORD(v1065) = v1099 + v1065;
+                    BYTE1(v1023) = v1066;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1067 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[12];
+                        v1067 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1065);
+                    v1068 = v1165 + v1065;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1066);
+                    v1069 = v1172 + v1066;
+                    v1026[12] = v1067;
+                    LOBYTE(v1069) = BYTE2(v1121) + v171 + v1069;
+                    v1254 = v1253 - 1;
+                    if (!v1254)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1068);
+                    LOWORD(v1068) = v1099 + v1068;
+                    BYTE1(v1023) = v1069;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1070 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[13];
+                        v1070 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1068);
+                    v1071 = v1165 + v1068;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1069);
+                    v1072 = v1172 + v1069;
+                    v1026[13] = v1070;
+                    LOBYTE(v1072) = BYTE2(v1121) + v171 + v1072;
+                    v1255 = v1254 - 1;
+                    if (!v1255)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1071);
+                    LOWORD(v1071) = v1099 + v1071;
+                    BYTE1(v1023) = v1072;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1073 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[14];
+                        v1073 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1071);
+                    v1074 = v1165 + v1071;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1072);
+                    v1075 = v1172 + v1072;
+                    v1026[14] = v1073;
+                    LOBYTE(v1075) = BYTE2(v1121) + v171 + v1075;
+                    v1256 = v1255 - 1;
+                    if (!v1256)
+                        break;
+                    LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
+                    v171 = __CFADD__((_WORD)v1099, (_WORD)v1074);
+                    LOWORD(v1074) = v1099 + v1074;
+                    BYTE1(v1023) = v1075;
+                    LOBYTE(v1024) = BYTE2(v1099) + v171 + v1024;
+                    if ((unsigned __int8)v1023 >= 0xCu)
+                    {
+                        v1076 = strPal.byte_B7934_B7924[v1023];
+                    }
+                    else
+                    {
+                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        BYTE1(v1023) = v1026[15];
+                        v1076 = strPal.byte_BB934_BB924[v1023];
+                    }
+                    v171 = __CFADD__(v1165, v1074);
+                    v1028 = v1165 + v1074;
+                    BYTE1(v1024) += BYTE2(v1110) + v171;
+                    v171 = __CFADD__(v1172, v1075);
+                    v1029 = v1172 + v1075;
+                    v1026[15] = v1076;
+                    LOBYTE(v1029) = BYTE2(v1121) + v171 + v1029;
+                    v1241 = v1256 - 1;
+                    if (!v1241)
+                        break;
+                    v1026 += 16;
+                }
+                v1022 = v1274;
+            }
+        LABEL_1352:
+            v1022 += 10;
+            if (!--v1098)
+                return;
+        }
+        if (v1025 > widthViewPort_93AD8)
+            v1025 = widthViewPort_93AD8;
+        v16 = (__int16)v1025 <= (__int16)v1023;
+        LOWORD(v1025) = v1025 - v1023;
+        if (v16)
+            goto LABEL_1352;
+        v1026 += v1023;
+        v1028 = __ROL4__(*((_DWORD*)v1022 + 3), 16);
+        BYTE1(v1024) = v1028;
+        LOWORD(v1028) = v1022[4];
+        LOBYTE(v1024) = *((_BYTE*)v1022 + 10);
+        v1241 = v1025;
+        v1029 = __ROL4__(*((_DWORD*)v1022 + 4), 16);
+        goto LABEL_1285;
+    }
+    if (v6 == v8)
+    {
+        if (*a3 <= *a1)
+            return;
+        v3 = (int32*)a2;
+        v4 = (int32*)a3;
+        v5 = (int32*)a1;
+        goto LABEL_225;
+    }
+    if (v6 < v8)
+    {
+        v3 = (int32*)a2;
+        v4 = (int32*)a3;
+        v5 = (int32*)a1;
+        goto LABEL_124;
+    }
+    if (v7 == v8)
+    {
+        if (*(int32*)a3 <= *(int32*)a2)
+            return;
+        v3 = (int32*)a2;
+        v4 = (int32*)a3;
+        v5 = (int32*)a1;
+        goto LABEL_268;
+    }
+    if (v7 < v8)
+    {
+        v3 = (int32*)a2;
+        v4 = (int32*)a3;
+        v5 = (int32*)a1;
+        goto LABEL_24;
+    }
+    v3 = (int32*)a3;
+    v4 = (int32*)a1;
+    v5 = (int32*)a2;
+LABEL_124:
+    v60 = v3[1];
+    v1174 = v60;
+    if (v60 >= 0)
+    {
+        if (v60 >= heightViewPort_93ADC)
+            return;
+        v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
+        v1276 = 0;
+    }
+    else
+    {
+        v1077 = beginPrevLineFrame_93AC8;
+        v1276 = 1;
+    }
+    v61 = v5[1];
+    v1280 = v61 > heightViewPort_93ADC;
+    v1089 = v61 - v60;
+    v62 = v4[1];
+    v1284 = v62 > heightViewPort_93ADC;
+    v63 = v62 - v60;
+    v1093 = v63;
+    v1098 = v63;
+    v1079 = ((*v5 - *v3) << 16) / v1089;
+    if (((*v4 - *v3) << 16) / v63 > v1079)
+    {
+        v1083 = ((*v4 - *v3) << 16) / v63;
+        v1087 = ((*v4 - *v5) << 16) / (v4[1] - v5[1]);
+        v1095 = v4[1] - v5[1];
+        v1097 = *v5 << 16;
+        switch (byte_967E1)
+        {
+        case 0:
+        case 14:
+        case 15:
+            v102 = *v3 << 16;
+            v103 = v102;
+            if (v1276)
+            {
+                v16 = v1098 <= -v1174;
+                v1098 += v1174;
+                if (v16)
+                    return;
+                v1146 = -v1174;
+                if (-v1174 - v1089 >= 0)
+                {
+                    v1147 = v1146 - v1089;
+                    v1095 -= v1147;
+                    v104 = v1087 * v1147 + v1097;
+                    v103 += v1147 * v1083 + v1089 * v1083;
+                    if (v1284)
+                    {
+                        v1095 = heightViewPort_93ADC;
+                        v1098 = heightViewPort_93ADC;
+                    }
+                    v105 = (uint32*)&unk_93AE0;
+                LABEL_219:
+                    if (v1280)
+                    {
+                        v29 = (unsigned __int8)byte_967E1;
+                        switch (byte_967E1)
+                        {
+                        case 0:
+                            goto LABEL_309;
+                        case 1:
+                            goto LABEL_322;
+                        case 2:
+                            goto LABEL_351;
+                        case 3:
+                            goto LABEL_382;
+                        case 4:
+                            goto LABEL_445;
+                        case 5:
+                            goto LABEL_474;
+                        case 6:
+                            goto LABEL_503;
+                        case 7:
+                        case 11:
+                            goto LABEL_564;
+                        case 8:
+                            goto LABEL_595;
+                        case 9:
+                        case 10:
+                            goto LABEL_658;
+                        case 12:
+                            goto LABEL_721;
+                        case 13:
+                            goto LABEL_752;
+                        case 14:
+                            goto LABEL_783;
+                        case 15:
+                            goto LABEL_812;
+                        case 16:
+                            goto LABEL_841;
+                        case 17:
+                            goto LABEL_870;
+                        case 18:
+                            goto LABEL_899;
+                        case 19:
+                            goto LABEL_930;
+                        case 20:
+                            goto LABEL_961;
+                        case 21:
+                            goto LABEL_992;
+                        case 22:
+                            goto LABEL_1023;
+                        case 23:
+                            goto LABEL_1086;
+                        case 24:
+                            goto LABEL_1149;
+                        case 25:
+                            goto LABEL_1212;
+                        case 26:
+                            goto LABEL_1275;
+                        }
+                    }
+                    do
+                    {
+                        *v105 = v104;
+                        v104 += v1087;
+                        v105[1] = v103;
+                        v103 += v1083;
+                        v105 += 5;
+                        --v1095;
+                    } while (v1095);
+                    v29 = (unsigned __int8)byte_967E1;
+                    switch (byte_967E1)
+                    {
+                    case 0:
+                        goto LABEL_309;
+                    case 1:
+                        goto LABEL_322;
+                    case 2:
+                        goto LABEL_351;
+                    case 3:
+                        goto LABEL_382;
+                    case 4:
+                        goto LABEL_445;
+                    case 5:
+                        goto LABEL_474;
+                    case 6:
+                        goto LABEL_503;
+                    case 7:
+                    case 11:
+                        goto LABEL_564;
+                    case 8:
+                        goto LABEL_595;
+                    case 9:
+                    case 10:
+                        goto LABEL_658;
+                    case 12:
+                        goto LABEL_721;
+                    case 13:
+                        goto LABEL_752;
+                    case 14:
+                        goto LABEL_783;
+                    case 15:
+                        goto LABEL_812;
+                    case 16:
+                        goto LABEL_841;
+                    case 17:
+                        goto LABEL_870;
+                    case 18:
+                        goto LABEL_899;
+                    case 19:
+                        goto LABEL_930;
+                    case 20:
+                        goto LABEL_961;
+                    case 21:
+                        goto LABEL_992;
+                    case 22:
+                        goto LABEL_1023;
+                    case 23:
+                        goto LABEL_1086;
+                    case 24:
+                        goto LABEL_1149;
+                    case 25:
+                        goto LABEL_1212;
+                    case 26:
+                        goto LABEL_1275;
+                    }
+                }
+                v1089 += v1174;
+                v102 += v1079 * v1146;
+                v103 += v1146 * v1083;
+                if (v1284)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    if (v1280)
+                    {
+                        v1089 = heightViewPort_93ADC;
+                    }
+                    else
+                    {
+                        v1280 = heightViewPort_93ADC <= v1089;
+                        v1095 = heightViewPort_93ADC - v1089;
+                    }
+                }
+            }
+            else if (v1284)
+            {
+                v106 = heightViewPort_93ADC - v1174;
+                v1098 = heightViewPort_93ADC - v1174;
+                if (v1280)
+                {
+                    v1089 = heightViewPort_93ADC - v1174;
+                }
+                else
+                {
+                    v27 = __OFSUB__(v106, v1089);
+                    v107 = v106 - v1089;
+                    v1280 = (v107 < 0) ^ v27 | (v107 == 0);
+                    v1095 = v107;
+                }
+            }
+            v105 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v105 = v102;
+                v102 += v1079;
+                v105[1] = v103;
+                v103 += v1083;
+                v105 += 5;
+                --v1089;
+            } while (v1089);
+            v104 = v1097;
+            goto LABEL_219;
+        case 1:
+        case 4:
+        case 16:
+        case 17:
+            v91 = v1089 * (__int64)(*v4 - *v3) / v63;
+            v92 = *v3 - *v5;
+            v93 = v91 + v92 == 0;
+            v16 = (v91 + v92 < 0) ^ __OFADD__(v91, v92);
+            v94 = v91 + v92;
+            if (v16)
+                return;
+            if (!v93)
+                v1121 = (int)(v3[4] + v1089 * (__int64)(v4[4] - v3[4]) / v1093 - v5[4]) / (v94 + 1);
+            v1125 = (v5[4] - v3[4]) / v1089;
+            v1131 = (v4[4] - v5[4]) / v1095;
+            v95 = *v3 << 16;
+            v96 = v95;
+            v97 = v3[4];
+            if (v1276)
+            {
+                v16 = v1098 <= -v1174;
+                v1098 += v1174;
+                if (v16)
+                    return;
+                v1144 = -v1174;
+                if (-v1174 - v1089 >= 0)
+                {
+                    v1145 = v1144 - v1089;
+                    v1095 -= v1145;
+                    v98 = v1087 * v1145 + v1097;
+                    v96 += v1145 * v1083 + v1089 * v1083;
+                    v97 += v1145 * v1131 + v1089 * v1125;
+                    if (v1284)
+                    {
+                        v1095 = heightViewPort_93ADC;
+                        v1098 = heightViewPort_93ADC;
+                    }
+                    v99 = (uint32*)&unk_93AE0;
+                LABEL_198:
+                    if (v1280)
+                    {
+                        v29 = (unsigned __int8)byte_967E1;
+                        switch (byte_967E1)
+                        {
+                        case 0:
+                            goto LABEL_309;
+                        case 1:
+                            goto LABEL_322;
+                        case 2:
+                            goto LABEL_351;
+                        case 3:
+                            goto LABEL_382;
+                        case 4:
+                            goto LABEL_445;
+                        case 5:
+                            goto LABEL_474;
+                        case 6:
+                            goto LABEL_503;
+                        case 7:
+                        case 11:
+                            goto LABEL_564;
+                        case 8:
+                            goto LABEL_595;
+                        case 9:
+                        case 10:
+                            goto LABEL_658;
+                        case 12:
+                            goto LABEL_721;
+                        case 13:
+                            goto LABEL_752;
+                        case 14:
+                            goto LABEL_783;
+                        case 15:
+                            goto LABEL_812;
+                        case 16:
+                            goto LABEL_841;
+                        case 17:
+                            goto LABEL_870;
+                        case 18:
+                            goto LABEL_899;
+                        case 19:
+                            goto LABEL_930;
+                        case 20:
+                            goto LABEL_961;
+                        case 21:
+                            goto LABEL_992;
+                        case 22:
+                            goto LABEL_1023;
+                        case 23:
+                            goto LABEL_1086;
+                        case 24:
+                            goto LABEL_1149;
+                        case 25:
+                            goto LABEL_1212;
+                        case 26:
+                            goto LABEL_1275;
+                        }
+                    }
+                    do
+                    {
+                        *v99 = v98;
+                        v98 += v1087;
+                        v99[1] = v96;
+                        v96 += v1083;
+                        v99[4] = v97;
+                        v97 += v1131;
+                        v99 += 5;
+                        --v1095;
+                    } while (v1095);
+                    v29 = (unsigned __int8)byte_967E1;
+                    switch (byte_967E1)
+                    {
+                    case 0:
+                        goto LABEL_309;
+                    case 1:
+                        goto LABEL_322;
+                    case 2:
+                        goto LABEL_351;
+                    case 3:
+                        goto LABEL_382;
+                    case 4:
+                        goto LABEL_445;
+                    case 5:
+                        goto LABEL_474;
+                    case 6:
+                        goto LABEL_503;
+                    case 7:
+                    case 11:
+                        goto LABEL_564;
+                    case 8:
+                        goto LABEL_595;
+                    case 9:
+                    case 10:
+                        goto LABEL_658;
+                    case 12:
+                        goto LABEL_721;
+                    case 13:
+                        goto LABEL_752;
+                    case 14:
+                        goto LABEL_783;
+                    case 15:
+                        goto LABEL_812;
+                    case 16:
+                        goto LABEL_841;
+                    case 17:
+                        goto LABEL_870;
+                    case 18:
+                        goto LABEL_899;
+                    case 19:
+                        goto LABEL_930;
+                    case 20:
+                        goto LABEL_961;
+                    case 21:
+                        goto LABEL_992;
+                    case 22:
+                        goto LABEL_1023;
+                    case 23:
+                        goto LABEL_1086;
+                    case 24:
+                        goto LABEL_1149;
+                    case 25:
+                        goto LABEL_1212;
+                    case 26:
+                        goto LABEL_1275;
+                    }
+                }
+                v1089 += v1174;
+                v95 += v1079 * v1144;
+                v96 += v1144 * v1083;
+                v97 += v1144 * v1125;
+                if (v1284)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    if (v1280)
+                    {
+                        v1089 = heightViewPort_93ADC;
+                    }
+                    else
+                    {
+                        v1280 = heightViewPort_93ADC <= v1089;
+                        v1095 = heightViewPort_93ADC - v1089;
+                    }
+                }
+            }
+            else if (v1284)
+            {
+                v100 = heightViewPort_93ADC - v1174;
+                v1098 = heightViewPort_93ADC - v1174;
+                if (v1280)
+                {
+                    v1089 = heightViewPort_93ADC - v1174;
+                }
+                else
+                {
+                    v27 = __OFSUB__(v100, v1089);
+                    v101 = v100 - v1089;
+                    v1280 = (v101 < 0) ^ v27 | (v101 == 0);
+                    v1095 = v101;
+                }
+            }
+            v99 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v99 = v95;
+                v95 += v1079;
+                v99[1] = v96;
+                v96 += v1083;
+                v99[4] = v97;
+                v97 += v1125;
+                v99 += 5;
+                --v1089;
+            } while (v1089);
+            v98 = v1097;
+            goto LABEL_198;
+        case 2:
+        case 3:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 18:
+        case 19:
+        case 22:
+        case 23:
+            v78 = v1089 * (__int64)(*v4 - *v3) / v63;
+            v79 = *v3 - *v5;
+            v80 = v78 + v79 == 0;
+            v16 = (v78 + v79 < 0) ^ __OFADD__(v78, v79);
+            v81 = v78 + v79;
+            if (v16)
+                return;
+            if (!v80)
+            {
+                v82 = v81 + 1;
+                v1099 = (int)(v3[2] + v1089 * (__int64)(v4[2] - v3[2]) / v1093 - v5[2]) / v82;
+                v1110 = (int)(v3[3] + v1089 * (__int64)(v4[3] - v3[3]) / v1093 - v5[3]) / v82;
+            }
+            v1103 = (v5[2] - v3[2]) / v1089;
+            v1114 = (v5[3] - v3[3]) / v1089;
+            v1109 = (v4[2] - v5[2]) / v1095;
+            v1120 = (v4[3] - v5[3]) / v1095;
+            v83 = *v3 << 16;
+            v84 = v83;
+            v85 = v3[2];
+            v86 = v3[3];
+            if (v1276)
+            {
+                v16 = v1098 <= -v1174;
+                v1098 += v1174;
+                if (v16)
+                    return;
+                v1142 = -v1174;
+                if (-v1174 - v1089 >= 0)
+                {
+                    v1143 = v1142 - v1089;
+                    v1095 -= v1143;
+                    v87 = v1087 * v1143 + v1097;
+                    v84 += v1143 * v1083 + v1089 * v1083;
+                    v85 += v1143 * v1109 + v1089 * v1103;
+                    v86 += v1143 * v1120 + v1089 * v1114;
+                    if (v1284)
+                    {
+                        v1095 = heightViewPort_93ADC;
+                        v1098 = heightViewPort_93ADC;
+                    }
+                    v88 = (uint32*)&unk_93AE0;
+                LABEL_174:
+                    if (v1280)
+                    {
+                        v29 = (unsigned __int8)byte_967E1;
+                        switch (byte_967E1)
+                        {
+                        case 0:
+                            goto LABEL_309;
+                        case 1:
+                            goto LABEL_322;
+                        case 2:
+                            goto LABEL_351;
+                        case 3:
+                            goto LABEL_382;
+                        case 4:
+                            goto LABEL_445;
+                        case 5:
+                            goto LABEL_474;
+                        case 6:
+                            goto LABEL_503;
+                        case 7:
+                        case 11:
+                            goto LABEL_564;
+                        case 8:
+                            goto LABEL_595;
+                        case 9:
+                        case 10:
+                            goto LABEL_658;
+                        case 12:
+                            goto LABEL_721;
+                        case 13:
+                            goto LABEL_752;
+                        case 14:
+                            goto LABEL_783;
+                        case 15:
+                            goto LABEL_812;
+                        case 16:
+                            goto LABEL_841;
+                        case 17:
+                            goto LABEL_870;
+                        case 18:
+                            goto LABEL_899;
+                        case 19:
+                            goto LABEL_930;
+                        case 20:
+                            goto LABEL_961;
+                        case 21:
+                            goto LABEL_992;
+                        case 22:
+                            goto LABEL_1023;
+                        case 23:
+                            goto LABEL_1086;
+                        case 24:
+                            goto LABEL_1149;
+                        case 25:
+                            goto LABEL_1212;
+                        case 26:
+                            goto LABEL_1275;
+                        }
+                    }
+                    do
+                    {
+                        *v88 = v87;
+                        v87 += v1087;
+                        v88[1] = v84;
+                        v84 += v1083;
+                        v88[2] = v85;
+                        v85 += v1109;
+                        v88[3] = v86;
+                        v86 += v1120;
+                        v88 += 5;
+                        --v1095;
+                    } while (v1095);
+                    v29 = (unsigned __int8)byte_967E1;
+                    switch (byte_967E1)
+                    {
+                    case 0:
+                        goto LABEL_309;
+                    case 1:
+                        goto LABEL_322;
+                    case 2:
+                        goto LABEL_351;
+                    case 3:
+                        goto LABEL_382;
+                    case 4:
+                        goto LABEL_445;
+                    case 5:
+                        goto LABEL_474;
+                    case 6:
+                        goto LABEL_503;
+                    case 7:
+                    case 11:
+                        goto LABEL_564;
+                    case 8:
+                        goto LABEL_595;
+                    case 9:
+                    case 10:
+                        goto LABEL_658;
+                    case 12:
+                        goto LABEL_721;
+                    case 13:
+                        goto LABEL_752;
+                    case 14:
+                        goto LABEL_783;
+                    case 15:
+                        goto LABEL_812;
+                    case 16:
+                        goto LABEL_841;
+                    case 17:
+                        goto LABEL_870;
+                    case 18:
+                        goto LABEL_899;
+                    case 19:
+                        goto LABEL_930;
+                    case 20:
+                        goto LABEL_961;
+                    case 21:
+                        goto LABEL_992;
+                    case 22:
+                        goto LABEL_1023;
+                    case 23:
+                        goto LABEL_1086;
+                    case 24:
+                        goto LABEL_1149;
+                    case 25:
+                        goto LABEL_1212;
+                    case 26:
+                        goto LABEL_1275;
+                    }
+                }
+                v1089 += v1174;
+                v83 += v1079 * v1142;
+                v84 += v1142 * v1083;
+                v85 += v1142 * v1103;
+                v86 += v1142 * v1114;
+                if (v1284)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    if (v1280)
+                    {
+                        v1089 = heightViewPort_93ADC;
+                    }
+                    else
+                    {
+                        v1280 = heightViewPort_93ADC <= v1089;
+                        v1095 = heightViewPort_93ADC - v1089;
+                    }
+                }
+            }
+            else if (v1284)
+            {
+                v89 = heightViewPort_93ADC - v1174;
+                v1098 = heightViewPort_93ADC - v1174;
+                if (v1280)
+                {
+                    v1089 = heightViewPort_93ADC - v1174;
+                }
+                else
+                {
+                    v27 = __OFSUB__(v89, v1089);
+                    v90 = v89 - v1089;
+                    v1280 = (v90 < 0) ^ v27 | (v90 == 0);
+                    v1095 = v90;
+                }
+            }
+            v88 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v88 = v83;
+                v83 += v1079;
+                v88[1] = v84;
+                v84 += v1083;
+                v88[2] = v85;
+                v85 += v1103;
+                v88[3] = v86;
+                v86 += v1114;
+                v88 += 5;
+                --v1089;
+            } while (v1089);
+            v87 = v1097;
+            goto LABEL_174;
+        case 5:
+        case 6:
+        case 20:
+        case 21:
+        case 24:
+        case 25:
+        case 26:
+            v64 = v1089 * (__int64)(*v4 - *v3) / v63;
+            v65 = *v3 - *v5;
+            v66 = v64 + v65 == 0;
+            v16 = (v64 + v65 < 0) ^ __OFADD__(v64, v65);
+            v67 = v64 + v65;
+            if (v16)
+                return;
+            if (!v66)
+            {
+                v68 = v67 + 1;
+                v1099 = (int)(v3[2] + v1089 * (__int64)(v4[2] - v3[2]) / v1093 - v5[2]) / v68;
+                v1110 = (int)(v3[3] + v1089 * (__int64)(v4[3] - v3[3]) / v1093 - v5[3]) / v68;
+                v64 = (int)(v3[4] + v1089 * (__int64)(v4[4] - v3[4]) / v1093 - v5[4]) / v68;
+            }
+            v1121 = v64;
+            v1102 = (v5[2] - v3[2]) / v1089;
+            v1113 = (v5[3] - v3[3]) / v1089;
+            v1124 = (v5[4] - v3[4]) / v1089;
+            v1108 = (v4[2] - v5[2]) / v1095;
+            v1119 = (v4[3] - v5[3]) / v1095;
+            v1130 = (v4[4] - v5[4]) / v1095;
+            v69 = *v3 << 16;
+            v70 = v69;
+            v71 = v3[2];
+            v72 = v3[3];
+            v73 = v3[4];
+            if (v1276)
+            {
+                v16 = v1098 <= -v1174;
+                v1098 += v1174;
+                if (v16)
+                    return;
+                v1140 = -v1174;
+                if (-v1174 - v1089 >= 0)
+                {
+                    v1141 = v1140 - v1089;
+                    v1095 -= v1141;
+                    v74 = v1087 * v1141 + v1097;
+                    v70 += v1141 * v1083 + v1089 * v1083;
+                    v71 += v1141 * v1108 + v1089 * v1102;
+                    v72 += v1141 * v1119 + v1089 * v1113;
+                    v73 += v1141 * v1130 + v1089 * v1124;
+                    if (v1284)
+                    {
+                        v1095 = heightViewPort_93ADC;
+                        v1098 = heightViewPort_93ADC;
+                    }
+                    v75 = (uint32*)&unk_93AE0;
+                LABEL_150:
+                    if (v1280)
+                    {
+                        v29 = (unsigned __int8)byte_967E1;
+                        switch (byte_967E1)
+                        {
+                        case 0:
+                            goto LABEL_309;
+                        case 1:
+                            goto LABEL_322;
+                        case 2:
+                            goto LABEL_351;
+                        case 3:
+                            goto LABEL_382;
+                        case 4:
+                            goto LABEL_445;
+                        case 5:
+                            goto LABEL_474;
+                        case 6:
+                            goto LABEL_503;
+                        case 7:
+                        case 11:
+                            goto LABEL_564;
+                        case 8:
+                            goto LABEL_595;
+                        case 9:
+                        case 10:
+                            goto LABEL_658;
+                        case 12:
+                            goto LABEL_721;
+                        case 13:
+                            goto LABEL_752;
+                        case 14:
+                            goto LABEL_783;
+                        case 15:
+                            goto LABEL_812;
+                        case 16:
+                            goto LABEL_841;
+                        case 17:
+                            goto LABEL_870;
+                        case 18:
+                            goto LABEL_899;
+                        case 19:
+                            goto LABEL_930;
+                        case 20:
+                            goto LABEL_961;
+                        case 21:
+                            goto LABEL_992;
+                        case 22:
+                            goto LABEL_1023;
+                        case 23:
+                            goto LABEL_1086;
+                        case 24:
+                            goto LABEL_1149;
+                        case 25:
+                            goto LABEL_1212;
+                        case 26:
+                            goto LABEL_1275;
+                        }
+                    }
+                    do
+                    {
+                        *v75 = v74;
+                        v74 += v1087;
+                        v75[1] = v70;
+                        v70 += v1083;
+                        v75[2] = v71;
+                        v71 += v1108;
+                        v75[3] = v72;
+                        v72 += v1119;
+                        v75[4] = v73;
+                        v73 += v1130;
+                        v75 += 5;
+                        --v1095;
+                    } while (v1095);
+                    v29 = (unsigned __int8)byte_967E1;
+                    switch (byte_967E1)
+                    {
+                    case 0:
+                        goto LABEL_309;
+                    case 1:
+                        goto LABEL_322;
+                    case 2:
+                        goto LABEL_351;
+                    case 3:
+                        goto LABEL_382;
+                    case 4:
+                        goto LABEL_445;
+                    case 5:
+                        goto LABEL_474;
+                    case 6:
+                        goto LABEL_503;
+                    case 7:
+                    case 11:
+                        goto LABEL_564;
+                    case 8:
+                        goto LABEL_595;
+                    case 9:
+                    case 10:
+                        goto LABEL_658;
+                    case 12:
+                        goto LABEL_721;
+                    case 13:
+                        goto LABEL_752;
+                    case 14:
+                        goto LABEL_783;
+                    case 15:
+                        goto LABEL_812;
+                    case 16:
+                        goto LABEL_841;
+                    case 17:
+                        goto LABEL_870;
+                    case 18:
+                        goto LABEL_899;
+                    case 19:
+                        goto LABEL_930;
+                    case 20:
+                        goto LABEL_961;
+                    case 21:
+                        goto LABEL_992;
+                    case 22:
+                        goto LABEL_1023;
+                    case 23:
+                        goto LABEL_1086;
+                    case 24:
+                        goto LABEL_1149;
+                    case 25:
+                        goto LABEL_1212;
+                    case 26:
+                        goto LABEL_1275;
+                    }
+                }
+                v1089 += v1174;
+                v69 += v1079 * v1140;
+                v70 += v1140 * v1083;
+                v71 += v1140 * v1102;
+                v72 += v1140 * v1113;
+                v73 += v1140 * v1124;
+                if (v1284)
+                {
+                    v1098 = heightViewPort_93ADC;
+                    if (v1280)
+                    {
+                        v1089 = heightViewPort_93ADC;
+                    }
+                    else
+                    {
+                        v1280 = heightViewPort_93ADC <= v1089;
+                        v1095 = heightViewPort_93ADC - v1089;
+                    }
+                }
+            }
+            else if (v1284)
+            {
+                v76 = heightViewPort_93ADC - v1174;
+                v1098 = heightViewPort_93ADC - v1174;
+                if (v1280)
+                {
+                    v1089 = heightViewPort_93ADC - v1174;
+                }
+                else
+                {
+                    v27 = __OFSUB__(v76, v1089);
+                    v77 = v76 - v1089;
+                    v1280 = (v77 < 0) ^ v27 | (v77 == 0);
+                    v1095 = v77;
+                }
+            }
+            v75 = (uint32*)&unk_93AE0;
+            do
+            {
+                *v75 = v69;
+                v69 += v1079;
+                v75[1] = v70;
+                v70 += v1083;
+                v75[2] = v71;
+                v71 += v1102;
+                v75[3] = v72;
+                v72 += v1113;
+                v75[4] = v73;
+                v73 += v1124;
+                v75 += 5;
+                --v1089;
+            } while (v1089);
+            v74 = v1097;
+            goto LABEL_150;
+        }
+    }
+}
+
+//SYNCHRONIZED WITH REMC2
+void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Type_RenderPoint* pnt3)//2439A3_ // draw textured triangle
+{
+    Type_RenderPoint* sortPnt1; // esi
+    Type_RenderPoint* sortPnt2; // edi
+    Type_RenderPoint* sortPnt3; // ecx
+  //int32 v6; // eax
+  //int32 v7; // ebx
+  //int32 v8; // edx
+  //int v9; // eax
+  //int v10; // ebx
+  //int v11; // ebx
+  //int v12; // ebx
   int v13; // eax
   int v14; // ebx
   _BOOL1 v15; // zf
@@ -82607,46 +92913,46 @@ void DrawTriangle_729A3_72EB3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_ // dr
   v1110 = 0;
   //fix
 
-  v3 = (int32*)a1;
-  v4 = (int32*)a2;
-  v5 = (int32*)a3;
-  v6 = a1[1];
-  v7 = a2[1];
-  v8 = a3[1];
-  if ( v6 == v7 )
+  sortPnt1 = pnt1;
+  sortPnt2 = pnt2;
+  sortPnt3 = pnt3;
+  //v6 = pnt1->var_1;
+  //v7 = pnt2->var_1;
+  //v8 = pnt3->var_1;
+  if (pnt1->var_1 == pnt2->var_1)
   {
-    if ( v6 == v8 )
+    if (pnt1->var_1 == pnt3->var_1)
       return;
-    if ( v6 >= v8 )
+    if (pnt1->var_1 >= pnt3->var_1)
     {
-      if ( *(int32*)a1 <= *(int32*)a2 )
+      if (pnt1->var_0 <= pnt2->var_0)
         return;
-      v3 = (int32*)a3;
-      v4 = (int32*)a1;
-      v5 = (int32*)a2;
+      sortPnt1 = pnt3;
+      sortPnt2 = pnt1;
+      sortPnt3 = pnt2;
       goto LABEL_225;
     }
-    if ( *(int32*)a2 <= *(int32*)a1 )
+    if (pnt2->var_0 <= pnt1->var_0)
       return;
     goto LABEL_268;
   }
-  if ( v6 <= v7 )
+  if (pnt1->var_1 <= pnt2->var_1)
   {
-    if ( v6 != v8 )
+    if (pnt1->var_1 != pnt3->var_1)
     {
-      if ( v6 >= v8 )
+      if (pnt1->var_1 >= pnt3->var_1)
       {
-        v3 = (int32*)a3;
-        v4 = (int32*)a1;
-        v5 = (int32*)a2;
+          sortPnt1 = pnt3;
+          sortPnt2 = pnt1;
+          sortPnt3 = pnt2;
 LABEL_24:
-        v9 = v3[1];
-        v1173 = v9;
-        if ( v9 >= 0 )
+        //v9 = sortPnt1->var_1;
+        v1173 = sortPnt1->var_1;
+        if (sortPnt1->var_1 >= 0 )
         {
-          if ( v9 >= heightViewPort_93ADC )
+          if (sortPnt1->var_1 >= heightViewPort_93ADC )
             return;
-          v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v9;
+          v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
           v1275 = 0;
         }
         else
@@ -82654,27 +92960,27 @@ LABEL_24:
           v1077 = beginPrevLineFrame_93AC8;
           v1275 = 1;
         }
-        v10 = v5[1];
-        v1283 = v10 > heightViewPort_93ADC;
-        v1088 = v10 - v9;
-        v1098 = v10 - v9;
-        v11 = v4[1];
-        v1279 = v11 > heightViewPort_93ADC;
-        v12 = v11 - v9;
-        v1092 = v12;
-        v1078 = ((*v5 - *v3) << 16) / v1088;
-        if ( ((*v4 - *v3) << 16) / v12 > v1078 )
+        //v10 = sortPnt3->var_1;
+        v1283 = sortPnt3->var_1 > heightViewPort_93ADC;
+        v1088 = sortPnt3->var_1 - sortPnt1->var_1;
+        v1098 = sortPnt3->var_1 - sortPnt1->var_1;
+        //v11 = sortPnt2->var_1;
+        v1279 = sortPnt2->var_1 > heightViewPort_93ADC;
+        //v12 = sortPnt2->var_1 - sortPnt1->var_1;
+        v1092 = sortPnt2->var_1 - sortPnt1->var_1;
+        v1078 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / v1088;
+        if ( ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1) > v1078 )
         {
-          v1082 = ((*v4 - *v3) << 16) / v12;
-          v1086 = ((*v5 - *v4) << 16) / (v5[1] - v4[1]);
-          v1094 = v5[1] - v4[1];
-          v1096 = *v4 << 16;
+          v1082 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1);
+          v1086 = ((sortPnt3->var_0 - sortPnt2->var_0) << 16) / (sortPnt3->var_1 - sortPnt2->var_1);
+          v1094 = sortPnt3->var_1 - sortPnt2->var_1;
+          v1096 = sortPnt2->var_0 << 16;
           switch ( byte_967E1 )
           {
             case 0:
             case 14:
             case 15:
-              v54 = *v3 << 16;
+              v54 = sortPnt1->var_0 << 16;
               v55 = v54;
               if ( !v1275 )
               {
@@ -82876,19 +93182,19 @@ LABEL_116:
             case 4:
             case 16:
             case 17:
-              v43 = v12 * (__int64)(*v3 - *v5) / v1088;
-              v44 = *v4 - *v3;
+              v43 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v44 = sortPnt2->var_0 - sortPnt1->var_0;
               v45 = v43 + v44 == 0;
               v16 = (v43 + v44 < 0) ^ __OFADD__(v43, v44);
               v46 = v43 + v44;
               if ( v16 )
                 return;
               if ( !v45 )
-                v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / (v46 + 1);
-              v1123 = (v5[4] - v3[4]) / v1088;
-              v47 = *v3 << 16;
+                v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / (v46 + 1);
+              v1123 = (sortPnt3->var_4 - sortPnt1->var_4) / v1088;
+              v47 = sortPnt1->var_0 << 16;
               v48 = v47;
-              v49 = v3[4];
+              v49 = sortPnt1->var_4;
               if ( !v1275 )
               {
                 if ( v1283 )
@@ -83104,8 +93410,8 @@ LABEL_95:
             case 19:
             case 22:
             case 23:
-              v30 = v12 * (__int64)(*v3 - *v5) / v1088;
-              v31 = *v4 - *v3;
+              v30 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v31 = sortPnt2->var_0 - sortPnt1->var_0;
               v32 = v30 + v31 == 0;
               v16 = (v30 + v31 < 0) ^ __OFADD__(v30, v31);
               v33 = v30 + v31;
@@ -83114,15 +93420,15 @@ LABEL_95:
               if ( !v32 )
               {
                 v34 = v33 + 1;
-                v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v34;
-                v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v34;
+                v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v34;
+                v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v34;
               }
-              v1101 = (v5[2] - v3[2]) / v1088;
-              v1112 = (v5[3] - v3[3]) / v1088;
-              v35 = *v3 << 16;
+              v1101 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
+              v1112 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
+              v35 = sortPnt1->var_0 << 16;
               v36 = v35;
-              v37 = v3[2];
-              v38 = v3[3];
+              v37 = sortPnt1->var_2;
+              v38 = sortPnt1->var_3;
               if ( !v1275 )
               {
                 if ( v1283 )
@@ -83338,8 +93644,8 @@ LABEL_71:
             case 24:
             case 25:
             case 26:
-              v13 = v12 * (__int64)(*v3 - *v5) / v1088;
-              v14 = *v4 - *v3;
+              v13 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v14 = sortPnt2->var_0 - sortPnt1->var_0;
               v15 = v13 + v14 == 0;
               v16 = (v13 + v14 < 0) ^ __OFADD__(v13, v14);
               v17 = v13 + v14;
@@ -83348,18 +93654,18 @@ LABEL_71:
               if ( !v15 )
               {
                 v18 = v17 + 1;
-                v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v18;
-                v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v18;
-                v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / v18;
+                v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v18;
+                v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v18;
+                v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / v18;
               }
-              v1100 = (v5[2] - v3[2]) / v1088;
-              v1111 = (v5[3] - v3[3]) / v1088;
-              v1122 = (v5[4] - v3[4]) / v1088;
-              v19 = *v3 << 16;
+              v1100 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
+              v1111 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
+              v1122 = (sortPnt3->var_4 - sortPnt1->var_4) / v1088;
+              v19 = sortPnt1->var_0 << 16;
               v20 = v19;
-              v21 = v3[2];
-              v22 = v3[3];
-              v23 = v3[4];
+              v21 = sortPnt1->var_2;
+              v22 = sortPnt1->var_3;
+              v23 = sortPnt1->var_4;
               if ( !v1275 )
               {
                 if ( v1283 )
@@ -83578,16 +93884,16 @@ LABEL_47:
         }
         return;
       }
-      if ( v7 != v8 )
+      if (pnt2->var_1 != pnt3->var_1)
       {
-        if ( v7 <= v8 )
+        if (pnt2->var_1 <= pnt3->var_1)
           goto LABEL_24;
         goto LABEL_124;
       }
-      if ( *(int32*)a2 <= *(int32*)a3 )
+      if ( pnt2->var_0 <= pnt3->var_0)
         return;
 LABEL_225:
-      v108 = v3[1];
+      v108 = sortPnt1->var_1;
       v1175 = v108;
       if ( v108 >= 0 )
       {
@@ -83601,18 +93907,18 @@ LABEL_225:
         v1077 = beginPrevLineFrame_93AC8;
         v1277 = 1;
       }
-      v109 = v5[1];
+      v109 = sortPnt3->var_1;
       v1281 = v109 > heightViewPort_93ADC;
       v1090 = v109 - v108;
       v1098 = v109 - v108;
-      v1080 = ((*v5 - *v3) << 16) / (v109 - v108);
-      v1084 = ((*v4 - *v3) << 16) / (v109 - v108);
+      v1080 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / (v109 - v108);
+      v1084 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (v109 - v108);
       switch ( byte_967E1 )
       {
         case 0:
         case 14:
         case 15:
-          v130 = *v3 << 16;
+          v130 = sortPnt1->var_0 << 16;
           v131 = v130;
           if ( v1277 )
           {
@@ -83706,11 +94012,11 @@ LABEL_225:
         case 4:
         case 16:
         case 17:
-          v1121 = (v4[4] - v5[4]) / (*v4 - *v5);
-          v1127 = (v5[4] - v3[4]) / v1098;
-          v125 = *v3 << 16;
+          v1121 = (sortPnt2->var_4 - sortPnt3->var_4) / (sortPnt2->var_0 - sortPnt3->var_0);
+          v1127 = (sortPnt3->var_4 - sortPnt1->var_4) / v1098;
+          v125 = sortPnt1->var_0 << 16;
           v126 = v125;
-          v127 = v3[4];
+          v127 = sortPnt1->var_4;
           if ( v1277 )
           {
             v128 = -v1175;
@@ -83815,15 +94121,15 @@ LABEL_225:
         case 19:
         case 22:
         case 23:
-          v118 = *v4 - *v5;
-          v1099 = (v4[2] - v5[2]) / v118;
-          v1110 = (v4[3] - v5[3]) / v118;
-          v1105 = (v5[2] - v3[2]) / v1098;
-          v1116 = (v5[3] - v3[3]) / v1098;
-          v119 = *v3 << 16;
+          v118 = sortPnt2->var_0 - sortPnt3->var_0;
+          v1099 = (sortPnt2->var_2 - sortPnt3->var_2) / v118;
+          v1110 = (sortPnt2->var_3 - sortPnt3->var_3) / v118;
+          v1105 = (sortPnt3->var_2 - sortPnt1->var_2) / v1098;
+          v1116 = (sortPnt3->var_3 - sortPnt1->var_3) / v1098;
+          v119 = sortPnt1->var_0 << 16;
           v120 = v119;
-          v121 = v3[2];
-          v122 = v3[3];
+          v121 = sortPnt1->var_2;
+          v122 = sortPnt1->var_3;
           if ( v1277 )
           {
             v123 = -v1175;
@@ -83925,18 +94231,18 @@ LABEL_225:
         case 24:
         case 25:
         case 26:
-          v110 = *v4 - *v5;
-          v1099 = (v4[2] - v5[2]) / v110;
-          v1110 = (v4[3] - v5[3]) / v110;
-          v1121 = (v4[4] - v5[4]) / v110;
-          v1104 = (v5[2] - v3[2]) / v1098;
-          v1115 = (v5[3] - v3[3]) / v1098;
-          v1126 = (v5[4] - v3[4]) / v1098;
-          v111 = *v3 << 16;
+          v110 = sortPnt2->var_0 - sortPnt3->var_0;
+          v1099 = (sortPnt2->var_2 - sortPnt3->var_2) / v110;
+          v1110 = (sortPnt2->var_3 - sortPnt3->var_3) / v110;
+          v1121 = (sortPnt2->var_4 - sortPnt3->var_4) / v110;
+          v1104 = (sortPnt3->var_2 - sortPnt1->var_2) / v1098;
+          v1115 = (sortPnt3->var_3 - sortPnt1->var_3) / v1098;
+          v1126 = (sortPnt3->var_4 - sortPnt1->var_4) / v1098;
+          v111 = sortPnt1->var_0 << 16;
           v112 = v111;
-          v113 = v3[2];
-          v114 = v3[3];
-          v115 = v3[4];
+          v113 = sortPnt1->var_2;
+          v114 = sortPnt1->var_3;
+          v115 = sortPnt1->var_4;
           if ( v1277 )
           {
             v116 = -v1175;
@@ -84036,13 +94342,13 @@ LABEL_225:
           }
       }
     }
-    if ( *(int32*)a1 <= *(int32*)a3 )
+    if ( pnt1->var_0 <= pnt3->var_0 )
       return;
-    v3 = (int32*)a3;
-    v4 = (int32*)a1;
-    v5 = (int32*)a2;
+    sortPnt1 = pnt3;
+    sortPnt2 = pnt1;
+    sortPnt3 = pnt2;
 LABEL_268:
-    v134 = v3[1];
+    v134 = sortPnt1->var_1;
     v1176 = v134;
     if ( v134 >= 0 )
     {
@@ -84056,19 +94362,19 @@ LABEL_268:
       v1077 = beginPrevLineFrame_93AC8;
       v1278 = 1;
     }
-    v135 = v5[1];
+    v135 = sortPnt3->var_1;
     v1282 = v135 > heightViewPort_93ADC;
     v1091 = v135 - v134;
     v1098 = v135 - v134;
-    v1081 = ((*v5 - *v3) << 16) / (v135 - v134);
-    v1085 = ((*v5 - *v4) << 16) / (v135 - v134);
+    v1081 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / (v135 - v134);
+    v1085 = ((sortPnt3->var_0 - sortPnt2->var_0) << 16) / (v135 - v134);
     switch ( byte_967E1 )
     {
       case 0:
       case 14:
       case 15:
-        v156 = *v3 << 16;
-        v157 = *v4 << 16;
+        v156 = sortPnt1->var_0 << 16;
+        v157 = sortPnt2->var_0 << 16;
         if ( v1278 )
         {
           v158 = -v1176;
@@ -84161,11 +94467,11 @@ LABEL_268:
       case 4:
       case 16:
       case 17:
-        v1121 = (v4[4] - v3[4]) / (*v4 - *v3);
-        v1129 = (v5[4] - v3[4]) / v1098;
-        v151 = *v3 << 16;
-        v152 = *v4 << 16;
-        v153 = v3[4];
+        v1121 = (sortPnt2->var_4 - sortPnt1->var_4) / (sortPnt2->var_0 - sortPnt1->var_0);
+        v1129 = (sortPnt3->var_4 - sortPnt1->var_4) / v1098;
+        v151 = sortPnt1->var_0 << 16;
+        v152 = sortPnt2->var_0 << 16;
+        v153 = sortPnt1->var_4;
         if ( v1278 )
         {
           v154 = -v1176;
@@ -84270,15 +94576,15 @@ LABEL_268:
       case 19:
       case 22:
       case 23:
-        v144 = *v4 - *v3;
-        v1099 = (v4[2] - v3[2]) / v144;
-        v1110 = (v4[3] - v3[3]) / v144;
-        v1107 = (v5[2] - v3[2]) / v1098;
-        v1118 = (v5[3] - v3[3]) / v1098;
-        v145 = *v3 << 16;
-        v146 = *v4 << 16;
-        v147 = v3[2];
-        v148 = v3[3];
+        v144 = sortPnt2->var_0 - sortPnt1->var_0;
+        v1099 = (sortPnt2->var_2 - sortPnt1->var_2) / v144;
+        v1110 = (sortPnt2->var_3 - sortPnt1->var_3) / v144;
+        v1107 = (sortPnt3->var_2 - sortPnt1->var_2) / v1098;
+        v1118 = (sortPnt3->var_3 - sortPnt1->var_3) / v1098;
+        v145 = sortPnt1->var_0 << 16;
+        v146 = sortPnt2->var_0 << 16;
+        v147 = sortPnt1->var_2;
+        v148 = sortPnt1->var_3;
         if ( v1278 )
         {
           v149 = -v1176;
@@ -84380,18 +94686,18 @@ LABEL_268:
       case 24:
       case 25:
       case 26:
-        v136 = *v4 - *v3;
-        v1099 = (v4[2] - v3[2]) / v136;
-        v1110 = (v4[3] - v3[3]) / v136;
-        v1121 = (v4[4] - v3[4]) / v136;
-        v1106 = (v5[2] - v3[2]) / v1098;
-        v1117 = (v5[3] - v3[3]) / v1098;
-        v1128 = (v5[4] - v3[4]) / v1098;
-        v137 = *v3 << 16;
-        v138 = *v4 << 16;
-        v139 = v3[2];
-        v140 = v3[3];
-        v141 = v3[4];
+        v136 = sortPnt2->var_0 - sortPnt1->var_0;
+        v1099 = (sortPnt2->var_2 - sortPnt1->var_2) / v136;
+        v1110 = (sortPnt2->var_3 - sortPnt1->var_3) / v136;
+        v1121 = (sortPnt2->var_4 - sortPnt1->var_4) / v136;
+        v1106 = (sortPnt3->var_2 - sortPnt1->var_2) / v1098;
+        v1117 = (sortPnt3->var_3 - sortPnt1->var_3) / v1098;
+        v1128 = (sortPnt3->var_4 - sortPnt1->var_4) / v1098;
+        v137 = sortPnt1->var_0 << 16;
+        v138 = sortPnt2->var_0 << 16;
+        v139 = sortPnt1->var_2;
+        v140 = sortPnt1->var_3;
+        v141 = sortPnt1->var_4;
         if ( v1278 )
         {
           v142 = -v1176;
@@ -90661,43 +100967,43 @@ LABEL_1352:
     v1029 = __ROL4__(*((_DWORD *)v1022 + 4), 16);
     goto LABEL_1285;
   }
-  if ( v6 == v8 )
+  if (pnt1->var_1 == pnt3->var_1)
   {
-    if ( *a3 <= *a1 )
+    if (pnt3->var_0 <= pnt1->var_0 )
       return;
-    v3 = (int32*)a2;
-    v4 = (int32*)a3;
-    v5 = (int32*)a1;
+    sortPnt1 = pnt2;
+    sortPnt2 = pnt3;
+    sortPnt3 = pnt1;
     goto LABEL_225;
   }
-  if ( v6 < v8 )
+  if (pnt1->var_1 < pnt3->var_1)
   {
-    v3 = (int32*)a2;
-    v4 = (int32*)a3;
-    v5 = (int32*)a1;
+      sortPnt1 = pnt2;
+      sortPnt2 = pnt3;
+      sortPnt3 = pnt1;
     goto LABEL_124;
   }
-  if ( v7 == v8 )
+  if (pnt2->var_1 == pnt3->var_1)
   {
-    if (*(int32*)a3 <= *(int32*)a2 )
+    if (pnt3->var_0 <= pnt2->var_0)
       return;
-    v3 = (int32*)a2;
-    v4 = (int32*)a3;
-    v5 = (int32*)a1;
+    sortPnt1 = pnt2;
+    sortPnt2 = pnt3;
+    sortPnt3 = pnt1;
     goto LABEL_268;
   }
-  if ( v7 < v8 )
+  if (pnt2->var_1 < pnt3->var_1)
   {
-    v3 = (int32*)a2;
-    v4 = (int32*)a3;
-    v5 = (int32*)a1;
+      sortPnt1 = pnt2;
+      sortPnt2 = pnt3;
+      sortPnt3 = pnt1;
     goto LABEL_24;
   }
-  v3 = (int32*)a3;
-  v4 = (int32*)a1;
-  v5 = (int32*)a2;
+  sortPnt1 = pnt3;
+  sortPnt2 = pnt1;
+  sortPnt3 = pnt2;
 LABEL_124:
-  v60 = v3[1];
+  v60 = sortPnt1->var_1;
   v1174 = v60;
   if ( v60 >= 0 )
   {
@@ -90711,27 +101017,27 @@ LABEL_124:
     v1077 = beginPrevLineFrame_93AC8;
     v1276 = 1;
   }
-  v61 = v5[1];
+  v61 = sortPnt3->var_1;
   v1280 = v61 > heightViewPort_93ADC;
   v1089 = v61 - v60;
-  v62 = v4[1];
+  v62 = sortPnt2->var_1;
   v1284 = v62 > heightViewPort_93ADC;
   v63 = v62 - v60;
   v1093 = v63;
   v1098 = v63;
-  v1079 = ((*v5 - *v3) << 16) / v1089;
-  if ( ((*v4 - *v3) << 16) / v63 > v1079 )
+  v1079 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / v1089;
+  if ( ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079 )
   {
-    v1083 = ((*v4 - *v3) << 16) / v63;
-    v1087 = ((*v4 - *v5) << 16) / (v4[1] - v5[1]);
-    v1095 = v4[1] - v5[1];
-    v1097 = *v5 << 16;
+    v1083 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63;
+    v1087 = ((sortPnt2->var_0 - sortPnt3->var_0) << 16) / (sortPnt2->var_1 - sortPnt3->var_1);
+    v1095 = sortPnt2->var_1 - sortPnt3->var_1;
+    v1097 = sortPnt3->var_0 << 16;
     switch ( byte_967E1 )
     {
       case 0:
       case 14:
       case 15:
-        v102 = *v3 << 16;
+        v102 = sortPnt1->var_0 << 16;
         v103 = v102;
         if ( v1276 )
         {
@@ -90929,20 +101235,20 @@ LABEL_219:
       case 4:
       case 16:
       case 17:
-        v91 = v1089 * (__int64)(*v4 - *v3) / v63;
-        v92 = *v3 - *v5;
+        v91 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
+        v92 = sortPnt1->var_0 - sortPnt3->var_0;
         v93 = v91 + v92 == 0;
         v16 = (v91 + v92 < 0) ^ __OFADD__(v91, v92);
         v94 = v91 + v92;
         if ( v16 )
           return;
         if ( !v93 )
-          v1121 = (int)(v3[4] + v1089 * (__int64)(v4[4] - v3[4]) / v1093 - v5[4]) / (v94 + 1);
-        v1125 = (v5[4] - v3[4]) / v1089;
-        v1131 = (v4[4] - v5[4]) / v1095;
-        v95 = *v3 << 16;
+          v1121 = (int)(sortPnt1->var_4 + v1089 * (__int64)(sortPnt2->var_4 - sortPnt1->var_4) / v1093 - sortPnt3->var_4) / (v94 + 1);
+        v1125 = (sortPnt3->var_4 - sortPnt1->var_4) / v1089;
+        v1131 = (sortPnt2->var_4 - sortPnt3->var_4) / v1095;
+        v95 = sortPnt1->var_0 << 16;
         v96 = v95;
-        v97 = v3[4];
+        v97 = sortPnt1->var_4;
         if ( v1276 )
         {
           v16 = v1098 <= -v1174;
@@ -91154,8 +101460,8 @@ LABEL_198:
       case 19:
       case 22:
       case 23:
-        v78 = v1089 * (__int64)(*v4 - *v3) / v63;
-        v79 = *v3 - *v5;
+        v78 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
+        v79 = sortPnt1->var_0 - sortPnt3->var_0;
         v80 = v78 + v79 == 0;
         v16 = (v78 + v79 < 0) ^ __OFADD__(v78, v79);
         v81 = v78 + v79;
@@ -91164,17 +101470,17 @@ LABEL_198:
         if ( !v80 )
         {
           v82 = v81 + 1;
-          v1099 = (int)(v3[2] + v1089 * (__int64)(v4[2] - v3[2]) / v1093 - v5[2]) / v82;
-          v1110 = (int)(v3[3] + v1089 * (__int64)(v4[3] - v3[3]) / v1093 - v5[3]) / v82;
+          v1099 = (int)(sortPnt1->var_2 + v1089 * (__int64)(sortPnt2->var_2 - sortPnt1->var_2) / v1093 - sortPnt3->var_2) / v82;
+          v1110 = (int)(sortPnt1->var_3 + v1089 * (__int64)(sortPnt2->var_3 - sortPnt1->var_3) / v1093 - sortPnt3->var_3) / v82;
         }
-        v1103 = (v5[2] - v3[2]) / v1089;
-        v1114 = (v5[3] - v3[3]) / v1089;
-        v1109 = (v4[2] - v5[2]) / v1095;
-        v1120 = (v4[3] - v5[3]) / v1095;
-        v83 = *v3 << 16;
+        v1103 = (sortPnt3->var_2 - sortPnt1->var_2) / v1089;
+        v1114 = (sortPnt3->var_3 - sortPnt1->var_3) / v1089;
+        v1109 = (sortPnt2->var_2 - sortPnt3->var_2) / v1095;
+        v1120 = (sortPnt2->var_3 - sortPnt3->var_3) / v1095;
+        v83 = sortPnt1->var_0 << 16;
         v84 = v83;
-        v85 = v3[2];
-        v86 = v3[3];
+        v85 = sortPnt1->var_2;
+        v86 = sortPnt1->var_3;
         if ( v1276 )
         {
           v16 = v1098 <= -v1174;
@@ -91386,8 +101692,8 @@ LABEL_174:
       case 24:
       case 25:
       case 26:
-        v64 = v1089 * (__int64)(*v4 - *v3) / v63;
-        v65 = *v3 - *v5;
+        v64 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
+        v65 = sortPnt1->var_0 - sortPnt3->var_0;
         v66 = v64 + v65 == 0;
         v16 = (v64 + v65 < 0) ^ __OFADD__(v64, v65);
         v67 = v64 + v65;
@@ -91396,22 +101702,22 @@ LABEL_174:
         if ( !v66 )
         {
           v68 = v67 + 1;
-          v1099 = (int)(v3[2] + v1089 * (__int64)(v4[2] - v3[2]) / v1093 - v5[2]) / v68;
-          v1110 = (int)(v3[3] + v1089 * (__int64)(v4[3] - v3[3]) / v1093 - v5[3]) / v68;
-          v64 = (int)(v3[4] + v1089 * (__int64)(v4[4] - v3[4]) / v1093 - v5[4]) / v68;
+          v1099 = (int)(sortPnt1->var_2 + v1089 * (__int64)(sortPnt2->var_2 - sortPnt1->var_2) / v1093 - sortPnt3->var_2) / v68;
+          v1110 = (int)(sortPnt1->var_3 + v1089 * (__int64)(sortPnt2->var_3 - sortPnt1->var_3) / v1093 - sortPnt3->var_3) / v68;
+          v64 = (int)(sortPnt1->var_4 + v1089 * (__int64)(sortPnt2->var_4 - sortPnt1->var_4) / v1093 - sortPnt3->var_4) / v68;
         }
         v1121 = v64;
-        v1102 = (v5[2] - v3[2]) / v1089;
-        v1113 = (v5[3] - v3[3]) / v1089;
-        v1124 = (v5[4] - v3[4]) / v1089;
-        v1108 = (v4[2] - v5[2]) / v1095;
-        v1119 = (v4[3] - v5[3]) / v1095;
-        v1130 = (v4[4] - v5[4]) / v1095;
-        v69 = *v3 << 16;
+        v1102 = (sortPnt3->var_2 - sortPnt1->var_2) / v1089;
+        v1113 = (sortPnt3->var_3 - sortPnt1->var_3) / v1089;
+        v1124 = (sortPnt3->var_4 - sortPnt1->var_4) / v1089;
+        v1108 = (sortPnt2->var_2 - sortPnt3->var_2) / v1095;
+        v1119 = (sortPnt2->var_3 - sortPnt3->var_3) / v1095;
+        v1130 = (sortPnt2->var_4 - sortPnt3->var_4) / v1095;
+        v69 = sortPnt1->var_0 << 16;
         v70 = v69;
-        v71 = v3[2];
-        v72 = v3[3];
-        v73 = v3[4];
+        v71 = sortPnt1->var_2;
+        v72 = sortPnt1->var_3;
+        v73 = sortPnt1->var_4;
         if ( v1276 )
         {
           v16 = v1098 <= -v1174;
