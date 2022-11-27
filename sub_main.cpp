@@ -27462,6 +27462,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].var_8,
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].var_10,
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].var_12);
+      SaveCompare((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
       //v3 = dword_AE400_AE3F0() + 2049 * str_AE400_AE3F0->var_u16_8;
       if ( str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13333].var_u32_29807_12 >= 0
         && (str_AE408_AE3F8->var_u8_0 & 4) == 0 )
@@ -33438,6 +33439,7 @@ LABEL_6:
     v19 = v228 >> 16;
     do
     {
+      SaveCompare((char*)"tempBegBscreen5", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
       *(_DWORD *)v16 = v19;
       *(_DWORD *)(v16 + 12) = v15 >> 16;
       if ( a1 < 0 )
@@ -33466,6 +33468,7 @@ LABEL_6:
     v23 = 40;
     do
     {
+      SaveCompare((char*)"tempBegBscreen4", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
       *v22 -= v21 >> 16;
       v24 = v22[3];
       v22 += 11;
@@ -33519,6 +33522,7 @@ LABEL_24:
     LOWORD(v35) = v34;
     do
     {
+      SaveCompare((char*)"tempBegBscreen3", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
       memset((char*)v32, v35, v25);
       v32 += 4 * v25 + v30;
       --v31;
@@ -33929,6 +33933,10 @@ LABEL_102:
           compare_index_2A700++;*/
 #endif debug1
           //debug
+          SaveCompare((char*)"tempBegBscreen10", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
+          SaveCompare((char*)"fullframe2", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+          SaveCompare((char*)"v91", (v91 - (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC) / 44);
+         
           v213x[0] = *(_DWORD *)(v91 + 16);
           v213x[1] = *(_DWORD *)(v91 + 20);
           v92 = *(_DWORD *)(v91 + 32);
@@ -33952,10 +33960,11 @@ LABEL_145:
             v109 = v89 + 1672;
             while ( 2 )
             {
+                
 //  adress 1FC68A
 //debug
 #ifdef debug1
-if (compare_index_1FC68A == 0x45)
+if (compare_index_1FC68A == 0x20)
 {
     compare_index_1FC68A++;
     compare_index_1FC68A--;
@@ -33964,6 +33973,7 @@ if (compare_index_1FC68A == 0x45)
                 compare_index_1FC68A++;
 #endif debug1
 //debug
+                SaveCompare((char*)"fullframe5", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
 
               v213x[0] = *(_DWORD *)(v109 + 16);
               v213x[1] = *(_DWORD *)(v109 + 20);
@@ -34246,6 +34256,7 @@ LABEL_163:
     --v238;
   }
   while ( v238 );
+  SaveCompare((char*)"tempBegBscreen6", 0, 200, (uint8*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC);
   //adress 1FCBE3
 //debug
 #ifdef debug1
@@ -37511,6 +37522,8 @@ LABEL_69:
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 // 12DF8C: using guessed type int dword_12DF8C[529];
 
+int index_DrawSky = 0;
+
 //----- (00030730) --------------------------------------------------------
 __int16 sub_30730(__int16 a1)//201730_
 {
@@ -37599,6 +37612,14 @@ __int16 sub_30730(__int16 a1)//201730_
       v18 = (unsigned __int16)v18;
       do
       {
+          //debug
+          if (index_DrawSky == 0x140 - 4)
+          {
+              index_DrawSky++;
+              index_DrawSky--;
+          }
+          //debug
+
         LOBYTE(v13) = *(_BYTE *)(v18 + v16);
         LOBYTE(v18) = *v14 + v18;
         BYTE1(v18) += v14[1];
@@ -37616,6 +37637,8 @@ __int16 sub_30730(__int16 a1)//201730_
         *v15++ = v13;
         v14 += 8;
         --v17;
+
+        index_DrawSky+=4;//debug
       }
       while ( v17 );
       result = v25;
