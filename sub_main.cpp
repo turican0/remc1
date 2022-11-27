@@ -510,7 +510,7 @@ void sub_29780(int a1);
 void sub_29920_29960(int a1);
 void sub_299D0_29A10(int a1);
 void sub_29BA0_29BE0(int a1);
-void PrepRot_29C30_29C70(__int16 a1);
+void PrepRot_29C30_29C70(__int16 roll);
 // char sub_2A700_2A740(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8);
 void sub_2C410(unsigned int a1);
 void sub_2DCB0_2DCF0(int a2);
@@ -31848,7 +31848,7 @@ void sub_29BA0_29BE0(int a1)//1FABA0_
 }
 
 //SYNCHRONIZED WITH REMC1
-void PrepRot_29C30_29C70(__int16 a1)//1FAC30_
+void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 {
   int v1; // edx
   int v2; // edi
@@ -31966,7 +31966,7 @@ void PrepRot_29C30_29C70(__int16 a1)//1FAC30_
   v11 = 0;
   //fix
 
-  v1 = a1 & 0x7FF;
+  v1 = roll & 0x7FF;
   dword_B5D28_B5D18 = v1 >> 8;
   v102 = v1 - 512;
   v2 = v1 - 1024;
