@@ -82373,7 +82373,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     int v1074; // edx
     int v1075; // ecx
     char v1076; // al
-    uint8* v1077; // [esp+0h] [ebp-88h]
+    uint8* actScrPtr; // [esp+0h] [ebp-88h]
     int v1078; // [esp+4h] [ebp-84h]
     int v1079; // [esp+4h] [ebp-84h]
     int v1080; // [esp+4h] [ebp-84h]
@@ -82388,7 +82388,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     int v1089; // [esp+10h] [ebp-78h]
     int v1090; // [esp+10h] [ebp-78h]
     int v1091; // [esp+10h] [ebp-78h]
-    int v1092; // [esp+14h] [ebp-74h]
+    int diffPnt2Pnt1Var1; // [esp+14h] [ebp-74h]
     int v1093; // [esp+14h] [ebp-74h]
     int v1094; // [esp+18h] [ebp-70h]
     int v1095; // [esp+18h] [ebp-70h]
@@ -82579,7 +82579,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     char v1280; // [esp+63h] [ebp-25h]
     _BOOL1 v1281; // [esp+63h] [ebp-25h]
     _BOOL1 v1282; // [esp+63h] [ebp-25h]
-    _BOOL1 v1283; // [esp+64h] [ebp-24h]
+    _BOOL1 pnt3Var1After; // [esp+64h] [ebp-24h]
     _BOOL1 v1284; // [esp+64h] [ebp-24h]
 
     //  adress 2439A3_
@@ -82646,22 +82646,22 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 {
                     if (v9 >= heightViewPort_93ADC)
                         return;
-                    v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v9;
+                    actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v9;
                     v1275 = 0;
                 }
                 else
                 {
-                    v1077 = beginPrevLineFrame_93AC8;
+                    actScrPtr = beginPrevLineFrame_93AC8;
                     v1275 = 1;
                 }
                 v10 = v5[1];
-                v1283 = v10 > heightViewPort_93ADC;
+                pnt3Var1After = v10 > heightViewPort_93ADC;
                 v1088 = v10 - v9;
                 v1098 = v10 - v9;
                 v11 = v4[1];
                 v1279 = v11 > heightViewPort_93ADC;
                 v12 = v11 - v9;
-                v1092 = v12;
+                diffPnt2Pnt1Var1 = v12;
                 v1078 = ((*v5 - *v3) << 16) / v1088;
                 if (((*v4 - *v3) << 16) / v12 > v1078)
                 {
@@ -82678,18 +82678,18 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v55 = v54;
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v58 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v58, v1092);
-                                    v59 = v58 - v1092;
+                                    v27 = __OFSUB__(v58, diffPnt2Pnt1Var1);
+                                    v59 = v58 - diffPnt2Pnt1Var1;
                                     v1279 = (v59 < 0) ^ v27 | (v59 == 0);
                                     v1094 = v59;
                                 }
@@ -82701,13 +82701,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v16)
                         {
                             v1138 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1138 - v1092;
-                                v1139 = v1138 - v1092;
-                                v54 += v1078 * v1139 + v1092 * v1078;
+                                v1094 -= v1138 - diffPnt2Pnt1Var1;
+                                v1139 = v1138 - diffPnt2Pnt1Var1;
+                                v54 += v1078 * v1139 + diffPnt2Pnt1Var1 * v1078;
                                 v56 = v1086 * v1139 + v1096;
-                                if (v1283)
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -82839,20 +82839,20 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v54 += v1078 * v1138;
                             v55 += v1138 * v1082;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_116:
@@ -82864,8 +82864,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 v57[1] = v55;
                                 v55 += v1082;
                                 v57 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v56 = v1096;
                             goto LABEL_119;
                         }
@@ -82882,25 +82882,25 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (v16)
                             return;
                         if (!v45)
-                            v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / (v46 + 1);
+                            v1121 = (int)(v4[4] + diffPnt2Pnt1Var1 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / (v46 + 1);
                         v1123 = (v5[4] - v3[4]) / v1088;
                         v47 = *v3 << 16;
                         v48 = v47;
                         v49 = v3[4];
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v52 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v52, v1092);
-                                    v53 = v52 - v1092;
+                                    v27 = __OFSUB__(v52, diffPnt2Pnt1Var1);
+                                    v53 = v52 - diffPnt2Pnt1Var1;
                                     v1279 = (v53 < 0) ^ v27 | (v53 == 0);
                                     v1094 = v53;
                                 }
@@ -82912,14 +82912,14 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v16)
                         {
                             v1136 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1136 - v1092;
-                                v1137 = v1136 - v1092;
-                                v47 += v1078 * v1137 + v1092 * v1078;
+                                v1094 -= v1136 - diffPnt2Pnt1Var1;
+                                v1137 = v1136 - diffPnt2Pnt1Var1;
+                                v47 += v1078 * v1137 + diffPnt2Pnt1Var1 * v1078;
                                 v50 = v1086 * v1137 + v1096;
-                                v49 += v1137 * v1123 + v1092 * v1123;
-                                if (v1283)
+                                v49 += v1137 * v1123 + diffPnt2Pnt1Var1 * v1123;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -83053,21 +83053,21 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v47 += v1078 * v1136;
                             v48 += v1136 * v1082;
                             v49 += v1136 * v1123;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_95:
@@ -83081,8 +83081,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 v51[4] = v49;
                                 v49 += v1123;
                                 v51 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v50 = v1096;
                             goto LABEL_98;
                         }
@@ -83110,8 +83110,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v32)
                         {
                             v34 = v33 + 1;
-                            v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v34;
-                            v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v34;
+                            v1099 = (int)(v4[2] + diffPnt2Pnt1Var1 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v34;
+                            v1110 = (int)(v4[3] + diffPnt2Pnt1Var1 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v34;
                         }
                         v1101 = (v5[2] - v3[2]) / v1088;
                         v1112 = (v5[3] - v3[3]) / v1088;
@@ -83121,18 +83121,18 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v38 = v3[3];
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v41 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v41, v1092);
-                                    v42 = v41 - v1092;
+                                    v27 = __OFSUB__(v41, diffPnt2Pnt1Var1);
+                                    v42 = v41 - diffPnt2Pnt1Var1;
                                     v1279 = (v42 < 0) ^ v27 | (v42 == 0);
                                     v1094 = v42;
                                 }
@@ -83144,15 +83144,15 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v16)
                         {
                             v1134 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1134 - v1092;
-                                v1135 = v1134 - v1092;
-                                v35 += v1078 * v1135 + v1092 * v1078;
+                                v1094 -= v1134 - diffPnt2Pnt1Var1;
+                                v1135 = v1134 - diffPnt2Pnt1Var1;
+                                v35 += v1078 * v1135 + diffPnt2Pnt1Var1 * v1078;
                                 v39 = v1086 * v1135 + v1096;
-                                v37 += v1135 * v1101 + v1092 * v1101;
-                                v38 += v1135 * v1112 + v1092 * v1112;
-                                if (v1283)
+                                v37 += v1135 * v1101 + diffPnt2Pnt1Var1 * v1101;
+                                v38 += v1135 * v1112 + diffPnt2Pnt1Var1 * v1112;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -83288,22 +83288,22 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v35 += v1078 * v1134;
                             v36 += v1134 * v1082;
                             v37 += v1134 * v1101;
                             v38 += v1134 * v1112;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_71:
@@ -83319,8 +83319,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 v40[3] = v38;
                                 v38 += v1112;
                                 v40 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v39 = v1096;
                             goto LABEL_74;
                         }
@@ -83342,9 +83342,9 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v15)
                         {
                             v18 = v17 + 1;
-                            v1099 = (int)(v4[2] + v1092 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v18;
-                            v1110 = (int)(v4[3] + v1092 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v18;
-                            v1121 = (int)(v4[4] + v1092 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / v18;
+                            v1099 = (int)(v4[2] + diffPnt2Pnt1Var1 * (__int64)(v3[2] - v5[2]) / v1088 - v3[2]) / v18;
+                            v1110 = (int)(v4[3] + diffPnt2Pnt1Var1 * (__int64)(v3[3] - v5[3]) / v1088 - v3[3]) / v18;
+                            v1121 = (int)(v4[4] + diffPnt2Pnt1Var1 * (__int64)(v3[4] - v5[4]) / v1088 - v3[4]) / v18;
                         }
                         v1100 = (v5[2] - v3[2]) / v1088;
                         v1111 = (v5[3] - v3[3]) / v1088;
@@ -83356,18 +83356,18 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v23 = v3[4];
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v26 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v26, v1092);
-                                    v28 = v26 - v1092;
+                                    v27 = __OFSUB__(v26, diffPnt2Pnt1Var1);
+                                    v28 = v26 - diffPnt2Pnt1Var1;
                                     v1279 = (v28 < 0) ^ v27 | (v28 == 0);
                                     v1094 = v28;
                                 }
@@ -83379,16 +83379,16 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (!v16)
                         {
                             v1132 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1132 - v1092;
-                                v1133 = v1132 - v1092;
-                                v19 += v1078 * v1133 + v1092 * v1078;
+                                v1094 -= v1132 - diffPnt2Pnt1Var1;
+                                v1133 = v1132 - diffPnt2Pnt1Var1;
+                                v19 += v1078 * v1133 + diffPnt2Pnt1Var1 * v1078;
                                 v24 = v1086 * v1133 + v1096;
-                                v21 += v1133 * v1100 + v1092 * v1100;
-                                v22 += v1133 * v1111 + v1092 * v1111;
-                                v23 += v1133 * v1122 + v1092 * v1122;
-                                if (v1283)
+                                v21 += v1133 * v1100 + diffPnt2Pnt1Var1 * v1100;
+                                v22 += v1133 * v1111 + diffPnt2Pnt1Var1 * v1111;
+                                v23 += v1133 * v1122 + diffPnt2Pnt1Var1 * v1122;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -83526,23 +83526,23 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v19 += v1078 * v1132;
                             v20 += v1132 * v1082;
                             v21 += v1132 * v1100;
                             v22 += v1132 * v1111;
                             v23 += v1132 * v1122;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_47:
@@ -83560,8 +83560,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 v25[4] = v23;
                                 v23 += v1122;
                                 v25 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v24 = v1096;
                             goto LABEL_50;
                         }
@@ -83585,12 +83585,12 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 if (v108 >= heightViewPort_93ADC)
                     return;
-                v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
+                actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
                 v1277 = 0;
             }
             else
             {
-                v1077 = beginPrevLineFrame_93AC8;
+                actScrPtr = beginPrevLineFrame_93AC8;
                 v1277 = 1;
             }
             v109 = v5[1];
@@ -84036,12 +84036,12 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         {
             if (v134 >= heightViewPort_93ADC)
                 return;
-            v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
+            actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
             v1278 = 0;
         }
         else
         {
-            v1077 = beginPrevLineFrame_93AC8;
+            actScrPtr = beginPrevLineFrame_93AC8;
             v1278 = 1;
         }
         v135 = v5[1];
@@ -84425,7 +84425,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         case 0:
         LABEL_309:
             v160 = (unsigned __int16*)&unk_93AE0;
-            v161 = (char*)v1077;
+            v161 = (char*)actScrPtr;
             v162 = byte_967E0;
             HIWORD(v163) = 0;
             while (1)
@@ -84462,8 +84462,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v29) = i[1];
                 v167 = (unsigned __int16)i[3];
-                v168 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v168 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v167 > 0)
@@ -84620,8 +84620,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v219) = v218[1];
                 v221 = v218[3];
-                v222 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v222 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v219 & 0x8000u) == 0)
                     break;
                 if ((__int16)v221 > 0)
@@ -84848,8 +84848,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v275) = v274[1];
                 v277 = v274[3];
-                v278 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v278 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v275 & 0x8000u) == 0)
                     break;
                 if ((__int16)v277 > 0)
@@ -85088,8 +85088,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v29) = j[1];
                 v331 = (unsigned __int16)j[3];
-                v332 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v332 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v331 > 0)
@@ -85264,8 +85264,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1259 += 20;
                 LOWORD(v366) = *((_WORD*)v368 + 1);
                 v369 = *((unsigned __int16*)v368 + 3);
-                v370 = pitchViewPort_93AD4 + v1077;
-                v1077 += pitchViewPort_93AD4;
+                v370 = pitchViewPort_93AD4 + actScrPtr;
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v366 & 0x8000u) == 0)
                     break;
                 if ((__int16)v369 > 0)
@@ -85565,8 +85565,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1260 += 20;
                 LOWORD(v378) = *((_WORD*)v380 + 1);
                 v381 = *((unsigned __int16*)v380 + 3);
-                v382 = pitchViewPort_93AD4 + v1077;
-                v1077 += pitchViewPort_93AD4;
+                v382 = pitchViewPort_93AD4 + actScrPtr;
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v378 & 0x8000u) == 0)
                     break;
                 if ((__int16)v381 > 0)
@@ -85880,8 +85880,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v391) = v390[1];
                 v393 = v390[3];
-                v394 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v394 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v391 & 0x8000u) == 0)
                     break;
                 if ((__int16)v393 > 0)
@@ -86109,8 +86109,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v431) = v430[1];
                 v433 = v430[3];
-                v434 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v434 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v431 & 0x8000u) == 0)
                     break;
                 if ((__int16)v433 > 0)
@@ -86355,8 +86355,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v471) = v470[1];
                 v473 = v470[3];
-                v474 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v474 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v471 & 0x8000u) == 0)
                     break;
                 if ((__int16)v473 > 0)
@@ -86647,8 +86647,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v511) = v510[1];
                 v513 = v510[3];
-                v514 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v514 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v511 & 0x8000u) == 0)
                     break;
                 if ((__int16)v513 > 0)
@@ -86876,8 +86876,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v551) = v550[1];
                 v553 = v550[3];
-                v554 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v554 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v551 & 0x8000u) == 0)
                     break;
                 if ((__int16)v553 > 0)
@@ -87098,7 +87098,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         case 14:
         LABEL_783:
             v590 = (unsigned __int16*)&unk_93AE0;
-            v591 = (_BYTE*)v1077;
+            v591 = (_BYTE*)actScrPtr;
             HIWORD(v592) = 0;
             BYTE1(v592) = byte_967E0;
             HIWORD(v593) = 0;
@@ -87214,7 +87214,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         case 15:
         LABEL_812:
             v611 = (unsigned __int16*)&unk_93AE0;
-            v612 = (_BYTE*)v1077;
+            v612 = (_BYTE*)actScrPtr;
             v613 = (unsigned __int8)byte_967E0;
             HIWORD(v614) = 0;
             while (1)
@@ -87334,8 +87334,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v29) = v632[1];
                 v634 = v632[3];
-                v635 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v635 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v634 > 0)
@@ -87524,8 +87524,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v29) = v669[1];
                 v671 = v669[3];
-                v672 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v672 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v671 > 0)
@@ -87716,8 +87716,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v707) = v706[1];
                 v709 = v706[3];
-                v710 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v710 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v707 & 0x8000u) == 0)
                     break;
                 if ((__int16)v709 > 0)
@@ -87960,8 +87960,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v747) = v746[1];
                 v749 = v746[3];
-                v750 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v750 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v747 & 0x8000u) == 0)
                     break;
                 if ((__int16)v749 > 0)
@@ -88205,8 +88205,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v787) = v786[1];
                 v789 = v786[3];
-                v790 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v790 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v787 & 0x8000u) == 0)
                     break;
                 if ((__int16)v789 > 0)
@@ -88533,8 +88533,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v826) = v825[1];
                 v828 = v825[3];
-                v829 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v829 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v826 & 0x8000u) == 0)
                     break;
                 if ((__int16)v828 > 0)
@@ -88860,8 +88860,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v865) = v864[1];
                 v867 = v864[3];
-                v868 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v868 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v865 & 0x8000u) == 0)
                     break;
                 if ((__int16)v867 > 0)
@@ -89152,8 +89152,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v905) = v904[1];
                 v907 = v904[3];
-                v908 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v908 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v905 & 0x8000u) == 0)
                     break;
                 if ((__int16)v907 > 0)
@@ -89445,8 +89445,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v945) = v944[1];
                 v947 = v944[3];
-                v948 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v948 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v945 & 0x8000u) == 0)
                     break;
                 if ((__int16)v947 > 0)
@@ -89821,8 +89821,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 LOWORD(v984) = v983[1];
                 v986 = v983[3];
-                v987 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v987 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v984 & 0x8000u) == 0)
                     break;
                 if ((__int16)v986 > 0)
@@ -90199,8 +90199,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         {
             LOWORD(v1023) = v1022[1];
             v1025 = v1022[3];
-            v1026 = (char*)(pitchViewPort_93AD4 + v1077);
-            v1077 += pitchViewPort_93AD4;
+            v1026 = (char*)(pitchViewPort_93AD4 + actScrPtr);
+            actScrPtr += pitchViewPort_93AD4;
             if ((v1023 & 0x8000u) == 0)
                 break;
             if ((__int16)v1025 > 0)
@@ -90687,12 +90687,12 @@ LABEL_124:
     {
         if (v60 >= heightViewPort_93ADC)
             return;
-        v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
+        actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
         v1276 = 0;
     }
     else
     {
-        v1077 = beginPrevLineFrame_93AC8;
+        actScrPtr = beginPrevLineFrame_93AC8;
         v1276 = 1;
     }
     v61 = v5[1];
@@ -92678,7 +92678,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     int v1074; // edx
     int v1075; // ecx
     char v1076; // al
-    uint8* v1077; // [esp+0h] [ebp-88h]
+    uint8* actScrPtr; // [esp+0h] [ebp-88h]
     int v1078; // [esp+4h] [ebp-84h]
     int v1079; // [esp+4h] [ebp-84h]
     int v1080; // [esp+4h] [ebp-84h]
@@ -92693,7 +92693,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     int v1089; // [esp+10h] [ebp-78h]
     int v1090; // [esp+10h] [ebp-78h]
     int v1091; // [esp+10h] [ebp-78h]
-    int v1092; // [esp+14h] [ebp-74h]
+    int diffPnt2Pnt1Var1; // [esp+14h] [ebp-74h]
     int v1093; // [esp+14h] [ebp-74h]
     int v1094; // [esp+18h] [ebp-70h]
     int v1095; // [esp+18h] [ebp-70h]
@@ -92884,7 +92884,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     char v1280; // [esp+63h] [ebp-25h]
     _BOOL1 v1281; // [esp+63h] [ebp-25h]
     _BOOL1 v1282; // [esp+63h] [ebp-25h]
-    _BOOL1 v1283; // [esp+64h] [ebp-24h]
+    _BOOL1 pnt3Var1After; // [esp+64h] [ebp-24h]
     _BOOL1 v1284; // [esp+64h] [ebp-24h]
 
   //  adress 2439A3_
@@ -92951,22 +92951,22 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 {
                     if (sortPnt1->var_1 >= heightViewPort_93ADC)
                         return;
-                    v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
+                    actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
                     v1275 = 0;
                 }
                 else
                 {
-                    v1077 = beginPrevLineFrame_93AC8;
+                    actScrPtr = beginPrevLineFrame_93AC8;
                     v1275 = 1;
                 }
                 //v10 = sortPnt3->var_1;
-                v1283 = sortPnt3->var_1 > heightViewPort_93ADC;
+                pnt3Var1After = sortPnt3->var_1 > heightViewPort_93ADC;
                 v1088 = sortPnt3->var_1 - sortPnt1->var_1;
                 v1098 = sortPnt3->var_1 - sortPnt1->var_1;
                 //v11 = sortPnt2->var_1;
                 v1279 = sortPnt2->var_1 > heightViewPort_93ADC;
                 //v12 = sortPnt2->var_1 - sortPnt1->var_1;
-                v1092 = sortPnt2->var_1 - sortPnt1->var_1;
+                diffPnt2Pnt1Var1 = sortPnt2->var_1 - sortPnt1->var_1;
                 v1078 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / v1088;
                 if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1) > v1078)
                 {
@@ -92983,18 +92983,18 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v55 = v54;
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v58 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v58, v1092);
-                                    v59 = v58 - v1092;
+                                    v27 = __OFSUB__(v58, diffPnt2Pnt1Var1);
+                                    v59 = v58 - diffPnt2Pnt1Var1;
                                     v1279 = (v59 < 0) ^ v27 | (v59 == 0);
                                     v1094 = v59;
                                 }
@@ -93006,13 +93006,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v16)
                         {
                             v1138 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1138 - v1092;
-                                v1139 = v1138 - v1092;
-                                v54 += v1078 * v1139 + v1092 * v1078;
+                                v1094 -= v1138 - diffPnt2Pnt1Var1;
+                                v1139 = v1138 - diffPnt2Pnt1Var1;
+                                v54 += v1078 * v1139 + diffPnt2Pnt1Var1 * v1078;
                                 v56 = v1086 * v1139 + v1096;
-                                if (v1283)
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -93144,20 +93144,20 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v54 += v1078 * v1138;
                             v55 += v1138 * v1082;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_116:
@@ -93169,8 +93169,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 v57[1] = v55;
                                 v55 += v1082;
                                 v57 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v56 = v1096;
                             goto LABEL_119;
                         }
@@ -93187,25 +93187,25 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (v16)
                             return;
                         if (!v45)
-                            v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / (v46 + 1);
+                            v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / (v46 + 1);
                         v1123 = (sortPnt3->var_4 - sortPnt1->var_4) / v1088;
                         v47 = sortPnt1->var_0 << 16;
                         v48 = v47;
                         v49 = sortPnt1->var_4;
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v52 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v52, v1092);
-                                    v53 = v52 - v1092;
+                                    v27 = __OFSUB__(v52, diffPnt2Pnt1Var1);
+                                    v53 = v52 - diffPnt2Pnt1Var1;
                                     v1279 = (v53 < 0) ^ v27 | (v53 == 0);
                                     v1094 = v53;
                                 }
@@ -93217,14 +93217,14 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v16)
                         {
                             v1136 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1136 - v1092;
-                                v1137 = v1136 - v1092;
-                                v47 += v1078 * v1137 + v1092 * v1078;
+                                v1094 -= v1136 - diffPnt2Pnt1Var1;
+                                v1137 = v1136 - diffPnt2Pnt1Var1;
+                                v47 += v1078 * v1137 + diffPnt2Pnt1Var1 * v1078;
                                 v50 = v1086 * v1137 + v1096;
-                                v49 += v1137 * v1123 + v1092 * v1123;
-                                if (v1283)
+                                v49 += v1137 * v1123 + diffPnt2Pnt1Var1 * v1123;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -93358,21 +93358,21 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v47 += v1078 * v1136;
                             v48 += v1136 * v1082;
                             v49 += v1136 * v1123;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_95:
@@ -93386,8 +93386,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 v51[4] = v49;
                                 v49 += v1123;
                                 v51 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v50 = v1096;
                             goto LABEL_98;
                         }
@@ -93415,8 +93415,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v32)
                         {
                             v34 = v33 + 1;
-                            v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v34;
-                            v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v34;
+                            v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v34;
+                            v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v34;
                         }
                         v1101 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
                         v1112 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
@@ -93426,18 +93426,18 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v38 = sortPnt1->var_3;
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v41 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v41, v1092);
-                                    v42 = v41 - v1092;
+                                    v27 = __OFSUB__(v41, diffPnt2Pnt1Var1);
+                                    v42 = v41 - diffPnt2Pnt1Var1;
                                     v1279 = (v42 < 0) ^ v27 | (v42 == 0);
                                     v1094 = v42;
                                 }
@@ -93449,15 +93449,15 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v16)
                         {
                             v1134 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1134 - v1092;
-                                v1135 = v1134 - v1092;
-                                v35 += v1078 * v1135 + v1092 * v1078;
+                                v1094 -= v1134 - diffPnt2Pnt1Var1;
+                                v1135 = v1134 - diffPnt2Pnt1Var1;
+                                v35 += v1078 * v1135 + diffPnt2Pnt1Var1 * v1078;
                                 v39 = v1086 * v1135 + v1096;
-                                v37 += v1135 * v1101 + v1092 * v1101;
-                                v38 += v1135 * v1112 + v1092 * v1112;
-                                if (v1283)
+                                v37 += v1135 * v1101 + diffPnt2Pnt1Var1 * v1101;
+                                v38 += v1135 * v1112 + diffPnt2Pnt1Var1 * v1112;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -93593,22 +93593,22 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v35 += v1078 * v1134;
                             v36 += v1134 * v1082;
                             v37 += v1134 * v1101;
                             v38 += v1134 * v1112;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_71:
@@ -93624,8 +93624,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 v40[3] = v38;
                                 v38 += v1112;
                                 v40 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v39 = v1096;
                             goto LABEL_74;
                         }
@@ -93647,9 +93647,9 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v15)
                         {
                             v18 = v17 + 1;
-                            v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v18;
-                            v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v18;
-                            v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / v18;
+                            v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v18;
+                            v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v18;
+                            v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / v18;
                         }
                         v1100 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
                         v1111 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
@@ -93661,18 +93661,18 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v23 = sortPnt1->var_4;
                         if (!v1275)
                         {
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v26 = heightViewPort_93ADC - v1173;
                                 v1098 = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC - v1173;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
                                 }
                                 else
                                 {
-                                    v27 = __OFSUB__(v26, v1092);
-                                    v28 = v26 - v1092;
+                                    v27 = __OFSUB__(v26, diffPnt2Pnt1Var1);
+                                    v28 = v26 - diffPnt2Pnt1Var1;
                                     v1279 = (v28 < 0) ^ v27 | (v28 == 0);
                                     v1094 = v28;
                                 }
@@ -93684,16 +93684,16 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (!v16)
                         {
                             v1132 = -v1173;
-                            if (-v1173 - v1092 >= 0)
+                            if (-v1173 - diffPnt2Pnt1Var1 >= 0)
                             {
-                                v1094 -= v1132 - v1092;
-                                v1133 = v1132 - v1092;
-                                v19 += v1078 * v1133 + v1092 * v1078;
+                                v1094 -= v1132 - diffPnt2Pnt1Var1;
+                                v1133 = v1132 - diffPnt2Pnt1Var1;
+                                v19 += v1078 * v1133 + diffPnt2Pnt1Var1 * v1078;
                                 v24 = v1086 * v1133 + v1096;
-                                v21 += v1133 * v1100 + v1092 * v1100;
-                                v22 += v1133 * v1111 + v1092 * v1111;
-                                v23 += v1133 * v1122 + v1092 * v1122;
-                                if (v1283)
+                                v21 += v1133 * v1100 + diffPnt2Pnt1Var1 * v1100;
+                                v22 += v1133 * v1111 + diffPnt2Pnt1Var1 * v1111;
+                                v23 += v1133 * v1122 + diffPnt2Pnt1Var1 * v1122;
+                                if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
                                     v1098 = heightViewPort_93ADC;
@@ -93831,23 +93831,23 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                     goto LABEL_1275;
                                 }
                             }
-                            v1092 += v1173;
+                            diffPnt2Pnt1Var1 += v1173;
                             v19 += v1078 * v1132;
                             v20 += v1132 * v1082;
                             v21 += v1132 * v1100;
                             v22 += v1132 * v1111;
                             v23 += v1132 * v1122;
-                            if (v1283)
+                            if (pnt3Var1After)
                             {
                                 v1098 = heightViewPort_93ADC;
                                 if (v1279)
                                 {
-                                    v1092 = heightViewPort_93ADC;
+                                    diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                                 }
                                 else
                                 {
-                                    v1279 = heightViewPort_93ADC <= v1092;
-                                    v1094 = heightViewPort_93ADC - v1092;
+                                    v1279 = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                                    v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                                 }
                             }
                         LABEL_47:
@@ -93865,8 +93865,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 v25[4] = v23;
                                 v23 += v1122;
                                 v25 += 5;
-                                --v1092;
-                            } while (v1092);
+                                --diffPnt2Pnt1Var1;
+                            } while (diffPnt2Pnt1Var1);
                             v24 = v1096;
                             goto LABEL_50;
                         }
@@ -93890,12 +93890,12 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 if (v108 >= heightViewPort_93ADC)
                     return;
-                v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
+                actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
                 v1277 = 0;
             }
             else
             {
-                v1077 = beginPrevLineFrame_93AC8;
+                actScrPtr = beginPrevLineFrame_93AC8;
                 v1277 = 1;
             }
             v109 = sortPnt3->var_1;
@@ -94341,12 +94341,12 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         {
             if (v134 >= heightViewPort_93ADC)
                 return;
-            v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
+            actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
             v1278 = 0;
         }
         else
         {
-            v1077 = beginPrevLineFrame_93AC8;
+            actScrPtr = beginPrevLineFrame_93AC8;
             v1278 = 1;
         }
         v135 = sortPnt3->var_1;
@@ -94730,7 +94730,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         case 0:
         LABEL_309:
             v160 = (unsigned __int16*)&unk_93AE0;
-            v161 = (char*)v1077;
+            v161 = (char*)actScrPtr;
             v162 = byte_967E0;
             HIWORD(v163) = 0;
             while (1)
@@ -94767,8 +94767,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v29) = i[1];
                 v167 = (unsigned __int16)i[3];
-                v168 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v168 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v167 > 0)
@@ -94925,8 +94925,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v219) = v218[1];
                 v221 = v218[3];
-                v222 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v222 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v219 & 0x8000u) == 0)
                     break;
                 if ((__int16)v221 > 0)
@@ -95153,8 +95153,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v275) = v274[1];
                 v277 = v274[3];
-                v278 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v278 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v275 & 0x8000u) == 0)
                     break;
                 if ((__int16)v277 > 0)
@@ -95393,8 +95393,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v29) = j[1];
                 v331 = (unsigned __int16)j[3];
-                v332 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v332 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v331 > 0)
@@ -95569,8 +95569,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v1259 += 20;
                 LOWORD(v366) = *((_WORD*)v368 + 1);
                 v369 = *((unsigned __int16*)v368 + 3);
-                v370 = pitchViewPort_93AD4 + v1077;
-                v1077 += pitchViewPort_93AD4;
+                v370 = pitchViewPort_93AD4 + actScrPtr;
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v366 & 0x8000u) == 0)
                     break;
                 if ((__int16)v369 > 0)
@@ -95870,8 +95870,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v1260 += 20;
                 LOWORD(v378) = *((_WORD*)v380 + 1);
                 v381 = *((unsigned __int16*)v380 + 3);
-                v382 = pitchViewPort_93AD4 + v1077;
-                v1077 += pitchViewPort_93AD4;
+                v382 = pitchViewPort_93AD4 + actScrPtr;
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v378 & 0x8000u) == 0)
                     break;
                 if ((__int16)v381 > 0)
@@ -96185,8 +96185,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v391) = v390[1];
                 v393 = v390[3];
-                v394 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v394 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v391 & 0x8000u) == 0)
                     break;
                 if ((__int16)v393 > 0)
@@ -96414,8 +96414,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v431) = v430[1];
                 v433 = v430[3];
-                v434 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v434 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v431 & 0x8000u) == 0)
                     break;
                 if ((__int16)v433 > 0)
@@ -96660,8 +96660,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v471) = v470[1];
                 v473 = v470[3];
-                v474 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v474 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v471 & 0x8000u) == 0)
                     break;
                 if ((__int16)v473 > 0)
@@ -96952,8 +96952,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v511) = v510[1];
                 v513 = v510[3];
-                v514 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v514 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v511 & 0x8000u) == 0)
                     break;
                 if ((__int16)v513 > 0)
@@ -97181,8 +97181,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v551) = v550[1];
                 v553 = v550[3];
-                v554 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v554 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v551 & 0x8000u) == 0)
                     break;
                 if ((__int16)v553 > 0)
@@ -97403,7 +97403,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         case 14:
         LABEL_783:
             v590 = (unsigned __int16*)&unk_93AE0;
-            v591 = (_BYTE*)v1077;
+            v591 = (_BYTE*)actScrPtr;
             HIWORD(v592) = 0;
             BYTE1(v592) = byte_967E0;
             HIWORD(v593) = 0;
@@ -97519,7 +97519,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         case 15:
         LABEL_812:
             v611 = (unsigned __int16*)&unk_93AE0;
-            v612 = (_BYTE*)v1077;
+            v612 = (_BYTE*)actScrPtr;
             v613 = (unsigned __int8)byte_967E0;
             HIWORD(v614) = 0;
             while (1)
@@ -97639,8 +97639,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v29) = v632[1];
                 v634 = v632[3];
-                v635 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v635 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v634 > 0)
@@ -97829,8 +97829,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v29) = v669[1];
                 v671 = v669[3];
-                v672 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v672 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v29 & 0x8000u) == 0)
                     break;
                 if ((__int16)v671 > 0)
@@ -98021,8 +98021,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v707) = v706[1];
                 v709 = v706[3];
-                v710 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v710 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v707 & 0x8000u) == 0)
                     break;
                 if ((__int16)v709 > 0)
@@ -98265,8 +98265,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v747) = v746[1];
                 v749 = v746[3];
-                v750 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v750 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v747 & 0x8000u) == 0)
                     break;
                 if ((__int16)v749 > 0)
@@ -98510,8 +98510,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v787) = v786[1];
                 v789 = v786[3];
-                v790 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v790 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v787 & 0x8000u) == 0)
                     break;
                 if ((__int16)v789 > 0)
@@ -98838,8 +98838,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v826) = v825[1];
                 v828 = v825[3];
-                v829 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v829 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v826 & 0x8000u) == 0)
                     break;
                 if ((__int16)v828 > 0)
@@ -99165,8 +99165,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v865) = v864[1];
                 v867 = v864[3];
-                v868 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v868 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v865 & 0x8000u) == 0)
                     break;
                 if ((__int16)v867 > 0)
@@ -99457,8 +99457,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v905) = v904[1];
                 v907 = v904[3];
-                v908 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v908 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v905 & 0x8000u) == 0)
                     break;
                 if ((__int16)v907 > 0)
@@ -99750,8 +99750,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v945) = v944[1];
                 v947 = v944[3];
-                v948 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v948 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v945 & 0x8000u) == 0)
                     break;
                 if ((__int16)v947 > 0)
@@ -100126,8 +100126,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 LOWORD(v984) = v983[1];
                 v986 = v983[3];
-                v987 = (_BYTE*)(pitchViewPort_93AD4 + v1077);
-                v1077 += pitchViewPort_93AD4;
+                v987 = (_BYTE*)(pitchViewPort_93AD4 + actScrPtr);
+                actScrPtr += pitchViewPort_93AD4;
                 if ((v984 & 0x8000u) == 0)
                     break;
                 if ((__int16)v986 > 0)
@@ -100504,8 +100504,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         {
             LOWORD(v1023) = v1022[1];
             v1025 = v1022[3];
-            v1026 = (char*)(pitchViewPort_93AD4 + v1077);
-            v1077 += pitchViewPort_93AD4;
+            v1026 = (char*)(pitchViewPort_93AD4 + actScrPtr);
+            actScrPtr += pitchViewPort_93AD4;
             if ((v1023 & 0x8000u) == 0)
                 break;
             if ((__int16)v1025 > 0)
@@ -100992,12 +100992,12 @@ LABEL_124:
     {
         if (v60 >= heightViewPort_93ADC)
             return;
-        v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
+        actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
         v1276 = 0;
     }
     else
     {
-        v1077 = beginPrevLineFrame_93AC8;
+        actScrPtr = beginPrevLineFrame_93AC8;
         v1276 = 1;
     }
     v61 = sortPnt3->var_1;
@@ -102015,8 +102015,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   _DWORD *v105; // edi
   int v106; // edi
   int v107; // edi
-  int v108; // eax
-  int v109; // ebx
+  //int v108; // eax
+  //int v109; // ebx
   int v110; // ebx
   int v111; // eax
   int v112; // ebx
@@ -102984,7 +102984,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1074; // edx
   int v1075; // ecx
   char v1076; // al
-  uint8* v1077; // [esp+0h] [ebp-88h]
+  uint8* actScrPtr; // [esp+0h] [ebp-88h]
   int v1078; // [esp+4h] [ebp-84h]
   int v1079; // [esp+4h] [ebp-84h]
   int v1080; // [esp+4h] [ebp-84h]
@@ -102995,11 +102995,11 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1085; // [esp+8h] [ebp-80h]
   int v1086; // [esp+Ch] [ebp-7Ch]
   int v1087; // [esp+Ch] [ebp-7Ch]
-  int v1088; // [esp+10h] [ebp-78h]
+  int diffPnt3Pnt1Var1; // [esp+10h] [ebp-78h]
   int v1089; // [esp+10h] [ebp-78h]
   int v1090; // [esp+10h] [ebp-78h]
   int v1091; // [esp+10h] [ebp-78h]
-  int v1092; // [esp+14h] [ebp-74h]
+  int diffPnt2Pnt1Var1; // [esp+14h] [ebp-74h]
   int v1093; // [esp+14h] [ebp-74h]
   int v1094; // [esp+18h] [ebp-70h]
   int v1095; // [esp+18h] [ebp-70h]
@@ -103080,9 +103080,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1170; // [esp+50h] [ebp-38h]
   int v1171; // [esp+50h] [ebp-38h]
   int v1172; // [esp+50h] [ebp-38h]
-  int v1173; // [esp+54h] [ebp-34h]
+  //int v1173; // [esp+54h] [ebp-34h]
   int v1174; // [esp+54h] [ebp-34h]
-  int v1175; // [esp+54h] [ebp-34h]
+  //int v1175; // [esp+54h] [ebp-34h]
   int v1176; // [esp+54h] [ebp-34h]
   int v1177; // [esp+58h] [ebp-30h]
   int v1178; // [esp+58h] [ebp-30h]
@@ -103182,15 +103182,15 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   unsigned __int16 *v1272; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1273; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1274; // [esp+5Ch] [ebp-2Ch]
-  char v1275; // [esp+62h] [ebp-26h]
+  bool revPnt1Var1; // [esp+62h] [ebp-26h]
   char v1276; // [esp+62h] [ebp-26h]
   char v1277; // [esp+62h] [ebp-26h]
   char v1278; // [esp+62h] [ebp-26h]
-  char v1279; // [esp+63h] [ebp-25h]
+  bool pnt2Var1After; // [esp+63h] [ebp-25h]
   char v1280; // [esp+63h] [ebp-25h]
   _BOOL1 v1281; // [esp+63h] [ebp-25h]
   _BOOL1 v1282; // [esp+63h] [ebp-25h]
-  _BOOL1 v1283; // [esp+64h] [ebp-24h]
+  bool pnt3Var1After; // [esp+64h] [ebp-24h]
   _BOOL1 v1284; // [esp+64h] [ebp-24h]
 
 //  adress 2439A3_
@@ -103334,28 +103334,28 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   {
   //LABEL_24:
       //v9 = sortPnt1->var_1;
-      v1173 = sortPnt1->var_1;
+      //v1173 = sortPnt1->var_1;
       if (sortPnt1->var_1 >= 0)
       {
           if (sortPnt1->var_1 >= heightViewPort_93ADC)
               return;
-          v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
-          v1275 = 0;
+          actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
+          revPnt1Var1 = false;
       }
       else
       {
-          v1077 = beginPrevLineFrame_93AC8;
-          v1275 = 1;
+          actScrPtr = beginPrevLineFrame_93AC8;
+          revPnt1Var1 = true;
       }
       //v10 = sortPnt3->var_1;
-      v1283 = sortPnt3->var_1 > heightViewPort_93ADC;
-      v1088 = sortPnt3->var_1 - sortPnt1->var_1;
+      pnt3Var1After = sortPnt3->var_1 > heightViewPort_93ADC;
+      diffPnt3Pnt1Var1 = sortPnt3->var_1 - sortPnt1->var_1;
       v1098 = sortPnt3->var_1 - sortPnt1->var_1;
       //v11 = sortPnt2->var_1;
-      v1279 = sortPnt2->var_1 > heightViewPort_93ADC;
+      pnt2Var1After = sortPnt2->var_1 > heightViewPort_93ADC;
       //v12 = sortPnt2->var_1 - sortPnt1->var_1;
-      v1092 = sortPnt2->var_1 - sortPnt1->var_1;
-      v1078 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / v1088;
+      diffPnt2Pnt1Var1 = sortPnt2->var_1 - sortPnt1->var_1;
+      v1078 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / diffPnt3Pnt1Var1;
       if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1) > v1078)
       {
           v1082 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1);
@@ -103369,45 +103369,45 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 15:
               v54 = sortPnt1->var_0 << 16;
               v55 = v54;
-              if (!v1275)
+              if (!revPnt1Var1)
               {
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
-                      v58 = heightViewPort_93ADC - v1173;
-                      v1098 = heightViewPort_93ADC - v1173;
-                      if (v1279)
+                      v58 = heightViewPort_93ADC - sortPnt1->var_1;
+                      v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC - v1173;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC - sortPnt1->var_1;
                       }
                       else
                       {
-                          v27 = __OFSUB__(v58, v1092);
-                          v59 = v58 - v1092;
-                          v1279 = (v59 < 0) ^ v27 | (v59 == 0);
+                          v27 = __OFSUB__(v58, diffPnt2Pnt1Var1);
+                          v59 = v58 - diffPnt2Pnt1Var1;
+                          pnt2Var1After = (v59 < 0) ^ v27 | (v59 == 0);
                           v1094 = v59;
                       }
                   }
                   goto LABEL_116;
               }
-              v16 = v1098 <= -v1173;
-              v1098 += v1173;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (!v16)
               {
-                  v1138 = -v1173;
-                  if (-v1173 - v1092 >= 0)
+                  v1138 = -sortPnt1->var_1;
+                  if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1138 - v1092;
-                      v1139 = v1138 - v1092;
-                      v54 += v1078 * v1139 + v1092 * v1078;
+                      v1094 -= v1138 - diffPnt2Pnt1Var1;
+                      v1139 = v1138 - diffPnt2Pnt1Var1;
+                      v54 += v1078 * v1139 + diffPnt2Pnt1Var1 * v1078;
                       v56 = v1086 * v1139 + v1096;
-                      if (v1283)
+                      if (pnt3Var1After)
                       {
                           v1094 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v57 = (uint32*)&unk_93AE0;
                   LABEL_119:
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
                           v29 = (unsigned __int8)byte_967E1;
                           switch (byte_967E1)
@@ -103532,20 +103532,20 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           goto LABEL_1275;
                       }
                   }
-                  v1092 += v1173;
+                  diffPnt2Pnt1Var1 += sortPnt1->var_1;
                   v54 += v1078 * v1138;
                   v55 += v1138 * v1082;
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                       }
                       else
                       {
-                          v1279 = heightViewPort_93ADC <= v1092;
-                          v1094 = heightViewPort_93ADC - v1092;
+                          pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_116:
@@ -103557,8 +103557,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       v57[1] = v55;
                       v55 += v1082;
                       v57 += 5;
-                      --v1092;
-                  } while (v1092);
+                      --diffPnt2Pnt1Var1;
+                  } while (diffPnt2Pnt1Var1);
                   v56 = v1096;
                   goto LABEL_119;
               }
@@ -103567,7 +103567,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 4:
           case 16:
           case 17:
-              v43 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v43 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
               v44 = sortPnt2->var_0 - sortPnt1->var_0;
               v45 = v43 + v44 == 0;
               v16 = (v43 + v44 < 0) ^ __OFADD__(v43, v44);
@@ -103575,51 +103575,51 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               if (v16)
                   return;
               if (!v45)
-                  v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / (v46 + 1);
-              v1123 = (sortPnt3->var_4 - sortPnt1->var_4) / v1088;
+                  v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / diffPnt3Pnt1Var1 - sortPnt1->var_4) / (v46 + 1);
+              v1123 = (sortPnt3->var_4 - sortPnt1->var_4) / diffPnt3Pnt1Var1;
               v47 = sortPnt1->var_0 << 16;
               v48 = v47;
               v49 = sortPnt1->var_4;
-              if (!v1275)
+              if (!revPnt1Var1)
               {
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
-                      v52 = heightViewPort_93ADC - v1173;
-                      v1098 = heightViewPort_93ADC - v1173;
-                      if (v1279)
+                      v52 = heightViewPort_93ADC - sortPnt1->var_1;
+                      v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC - v1173;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC - sortPnt1->var_1;
                       }
                       else
                       {
-                          v27 = __OFSUB__(v52, v1092);
-                          v53 = v52 - v1092;
-                          v1279 = (v53 < 0) ^ v27 | (v53 == 0);
+                          v27 = __OFSUB__(v52, diffPnt2Pnt1Var1);
+                          v53 = v52 - diffPnt2Pnt1Var1;
+                          pnt2Var1After = (v53 < 0) ^ v27 | (v53 == 0);
                           v1094 = v53;
                       }
                   }
                   goto LABEL_95;
               }
-              v16 = v1098 <= -v1173;
-              v1098 += v1173;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (!v16)
               {
-                  v1136 = -v1173;
-                  if (-v1173 - v1092 >= 0)
+                  v1136 = -sortPnt1->var_1;
+                  if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1136 - v1092;
-                      v1137 = v1136 - v1092;
-                      v47 += v1078 * v1137 + v1092 * v1078;
+                      v1094 -= v1136 - diffPnt2Pnt1Var1;
+                      v1137 = v1136 - diffPnt2Pnt1Var1;
+                      v47 += v1078 * v1137 + diffPnt2Pnt1Var1 * v1078;
                       v50 = v1086 * v1137 + v1096;
-                      v49 += v1137 * v1123 + v1092 * v1123;
-                      if (v1283)
+                      v49 += v1137 * v1123 + diffPnt2Pnt1Var1 * v1123;
+                      if (pnt3Var1After)
                       {
                           v1094 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v51 = (uint32*)&unk_93AE0;
                   LABEL_98:
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
                           v29 = (unsigned __int8)byte_967E1;
                           switch (byte_967E1)
@@ -103746,21 +103746,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           goto LABEL_1275;
                       }
                   }
-                  v1092 += v1173;
+                  diffPnt2Pnt1Var1 += sortPnt1->var_1;
                   v47 += v1078 * v1136;
                   v48 += v1136 * v1082;
                   v49 += v1136 * v1123;
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                       }
                       else
                       {
-                          v1279 = heightViewPort_93ADC <= v1092;
-                          v1094 = heightViewPort_93ADC - v1092;
+                          pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_95:
@@ -103774,8 +103774,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       v51[4] = v49;
                       v49 += v1123;
                       v51 += 5;
-                      --v1092;
-                  } while (v1092);
+                      --diffPnt2Pnt1Var1;
+                  } while (diffPnt2Pnt1Var1);
                   v50 = v1096;
                   goto LABEL_98;
               }
@@ -103793,7 +103793,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 19:
           case 22:
           case 23:
-              v30 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v30 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
               v31 = sortPnt2->var_0 - sortPnt1->var_0;
               v32 = v30 + v31 == 0;
               v16 = (v30 + v31 < 0) ^ __OFADD__(v30, v31);
@@ -103803,56 +103803,56 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               if (!v32)
               {
                   v34 = v33 + 1;
-                  v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v34;
-                  v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v34;
+                  v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / diffPnt3Pnt1Var1 - sortPnt1->var_2) / v34;
+                  v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / diffPnt3Pnt1Var1 - sortPnt1->var_3) / v34;
               }
-              v1101 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
-              v1112 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
+              v1101 = (sortPnt3->var_2 - sortPnt1->var_2) / diffPnt3Pnt1Var1;
+              v1112 = (sortPnt3->var_3 - sortPnt1->var_3) / diffPnt3Pnt1Var1;
               v35 = sortPnt1->var_0 << 16;
               v36 = v35;
               v37 = sortPnt1->var_2;
               v38 = sortPnt1->var_3;
-              if (!v1275)
+              if (!revPnt1Var1)
               {
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
-                      v41 = heightViewPort_93ADC - v1173;
-                      v1098 = heightViewPort_93ADC - v1173;
-                      if (v1279)
+                      v41 = heightViewPort_93ADC - sortPnt1->var_1;
+                      v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC - v1173;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC - sortPnt1->var_1;
                       }
                       else
                       {
-                          v27 = __OFSUB__(v41, v1092);
-                          v42 = v41 - v1092;
-                          v1279 = (v42 < 0) ^ v27 | (v42 == 0);
+                          v27 = __OFSUB__(v41, diffPnt2Pnt1Var1);
+                          v42 = v41 - diffPnt2Pnt1Var1;
+                          pnt2Var1After = (v42 < 0) ^ v27 | (v42 == 0);
                           v1094 = v42;
                       }
                   }
                   goto LABEL_71;
               }
-              v16 = v1098 <= -v1173;
-              v1098 += v1173;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (!v16)
               {
-                  v1134 = -v1173;
-                  if (-v1173 - v1092 >= 0)
+                  v1134 = -sortPnt1->var_1;
+                  if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1134 - v1092;
-                      v1135 = v1134 - v1092;
-                      v35 += v1078 * v1135 + v1092 * v1078;
+                      v1094 -= v1134 - diffPnt2Pnt1Var1;
+                      v1135 = v1134 - diffPnt2Pnt1Var1;
+                      v35 += v1078 * v1135 + diffPnt2Pnt1Var1 * v1078;
                       v39 = v1086 * v1135 + v1096;
-                      v37 += v1135 * v1101 + v1092 * v1101;
-                      v38 += v1135 * v1112 + v1092 * v1112;
-                      if (v1283)
+                      v37 += v1135 * v1101 + diffPnt2Pnt1Var1 * v1101;
+                      v38 += v1135 * v1112 + diffPnt2Pnt1Var1 * v1112;
+                      if (pnt3Var1After)
                       {
                           v1094 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v40 = (uint32*)&unk_93AE0;
                   LABEL_74:
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
                           v29 = (unsigned __int8)byte_967E1;
                           switch (byte_967E1)
@@ -103981,22 +103981,22 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           goto LABEL_1275;
                       }
                   }
-                  v1092 += v1173;
+                  diffPnt2Pnt1Var1 += sortPnt1->var_1;
                   v35 += v1078 * v1134;
                   v36 += v1134 * v1082;
                   v37 += v1134 * v1101;
                   v38 += v1134 * v1112;
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                       }
                       else
                       {
-                          v1279 = heightViewPort_93ADC <= v1092;
-                          v1094 = heightViewPort_93ADC - v1092;
+                          pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_71:
@@ -104012,8 +104012,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       v40[3] = v38;
                       v38 += v1112;
                       v40 += 5;
-                      --v1092;
-                  } while (v1092);
+                      --diffPnt2Pnt1Var1;
+                  } while (diffPnt2Pnt1Var1);
                   v39 = v1096;
                   goto LABEL_74;
               }
@@ -104025,7 +104025,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 24:
           case 25:
           case 26:
-              v13 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / v1088;
+              v13 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
               v14 = sortPnt2->var_0 - sortPnt1->var_0;
               v15 = v13 + v14 == 0;
               v16 = (v13 + v14 < 0) ^ __OFADD__(v13, v14);
@@ -104035,60 +104035,60 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               if (!v15)
               {
                   v18 = v17 + 1;
-                  v1099 = (int)(sortPnt2->var_2 + v1092 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / v1088 - sortPnt1->var_2) / v18;
-                  v1110 = (int)(sortPnt2->var_3 + v1092 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / v1088 - sortPnt1->var_3) / v18;
-                  v1121 = (int)(sortPnt2->var_4 + v1092 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / v1088 - sortPnt1->var_4) / v18;
+                  v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / diffPnt3Pnt1Var1 - sortPnt1->var_2) / v18;
+                  v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / diffPnt3Pnt1Var1 - sortPnt1->var_3) / v18;
+                  v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / diffPnt3Pnt1Var1 - sortPnt1->var_4) / v18;
               }
-              v1100 = (sortPnt3->var_2 - sortPnt1->var_2) / v1088;
-              v1111 = (sortPnt3->var_3 - sortPnt1->var_3) / v1088;
-              v1122 = (sortPnt3->var_4 - sortPnt1->var_4) / v1088;
+              v1100 = (sortPnt3->var_2 - sortPnt1->var_2) / diffPnt3Pnt1Var1;
+              v1111 = (sortPnt3->var_3 - sortPnt1->var_3) / diffPnt3Pnt1Var1;
+              v1122 = (sortPnt3->var_4 - sortPnt1->var_4) / diffPnt3Pnt1Var1;
               v19 = sortPnt1->var_0 << 16;
               v20 = v19;
               v21 = sortPnt1->var_2;
               v22 = sortPnt1->var_3;
               v23 = sortPnt1->var_4;
-              if (!v1275)
+              if (!revPnt1Var1)
               {
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
-                      v26 = heightViewPort_93ADC - v1173;
-                      v1098 = heightViewPort_93ADC - v1173;
-                      if (v1279)
+                      v26 = heightViewPort_93ADC - sortPnt1->var_1;
+                      v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC - v1173;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC - sortPnt1->var_1;
                       }
                       else
                       {
-                          v27 = __OFSUB__(v26, v1092);
-                          v28 = v26 - v1092;
-                          v1279 = (v28 < 0) ^ v27 | (v28 == 0);
+                          v27 = __OFSUB__(v26, diffPnt2Pnt1Var1);
+                          v28 = v26 - diffPnt2Pnt1Var1;
+                          pnt2Var1After = (v28 < 0) ^ v27 | (v28 == 0);
                           v1094 = v28;
                       }
                   }
                   goto LABEL_47;
               }
-              v16 = v1098 <= -v1173;
-              v1098 += v1173;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (!v16)
               {
-                  v1132 = -v1173;
-                  if (-v1173 - v1092 >= 0)
+                  v1132 = -sortPnt1->var_1;
+                  if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1132 - v1092;
-                      v1133 = v1132 - v1092;
-                      v19 += v1078 * v1133 + v1092 * v1078;
+                      v1094 -= v1132 - diffPnt2Pnt1Var1;
+                      v1133 = v1132 - diffPnt2Pnt1Var1;
+                      v19 += v1078 * v1133 + diffPnt2Pnt1Var1 * v1078;
                       v24 = v1086 * v1133 + v1096;
-                      v21 += v1133 * v1100 + v1092 * v1100;
-                      v22 += v1133 * v1111 + v1092 * v1111;
-                      v23 += v1133 * v1122 + v1092 * v1122;
-                      if (v1283)
+                      v21 += v1133 * v1100 + diffPnt2Pnt1Var1 * v1100;
+                      v22 += v1133 * v1111 + diffPnt2Pnt1Var1 * v1111;
+                      v23 += v1133 * v1122 + diffPnt2Pnt1Var1 * v1122;
+                      if (pnt3Var1After)
                       {
                           v1094 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v25 = (uint32*)&unk_93AE0;
                   LABEL_50:
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
                           v29 = (unsigned __int8)byte_967E1;
                           switch (byte_967E1)
@@ -104219,23 +104219,23 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           goto LABEL_1275;
                       }
                   }
-                  v1092 += v1173;
+                  diffPnt2Pnt1Var1 += sortPnt1->var_1;
                   v19 += v1078 * v1132;
                   v20 += v1132 * v1082;
                   v21 += v1132 * v1100;
                   v22 += v1132 * v1111;
                   v23 += v1132 * v1122;
-                  if (v1283)
+                  if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
-                      if (v1279)
+                      if (pnt2Var1After)
                       {
-                          v1092 = heightViewPort_93ADC;
+                          diffPnt2Pnt1Var1 = heightViewPort_93ADC;
                       }
                       else
                       {
-                          v1279 = heightViewPort_93ADC <= v1092;
-                          v1094 = heightViewPort_93ADC - v1092;
+                          pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
+                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_47:
@@ -104253,8 +104253,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       v25[4] = v23;
                       v23 += v1122;
                       v25 += 5;
-                      --v1092;
-                  } while (v1092);
+                      --diffPnt2Pnt1Var1;
+                  } while (diffPnt2Pnt1Var1);
                   v24 = v1096;
                   goto LABEL_50;
               }
@@ -104267,26 +104267,26 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //LABEL_225:
   if(boolLabel225){
   //LABEL_225:
-      v108 = sortPnt1->var_1;
-      v1175 = v108;
-      if (v108 >= 0)
+      //v108 = sortPnt1->var_1;
+      //v1175 = sortPnt1->var_1;
+      if (sortPnt1->var_1 >= 0)
       {
-          if (v108 >= heightViewPort_93ADC)
+          if (sortPnt1->var_1 >= heightViewPort_93ADC)
               return;
-          v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v108;
+          actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * sortPnt1->var_1;
           v1277 = 0;
       }
       else
       {
-          v1077 = beginPrevLineFrame_93AC8;
+          actScrPtr = beginPrevLineFrame_93AC8;
           v1277 = 1;
       }
-      v109 = sortPnt3->var_1;
-      v1281 = v109 > heightViewPort_93ADC;
-      v1090 = v109 - v108;
-      v1098 = v109 - v108;
-      v1080 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / (v109 - v108);
-      v1084 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (v109 - v108);
+      //v109 = sortPnt3->var_1;
+      v1281 = sortPnt3->var_1 > heightViewPort_93ADC;
+      v1090 = sortPnt3->var_1 - sortPnt1->var_1;
+      v1098 = sortPnt3->var_1 - sortPnt1->var_1;
+      v1080 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / (sortPnt3->var_1 - sortPnt1->var_1);
+      v1084 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt3->var_1 - sortPnt1->var_1);
       switch (byte_967E1)
       {
       case 0:
@@ -104296,10 +104296,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v131 = v130;
           if (v1277)
           {
-              v132 = -v1175;
-              v1090 += v1175;
-              v16 = v1098 <= -v1175;
-              v1098 += v1175;
+              v132 = -sortPnt1->var_1;
+              v1090 += sortPnt1->var_1;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (v16)
                   return;
               v130 += v1080 * v132;
@@ -104312,8 +104312,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - v1175;
-              v1090 = heightViewPort_93ADC - v1175;
+              v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+              v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
           v133 = (uint32*)&unk_93AE0;
           do
@@ -104392,10 +104392,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v127 = sortPnt1->var_4;
           if (v1277)
           {
-              v128 = -v1175;
-              v1090 += v1175;
-              v16 = v1098 <= -v1175;
-              v1098 += v1175;
+              v128 = -sortPnt1->var_1;
+              v1090 += sortPnt1->var_1;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (v16)
                   return;
               v125 += v1080 * v128;
@@ -104409,8 +104409,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - v1175;
-              v1090 = heightViewPort_93ADC - v1175;
+              v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+              v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
           v129 = (uint32*)&unk_93AE0;
           do
@@ -104504,10 +104504,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v122 = sortPnt1->var_3;
           if (v1277)
           {
-              v123 = -v1175;
-              v1090 += v1175;
-              v16 = v1098 <= -v1175;
-              v1098 += v1175;
+              v123 = -sortPnt1->var_1;
+              v1090 += sortPnt1->var_1;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (v16)
                   return;
               v119 += v1080 * v123;
@@ -104522,8 +104522,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - v1175;
-              v1090 = heightViewPort_93ADC - v1175;
+              v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+              v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
           v124 = (uint32*)&unk_93AE0;
           do
@@ -104616,10 +104616,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v115 = sortPnt1->var_4;
           if (v1277)
           {
-              v116 = -v1175;
-              v1090 += v1175;
-              v16 = v1098 <= -v1175;
-              v1098 += v1175;
+              v116 = -sortPnt1->var_1;
+              v1090 += sortPnt1->var_1;
+              v16 = v1098 <= -sortPnt1->var_1;
+              v1098 += sortPnt1->var_1;
               if (v16)
                   return;
               v111 += v1080 * v116;
@@ -104635,8 +104635,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - v1175;
-              v1090 = heightViewPort_93ADC - v1175;
+              v1098 = heightViewPort_93ADC - sortPnt1->var_1;
+              v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
           v117 = (uint32*)&unk_93AE0;
           do
@@ -104722,12 +104722,12 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
     {
       if ( v134 >= heightViewPort_93ADC )
         return;
-      v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
+      actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v134;
       v1278 = 0;
     }
     else
     {
-      v1077 = beginPrevLineFrame_93AC8;
+      actScrPtr = beginPrevLineFrame_93AC8;
       v1278 = 1;
     }
     v135 = sortPnt3->var_1;
@@ -105115,7 +105115,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       case 0:
 LABEL_309:
         v160 = (unsigned __int16 *)&unk_93AE0;
-        v161 = (char *)v1077;
+        v161 = (char *)actScrPtr;
         v162 = byte_967E0;
         HIWORD(v163) = 0;
         while ( 1 )
@@ -105152,8 +105152,8 @@ LABEL_322:
         {
           LOWORD(v29) = i[1];
           v167 = (unsigned __int16)i[3];
-          v168 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v168 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v29 & 0x8000u) == 0 )
             break;
           if ( (__int16)v167 > 0 )
@@ -105310,8 +105310,8 @@ LABEL_351:
         {
           LOWORD(v219) = v218[1];
           v221 = v218[3];
-          v222 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v222 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v219 & 0x8000u) == 0 )
             break;
           if ( (__int16)v221 > 0 )
@@ -105538,8 +105538,8 @@ LABEL_382:
         {
           LOWORD(v275) = v274[1];
           v277 = v274[3];
-          v278 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v278 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v275 & 0x8000u) == 0 )
             break;
           if ( (__int16)v277 > 0 )
@@ -105778,8 +105778,8 @@ LABEL_445:
         {
           LOWORD(v29) = j[1];
           v331 = (unsigned __int16)j[3];
-          v332 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v332 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v29 & 0x8000u) == 0 )
             break;
           if ( (__int16)v331 > 0 )
@@ -105954,8 +105954,8 @@ LABEL_474:
           v1259 += 20;
           LOWORD(v366) = *((_WORD *)v368 + 1);
           v369 = *((unsigned __int16 *)v368 + 3);
-          v370 = pitchViewPort_93AD4 + v1077;
-          v1077 += pitchViewPort_93AD4;
+          v370 = pitchViewPort_93AD4 + actScrPtr;
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v366 & 0x8000u) == 0 )
             break;
           if ( (__int16)v369 > 0 )
@@ -106255,8 +106255,8 @@ LABEL_503:
           v1260 += 20;
           LOWORD(v378) = *((_WORD *)v380 + 1);
           v381 = *((unsigned __int16 *)v380 + 3);
-          v382 = pitchViewPort_93AD4 + v1077;
-          v1077 += pitchViewPort_93AD4;
+          v382 = pitchViewPort_93AD4 + actScrPtr;
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v378 & 0x8000u) == 0 )
             break;
           if ( (__int16)v381 > 0 )
@@ -106570,8 +106570,8 @@ LABEL_564:
         {
           LOWORD(v391) = v390[1];
           v393 = v390[3];
-          v394 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v394 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v391 & 0x8000u) == 0 )
             break;
           if ( (__int16)v393 > 0 )
@@ -106799,8 +106799,8 @@ LABEL_595:
         {
           LOWORD(v431) = v430[1];
           v433 = v430[3];
-          v434 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v434 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v431 & 0x8000u) == 0 )
             break;
           if ( (__int16)v433 > 0 )
@@ -107045,8 +107045,8 @@ LABEL_658:
         {
           LOWORD(v471) = v470[1];
           v473 = v470[3];
-          v474 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v474 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v471 & 0x8000u) == 0 )
             break;
           if ( (__int16)v473 > 0 )
@@ -107337,8 +107337,8 @@ LABEL_721:
         {
           LOWORD(v511) = v510[1];
           v513 = v510[3];
-          v514 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v514 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v511 & 0x8000u) == 0 )
             break;
           if ( (__int16)v513 > 0 )
@@ -107566,8 +107566,8 @@ LABEL_752:
         {
           LOWORD(v551) = v550[1];
           v553 = v550[3];
-          v554 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v554 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v551 & 0x8000u) == 0 )
             break;
           if ( (__int16)v553 > 0 )
@@ -107788,7 +107788,7 @@ LABEL_781:
       case 14:
 LABEL_783:
         v590 = (unsigned __int16 *)&unk_93AE0;
-        v591 = (_BYTE *)v1077;
+        v591 = (_BYTE *)actScrPtr;
         HIWORD(v592) = 0;
         BYTE1(v592) = byte_967E0;
         HIWORD(v593) = 0;
@@ -107904,7 +107904,7 @@ LABEL_810:
       case 15:
 LABEL_812:
         v611 = (unsigned __int16 *)&unk_93AE0;
-        v612 = (_BYTE *)v1077;
+        v612 = (_BYTE *)actScrPtr;
         v613 = (unsigned __int8)byte_967E0;
         HIWORD(v614) = 0;
         while ( 1 )
@@ -108024,8 +108024,8 @@ LABEL_841:
         {
           LOWORD(v29) = v632[1];
           v634 = v632[3];
-          v635 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v635 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v29 & 0x8000u) == 0 )
             break;
           if ( (__int16)v634 > 0 )
@@ -108214,8 +108214,8 @@ LABEL_870:
         {
           LOWORD(v29) = v669[1];
           v671 = v669[3];
-          v672 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v672 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v29 & 0x8000u) == 0 )
             break;
           if ( (__int16)v671 > 0 )
@@ -108406,8 +108406,8 @@ LABEL_899:
         {
           LOWORD(v707) = v706[1];
           v709 = v706[3];
-          v710 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v710 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v707 & 0x8000u) == 0 )
             break;
           if ( (__int16)v709 > 0 )
@@ -108650,8 +108650,8 @@ LABEL_930:
         {
           LOWORD(v747) = v746[1];
           v749 = v746[3];
-          v750 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v750 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v747 & 0x8000u) == 0 )
             break;
           if ( (__int16)v749 > 0 )
@@ -108895,8 +108895,8 @@ LABEL_961:
         {
           LOWORD(v787) = v786[1];
           v789 = v786[3];
-          v790 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v790 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v787 & 0x8000u) == 0 )
             break;
           if ( (__int16)v789 > 0 )
@@ -109223,8 +109223,8 @@ LABEL_992:
         {
           LOWORD(v826) = v825[1];
           v828 = v825[3];
-          v829 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v829 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v826 & 0x8000u) == 0 )
             break;
           if ( (__int16)v828 > 0 )
@@ -109550,8 +109550,8 @@ LABEL_1023:
         {
           LOWORD(v865) = v864[1];
           v867 = v864[3];
-          v868 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v868 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v865 & 0x8000u) == 0 )
             break;
           if ( (__int16)v867 > 0 )
@@ -109842,8 +109842,8 @@ LABEL_1086:
         {
           LOWORD(v905) = v904[1];
           v907 = v904[3];
-          v908 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v908 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v905 & 0x8000u) == 0 )
             break;
           if ( (__int16)v907 > 0 )
@@ -110135,8 +110135,8 @@ LABEL_1149:
         {
           LOWORD(v945) = v944[1];
           v947 = v944[3];
-          v948 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v948 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v945 & 0x8000u) == 0 )
             break;
           if ( (__int16)v947 > 0 )
@@ -110511,8 +110511,8 @@ LABEL_1212:
         {
           LOWORD(v984) = v983[1];
           v986 = v983[3];
-          v987 = (_BYTE *)(pitchViewPort_93AD4 + v1077);
-          v1077 += pitchViewPort_93AD4;
+          v987 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          actScrPtr += pitchViewPort_93AD4;
           if ( (v984 & 0x8000u) == 0 )
             break;
           if ( (__int16)v986 > 0 )
@@ -110889,8 +110889,8 @@ LABEL_1275:
     {
       LOWORD(v1023) = v1022[1];
       v1025 = v1022[3];
-      v1026 = (char *)(pitchViewPort_93AD4 + v1077);
-      v1077 += pitchViewPort_93AD4;
+      v1026 = (char *)(pitchViewPort_93AD4 + actScrPtr);
+      actScrPtr += pitchViewPort_93AD4;
       if ( (v1023 & 0x8000u) == 0 )
         break;
       if ( (__int16)v1025 > 0 )
@@ -111345,12 +111345,12 @@ if (v60 >= 0)
 {
     if (v60 >= heightViewPort_93ADC)
         return;
-    v1077 = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
+    actScrPtr = beginPrevLineFrame_93AC8 + pitchViewPort_93AD4 * v60;
     v1276 = 0;
 }
 else
 {
-    v1077 = beginPrevLineFrame_93AC8;
+    actScrPtr = beginPrevLineFrame_93AC8;
     v1276 = 1;
 }
 v61 = sortPnt3->var_1;
