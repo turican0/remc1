@@ -92936,7 +92936,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       return;
     goto LABEL_268;
   }
-  if (pnt1->var_1 <= pnt2->var_1)
+  else if (pnt1->var_1 < pnt2->var_1)
   {
     if (pnt1->var_1 != pnt3->var_1)
     {
@@ -100976,7 +100976,7 @@ LABEL_1352:
     sortPnt3 = pnt1;
     goto LABEL_225;
   }
-  if (pnt1->var_1 < pnt3->var_1)
+  else if (pnt1->var_1 < pnt3->var_1)
   {
       sortPnt1 = pnt2;
       sortPnt2 = pnt3;
@@ -100992,7 +100992,7 @@ LABEL_1352:
     sortPnt3 = pnt1;
     goto LABEL_268;
   }
-  if (pnt2->var_1 < pnt3->var_1)
+  else if (pnt2->var_1 < pnt3->var_1)
   {
       sortPnt1 = pnt2;
       sortPnt2 = pnt3;
