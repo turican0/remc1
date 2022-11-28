@@ -438,36 +438,5 @@ compare v89
 pdwScreenBuffer_12EFF4+0xa657
 0xb4 versus 0x49
 
-if (pnt1->var_1 == pnt2->var_1)
-if (pnt1->var_1 == pnt3->var_1)
-if (pnt1->var_1 >= pnt3->var_1)
-if (pnt1->var_0 <= pnt2->var_0)
-if (pnt2->var_0 <= pnt1->var_0)
-if (pnt1->var_1 <= pnt2->var_1)
-if (pnt1->var_1 != pnt3->var_1)
-if (pnt1->var_1 >= pnt3->var_1)
-if (pnt2->var_1 != pnt3->var_1)
-if (pnt2->var_1 <= pnt3->var_1)
-if (pnt2->var_0 <= pnt3->var_0)
-if (pnt1->var_1 <= pnt2->var_1)
-if (pnt1->var_1 != pnt3->var_1)
-if (pnt1->var_1 >= pnt3->var_1)
-if (pnt2->var_1 != pnt3->var_1)
-if (pnt2->var_1 <= pnt3->var_1)
-if (pnt2->var_0 <= pnt3->var_0)
-
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 == pnt3->var_1)) return;
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 >= pnt3->var_1) && (pnt1->var_0 <= pnt2->var_0)) return;
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 == pnt3->var_1) && (pnt2->var_0 <= pnt1->var_0)) return;
-if ((pnt1->var_1 <= pnt2->var_1) && (pnt1->var_1 != pnt3->var_1) && (pnt1->var_1 >= pnt3->var_1) &&
-(sortPnt1->var_1 >= 0 ) && (sortPnt1->var_1 >= heightViewPort_93ADC )) return;
-
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 == pnt3->var_1)) return;
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 >= pnt3->var_1) && (pnt1->var_0 <= pnt2->var_0)) return;
-if ((pnt1->var_1 == pnt2->var_1) && (pnt1->var_1 == pnt3->var_1) && (pnt2->var_0 <= pnt1->var_0)) return;
-if ((pnt1->var_1 < pnt2->var_1) && (pnt1->var_1 > pnt3->var_1) &&
-(sortPnt1->var_1 >= 0 ) && (sortPnt1->var_1 >= heightViewPort_93ADC )) return;
-
-
 
 
