@@ -103212,10 +103212,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //pnt1->var_0 = 0;
   //pnt1->var_1 = 0;
 
-  pnt1->var_1 = 0x80;
-  pnt2->var_1 = 0x80;
-
-  DrawTriangle_729A3_72EB3_semi(pnt1, pnt2, pnt3);
+  //pnt1->var_1 = 0x80;
+  //pnt2->var_1 = 0x80;
+  //DrawTriangle_729A3_72EB3_semi(pnt1, pnt2, pnt3);
 
   //debug
 
@@ -103231,7 +103230,11 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   sortPnt2 = pnt2;
   sortPnt3 = pnt3;
 
-  //return/sort
+  bool boolLabel24 = false;
+  bool boolLabel124 = false;
+  bool boolLabel225 = false;
+  bool boolLabel268 = false;
+
   if (pnt1->var_1 == pnt2->var_1)
   {
       if (pnt1->var_1 == pnt3->var_1)
@@ -103240,33 +103243,94 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       {
           if (pnt1->var_0 <= pnt2->var_0)
               return;
-          else
-          {
-              sortPnt1 = pnt3;
-              sortPnt2 = pnt1;
-              sortPnt3 = pnt2;
-          }
+          sortPnt1 = pnt3;
+          sortPnt2 = pnt1;
+          sortPnt3 = pnt2;
+          boolLabel225 = true;
       }
-      if (pnt2->var_0 <= pnt1->var_0)
-          return;
-  }
-
-  //goto
-  if (pnt1->var_1 == pnt2->var_1)
-  {
-      if (pnt1->var_1 >= pnt3->var_1)
+      else
       {
-          if (pnt1->var_0 > pnt2->var_0)
-          {
-              ;//goto LABEL_225;
-          }
+          if (pnt2->var_0 <= pnt1->var_0)
+              return;
+          boolLabel268 = true;
       }
-      if (pnt2->var_0 > pnt1->var_0)
-          ;//goto LABEL_268;
   }
+  else if (pnt1->var_1 <= pnt2->var_1)
+    {
+        if (pnt1->var_1 != pnt3->var_1)
+        {
+            if (pnt1->var_1 >= pnt3->var_1)
+            {
+                sortPnt1 = pnt3;
+                sortPnt2 = pnt1;
+                sortPnt3 = pnt2;
+                boolLabel24 = true;
+            }
+            else if(pnt2->var_1 != pnt3->var_1)
+            {
+                if (pnt2->var_1 <= pnt3->var_1)
+                    boolLabel24 = true;
+                else
+                    boolLabel124 = true;
+            }
+            else if (pnt2->var_0 <= pnt3->var_0)
+                return;
+            else
+                boolLabel225 = true;
+        }
+        else if (pnt1->var_0 <= pnt3->var_0)
+            return;
+        else
+        {
+            sortPnt1 = pnt3;
+            sortPnt2 = pnt1;
+            sortPnt3 = pnt2;
+            boolLabel268 = true;
+        }
+    }
+  else if (pnt1->var_1 == pnt3->var_1)
+          {
+              if (pnt3->var_0 <= pnt1->var_0)
+                  return;
+                sortPnt1 = pnt2;
+                sortPnt2 = pnt3;
+                sortPnt3 = pnt1;
+                boolLabel225 = true;
+          }
+  else if (pnt1->var_1 < pnt3->var_1)
+    {
+        sortPnt1 = pnt2;
+        sortPnt2 = pnt3;
+        sortPnt3 = pnt1;
+        boolLabel124 = true;
+    }
+  else if (pnt2->var_1 == pnt3->var_1)
+    {
+        if (pnt3->var_0 <= pnt2->var_0)
+            return;
+        sortPnt1 = pnt2;
+        sortPnt2 = pnt3;
+        sortPnt3 = pnt1;
+        boolLabel268 = true;
+    }
+  else if (pnt2->var_1 < pnt3->var_1)
+    {
+        sortPnt1 = pnt2;
+        sortPnt2 = pnt3;
+        sortPnt3 = pnt1;
+        boolLabel24 = true;
+    }
+  else
+    {
+        sortPnt1 = pnt3;
+        sortPnt2 = pnt1;
+        sortPnt3 = pnt2;
+        boolLabel124 = true;
+    }
+ 
 
   //LABEL_24:
-  if(true)
+  if(boolLabel24)
   {
   //LABEL_24:
       //v9 = sortPnt1->var_1;
@@ -104201,7 +104265,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   }
 
   //LABEL_225:
-  if(true){
+  if(boolLabel225){
   //LABEL_225:
       v108 = sortPnt1->var_1;
       v1175 = v108;
@@ -104650,7 +104714,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   }
 
   //LABEL_268:
-  if(true){
+  if(boolLabel268){
 //LABEL_268:
     v134 = sortPnt1->var_1;
     v1176 = v134;
@@ -111273,7 +111337,7 @@ LABEL_1352:
   }
 
   //LABEL_124:
-  if(true) {
+  if(boolLabel124) {
 //LABEL_124:
 v60 = sortPnt1->var_1;
 v1174 = v60;
