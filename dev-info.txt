@@ -501,6 +501,8 @@ sortPnt2 = pnt1;
 sortPnt3 = pnt2;
 LABEL_24:
 
+
+
 if (pnt1->var_1 == pnt2->var_1)
     {
         if (pnt1->var_1 == pnt3->var_1)
@@ -515,9 +517,14 @@ if (pnt1->var_1 == pnt2->var_1)
             goto LABEL_225;
         }
         if (pnt2->var_0 <= pnt1->var_0)
-            return;
+            return; -ok
         goto LABEL_268;
     }
+
+if (pnt1->var_1 == pnt2->var_1) true
+if (pnt1->var_1 == pnt3->var_1) false
+if (pnt1->var_1 >= pnt3->var_1) false
+if (pnt2->var_0 <= pnt1->var_0) true return
 
 
 
