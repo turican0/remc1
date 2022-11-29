@@ -101963,7 +101963,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v37; // ecx
   int v38; // edx
   int v39; // ebx
-  _DWORD *v40; // edi
+  //_DWORD *v40; // edi
+  int v40x;
   int v41; // edi
   int v42; // edi
   int v43; // eax
@@ -102042,23 +102043,27 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v114; // edx
   int v115; // esi
   int v116; // edi
-  _DWORD *v117; // edi
+  //_DWORD *v117; // edi
+  int v117x;
   int v118; // ebx
   int v119; // eax
   int v120; // ebx
   int v121; // ecx
   int v122; // edx
   int v123; // edi
-  _DWORD *v124; // edi
+  //_DWORD *v124; // edi
+  int v124x;
   int v125; // eax
   int v126; // ebx
   int v127; // esi
   int v128; // edi
-  _DWORD *v129; // edi
+  //_DWORD *v129; // edi
+  int v129x;
   int v130; // eax
   int v131; // ebx
   int v132; // edi
-  _DWORD *v133; // edi
+  //_DWORD *v133; // edi
+  int v133x;
   int v134; // eax
   int v135; // ebx
   int v136; // ebx
@@ -102068,23 +102073,27 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v140; // edx
   int v141; // esi
   int v142; // edi
-  _DWORD *v143; // edi
+  //_DWORD *v143; // edi
+  int v143x;
   int v144; // ebx
   int v145; // eax
   int v146; // ebx
   int v147; // ecx
   int v148; // edx
   int v149; // edi
-  _DWORD *v150; // edi
+  //_DWORD *v150; // edi
+  int v150x;
   int v151; // eax
   int v152; // ebx
   int v153; // esi
   int v154; // edi
-  _DWORD *v155; // edi
+  //_DWORD *v155; // edi
+  int v155x;
   int v156; // eax
   int v157; // ebx
   int v158; // edi
-  _DWORD *v159; // edi
+  //_DWORD *v159; // edi
+  int v159x;
   unsigned __int16 *v160; // esi
   uint8* tempScrPtr; // edx
   char v162; // al
@@ -103879,7 +103888,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           diffPnt3Pnt2Var1 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
-                      v40 = (uint32*)&unk_93AE0;
+                      //v40 = (uint32*)&unk_93AE0;
+                      v40x = 0;
                   LABEL_74:
                       if (pnt2Var1After)
                       {
@@ -103942,16 +103952,17 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                       do
                       {
-                          *v40 = v35;
+                          unk_93AE0[v40x][0].a32 = v35;
                           v35 += divPnt3Pnt1Var0_Var1;
-                          v40[1] = v39;
+                          unk_93AE0[v40x][1].a32 = v39;
                           v39 += divPnt3Pnt2Var0_Var1;
-                          v40[2] = v37;
+                          unk_93AE0[v40x][2].a32 = v37;
                           v37 += v1101;
-                          v40[3] = v38;
+                          unk_93AE0[v40x][3].a32 = v38;
                           v38 += v1112;
-                          v40 += 5;
-                          --diffPnt3Pnt2Var1;
+                          //v40 += 5;
+                          v40x++;
+                          diffPnt3Pnt2Var1--;
                       } while (diffPnt3Pnt2Var1);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
@@ -104029,19 +104040,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
               LABEL_71:
-                  v40 = (uint32*)&unk_93AE0;
+                  //v40 = (uint32*)&unk_93AE0;
+                  v40x = 0;
                   do
                   {
-                      *v40 = v35;
+                      unk_93AE0[v40x][0].a32 = v35;
                       v35 += divPnt3Pnt1Var0_Var1;
-                      v40[1] = v36;
+                      unk_93AE0[v40x][1].a32 = v36;
                       v36 += divPnt2Pnt1Var0_Var1;
-                      v40[2] = v37;
+                      unk_93AE0[v40x][2].a32 = v37;
                       v37 += v1101;
-                      v40[3] = v38;
+                      unk_93AE0[v40x][3].a32 = v38;
                       v38 += v1112;
-                      v40 += 5;
-                      --diffPnt2Pnt1Var1;
+                      //v40 += 5;
+                      v40x++;
+                      diffPnt2Pnt1Var1--;
                   } while (diffPnt2Pnt1Var1);
                   v39 = (sortPnt2->var_0 << 16);
                   goto LABEL_74;
@@ -104346,15 +104359,17 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v1098 = heightViewPort_93ADC - sortPnt1->var_1;
               v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
-          v133 = (uint32*)&unk_93AE0;
+          //v133 = (uint32*)&unk_93AE0;
+          v133x = 0;
           do
           {
-              *v133 = v130;
+              unk_93AE0[v133x][0].a32 = v130;
               v130 += v1080;
-              v133[1] = v131;
+              unk_93AE0[v133x][1].a32 = v131;
               v131 += v1084;
-              v133 += 5;
-              --v1090;
+              //v133 += 5;
+              v133x++;
+              v1090--;
           } while (v1090);
           v29 = (unsigned __int8)byte_967E1;
           switch (byte_967E1)
@@ -104443,17 +104458,19 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v1098 = heightViewPort_93ADC - sortPnt1->var_1;
               v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
-          v129 = (uint32*)&unk_93AE0;
+          //v129 = (uint32*)&unk_93AE0;
+          v129x = 0;
           do
           {
-              *v129 = v125;
+              unk_93AE0[v129x][0].a32 = v125;
               v125 += v1080;
-              v129[1] = v126;
+              unk_93AE0[v129x][1].a32 = v126;
               v126 += v1084;
-              v129[4] = v127;
+              unk_93AE0[v129x][4].a32 = v127;
               v127 += v1127;
-              v129 += 5;
-              --v1090;
+              //v129 += 5;
+              v129x++;
+              v1090--;
           } while (v1090);
           v29 = (unsigned __int8)byte_967E1;
           switch (byte_967E1)
@@ -104556,19 +104573,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v1098 = heightViewPort_93ADC - sortPnt1->var_1;
               v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
-          v124 = (uint32*)&unk_93AE0;
+          //v124 = (uint32*)&unk_93AE0;
+          v124x = 0;
           do
           {
-              *v124 = v119;
+              unk_93AE0[v124x][0].a32 = v119;
               v119 += v1080;
-              v124[1] = v120;
+              unk_93AE0[v124x][1].a32 = v120;
               v120 += v1084;
-              v124[2] = v121;
+              unk_93AE0[v124x][2].a32 = v121;
               v121 += v1105;
-              v124[3] = v122;
+              unk_93AE0[v124x][3].a32 = v122;
               v122 += v1116;
-              v124 += 5;
-              --v1090;
+              //v124 += 5;
+              v124x++;
+              v1090--;
           } while (v1090);
           v29 = (unsigned __int8)byte_967E1;
           switch (byte_967E1)
@@ -104669,21 +104688,23 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v1098 = heightViewPort_93ADC - sortPnt1->var_1;
               v1090 = heightViewPort_93ADC - sortPnt1->var_1;
           }
-          v117 = (uint32*)&unk_93AE0;
+          //v117 = (uint32*)&unk_93AE0;
+          v117x = 0;
           do
           {
-              *v117 = v111;
+              unk_93AE0[v117x][0].a32 = v111;
               v111 += v1080;
-              v117[1] = v112;
+              unk_93AE0[v117x][1].a32 = v112;
               v112 += v1084;
-              v117[2] = v113;
+              unk_93AE0[v117x][2].a32 = v113;
               v113 += v1104;
-              v117[3] = v114;
+              unk_93AE0[v117x][3].a32 = v114;
               v114 += v1115;
-              v117[4] = v115;
+              unk_93AE0[v117x][4].a32 = v115;
               v115 += v1126;
-              v117 += 5;
-              --v1090;
+              //v117 += 5;
+              v117x++;
+              v1090--;
           } while (v1090);
           v29 = (unsigned __int8)byte_967E1;
           switch (byte_967E1)
@@ -104795,15 +104816,17 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1098 = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
-        v159 = (uint32*)&unk_93AE0;
+        //v159 = (uint32*)&unk_93AE0;
+        v159x = 0;
         do
         {
-          *v159 = v156;
+          unk_93AE0[v159x][0].a32 = v156;
           v156 += v1081;
-          v159[1] = v157;
+          unk_93AE0[v159x][1].a32 = v157;
           v157 += v1085;
-          v159 += 5;
-          --v1091;
+          //v159 += 5;
+          v159x++;
+          v1091--;
         }
         while ( v1091 );
         v29 = (unsigned __int8)byte_967E1;
@@ -104893,17 +104916,19 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1098 = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
-        v155 = (uint32*)&unk_93AE0;
+        //v155 = (uint32*)&unk_93AE0;
+        v155x = 0;
         do
         {
-          *v155 = v151;
+          unk_93AE0[v155x][0].a32 = v151;
           v151 += v1081;
-          v155[1] = v152;
+          unk_93AE0[v155x][1].a32 = v152;
           v152 += v1085;
-          v155[4] = v153;
+          unk_93AE0[v155x][4].a32 = v153;
           v153 += v1129;
-          v155 += 5;
-          --v1091;
+          //v155 += 5;
+          v155x++;
+          v1091--;
         }
         while ( v1091 );
         v29 = (unsigned __int8)byte_967E1;
@@ -105007,19 +105032,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1098 = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
-        v150 = (uint32*)&unk_93AE0;
+        //v150 = (uint32*)&unk_93AE0;
+        v150x = 0;
         do
         {
-          *v150 = v145;
+          unk_93AE0[v150x][0].a32 = v145;
           v145 += v1081;
-          v150[1] = v146;
+          unk_93AE0[v150x][1].a32 = v146;
           v146 += v1085;
-          v150[2] = v147;
+          unk_93AE0[v150x][2].a32 = v147;
           v147 += v1107;
-          v150[3] = v148;
+          unk_93AE0[v150x][3].a32 = v148;
           v148 += v1118;
-          v150 += 5;
-          --v1091;
+          //v150 += 5;
+          v150x++;
+          v1091--;
         }
         while ( v1091 );
         v29 = (unsigned __int8)byte_967E1;
@@ -105121,21 +105148,23 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1098 = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
-        v143 = (uint32*)&unk_93AE0;
+        //v143 = (uint32*)&unk_93AE0;
+        v143x = 0;
         do
         {
-          *v143 = v137;
+          unk_93AE0[v143x][0].a32 = v137;
           v137 += v1081;
-          v143[1] = v138;
+          unk_93AE0[v143x][1].a32 = v138;
           v138 += v1085;
-          v143[2] = v139;
+          unk_93AE0[v143x][2].a32 = v139;
           v139 += v1106;
-          v143[3] = v140;
+          unk_93AE0[v143x][3].a32 = v140;
           v140 += v1117;
-          v143[4] = v141;
+          unk_93AE0[v143x][4].a32 = v141;
           v141 += v1128;
-          v143 += 5;
-          --v1091;
+          //v143 += 5;
+          v143x++;
+          v1091--;
         }
         while ( v1091 );
         break;
@@ -112275,7 +112304,7 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v75 = (uint32*)&unk_93AE0;
         do
         {
-            *v75 = v69;
+            v75[0] = v69;
             v69 += v1079;
             v75[1] = v70;
             v70 += v1083;
