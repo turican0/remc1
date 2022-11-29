@@ -102276,7 +102276,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v365; // cx
   unsigned int v366; // eax
   int v367; // ebx
-  //char *v368; // esi
+  char *v368; // esi
   int v369; // ecx
   uint8* v370; // edi
   int v371; // ecx
@@ -105934,7 +105934,7 @@ LABEL_472:
       case 5:
 LABEL_474:
         //v1259 = (char *)&unk_93AE0;
-        v1259x = -1;
+        v1259x = 0;
         v1150 = v1110 << 16;
         v1166 = v1121 << 16;
         HIWORD(v366) = 0;
@@ -105955,28 +105955,30 @@ LABEL_474:
 #endif debug1
             //debug
 
-          //v368 = v1259;
+          v368 = (char*)&unk_93AE0[v1259x];
           v1259x++;
-          LOWORD(v366) = unk_93AE0[v1259x][0].a16[1];
-          v369 = unk_93AE0[v1259x][1].a16[1];
+          //v368 = v1259;
+          //v1259 += 20;
+          LOWORD(v366) = *((_WORD*)v368 + 1);
+          v369 = *((unsigned __int16*)v368 + 3);
           v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
-          if ( (v366 & 0x8000u) == 0 )
-            break;
-          if ( (__int16)v369 > 0 )
+          if ((v366 & 0x8000u) == 0)
+              break;
+          if ((__int16)v369 > 0)
           {
-            v371 = (unsigned __int16)-(__int16)v366;
-            v372 = __ROL4__(unk_93AE0[v1259x][3].a32 + v1110 * v371, 16);
-            BYTE1(v367) = v372;
-            LOWORD(v372) = unk_93AE0[v1259x][2].a16[0] + v1099 * v371;
-            v366 = (unsigned int)(unk_93AE0[v1259x][2].a32 + v1099 * v371) >> 8;
-            LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x][2].a32 + v1099 * v371) >> 16;
-            v373 = __ROL4__(unk_93AE0[v1259x][3].a32 + v1121 * v371, 16);
-            BYTE1(v366) = v373;
-            LOWORD(v373) = unk_93AE0[v1259x][1].a16[0];
-            v366 = (unsigned __int16)v366;
-            if ( (__int16)v373 > (__int16)widthViewPort_93AD8 )
-              LOWORD(v373) = widthViewPort_93AD8;
+              v371 = (unsigned __int16)-(__int16)v366;
+              v372 = __ROL4__(*((_DWORD*)v368 + 3) + v1110 * v371, 16);
+              BYTE1(v367) = v372;
+              LOWORD(v372) = *((_WORD*)v368 + 4) + v1099 * v371;
+              v366 = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 8;
+              LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 16;
+              v373 = __ROL4__(*((_DWORD*)v368 + 4) + v1121 * v371, 16);
+              BYTE1(v366) = v373;
+              LOWORD(v373) = *((_WORD*)v368 + 3);
+              v366 = (unsigned __int16)v366;
+              if ((__int16)v373 > (__int16)widthViewPort_93AD8)
+                  LOWORD(v373) = widthViewPort_93AD8;
 LABEL_484:
             v376 = (_BYTE *)(dword_74F95_754A5[v373 & 0xF] + v370);
             v377 = dword_93AD0;
@@ -106238,12 +106240,12 @@ LABEL_501:
         if (bool16)
           goto LABEL_501;
         v370 += v366;
-        LOBYTE(v367) = unk_93AE0[v1259x][2].a16[1];
-        v372 = __ROL4__(unk_93AE0[v1259x][3].a32, 16);
+        LOBYTE(v367) = v368[10];
+        v372 = __ROL4__(*((_DWORD*)v368 + 3), 16);
         v375 = v374;
         BYTE1(v367) = v372;
-        LOWORD(v372) = unk_93AE0[v1259x][2].a16[0];
-        v373 = __ROL4__(unk_93AE0[v1259x][4].a32, 16);
+        LOWORD(v372) = *((_WORD*)v368 + 4);
+        v373 = __ROL4__(*((_DWORD*)v368 + 4), 16);
         BYTE1(v366) = v373;
         LOWORD(v373) = v375;
         goto LABEL_484;
