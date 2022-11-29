@@ -82555,7 +82555,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     int v1256; // [esp+58h] [ebp-30h]
     unsigned __int16* v1257; // [esp+5Ch] [ebp-2Ch]
     unsigned __int16* v1258; // [esp+5Ch] [ebp-2Ch]
-    char* v1259; // [esp+5Ch] [ebp-2Ch]
+    //char* v1259; // [esp+5Ch] [ebp-2Ch]
+    int v1259x;
     char* v1260; // [esp+5Ch] [ebp-2Ch]
     unsigned __int16* v1261; // [esp+5Ch] [ebp-2Ch]
     unsigned __int16* v1262; // [esp+5Ch] [ebp-2Ch]
@@ -85239,7 +85240,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             goto LABEL_455;
         case 5:
         LABEL_474:
-            v1259 = (char*)&unk_93AE0;
+            //v1259 = (char*)&unk_93AE0;
+            v1259x = 0;
             v1150 = v1110 << 16;
             v1166 = v1121 << 16;
             HIWORD(v366) = 0;
@@ -85260,8 +85262,10 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
 #endif debug1
             //debug
 
-                v368 = v1259;
-                v1259 += 20;
+            v368 = (char*)&unk_93AE0[v1259x];
+                v1259x++;
+                //v368 = v1259;
+                //v1259 += 20;
                 LOWORD(v366) = *((_WORD*)v368 + 1);
                 v369 = *((unsigned __int16*)v368 + 3);
                 v370 = pitchViewPort_93AD4 + actScrPtr;
