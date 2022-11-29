@@ -4182,7 +4182,7 @@ int dword_93AD0 = 0; // weak
 int pitchViewPort_93AD4 = 0; // weak
 uint16 widthViewPort_93AD8 = 0; // weak
 uint16 heightViewPort_93ADC = 0; // weak
-uint32 unk_93AE0[5 * MAX_WIDTH]; // weak 5 * max width?
+un16_32 unk_93AE0[MAX_WIDTH][5]; // weak 5 * max width?
 //_UNKNOWN unk_96000; // weak
 char byte_967E0 = 'p'; // weak
 char byte_967E1 = '\0'; // weak
@@ -101920,11 +101920,11 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //int v10; // ebx
   //int v11; // ebx
   //int v12; // ebx
-  int v13; // eax
-  int v14; // ebx
-  _BOOL1 v15; // zf
-  char v16; // cc
-  int v17; // ebx
+  int pnt21_1xPnt13_0dPnt31_1; // eax
+  int diffPnt2Pnt1CVar0; // ebx
+  //bool bool15; // zf
+  bool bool16; // cc
+  //int v17; // ebx
   int v18; // ebx
   int v19; // eax
   int v20; // ebx
@@ -101932,7 +101932,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v22; // edx
   int v23; // esi
   int v24; // ebx
-  _DWORD *v25; // edi
+  //_DWORD *v25; // edi
+  int v25x;
   int v26; // edi
   _BOOL1 v27; // of
   int v28; // edi
@@ -102275,7 +102276,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v365; // cx
   unsigned int v366; // eax
   int v367; // ebx
-  char *v368; // esi
+  //char *v368; // esi
   int v369; // ecx
   uint8* v370; // edi
   int v371; // ecx
@@ -102985,15 +102986,15 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1075; // ecx
   char v1076; // al
   uint8* actScrPtr; // [esp+0h] [ebp-88h]
-  int v1078; // [esp+4h] [ebp-84h]
+  int divPnt3Pnt1Var0_Var1; // [esp+4h] [ebp-84h]
   int v1079; // [esp+4h] [ebp-84h]
   int v1080; // [esp+4h] [ebp-84h]
   int v1081; // [esp+4h] [ebp-84h]
-  int v1082; // [esp+8h] [ebp-80h]
+  int divPnt2Pnt1Var0_Var1; // [esp+8h] [ebp-80h]
   int v1083; // [esp+8h] [ebp-80h]
   int v1084; // [esp+8h] [ebp-80h]
   int v1085; // [esp+8h] [ebp-80h]
-  int v1086; // [esp+Ch] [ebp-7Ch]
+  int divPnt3Pnt2Var0_Var1; // [esp+Ch] [ebp-7Ch]
   int v1087; // [esp+Ch] [ebp-7Ch]
   int diffPnt3Pnt1Var1; // [esp+10h] [ebp-78h]
   int v1089; // [esp+10h] [ebp-78h]
@@ -103001,13 +103002,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1091; // [esp+10h] [ebp-78h]
   int diffPnt2Pnt1Var1; // [esp+14h] [ebp-74h]
   int v1093; // [esp+14h] [ebp-74h]
-  int v1094; // [esp+18h] [ebp-70h]
+  int diffPnt3Pnt2Var1; // [esp+18h] [ebp-70h]
   int v1095; // [esp+18h] [ebp-70h]
-  int v1096; // [esp+1Ch] [ebp-6Ch]
+  //int v1096; // [esp+1Ch] [ebp-6Ch]
   int v1097; // [esp+1Ch] [ebp-6Ch]
   int v1098; // [esp+20h] [ebp-68h]
   int v1099; // [esp+24h] [ebp-64h]
-  int v1100; // [esp+28h] [ebp-60h]
+  int divPnt3Pnt1Var2_Var1; // [esp+28h] [ebp-60h]
   int v1101; // [esp+28h] [ebp-60h]
   int v1102; // [esp+28h] [ebp-60h]
   int v1103; // [esp+28h] [ebp-60h]
@@ -103018,7 +103019,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1108; // [esp+2Ch] [ebp-5Ch]
   int v1109; // [esp+2Ch] [ebp-5Ch]
   int v1110; // [esp+30h] [ebp-58h]
-  int v1111; // [esp+34h] [ebp-54h]
+  int divPnt3Pnt1Var3_Var1; // [esp+34h] [ebp-54h]
   int v1112; // [esp+34h] [ebp-54h]
   int v1113; // [esp+34h] [ebp-54h]
   int v1114; // [esp+34h] [ebp-54h]
@@ -103029,7 +103030,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1119; // [esp+38h] [ebp-50h]
   int v1120; // [esp+38h] [ebp-50h]
   int v1121; // [esp+3Ch] [ebp-4Ch]
-  int v1122; // [esp+40h] [ebp-48h]
+  int divPnt3Pnt1Var4_Var1; // [esp+40h] [ebp-48h]
   int v1123; // [esp+40h] [ebp-48h]
   int v1124; // [esp+40h] [ebp-48h]
   int v1125; // [esp+40h] [ebp-48h]
@@ -103166,7 +103167,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1256; // [esp+58h] [ebp-30h]
   unsigned __int16 *v1257; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1258; // [esp+5Ch] [ebp-2Ch]
-  char *v1259; // [esp+5Ch] [ebp-2Ch]
+  //char *v1259; // [esp+5Ch] [ebp-2Ch]
+  int v1259x;
   char *v1260; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1261; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1262; // [esp+5Ch] [ebp-2Ch]
@@ -103219,7 +103221,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //debug
 
   //fix
-  v16 = 0;
+  bool16 = false;
   v27 = 0;
   v1022 = 0;
   v1099 = 0;
@@ -103355,13 +103357,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       pnt2Var1After = sortPnt2->var_1 > heightViewPort_93ADC;
       //v12 = sortPnt2->var_1 - sortPnt1->var_1;
       diffPnt2Pnt1Var1 = sortPnt2->var_1 - sortPnt1->var_1;
-      v1078 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / diffPnt3Pnt1Var1;
-      if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1) > v1078)
+      divPnt3Pnt1Var0_Var1 = ((sortPnt3->var_0 - sortPnt1->var_0) << 16) / diffPnt3Pnt1Var1;
+      if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1) > divPnt3Pnt1Var0_Var1)
       {
-          v1082 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1);
-          v1086 = ((sortPnt3->var_0 - sortPnt2->var_0) << 16) / (sortPnt3->var_1 - sortPnt2->var_1);
-          v1094 = sortPnt3->var_1 - sortPnt2->var_1;
-          v1096 = sortPnt2->var_0 << 16;
+          divPnt2Pnt1Var0_Var1 = ((sortPnt2->var_0 - sortPnt1->var_0) << 16) / (sortPnt2->var_1 - sortPnt1->var_1);
+          divPnt3Pnt2Var0_Var1 = ((sortPnt3->var_0 - sortPnt2->var_0) << 16) / (sortPnt3->var_1 - sortPnt2->var_1);
+          diffPnt3Pnt2Var1 = sortPnt3->var_1 - sortPnt2->var_1;
+          //v1096 = sortPnt2->var_0 << 16;
           switch (byte_967E1)
           {
           case 0:
@@ -103384,25 +103386,25 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           v27 = __OFSUB__(v58, diffPnt2Pnt1Var1);
                           v59 = v58 - diffPnt2Pnt1Var1;
                           pnt2Var1After = (v59 < 0) ^ v27 | (v59 == 0);
-                          v1094 = v59;
+                          diffPnt3Pnt2Var1 = v59;
                       }
                   }
                   goto LABEL_116;
               }
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (!v16)
+              if (!bool16)
               {
                   v1138 = -sortPnt1->var_1;
                   if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1138 - diffPnt2Pnt1Var1;
+                      diffPnt3Pnt2Var1 -= v1138 - diffPnt2Pnt1Var1;
                       v1139 = v1138 - diffPnt2Pnt1Var1;
-                      v54 += v1078 * v1139 + diffPnt2Pnt1Var1 * v1078;
-                      v56 = v1086 * v1139 + v1096;
+                      v54 += divPnt3Pnt1Var0_Var1 * v1139 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var0_Var1;
+                      v56 = divPnt3Pnt2Var0_Var1 * v1139 + (sortPnt2->var_0 << 16);
                       if (pnt3Var1After)
                       {
-                          v1094 = heightViewPort_93ADC;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v57 = (uint32*)&unk_93AE0;
@@ -103469,12 +103471,12 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       do
                       {
                           *v57 = v54;
-                          v54 += v1078;
+                          v54 += divPnt3Pnt1Var0_Var1;
                           v57[1] = v56;
-                          v56 += v1086;
+                          v56 += divPnt3Pnt2Var0_Var1;
                           v57 += 5;
-                          --v1094;
-                      } while (v1094);
+                          --diffPnt3Pnt2Var1;
+                      } while (diffPnt3Pnt2Var1);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
@@ -103533,8 +103535,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffPnt2Pnt1Var1 += sortPnt1->var_1;
-                  v54 += v1078 * v1138;
-                  v55 += v1138 * v1082;
+                  v54 += divPnt3Pnt1Var0_Var1 * v1138;
+                  v55 += v1138 * divPnt2Pnt1Var0_Var1;
                   if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
@@ -103545,7 +103547,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       else
                       {
                           pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
-                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_116:
@@ -103553,13 +103555,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   do
                   {
                       *v57 = v54;
-                      v54 += v1078;
+                      v54 += divPnt3Pnt1Var0_Var1;
                       v57[1] = v55;
-                      v55 += v1082;
+                      v55 += divPnt2Pnt1Var0_Var1;
                       v57 += 5;
                       --diffPnt2Pnt1Var1;
                   } while (diffPnt2Pnt1Var1);
-                  v56 = v1096;
+                  v56 = (sortPnt2->var_0 << 16);
                   goto LABEL_119;
               }
               return;
@@ -103570,9 +103572,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v43 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
               v44 = sortPnt2->var_0 - sortPnt1->var_0;
               v45 = v43 + v44 == 0;
-              v16 = (v43 + v44 < 0) ^ __OFADD__(v43, v44);
+              bool16 = (v43 + v44 < 0) ^ __OFADD__(v43, v44);
               v46 = v43 + v44;
-              if (v16)
+              if (bool16)
                   return;
               if (!v45)
                   v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / diffPnt3Pnt1Var1 - sortPnt1->var_4) / (v46 + 1);
@@ -103595,26 +103597,26 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           v27 = __OFSUB__(v52, diffPnt2Pnt1Var1);
                           v53 = v52 - diffPnt2Pnt1Var1;
                           pnt2Var1After = (v53 < 0) ^ v27 | (v53 == 0);
-                          v1094 = v53;
+                          diffPnt3Pnt2Var1 = v53;
                       }
                   }
                   goto LABEL_95;
               }
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (!v16)
+              if (!bool16)
               {
                   v1136 = -sortPnt1->var_1;
                   if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1136 - diffPnt2Pnt1Var1;
+                      diffPnt3Pnt2Var1 -= v1136 - diffPnt2Pnt1Var1;
                       v1137 = v1136 - diffPnt2Pnt1Var1;
-                      v47 += v1078 * v1137 + diffPnt2Pnt1Var1 * v1078;
-                      v50 = v1086 * v1137 + v1096;
+                      v47 += divPnt3Pnt1Var0_Var1 * v1137 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var0_Var1;
+                      v50 = divPnt3Pnt2Var0_Var1 * v1137 + (sortPnt2->var_0 << 16);
                       v49 += v1137 * v1123 + diffPnt2Pnt1Var1 * v1123;
                       if (pnt3Var1After)
                       {
-                          v1094 = heightViewPort_93ADC;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v51 = (uint32*)&unk_93AE0;
@@ -103681,14 +103683,14 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       do
                       {
                           *v51 = v47;
-                          v47 += v1078;
+                          v47 += divPnt3Pnt1Var0_Var1;
                           v51[1] = v50;
-                          v50 += v1086;
+                          v50 += divPnt3Pnt2Var0_Var1;
                           v51[4] = v49;
                           v49 += v1123;
                           v51 += 5;
-                          --v1094;
-                      } while (v1094);
+                          --diffPnt3Pnt2Var1;
+                      } while (diffPnt3Pnt2Var1);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
@@ -103747,8 +103749,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffPnt2Pnt1Var1 += sortPnt1->var_1;
-                  v47 += v1078 * v1136;
-                  v48 += v1136 * v1082;
+                  v47 += divPnt3Pnt1Var0_Var1 * v1136;
+                  v48 += v1136 * divPnt2Pnt1Var0_Var1;
                   v49 += v1136 * v1123;
                   if (pnt3Var1After)
                   {
@@ -103760,7 +103762,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       else
                       {
                           pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
-                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_95:
@@ -103768,15 +103770,15 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   do
                   {
                       *v51 = v47;
-                      v47 += v1078;
+                      v47 += divPnt3Pnt1Var0_Var1;
                       v51[1] = v48;
-                      v48 += v1082;
+                      v48 += divPnt2Pnt1Var0_Var1;
                       v51[4] = v49;
                       v49 += v1123;
                       v51 += 5;
                       --diffPnt2Pnt1Var1;
                   } while (diffPnt2Pnt1Var1);
-                  v50 = v1096;
+                  v50 = (sortPnt2->var_0 << 16);
                   goto LABEL_98;
               }
               return;
@@ -103796,9 +103798,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v30 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
               v31 = sortPnt2->var_0 - sortPnt1->var_0;
               v32 = v30 + v31 == 0;
-              v16 = (v30 + v31 < 0) ^ __OFADD__(v30, v31);
+              bool16 = (v30 + v31 < 0) ^ __OFADD__(v30, v31);
               v33 = v30 + v31;
-              if (v16)
+              if (bool16)
                   return;
               if (!v32)
               {
@@ -103827,27 +103829,27 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           v27 = __OFSUB__(v41, diffPnt2Pnt1Var1);
                           v42 = v41 - diffPnt2Pnt1Var1;
                           pnt2Var1After = (v42 < 0) ^ v27 | (v42 == 0);
-                          v1094 = v42;
+                          diffPnt3Pnt2Var1 = v42;
                       }
                   }
                   goto LABEL_71;
               }
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (!v16)
+              if (!bool16)
               {
                   v1134 = -sortPnt1->var_1;
                   if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1134 - diffPnt2Pnt1Var1;
+                      diffPnt3Pnt2Var1 -= v1134 - diffPnt2Pnt1Var1;
                       v1135 = v1134 - diffPnt2Pnt1Var1;
-                      v35 += v1078 * v1135 + diffPnt2Pnt1Var1 * v1078;
-                      v39 = v1086 * v1135 + v1096;
+                      v35 += divPnt3Pnt1Var0_Var1 * v1135 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var0_Var1;
+                      v39 = divPnt3Pnt2Var0_Var1 * v1135 + (sortPnt2->var_0 << 16);
                       v37 += v1135 * v1101 + diffPnt2Pnt1Var1 * v1101;
                       v38 += v1135 * v1112 + diffPnt2Pnt1Var1 * v1112;
                       if (pnt3Var1After)
                       {
-                          v1094 = heightViewPort_93ADC;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
                       v40 = (uint32*)&unk_93AE0;
@@ -103914,16 +103916,16 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       do
                       {
                           *v40 = v35;
-                          v35 += v1078;
+                          v35 += divPnt3Pnt1Var0_Var1;
                           v40[1] = v39;
-                          v39 += v1086;
+                          v39 += divPnt3Pnt2Var0_Var1;
                           v40[2] = v37;
                           v37 += v1101;
                           v40[3] = v38;
                           v38 += v1112;
                           v40 += 5;
-                          --v1094;
-                      } while (v1094);
+                          --diffPnt3Pnt2Var1;
+                      } while (diffPnt3Pnt2Var1);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
@@ -103982,8 +103984,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffPnt2Pnt1Var1 += sortPnt1->var_1;
-                  v35 += v1078 * v1134;
-                  v36 += v1134 * v1082;
+                  v35 += divPnt3Pnt1Var0_Var1 * v1134;
+                  v36 += v1134 * divPnt2Pnt1Var0_Var1;
                   v37 += v1134 * v1101;
                   v38 += v1134 * v1112;
                   if (pnt3Var1After)
@@ -103996,7 +103998,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       else
                       {
                           pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
-                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_71:
@@ -104004,9 +104006,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   do
                   {
                       *v40 = v35;
-                      v35 += v1078;
+                      v35 += divPnt3Pnt1Var0_Var1;
                       v40[1] = v36;
-                      v36 += v1082;
+                      v36 += divPnt2Pnt1Var0_Var1;
                       v40[2] = v37;
                       v37 += v1101;
                       v40[3] = v38;
@@ -104014,7 +104016,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       v40 += 5;
                       --diffPnt2Pnt1Var1;
                   } while (diffPnt2Pnt1Var1);
-                  v39 = v1096;
+                  v39 = (sortPnt2->var_0 << 16);
                   goto LABEL_74;
               }
               return;
@@ -104025,23 +104027,23 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 24:
           case 25:
           case 26:
-              v13 = (sortPnt2->var_1 - sortPnt1->var_1) * (__int64)(sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
-              v14 = sortPnt2->var_0 - sortPnt1->var_0;
-              v15 = v13 + v14 == 0;
-              v16 = (v13 + v14 < 0) ^ __OFADD__(v13, v14);
-              v17 = v13 + v14;
-              if (v16)
+              pnt21_1xPnt13_0dPnt31_1 = (sortPnt2->var_1 - sortPnt1->var_1) * (sortPnt1->var_0 - sortPnt3->var_0) / diffPnt3Pnt1Var1;
+              diffPnt2Pnt1CVar0 = sortPnt2->var_0 - sortPnt1->var_0;
+              //v15 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 == 0;
+              bool16 = (pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 < 0) ^ __OFADD__(pnt21_1xPnt13_0dPnt31_1, diffPnt2Pnt1CVar0);
+              //v17 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0;
+              if (bool16)
                   return;
-              if (!v15)
+              if (pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0)
               {
-                  v18 = v17 + 1;
-                  v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_2 - sortPnt3->var_2) / diffPnt3Pnt1Var1 - sortPnt1->var_2) / v18;
-                  v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_3 - sortPnt3->var_3) / diffPnt3Pnt1Var1 - sortPnt1->var_3) / v18;
-                  v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (__int64)(sortPnt1->var_4 - sortPnt3->var_4) / diffPnt3Pnt1Var1 - sortPnt1->var_4) / v18;
+                  v18 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 + 1;
+                  v1099 = (int)(sortPnt2->var_2 + diffPnt2Pnt1Var1 * (sortPnt1->var_2 - sortPnt3->var_2) / diffPnt3Pnt1Var1 - sortPnt1->var_2) / v18;
+                  v1110 = (int)(sortPnt2->var_3 + diffPnt2Pnt1Var1 * (sortPnt1->var_3 - sortPnt3->var_3) / diffPnt3Pnt1Var1 - sortPnt1->var_3) / v18;
+                  v1121 = (int)(sortPnt2->var_4 + diffPnt2Pnt1Var1 * (sortPnt1->var_4 - sortPnt3->var_4) / diffPnt3Pnt1Var1 - sortPnt1->var_4) / v18;
               }
-              v1100 = (sortPnt3->var_2 - sortPnt1->var_2) / diffPnt3Pnt1Var1;
-              v1111 = (sortPnt3->var_3 - sortPnt1->var_3) / diffPnt3Pnt1Var1;
-              v1122 = (sortPnt3->var_4 - sortPnt1->var_4) / diffPnt3Pnt1Var1;
+              divPnt3Pnt1Var2_Var1 = (sortPnt3->var_2 - sortPnt1->var_2) / diffPnt3Pnt1Var1;
+              divPnt3Pnt1Var3_Var1 = (sortPnt3->var_3 - sortPnt1->var_3) / diffPnt3Pnt1Var1;
+              divPnt3Pnt1Var4_Var1 = (sortPnt3->var_4 - sortPnt1->var_4) / diffPnt3Pnt1Var1;
               v19 = sortPnt1->var_0 << 16;
               v20 = v19;
               v21 = sortPnt1->var_2;
@@ -104062,31 +104064,32 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                           v27 = __OFSUB__(v26, diffPnt2Pnt1Var1);
                           v28 = v26 - diffPnt2Pnt1Var1;
                           pnt2Var1After = (v28 < 0) ^ v27 | (v28 == 0);
-                          v1094 = v28;
+                          diffPnt3Pnt2Var1 = v28;
                       }
                   }
                   goto LABEL_47;
               }
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (!v16)
+              if (!bool16)
               {
                   v1132 = -sortPnt1->var_1;
                   if (-sortPnt1->var_1 - diffPnt2Pnt1Var1 >= 0)
                   {
-                      v1094 -= v1132 - diffPnt2Pnt1Var1;
+                      diffPnt3Pnt2Var1 -= v1132 - diffPnt2Pnt1Var1;
                       v1133 = v1132 - diffPnt2Pnt1Var1;
-                      v19 += v1078 * v1133 + diffPnt2Pnt1Var1 * v1078;
-                      v24 = v1086 * v1133 + v1096;
-                      v21 += v1133 * v1100 + diffPnt2Pnt1Var1 * v1100;
-                      v22 += v1133 * v1111 + diffPnt2Pnt1Var1 * v1111;
-                      v23 += v1133 * v1122 + diffPnt2Pnt1Var1 * v1122;
+                      v19 += divPnt3Pnt1Var0_Var1 * v1133 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var0_Var1;
+                      v24 = divPnt3Pnt2Var0_Var1 * v1133 + (sortPnt2->var_0 << 16);
+                      v21 += v1133 * divPnt3Pnt1Var2_Var1 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var2_Var1;
+                      v22 += v1133 * divPnt3Pnt1Var3_Var1 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var3_Var1;
+                      v23 += v1133 * divPnt3Pnt1Var4_Var1 + diffPnt2Pnt1Var1 * divPnt3Pnt1Var4_Var1;
                       if (pnt3Var1After)
                       {
-                          v1094 = heightViewPort_93ADC;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC;
                           v1098 = heightViewPort_93ADC;
                       }
-                      v25 = (uint32*)&unk_93AE0;
+                      //v25 = (uint32*)&unk_93AE0;
+                      v25x = 0;
                   LABEL_50:
                       if (pnt2Var1After)
                       {
@@ -104149,19 +104152,19 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                       do
                       {
-                          *v25 = v19;
-                          v19 += v1078;
-                          v25[1] = v24;
-                          v24 += v1086;
-                          v25[2] = v21;
-                          v21 += v1100;
-                          v25[3] = v22;
-                          v22 += v1111;
-                          v25[4] = v23;
-                          v23 += v1122;
-                          v25 += 5;
-                          --v1094;
-                      } while (v1094);
+                          unk_93AE0[v25x][0].a32 = v19;
+                          v19 += divPnt3Pnt1Var0_Var1;
+                          unk_93AE0[v25x][1].a32 = v24;
+                          v24 += divPnt3Pnt2Var0_Var1;
+                          unk_93AE0[v25x][2].a32 = v21;
+                          v21 += divPnt3Pnt1Var2_Var1;
+                          unk_93AE0[v25x][3].a32 = v22;
+                          v22 += divPnt3Pnt1Var3_Var1;
+                          unk_93AE0[v25x][4].a32 = v23;
+                          v23 += divPnt3Pnt1Var4_Var1;
+                          v25x++;
+                          --diffPnt3Pnt2Var1;
+                      } while (diffPnt3Pnt2Var1);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
@@ -104220,11 +104223,11 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffPnt2Pnt1Var1 += sortPnt1->var_1;
-                  v19 += v1078 * v1132;
-                  v20 += v1132 * v1082;
-                  v21 += v1132 * v1100;
-                  v22 += v1132 * v1111;
-                  v23 += v1132 * v1122;
+                  v19 += divPnt3Pnt1Var0_Var1 * v1132;
+                  v20 += v1132 * divPnt2Pnt1Var0_Var1;
+                  v21 += v1132 * divPnt3Pnt1Var2_Var1;
+                  v22 += v1132 * divPnt3Pnt1Var3_Var1;
+                  v23 += v1132 * divPnt3Pnt1Var4_Var1;
                   if (pnt3Var1After)
                   {
                       v1098 = heightViewPort_93ADC;
@@ -104235,27 +104238,28 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       else
                       {
                           pnt2Var1After = heightViewPort_93ADC <= diffPnt2Pnt1Var1;
-                          v1094 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
+                          diffPnt3Pnt2Var1 = heightViewPort_93ADC - diffPnt2Pnt1Var1;
                       }
                   }
               LABEL_47:
-                  v25 = (uint32*)&unk_93AE0;
+                  //v25 = (uint32*)&unk_93AE0;
+                  v25x = 0;
                   do
                   {
-                      *v25 = v19;
-                      v19 += v1078;
-                      v25[1] = v20;
-                      v20 += v1082;
-                      v25[2] = v21;
-                      v21 += v1100;
-                      v25[3] = v22;
-                      v22 += v1111;
-                      v25[4] = v23;
-                      v23 += v1122;
-                      v25 += 5;
+                      unk_93AE0[v25x][0].a32 = v19;
+                      v19 += divPnt3Pnt1Var0_Var1;
+                      unk_93AE0[v25x][1].a32 = v20;
+                      v20 += divPnt2Pnt1Var0_Var1;
+                      unk_93AE0[v25x][2].a32 = v21;
+                      v21 += divPnt3Pnt1Var2_Var1;
+                      unk_93AE0[v25x][3].a32 = v22;
+                      v22 += divPnt3Pnt1Var3_Var1;
+                      unk_93AE0[v25x][4].a32 = v23;
+                      v23 += divPnt3Pnt1Var4_Var1;
+                      v25x++;
                       --diffPnt2Pnt1Var1;
                   } while (diffPnt2Pnt1Var1);
-                  v24 = v1096;
+                  v24 = (sortPnt2->var_0 << 16);
                   goto LABEL_50;
               }
               break;
@@ -104298,9 +104302,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v132 = -sortPnt1->var_1;
               v1090 += sortPnt1->var_1;
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (v16)
+              if (bool16)
                   return;
               v130 += v1080 * v132;
               v131 += v132 * v1084;
@@ -104394,9 +104398,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v128 = -sortPnt1->var_1;
               v1090 += sortPnt1->var_1;
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (v16)
+              if (bool16)
                   return;
               v125 += v1080 * v128;
               v126 += v128 * v1084;
@@ -104506,9 +104510,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v123 = -sortPnt1->var_1;
               v1090 += sortPnt1->var_1;
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (v16)
+              if (bool16)
                   return;
               v119 += v1080 * v123;
               v120 += v123 * v1084;
@@ -104618,9 +104622,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v116 = -sortPnt1->var_1;
               v1090 += sortPnt1->var_1;
-              v16 = v1098 <= -sortPnt1->var_1;
+              bool16 = v1098 <= -sortPnt1->var_1;
               v1098 += sortPnt1->var_1;
-              if (v16)
+              if (bool16)
                   return;
               v111 += v1080 * v116;
               v112 += v116 * v1084;
@@ -104747,9 +104751,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v158 = -v1176;
           v1091 += v1176;
-          v16 = v1098 <= -v1176;
+          bool16 = v1098 <= -v1176;
           v1098 += v1176;
-          if ( v16 )
+          if (bool16)
             return;
           v156 += v1081 * v158;
           v157 += v158 * v1085;
@@ -104844,9 +104848,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v154 = -v1176;
           v1091 += v1176;
-          v16 = v1098 <= -v1176;
+          bool16 = v1098 <= -v1176;
           v1098 += v1176;
-          if ( v16 )
+          if (bool16)
             return;
           v151 += v1081 * v154;
           v152 += v154 * v1085;
@@ -104957,9 +104961,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v149 = -v1176;
           v1091 += v1176;
-          v16 = v1098 <= -v1176;
+          bool16 = v1098 <= -v1176;
           v1098 += v1176;
-          if ( v16 )
+          if (bool16)
             return;
           v145 += v1081 * v149;
           v146 += v149 * v1085;
@@ -105070,9 +105074,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v142 = -v1176;
           v1091 += v1176;
-          v16 = v1098 <= -v1176;
+          bool16 = v1098 <= -v1176;
           v1098 += v1176;
-          if ( v16 )
+          if (bool16)
             return;
           v137 += v1081 * v142;
           v138 += v142 * v1085;
@@ -105140,9 +105144,9 @@ LABEL_320:
         }
         if ( v164 > widthViewPort_93AD8 )
           v164 = widthViewPort_93AD8;
-        v16 = (__int16)v164 <= (__int16)v163;
+        bool16 = (__int16)v164 <= (__int16)v163;
         LOWORD(v164) = v164 - v163;
-        if ( v16 )
+        if (bool16)
           goto LABEL_320;
         v165 = &v161[v163];
         goto LABEL_319;
@@ -105291,9 +105295,9 @@ LABEL_349:
         }
         if ( v167 > widthViewPort_93AD8 )
           LOWORD(v167) = widthViewPort_93AD8;
-        v16 = (__int16)v167 <= (__int16)v29;
+        bool16 = (__int16)v167 <= (__int16)v29;
         LOWORD(v167) = v167 - v29;
-        if ( v16 )
+        if (bool16)
           goto LABEL_349;
         v168 += v29;
         v29 = (unsigned __int8)byte_967E0;
@@ -105518,9 +105522,9 @@ LABEL_380:
         }
         if ( v221 > widthViewPort_93AD8 )
           LOWORD(v221) = widthViewPort_93AD8;
-        v16 = (__int16)v221 <= (__int16)v219;
+        bool16 = (__int16)v221 <= (__int16)v219;
         LOWORD(v221) = v221 - v219;
-        if ( v16 )
+        if (bool16)
           goto LABEL_380;
         v222 += v219;
         v225 = __ROL4__(*((_DWORD *)v218 + 3), 16);
@@ -105762,9 +105766,9 @@ LABEL_443:
         }
         if ( v277 > widthViewPort_93AD8 )
           LOWORD(v277) = widthViewPort_93AD8;
-        v16 = (__int16)v277 <= (__int16)v275;
+        bool16 = (__int16)v277 <= (__int16)v275;
         LOWORD(v277) = v277 - v275;
-        if ( v16 )
+        if (bool16)
           goto LABEL_443;
         v278 += v275;
         v281 = __ROL4__(*((_DWORD *)v274 + 3), 16);
@@ -105918,9 +105922,9 @@ LABEL_472:
         }
         if ( v331 > widthViewPort_93AD8 )
           LOWORD(v331) = widthViewPort_93AD8;
-        v16 = (__int16)v331 <= (__int16)v29;
+        bool16 = (__int16)v331 <= (__int16)v29;
         LOWORD(v331) = v331 - v29;
-        if ( v16 )
+        if (bool16)
           goto LABEL_472;
         v332 += v29;
         v29 = (unsigned __int8)byte_967E0;
@@ -105929,7 +105933,8 @@ LABEL_472:
         goto LABEL_455;
       case 5:
 LABEL_474:
-        v1259 = (char *)&unk_93AE0;
+        //v1259 = (char *)&unk_93AE0;
+        v1259x = -1;
         v1150 = v1110 << 16;
         v1166 = v1121 << 16;
         HIWORD(v366) = 0;
@@ -105950,10 +105955,10 @@ LABEL_474:
 #endif debug1
             //debug
 
-          v368 = v1259;
-          v1259 += 20;
-          LOWORD(v366) = *((_WORD *)v368 + 1);
-          v369 = *((unsigned __int16 *)v368 + 3);
+          //v368 = v1259;
+          v1259x++;
+          LOWORD(v366) = unk_93AE0[v1259x][0].a16[1];
+          v369 = unk_93AE0[v1259x][1].a16[1];
           v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
           if ( (v366 & 0x8000u) == 0 )
@@ -105961,14 +105966,14 @@ LABEL_474:
           if ( (__int16)v369 > 0 )
           {
             v371 = (unsigned __int16)-(__int16)v366;
-            v372 = __ROL4__(*((_DWORD *)v368 + 3) + v1110 * v371, 16);
+            v372 = __ROL4__(unk_93AE0[v1259x][3].a32 + v1110 * v371, 16);
             BYTE1(v367) = v372;
-            LOWORD(v372) = *((_WORD *)v368 + 4) + v1099 * v371;
-            v366 = (unsigned int)(*((_DWORD *)v368 + 2) + v1099 * v371) >> 8;
-            LOBYTE(v367) = (unsigned int)(*((_DWORD *)v368 + 2) + v1099 * v371) >> 16;
-            v373 = __ROL4__(*((_DWORD *)v368 + 4) + v1121 * v371, 16);
+            LOWORD(v372) = unk_93AE0[v1259x][2].a16[0] + v1099 * v371;
+            v366 = (unsigned int)(unk_93AE0[v1259x][2].a32 + v1099 * v371) >> 8;
+            LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x][2].a32 + v1099 * v371) >> 16;
+            v373 = __ROL4__(unk_93AE0[v1259x][3].a32 + v1121 * v371, 16);
             BYTE1(v366) = v373;
-            LOWORD(v373) = *((_WORD *)v368 + 3);
+            LOWORD(v373) = unk_93AE0[v1259x][1].a16[0];
             v366 = (unsigned __int16)v366;
             if ( (__int16)v373 > (__int16)widthViewPort_93AD8 )
               LOWORD(v373) = widthViewPort_93AD8;
@@ -106202,9 +106207,9 @@ LABEL_500:
                   v376[15] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
                   v376 += 16;
-                  v16 = (__int16)v373 <= 16;
+                  bool16 = (__int16)v373 <= 16;
                   LOWORD(v373) = v373 - 16;
-                  if ( v16 )
+                  if (bool16)
                     break;
 LABEL_485:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106228,17 +106233,17 @@ LABEL_501:
         }
         if ( v369 > widthViewPort_93AD8 )
           LOWORD(v369) = widthViewPort_93AD8;
-        v16 = (__int16)v369 <= (__int16)v366;
+        bool16 = (__int16)v369 <= (__int16)v366;
         v374 = v369 - v366;
-        if ( v16 )
+        if (bool16)
           goto LABEL_501;
         v370 += v366;
-        LOBYTE(v367) = v368[10];
-        v372 = __ROL4__(*((_DWORD *)v368 + 3), 16);
+        LOBYTE(v367) = unk_93AE0[v1259x][2].a16[1];
+        v372 = __ROL4__(unk_93AE0[v1259x][3].a32, 16);
         v375 = v374;
         BYTE1(v367) = v372;
-        LOWORD(v372) = *((_WORD *)v368 + 4);
-        v373 = __ROL4__(*((_DWORD *)v368 + 4), 16);
+        LOWORD(v372) = unk_93AE0[v1259x][2].a16[0];
+        v373 = __ROL4__(unk_93AE0[v1259x][4].a32, 16);
         BYTE1(v366) = v373;
         LOWORD(v373) = v375;
         goto LABEL_484;
@@ -106506,9 +106511,9 @@ LABEL_559:
                   v385 += v1167;
                   BYTE1(v378) += BYTE2(v1121) + v171;
                   v388 += 16;
-                  v16 = (__int16)v385 <= 16;
+                  bool16 = (__int16)v385 <= 16;
                   LOWORD(v385) = v385 - 16;
-                  if ( v16 )
+                  if (bool16)
                     break;
 LABEL_514:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
@@ -106533,9 +106538,9 @@ LABEL_562:
         }
         if ( v381 > widthViewPort_93AD8 )
           LOWORD(v381) = widthViewPort_93AD8;
-        v16 = (__int16)v381 <= (__int16)v378;
+        bool16 = (__int16)v381 <= (__int16)v378;
         v386 = v381 - v378;
-        if ( v16 )
+        if (bool16)
           goto LABEL_562;
         v382 += v378;
         LOBYTE(v379) = v380[10];
@@ -106779,9 +106784,9 @@ LABEL_593:
         }
         if ( v393 > widthViewPort_93AD8 )
           LOWORD(v393) = widthViewPort_93AD8;
-        v16 = (__int16)v393 <= (__int16)v391;
+        bool16 = (__int16)v393 <= (__int16)v391;
         LOWORD(v393) = v393 - v391;
-        if ( v16 )
+        if (bool16)
           goto LABEL_593;
         v394 += v391;
         v397 = __ROL4__(*((_DWORD *)v390 + 3), 16);
@@ -107024,9 +107029,9 @@ LABEL_656:
         }
         if ( v433 > widthViewPort_93AD8 )
           LOWORD(v433) = widthViewPort_93AD8;
-        v16 = (__int16)v433 <= (__int16)v431;
+        bool16 = (__int16)v433 <= (__int16)v431;
         LOWORD(v433) = v433 - v431;
-        if ( v16 )
+        if (bool16)
           goto LABEL_656;
         v434 += v431;
         v437 = __ROL4__(*((_DWORD *)v430 + 3), 16);
@@ -107317,9 +107322,9 @@ LABEL_719:
         }
         if ( v473 > widthViewPort_93AD8 )
           LOWORD(v473) = widthViewPort_93AD8;
-        v16 = (__int16)v473 <= (__int16)v471;
+        bool16 = (__int16)v473 <= (__int16)v471;
         LOWORD(v473) = v473 - v471;
-        if ( v16 )
+        if (bool16)
           goto LABEL_719;
         v474 += v471;
         v477 = __ROL4__(*((_DWORD *)v470 + 3), 16);
@@ -107546,9 +107551,9 @@ LABEL_750:
         }
         if ( v513 > widthViewPort_93AD8 )
           LOWORD(v513) = widthViewPort_93AD8;
-        v16 = (__int16)v513 <= (__int16)v511;
+        bool16 = (__int16)v513 <= (__int16)v511;
         LOWORD(v513) = v513 - v511;
-        if ( v16 )
+        if (bool16)
           goto LABEL_750;
         v514 += v511;
         v517 = __ROL4__(*((_DWORD *)v510 + 3), 16);
@@ -107775,9 +107780,9 @@ LABEL_781:
         }
         if ( v553 > widthViewPort_93AD8 )
           LOWORD(v553) = widthViewPort_93AD8;
-        v16 = (__int16)v553 <= (__int16)v551;
+        bool16 = (__int16)v553 <= (__int16)v551;
         LOWORD(v553) = v553 - v551;
-        if ( v16 )
+        if (bool16)
           goto LABEL_781;
         v554 += v551;
         v557 = __ROL4__(*((_DWORD *)v550 + 3), 16);
@@ -107895,9 +107900,9 @@ LABEL_810:
         }
         if ( v594 > widthViewPort_93AD8 )
           LOWORD(v594) = widthViewPort_93AD8;
-        v16 = (__int16)v594 <= (__int16)v593;
+        bool16 = (__int16)v594 <= (__int16)v593;
         LOWORD(v594) = v594 - v593;
-        if ( v16 )
+        if (bool16)
           goto LABEL_810;
         k = &v591[v593];
         goto LABEL_793;
@@ -108010,9 +108015,9 @@ LABEL_839:
         }
         if ( v615 > widthViewPort_93AD8 )
           LOWORD(v615) = widthViewPort_93AD8;
-        v16 = (__int16)v615 <= (__int16)v614;
+        bool16 = (__int16)v615 <= (__int16)v614;
         LOWORD(v615) = v615 - v614;
-        if ( v16 )
+        if (bool16)
           goto LABEL_839;
         m = &v612[v614];
         goto LABEL_822;
@@ -108197,9 +108202,9 @@ LABEL_868:
         }
         if ( v634 > widthViewPort_93AD8 )
           LOWORD(v634) = widthViewPort_93AD8;
-        v16 = (__int16)v634 <= (__int16)v29;
+        bool16 = (__int16)v634 <= (__int16)v29;
         LOWORD(v634) = v634 - v29;
-        if ( v16 )
+        if (bool16)
           goto LABEL_868;
         v635 += v29;
         v29 = (unsigned __int8)byte_967E0;
@@ -108387,9 +108392,9 @@ LABEL_897:
         }
         if ( v671 > widthViewPort_93AD8 )
           LOWORD(v671) = widthViewPort_93AD8;
-        v16 = (__int16)v671 <= (__int16)v29;
+        bool16 = (__int16)v671 <= (__int16)v29;
         LOWORD(v671) = v671 - v29;
-        if ( v16 )
+        if (bool16)
           goto LABEL_897;
         v672 += v29;
         v29 = (unsigned __int8)byte_967E0;
@@ -108630,9 +108635,9 @@ LABEL_928:
         }
         if ( v709 > widthViewPort_93AD8 )
           LOWORD(v709) = widthViewPort_93AD8;
-        v16 = (__int16)v709 <= (__int16)v707;
+        bool16 = (__int16)v709 <= (__int16)v707;
         LOWORD(v709) = v709 - v707;
-        if ( v16 )
+        if (bool16)
           goto LABEL_928;
         v710 += v707;
         v713 = __ROL4__(*((_DWORD *)v706 + 3), 16);
@@ -108874,9 +108879,9 @@ LABEL_959:
         }
         if ( v749 > widthViewPort_93AD8 )
           LOWORD(v749) = widthViewPort_93AD8;
-        v16 = (__int16)v749 <= (__int16)v747;
+        bool16 = (__int16)v749 <= (__int16)v747;
         LOWORD(v749) = v749 - v747;
-        if ( v16 )
+        if (bool16)
           goto LABEL_959;
         v750 += v747;
         v753 = __ROL4__(*((_DWORD *)v746 + 3), 16);
@@ -109200,9 +109205,9 @@ LABEL_990:
         }
         if ( v789 > widthViewPort_93AD8 )
           v789 = widthViewPort_93AD8;
-        v16 = (__int16)v789 <= (__int16)v787;
+        bool16 = (__int16)v789 <= (__int16)v787;
         LOWORD(v789) = v789 - v787;
-        if ( v16 )
+        if (bool16)
           goto LABEL_990;
         v790 += v787;
         v792 = __ROL4__(*((_DWORD *)v786 + 3), 16);
@@ -109528,9 +109533,9 @@ LABEL_1021:
         }
         if ( v828 > widthViewPort_93AD8 )
           v828 = widthViewPort_93AD8;
-        v16 = (__int16)v828 <= (__int16)v826;
+        bool16 = (__int16)v828 <= (__int16)v826;
         LOWORD(v828) = v828 - v826;
-        if ( v16 )
+        if (bool16)
           goto LABEL_1021;
         v829 += v826;
         v831 = __ROL4__(*((_DWORD *)v825 + 3), 16);
@@ -109822,9 +109827,9 @@ LABEL_1084:
         }
         if ( v867 > widthViewPort_93AD8 )
           LOWORD(v867) = widthViewPort_93AD8;
-        v16 = (__int16)v867 <= (__int16)v865;
+        bool16 = (__int16)v867 <= (__int16)v865;
         LOWORD(v867) = v867 - v865;
-        if ( v16 )
+        if (bool16)
           goto LABEL_1084;
         v868 += v865;
         v871 = __ROL4__(*((_DWORD *)v864 + 3), 16);
@@ -110114,9 +110119,9 @@ LABEL_1147:
         }
         if ( v907 > widthViewPort_93AD8 )
           LOWORD(v907) = widthViewPort_93AD8;
-        v16 = (__int16)v907 <= (__int16)v905;
+        bool16 = (__int16)v907 <= (__int16)v905;
         LOWORD(v907) = v907 - v905;
-        if ( v16 )
+        if (bool16)
           goto LABEL_1147;
         v908 += v905;
         v911 = __ROL4__(*((_DWORD *)v904 + 3), 16);
@@ -110488,9 +110493,9 @@ LABEL_1210:
         }
         if ( v947 > widthViewPort_93AD8 )
           v947 = widthViewPort_93AD8;
-        v16 = (__int16)v947 <= (__int16)v945;
+        bool16 = (__int16)v947 <= (__int16)v945;
         LOWORD(v947) = v947 - v945;
-        if ( v16 )
+        if (bool16)
           goto LABEL_1210;
         v948 += v945;
         v950 = __ROL4__(*((_DWORD *)v944 + 3), 16);
@@ -110864,9 +110869,9 @@ LABEL_1273:
         }
         if ( v986 > widthViewPort_93AD8 )
           v986 = widthViewPort_93AD8;
-        v16 = (__int16)v986 <= (__int16)v984;
+        bool16 = (__int16)v986 <= (__int16)v984;
         LOWORD(v986) = v986 - v984;
-        if ( v16 )
+        if (bool16)
           goto LABEL_1273;
         v987 += v984;
         v989 = __ROL4__(*((_DWORD *)v983 + 3), 16);
@@ -111322,9 +111327,9 @@ LABEL_1352:
     }
     if ( v1025 > widthViewPort_93AD8 )
       v1025 = widthViewPort_93AD8;
-    v16 = (__int16)v1025 <= (__int16)v1023;
+    bool16 = (__int16)v1025 <= (__int16)v1023;
     LOWORD(v1025) = v1025 - v1023;
-    if ( v16 )
+    if (bool16)
       goto LABEL_1352;
     v1026 += v1023;
     v1028 = __ROL4__(*((_DWORD *)v1022 + 3), 16);
@@ -111377,9 +111382,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v103 = v102;
         if (v1276)
         {
-            v16 = v1098 <= -v1174;
+            bool16 = v1098 <= -v1174;
             v1098 += v1174;
-            if (v16)
+            if (bool16)
                 return;
             v1146 = -v1174;
             if (-v1174 - v1089 >= 0)
@@ -111572,9 +111577,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v91 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
         v92 = sortPnt1->var_0 - sortPnt3->var_0;
         v93 = v91 + v92 == 0;
-        v16 = (v91 + v92 < 0) ^ __OFADD__(v91, v92);
+        bool16 = (v91 + v92 < 0) ^ __OFADD__(v91, v92);
         v94 = v91 + v92;
-        if (v16)
+        if (bool16)
             return;
         if (!v93)
             v1121 = (int)(sortPnt1->var_4 + v1089 * (__int64)(sortPnt2->var_4 - sortPnt1->var_4) / v1093 - sortPnt3->var_4) / (v94 + 1);
@@ -111585,9 +111590,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v97 = sortPnt1->var_4;
         if (v1276)
         {
-            v16 = v1098 <= -v1174;
+            bool16 = v1098 <= -v1174;
             v1098 += v1174;
-            if (v16)
+            if (bool16)
                 return;
             v1144 = -v1174;
             if (-v1174 - v1089 >= 0)
@@ -111795,9 +111800,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v78 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
         v79 = sortPnt1->var_0 - sortPnt3->var_0;
         v80 = v78 + v79 == 0;
-        v16 = (v78 + v79 < 0) ^ __OFADD__(v78, v79);
+        bool16 = (v78 + v79 < 0) ^ __OFADD__(v78, v79);
         v81 = v78 + v79;
-        if (v16)
+        if (bool16)
             return;
         if (!v80)
         {
@@ -111815,9 +111820,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v86 = sortPnt1->var_3;
         if (v1276)
         {
-            v16 = v1098 <= -v1174;
+            bool16 = v1098 <= -v1174;
             v1098 += v1174;
-            if (v16)
+            if (bool16)
                 return;
             v1142 = -v1174;
             if (-v1174 - v1089 >= 0)
@@ -112025,9 +112030,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v64 = v1089 * (__int64)(sortPnt2->var_0 - sortPnt1->var_0) / v63;
         v65 = sortPnt1->var_0 - sortPnt3->var_0;
         v66 = v64 + v65 == 0;
-        v16 = (v64 + v65 < 0) ^ __OFADD__(v64, v65);
+        bool16 = (v64 + v65 < 0) ^ __OFADD__(v64, v65);
         v67 = v64 + v65;
-        if (v16)
+        if (bool16)
             return;
         if (!v66)
         {
@@ -112050,9 +112055,9 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
         v73 = sortPnt1->var_4;
         if (v1276)
         {
-            v16 = v1098 <= -v1174;
+            bool16 = v1098 <= -v1174;
             v1098 += v1174;
-            if (v16)
+            if (bool16)
                 return;
             v1140 = -v1174;
             if (-v1174 - v1089 >= 0)
