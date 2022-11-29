@@ -85548,11 +85548,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 goto LABEL_501;
             v370 += v366;
             LOBYTE(v367) = v368[10];
-            v372 = __ROL4__(*((_DWORD*)v368 + 3), 16);
+            v372 = __ROL4__(unk_93AE0[v1259x][3].a32, 16);
             v375 = v374;
             BYTE1(v367) = v372;
             LOWORD(v372) = *((_WORD*)v368 + 4);
-            v373 = __ROL4__(*((_DWORD*)v368 + 4), 16);
+            v373 = __ROL4__(unk_93AE0[v1259x][4].a32, 16);
             BYTE1(v366) = v373;
             LOWORD(v373) = v375;
             goto LABEL_484;
