@@ -102307,7 +102307,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   uint8* tempScrPtr3; // edi
   int v371; // ecx
   int v372; // edx
-  un16_32 tempScrPos; // ecx
+  un16_32 tempScrPosX; // ecx
   __int16 v374; // cx
   __int16 v375; // bp
   _BYTE *v376; // edi
@@ -106030,16 +106030,16 @@ LABEL_474:
               LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0] + v1099 * v371;
               v366 = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 8;
               LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 16;
-              tempScrPos.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32 + v1121 * v371);
-              BYTE1(v366) = tempScrPos.a32;
-              tempScrPos.a16[0] = unk_93AE0[v1259x - 1][1].a16[1];
+              tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32 + v1121 * v371);
+              BYTE1(v366) = tempScrPosX.a32;
+              tempScrPosX.a16[0] = unk_93AE0[v1259x - 1][1].a16[1];
               v366 = (unsigned __int16)v366;
-              if (tempScrPos.a16[0] > widthViewPort_93AD8)
-                  tempScrPos.a16[0] = widthViewPort_93AD8;
+              if (tempScrPosX.a16[0] > widthViewPort_93AD8)
+                  tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
-            v376 = &tempScrPtr3[dword_74F95_754A5[tempScrPos.a16[0] & 0xF]];
+            v376 = &tempScrPtr3[dword_74F95_754A5[tempScrPosX.a16[0] & 0xF]];
             v377 = dword_93AD0;
-            switch (tempScrPos.a16[0] & 0xF )
+            switch (tempScrPosX.a16[0] & 0xF )
             {
               case 0:
                 goto LABEL_485;
@@ -106081,8 +106081,8 @@ LABEL_484:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[1] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_487:
@@ -106093,8 +106093,8 @@ LABEL_487:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[2] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_488:
@@ -106105,8 +106105,8 @@ LABEL_488:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[3] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_489:
@@ -106117,8 +106117,8 @@ LABEL_489:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[4] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_490:
@@ -106129,8 +106129,8 @@ LABEL_490:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[5] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_491:
@@ -106141,8 +106141,8 @@ LABEL_491:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[6] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_492:
@@ -106153,8 +106153,8 @@ LABEL_492:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[7] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_493:
@@ -106165,8 +106165,8 @@ LABEL_493:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[8] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_494:
@@ -106177,8 +106177,8 @@ LABEL_494:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[9] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_495:
@@ -106189,8 +106189,8 @@ LABEL_495:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[10] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_496:
@@ -106213,8 +106213,8 @@ compare_index_24629B++;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[11] = strPal.byte_B7934_B7924[v366];//here
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_497:
@@ -106225,8 +106225,8 @@ LABEL_497:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[12] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_498:
@@ -106237,8 +106237,8 @@ LABEL_498:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[13] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_499:
@@ -106249,8 +106249,8 @@ LABEL_499:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[14] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_500:
@@ -106261,13 +106261,13 @@ LABEL_500:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[15] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
                   v376 += 16;
-                  bool16 = tempScrPos.a16[0] <= 16;
-                  tempScrPos.a16[0] -= 16;
+                  bool16 = tempScrPosX.a16[0] <= 16;
+                  tempScrPosX.a16[0] -= 16;
                   if (bool16)
                     break;
 LABEL_485:
@@ -106278,8 +106278,8 @@ LABEL_485:
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPos.a32);
-                  tempScrPos.a32 += v1166;
+                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
                   v376[0] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
                 }
@@ -106302,9 +106302,9 @@ LABEL_501:
         v375 = v374;
         BYTE1(v367) = v372;
         LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0];
-        tempScrPos.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32);
-        BYTE1(v366) = tempScrPos.a32;
-        tempScrPos.a16[0] = v375;
+        tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32);
+        BYTE1(v366) = tempScrPosX.a32;
+        tempScrPosX.a16[0] = v375;
         goto LABEL_484;
       case 6:
 LABEL_503:
