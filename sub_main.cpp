@@ -85266,8 +85266,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1259x++;
                 //v368 = v1259;
                 //v1259 += 20;
-                LOWORD(v366) = *((_WORD*)v368 + 1);
-                v369 = *((unsigned __int16*)v368 + 3);
+                LOWORD(v366) = unk_93AE0[v1259x][0].a16[1];
+                v369 = unk_93AE0[v1259x][1].a16[1];
                 v370 = pitchViewPort_93AD4 + actScrPtr;
                 actScrPtr += pitchViewPort_93AD4;
                 if ((v366 & 0x8000u) == 0)
@@ -85275,14 +85275,14 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 if ((__int16)v369 > 0)
                 {
                     v371 = (unsigned __int16)-(__int16)v366;
-                    v372 = __ROL4__(*((_DWORD*)v368 + 3) + v1110 * v371, 16);
+                    v372 = __ROL4__(unk_93AE0[v1259x][3].a32 + v1110 * v371, 16);
                     BYTE1(v367) = v372;
-                    LOWORD(v372) = *((_WORD*)v368 + 4) + v1099 * v371;
-                    v366 = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 8;
-                    LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + v1099 * v371) >> 16;
-                    v373 = __ROL4__(*((_DWORD*)v368 + 4) + v1121 * v371, 16);
+                    LOWORD(v372) = unk_93AE0[v1259x][2].a16[0] + v1099 * v371;
+                    v366 = (unsigned int)(unk_93AE0[v1259x][2].a32 + v1099 * v371) >> 8;
+                    LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x][1].a16[0] + v1099 * v371) >> 16;
+                    v373 = __ROL4__(unk_93AE0[v1259x][4].a32 + v1121 * v371, 16);
                     BYTE1(v366) = v373;
-                    LOWORD(v373) = *((_WORD*)v368 + 3);
+                    LOWORD(v373) = unk_93AE0[v1259x][1].a16[1];
                     v366 = (unsigned __int16)v366;
                     if ((__int16)v373 > (__int16)widthViewPort_93AD8)
                         LOWORD(v373) = widthViewPort_93AD8;
