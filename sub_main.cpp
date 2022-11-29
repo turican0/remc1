@@ -81664,7 +81664,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     __int16 v365; // cx
     unsigned int v366; // eax
     int v367; // ebx
-    char* v368; // esi
+    //char* v368; // esi
     int v369; // ecx
     uint8* v370; // edi
     int v371; // ecx
@@ -85262,7 +85262,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
 #endif debug1
             //debug
 
-            v368 = (char*)&unk_93AE0[v1259x];
+            //v368 = (char*)&unk_93AE0[v1259x];
                 v1259x++;
                 //v368 = v1259;
                 //v1259 += 20;
@@ -85547,11 +85547,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             if (v16)
                 goto LABEL_501;
             v370 += v366;
-            LOBYTE(v367) = v368[10];
+            LOBYTE(v367) = unk_93AE0[v1259x][2].a16[1];
             v372 = __ROL4__(unk_93AE0[v1259x][3].a32, 16);
             v375 = v374;
             BYTE1(v367) = v372;
-            LOWORD(v372) = *((_WORD*)v368 + 4);
+            LOWORD(v372) = unk_93AE0[v1259x][2].a16[0];
             v373 = __ROL4__(unk_93AE0[v1259x][4].a32, 16);
             BYTE1(v366) = v373;
             LOWORD(v373) = v375;
