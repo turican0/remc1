@@ -106244,7 +106244,7 @@ LABEL_501:
         if (bool16)
           goto LABEL_501;
         v370 += v366;
-        LOBYTE(v367) = v368[10];
+        LOBYTE(v367) = unk_93AE0[v1259x - 1][2].a16[1];
         v372 = __ROL4__(*((_DWORD*)v368 + 3), 16);
         v375 = v374;
         BYTE1(v367) = v372;
