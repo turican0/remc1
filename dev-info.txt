@@ -571,6 +571,30 @@ v75 = (uint32*)&unk_93AE0; -ok
 unk_93AE0[v75x].a32
 v57 = (uint32*)&unk_93AE0;
 
+tempScrPtr4
+
+v222 tempScrPtr5
+v278 tempScrPtr6
+v332 tempScrPtr7
+v382 tempScrPtr8
+v394 tempScrPtr9
+v434 tempScrPtr10
+v474 tempScrPtr11
+v514 tempScrPtr12
+v554 tempScrPtr13
+v591 tempScrPtr14
+v612 tempScrPtr15
+v635 tempScrPtr16
+v672 tempScrPtr17
+v710 tempScrPtr18
+v750 tempScrPtr19
+v790 tempScrPtr20
+v829 tempScrPtr21
+v868 tempScrPtr22
+v908 tempScrPtr23
+v948 tempScrPtr24
+v987 tempScrPtr25
+v1026 tempScrPtr26
 
 
 
