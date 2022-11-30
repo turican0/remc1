@@ -102001,7 +102001,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v72; // edx
   int v73; // esi
   int v74; // eax
-  _DWORD *v75; // edi
+  //_DWORD *v75; // edi
+  int v75x;
   int v76; // edi
   int v77; // edi
   int v78; // eax
@@ -102014,7 +102015,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v85; // ecx
   int v86; // edx
   int v87; // eax
-  _DWORD *v88; // edi
+  //_DWORD *v88; // edi
+  int v88x;
   int v89; // edi
   int v90; // edi
   int v91; // eax
@@ -102025,13 +102027,15 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v96; // ebx
   int v97; // esi
   int v98; // eax
-  _DWORD *v99; // edi
+  //_DWORD *v99; // edi
+  int v99x;
   int v100; // edi
   int v101; // edi
   int v102; // eax
   int v103; // ebx
   int v104; // eax
-  _DWORD *v105; // edi
+  //_DWORD *v105; // edi
+  int v105x;
   int v106; // edi
   int v107; // edi
   //int v108; // eax
@@ -111544,7 +111548,8 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                     v1095 = heightViewPort_93ADC;
                     v1098 = heightViewPort_93ADC;
                 }
-                v105 = (uint32*)&unk_93AE0;
+                //v105 = (uint32*)&unk_93AE0;
+                v105x = 0;
             LABEL_219:
                 if (v1280)
                 {
@@ -111607,12 +111612,13 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 }
                 do
                 {
-                    *v105 = v104;
+                    unk_93AE0[v105x][0].a32 = v104;
                     v104 += v1087;
-                    v105[1] = v103;
+                    unk_93AE0[v105x][1].a32 = v103;
                     v103 += v1083;
-                    v105 += 5;
-                    --v1095;
+                    //v105 += 5;
+                    v105x++;
+                    v1095--;
                 } while (v1095);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
@@ -111704,15 +111710,17 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 v1095 = v107;
             }
         }
-        v105 = (uint32*)&unk_93AE0;
+        //v105 = (uint32*)&unk_93AE0;
+        v105x = 0;
         do
         {
-            *v105 = v102;
+            unk_93AE0[v105x][0].a32 = v102;
             v102 += v1079;
-            v105[1] = v103;
+            unk_93AE0[v105x][1].a32 = v103;
             v103 += v1083;
-            v105 += 5;
-            --v1089;
+            //v105 += 5;
+            v105x++;
+            v1089--;
         } while (v1089);
         v104 = v1097;
         goto LABEL_219;
@@ -111753,7 +111761,8 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                     v1095 = heightViewPort_93ADC;
                     v1098 = heightViewPort_93ADC;
                 }
-                v99 = (uint32*)&unk_93AE0;
+                //v99 = (uint32*)&unk_93AE0;
+                v99x = 0;
             LABEL_198:
                 if (v1280)
                 {
@@ -111816,14 +111825,15 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 }
                 do
                 {
-                    *v99 = v98;
+                    unk_93AE0[v99x][0].a32 = v98;
                     v98 += v1087;
-                    v99[1] = v96;
+                    unk_93AE0[v99x][1].a32 = v96;
                     v96 += v1083;
-                    v99[4] = v97;
+                    unk_93AE0[v99x][4].a32 = v97;
                     v97 += v1131;
-                    v99 += 5;
-                    --v1095;
+                    //v99 += 5;
+                    v99x++;
+                    v1095--;
                 } while (v1095);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
@@ -111916,17 +111926,19 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 v1095 = v101;
             }
         }
-        v99 = (uint32*)&unk_93AE0;
+        //v99 = (uint32*)&unk_93AE0;
+        v99x = 0;
         do
         {
-            *v99 = v95;
+            unk_93AE0[v99x][0].a32 = v95;
             v95 += v1079;
-            v99[1] = v96;
+            unk_93AE0[v99x][1].a32 = v96;
             v96 += v1083;
-            v99[4] = v97;
+            unk_93AE0[v99x][4].a32 = v97;
             v97 += v1125;
-            v99 += 5;
-            --v1089;
+            //v99 += 5;
+            v99x++;
+            v1089--;
         } while (v1089);
         v98 = v1097;
         goto LABEL_198;
@@ -111984,7 +111996,8 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                     v1095 = heightViewPort_93ADC;
                     v1098 = heightViewPort_93ADC;
                 }
-                v88 = (uint32*)&unk_93AE0;
+                //v88 = (uint32*)&unk_93AE0;
+                v88x = 0;
             LABEL_174:
                 if (v1280)
                 {
@@ -112047,16 +112060,17 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 }
                 do
                 {
-                    *v88 = v87;
+                    unk_93AE0[v88x][0].a32 = v87;
                     v87 += v1087;
-                    v88[1] = v84;
+                    unk_93AE0[v88x][1].a32 = v84;
                     v84 += v1083;
-                    v88[2] = v85;
+                    unk_93AE0[v88x][2].a32 = v85;
                     v85 += v1109;
-                    v88[3] = v86;
+                    unk_93AE0[v88x][3].a32 = v86;
                     v86 += v1120;
-                    v88 += 5;
-                    --v1095;
+                    //v88 += 5;
+                    v88x++;
+                    v1095--;
                 } while (v1095);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
@@ -112150,19 +112164,21 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 v1095 = v90;
             }
         }
-        v88 = (uint32*)&unk_93AE0;
+        //v88 = (uint32*)&unk_93AE0;
+        v88x = 0;
         do
         {
-            *v88 = v83;
+            unk_93AE0[v88x][0].a32 = v83;
             v83 += v1079;
-            v88[1] = v84;
+            unk_93AE0[v88x][1].a32 = v84;
             v84 += v1083;
-            v88[2] = v85;
+            unk_93AE0[v88x][2].a32 = v85;
             v85 += v1103;
-            v88[3] = v86;
+            unk_93AE0[v88x][3].a32 = v86;
             v86 += v1114;
-            v88 += 5;
-            --v1089;
+            //v88 += 5;
+            v88x++;
+            v1089--;
         } while (v1089);
         v87 = v1097;
         goto LABEL_174;
@@ -112220,7 +112236,8 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                     v1095 = heightViewPort_93ADC;
                     v1098 = heightViewPort_93ADC;
                 }
-                v75 = (uint32*)&unk_93AE0;
+                //v75 = (uint32*)&unk_93AE0;
+                v75x = 0;
             LABEL_150:
                 if (v1280)
                 {
@@ -112283,18 +112300,19 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 }
                 do
                 {
-                    *v75 = v74;
+                    unk_93AE0[v75x][0].a32 = v74;
                     v74 += v1087;
-                    v75[1] = v70;
+                    unk_93AE0[v75x][1].a32 = v70;
                     v70 += v1083;
-                    v75[2] = v71;
+                    unk_93AE0[v75x][2].a32 = v71;
                     v71 += v1108;
-                    v75[3] = v72;
+                    unk_93AE0[v75x][3].a32 = v72;
                     v72 += v1119;
-                    v75[4] = v73;
+                    unk_93AE0[v75x][4].a32 = v73;
                     v73 += v1130;
-                    v75 += 5;
-                    --v1095;
+                    //v75 += 5;
+                    v75x++;
+                    v1095--;
                 } while (v1095);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
@@ -112389,21 +112407,23 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
                 v1095 = v77;
             }
         }
-        v75 = (uint32*)&unk_93AE0;
+        //v75 = (uint32*)&unk_93AE0;
+        v75x = 0;
         do
         {
-            v75[0] = v69;
+            unk_93AE0[v75x][0].a32 = v69;
             v69 += v1079;
-            v75[1] = v70;
+            unk_93AE0[v75x][1].a32 = v70;
             v70 += v1083;
-            v75[2] = v71;
+            unk_93AE0[v75x][2].a32 = v71;
             v71 += v1102;
-            v75[3] = v72;
+            unk_93AE0[v75x][3].a32 = v72;
             v72 += v1113;
-            v75[4] = v73;
+            unk_93AE0[v75x][4].a32 = v73;
             v73 += v1124;
-            v75 += 5;
-            --v1089;
+            //v75 += 5;
+            v75x++;
+            v1089--;
         } while (v1089);
         v74 = v1097;
         goto LABEL_150;
