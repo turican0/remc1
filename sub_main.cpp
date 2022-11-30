@@ -102611,7 +102611,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v666; // cx
   __int16 v667; // bx
   __int16 v668; // cx
-  unsigned __int16 *v669; // esi
+  //unsigned __int16 *v669; // esi
+  int v669x;
   int v670; // edx
   int v671; // ecx
   _BYTE *v672; // edi
@@ -102648,7 +102649,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v703; // cx
   __int16 v704; // bx
   __int16 v705; // cx
-  unsigned __int16 *v706; // esi
+  //unsigned __int16 *v706; // esi
+  int v706x;
   int v707; // eax
   int v708; // ebx
   int v709; // ecx
@@ -103214,7 +103216,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1264x;
   //unsigned __int16 *v1265; // [esp+5Ch] [ebp-2Ch]
   int v1265x;
-  unsigned __int16 *v1266; // [esp+5Ch] [ebp-2Ch]
+  //unsigned __int16 *v1266; // [esp+5Ch] [ebp-2Ch]
+  int v1266x;
   unsigned __int16 *v1267; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1268; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1269; // [esp+5Ch] [ebp-2Ch]
@@ -108302,12 +108305,13 @@ LABEL_868:
         goto LABEL_851;
       case 17:
 LABEL_870:
-        v669 = (unsigned __int16 *)&unk_93AE0;
+        //v669 = (unsigned __int16 *)&unk_93AE0;
+        v669x = 0;
         HIWORD(v670) = 0;
         while ( 1 )
         {
-          LOWORD(v29) = v669[1];
-          v671 = v669[3];
+          LOWORD(v29) = unk_93AE0[v669x][0].a16[1];
+          v671 = unk_93AE0[v669x][1].a16[1];
           v672 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
           if ( (v29 & 0x8000u) == 0 )
@@ -108317,9 +108321,9 @@ LABEL_870:
             v673 = v1121 * (unsigned __int16)-(__int16)v29;
             v674 = v673;
             v29 = v673 >> 8;
-            v171 = __CFADD__(v669[8], v674);
-            v675 = v669[8] + v674;
-            BYTE1(v29) += *((_BYTE *)v669 + 18) + v171;
+            v171 = __CFADD__(unk_93AE0[v669x][4].a16[0], v674);
+            v675 = unk_93AE0[v669x][4].a16[0] + v674;
+            BYTE1(v29) += unk_93AE0[v669x][4].a16[1] + v171;
             if ( v671 > widthViewPort_93AD8 )
               LOWORD(v671) = widthViewPort_93AD8;
             v29 = (unsigned __int16)v29;
@@ -108475,7 +108479,8 @@ LABEL_880:
             }
           }
 LABEL_897:
-          v669 += 10;
+          //v669 += 10;
+          v669x++;
           if ( !--v1098 )
             return;
         }
@@ -108487,19 +108492,20 @@ LABEL_897:
           goto LABEL_897;
         v672 += v29;
         v29 = (unsigned __int8)byte_967E0;
-        v675 = v669[8];
-        BYTE1(v29) = *((_BYTE *)v669 + 18);
+        v675 = unk_93AE0[v669x][4].a16[0];
+        BYTE1(v29) = unk_93AE0[v669x][4].a16[1];
         goto LABEL_880;
       case 18:
 LABEL_899:
-        v706 = (unsigned __int16 *)&unk_93AE0;
+        //v706 = (unsigned __int16 *)&unk_93AE0;
+        v706x = 0;
         v1157 = v1110 << 16;
         HIWORD(v707) = 0;
         HIWORD(v708) = 0;
         while ( 1 )
         {
-          LOWORD(v707) = v706[1];
-          v709 = v706[3];
+          LOWORD(v707) = unk_93AE0[v706x][0].a16[1];
+          v709 = unk_93AE0[v706x][1].a16[1];
           v710 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
           if ( (v707 & 0x8000u) == 0 )
@@ -108507,9 +108513,9 @@ LABEL_899:
           if ( (__int16)v709 > 0 )
           {
             v711 = (unsigned __int16)-(__int16)v707;
-            v713 = __ROL4_16__(*((_DWORD *)v706 + 3) + v1110 * v711);
+            v713 = __ROL4_16__(unk_93AE0[v706x][3].a32 + v1110 * v711);
             BYTE1(v708) = v713;
-            v712 = *((_DWORD *)v706 + 2) + v1099 * v711;
+            v712 = unk_93AE0[v706x][2].a32 + v1099 * v711;
             LOWORD(v713) = v712;
             v714 = v712 >> 8;
             LOBYTE(v708) = BYTE1(v714);
@@ -108517,7 +108523,7 @@ LABEL_899:
               LOWORD(v709) = widthViewPort_93AD8;
             v707 = (unsigned __int16)v714;
 LABEL_909:
-            v1266 = v706;
+            v1266x = v706x;
             v715 = dword_93AD0;
             while ( 1 )
             {
@@ -108715,10 +108721,11 @@ LABEL_909:
                 break;
               v710 += 16;
             }
-            v706 = v1266;
+            v706x = v1266x;
           }
 LABEL_928:
-          v706 += 10;
+          //v706 += 10;
+          v706x++;
           if ( !--v1098 )
             return;
         }
@@ -108729,10 +108736,10 @@ LABEL_928:
         if (bool16)
           goto LABEL_928;
         v710 += v707;
-        v713 = __ROL4_16__(*((_DWORD *)v706 + 3));
+        v713 = __ROL4_16__(unk_93AE0[v706x][3].a32);
         BYTE1(v708) = v713;
-        LOWORD(v713) = v706[4];
-        LOBYTE(v708) = *((_BYTE *)v706 + 10);
+        LOWORD(v713) = unk_93AE0[v706x][2].a16[0];
+        LOBYTE(v708) = unk_93AE0[v706x][2].a16[1];
         goto LABEL_909;
       case 19:
 LABEL_930:
