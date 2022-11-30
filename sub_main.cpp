@@ -102731,7 +102731,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v783; // cx
   int v784; // edx
   __int16 v785; // cx
-  unsigned __int16 *v786; // esi
+  //unsigned __int16 *v786; // esi
+  int v786x;
   unsigned int v787; // eax
   int v788; // ebx
   int v789; // ecx
@@ -102770,7 +102771,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v822; // ecx
   int v823; // edx
   int v824; // ecx
-  unsigned __int16 *v825; // esi
+  //unsigned __int16 *v825; // esi
+  int v825x;
   unsigned int v826; // eax
   int v827; // ebx
   int v828; // ecx
@@ -103221,9 +103223,12 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1266x;
   //unsigned __int16 *v1267; // [esp+5Ch] [ebp-2Ch]
   int v1267x;
-  unsigned __int16 *v1268; // [esp+5Ch] [ebp-2Ch]
-  unsigned __int16 *v1269; // [esp+5Ch] [ebp-2Ch]
+  //unsigned __int16 *v1268; // [esp+5Ch] [ebp-2Ch]
+  int v1268x;
+  //unsigned __int16 *v1269; // [esp+5Ch] [ebp-2Ch]
+  int v1269x;
   unsigned __int16 *v1270; // [esp+5Ch] [ebp-2Ch]
+
   unsigned __int16 *v1271; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1272; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1273; // [esp+5Ch] [ebp-2Ch]
@@ -108991,15 +108996,16 @@ LABEL_959:
         goto LABEL_940;
       case 20:
 LABEL_961:
-        v786 = (unsigned __int16 *)&unk_93AE0;
+        //v786 = (unsigned __int16 *)&unk_93AE0;
+        v786x = 0;
         v1159 = v1110 << 16;
         v1168 = v1121 << 16;
         HIWORD(v787) = 0;
         HIWORD(v788) = 0;
         while ( 1 )
         {
-          LOWORD(v787) = v786[1];
-          v789 = v786[3];
+          LOWORD(v787) = unk_93AE0[v786x][0].a16[1];
+          v789 = unk_93AE0[v786x][1].a16[1];
           v790 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
           if ( (v787 & 0x8000u) == 0 )
@@ -109010,15 +109016,15 @@ LABEL_961:
               v789 = widthViewPort_93AD8;
             v1177 = v789;
             v791 = (unsigned __int16)-(__int16)v787;
-            v792 = __ROL4_16__(*((_DWORD *)v786 + 3) + v1110 * v791);
+            v792 = __ROL4_16__(unk_93AE0[v786x][3].a32 + v1110 * v791);
             BYTE1(v788) = v792;
-            LOWORD(v792) = v786[4] + v1099 * v791;
-            v787 = (unsigned int)(*((_DWORD *)v786 + 2) + v1099 * v791) >> 8;
-            LOBYTE(v788) = (unsigned int)(*((_DWORD *)v786 + 2) + v1099 * v791) >> 16;
-            v793 = __ROL4_16__(*((_DWORD *)v786 + 4) + v1121 * v791);
+            LOWORD(v792) = unk_93AE0[v786x][2].a16[0] + v1099 * v791;
+            v787 = (unsigned int)(unk_93AE0[v786x][2].a32 + v1099 * v791) >> 8;
+            LOBYTE(v788) = (unsigned int)(unk_93AE0[v786x][2].a32 + v1099 * v791) >> 16;
+            v793 = __ROL4_16__(unk_93AE0[v786x][4].a32 + v1121 * v791);
             v787 = (unsigned __int16)v787;
 LABEL_971:
-            v1268 = v786;
+            v1268x = v786x;
             v794 = dword_93AD0;
             while ( 1 )
             {
@@ -109296,10 +109302,11 @@ LABEL_971:
                 break;
               v790 += 16;
             }
-            v786 = v1268;
+            v786x = v1268x;
           }
 LABEL_990:
-          v786 += 10;
+          //v786 += 10;
+          v786x++;
           if ( !--v1098 )
             return;
         }
@@ -109310,24 +109317,25 @@ LABEL_990:
         if (bool16)
           goto LABEL_990;
         v790 += v787;
-        v792 = __ROL4_16__(*((_DWORD *)v786 + 3));
+        v792 = __ROL4_16__(unk_93AE0[v786x][3].a32);
         BYTE1(v788) = v792;
-        LOWORD(v792) = v786[4];
-        LOBYTE(v788) = *((_BYTE *)v786 + 10);
+        LOWORD(v792) = unk_93AE0[v786x][2].a16[0];
+        LOBYTE(v788) = unk_93AE0[v786x][2].a16[1];
         v1177 = v789;
-        v793 = __ROL4_16__(*((_DWORD *)v786 + 4));
+        v793 = __ROL4_16__(unk_93AE0[v786x][4].a32);
         goto LABEL_971;
       case 21:
 LABEL_992:
-        v825 = (unsigned __int16 *)&unk_93AE0;
+        //v825 = (unsigned __int16 *)&unk_93AE0;
+        v825x = 0;
         v1160 = v1110 << 16;
         v1169 = v1121 << 16;
         HIWORD(v826) = 0;
         HIWORD(v827) = 0;
         while ( 1 )
         {
-          LOWORD(v826) = v825[1];
-          v828 = v825[3];
+          LOWORD(v826) = unk_93AE0[v825x][0].a16[1];
+          v828 = unk_93AE0[v825x][1].a16[1];
           v829 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
           if ( (v826 & 0x8000u) == 0 )
@@ -109338,15 +109346,15 @@ LABEL_992:
               v828 = widthViewPort_93AD8;
             v1193 = v828;
             v830 = (unsigned __int16)-(__int16)v826;
-            v831 = __ROL4_16__(*((_DWORD *)v825 + 3) + v1110 * v830);
+            v831 = __ROL4_16__(unk_93AE0[v825x][3].a32 + v1110 * v830);
             BYTE1(v827) = v831;
-            LOWORD(v831) = v825[4] + v1099 * v830;
-            v826 = (unsigned int)(*((_DWORD *)v825 + 2) + v1099 * v830) >> 8;
-            LOBYTE(v827) = (unsigned int)(*((_DWORD *)v825 + 2) + v1099 * v830) >> 16;
-            v832 = __ROL4_16__(*((_DWORD *)v825 + 4) + v1121 * v830);
+            LOWORD(v831) = unk_93AE0[v825x][2].a16[0] + v1099 * v830;
+            v826 = (unsigned int)(unk_93AE0[v825x][2].a32 + v1099 * v830) >> 8;
+            LOBYTE(v827) = (unsigned int)(unk_93AE0[v825x][2].a32 + v1099 * v830) >> 16;
+            v832 = __ROL4_16__(unk_93AE0[v825x][4].a32 + v1121 * v830);
             v826 = (unsigned __int16)v826;
 LABEL_1002:
-            v1269 = v825;
+            v1269x = v825x;
             v833 = dword_93AD0;
             while ( 1 )
             {
@@ -109624,10 +109632,11 @@ LABEL_1002:
                 break;
               v829 += 16;
             }
-            v825 = v1269;
+            v825x = v1269x;
           }
 LABEL_1021:
-          v825 += 10;
+          //v825 += 10;
+          v825x++;
           if ( !--v1098 )
             return;
         }
@@ -109638,12 +109647,12 @@ LABEL_1021:
         if (bool16)
           goto LABEL_1021;
         v829 += v826;
-        v831 = __ROL4_16__(*((_DWORD *)v825 + 3));
+        v831 = __ROL4_16__(unk_93AE0[v825x][3].a32);
         BYTE1(v827) = v831;
-        LOWORD(v831) = v825[4];
-        LOBYTE(v827) = *((_BYTE *)v825 + 10);
+        LOWORD(v831) = unk_93AE0[v825x][2].a16[0];
+        LOBYTE(v827) = unk_93AE0[v825x][2].a16[1];
         v1193 = v828;
-        v832 = __ROL4_16__(*((_DWORD *)v825 + 4));
+        v832 = __ROL4_16__(unk_93AE0[v825x][4].a32);
         goto LABEL_1002;
       case 22:
 LABEL_1023:
