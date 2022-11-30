@@ -102488,7 +102488,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v547; // cx
   int v548; // edx
   __int16 v549; // cx
-  unsigned __int16 *v550; // esi
+  //unsigned __int16 *v550; // esi
+  int v550x;
   int v551; // eax
   int v552; // ebx
   int v553; // ecx
@@ -102528,7 +102529,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v587; // cx
   int v588; // edx
   __int16 v589; // cx
-  unsigned __int16 *v590; // esi
+  //unsigned __int16 *v590; // esi
+  int v590x;
   _BYTE *v591; // edx
   int v592; // eax
   int v593; // ebx
@@ -103208,7 +103210,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1263x;
   //unsigned __int16 *v1264; // [esp+5Ch] [ebp-2Ch]
   int v1264x;
-  unsigned __int16 *v1265; // [esp+5Ch] [ebp-2Ch]
+  //unsigned __int16 *v1265; // [esp+5Ch] [ebp-2Ch]
+  int v1265x;
   unsigned __int16 *v1266; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1267; // [esp+5Ch] [ebp-2Ch]
   unsigned __int16 *v1268; // [esp+5Ch] [ebp-2Ch]
@@ -107639,14 +107642,15 @@ LABEL_750:
         goto LABEL_731;
       case 13:
 LABEL_752:
-        v550 = (unsigned __int16 *)&unk_93AE0;
+        //v550 = (unsigned __int16 *)&unk_93AE0;
+        v550x = 0;
         v1156 = v1110 << 16;
         HIWORD(v551) = 0;
         HIWORD(v552) = 0;
         while ( 1 )
         {
-          LOWORD(v551) = v550[1];
-          v553 = v550[3];
+          LOWORD(v551) = unk_93AE0[v550x][0].a16[1];
+          v553 = unk_93AE0[v550x][3].a16[1];
           v554 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
           if ( (v551 & 0x8000u) == 0 )
@@ -107654,9 +107658,9 @@ LABEL_752:
           if ( (__int16)v553 > 0 )
           {
             v555 = (unsigned __int16)-(__int16)v551;
-            v557 = __ROL4_16__(*((_DWORD *)v550 + 3) + v1110 * v555);
+            v557 = __ROL4_16__(unk_93AE0[v550x][3].a32 + v1110 * v555);
             BYTE1(v552) = v557;
-            v556 = *((_DWORD *)v550 + 2) + v1099 * v555;
+            v556 = unk_93AE0[v550x][2].a32 + v1099 * v555;
             LOWORD(v557) = v556;
             v558 = v556 >> 8;
             LOBYTE(v552) = BYTE1(v558);
@@ -107664,7 +107668,7 @@ LABEL_752:
               LOWORD(v553) = widthViewPort_93AD8;
             v551 = (unsigned __int16)v558;
 LABEL_762:
-            v1265 = v550;
+            v1265x = v550x;
             v559 = dword_93AD0;
             BYTE1(v551) = byte_967E0;
             while ( 1 )
@@ -107847,10 +107851,11 @@ LABEL_762:
                 break;
               v554 += 16;
             }
-            v550 = v1265;
+            v550x = v1265x;
           }
 LABEL_781:
-          v550 += 10;
+          //v550 += 10;
+          v550x++;
           if ( !--v1098 )
             return;
         }
@@ -107861,22 +107866,23 @@ LABEL_781:
         if (bool16)
           goto LABEL_781;
         v554 += v551;
-        v557 = __ROL4_16__(*((_DWORD *)v550 + 3));
+        v557 = __ROL4_16__(unk_93AE0[v550x][3].a32);
         BYTE1(v552) = v557;
-        LOWORD(v557) = v550[4];
-        LOBYTE(v552) = *((_BYTE *)v550 + 10);
+        LOWORD(v557) = unk_93AE0[v550x][2].a32;
+        LOBYTE(v552) = unk_93AE0[v550x][2].a16[1];
         goto LABEL_762;
       case 14:
 LABEL_783:
-        v590 = (unsigned __int16 *)&unk_93AE0;
+        //v590 = (unsigned __int16 *)&unk_93AE0;
+        v590x = 0;
         v591 = (_BYTE *)actScrPtr;
         HIWORD(v592) = 0;
         BYTE1(v592) = byte_967E0;
         HIWORD(v593) = 0;
         while ( 1 )
         {
-          LOWORD(v593) = v590[1];
-          v594 = v590[3];
+          LOWORD(v593) = unk_93AE0[v590x][0].a16[1];
+          v594 = unk_93AE0[v590x][1].a16[1];
           v591 += pitchViewPort_93AD4;
           if ( (v593 & 0x8000u) == 0 )
             break;
@@ -107970,7 +107976,8 @@ LABEL_793:
             }
           }
 LABEL_810:
-          v590 += 10;
+          //v590 += 10;
+          v590x++;
           if ( !--v1098 )
             return;
         }
