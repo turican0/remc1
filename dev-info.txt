@@ -526,9 +526,9 @@ if (pnt1->var_1 == pnt3->var_1) false
 if (pnt1->var_1 >= pnt3->var_1) false
 if (pnt2->var_0 <= pnt1->var_0) true return
 
-unk_93AE0[v904x]
-unk_93AE0[v904x][0].a16[1]
-unk_93AE0[v904x][3].a32
+unk_93AE0[v218x]
+unk_93AE0[v218x][0].a16[1]
+unk_93AE0[v218x][3].a32
 
 v133 = (uint32*)&unk_93AE0; -ok
 v129 = (uint32*)&unk_93AE0; -ok
@@ -538,9 +538,9 @@ v159 = (uint32*)&unk_93AE0; -ok
 v155 = (uint32*)&unk_93AE0; -ok
 v150 = (uint32*)&unk_93AE0; -ok
 v143 = (uint32*)&unk_93AE0; -ok
-v160 = (unsigned __int16 *)&unk_93AE0;
-for ( i = (uint16*)&unk_93AE0; ; i += 10 )
-v218 = (unsigned __int16 *)&unk_93AE0;
+v160 = (unsigned __int16 *)&unk_93AE0; -ok
+for ( i = (uint16*)&unk_93AE0; ; i += 10 ) -ok
+v218 = (unsigned __int16 *)&unk_93AE0; -ok
 
 v274 = (unsigned __int16 *)&unk_93AE0;
 for ( j = (uint16*)&unk_93AE0; ; j += 10 )
@@ -559,10 +559,10 @@ v746 = (unsigned __int16 *)&unk_93AE0; -ok
 v786 = (unsigned __int16 *)&unk_93AE0; -ok
 v825 = (unsigned __int16 *)&unk_93AE0; -ok
 v864 = (unsigned __int16 *)&unk_93AE0; -ok
-v904 = (unsigned __int16 *)&unk_93AE0;
-v944 = (unsigned __int16 *)&unk_93AE0;
-v983 = (unsigned __int16 *)&unk_93AE0;
-v1022 = (unsigned __int16 *)&unk_93AE0;
+v904 = (unsigned __int16 *)&unk_93AE0; -ok
+v944 = (unsigned __int16 *)&unk_93AE0; -ok
+v983 = (unsigned __int16 *)&unk_93AE0; -ok
+v1022 = (unsigned __int16 *)&unk_93AE0; -ok
 v105 = (uint32*)&unk_93AE0;
 v99 = (uint32*)&unk_93AE0;
 v88 = (uint32*)&unk_93AE0;
