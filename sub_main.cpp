@@ -106208,12 +106208,12 @@ LABEL_491:
                   BYTE1(v366.dword) += BYTE2(v1121.dword) + v171;
 LABEL_492:
                   v366.byte[0] = v377[v367.dword];
-                  v367.byte[0] += BYTE2(v1099.dword) + __CFADD__16(v1099.dword, v372.dword);
-                  LOWORD(v372.dword) += v1099.dword;
-                  v367.byte[1] += BYTE2(v1110.dword) + __CFADD__32(v1150, v372.dword);
+                  v367.byte[0] += v1099.byte[2] + __CFADD__16(v1099.dword, v372.dword);
+                  v372.word[0] += v1099.dword;
+                  v367.byte[1] += v1110.byte[2] + __CFADD__32(v1150, v372.dword);
                   v372.dword += v1150;
                   tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
-                  v366.byte[1] += BYTE2(v1121.dword) + __CFADD__32(v1166, tempScrPosX.a32);
+                  v366.byte[1] += v1121.byte[2] + __CFADD__32(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
 LABEL_493:
                   v171 = __CFADD__((_WORD)v1099.dword, (_WORD)v372.dword);
