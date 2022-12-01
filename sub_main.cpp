@@ -106265,19 +106265,18 @@ compare_index_24629B++;
 #endif debug1*/
 //debug
                   //v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
-                  //v171 = uint16(v1099) > uint16(v1099 + v372);
-                  
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
-                  LOBYTE(v367.dword) = BYTE2(v1099) + v367.dword + (uint16(v1099) > uint16(v1099 + v372));
+                  //v171 = uint16(v1099) > uint16(v1099 + v372);                  
+                  v366.byte[0] = v377[v367.dword];
+                  v367.byte[0] = BYTE2(v1099) + v367.dword + (uint16(v1099) > uint16(v1099 + v372));
                   LOWORD(v372) += v1099;
                   //v171 = __CFADD__(v1150, v372);
                   //v171 = uint32(v1150) > uint32(v1150 + v372);                  
-                  BYTE1(v367.dword) += BYTE2(v1110) + (uint32(v1150) > uint32(v1150 + v372));
+                  v367.byte[1] += BYTE2(v1110) + (uint32(v1150) > uint32(v1150 + v372));
                   v372 += v1150;
                   //v171 = __CFADD__(v1166, tempScrPosX.a32);
                   //v171 = uint32(v1166) > uint32(v1166 + tempScrPosX.a32);                  
                   tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366.dword];//here
-                  BYTE1(v366.dword) += BYTE2(v1121) + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
+                  v366.byte[1] += BYTE2(v1121) + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
                   tempScrPosX.a32 += v1166;
 LABEL_497:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
