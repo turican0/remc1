@@ -101918,6 +101918,7 @@ LABEL_124:
     }
 }
 
+
 //SYNCHRONIZED WITH REMC2
 void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Type_RenderPoint* pnt3)//2439A3_ // draw textured triangle
 {
@@ -102108,7 +102109,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   uint8* tempScrPtr4;
   unsigned int v169; // eax
   __int16 v170; // bx
-  _BOOL1 v171; // cf
+  bool v171; // cf
   __int16 v172; // bx
   __int16 v173; // bx
   char v174; // ah
@@ -106262,14 +106263,17 @@ add_compare(0x24629B, true, true);
 compare_index_24629B++;
 #endif debug1*/
 //debug
-                  v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                  //v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                  v171 = uint16(v1099) > uint16(v1099 + v372);
                   LOWORD(v372) = v1099 + v372;
                   LOBYTE(v366) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
-                  v171 = __CFADD__(v1150, v372);
+                  //v171 = __CFADD__(v1150, v372);
+                  v171 = uint32(v1150) > uint32(v1150 + v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  //v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  v171 = uint32(v1166) > uint32(v1166 + tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366];//here
                   BYTE1(v366) += BYTE2(v1121) + v171;
