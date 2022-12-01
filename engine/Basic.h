@@ -50,6 +50,11 @@ typedef struct {//size 48
 }Type_48x;
 
 typedef union {
+	uint32 dw;
+	uint8* p;
+}Type_IntPointer;
+
+typedef union {
 	uint32 dword;
 	uint16 word[2];
 	uint8 byte[4];

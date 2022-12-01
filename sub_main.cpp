@@ -1641,7 +1641,7 @@ void sub_726E7_72BF7(__int16 a1, uint16_t* a2, int a3, uint16_t* a4);
 char sub_72807_72D17(unsigned __int8 *a1, _BYTE *a2);
 void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3);
 void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Type_RenderPoint* pnt3);
-void SetViewPort2_79495_799A5(uint8* a1, int a2, int a3, int a4, int a5);
+void SetViewPort2_79495_799A5(uint8* a1, uint8* a2, int a3, int a4, int a5);
 void sub_79906(int a1);
 void sub_79A1B(int a1);
 int sub_79A70_79F80(int result, _BYTE *a2, _BYTE *a3, int a4, int a5, int a6);
@@ -3736,7 +3736,8 @@ int32 sin_9134C[(256 + 256 + 256 + 256) * 2] = {
 0x0000FFFB,0x0000FFFD,0x0000FFFF,0x00010000
 };
 //void (*off_9134C[2])() = { &sub_10000, &sub_10000 }; // weak
-uint32 dword_9334C[256 + 256] =
+
+Type_IntPointer dword_9334C[256 + 256] =
 {
 0x00000000,0x00000020,0x00000040,0x00000060,
 0x00000080,0x000000A0,0x000000C0,0x000000E0,
@@ -4180,7 +4181,7 @@ int dword_93AB0 = 80; // weak
 __int16 word_93AB4 = -4; // weak
 uint8* beginPrevLineFrame_93AC8 = nullptr; // weak
 uint8* beginFrame_93ACC = nullptr; // weak
-int dword_93AD0 = 0; // weak
+uint8* dword_93AD0 = nullptr; // weak
 int pitchViewPort_93AD4 = 0; // weak
 uint16 widthViewPort_93AD8 = 0; // weak
 uint16 heightViewPort_93ADC = 0; // weak
@@ -33444,7 +33445,7 @@ LABEL_26:
                                 if ((v72 & 2) == 0)
                                 {
                                     v73 = (int*)((char*)&unk_902DC + 32 * *(unsigned __int8*)(v71 + 42));
-                                    v213x[2] = *v73;
+                                    v213x[2] = v73[0];
                                     v213x[3] = v73[1];
                                     v208x[2] = v73[2];
                                     v208x[3] = v73[3];
@@ -33452,7 +33453,7 @@ LABEL_26:
                                     v203x[3] = v73[5];
                                     v198x[2] = v73[6];
                                     v198x[3] = v73[7];
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v71 + 41)];
+                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v71 + 41)].p;
                                     v74 = *(_BYTE*)(v71 + 38);
                                     byte_967E1 = 5;
                                     if ((v74 & 1) != 0)
@@ -33538,7 +33539,7 @@ LABEL_26:
                                 v87 = *(unsigned __int8*)(v84 + 41);
                                 byte_967E1 = 5;
                                 v88 = *(_BYTE*)(v84 + 38);
-                                dword_93AD0 = dword_9334C[v87];
+                                dword_93AD0 = dword_9334C[v87].p;
                                 if ((v88 & 1) != 0)
                                 {
                                     DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
@@ -33684,7 +33685,7 @@ LABEL_26:
                                     v203x[3] = v90[5];
                                     v198x[2] = v90[6];
                                     v198x[3] = v90[7];
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)];
+                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
                                     if ((*(_BYTE*)(v121 + 38) & 1) != 0)
                                     {
                                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33715,7 +33716,7 @@ LABEL_26:
                                     v198x[2] = v90[6];
                                     v198x[3] = v90[7];
                                     v124 = *(_BYTE*)(v121 + 38);
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)];
+                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
                                     if ((v124 & 1) != 0)
                                     {
                                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33782,7 +33783,7 @@ LABEL_26:
                         v198x[2] = *(_DWORD*)((char*)&unk_902DC + v106 + 24);
                         v198x[3] = *(_DWORD*)((char*)&unk_902DC + v106 + 28);
                         v107 = *(_BYTE*)(v102 + 38);
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)];
+                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
                         if ((v107 & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33812,7 +33813,7 @@ LABEL_26:
                         v203x[3] = v105[5];
                         v198x[2] = v105[6];
                         v198x[3] = v105[7];
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)];
+                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
                         if ((*(_BYTE*)(v102 + 38) & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34028,7 +34029,7 @@ LABEL_26:
                     v198x[2] = v147[6];
                     v198x[3] = v147[7];
                     v182 = *(_BYTE*)(v179 + 38);
-                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v179 + 41)];
+                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v179 + 41)].p;
                     if ((v182 & 1) != 0)
                     {
                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34103,7 +34104,7 @@ LABEL_26:
                         v203x[3] = v147[5];
                         v198x[2] = v147[6];
                         v198x[3] = v147[7];
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v194 + 41)];
+                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v194 + 41)].p;
                         if ((*(_BYTE*)(v194 + 38) & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34626,7 +34627,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 							v203x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][5];
 							v198x.var_2 = unk_902DC[tempBegBscreen[index62].var_42][6];
 							v198x.var_3 = unk_902DC[tempBegBscreen[index62].var_42][7];
-							dword_93AD0 = dword_9334C[tempBegBscreen[index62].haveTexture_41];
+							dword_93AD0 = dword_9334C[tempBegBscreen[index62].haveTexture_41].p;
 							byte_967E1 = 5;
 							if ((tempBegBscreen[index62].triangleDir_38._axis_2d.x & 1) != 0)
 							{
@@ -34683,7 +34684,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 								v198x.var_2 = unk_902DC[tempBegBscreen[indexv76].var_42][6];
 								v198x.var_3 = unk_902DC[tempBegBscreen[indexv76].var_42][7];
 								byte_967E1 = 5;
-								dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].haveTexture_41];
+								dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].haveTexture_41].p;
 								if ((tempBegBscreen[indexv76].triangleDir_38._axis_2d.x & 1) != 0)
 								{
 									DrawTriangle_729A3_72EB3(&v213x, &v198x, &v208x);
@@ -34770,7 +34771,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
 						v198x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
 						v198x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41];
+						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34799,7 +34800,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
 						v198x.var_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
 						v198x.var_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41];
+						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34864,7 +34865,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
 						v198x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
 						v198x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41];
+						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34893,7 +34894,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
 						v198x.var_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
 						v198x.var_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41];
+						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -35061,7 +35062,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					v198x.var_2 = unk_902DC[tempBegBscreen[index168].var_42][6];
 					v198x.var_3 = unk_902DC[tempBegBscreen[index168].var_42][7];
 
-					dword_93AD0 = dword_9334C[tempBegBscreen[index168].haveTexture_41];
+					dword_93AD0 = dword_9334C[tempBegBscreen[index168].haveTexture_41].p;
 					if ((tempBegBscreen[index168].triangleDir_38._axis_2d.x & 1) != 0)
 					{
 						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -35114,7 +35115,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][5];
 						v198x.var_2 = unk_902DC[tempBegBscreen[index183].var_42][6];
 						v198x.var_3 = unk_902DC[tempBegBscreen[index183].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index183].haveTexture_41];
+						dword_93AD0 = dword_9334C[tempBegBscreen[index183].haveTexture_41].p;
 						if ((tempBegBscreen[index183].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -54082,7 +54083,7 @@ void sub_44470_447B0()//215470_
         int sumB = 0;
         for (int j = 0; j < 256 / str_AE400_AE3F0->var_u8_8608; j++)
         {
-          dword_9334C[index1] = (int)&begBlkDat_AE3F0_26C3F0_26C3E0[sumB + sumA];
+          dword_9334C[index1].p = (uint8*)&begBlkDat_AE3F0_26C3F0_26C3E0[sumB + sumA];
           sumB += str_AE400_AE3F0->var_u8_8608;
           index1++;
         }
@@ -84649,7 +84650,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v219 = (unsigned __int16)v226;
                 LABEL_361:
                     v1257 = v218;
-                    v227 = dword_93AD0;
+                    v227 = (int)dword_93AD0;
                     while (1)
                     {
                         v228 = *(_BYTE*)(v220 + v227);
@@ -84877,7 +84878,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v275 = (unsigned __int16)v282;
                 LABEL_392:
                     v1258 = v274;
-                    v283 = dword_93AD0;
+                    v283 = (int)dword_93AD0;
                     while (1)
                     {
                         v284 = *(_BYTE*)(v276 + v283);
@@ -85298,7 +85299,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
                     v376 = (_BYTE*)(dword_74F95_754A5[v373 & 0xF] + v370);
-                    v377 = dword_93AD0;
+                    v377 = (int)dword_93AD0;
                     switch (v373 & 0xF)
                     {
                     case 0:
@@ -85599,7 +85600,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v385) = widthViewPort_93AD8;
                 LABEL_513:
                     v388 = (_BYTE*)(dword_74F95_754A5[v385 & 0xF] + v382);
-                    v389 = dword_93AD0;
+                    v389 = (int)dword_93AD0;
                     switch (v385 & 0xF)
                     {
                     case 0:
@@ -85912,7 +85913,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v391 = (unsigned __int16)v398;
                 LABEL_574:
                     v1261 = v390;
-                    v399 = dword_93AD0;
+                    v399 = (int)dword_93AD0;
                     BYTE1(v391) = byte_967E0;
                     while (1)
                     {
@@ -86141,7 +86142,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v431 = (unsigned __int16)v438;
                 LABEL_605:
                     v1262 = v430;
-                    v439 = dword_93AD0;
+                    v439 = (int)dword_93AD0;
                     BYTE1(v431) = byte_967E0;
                     while (1)
                     {
@@ -86387,7 +86388,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v471 = (unsigned __int16)v478;
                 LABEL_668:
                     v1263 = v470;
-                    v479 = dword_93AD0;
+                    v479 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v471) = *(_BYTE*)(v472 + v479);
@@ -86679,7 +86680,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v511 = (unsigned __int16)v518;
                 LABEL_731:
                     v1264 = v510;
-                    v519 = dword_93AD0;
+                    v519 = (int)dword_93AD0;
                     LOBYTE(v511) = byte_967E0;
                     while (1)
                     {
@@ -86908,7 +86909,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v551 = (unsigned __int16)v558;
                 LABEL_762:
                     v1265 = v550;
-                    v559 = dword_93AD0;
+                    v559 = (int)dword_93AD0;
                     BYTE1(v551) = byte_967E0;
                     while (1)
                     {
@@ -87748,7 +87749,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v707 = (unsigned __int16)v714;
                 LABEL_909:
                     v1266 = v706;
-                    v715 = dword_93AD0;
+                    v715 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v707) = *(_BYTE*)(v708 + v715);
@@ -87992,7 +87993,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v747 = (unsigned __int16)v754;
                 LABEL_940:
                     v1267 = v746;
-                    v755 = dword_93AD0;
+                    v755 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v747) = *(_BYTE*)(v748 + v755);
@@ -88238,7 +88239,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v787 = (unsigned __int16)v787;
                 LABEL_971:
                     v1268 = v786;
-                    v794 = dword_93AD0;
+                    v794 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v787) = *(_BYTE*)(v788 + v794);
@@ -88566,7 +88567,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v826 = (unsigned __int16)v826;
                 LABEL_1002:
                     v1269 = v825;
-                    v833 = dword_93AD0;
+                    v833 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v826) = *(_BYTE*)(v827 + v833);
@@ -88892,7 +88893,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v865 = (unsigned __int16)v872;
                 LABEL_1033:
                     v1270 = v864;
-                    v873 = dword_93AD0;
+                    v873 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v865) = *(_BYTE*)(v866 + v873);
@@ -89184,7 +89185,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v905 = (unsigned __int16)v912;
                 LABEL_1096:
                     v1271 = v904;
-                    v913 = dword_93AD0;
+                    v913 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v905) = *(_BYTE*)(v906 + v913);
@@ -89478,7 +89479,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v945 = (unsigned __int16)v945;
                 LABEL_1159:
                     v1272 = v944;
-                    v952 = dword_93AD0;
+                    v952 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v945) = *(_BYTE*)(v946 + v952);
@@ -89854,7 +89855,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v984 = (unsigned __int16)v984;
                 LABEL_1222:
                     v1273 = v983;
-                    v991 = dword_93AD0;
+                    v991 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v984) = *(_BYTE*)(v985 + v991);
@@ -90232,7 +90233,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1023 = (unsigned __int16)v1023;
             LABEL_1285:
                 v1274 = v1022;
-                v1030 = dword_93AD0;
+                v1030 = (int)dword_93AD0;
                 while (1)
                 {
                     LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
@@ -94957,7 +94958,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v219 = (unsigned __int16)v226;
                 LABEL_361:
                     v1257 = v218;
-                    v227 = dword_93AD0;
+                    v227 = (int)dword_93AD0;
                     while (1)
                     {
                         v228 = *(_BYTE*)(v220 + v227);
@@ -95185,7 +95186,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v275 = (unsigned __int16)v282;
                 LABEL_392:
                     v1258 = v274;
-                    v283 = dword_93AD0;
+                    v283 = (int)dword_93AD0;
                     while (1)
                     {
                         v284 = *(_BYTE*)(v276 + v283);
@@ -95603,7 +95604,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
                     v376 = (_BYTE*)(dword_74F95_754A5[v373 & 0xF] + v370);
-                    v377 = dword_93AD0;
+                    v377 = (int)dword_93AD0;
                     switch (v373 & 0xF)
                     {
                     case 0:
@@ -95904,7 +95905,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v385) = widthViewPort_93AD8;
                 LABEL_513:
                     v388 = (_BYTE*)(dword_74F95_754A5[v385 & 0xF] + v382);
-                    v389 = dword_93AD0;
+                    v389 = (int)dword_93AD0;
                     switch (v385 & 0xF)
                     {
                     case 0:
@@ -96217,7 +96218,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v391 = (unsigned __int16)v398;
                 LABEL_574:
                     v1261 = v390;
-                    v399 = dword_93AD0;
+                    v399 = (int)dword_93AD0;
                     BYTE1(v391) = byte_967E0;
                     while (1)
                     {
@@ -96446,7 +96447,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v431 = (unsigned __int16)v438;
                 LABEL_605:
                     v1262 = v430;
-                    v439 = dword_93AD0;
+                    v439 = (int)dword_93AD0;
                     BYTE1(v431) = byte_967E0;
                     while (1)
                     {
@@ -96692,7 +96693,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v471 = (unsigned __int16)v478;
                 LABEL_668:
                     v1263 = v470;
-                    v479 = dword_93AD0;
+                    v479 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v471) = *(_BYTE*)(v472 + v479);
@@ -96984,7 +96985,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v511 = (unsigned __int16)v518;
                 LABEL_731:
                     v1264 = v510;
-                    v519 = dword_93AD0;
+                    v519 = (int)dword_93AD0;
                     LOBYTE(v511) = byte_967E0;
                     while (1)
                     {
@@ -97213,7 +97214,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v551 = (unsigned __int16)v558;
                 LABEL_762:
                     v1265 = v550;
-                    v559 = dword_93AD0;
+                    v559 = (int)dword_93AD0;
                     BYTE1(v551) = byte_967E0;
                     while (1)
                     {
@@ -98053,7 +98054,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v707 = (unsigned __int16)v714;
                 LABEL_909:
                     v1266 = v706;
-                    v715 = dword_93AD0;
+                    v715 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v707) = *(_BYTE*)(v708 + v715);
@@ -98297,7 +98298,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v747 = (unsigned __int16)v754;
                 LABEL_940:
                     v1267 = v746;
-                    v755 = dword_93AD0;
+                    v755 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v747) = *(_BYTE*)(v748 + v755);
@@ -98543,7 +98544,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v787 = (unsigned __int16)v787;
                 LABEL_971:
                     v1268 = v786;
-                    v794 = dword_93AD0;
+                    v794 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v787) = *(_BYTE*)(v788 + v794);
@@ -98871,7 +98872,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v826 = (unsigned __int16)v826;
                 LABEL_1002:
                     v1269 = v825;
-                    v833 = dword_93AD0;
+                    v833 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v826) = *(_BYTE*)(v827 + v833);
@@ -99197,7 +99198,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v865 = (unsigned __int16)v872;
                 LABEL_1033:
                     v1270 = v864;
-                    v873 = dword_93AD0;
+                    v873 = (int)dword_93AD0;
                     while (1)
                     {
                         BYTE1(v865) = *(_BYTE*)(v866 + v873);
@@ -99489,7 +99490,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v905 = (unsigned __int16)v912;
                 LABEL_1096:
                     v1271 = v904;
-                    v913 = dword_93AD0;
+                    v913 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v905) = *(_BYTE*)(v906 + v913);
@@ -99783,7 +99784,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v945 = (unsigned __int16)v945;
                 LABEL_1159:
                     v1272 = v944;
-                    v952 = dword_93AD0;
+                    v952 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v945) = *(_BYTE*)(v946 + v952);
@@ -100159,7 +100160,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v984 = (unsigned __int16)v984;
                 LABEL_1222:
                     v1273 = v983;
-                    v991 = dword_93AD0;
+                    v991 = (int)dword_93AD0;
                     while (1)
                     {
                         LOBYTE(v984) = *(_BYTE*)(v985 + v991);
@@ -100537,7 +100538,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v1023 = (unsigned __int16)v1023;
             LABEL_1285:
                 v1274 = v1022;
-                v1030 = dword_93AD0;
+                v1030 = (int)dword_93AD0;
                 while (1)
                 {
                     LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
@@ -102311,7 +102312,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v364; // bx
   __int16 v365; // cx
   Type_dword_0x0_0 v366; // eax
-  int v367; // ebx
+  Type_dword_0x0_0 v367; // ebx
   //char *v368; // esi
   int v369; // ecx
   uint8* tempScrPtr3; // edi
@@ -102321,7 +102322,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v374; // cx
   __int16 v375; // bp
   uint8* tempScrPtr3plus; // edi
-  int v377; // ebp
+  uint8* v377; // ebp
   unsigned int v378; // eax
   int v379; // ebx
   //char *v380; // esi
@@ -105442,7 +105443,7 @@ LABEL_351:
             v219 = (unsigned __int16)v226;
 LABEL_361:
             v1257x = v218x;
-            v227 = dword_93AD0;
+            v227 = (int)dword_93AD0;
             while ( 1 )
             {
               v228 = *(_BYTE *)(v220 + v227);
@@ -105673,7 +105674,7 @@ LABEL_382:
             v275 = (unsigned __int16)v282;
 LABEL_392:
             v1258x = v274x;
-            v283 = dword_93AD0;
+            v283 = (int)dword_93AD0;
             while ( 1 )
             {
               v284 = *(_BYTE *)(v276 + v283);
@@ -106054,7 +106055,7 @@ LABEL_474:
         v1150 = v1110 << 16;
         v1166 = v1121 << 16;
         HIWORD(v366.dword) = 0;
-        HIWORD(v367) = 0;
+        HIWORD(v367.dword) = 0;
         while ( 1 )
         {
             //adress 0x245FFB_
@@ -106086,10 +106087,10 @@ LABEL_474:
           {
               v371 = (unsigned __int16)-(__int16)v366.dword;
               v372 = __ROL4_16__(unk_93AE0[v1259x - 1][3].a32 + v1110 * v371);
-              BYTE1(v367) = v372;
+              BYTE1(v367.dword) = v372;
               LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0] + v1099 * v371;
               v366.dword = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 8;
-              LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 16;
+              LOBYTE(v367.dword) = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 16;
               tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32 + v1121 * v371);
               BYTE1(v366.dword) = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259x - 1][1].a16[1];
@@ -106136,11 +106137,11 @@ LABEL_484:
                 {
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366.dword];
@@ -106148,11 +106149,11 @@ LABEL_484:
 LABEL_487:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366.dword];
@@ -106160,11 +106161,11 @@ LABEL_487:
 LABEL_488:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366.dword];
@@ -106172,11 +106173,11 @@ LABEL_488:
 LABEL_489:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366.dword];
@@ -106184,11 +106185,11 @@ LABEL_489:
 LABEL_490:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366.dword];
@@ -106196,35 +106197,32 @@ LABEL_490:
 LABEL_491:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366.dword];
                   BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_492:
-                  v171 = __CFADD__16((_WORD)v1099, (_WORD)v372);
-                  LOWORD(v372) = v1099 + v372;
-                  v366.byte[0] = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
-                  v171 = __CFADD__32(v1150, v372);
+                  v366.byte[0] = v377[v367.dword];
+                  v367.byte[0] += BYTE2(v1099) + __CFADD__16(v1099, v372);
+                  LOWORD(v372) += v1099;
+                  v367.byte[1] += BYTE2(v1110) + __CFADD__32(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__32(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
-                  v366.byte[1] += BYTE2(v1121) + v171;
+                  v366.byte[1] += BYTE2(v1121) + __CFADD__32(v1166, tempScrPosX.a32);
+                  tempScrPosX.a32 += v1166;
 LABEL_493:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366.dword];
@@ -106232,11 +106230,11 @@ LABEL_493:
 LABEL_494:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366.dword];
@@ -106244,11 +106242,11 @@ LABEL_494:
 LABEL_495:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366.dword];
@@ -106269,12 +106267,12 @@ compare_index_24629B++;
                   //v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   v171 = uint16(v1099) > uint16(v1099 + v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   //v171 = __CFADD__(v1150, v372);
                   v171 = uint32(v1150) > uint32(v1150 + v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   //v171 = __CFADD__(v1166, tempScrPosX.a32);
                   v171 = uint32(v1166) > uint32(v1166 + tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
@@ -106283,11 +106281,11 @@ compare_index_24629B++;
 LABEL_497:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366.dword];
@@ -106295,11 +106293,11 @@ LABEL_497:
 LABEL_498:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366.dword];
@@ -106307,11 +106305,11 @@ LABEL_498:
 LABEL_499:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366.dword];
@@ -106319,11 +106317,11 @@ LABEL_499:
 LABEL_500:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366.dword];
@@ -106336,11 +106334,11 @@ LABEL_500:
 LABEL_485:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
-                  LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + v377);
+                  LOBYTE(v367.dword) = BYTE2(v1099) + v171 + v367.dword;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
-                  BYTE1(v367) += BYTE2(v1110) + v171;
+                  BYTE1(v367.dword) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366.dword];
@@ -106360,10 +106358,10 @@ LABEL_501:
         if (bool16)
           goto LABEL_501;
         tempScrPtr3 += v366.dword;
-        LOBYTE(v367) = unk_93AE0[v1259x - 1][2].a16[1];
+        LOBYTE(v367.dword) = unk_93AE0[v1259x - 1][2].a16[1];
         v372 = __ROL4_16__(unk_93AE0[v1259x - 1][3].a32);
         v375 = v374;
-        BYTE1(v367) = v372;
+        BYTE1(v367.dword) = v372;
         LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32);
         BYTE1(v366.dword) = tempScrPosX.a32;
@@ -106405,7 +106403,7 @@ LABEL_503:
               LOWORD(v385) = widthViewPort_93AD8;
 LABEL_513:
             tempScrPtr8plus = &tempScrPtr8[dword_74F95_754A5[v385 & 0xF]];
-            v389 = dword_93AD0;
+            v389 = (int)dword_93AD0;
             switch ( v385 & 0xF )
             {
               case 0:
@@ -106720,7 +106718,7 @@ LABEL_564:
             v391 = (unsigned __int16)v398;
 LABEL_574:
             v1261x = v390x;
-            v399 = dword_93AD0;
+            v399 = (int)dword_93AD0;
             BYTE1(v391) = byte_967E0;
             while ( 1 )
             {
@@ -106952,7 +106950,7 @@ LABEL_595:
             v431 = (unsigned __int16)v438;
 LABEL_605:
             v1262x = v430x;
-            v439 = dword_93AD0;
+            v439 = (int)dword_93AD0;
             BYTE1(v431) = byte_967E0;
             while ( 1 )
             {
@@ -107201,7 +107199,7 @@ LABEL_658:
             v471 = (unsigned __int16)v478;
 LABEL_668:
             v1263x = v470x;
-            v479 = dword_93AD0;
+            v479 = (int)dword_93AD0;
             while ( 1 )
             {
               BYTE1(v471) = *(_BYTE *)(v472 + v479);
@@ -107496,7 +107494,7 @@ LABEL_721:
             v511 = (unsigned __int16)v518;
 LABEL_731:
             v1264x = v510x;
-            v519 = dword_93AD0;
+            v519 = (int)dword_93AD0;
             LOBYTE(v511) = byte_967E0;
             while ( 1 )
             {
@@ -107728,7 +107726,7 @@ LABEL_752:
             v551 = (unsigned __int16)v558;
 LABEL_762:
             v1265x = v550x;
-            v559 = dword_93AD0;
+            v559 = (int)dword_93AD0;
             BYTE1(v551) = byte_967E0;
             while ( 1 )
             {
@@ -108581,7 +108579,7 @@ LABEL_899:
             v707 = (unsigned __int16)v714;
 LABEL_909:
             v1266x = v706x;
-            v715 = dword_93AD0;
+            v715 = (int)dword_93AD0;
             while ( 1 )
             {
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
@@ -108828,7 +108826,7 @@ LABEL_930:
             v747 = (unsigned __int16)v754;
 LABEL_940:
             v1267x = v746x;
-            v755 = dword_93AD0;
+            v755 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
@@ -109077,7 +109075,7 @@ LABEL_961:
             v787 = (unsigned __int16)v787;
 LABEL_971:
             v1268x = v786x;
-            v794 = dword_93AD0;
+            v794 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v787) = *(_BYTE *)(v788 + v794);
@@ -109408,7 +109406,7 @@ LABEL_992:
             v826 = (unsigned __int16)v826;
 LABEL_1002:
             v1269x = v825x;
-            v833 = dword_93AD0;
+            v833 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v826) = *(_BYTE *)(v827 + v833);
@@ -109737,7 +109735,7 @@ LABEL_1023:
             v865 = (unsigned __int16)v872;
 LABEL_1033:
             v1270x = v864x;
-            v873 = dword_93AD0;
+            v873 = (int)dword_93AD0;
             while ( 1 )
             {
               BYTE1(v865) = *(_BYTE *)(v866 + v873);
@@ -110032,7 +110030,7 @@ LABEL_1086:
             v905 = (unsigned __int16)v912;
 LABEL_1096:
             v1271x = v904x;
-            v913 = dword_93AD0;
+            v913 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v905) = *(_BYTE *)(v906 + v913);
@@ -110328,7 +110326,7 @@ LABEL_1149:
             v945 = (unsigned __int16)v945;
 LABEL_1159:
             v1272x = v944x;
-            v952 = dword_93AD0;
+            v952 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v945) = *(_BYTE *)(v946 + v952);
@@ -110707,7 +110705,7 @@ LABEL_1212:
             v984 = (unsigned __int16)v984;
 LABEL_1222:
             v1273x = v983x;
-            v991 = dword_93AD0;
+            v991 = (int)dword_93AD0;
             while ( 1 )
             {
               LOBYTE(v984) = *(_BYTE *)(v985 + v991);
@@ -111088,7 +111086,7 @@ LABEL_1275:
         v1023 = (unsigned __int16)v1023;
 LABEL_1285:
         v1274x = v1022x;
-        v1030 = dword_93AD0;
+        v1030 = (int)dword_93AD0;
         while ( 1 )
         {
           LOBYTE(v1023) = *(_BYTE *)(v1024 + v1030);
@@ -112460,7 +112458,7 @@ if (((sortPnt2->var_0 - sortPnt1->var_0) << 16) / v63 > v1079)
 }
 
 //SYNCHRONIZED WITH REMC2
-void SetViewPort2_79495_799A5(uint8* beginFrame, int a2, int pitch, int viewPortWidth, int viewPortHeight)
+void SetViewPort2_79495_799A5(uint8* beginFrame, uint8* beginPointer, int pitch, int viewPortWidth, int viewPortHeight)
 {
 	if (pitch)
 		pitchViewPort_93AD4 = pitch;
@@ -112469,8 +112467,8 @@ void SetViewPort2_79495_799A5(uint8* beginFrame, int a2, int pitch, int viewPort
 		beginFrame_93ACC = beginFrame;
 		beginPrevLineFrame_93AC8 = beginFrame - pitchViewPort_93AD4;
 	}
-	if (a2)
-		dword_93AD0 = a2;
+	if (beginPointer)
+		dword_93AD0 = beginPointer;
 	if (viewPortHeight)
 		heightViewPort_93ADC = viewPortHeight;
 	if (viewPortWidth)
