@@ -573,6 +573,7 @@ v57 = (uint32*)&unk_93AE0;
 
 tempScrPtr4
 
+tempScrPtr3 v376
 v222 tempScrPtr5 - ok
 v278 tempScrPtr6 - ok
 v332 tempScrPtr7 - ok
@@ -586,15 +587,16 @@ v591 tempScrPtr14 k - ok
 v612 tempScrPtr15 m - ok
 v635 tempScrPtr16 - ok
 v672 tempScrPtr17 - ok
-v710 tempScrPtr18
-v750 tempScrPtr19
-v790 tempScrPtr20
-v829 tempScrPtr21
-v868 tempScrPtr22
-v908 tempScrPtr23
-v948 tempScrPtr24
-v987 tempScrPtr25
-v1026 tempScrPtr26
+v710 tempScrPtr18 - ok
+v750 tempScrPtr19 - ok
+v790 tempScrPtr20 - ok
+v829 tempScrPtr21 - ok
+v868 tempScrPtr22 - ok
+v908 tempScrPtr23 - ok
+v948 tempScrPtr24 - ok
+v987 tempScrPtr25 - ok
+v1026 tempScrPtr26 - ok
+
 
 
 
