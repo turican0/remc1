@@ -104,8 +104,11 @@ unk_B3EA0 271EA0
 std::string gameDataPath = "c:/prenos/magic1/cd2/CARPET";
 std::string gameDataPath2 = "c:/prenos/magic1/data";
 
-bool inline __CFADD__16(uint16 x, uint16 y) { return ((x + y) > 0xffff); };
-bool inline __CFADD__32(uint32 x, uint32 y) { return ((x + y) > 0xffffffff); };
+//bool inline __CFADD__16(uint16 x, uint16 y) { return ((x + y) > 0xffff); };
+//bool inline __CFADD__32(uint32 x, uint32 y) { return ((x + y) > 0xffffffff); };
+
+bool inline __CFADD__16(uint16 x, uint16 y) { return uint16(x) > uint16(x + y); };
+bool inline __CFADD__32(uint32 x, uint32 y) { return uint32(x) > uint32(x + y); };
 
 int unk_A9998_A99B0;
 int loc_24080;
@@ -106203,14 +106206,14 @@ LABEL_491:
                   tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366.dword];
                   BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_492:
-                  v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
+                  v171 = __CFADD__16((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
                   v366.byte[0] = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
-                  v171 = __CFADD__(v1150, v372);
+                  v171 = __CFADD__32(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
+                  v171 = __CFADD__32(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
                   v366.byte[1] += BYTE2(v1121) + v171;
