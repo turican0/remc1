@@ -102320,7 +102320,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   un16_32 tempScrPosX; // ecx
   __int16 v374; // cx
   __int16 v375; // bp
-  _BYTE *v376; // edi
+  uint8* tempScrPtr3plus; // edi
   int v377; // ebp
   unsigned int v378; // eax
   int v379; // ebx
@@ -102665,7 +102665,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v707; // eax
   int v708; // ebx
   int v709; // ecx
-  _BYTE *v710; // edi
+  uint8* tempScrPtr18; // edi
   int v711; // eax
   unsigned int v712; // eax
   int v713; // edx
@@ -102706,7 +102706,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v747; // eax
   int v748; // ebx
   int v749; // ecx
-  _BYTE *v750; // edi
+  uint8* tempScrPtr19; // edi
   int v751; // eax
   unsigned int v752; // eax
   int v753; // edx
@@ -102747,7 +102747,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   unsigned int v787; // eax
   int v788; // ebx
   int v789; // ecx
-  _BYTE *v790; // edi
+  uint8* tempScrPtr20; // edi
   int v791; // ecx
   int v792; // edx
   int v793; // ecx
@@ -106097,7 +106097,7 @@ LABEL_474:
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
-            v376 = &tempScrPtr3[dword_74F95_754A5[tempScrPosX.a16[0] & 0xF]];
+              tempScrPtr3plus = &tempScrPtr3[dword_74F95_754A5[tempScrPosX.a16[0] & 0xF]];
             v377 = dword_93AD0;
             switch (tempScrPosX.a16[0] & 0xF )
             {
@@ -106143,7 +106143,7 @@ LABEL_484:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[1] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_487:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106155,7 +106155,7 @@ LABEL_487:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[2] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_488:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106167,7 +106167,7 @@ LABEL_488:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[3] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_489:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106179,7 +106179,7 @@ LABEL_489:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[4] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_490:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106191,7 +106191,7 @@ LABEL_490:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[5] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_491:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106203,7 +106203,7 @@ LABEL_491:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[6] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_492:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106215,7 +106215,7 @@ LABEL_492:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[7] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_493:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106227,7 +106227,7 @@ LABEL_493:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[8] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_494:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106239,7 +106239,7 @@ LABEL_494:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[9] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_495:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106251,7 +106251,7 @@ LABEL_495:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[10] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_496:
 //adress 0x24629B_ 
@@ -106275,7 +106275,7 @@ compare_index_24629B++;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[11] = strPal.byte_B7934_B7924[v366];//here
+                  tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366];//here
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_497:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106287,7 +106287,7 @@ LABEL_497:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[12] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_498:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106299,7 +106299,7 @@ LABEL_498:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[13] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_499:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106311,7 +106311,7 @@ LABEL_499:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[14] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
 LABEL_500:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
@@ -106323,9 +106323,9 @@ LABEL_500:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[15] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
-                  v376 += 16;
+                  tempScrPtr3plus += 16;
                   bool16 = tempScrPosX.a16[0] <= 16;
                   tempScrPosX.a16[0] -= 16;
                   if (bool16)
@@ -106340,7 +106340,7 @@ LABEL_485:
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  v376[0] = strPal.byte_B7934_B7924[v366];
+                  tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366];
                   BYTE1(v366) += BYTE2(v1121) + v171;
                 }
                 break;
@@ -108559,8 +108559,9 @@ LABEL_899:
         {
           LOWORD(v707) = unk_93AE0[v706x][0].a16[1];
           v709 = unk_93AE0[v706x][1].a16[1];
-          v710 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          //v710 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
+          tempScrPtr18 = actScrPtr;
           if ( (v707 & 0x8000u) == 0 )
             break;
           if ( (__int16)v709 > 0 )
@@ -108583,11 +108584,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v713);
               LOWORD(v713) = v1099 + v713;
-              LOBYTE(v707) = *v710;
+              LOBYTE(v707) = tempScrPtr18[0];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v713);
               v716 = v1157 + v713;
-              v710[0] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[0] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v717 = v709 - 1;
               if ( !v717 )
@@ -108595,11 +108596,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v716);
               LOWORD(v716) = v1099 + v716;
-              LOBYTE(v707) = v710[1];
+              LOBYTE(v707) = tempScrPtr18[1];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v716);
               v718 = v1157 + v716;
-              v710[1] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[1] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v719 = v717 - 1;
               if ( !v719 )
@@ -108607,11 +108608,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v718);
               LOWORD(v718) = v1099 + v718;
-              LOBYTE(v707) = v710[2];
+              LOBYTE(v707) = tempScrPtr18[2];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v718);
               v720 = v1157 + v718;
-              v710[2] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[2] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v721 = v719 - 1;
               if ( !v721 )
@@ -108619,11 +108620,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v720);
               LOWORD(v720) = v1099 + v720;
-              LOBYTE(v707) = v710[3];
+              LOBYTE(v707) = tempScrPtr18[3];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v720);
               v722 = v1157 + v720;
-              v710[3] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[3] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v723 = v721 - 1;
               if ( !v723 )
@@ -108631,11 +108632,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v722);
               LOWORD(v722) = v1099 + v722;
-              LOBYTE(v707) = v710[4];
+              LOBYTE(v707) = tempScrPtr18[4];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v722);
               v724 = v1157 + v722;
-              v710[4] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[4] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v725 = v723 - 1;
               if ( !v725 )
@@ -108643,11 +108644,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v724);
               LOWORD(v724) = v1099 + v724;
-              LOBYTE(v707) = v710[5];
+              LOBYTE(v707) = tempScrPtr18[5];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v724);
               v726 = v1157 + v724;
-              v710[5] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[5] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v727 = v725 - 1;
               if ( !v727 )
@@ -108655,11 +108656,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v726);
               LOWORD(v726) = v1099 + v726;
-              LOBYTE(v707) = v710[6];
+              LOBYTE(v707) = tempScrPtr18[6];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v726);
               v728 = v1157 + v726;
-              v710[6] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[6] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v729 = v727 - 1;
               if ( !v729 )
@@ -108667,11 +108668,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v728);
               LOWORD(v728) = v1099 + v728;
-              LOBYTE(v707) = v710[7];
+              LOBYTE(v707) = tempScrPtr18[7];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v728);
               v730 = v1157 + v728;
-              v710[7] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[7] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v731 = v729 - 1;
               if ( !v731 )
@@ -108679,11 +108680,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v730);
               LOWORD(v730) = v1099 + v730;
-              LOBYTE(v707) = v710[8];
+              LOBYTE(v707) = tempScrPtr18[8];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v730);
               v732 = v1157 + v730;
-              v710[8] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[8] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v733 = v731 - 1;
               if ( !v733 )
@@ -108691,11 +108692,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v732);
               LOWORD(v732) = v1099 + v732;
-              LOBYTE(v707) = v710[9];
+              LOBYTE(v707) = tempScrPtr18[9];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v732);
               v734 = v1157 + v732;
-              v710[9] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[9] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v735 = v733 - 1;
               if ( !v735 )
@@ -108703,11 +108704,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v734);
               LOWORD(v734) = v1099 + v734;
-              LOBYTE(v707) = v710[10];
+              LOBYTE(v707) = tempScrPtr18[10];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v734);
               v736 = v1157 + v734;
-              v710[10] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[10] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v737 = v735 - 1;
               if ( !v737 )
@@ -108715,11 +108716,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v736);
               LOWORD(v736) = v1099 + v736;
-              LOBYTE(v707) = v710[11];
+              LOBYTE(v707) = tempScrPtr18[11];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v736);
               v738 = v1157 + v736;
-              v710[11] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[11] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v739 = v737 - 1;
               if ( !v739 )
@@ -108727,11 +108728,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v738);
               LOWORD(v738) = v1099 + v738;
-              LOBYTE(v707) = v710[12];
+              LOBYTE(v707) = tempScrPtr18[12];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v738);
               v740 = v1157 + v738;
-              v710[12] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[12] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v741 = v739 - 1;
               if ( !v741 )
@@ -108739,11 +108740,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v740);
               LOWORD(v740) = v1099 + v740;
-              LOBYTE(v707) = v710[13];
+              LOBYTE(v707) = tempScrPtr18[13];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v740);
               v742 = v1157 + v740;
-              v710[13] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[13] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v743 = v741 - 1;
               if ( !v743 )
@@ -108751,11 +108752,11 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v742);
               LOWORD(v742) = v1099 + v742;
-              LOBYTE(v707) = v710[14];
+              LOBYTE(v707) = tempScrPtr18[14];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v742);
               v744 = v1157 + v742;
-              v710[14] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[14] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               v745 = v743 - 1;
               if ( !v745 )
@@ -108763,16 +108764,16 @@ LABEL_909:
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v744);
               LOWORD(v744) = v1099 + v744;
-              LOBYTE(v707) = v710[15];
+              LOBYTE(v707) = tempScrPtr18[15];
               LOBYTE(v708) = BYTE2(v1099) + v171 + v708;
               v171 = __CFADD__(v1157, v744);
               v713 = v1157 + v744;
-              v710[15] = strPal.byte_BB934_BB924[v707];
+              tempScrPtr18[15] = strPal.byte_BB934_BB924[v707];
               BYTE1(v708) += BYTE2(v1110) + v171;
               LOWORD(v709) = v745 - 1;
               if ( !(_WORD)v709 )
                 break;
-              v710 += 16;
+              tempScrPtr18 += 16;              
             }
             v706x = v1266x;
           }
@@ -108788,7 +108789,7 @@ LABEL_928:
         LOWORD(v709) = v709 - v707;
         if (bool16)
           goto LABEL_928;
-        v710 += v707;
+        tempScrPtr18 += v707;
         v713 = __ROL4_16__(unk_93AE0[v706x][3].a32);
         BYTE1(v708) = v713;
         LOWORD(v713) = unk_93AE0[v706x][2].a16[0];
@@ -108805,8 +108806,9 @@ LABEL_930:
         {
           LOWORD(v747) = unk_93AE0[v746x][0].a16[1];
           v749 = unk_93AE0[v746x][1].a16[1];
-          v750 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          //v750 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
+          tempScrPtr19 = actScrPtr;
           if ( (v747 & 0x8000u) == 0 )
             break;
           if ( (__int16)v749 > 0 )
@@ -108829,11 +108831,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v753);
               LOWORD(v753) = v1099 + v753;
-              BYTE1(v747) = *v750;
+              BYTE1(v747) = tempScrPtr19[0];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v753);
               v756 = v1158 + v753;
-              v750[0] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[0] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v757 = v749 - 1;
               if ( !v757 )
@@ -108841,11 +108843,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v756);
               LOWORD(v756) = v1099 + v756;
-              BYTE1(v747) = v750[1];
+              BYTE1(v747) = tempScrPtr19[1];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v756);
               v758 = v1158 + v756;
-              v750[1] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[1] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v759 = v757 - 1;
               if ( !v759 )
@@ -108853,11 +108855,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v758);
               LOWORD(v758) = v1099 + v758;
-              BYTE1(v747) = v750[2];
+              BYTE1(v747) = tempScrPtr19[2];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v758);
               v760 = v1158 + v758;
-              v750[2] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[2] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v761 = v759 - 1;
               if ( !v761 )
@@ -108865,11 +108867,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v760);
               LOWORD(v760) = v1099 + v760;
-              BYTE1(v747) = v750[3];
+              BYTE1(v747) = tempScrPtr19[3];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v760);
               v762 = v1158 + v760;
-              v750[3] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[3] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v763 = v761 - 1;
               if ( !v763 )
@@ -108877,11 +108879,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v762);
               LOWORD(v762) = v1099 + v762;
-              BYTE1(v747) = v750[4];
+              BYTE1(v747) = tempScrPtr19[4];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v762);
               v764 = v1158 + v762;
-              v750[4] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[4] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v765 = v763 - 1;
               if ( !v765 )
@@ -108889,11 +108891,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v764);
               LOWORD(v764) = v1099 + v764;
-              BYTE1(v747) = v750[5];
+              BYTE1(v747) = tempScrPtr19[5];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v764);
               v766 = v1158 + v764;
-              v750[5] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[5] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v767 = v765 - 1;
               if ( !v767 )
@@ -108901,11 +108903,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v766);
               LOWORD(v766) = v1099 + v766;
-              BYTE1(v747) = v750[6];
+              BYTE1(v747) = tempScrPtr19[6];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v766);
               v768 = v1158 + v766;
-              v750[6] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[6] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v769 = v767 - 1;
               if ( !v769 )
@@ -108913,11 +108915,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v768);
               LOWORD(v768) = v1099 + v768;
-              BYTE1(v747) = v750[7];
+              BYTE1(v747) = tempScrPtr19[7];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v768);
               v770 = v1158 + v768;
-              v750[7] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[7] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v771 = v769 - 1;
               if ( !v771 )
@@ -108925,11 +108927,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v770);
               LOWORD(v770) = v1099 + v770;
-              BYTE1(v747) = v750[8];
+              BYTE1(v747) = tempScrPtr19[8];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v770);
               v772 = v1158 + v770;
-              v750[8] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[8] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v773 = v771 - 1;
               if ( !v773 )
@@ -108937,11 +108939,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v772);
               LOWORD(v772) = v1099 + v772;
-              BYTE1(v747) = v750[9];
+              BYTE1(v747) = tempScrPtr19[9];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v772);
               v774 = v1158 + v772;
-              v750[9] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[9] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v775 = v773 - 1;
               if ( !v775 )
@@ -108949,11 +108951,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v774);
               LOWORD(v774) = v1099 + v774;
-              BYTE1(v747) = v750[10];
+              BYTE1(v747) = tempScrPtr19[10];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v774);
               v776 = v1158 + v774;
-              v750[10] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[10] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v777 = v775 - 1;
               if ( !v777 )
@@ -108961,11 +108963,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v776);
               LOWORD(v776) = v1099 + v776;
-              BYTE1(v747) = v750[11];
+              BYTE1(v747) = tempScrPtr19[11];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v776);
               v778 = v1158 + v776;
-              v750[11] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[11] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v779 = v777 - 1;
               if ( !v779 )
@@ -108973,11 +108975,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v778);
               LOWORD(v778) = v1099 + v778;
-              BYTE1(v747) = v750[12];
+              BYTE1(v747) = tempScrPtr19[12];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v778);
               v780 = v1158 + v778;
-              v750[12] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[12] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v781 = v779 - 1;
               if ( !v781 )
@@ -108985,11 +108987,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v780);
               LOWORD(v780) = v1099 + v780;
-              BYTE1(v747) = v750[13];
+              BYTE1(v747) = tempScrPtr19[13];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v780);
               v782 = v1158 + v780;
-              v750[13] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[13] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v783 = v781 - 1;
               if ( !v783 )
@@ -108997,11 +108999,11 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v782);
               LOWORD(v782) = v1099 + v782;
-              BYTE1(v747) = v750[14];
+              BYTE1(v747) = tempScrPtr19[14];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v782);
               v784 = v1158 + v782;
-              v750[14] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[14] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               v785 = v783 - 1;
               if ( !v785 )
@@ -109009,16 +109011,16 @@ LABEL_940:
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
               v171 = __CFADD__((_WORD)v1099, (_WORD)v784);
               LOWORD(v784) = v1099 + v784;
-              BYTE1(v747) = v750[15];
+              BYTE1(v747) = tempScrPtr19[15];
               LOBYTE(v748) = BYTE2(v1099) + v171 + v748;
               v171 = __CFADD__(v1158, v784);
               v753 = v1158 + v784;
-              v750[15] = strPal.byte_BB934_BB924[v747];
+              tempScrPtr19[15] = strPal.byte_BB934_BB924[v747];
               BYTE1(v748) += BYTE2(v1110) + v171;
               LOWORD(v749) = v785 - 1;
               if ( !(_WORD)v749 )
                 break;
-              v750 += 16;
+              tempScrPtr19 += 16;
             }
             v746x = v1267x;
           }
@@ -109034,7 +109036,7 @@ LABEL_959:
         LOWORD(v749) = v749 - v747;
         if (bool16)
           goto LABEL_959;
-        v750 += v747;
+        tempScrPtr19 += v747;
         v753 = __ROL4_16__(unk_93AE0[v746x][3].a32);
         BYTE1(v748) = v753;
         LOWORD(v753) = unk_93AE0[v746x][2].a16[0];
@@ -109052,8 +109054,9 @@ LABEL_961:
         {
           LOWORD(v787) = unk_93AE0[v786x][0].a16[1];
           v789 = unk_93AE0[v786x][1].a16[1];
-          v790 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
+          //v790 = (_BYTE *)(pitchViewPort_93AD4 + actScrPtr);
           actScrPtr += pitchViewPort_93AD4;
+          tempScrPtr20 = actScrPtr;
           if ( (v787 & 0x8000u) == 0 )
             break;
           if ( (__int16)v789 > 0 )
@@ -109082,11 +109085,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v792);
               v795 = v1159 + v792;
-              LOBYTE(v787) = *v790;
+              LOBYTE(v787) = tempScrPtr20[0];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v793);
               v796 = v1168 + v793;
-              v790[0] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[0] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v796) = BYTE2(v1121) + v171 + v796;
               v1178 = v1177 - 1;
               if ( !v1178 )
@@ -109099,11 +109102,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v795);
               v797 = v1159 + v795;
-              LOBYTE(v787) = v790[1];
+              LOBYTE(v787) = tempScrPtr20[1];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v796);
               v798 = v1168 + v796;
-              v790[1] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[1] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v798) = BYTE2(v1121) + v171 + v798;
               v1179 = v1178 - 1;
               if ( !v1179 )
@@ -109116,11 +109119,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v797);
               v799 = v1159 + v797;
-              LOBYTE(v787) = v790[2];
+              LOBYTE(v787) = tempScrPtr20[2];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v798);
               v800 = v1168 + v798;
-              v790[2] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[2] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v800) = BYTE2(v1121) + v171 + v800;
               v1180 = v1179 - 1;
               if ( !v1180 )
@@ -109133,11 +109136,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v799);
               v801 = v1159 + v799;
-              LOBYTE(v787) = v790[3];
+              LOBYTE(v787) = tempScrPtr20[3];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v800);
               v802 = v1168 + v800;
-              v790[3] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[3] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v802) = BYTE2(v1121) + v171 + v802;
               v1181 = v1180 - 1;
               if ( !v1181 )
@@ -109150,11 +109153,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v801);
               v803 = v1159 + v801;
-              LOBYTE(v787) = v790[4];
+              LOBYTE(v787) = tempScrPtr20[4];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v802);
               v804 = v1168 + v802;
-              v790[4] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[4] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v804) = BYTE2(v1121) + v171 + v804;
               v1182 = v1181 - 1;
               if ( !v1182 )
@@ -109167,11 +109170,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v803);
               v805 = v1159 + v803;
-              LOBYTE(v787) = v790[5];
+              LOBYTE(v787) = tempScrPtr20[5];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v804);
               v806 = v1168 + v804;
-              v790[5] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[5] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v806) = BYTE2(v1121) + v171 + v806;
               v1183 = v1182 - 1;
               if ( !v1183 )
@@ -109184,11 +109187,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v805);
               v807 = v1159 + v805;
-              LOBYTE(v787) = v790[6];
+              LOBYTE(v787) = tempScrPtr20[6];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v806);
               v808 = v1168 + v806;
-              v790[6] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[6] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v808) = BYTE2(v1121) + v171 + v808;
               v1184 = v1183 - 1;
               if ( !v1184 )
@@ -109201,11 +109204,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v807);
               v809 = v1159 + v807;
-              LOBYTE(v787) = v790[7];
+              LOBYTE(v787) = tempScrPtr20[7];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v808);
               v810 = v1168 + v808;
-              v790[7] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[7] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v810) = BYTE2(v1121) + v171 + v810;
               v1185 = v1184 - 1;
               if ( !v1185 )
@@ -109218,11 +109221,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v809);
               v811 = v1159 + v809;
-              LOBYTE(v787) = v790[8];
+              LOBYTE(v787) = tempScrPtr20[8];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v810);
               v812 = v1168 + v810;
-              v790[8] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[8] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v812) = BYTE2(v1121) + v171 + v812;
               v1186 = v1185 - 1;
               if ( !v1186 )
@@ -109235,11 +109238,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v811);
               v813 = v1159 + v811;
-              LOBYTE(v787) = v790[9];
+              LOBYTE(v787) = tempScrPtr20[9];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v812);
               v814 = v1168 + v812;
-              v790[9] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[9] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v814) = BYTE2(v1121) + v171 + v814;
               v1187 = v1186 - 1;
               if ( !v1187 )
@@ -109252,11 +109255,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v813);
               v815 = v1159 + v813;
-              LOBYTE(v787) = v790[10];
+              LOBYTE(v787) = tempScrPtr20[10];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v814);
               v816 = v1168 + v814;
-              v790[10] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[10] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v816) = BYTE2(v1121) + v171 + v816;
               v1188 = v1187 - 1;
               if ( !v1188 )
@@ -109269,11 +109272,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v815);
               v817 = v1159 + v815;
-              LOBYTE(v787) = v790[11];
+              LOBYTE(v787) = tempScrPtr20[11];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v816);
               v818 = v1168 + v816;
-              v790[11] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[11] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v818) = BYTE2(v1121) + v171 + v818;
               v1189 = v1188 - 1;
               if ( !v1189 )
@@ -109286,11 +109289,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v817);
               v819 = v1159 + v817;
-              LOBYTE(v787) = v790[12];
+              LOBYTE(v787) = tempScrPtr20[12];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v818);
               v820 = v1168 + v818;
-              v790[12] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[12] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v820) = BYTE2(v1121) + v171 + v820;
               v1190 = v1189 - 1;
               if ( !v1190 )
@@ -109303,11 +109306,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v819);
               v821 = v1159 + v819;
-              LOBYTE(v787) = v790[13];
+              LOBYTE(v787) = tempScrPtr20[13];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v820);
               v822 = v1168 + v820;
-              v790[13] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[13] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v822) = BYTE2(v1121) + v171 + v822;
               v1191 = v1190 - 1;
               if ( !v1191 )
@@ -109320,11 +109323,11 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v821);
               v823 = v1159 + v821;
-              LOBYTE(v787) = v790[14];
+              LOBYTE(v787) = tempScrPtr20[14];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v822);
               v824 = v1168 + v822;
-              v790[14] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[14] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v824) = BYTE2(v1121) + v171 + v824;
               v1192 = v1191 - 1;
               if ( !v1192 )
@@ -109337,16 +109340,16 @@ LABEL_971:
               BYTE1(v787) = strPal.byte_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v823);
               v792 = v1159 + v823;
-              LOBYTE(v787) = v790[15];
+              LOBYTE(v787) = tempScrPtr20[15];
               BYTE1(v788) += BYTE2(v1110) + v171;
               v171 = __CFADD__(v1168, v824);
               v793 = v1168 + v824;
-              v790[15] = strPal.byte_BB934_BB924[v787];
+              tempScrPtr20[15] = strPal.byte_BB934_BB924[v787];
               LOBYTE(v793) = BYTE2(v1121) + v171 + v793;
               v1177 = v1192 - 1;
               if ( !v1177 )
                 break;
-              v790 += 16;
+              tempScrPtr20 += 16;
             }
             v786x = v1268x;
           }
@@ -109362,7 +109365,7 @@ LABEL_990:
         LOWORD(v789) = v789 - v787;
         if (bool16)
           goto LABEL_990;
-        v790 += v787;
+        tempScrPtr20 += v787;
         v792 = __ROL4_16__(unk_93AE0[v786x][3].a32);
         BYTE1(v788) = v792;
         LOWORD(v792) = unk_93AE0[v786x][2].a16[0];
