@@ -102307,7 +102307,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v363; // cx
   __int16 v364; // bx
   __int16 v365; // cx
-  unsigned int v366; // eax
+  Type_dword_0x0_0 v366; // eax
   int v367; // ebx
   //char *v368; // esi
   int v369; // ecx
@@ -106050,7 +106050,7 @@ LABEL_474:
         v1259x = 0;
         v1150 = v1110 << 16;
         v1166 = v1121 << 16;
-        HIWORD(v366) = 0;
+        HIWORD(v366.dword) = 0;
         HIWORD(v367) = 0;
         while ( 1 )
         {
@@ -106072,25 +106072,25 @@ LABEL_474:
           v1259x++;
           //v368 = v1259;
           //v1259 += 20;
-          LOWORD(v366) = unk_93AE0[v1259x - 1][0].a16[1];
+          LOWORD(v366.dword) = unk_93AE0[v1259x - 1][0].a16[1];
           v369 = unk_93AE0[v1259x - 1][1].a16[1];
           //v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
           tempScrPtr3 = actScrPtr;
-          if ((v366 & 0x8000u) == 0)
+          if ((v366.dword & 0x8000u) == 0)
               break;
           if ((__int16)v369 > 0)
           {
-              v371 = (unsigned __int16)-(__int16)v366;
+              v371 = (unsigned __int16)-(__int16)v366.dword;
               v372 = __ROL4_16__(unk_93AE0[v1259x - 1][3].a32 + v1110 * v371);
               BYTE1(v367) = v372;
               LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0] + v1099 * v371;
-              v366 = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 8;
+              v366.dword = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 8;
               LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x - 1][2].a32 + v1099 * v371) >> 16;
               tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32 + v1121 * v371);
-              BYTE1(v366) = tempScrPosX.a32;
+              BYTE1(v366.dword) = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259x - 1][1].a16[1];
-              v366 = (unsigned __int16)v366;
+              v366.dword = (unsigned __int16)v366.dword;
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
@@ -106133,123 +106133,123 @@ LABEL_484:
                 {
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_487:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_488:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_489:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_490:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_491:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_492:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_493:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_494:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_495:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_496:
 //adress 0x24629B_ 
 //debug
@@ -106266,7 +106266,7 @@ compare_index_24629B++;
                   //v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   v171 = uint16(v1099) > uint16(v1099 + v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   //v171 = __CFADD__(v1150, v372);
                   v171 = uint32(v1150) > uint32(v1150 + v372);
@@ -106275,56 +106275,56 @@ compare_index_24629B++;
                   //v171 = __CFADD__(v1166, tempScrPosX.a32);
                   v171 = uint32(v1166) > uint32(v1166 + tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366];//here
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366.dword];//here
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_497:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_498:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_499:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
 LABEL_500:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
                   tempScrPtr3plus += 16;
                   bool16 = tempScrPosX.a16[0] <= 16;
                   tempScrPosX.a16[0] -= 16;
@@ -106333,15 +106333,15 @@ LABEL_500:
 LABEL_485:
                   v171 = __CFADD__((_WORD)v1099, (_WORD)v372);
                   LOWORD(v372) = v1099 + v372;
-                  LOBYTE(v366) = *(_BYTE *)(v367 + v377);
+                  LOBYTE(v366.dword) = *(_BYTE *)(v367 + v377);
                   LOBYTE(v367) = BYTE2(v1099) + v171 + v367;
                   v171 = __CFADD__(v1150, v372);
                   v372 += v1150;
                   BYTE1(v367) += BYTE2(v1110) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366];
-                  BYTE1(v366) += BYTE2(v1121) + v171;
+                  tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366.dword];
+                  BYTE1(v366.dword) += BYTE2(v1121) + v171;
                 }
                 break;
             }
@@ -106352,18 +106352,18 @@ LABEL_501:
         }
         if ( v369 > widthViewPort_93AD8 )
           LOWORD(v369) = widthViewPort_93AD8;
-        bool16 = (__int16)v369 <= (__int16)v366;
-        v374 = v369 - v366;
+        bool16 = (__int16)v369 <= (__int16)v366.dword;
+        v374 = v369 - v366.dword;
         if (bool16)
           goto LABEL_501;
-        tempScrPtr3 += v366;
+        tempScrPtr3 += v366.dword;
         LOBYTE(v367) = unk_93AE0[v1259x - 1][2].a16[1];
         v372 = __ROL4_16__(unk_93AE0[v1259x - 1][3].a32);
         v375 = v374;
         BYTE1(v367) = v372;
         LOWORD(v372) = unk_93AE0[v1259x - 1][2].a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1][4].a32);
-        BYTE1(v366) = tempScrPosX.a32;
+        BYTE1(v366.dword) = tempScrPosX.a32;
         tempScrPosX.a16[0] = v375;
         goto LABEL_484;
       case 6:
