@@ -101948,7 +101948,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int uSum; // ecx
   int vSum; // edx
   int zSum; // esi
-  int v24; // ebx
+  int xSum2B; // ebx
   //_DWORD *v25; // edi
   int v25x;
   //int v26; // edi
@@ -104168,7 +104168,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       diffPnt3Pnt2Y -= -sortPnt1->y_1 - diffPnt2Pnt1Y;
                       v1133 = -sortPnt1->y_1 - diffPnt2Pnt1Y;
                       xSum += v1133 * divPnt3Pnt1XY + diffPnt2Pnt1Y * divPnt3Pnt1XY;
-                      v24 = v1133 * divPnt3Pnt2XY + (sortPnt2->x_0 << 16);
+                      xSum2B = v1133 * divPnt3Pnt2XY + (sortPnt2->x_0 << 16);
                       uSum += v1133 * divPnt3Pnt1UY + diffPnt2Pnt1Y * divPnt3Pnt1UY;
                       vSum += v1133 * divPnt3Pnt1VY + diffPnt2Pnt1Y * divPnt3Pnt1VY;
                       zSum += v1133 * divPnt3Pnt1ZY + diffPnt2Pnt1Y * divPnt3Pnt1ZY;
@@ -104239,22 +104239,22 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                               goto LABEL_1275;
                           }
                       }
-                      do
+                      for(; diffPnt3Pnt2Y; v25x++)
                       {
                           unk_93AE0[v25x][0].a32 = xSum;
                           xSum += divPnt3Pnt1XY;
-                          unk_93AE0[v25x][1].a32 = v24;
-                          v24 += divPnt3Pnt2XY;
+                          unk_93AE0[v25x][1].a32 = xSum2B;
+                          xSum2B += divPnt3Pnt2XY;
                           unk_93AE0[v25x][2].a32 = uSum;
                           uSum += divPnt3Pnt1UY;
                           unk_93AE0[v25x][3].a32 = vSum;
                           vSum += divPnt3Pnt1VY;
                           unk_93AE0[v25x][4].a32 = zSum;
                           zSum += divPnt3Pnt1ZY;
-                          v25x++;
-                          --diffPnt3Pnt2Y;
-                      } while (diffPnt3Pnt2Y);
-                      v29 = (unsigned __int8)byte_967E1;
+                          //v25x++;
+                          diffPnt3Pnt2Y--;
+                      } //while (diffPnt3Pnt2Y);
+                      //v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
                       case 0:
@@ -104332,8 +104332,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   }
               LABEL_47:
                   //v25 = (uint32*)&unk_93AE0;
-                  v25x = 0;
-                  do
+                  for(v25x = 0; diffPnt2Pnt1Y > 0; v25x++)
                   {
                       unk_93AE0[v25x][0].a32 = xSum;
                       xSum += divPnt3Pnt1XY;
@@ -104345,10 +104344,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       vSum += divPnt3Pnt1VY;
                       unk_93AE0[v25x][4].a32 = zSum;
                       zSum += divPnt3Pnt1ZY;
-                      v25x++;
+                      
                       diffPnt2Pnt1Y--;
-                  } while (diffPnt2Pnt1Y);
-                  v24 = (sortPnt2->x_0 << 16);
+                  } //while (diffPnt2Pnt1Y);
+                  xSum2B = (sortPnt2->x_0 << 16);
                   goto LABEL_50;
               }
               break;
@@ -106055,8 +106054,8 @@ LABEL_474:
         v1259x = 0;
         v1150 = scaledV.dword << 16;
         v1166 = scaledZ.dword << 16;
-        HIWORD(v366.dword) = 0;
-        HIWORD(v367.dword) = 0;
+        v366.word[1] = 0;
+        v367.word[1] = 0;
         while ( 1 )
         {
             //adress 0x245FFB_
@@ -106077,7 +106076,7 @@ LABEL_474:
           v1259x++;
           //v368 = v1259;
           //v1259 += 20;
-          LOWORD(v366.dword) = unk_93AE0[v1259x - 1][0].a16[1];
+          v366.word[0] = unk_93AE0[v1259x - 1][0].a16[1];
           v369 = unk_93AE0[v1259x - 1][1].a16[1];
           //v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
