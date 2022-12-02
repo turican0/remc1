@@ -106268,16 +106268,16 @@ compare_index_24629B++;
                   //v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   //v171 = uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword);                  
                   v366.byte[0] = v377[v367.dword];
-                  v367.byte[0] = BYTE2(scaledU.dword) + v367.dword + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
-                  LOWORD(v372.dword) += scaledU.dword;
+                  v367.byte[0] = scaledU.byte[2] + v367.dword + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
+                  v372.word[0] += scaledU.dword;
                   //v171 = __CFADD__(v1150, v372.dword);
                   //v171 = uint32(v1150) > uint32(v1150 + v372.dword);                  
-                  v367.byte[1] += BYTE2(scaledV.dword) + (uint32(v1150) > uint32(v1150 + v372.dword));
+                  v367.byte[1] += scaledV.byte[2] + (uint32(v1150) > uint32(v1150 + v372.dword));
                   v372.dword += v1150;
                   //v171 = __CFADD__(v1166, tempScrPosX.a32);
                   //v171 = uint32(v1166) > uint32(v1166 + tempScrPosX.a32);                  
                   tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366.dword];//here
-                  v366.byte[1] += BYTE2(scaledZ.dword) + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
+                  v366.byte[1] += scaledZ.byte[2] + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
                   tempScrPosX.a32 += v1166;
 LABEL_497:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
