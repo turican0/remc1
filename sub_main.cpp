@@ -35027,11 +35027,12 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			int indexR;
 			for (indexR = 0; indexR < textRows - 1; indexR++)
 			{
+                if ((tempBegBscreen[index168 + 1].triangleDir_38._axis_2d.x & 4) != 0)
+                    break;
+
 				v213x.x_0 = tempBegBscreen[index168].pnt1_16;
 				v213x.y_1 = tempBegBscreen[index168].pnt2_20;
 				v213x.z_4 = tempBegBscreen[index168].pnt5_32;
-				if ((tempBegBscreen[index168 + 1].triangleDir_38._axis_2d.x & 4) != 0)
-					break;
 				v208x.x_0 = tempBegBscreen[index168 + 1].pnt1_16;
 				v208x.y_1 = tempBegBscreen[index168 + 1].pnt2_20;
 				v208x.z_4 = tempBegBscreen[index168 + 1].pnt5_32;
@@ -35143,11 +35144,11 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			int indexR;
 			for (indexR = 0; indexR < textRows - 1; indexR++)
 			{
+                if ((tempBegBscreen[index148 + 1].triangleDir_38._axis_2d.x & 4) != 0)
+                    break;
 				v213x.x_0 = tempBegBscreen[index148].pnt1_16;
 				v213x.y_1 = tempBegBscreen[index148].pnt2_20;
 				v213x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148].y_12);
-				if ((tempBegBscreen[index148 + 1].triangleDir_38._axis_2d.x & 4) != 0)
-					break;
 				v208x.x_0 = tempBegBscreen[index148 + 1].pnt1_16;
 				v208x.y_1 = tempBegBscreen[index148 + 1].pnt2_20;
 				v208x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1].y_12);
