@@ -102316,7 +102316,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   Type_dword_0x0_0 v366; // eax
   Type_dword_0x0_0 v367; // ebx
   //char *v368; // esi
-  int v369; // ecx
+  int16 v369; // ecx
   uint8* tempScrPtr3; // edi
   int v371; // ecx
   Type_dword_0x0_0 v372; // edx
@@ -106084,7 +106084,7 @@ LABEL_474:
           tempScrPtr3 = actScrPtr;
           if ((v366.dword & 0x8000u) == 0)
               break;
-          if ((__int16)v369 > 0)
+          if (v369 > 0)
           {
               v371 = (unsigned __int16)-(__int16)v366.dword;
               v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
@@ -106353,8 +106353,8 @@ LABEL_501:
             return;
         }
         if ( v369 > widthViewPort_93AD8 )
-          LOWORD(v369) = widthViewPort_93AD8;
-        bool16 = (__int16)v369 <= (__int16)v366.dword;
+            v369 = widthViewPort_93AD8;
+        bool16 = v369 <= (__int16)v366.dword;
         v374 = v369 - v366.dword;
         if (bool16)
           goto LABEL_501;
