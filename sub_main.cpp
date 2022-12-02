@@ -106088,14 +106088,14 @@ LABEL_474:
           {
               v371 = (unsigned __int16)-(__int16)v366.dword;
               v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
-              BYTE1(v367.dword) = v372.dword;
-              LOWORD(v372.dword) = unk_93AE0[v1259x - 1].u_2.a16[0] + scaledU.dword * v371;
+              v367.byte[1] = v372.dword;
+              v372.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0] + scaledU.dword * v371;
               v366.dword = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 8;
-              LOBYTE(v367.dword) = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
+              v367.byte[0] = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
               tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32 + scaledZ.dword * v371);
-              BYTE1(v366.dword) = tempScrPosX.a32;
+              v366.byte[1] = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259x - 1].y_1.a16[1];
-              v366.dword = (unsigned __int16)v366.dword;
+              v366.dword = v366.word[0];
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
