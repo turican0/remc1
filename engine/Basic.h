@@ -635,6 +635,14 @@ typedef struct {//size 4*5
 	int32 z_4;
 } Type_RenderPoint;
 
+typedef struct {//size 4*5
+	un16_32 x_0;
+	un16_32 y_1;
+	un16_32 u_2;
+	un16_32 v_3;
+	un16_32 z_4;
+} Type_RenderPoint2;
+
 #pragma pack (16)
 
 extern uint8_t* pdwScreenBuffer_12EFF4;
