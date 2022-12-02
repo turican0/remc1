@@ -81675,7 +81675,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     __int16 v363; // cx
     __int16 v364; // bx
     __int16 v365; // cx
-    unsigned int v366; // eax
+    unsigned int textPointer; // eax
     int v367; // ebx
     //char* v368; // esi
     int v369; // ecx
@@ -85257,7 +85257,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             v1259x = 0;
             v1150 = scaledV << 16;
             v1166 = scaledZ << 16;
-            HIWORD(v366) = 0;
+            HIWORD(textPointer) = 0;
             HIWORD(v367) = 0;
             while (1)
             {
@@ -85279,24 +85279,24 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1259x++;
                 //v368 = v1259;
                 //v1259 += 20;
-                LOWORD(v366) = unk_93AE0[v1259x].x_0.a16[1];
+                LOWORD(textPointer) = unk_93AE0[v1259x].x_0.a16[1];
                 v369 = unk_93AE0[v1259x].y_1.a16[1];
                 v370 = pitchViewPort_93AD4 + actScrPtr;
                 actScrPtr += pitchViewPort_93AD4;
-                if ((v366 & 0x8000u) == 0)
+                if ((textPointer & 0x8000u) == 0)
                     break;
                 if ((__int16)v369 > 0)
                 {
-                    v371 = (unsigned __int16)-(__int16)v366;
+                    v371 = (unsigned __int16)-(__int16)textPointer;
                     v372 = __ROL4__(unk_93AE0[v1259x].v_3.a32 + scaledV * v371, 16);
                     BYTE1(v367) = v372;
                     LOWORD(v372) = unk_93AE0[v1259x].u_2.a16[0] + scaledU * v371;
-                    v366 = (unsigned int)(unk_93AE0[v1259x].u_2.a32 + scaledU * v371) >> 8;
+                    textPointer = (unsigned int)(unk_93AE0[v1259x].u_2.a32 + scaledU * v371) >> 8;
                     LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x].y_1.a16[0] + scaledU * v371) >> 16;
                     v373 = __ROL4__(unk_93AE0[v1259x].z_4.a32 + scaledZ * v371, 16);
-                    BYTE1(v366) = v373;
+                    BYTE1(textPointer) = v373;
                     LOWORD(v373) = unk_93AE0[v1259x].y_1.a16[1];
-                    v366 = (unsigned __int16)v366;
+                    textPointer = (unsigned __int16)textPointer;
                     if ((__int16)v373 > (__int16)widthViewPort_93AD8)
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
@@ -85339,123 +85339,123 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         {
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[1] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[1] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_487:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[2] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[2] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_488:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[3] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[3] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_489:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[4] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[4] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_490:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[5] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[5] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_491:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[6] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[6] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_492:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[7] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[7] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_493:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[8] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[8] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_494:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[9] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[9] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_495:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[10] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[10] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_496:
                             //adress 0x24629B_ 
                             //debug
@@ -85471,63 +85471,63 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             //debug
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[11] = strPal.byte_B7934_B7924[v366];//here
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[11] = strPal.byte_B7934_B7924[textPointer];//here
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_497:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[12] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[12] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_498:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[13] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[13] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_499:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[14] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[14] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_500:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[15] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[15] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                             v376 += 16;
                             v16 = (__int16)v373 <= 16;
                             LOWORD(v373) = v373 - 16;
@@ -85536,15 +85536,15 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_485:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            *v376 = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            *v376 = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         }
                         break;
                     }
@@ -85555,18 +85555,18 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             }
             if (v369 > widthViewPort_93AD8)
                 LOWORD(v369) = widthViewPort_93AD8;
-            v16 = (__int16)v369 <= (__int16)v366;
-            v374 = v369 - v366;
+            v16 = (__int16)v369 <= (__int16)textPointer;
+            v374 = v369 - textPointer;
             if (v16)
                 goto LABEL_501;
-            v370 += v366;
+            v370 += textPointer;
             LOBYTE(v367) = unk_93AE0[v1259x].u_2.a16[1];
             v372 = __ROL4__(unk_93AE0[v1259x].v_3.a32, 16);
             v375 = v374;
             BYTE1(v367) = v372;
             LOWORD(v372) = unk_93AE0[v1259x].u_2.a16[0];
             v373 = __ROL4__(unk_93AE0[v1259x].z_4.a32, 16);
-            BYTE1(v366) = v373;
+            BYTE1(textPointer) = v373;
             LOWORD(v373) = v375;
             goto LABEL_484;
         case 6:
@@ -91984,7 +91984,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     __int16 v363; // cx
     __int16 v364; // bx
     __int16 v365; // cx
-    unsigned int v366; // eax
+    unsigned int textPointer; // eax
     int v367; // ebx
     char* v368; // esi
     int v369; // ecx
@@ -95564,7 +95564,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             v1259 = (char*)&unk_93AE0;
             v1150 = scaledV << 16;
             v1166 = scaledZ << 16;
-            HIWORD(v366) = 0;
+            HIWORD(textPointer) = 0;
             HIWORD(v367) = 0;
             while (1)
             {
@@ -95584,24 +95584,24 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
 
                 v368 = v1259;
                 v1259 += 20;
-                LOWORD(v366) = *((_WORD*)v368 + 1);
+                LOWORD(textPointer) = *((_WORD*)v368 + 1);
                 v369 = *((unsigned __int16*)v368 + 3);
                 v370 = pitchViewPort_93AD4 + actScrPtr;
                 actScrPtr += pitchViewPort_93AD4;
-                if ((v366 & 0x8000u) == 0)
+                if ((textPointer & 0x8000u) == 0)
                     break;
                 if ((__int16)v369 > 0)
                 {
-                    v371 = (unsigned __int16)-(__int16)v366;
+                    v371 = (unsigned __int16)-(__int16)textPointer;
                     v372 = __ROL4__(*((_DWORD*)v368 + 3) + scaledV * v371, 16);
                     BYTE1(v367) = v372;
                     LOWORD(v372) = *((_WORD*)v368 + 4) + scaledU * v371;
-                    v366 = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * v371) >> 8;
+                    textPointer = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * v371) >> 8;
                     LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * v371) >> 16;
                     v373 = __ROL4__(*((_DWORD*)v368 + 4) + scaledZ * v371, 16);
-                    BYTE1(v366) = v373;
+                    BYTE1(textPointer) = v373;
                     LOWORD(v373) = *((_WORD*)v368 + 3);
-                    v366 = (unsigned __int16)v366;
+                    textPointer = (unsigned __int16)textPointer;
                     if ((__int16)v373 > (__int16)widthViewPort_93AD8)
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
@@ -95644,123 +95644,123 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         {
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[1] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[1] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_487:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[2] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[2] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_488:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[3] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[3] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_489:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[4] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[4] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_490:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[5] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[5] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_491:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[6] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[6] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_492:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[7] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[7] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_493:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[8] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[8] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_494:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[9] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[9] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_495:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[10] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[10] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_496:
                             //adress 0x24629B_ 
                             //debug
@@ -95776,63 +95776,63 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             //debug
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[11] = strPal.byte_B7934_B7924[v366];//here
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[11] = strPal.byte_B7934_B7924[textPointer];//here
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_497:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[12] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[12] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_498:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[13] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[13] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_499:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[14] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[14] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_500:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[15] = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            v376[15] = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                             v376 += 16;
                             v16 = (__int16)v373 <= 16;
                             LOWORD(v373) = v373 - 16;
@@ -95841,15 +95841,15 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_485:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
                             LOWORD(v372) = scaledU + v372;
-                            LOBYTE(v366) = *(_BYTE*)(v367 + v377);
+                            LOBYTE(textPointer) = *(_BYTE*)(v367 + v377);
                             LOBYTE(v367) = BYTE2(scaledU) + v171 + v367;
                             v171 = __CFADD__(v1150, v372);
                             v372 += v1150;
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            *v376 = strPal.byte_B7934_B7924[v366];
-                            BYTE1(v366) += BYTE2(scaledZ) + v171;
+                            *v376 = strPal.byte_B7934_B7924[textPointer];
+                            BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         }
                         break;
                     }
@@ -95860,18 +95860,18 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             }
             if (v369 > widthViewPort_93AD8)
                 LOWORD(v369) = widthViewPort_93AD8;
-            v16 = (__int16)v369 <= (__int16)v366;
-            v374 = v369 - v366;
+            v16 = (__int16)v369 <= (__int16)textPointer;
+            v374 = v369 - textPointer;
             if (v16)
                 goto LABEL_501;
-            v370 += v366;
+            v370 += textPointer;
             LOBYTE(v367) = v368[10];
             v372 = __ROL4__(*((_DWORD*)v368 + 3), 16);
             v375 = v374;
             BYTE1(v367) = v372;
             LOWORD(v372) = *((_WORD*)v368 + 4);
             v373 = __ROL4__(*((_DWORD*)v368 + 4), 16);
-            BYTE1(v366) = v373;
+            BYTE1(textPointer) = v373;
             LOWORD(v373) = v375;
             goto LABEL_484;
         case 6:
@@ -102313,7 +102313,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v363; // cx
   __int16 v364; // bx
   __int16 v365; // cx
-  Type_dword_0x0_0 v366; // eax
+  Type_dword_0x0_0 textPixel; // eax
   Type_dword_0x0_0 textPos; // ebx
   //char *v368; // esi
   int16 v369; // ecx
@@ -103116,7 +103116,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1147; // [esp+48h] [ebp-40h]
   int v1148; // [esp+4Ch] [ebp-3Ch]
   int v1149; // [esp+4Ch] [ebp-3Ch]
-  int v1150; // [esp+4Ch] [ebp-3Ch]
+  int scaledVB; // [esp+4Ch] [ebp-3Ch]
   int v1151; // [esp+4Ch] [ebp-3Ch]
   int v1152; // [esp+4Ch] [ebp-3Ch]
   int v1153; // [esp+4Ch] [ebp-3Ch]
@@ -103132,7 +103132,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1163; // [esp+4Ch] [ebp-3Ch]
   int v1164; // [esp+4Ch] [ebp-3Ch]
   int v1165; // [esp+4Ch] [ebp-3Ch]
-  int v1166; // [esp+50h] [ebp-38h]
+  int scaledZB; // [esp+50h] [ebp-38h]
   int v1167; // [esp+50h] [ebp-38h]
   int v1168; // [esp+50h] [ebp-38h]
   int v1169; // [esp+50h] [ebp-38h]
@@ -106053,9 +106053,9 @@ LABEL_472:
 LABEL_474:
         //v1259 = (char *)&unk_93AE0;
         v1259x = 0;
-        v1150 = scaledV.dword << 16;
-        v1166 = scaledZ.dword << 16;
-        v366.word[1] = 0;
+        scaledVB = scaledV.dword << 16;
+        scaledZB = scaledZ.dword << 16;
+        textPixel.word[1] = 0;
         textPos.word[1] = 0;
         while ( 1 )
         {
@@ -106077,25 +106077,25 @@ LABEL_474:
           v1259x++;
           //v368 = v1259;
           //v1259 += 20;
-          v366.word[0] = unk_93AE0[v1259x - 1].x_0.a16[1];
+          textPixel.word[0] = unk_93AE0[v1259x - 1].x_0.a16[1];
           v369 = unk_93AE0[v1259x - 1].y_1.a16[1];
           //v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
           tempScrPtr3 = actScrPtr;
-          if ((v366.dword & 0x8000u) == 0)
+          if ((textPixel.dword & 0x8000u) == 0)
               break;
           if (v369 > 0)
           {
-              v371 = (unsigned __int16)-(__int16)v366.dword;
+              v371 = (unsigned __int16)-(__int16)textPixel.dword;
               v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
               textPos.byte[1] = v372.dword;
               v372.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0] + scaledU.dword * v371;
-              v366.dword = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 8;
+              textPixel.dword = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 8;
               textPos.byte[0] = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
               tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32 + scaledZ.dword * v371);
-              v366.byte[1] = tempScrPosX.a32;
+              textPixel.byte[1] = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259x - 1].y_1.a16[1];
-              v366.dword = v366.word[0];
+              textPixel.dword = textPixel.word[0];
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
@@ -106138,120 +106138,120 @@ LABEL_484:
                 {
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[1] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_487:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[2] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_488:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[3] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_489:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[4] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_490:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[5] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_491:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[6] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_492:
-                  v366.byte[0] = textures[textPos.dword];
+                  textPixel.byte[0] = textures[textPos.dword];
                   textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, v372.dword);
                   v372.word[0] += scaledU.dword;
-                  textPos.byte[1] += scaledV.byte[2] + __CFADD__32(v1150, v372.dword);
-                  v372.dword += v1150;
-                  tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
-                  v366.byte[1] += scaledZ.byte[2] + __CFADD__32(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
+                  textPos.byte[1] += scaledV.byte[2] + __CFADD__32(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
+                  tempScrPtr3plus[7] = strPal.byte_B7934_B7924[textPixel.dword];
+                  textPixel.byte[1] += scaledZ.byte[2] + __CFADD__32(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
 LABEL_493:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[8] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_494:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[9] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_495:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[10] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_496:
 //adress 0x24629B_ 
 //debug
@@ -106265,62 +106265,62 @@ add_compare(0x24629B, true, true);
 compare_index_24629B++;
 #endif debug1*/
 //debug
-                  v366.byte[0] = textures[textPos.dword];//texture x
-                  textPos.byte[0] = scaledU.byte[2] + textPos.dword + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
+                  textPixel.byte[0] = textures[textPos.dword];//original pixel
+                  textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
                   v372.word[0] += scaledU.dword;
-                  textPos.byte[1] += scaledV.byte[2] + (uint32(v1150) > uint32(v1150 + v372.dword));//texture y
-                  v372.dword += v1150;
-                  tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366.dword];//here
-                  v366.byte[1] += scaledZ.byte[2] + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
-                  tempScrPosX.a32 += v1166;
+                  textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + v372.dword));//texture y
+                  v372.dword += scaledVB;
+                  tempScrPtr3plus[11] = strPal.byte_B7934_B7924[textPixel.dword];//here
+                  textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
+                  tempScrPosX.a32 += scaledZB;
 LABEL_497:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[12] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_498:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[13] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_499:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[14] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_500:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[15] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
                   tempScrPtr3plus += 16;
                   bool16 = tempScrPosX.a16[0] <= 16;
                   tempScrPosX.a16[0] -= 16;
@@ -106329,15 +106329,15 @@ LABEL_500:
 LABEL_485:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
-                  v171 = __CFADD__(v1150, v372.dword);
-                  v372.dword += v1150;
+                  v171 = __CFADD__(scaledVB, v372.dword);
+                  v372.dword += scaledVB;
                   BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
-                  v171 = __CFADD__(v1166, tempScrPosX.a32);
-                  tempScrPosX.a32 += v1166;
-                  tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366.dword];
-                  BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
+                  v171 = __CFADD__(scaledZB, tempScrPosX.a32);
+                  tempScrPosX.a32 += scaledZB;
+                  tempScrPtr3plus[0] = strPal.byte_B7934_B7924[textPixel.dword];
+                  BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
                 }
                 break;
             }
@@ -106348,18 +106348,18 @@ LABEL_501:
         }
         if ( v369 > widthViewPort_93AD8 )
             v369 = widthViewPort_93AD8;
-        bool16 = v369 <= (__int16)v366.dword;
-        v374 = v369 - v366.dword;
+        bool16 = v369 <= (__int16)textPixel.dword;
+        v374 = v369 - textPixel.dword;
         if (bool16)
           goto LABEL_501;
-        tempScrPtr3 += v366.dword;
+        tempScrPtr3 += textPixel.dword;
         LOBYTE(textPos.dword) = unk_93AE0[v1259x - 1].u_2.a16[1];
         v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32);
         v375 = v374;
         BYTE1(textPos.dword) = v372.dword;
         LOWORD(v372.dword) = unk_93AE0[v1259x - 1].u_2.a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32);
-        BYTE1(v366.dword) = tempScrPosX.a32;
+        BYTE1(textPixel.dword) = tempScrPosX.a32;
         tempScrPosX.a16[0] = v375;
         goto LABEL_484;
       case 6:
