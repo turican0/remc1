@@ -5,7 +5,7 @@
 
 #define FIX_MOUSE
 
-#define MAX_WIDTH 1920
+#define MAX_HEIGHT 1080
 
 bool IsHiddenWord = false;
 
@@ -4185,7 +4185,7 @@ uint8* dword_93AD0 = nullptr; // weak
 int pitchViewPort_93AD4 = 0; // weak
 uint16 widthViewPort_93AD8 = 0; // weak
 uint16 heightViewPort_93ADC = 0; // weak
-un16_32 unk_93AE0[MAX_WIDTH][5]; // weak 5 * max width?
+un16_32 unk_93AE0[MAX_HEIGHT][5]; // weak 5 * max width?
 //_UNKNOWN unk_96000; // weak
 char byte_967E0 = 'p'; // weak
 uint8 byte_967E1 = 0; // weak
@@ -82406,7 +82406,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     int v1095; // [esp+18h] [ebp-70h]
     int v1096; // [esp+1Ch] [ebp-6Ch]
     int v1097; // [esp+1Ch] [ebp-6Ch]
-    int v1098; // [esp+20h] [ebp-68h]
+    int ySum; // [esp+20h] [ebp-68h]
     int scaledU; // [esp+24h] [ebp-64h]
     int v1100; // [esp+28h] [ebp-60h]
     int v1101; // [esp+28h] [ebp-60h]
@@ -82670,7 +82670,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v10 = v5[1];
                 pnt3Var1After = v10 > heightViewPort_93ADC;
                 v1088 = v10 - v9;
-                v1098 = v10 - v9;
+                ySum = v10 - v9;
                 v11 = v4[1];
                 v1279 = v11 > heightViewPort_93ADC;
                 v12 = v11 - v9;
@@ -82694,7 +82694,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             if (pnt3Var1After)
                             {
                                 v58 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -82709,8 +82709,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             }
                             goto LABEL_116;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1138 = -v1173;
@@ -82723,7 +82723,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v57 = (uint32*)&unk_93AE0;
                             LABEL_119:
@@ -82857,7 +82857,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             v55 += v1138 * v1082;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -82905,7 +82905,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             if (pnt3Var1After)
                             {
                                 v52 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -82920,8 +82920,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             }
                             goto LABEL_95;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1136 = -v1173;
@@ -82935,7 +82935,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v51 = (uint32*)&unk_93AE0;
                             LABEL_98:
@@ -83072,7 +83072,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             v49 += v1136 * v1123;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -83137,7 +83137,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             if (pnt3Var1After)
                             {
                                 v41 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -83152,8 +83152,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             }
                             goto LABEL_71;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1134 = -v1173;
@@ -83168,7 +83168,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v40 = (uint32*)&unk_93AE0;
                             LABEL_74:
@@ -83308,7 +83308,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             v38 += v1134 * v1112;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -83372,7 +83372,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             if (pnt3Var1After)
                             {
                                 v26 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -83387,8 +83387,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             }
                             goto LABEL_47;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1132 = -v1173;
@@ -83404,7 +83404,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v25 = (uint32*)&unk_93AE0;
                             LABEL_50:
@@ -83547,7 +83547,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             v23 += v1132 * v1122;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -83609,7 +83609,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             v109 = v5[1];
             v1281 = v109 > heightViewPort_93ADC;
             v1090 = v109 - v108;
-            v1098 = v109 - v108;
+            ySum = v109 - v108;
             v1080 = ((*v5 - *v3) << 16) / (v109 - v108);
             v1084 = ((*v4 - *v3) << 16) / (v109 - v108);
             switch (byte_967E1)
@@ -83623,21 +83623,21 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 {
                     v132 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v130 += v1080 * v132;
                     v131 += v132 * v1084;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v133 = (uint32*)&unk_93AE0;
@@ -83711,7 +83711,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             case 16:
             case 17:
                 scaledZ = (v4[4] - v5[4]) / (*v4 - *v5);
-                v1127 = (v5[4] - v3[4]) / v1098;
+                v1127 = (v5[4] - v3[4]) / ySum;
                 v125 = *v3 << 16;
                 v126 = v125;
                 v127 = v3[4];
@@ -83719,8 +83719,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 {
                     v128 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v125 += v1080 * v128;
@@ -83728,13 +83728,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v127 += v128 * v1127;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v129 = (uint32*)&unk_93AE0;
@@ -83821,8 +83821,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v118 = *v4 - *v5;
                 scaledU = (v4[2] - v5[2]) / v118;
                 scaledV = (v4[3] - v5[3]) / v118;
-                v1105 = (v5[2] - v3[2]) / v1098;
-                v1116 = (v5[3] - v3[3]) / v1098;
+                v1105 = (v5[2] - v3[2]) / ySum;
+                v1116 = (v5[3] - v3[3]) / ySum;
                 v119 = *v3 << 16;
                 v120 = v119;
                 v121 = v3[2];
@@ -83831,8 +83831,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 {
                     v123 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v119 += v1080 * v123;
@@ -83841,13 +83841,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v122 += v123 * v1116;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v124 = (uint32*)&unk_93AE0;
@@ -83931,9 +83931,9 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 scaledU = (v4[2] - v5[2]) / v110;
                 scaledV = (v4[3] - v5[3]) / v110;
                 scaledZ = (v4[4] - v5[4]) / v110;
-                v1104 = (v5[2] - v3[2]) / v1098;
-                v1115 = (v5[3] - v3[3]) / v1098;
-                v1126 = (v5[4] - v3[4]) / v1098;
+                v1104 = (v5[2] - v3[2]) / ySum;
+                v1115 = (v5[3] - v3[3]) / ySum;
+                v1126 = (v5[4] - v3[4]) / ySum;
                 v111 = *v3 << 16;
                 v112 = v111;
                 v113 = v3[2];
@@ -83943,8 +83943,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 {
                     v116 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v111 += v1080 * v116;
@@ -83954,13 +83954,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v115 += v116 * v1126;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v117 = (uint32*)&unk_93AE0;
@@ -84060,7 +84060,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         v135 = v5[1];
         v1282 = v135 > heightViewPort_93ADC;
         v1091 = v135 - v134;
-        v1098 = v135 - v134;
+        ySum = v135 - v134;
         v1081 = ((*v5 - *v3) << 16) / (v135 - v134);
         v1085 = ((*v5 - *v4) << 16) / (v135 - v134);
         switch (byte_967E1)
@@ -84074,21 +84074,21 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 v158 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v156 += v1081 * v158;
                 v157 += v158 * v1085;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v159 = (uint32*)&unk_93AE0;
@@ -84162,7 +84162,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
         case 16:
         case 17:
             scaledZ = (v4[4] - v3[4]) / (*v4 - *v3);
-            v1129 = (v5[4] - v3[4]) / v1098;
+            v1129 = (v5[4] - v3[4]) / ySum;
             v151 = *v3 << 16;
             v152 = *v4 << 16;
             v153 = v3[4];
@@ -84170,8 +84170,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 v154 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v151 += v1081 * v154;
@@ -84179,13 +84179,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v153 += v154 * v1129;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v155 = (uint32*)&unk_93AE0;
@@ -84272,8 +84272,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             v144 = *v4 - *v3;
             scaledU = (v4[2] - v3[2]) / v144;
             scaledV = (v4[3] - v3[3]) / v144;
-            v1107 = (v5[2] - v3[2]) / v1098;
-            v1118 = (v5[3] - v3[3]) / v1098;
+            v1107 = (v5[2] - v3[2]) / ySum;
+            v1118 = (v5[3] - v3[3]) / ySum;
             v145 = *v3 << 16;
             v146 = *v4 << 16;
             v147 = v3[2];
@@ -84282,8 +84282,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 v149 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v145 += v1081 * v149;
@@ -84292,13 +84292,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v148 += v149 * v1118;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v150 = (uint32*)&unk_93AE0;
@@ -84382,9 +84382,9 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             scaledU = (v4[2] - v3[2]) / v136;
             scaledV = (v4[3] - v3[3]) / v136;
             scaledZ = (v4[4] - v3[4]) / v136;
-            v1106 = (v5[2] - v3[2]) / v1098;
-            v1117 = (v5[3] - v3[3]) / v1098;
-            v1128 = (v5[4] - v3[4]) / v1098;
+            v1106 = (v5[2] - v3[2]) / ySum;
+            v1117 = (v5[3] - v3[3]) / ySum;
+            v1128 = (v5[4] - v3[4]) / ySum;
             v137 = *v3 << 16;
             v138 = *v4 << 16;
             v139 = v3[2];
@@ -84394,8 +84394,8 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             {
                 v142 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v137 += v1081 * v142;
@@ -84405,13 +84405,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v141 += v142 * v1128;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v143 = (uint32*)&unk_93AE0;
@@ -84458,7 +84458,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_320:
                 v160 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v164 > widthViewPort_93AD8)
@@ -84609,7 +84609,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     }
                 }
             LABEL_349:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v167 > widthViewPort_93AD8)
@@ -84836,7 +84836,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_380:
                 v218 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v221 > widthViewPort_93AD8)
@@ -85080,7 +85080,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_443:
                 v274 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v277 > widthViewPort_93AD8)
@@ -85236,7 +85236,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     }
                 }
             LABEL_472:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v331 > widthViewPort_93AD8)
@@ -85549,7 +85549,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     }
                 }
             LABEL_501:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v369 > widthViewPort_93AD8)
@@ -85854,7 +85854,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     }
                 }
             LABEL_562:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v381 > widthViewPort_93AD8)
@@ -86100,7 +86100,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_593:
                 v390 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v393 > widthViewPort_93AD8)
@@ -86345,7 +86345,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_656:
                 v430 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v433 > widthViewPort_93AD8)
@@ -86638,7 +86638,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_719:
                 v470 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v473 > widthViewPort_93AD8)
@@ -86867,7 +86867,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_750:
                 v510 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v513 > widthViewPort_93AD8)
@@ -87096,7 +87096,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_781:
                 v550 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v553 > widthViewPort_93AD8)
@@ -87216,7 +87216,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_810:
                 v590 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v594 > widthViewPort_93AD8)
@@ -87331,7 +87331,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_839:
                 v611 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v615 > widthViewPort_93AD8)
@@ -87518,7 +87518,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_868:
                 v632 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v634 > widthViewPort_93AD8)
@@ -87708,7 +87708,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_897:
                 v669 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v671 > widthViewPort_93AD8)
@@ -87951,7 +87951,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_928:
                 v706 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v709 > widthViewPort_93AD8)
@@ -88195,7 +88195,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_959:
                 v746 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v749 > widthViewPort_93AD8)
@@ -88521,7 +88521,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_990:
                 v786 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v789 > widthViewPort_93AD8)
@@ -88849,7 +88849,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_1021:
                 v825 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v828 > widthViewPort_93AD8)
@@ -89143,7 +89143,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_1084:
                 v864 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v867 > widthViewPort_93AD8)
@@ -89435,7 +89435,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_1147:
                 v904 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v907 > widthViewPort_93AD8)
@@ -89809,7 +89809,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_1210:
                 v944 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v947 > widthViewPort_93AD8)
@@ -90185,7 +90185,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 }
             LABEL_1273:
                 v983 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v986 > widthViewPort_93AD8)
@@ -90643,7 +90643,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
             }
         LABEL_1352:
             v1022 += 10;
-            if (!--v1098)
+            if (!--ySum)
                 return;
         }
         if (v1025 > widthViewPort_93AD8)
@@ -90718,7 +90718,7 @@ LABEL_124:
     v1284 = v62 > heightViewPort_93ADC;
     v63 = v62 - v60;
     v1093 = v63;
-    v1098 = v63;
+    ySum = v63;
     v1079 = ((*v5 - *v3) << 16) / v1089;
     if (((*v4 - *v3) << 16) / v63 > v1079)
     {
@@ -90735,8 +90735,8 @@ LABEL_124:
             v103 = v102;
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1146 = -v1174;
@@ -90749,7 +90749,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v105 = (uint32*)&unk_93AE0;
                 LABEL_219:
@@ -90883,7 +90883,7 @@ LABEL_124:
                 v103 += v1146 * v1083;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -90898,7 +90898,7 @@ LABEL_124:
             else if (v1284)
             {
                 v106 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -90943,8 +90943,8 @@ LABEL_124:
             v97 = v3[4];
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1144 = -v1174;
@@ -90958,7 +90958,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v99 = (uint32*)&unk_93AE0;
                 LABEL_198:
@@ -91095,7 +91095,7 @@ LABEL_124:
                 v97 += v1144 * v1125;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -91110,7 +91110,7 @@ LABEL_124:
             else if (v1284)
             {
                 v100 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -91173,8 +91173,8 @@ LABEL_124:
             v86 = v3[3];
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1142 = -v1174;
@@ -91189,7 +91189,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v88 = (uint32*)&unk_93AE0;
                 LABEL_174:
@@ -91329,7 +91329,7 @@ LABEL_124:
                 v86 += v1142 * v1114;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -91344,7 +91344,7 @@ LABEL_124:
             else if (v1284)
             {
                 v89 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -91408,8 +91408,8 @@ LABEL_124:
             v73 = v3[4];
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1140 = -v1174;
@@ -91425,7 +91425,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v75 = (uint32*)&unk_93AE0;
                 LABEL_150:
@@ -91568,7 +91568,7 @@ LABEL_124:
                 v73 += v1140 * v1124;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -91583,7 +91583,7 @@ LABEL_124:
             else if (v1284)
             {
                 v76 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -92715,7 +92715,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     int v1095; // [esp+18h] [ebp-70h]
     int v1096; // [esp+1Ch] [ebp-6Ch]
     int v1097; // [esp+1Ch] [ebp-6Ch]
-    int v1098; // [esp+20h] [ebp-68h]
+    int ySum; // [esp+20h] [ebp-68h]
     int scaledU; // [esp+24h] [ebp-64h]
     int v1100; // [esp+28h] [ebp-60h]
     int v1101; // [esp+28h] [ebp-60h]
@@ -92978,7 +92978,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 //v10 = sortPnt3->var_1;
                 pnt3Var1After = sortPnt3->y_1 > heightViewPort_93ADC;
                 v1088 = sortPnt3->y_1 - sortPnt1->y_1;
-                v1098 = sortPnt3->y_1 - sortPnt1->y_1;
+                ySum = sortPnt3->y_1 - sortPnt1->y_1;
                 //v11 = sortPnt2->var_1;
                 v1279 = sortPnt2->y_1 > heightViewPort_93ADC;
                 //v12 = sortPnt2->var_1 - sortPnt1->var_1;
@@ -93002,7 +93002,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             if (pnt3Var1After)
                             {
                                 v58 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -93017,8 +93017,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             }
                             goto LABEL_116;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1138 = -v1173;
@@ -93031,7 +93031,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v57 = (uint32*)&unk_93AE0;
                             LABEL_119:
@@ -93165,7 +93165,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             v55 += v1138 * v1082;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -93213,7 +93213,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             if (pnt3Var1After)
                             {
                                 v52 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -93228,8 +93228,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             }
                             goto LABEL_95;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1136 = -v1173;
@@ -93243,7 +93243,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v51 = (uint32*)&unk_93AE0;
                             LABEL_98:
@@ -93380,7 +93380,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             v49 += v1136 * v1123;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -93445,7 +93445,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             if (pnt3Var1After)
                             {
                                 v41 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -93460,8 +93460,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             }
                             goto LABEL_71;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1134 = -v1173;
@@ -93476,7 +93476,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v40 = (uint32*)&unk_93AE0;
                             LABEL_74:
@@ -93616,7 +93616,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             v38 += v1134 * v1112;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -93680,7 +93680,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             if (pnt3Var1After)
                             {
                                 v26 = heightViewPort_93ADC - v1173;
-                                v1098 = heightViewPort_93ADC - v1173;
+                                ySum = heightViewPort_93ADC - v1173;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC - v1173;
@@ -93695,8 +93695,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             }
                             goto LABEL_47;
                         }
-                        v16 = v1098 <= -v1173;
-                        v1098 += v1173;
+                        v16 = ySum <= -v1173;
+                        ySum += v1173;
                         if (!v16)
                         {
                             v1132 = -v1173;
@@ -93712,7 +93712,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                                 if (pnt3Var1After)
                                 {
                                     v1094 = heightViewPort_93ADC;
-                                    v1098 = heightViewPort_93ADC;
+                                    ySum = heightViewPort_93ADC;
                                 }
                                 v25 = (uint32*)&unk_93AE0;
                             LABEL_50:
@@ -93855,7 +93855,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             v23 += v1132 * v1122;
                             if (pnt3Var1After)
                             {
-                                v1098 = heightViewPort_93ADC;
+                                ySum = heightViewPort_93ADC;
                                 if (v1279)
                                 {
                                     diffPnt2Pnt1Var1 = heightViewPort_93ADC;
@@ -93917,7 +93917,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             v109 = sortPnt3->y_1;
             v1281 = v109 > heightViewPort_93ADC;
             v1090 = v109 - v108;
-            v1098 = v109 - v108;
+            ySum = v109 - v108;
             v1080 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / (v109 - v108);
             v1084 = ((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (v109 - v108);
             switch (byte_967E1)
@@ -93931,21 +93931,21 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 {
                     v132 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v130 += v1080 * v132;
                     v131 += v132 * v1084;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v133 = (uint32*)&unk_93AE0;
@@ -94019,7 +94019,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             case 16:
             case 17:
                 scaledZ = (sortPnt2->z_4 - sortPnt3->z_4) / (sortPnt2->x_0 - sortPnt3->x_0);
-                v1127 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+                v1127 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
                 v125 = sortPnt1->x_0 << 16;
                 v126 = v125;
                 v127 = sortPnt1->z_4;
@@ -94027,8 +94027,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 {
                     v128 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v125 += v1080 * v128;
@@ -94036,13 +94036,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v127 += v128 * v1127;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v129 = (uint32*)&unk_93AE0;
@@ -94129,8 +94129,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v118 = sortPnt2->x_0 - sortPnt3->x_0;
                 scaledU = (sortPnt2->u_2 - sortPnt3->u_2) / v118;
                 scaledV = (sortPnt2->v_3 - sortPnt3->v_3) / v118;
-                v1105 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-                v1116 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
+                v1105 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+                v1116 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
                 v119 = sortPnt1->x_0 << 16;
                 v120 = v119;
                 v121 = sortPnt1->u_2;
@@ -94139,8 +94139,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 {
                     v123 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v119 += v1080 * v123;
@@ -94149,13 +94149,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v122 += v123 * v1116;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v124 = (uint32*)&unk_93AE0;
@@ -94239,9 +94239,9 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 scaledU = (sortPnt2->u_2 - sortPnt3->u_2) / v110;
                 scaledV = (sortPnt2->v_3 - sortPnt3->v_3) / v110;
                 scaledZ = (sortPnt2->z_4 - sortPnt3->z_4) / v110;
-                v1104 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-                v1115 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
-                v1126 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+                v1104 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+                v1115 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
+                v1126 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
                 v111 = sortPnt1->x_0 << 16;
                 v112 = v111;
                 v113 = sortPnt1->u_2;
@@ -94251,8 +94251,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 {
                     v116 = -v1175;
                     v1090 += v1175;
-                    v16 = v1098 <= -v1175;
-                    v1098 += v1175;
+                    v16 = ySum <= -v1175;
+                    ySum += v1175;
                     if (v16)
                         return;
                     v111 += v1080 * v116;
@@ -94262,13 +94262,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v115 += v116 * v1126;
                     if (v1281)
                     {
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                         v1090 = heightViewPort_93ADC;
                     }
                 }
                 else if (v1281)
                 {
-                    v1098 = heightViewPort_93ADC - v1175;
+                    ySum = heightViewPort_93ADC - v1175;
                     v1090 = heightViewPort_93ADC - v1175;
                 }
                 v117 = (uint32*)&unk_93AE0;
@@ -94368,7 +94368,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         v135 = sortPnt3->y_1;
         v1282 = v135 > heightViewPort_93ADC;
         v1091 = v135 - v134;
-        v1098 = v135 - v134;
+        ySum = v135 - v134;
         v1081 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / (v135 - v134);
         v1085 = ((sortPnt3->x_0 - sortPnt2->x_0) << 16) / (v135 - v134);
         switch (byte_967E1)
@@ -94382,21 +94382,21 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 v158 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v156 += v1081 * v158;
                 v157 += v158 * v1085;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v159 = (uint32*)&unk_93AE0;
@@ -94470,7 +94470,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
         case 16:
         case 17:
             scaledZ = (sortPnt2->z_4 - sortPnt1->z_4) / (sortPnt2->x_0 - sortPnt1->x_0);
-            v1129 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+            v1129 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
             v151 = sortPnt1->x_0 << 16;
             v152 = sortPnt2->x_0 << 16;
             v153 = sortPnt1->z_4;
@@ -94478,8 +94478,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 v154 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v151 += v1081 * v154;
@@ -94487,13 +94487,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v153 += v154 * v1129;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v155 = (uint32*)&unk_93AE0;
@@ -94580,8 +94580,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             v144 = sortPnt2->x_0 - sortPnt1->x_0;
             scaledU = (sortPnt2->u_2 - sortPnt1->u_2) / v144;
             scaledV = (sortPnt2->v_3 - sortPnt1->v_3) / v144;
-            v1107 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-            v1118 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
+            v1107 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+            v1118 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
             v145 = sortPnt1->x_0 << 16;
             v146 = sortPnt2->x_0 << 16;
             v147 = sortPnt1->u_2;
@@ -94590,8 +94590,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 v149 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v145 += v1081 * v149;
@@ -94600,13 +94600,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v148 += v149 * v1118;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v150 = (uint32*)&unk_93AE0;
@@ -94690,9 +94690,9 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             scaledU = (sortPnt2->u_2 - sortPnt1->u_2) / v136;
             scaledV = (sortPnt2->v_3 - sortPnt1->v_3) / v136;
             scaledZ = (sortPnt2->z_4 - sortPnt1->z_4) / v136;
-            v1106 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-            v1117 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
-            v1128 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+            v1106 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+            v1117 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
+            v1128 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
             v137 = sortPnt1->x_0 << 16;
             v138 = sortPnt2->x_0 << 16;
             v139 = sortPnt1->u_2;
@@ -94702,8 +94702,8 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             {
                 v142 = -v1176;
                 v1091 += v1176;
-                v16 = v1098 <= -v1176;
-                v1098 += v1176;
+                v16 = ySum <= -v1176;
+                ySum += v1176;
                 if (v16)
                     return;
                 v137 += v1081 * v142;
@@ -94713,13 +94713,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v141 += v142 * v1128;
                 if (v1282)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     v1091 = heightViewPort_93ADC;
                 }
             }
             else if (v1282)
             {
-                v1098 = heightViewPort_93ADC - v1176;
+                ySum = heightViewPort_93ADC - v1176;
                 v1091 = heightViewPort_93ADC - v1176;
             }
             v143 = (uint32*)&unk_93AE0;
@@ -94766,7 +94766,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_320:
                 v160 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v164 > widthViewPort_93AD8)
@@ -94917,7 +94917,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     }
                 }
             LABEL_349:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v167 > widthViewPort_93AD8)
@@ -95144,7 +95144,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_380:
                 v218 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v221 > widthViewPort_93AD8)
@@ -95388,7 +95388,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_443:
                 v274 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v277 > widthViewPort_93AD8)
@@ -95544,7 +95544,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     }
                 }
             LABEL_472:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v331 > widthViewPort_93AD8)
@@ -95854,7 +95854,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     }
                 }
             LABEL_501:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v369 > widthViewPort_93AD8)
@@ -96159,7 +96159,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     }
                 }
             LABEL_562:
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v381 > widthViewPort_93AD8)
@@ -96405,7 +96405,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_593:
                 v390 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v393 > widthViewPort_93AD8)
@@ -96650,7 +96650,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_656:
                 v430 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v433 > widthViewPort_93AD8)
@@ -96943,7 +96943,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_719:
                 v470 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v473 > widthViewPort_93AD8)
@@ -97172,7 +97172,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_750:
                 v510 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v513 > widthViewPort_93AD8)
@@ -97401,7 +97401,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_781:
                 v550 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v553 > widthViewPort_93AD8)
@@ -97521,7 +97521,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_810:
                 v590 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v594 > widthViewPort_93AD8)
@@ -97636,7 +97636,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_839:
                 v611 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v615 > widthViewPort_93AD8)
@@ -97823,7 +97823,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_868:
                 v632 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v634 > widthViewPort_93AD8)
@@ -98013,7 +98013,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_897:
                 v669 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v671 > widthViewPort_93AD8)
@@ -98256,7 +98256,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_928:
                 v706 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v709 > widthViewPort_93AD8)
@@ -98500,7 +98500,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_959:
                 v746 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v749 > widthViewPort_93AD8)
@@ -98826,7 +98826,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_990:
                 v786 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v789 > widthViewPort_93AD8)
@@ -99154,7 +99154,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_1021:
                 v825 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v828 > widthViewPort_93AD8)
@@ -99448,7 +99448,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_1084:
                 v864 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v867 > widthViewPort_93AD8)
@@ -99740,7 +99740,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_1147:
                 v904 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v907 > widthViewPort_93AD8)
@@ -100114,7 +100114,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_1210:
                 v944 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v947 > widthViewPort_93AD8)
@@ -100490,7 +100490,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 }
             LABEL_1273:
                 v983 += 10;
-                if (!--v1098)
+                if (!--ySum)
                     return;
             }
             if (v986 > widthViewPort_93AD8)
@@ -100948,7 +100948,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
             }
         LABEL_1352:
             v1022 += 10;
-            if (!--v1098)
+            if (!--ySum)
                 return;
         }
         if (v1025 > widthViewPort_93AD8)
@@ -101023,7 +101023,7 @@ LABEL_124:
     v1284 = v62 > heightViewPort_93ADC;
     v63 = v62 - v60;
     v1093 = v63;
-    v1098 = v63;
+    ySum = v63;
     v1079 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / v1089;
     if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
     {
@@ -101040,8 +101040,8 @@ LABEL_124:
             v103 = v102;
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1146 = -v1174;
@@ -101054,7 +101054,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v105 = (uint32*)&unk_93AE0;
                 LABEL_219:
@@ -101188,7 +101188,7 @@ LABEL_124:
                 v103 += v1146 * v1083;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -101203,7 +101203,7 @@ LABEL_124:
             else if (v1284)
             {
                 v106 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -101248,8 +101248,8 @@ LABEL_124:
             v97 = sortPnt1->z_4;
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1144 = -v1174;
@@ -101263,7 +101263,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v99 = (uint32*)&unk_93AE0;
                 LABEL_198:
@@ -101400,7 +101400,7 @@ LABEL_124:
                 v97 += v1144 * v1125;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -101415,7 +101415,7 @@ LABEL_124:
             else if (v1284)
             {
                 v100 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -101478,8 +101478,8 @@ LABEL_124:
             v86 = sortPnt1->v_3;
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1142 = -v1174;
@@ -101494,7 +101494,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v88 = (uint32*)&unk_93AE0;
                 LABEL_174:
@@ -101634,7 +101634,7 @@ LABEL_124:
                 v86 += v1142 * v1114;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -101649,7 +101649,7 @@ LABEL_124:
             else if (v1284)
             {
                 v89 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -101713,8 +101713,8 @@ LABEL_124:
             v73 = sortPnt1->z_4;
             if (v1276)
             {
-                v16 = v1098 <= -v1174;
-                v1098 += v1174;
+                v16 = ySum <= -v1174;
+                ySum += v1174;
                 if (v16)
                     return;
                 v1140 = -v1174;
@@ -101730,7 +101730,7 @@ LABEL_124:
                     if (v1284)
                     {
                         v1095 = heightViewPort_93ADC;
-                        v1098 = heightViewPort_93ADC;
+                        ySum = heightViewPort_93ADC;
                     }
                     v75 = (uint32*)&unk_93AE0;
                 LABEL_150:
@@ -101873,7 +101873,7 @@ LABEL_124:
                 v73 += v1140 * v1124;
                 if (v1284)
                 {
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                     if (v1280)
                     {
                         v1089 = heightViewPort_93ADC;
@@ -101888,7 +101888,7 @@ LABEL_124:
             else if (v1284)
             {
                 v76 = heightViewPort_93ADC - v1174;
-                v1098 = heightViewPort_93ADC - v1174;
+                ySum = heightViewPort_93ADC - v1174;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC - v1174;
@@ -101937,8 +101937,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //int v10; // ebx
   //int v11; // ebx
   //int v12; // ebx
-  int pnt21_1xPnt13_0dPnt31_1; // eax
-  int diffPnt2Pnt1CVar0; // ebx
+  int pnt21YxPnt13XdPnt31Y; // eax
+  int diffSortPnt2Pnt1X; // ebx
   //bool bool15; // zf
   bool bool16; // cc
   //int v17; // ebx
@@ -101951,7 +101951,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v24; // ebx
   //_DWORD *v25; // edi
   int v25x;
-  int v26; // edi
+  //int v26; // edi
   _BOOL1 v27; // of
   int v28; // edi
   unsigned int v29; // eax
@@ -103063,7 +103063,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1095; // [esp+18h] [ebp-70h]
   //int v1096; // [esp+1Ch] [ebp-6Ch]
   int v1097; // [esp+1Ch] [ebp-6Ch]
-  int v1098; // [esp+20h] [ebp-68h]
+  int ySum; // [esp+20h] [ebp-68h]
   Type_dword_0x0_0 scaledU; // [esp+24h] [ebp-64h]
   int divPnt3Pnt1UY; // [esp+28h] [ebp-60h]
   int v1101; // [esp+28h] [ebp-60h]
@@ -103097,7 +103097,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1129; // [esp+40h] [ebp-48h]
   int v1130; // [esp+44h] [ebp-44h]
   int v1131; // [esp+44h] [ebp-44h]
-  int v1132; // [esp+48h] [ebp-40h]
+  //int v1132; // [esp+48h] [ebp-40h]
   int v1133; // [esp+48h] [ebp-40h]
   int v1134; // [esp+48h] [ebp-40h]
   int v1135; // [esp+48h] [ebp-40h]
@@ -103429,7 +103429,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       //v10 = sortPnt3->var_1;
       pnt3YAfterScr = sortPnt3->y_1 > heightViewPort_93ADC;
       diffPnt3Pnt1Y = sortPnt3->y_1 - sortPnt1->y_1;
-      v1098 = sortPnt3->y_1 - sortPnt1->y_1;
+      ySum = sortPnt3->y_1 - sortPnt1->y_1;
       //v11 = sortPnt2->var_1;
       pnt2YAfterScr = sortPnt2->y_1 > heightViewPort_93ADC;
       //v12 = sortPnt2->var_1 - sortPnt1->var_1;
@@ -103453,7 +103453,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   if (pnt3YAfterScr)
                   {
                       v58 = heightViewPort_93ADC - sortPnt1->y_1;
-                      v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+                      ySum = heightViewPort_93ADC - sortPnt1->y_1;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC - sortPnt1->y_1;
@@ -103468,8 +103468,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   }
                   goto LABEL_116;
               }
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (!bool16)
               {
                   v1138 = -sortPnt1->y_1;
@@ -103482,7 +103482,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       if (pnt3YAfterScr)
                       {
                           diffPnt3Pnt2Y = heightViewPort_93ADC;
-                          v1098 = heightViewPort_93ADC;
+                          ySum = heightViewPort_93ADC;
                       }
                       //v57 = (uint32*)&unk_93AE0;
                       v57x = 0;
@@ -103618,7 +103618,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   v55 += v1138 * divPnt2Pnt1XY;
                   if (pnt3YAfterScr)
                   {
-                      v1098 = heightViewPort_93ADC;
+                      ySum = heightViewPort_93ADC;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC;
@@ -103668,7 +103668,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   if (pnt3YAfterScr)
                   {
                       v52 = heightViewPort_93ADC - sortPnt1->y_1;
-                      v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+                      ySum = heightViewPort_93ADC - sortPnt1->y_1;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC - sortPnt1->y_1;
@@ -103683,8 +103683,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   }
                   goto LABEL_95;
               }
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (!bool16)
               {
                   v1136 = -sortPnt1->y_1;
@@ -103698,7 +103698,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       if (pnt3YAfterScr)
                       {
                           diffPnt3Pnt2Y = heightViewPort_93ADC;
-                          v1098 = heightViewPort_93ADC;
+                          ySum = heightViewPort_93ADC;
                       }
                       //v51 = (uint32*)&unk_93AE0;
                       v51x = 0;
@@ -103837,7 +103837,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   v49 += v1136 * v1123;
                   if (pnt3YAfterScr)
                   {
-                      v1098 = heightViewPort_93ADC;
+                      ySum = heightViewPort_93ADC;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC;
@@ -103904,7 +103904,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   if (pnt3YAfterScr)
                   {
                       v41 = heightViewPort_93ADC - sortPnt1->y_1;
-                      v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+                      ySum = heightViewPort_93ADC - sortPnt1->y_1;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC - sortPnt1->y_1;
@@ -103919,8 +103919,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   }
                   goto LABEL_71;
               }
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (!bool16)
               {
                   v1134 = -sortPnt1->y_1;
@@ -103935,7 +103935,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       if (pnt3YAfterScr)
                       {
                           diffPnt3Pnt2Y = heightViewPort_93ADC;
-                          v1098 = heightViewPort_93ADC;
+                          ySum = heightViewPort_93ADC;
                       }
                       //v40 = (uint32*)&unk_93AE0;
                       v40x = 0;
@@ -104077,7 +104077,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   v38 += v1134 * v1112;
                   if (pnt3YAfterScr)
                   {
-                      v1098 = heightViewPort_93ADC;
+                      ySum = heightViewPort_93ADC;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC;
@@ -104116,16 +104116,16 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           case 24:
           case 25:
           case 26:
-              pnt21_1xPnt13_0dPnt31_1 = (sortPnt2->y_1 - sortPnt1->y_1) * (sortPnt1->x_0 - sortPnt3->x_0) / diffPnt3Pnt1Y;
-              diffPnt2Pnt1CVar0 = sortPnt2->x_0 - sortPnt1->x_0;
+              pnt21YxPnt13XdPnt31Y = (sortPnt2->y_1 - sortPnt1->y_1) * (sortPnt1->x_0 - sortPnt3->x_0) / diffPnt3Pnt1Y;
+              diffSortPnt2Pnt1X = sortPnt2->x_0 - sortPnt1->x_0;
               //v15 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 == 0;
-              bool16 = (pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 < 0) ^ __OFADD__(pnt21_1xPnt13_0dPnt31_1, diffPnt2Pnt1CVar0);
+              bool16 = (pnt21YxPnt13XdPnt31Y + diffSortPnt2Pnt1X < 0) ^ __OFADD__(pnt21YxPnt13XdPnt31Y, diffSortPnt2Pnt1X);
               //v17 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0;
               if (bool16)
                   return;
-              if (pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0)
+              if (pnt21YxPnt13XdPnt31Y + diffSortPnt2Pnt1X)
               {
-                  v18 = pnt21_1xPnt13_0dPnt31_1 + diffPnt2Pnt1CVar0 + 1;
+                  v18 = pnt21YxPnt13XdPnt31Y + diffSortPnt2Pnt1X + 1;
                   scaledU.dword = (int)(sortPnt2->u_2 + diffPnt2Pnt1Y * (sortPnt1->u_2 - sortPnt3->u_2) / diffPnt3Pnt1Y - sortPnt1->u_2) / v18;
                   scaledV.dword = (int)(sortPnt2->v_3 + diffPnt2Pnt1Y * (sortPnt1->v_3 - sortPnt3->v_3) / diffPnt3Pnt1Y - sortPnt1->v_3) / v18;
                   scaledZ.dword = (int)(sortPnt2->z_4 + diffPnt2Pnt1Y * (sortPnt1->z_4 - sortPnt3->z_4) / diffPnt3Pnt1Y - sortPnt1->z_4) / v18;
@@ -104142,31 +104142,31 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               {
                   if (pnt3YAfterScr)
                   {
-                      v26 = heightViewPort_93ADC - sortPnt1->y_1;
-                      v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+                      //v26 = heightViewPort_93ADC - sortPnt1->y_1;
+                      ySum = heightViewPort_93ADC - sortPnt1->y_1;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC - sortPnt1->y_1;
                       }
                       else
                       {
-                          v27 = __OFSUB__(v26, diffPnt2Pnt1Y);
-                          v28 = v26 - diffPnt2Pnt1Y;
+                          v27 = __OFSUB__(heightViewPort_93ADC - sortPnt1->y_1, diffPnt2Pnt1Y);
+                          v28 = heightViewPort_93ADC - sortPnt1->y_1 - diffPnt2Pnt1Y;
                           pnt2YAfterScr = (v28 < 0) ^ v27 | (v28 == 0);
                           diffPnt3Pnt2Y = v28;
                       }
                   }
                   goto LABEL_47;
               }
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (!bool16)
               {
-                  v1132 = -sortPnt1->y_1;
+                  //v1132 = -sortPnt1->y_1;
                   if (-sortPnt1->y_1 - diffPnt2Pnt1Y >= 0)
                   {
-                      diffPnt3Pnt2Y -= v1132 - diffPnt2Pnt1Y;
-                      v1133 = v1132 - diffPnt2Pnt1Y;
+                      diffPnt3Pnt2Y -= -sortPnt1->y_1 - diffPnt2Pnt1Y;
+                      v1133 = -sortPnt1->y_1 - diffPnt2Pnt1Y;
                       xSum += v1133 * divPnt3Pnt1XY + diffPnt2Pnt1Y * divPnt3Pnt1XY;
                       v24 = v1133 * divPnt3Pnt2XY + (sortPnt2->x_0 << 16);
                       uSum += v1133 * divPnt3Pnt1UY + diffPnt2Pnt1Y * divPnt3Pnt1UY;
@@ -104175,7 +104175,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       if (pnt3YAfterScr)
                       {
                           diffPnt3Pnt2Y = heightViewPort_93ADC;
-                          v1098 = heightViewPort_93ADC;
+                          ySum = heightViewPort_93ADC;
                       }
                       //v25 = (uint32*)&unk_93AE0;
                       v25x = 0;
@@ -104312,14 +104312,14 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffPnt2Pnt1Y += sortPnt1->y_1;
-                  xSum += v1132 * divPnt3Pnt1XY;
-                  xSum2 += v1132 * divPnt2Pnt1XY;
-                  uSum += v1132 * divPnt3Pnt1UY;
-                  vSum += v1132 * divPnt3Pnt1VY;
-                  zSum += v1132 * divPnt3Pnt1ZY;
+                  xSum -= sortPnt1->y_1 * divPnt3Pnt1XY;
+                  xSum2 -= sortPnt1->y_1 * divPnt2Pnt1XY;
+                  uSum -= sortPnt1->y_1 * divPnt3Pnt1UY;
+                  vSum -= sortPnt1->y_1 * divPnt3Pnt1VY;
+                  zSum -= sortPnt1->y_1 * divPnt3Pnt1ZY;
                   if (pnt3YAfterScr)
                   {
-                      v1098 = heightViewPort_93ADC;
+                      ySum = heightViewPort_93ADC;
                       if (pnt2YAfterScr)
                       {
                           diffPnt2Pnt1Y = heightViewPort_93ADC;
@@ -104377,7 +104377,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       //v109 = sortPnt3->var_1;
       v1281 = sortPnt3->y_1 > heightViewPort_93ADC;
       v1090 = sortPnt3->y_1 - sortPnt1->y_1;
-      v1098 = sortPnt3->y_1 - sortPnt1->y_1;
+      ySum = sortPnt3->y_1 - sortPnt1->y_1;
       v1080 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / (sortPnt3->y_1 - sortPnt1->y_1);
       v1084 = ((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt3->y_1 - sortPnt1->y_1);
       switch (byte_967E1)
@@ -104391,21 +104391,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v132 = -sortPnt1->y_1;
               v1090 += sortPnt1->y_1;
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (bool16)
                   return;
               v130 += v1080 * v132;
               v131 += v132 * v1084;
               if (v1281)
               {
-                  v1098 = heightViewPort_93ADC;
+                  ySum = heightViewPort_93ADC;
                   v1090 = heightViewPort_93ADC;
               }
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+              ySum = heightViewPort_93ADC - sortPnt1->y_1;
               v1090 = heightViewPort_93ADC - sortPnt1->y_1;
           }
           //v133 = (uint32*)&unk_93AE0;
@@ -104481,7 +104481,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       case 16:
       case 17:
           scaledZ.dword = (sortPnt2->z_4 - sortPnt3->z_4) / (sortPnt2->x_0 - sortPnt3->x_0);
-          v1127 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+          v1127 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
           v125 = sortPnt1->x_0 << 16;
           v126 = v125;
           v127 = sortPnt1->z_4;
@@ -104489,8 +104489,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v128 = -sortPnt1->y_1;
               v1090 += sortPnt1->y_1;
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (bool16)
                   return;
               v125 += v1080 * v128;
@@ -104498,13 +104498,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v127 += v128 * v1127;
               if (v1281)
               {
-                  v1098 = heightViewPort_93ADC;
+                  ySum = heightViewPort_93ADC;
                   v1090 = heightViewPort_93ADC;
               }
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+              ySum = heightViewPort_93ADC - sortPnt1->y_1;
               v1090 = heightViewPort_93ADC - sortPnt1->y_1;
           }
           //v129 = (uint32*)&unk_93AE0;
@@ -104593,8 +104593,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v118 = sortPnt2->x_0 - sortPnt3->x_0;
           scaledU.dword = (sortPnt2->u_2 - sortPnt3->u_2) / v118;
           scaledV.dword = (sortPnt2->v_3 - sortPnt3->v_3) / v118;
-          v1105 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-          v1116 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
+          v1105 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+          v1116 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
           v119 = sortPnt1->x_0 << 16;
           v120 = v119;
           v121 = sortPnt1->u_2;
@@ -104603,8 +104603,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v123 = -sortPnt1->y_1;
               v1090 += sortPnt1->y_1;
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (bool16)
                   return;
               v119 += v1080 * v123;
@@ -104613,13 +104613,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v122 += v123 * v1116;
               if (v1281)
               {
-                  v1098 = heightViewPort_93ADC;
+                  ySum = heightViewPort_93ADC;
                   v1090 = heightViewPort_93ADC;
               }
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+              ySum = heightViewPort_93ADC - sortPnt1->y_1;
               v1090 = heightViewPort_93ADC - sortPnt1->y_1;
           }
           //v124 = (uint32*)&unk_93AE0;
@@ -104705,9 +104705,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           scaledU.dword = (sortPnt2->u_2 - sortPnt3->u_2) / v110;
           scaledV.dword = (sortPnt2->v_3 - sortPnt3->v_3) / v110;
           scaledZ.dword = (sortPnt2->z_4 - sortPnt3->z_4) / v110;
-          v1104 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-          v1115 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
-          v1126 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+          v1104 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+          v1115 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
+          v1126 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
           v111 = sortPnt1->x_0 << 16;
           v112 = v111;
           v113 = sortPnt1->u_2;
@@ -104717,8 +104717,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           {
               v116 = -sortPnt1->y_1;
               v1090 += sortPnt1->y_1;
-              bool16 = v1098 <= -sortPnt1->y_1;
-              v1098 += sortPnt1->y_1;
+              bool16 = ySum <= -sortPnt1->y_1;
+              ySum += sortPnt1->y_1;
               if (bool16)
                   return;
               v111 += v1080 * v116;
@@ -104728,13 +104728,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v115 += v116 * v1126;
               if (v1281)
               {
-                  v1098 = heightViewPort_93ADC;
+                  ySum = heightViewPort_93ADC;
                   v1090 = heightViewPort_93ADC;
               }
           }
           else if (v1281)
           {
-              v1098 = heightViewPort_93ADC - sortPnt1->y_1;
+              ySum = heightViewPort_93ADC - sortPnt1->y_1;
               v1090 = heightViewPort_93ADC - sortPnt1->y_1;
           }
           //v117 = (uint32*)&unk_93AE0;
@@ -104834,7 +104834,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
     v135 = sortPnt3->y_1;
     v1282 = v135 > heightViewPort_93ADC;
     v1091 = v135 - v134;
-    v1098 = v135 - v134;
+    ySum = v135 - v134;
     v1081 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / (v135 - v134);
     v1085 = ((sortPnt3->x_0 - sortPnt2->x_0) << 16) / (v135 - v134);
     switch ( byte_967E1 )
@@ -104848,21 +104848,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v158 = -v1176;
           v1091 += v1176;
-          bool16 = v1098 <= -v1176;
-          v1098 += v1176;
+          bool16 = ySum <= -v1176;
+          ySum += v1176;
           if (bool16)
             return;
           v156 += v1081 * v158;
           v157 += v158 * v1085;
           if ( v1282 )
           {
-            v1098 = heightViewPort_93ADC;
+            ySum = heightViewPort_93ADC;
             v1091 = heightViewPort_93ADC;
           }
         }
         else if ( v1282 )
         {
-          v1098 = heightViewPort_93ADC - v1176;
+            ySum = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v159 = (uint32*)&unk_93AE0;
@@ -104939,7 +104939,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       case 16:
       case 17:
         scaledZ.dword = (sortPnt2->z_4 - sortPnt1->z_4) / (sortPnt2->x_0 - sortPnt1->x_0);
-        v1129 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+        v1129 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
         v151 = sortPnt1->x_0 << 16;
         v152 = sortPnt2->x_0 << 16;
         v153 = sortPnt1->z_4;
@@ -104947,8 +104947,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v154 = -v1176;
           v1091 += v1176;
-          bool16 = v1098 <= -v1176;
-          v1098 += v1176;
+          bool16 = ySum <= -v1176;
+          ySum += v1176;
           if (bool16)
             return;
           v151 += v1081 * v154;
@@ -104956,13 +104956,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v153 += v154 * v1129;
           if ( v1282 )
           {
-            v1098 = heightViewPort_93ADC;
+            ySum = heightViewPort_93ADC;
             v1091 = heightViewPort_93ADC;
           }
         }
         else if ( v1282 )
         {
-          v1098 = heightViewPort_93ADC - v1176;
+          ySum = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v155 = (uint32*)&unk_93AE0;
@@ -105052,8 +105052,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         v144 = sortPnt2->x_0 - sortPnt1->x_0;
         scaledU.dword = (sortPnt2->u_2 - sortPnt1->u_2) / v144;
         scaledV.dword = (sortPnt2->v_3 - sortPnt1->v_3) / v144;
-        v1107 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-        v1118 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
+        v1107 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+        v1118 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
         v145 = sortPnt1->x_0 << 16;
         v146 = sortPnt2->x_0 << 16;
         v147 = sortPnt1->u_2;
@@ -105062,8 +105062,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v149 = -v1176;
           v1091 += v1176;
-          bool16 = v1098 <= -v1176;
-          v1098 += v1176;
+          bool16 = ySum <= -v1176;
+          ySum += v1176;
           if (bool16)
             return;
           v145 += v1081 * v149;
@@ -105072,13 +105072,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v148 += v149 * v1118;
           if ( v1282 )
           {
-            v1098 = heightViewPort_93ADC;
+            ySum = heightViewPort_93ADC;
             v1091 = heightViewPort_93ADC;
           }
         }
         else if ( v1282 )
         {
-          v1098 = heightViewPort_93ADC - v1176;
+          ySum = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v150 = (uint32*)&unk_93AE0;
@@ -105165,9 +105165,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         scaledU.dword = (sortPnt2->u_2 - sortPnt1->u_2) / v136;
         scaledV.dword = (sortPnt2->v_3 - sortPnt1->v_3) / v136;
         scaledZ.dword = (sortPnt2->z_4 - sortPnt1->z_4) / v136;
-        v1106 = (sortPnt3->u_2 - sortPnt1->u_2) / v1098;
-        v1117 = (sortPnt3->v_3 - sortPnt1->v_3) / v1098;
-        v1128 = (sortPnt3->z_4 - sortPnt1->z_4) / v1098;
+        v1106 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum;
+        v1117 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum;
+        v1128 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum;
         v137 = sortPnt1->x_0 << 16;
         v138 = sortPnt2->x_0 << 16;
         v139 = sortPnt1->u_2;
@@ -105177,8 +105177,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
         {
           v142 = -v1176;
           v1091 += v1176;
-          bool16 = v1098 <= -v1176;
-          v1098 += v1176;
+          bool16 = ySum <= -v1176;
+          ySum += v1176;
           if (bool16)
             return;
           v137 += v1081 * v142;
@@ -105188,13 +105188,13 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v141 += v142 * v1128;
           if ( v1282 )
           {
-            v1098 = heightViewPort_93ADC;
+            ySum = heightViewPort_93ADC;
             v1091 = heightViewPort_93ADC;
           }
         }
         else if ( v1282 )
         {
-          v1098 = heightViewPort_93ADC - v1176;
+          ySum = heightViewPort_93ADC - v1176;
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v143 = (uint32*)&unk_93AE0;
@@ -105246,7 +105246,7 @@ LABEL_319:
 LABEL_320:
           //v160 += 10;
           v160x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v164 > widthViewPort_93AD8 )
@@ -105400,7 +105400,7 @@ LABEL_332:
             }
           }
 LABEL_349:
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v167 > widthViewPort_93AD8 )
@@ -105630,7 +105630,7 @@ LABEL_361:
 LABEL_380:
           //v218 += 10;
           v218x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v221 > widthViewPort_93AD8 )
@@ -105877,7 +105877,7 @@ LABEL_392:
 LABEL_443:
           //v274 += 10;
           v274x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v277 > widthViewPort_93AD8 )
@@ -106035,7 +106035,7 @@ LABEL_455:
             }
           }
 LABEL_472:
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v331 > widthViewPort_93AD8 )
@@ -106349,7 +106349,7 @@ LABEL_485:
             }
           }
 LABEL_501:
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v369 > widthViewPort_93AD8 )
@@ -106657,7 +106657,7 @@ LABEL_514:
             }
           }
 LABEL_562:
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v381 > widthViewPort_93AD8 )
@@ -106906,7 +106906,7 @@ LABEL_574:
 LABEL_593:
           //v390 += 10;
           v390x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v393 > widthViewPort_93AD8 )
@@ -107154,7 +107154,7 @@ LABEL_605:
 LABEL_656:
           //v430 += 10;
           v430x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v433 > widthViewPort_93AD8 )
@@ -107450,7 +107450,7 @@ LABEL_668:
 LABEL_719:
           //v470 += 10;
           v470x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v473 > widthViewPort_93AD8 )
@@ -107682,7 +107682,7 @@ LABEL_731:
 LABEL_750:
           //v510 += 10;
           v510x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v513 > widthViewPort_93AD8 )
@@ -107914,7 +107914,7 @@ LABEL_762:
 LABEL_781:
           //v550 += 10;
           v550x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v553 > widthViewPort_93AD8 )
@@ -108036,7 +108036,7 @@ LABEL_793:
 LABEL_810:
           //v590 += 10;
           v590x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v594 > widthViewPort_93AD8 )
@@ -108153,7 +108153,7 @@ LABEL_822:
 LABEL_839:
           //v611 += 10;
           v611x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v615 > widthViewPort_93AD8 )
@@ -108343,7 +108343,7 @@ LABEL_851:
 LABEL_868:
           //v632 += 10;
           v632x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v634 > widthViewPort_93AD8 )
@@ -108536,7 +108536,7 @@ LABEL_880:
 LABEL_897:
           //v669 += 10;
           v669x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v671 > widthViewPort_93AD8 )
@@ -108782,7 +108782,7 @@ LABEL_909:
 LABEL_928:
           //v706 += 10;
           v706x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v709 > widthViewPort_93AD8 )
@@ -109029,7 +109029,7 @@ LABEL_940:
 LABEL_959:
           //v746 += 10;
           v746x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v749 > widthViewPort_93AD8 )
@@ -109358,7 +109358,7 @@ LABEL_971:
 LABEL_990:
           //v786 += 10;
           v786x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v789 > widthViewPort_93AD8 )
@@ -109689,7 +109689,7 @@ LABEL_1002:
 LABEL_1021:
           //v825 += 10;
           v825x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v828 > widthViewPort_93AD8 )
@@ -109986,7 +109986,7 @@ LABEL_1033:
 LABEL_1084:
           //v864 += 10;
           v864x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v867 > widthViewPort_93AD8 )
@@ -110281,7 +110281,7 @@ LABEL_1096:
 LABEL_1147:
           //v904 += 10;
           v904x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v907 > widthViewPort_93AD8 )
@@ -110657,7 +110657,7 @@ LABEL_1159:
 LABEL_1210:
           //v944 += 10;
           v944x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v947 > widthViewPort_93AD8 )
@@ -111036,7 +111036,7 @@ LABEL_1222:
 LABEL_1273:
           //v983 += 10;
           v983x++;
-          if ( !--v1098 )
+          if ( !--ySum )
             return;
         }
         if ( v986 > widthViewPort_93AD8 )
@@ -111497,7 +111497,7 @@ LABEL_1285:
 LABEL_1352:
       //v1022 += 10;
       v1022x++;
-      if ( !--v1098 )
+      if ( !--ySum )
         return;
     }
     if ( v1025 > widthViewPort_93AD8 )
@@ -111540,7 +111540,7 @@ v62 = sortPnt2->y_1;
 v1284 = v62 > heightViewPort_93ADC;
 v63 = v62 - v60;
 v1093 = v63;
-v1098 = v63;
+ySum = v63;
 v1079 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / v1089;
 if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
 {
@@ -111557,8 +111557,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         v103 = v102;
         if (v1276)
         {
-            bool16 = v1098 <= -v1174;
-            v1098 += v1174;
+            bool16 = ySum <= -v1174;
+            ySum += v1174;
             if (bool16)
                 return;
             v1146 = -v1174;
@@ -111571,7 +111571,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
                 if (v1284)
                 {
                     v1095 = heightViewPort_93ADC;
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                 }
                 //v105 = (uint32*)&unk_93AE0;
                 v105x = 0;
@@ -111707,7 +111707,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
             v103 += v1146 * v1083;
             if (v1284)
             {
-                v1098 = heightViewPort_93ADC;
+                ySum = heightViewPort_93ADC;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC;
@@ -111722,7 +111722,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         else if (v1284)
         {
             v106 = heightViewPort_93ADC - v1174;
-            v1098 = heightViewPort_93ADC - v1174;
+            ySum = heightViewPort_93ADC - v1174;
             if (v1280)
             {
                 v1089 = heightViewPort_93ADC - v1174;
@@ -111769,8 +111769,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         v97 = sortPnt1->z_4;
         if (v1276)
         {
-            bool16 = v1098 <= -v1174;
-            v1098 += v1174;
+            bool16 = ySum <= -v1174;
+            ySum += v1174;
             if (bool16)
                 return;
             v1144 = -v1174;
@@ -111784,7 +111784,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
                 if (v1284)
                 {
                     v1095 = heightViewPort_93ADC;
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                 }
                 //v99 = (uint32*)&unk_93AE0;
                 v99x = 0;
@@ -111923,7 +111923,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
             v97 += v1144 * v1125;
             if (v1284)
             {
-                v1098 = heightViewPort_93ADC;
+                ySum = heightViewPort_93ADC;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC;
@@ -111938,7 +111938,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         else if (v1284)
         {
             v100 = heightViewPort_93ADC - v1174;
-            v1098 = heightViewPort_93ADC - v1174;
+            ySum = heightViewPort_93ADC - v1174;
             if (v1280)
             {
                 v1089 = heightViewPort_93ADC - v1174;
@@ -112003,8 +112003,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         v86 = sortPnt1->v_3;
         if (v1276)
         {
-            bool16 = v1098 <= -v1174;
-            v1098 += v1174;
+            bool16 = ySum <= -v1174;
+            ySum += v1174;
             if (bool16)
                 return;
             v1142 = -v1174;
@@ -112019,7 +112019,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
                 if (v1284)
                 {
                     v1095 = heightViewPort_93ADC;
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                 }
                 //v88 = (uint32*)&unk_93AE0;
                 v88x = 0;
@@ -112161,7 +112161,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
             v86 += v1142 * v1114;
             if (v1284)
             {
-                v1098 = heightViewPort_93ADC;
+                ySum = heightViewPort_93ADC;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC;
@@ -112176,7 +112176,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         else if (v1284)
         {
             v89 = heightViewPort_93ADC - v1174;
-            v1098 = heightViewPort_93ADC - v1174;
+            ySum = heightViewPort_93ADC - v1174;
             if (v1280)
             {
                 v1089 = heightViewPort_93ADC - v1174;
@@ -112242,8 +112242,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         v73 = sortPnt1->z_4;
         if (v1276)
         {
-            bool16 = v1098 <= -v1174;
-            v1098 += v1174;
+            bool16 = ySum <= -v1174;
+            ySum += v1174;
             if (bool16)
                 return;
             v1140 = -v1174;
@@ -112259,7 +112259,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
                 if (v1284)
                 {
                     v1095 = heightViewPort_93ADC;
-                    v1098 = heightViewPort_93ADC;
+                    ySum = heightViewPort_93ADC;
                 }
                 //v75 = (uint32*)&unk_93AE0;
                 v75x = 0;
@@ -112404,7 +112404,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
             v73 += v1140 * v1124;
             if (v1284)
             {
-                v1098 = heightViewPort_93ADC;
+                ySum = heightViewPort_93ADC;
                 if (v1280)
                 {
                     v1089 = heightViewPort_93ADC;
@@ -112419,7 +112419,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / v63 > v1079)
         else if (v1284)
         {
             v76 = heightViewPort_93ADC - v1174;
-            v1098 = heightViewPort_93ADC - v1174;
+            ySum = heightViewPort_93ADC - v1174;
             if (v1280)
             {
                 v1089 = heightViewPort_93ADC - v1174;
