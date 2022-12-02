@@ -102314,7 +102314,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   __int16 v364; // bx
   __int16 v365; // cx
   Type_dword_0x0_0 v366; // eax
-  Type_dword_0x0_0 v367; // ebx
+  Type_dword_0x0_0 textPos; // ebx
   //char *v368; // esi
   int16 v369; // ecx
   uint8* tempScrPtr3; // edi
@@ -106056,7 +106056,7 @@ LABEL_474:
         v1150 = scaledV.dword << 16;
         v1166 = scaledZ.dword << 16;
         v366.word[1] = 0;
-        v367.word[1] = 0;
+        textPos.word[1] = 0;
         while ( 1 )
         {
             //adress 0x245FFB_
@@ -106088,10 +106088,10 @@ LABEL_474:
           {
               v371 = (unsigned __int16)-(__int16)v366.dword;
               v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
-              v367.byte[1] = v372.dword;
+              textPos.byte[1] = v372.dword;
               v372.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0] + scaledU.dword * v371;
               v366.dword = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 8;
-              v367.byte[0] = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
+              textPos.byte[0] = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
               tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32 + scaledZ.dword * v371);
               v366.byte[1] = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259x - 1].y_1.a16[1];
@@ -106138,11 +106138,11 @@ LABEL_484:
                 {
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[1] = strPal.byte_B7934_B7924[v366.dword];
@@ -106150,11 +106150,11 @@ LABEL_484:
 LABEL_487:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[2] = strPal.byte_B7934_B7924[v366.dword];
@@ -106162,11 +106162,11 @@ LABEL_487:
 LABEL_488:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[3] = strPal.byte_B7934_B7924[v366.dword];
@@ -106174,11 +106174,11 @@ LABEL_488:
 LABEL_489:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[4] = strPal.byte_B7934_B7924[v366.dword];
@@ -106186,11 +106186,11 @@ LABEL_489:
 LABEL_490:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[5] = strPal.byte_B7934_B7924[v366.dword];
@@ -106198,20 +106198,20 @@ LABEL_490:
 LABEL_491:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[6] = strPal.byte_B7934_B7924[v366.dword];
                   BYTE1(v366.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_492:
-                  v366.byte[0] = textures[v367.dword];
-                  v367.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, v372.dword);
+                  v366.byte[0] = textures[textPos.dword];
+                  textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, v372.dword);
                   v372.word[0] += scaledU.dword;
-                  v367.byte[1] += scaledV.byte[2] + __CFADD__32(v1150, v372.dword);
+                  textPos.byte[1] += scaledV.byte[2] + __CFADD__32(v1150, v372.dword);
                   v372.dword += v1150;
                   tempScrPtr3plus[7] = strPal.byte_B7934_B7924[v366.dword];
                   v366.byte[1] += scaledZ.byte[2] + __CFADD__32(v1166, tempScrPosX.a32);
@@ -106219,11 +106219,11 @@ LABEL_492:
 LABEL_493:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[8] = strPal.byte_B7934_B7924[v366.dword];
@@ -106231,11 +106231,11 @@ LABEL_493:
 LABEL_494:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[9] = strPal.byte_B7934_B7924[v366.dword];
@@ -106243,11 +106243,11 @@ LABEL_494:
 LABEL_495:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[10] = strPal.byte_B7934_B7924[v366.dword];
@@ -106265,10 +106265,10 @@ add_compare(0x24629B, true, true);
 compare_index_24629B++;
 #endif debug1*/
 //debug
-                  v366.byte[0] = textures[v367.dword];//texture x
-                  v367.byte[0] = scaledU.byte[2] + v367.dword + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
+                  v366.byte[0] = textures[textPos.dword];//texture x
+                  textPos.byte[0] = scaledU.byte[2] + textPos.dword + (uint16(scaledU.dword) > uint16(scaledU.dword + v372.dword));
                   v372.word[0] += scaledU.dword;
-                  v367.byte[1] += scaledV.byte[2] + (uint32(v1150) > uint32(v1150 + v372.dword));//texture y
+                  textPos.byte[1] += scaledV.byte[2] + (uint32(v1150) > uint32(v1150 + v372.dword));//texture y
                   v372.dword += v1150;
                   tempScrPtr3plus[11] = strPal.byte_B7934_B7924[v366.dword];//here
                   v366.byte[1] += scaledZ.byte[2] + (uint32(v1166) > uint32(v1166 + tempScrPosX.a32));
@@ -106276,11 +106276,11 @@ compare_index_24629B++;
 LABEL_497:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[12] = strPal.byte_B7934_B7924[v366.dword];
@@ -106288,11 +106288,11 @@ LABEL_497:
 LABEL_498:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[13] = strPal.byte_B7934_B7924[v366.dword];
@@ -106300,11 +106300,11 @@ LABEL_498:
 LABEL_499:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[14] = strPal.byte_B7934_B7924[v366.dword];
@@ -106312,11 +106312,11 @@ LABEL_499:
 LABEL_500:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[15] = strPal.byte_B7934_B7924[v366.dword];
@@ -106329,11 +106329,11 @@ LABEL_500:
 LABEL_485:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v372.dword);
                   LOWORD(v372.dword) = scaledU.dword + v372.dword;
-                  LOBYTE(v366.dword) = *(_BYTE *)(v367.dword + textures);
-                  LOBYTE(v367.dword) = BYTE2(scaledU.dword) + v171 + v367.dword;
+                  LOBYTE(v366.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(v1150, v372.dword);
                   v372.dword += v1150;
-                  BYTE1(v367.dword) += BYTE2(scaledV.dword) + v171;
+                  BYTE1(textPos.dword) += BYTE2(scaledV.dword) + v171;
                   v171 = __CFADD__(v1166, tempScrPosX.a32);
                   tempScrPosX.a32 += v1166;
                   tempScrPtr3plus[0] = strPal.byte_B7934_B7924[v366.dword];
@@ -106353,10 +106353,10 @@ LABEL_501:
         if (bool16)
           goto LABEL_501;
         tempScrPtr3 += v366.dword;
-        LOBYTE(v367.dword) = unk_93AE0[v1259x - 1].u_2.a16[1];
+        LOBYTE(textPos.dword) = unk_93AE0[v1259x - 1].u_2.a16[1];
         v372.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32);
         v375 = v374;
-        BYTE1(v367.dword) = v372.dword;
+        BYTE1(textPos.dword) = v372.dword;
         LOWORD(v372.dword) = unk_93AE0[v1259x - 1].u_2.a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32);
         BYTE1(v366.dword) = tempScrPosX.a32;
