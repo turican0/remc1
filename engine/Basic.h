@@ -628,11 +628,11 @@ typedef struct {//size 44
 } Type_BegBscreen;
 
 typedef struct {//size 4*5
-	int32 var_0;
-	int32 var_1;
-	int32 var_2;
-	int32 var_3;
-	int32 var_4;
+	int32 x_0;
+	int32 y_1;
+	int32 u_2;
+	int32 v_3;
+	int32 z_4;
 } Type_RenderPoint;
 
 #pragma pack (16)
