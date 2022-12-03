@@ -103228,7 +103228,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //unsigned __int16 *v1258; // [esp+5Ch] [ebp-2Ch]
   int v1258x;
   //char *v1259; // [esp+5Ch] [ebp-2Ch]
-  int v1259x;
+  int v1259y;
   //char *v1260; // [esp+5Ch] [ebp-2Ch]
   int v1260x;
   //unsigned __int16 *v1261; // [esp+5Ch] [ebp-2Ch]
@@ -106052,7 +106052,7 @@ LABEL_472:
       case 5:
 LABEL_474:
         //v1259 = (char *)&unk_93AE0;
-        v1259x = 0;
+        v1259y = 0;
         scaledVB = scaledV.dword << 16;
         scaledZB = scaledZ.dword << 16;
         textPixel.word[1] = 0;
@@ -106074,11 +106074,11 @@ LABEL_474:
             //debug
 
           //v368 = (char*)&unk_93AE0[v1259x];
-          v1259x++;
+          //v1259x++;
           //v368 = v1259;
           //v1259 += 20;
-          textPixel.word[0] = unk_93AE0[v1259x - 1].x_0.a16[1];
-          temp93AE0_Y1_1 = unk_93AE0[v1259x - 1].y_1.a16[1];
+          textPixel.word[0] = unk_93AE0[v1259y].x_0.a16[1];
+          temp93AE0_Y1_1 = unk_93AE0[v1259y].y_1.a16[1];
           //v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
           tempScrPtr3 = actScrPtr;
@@ -106086,15 +106086,15 @@ LABEL_474:
               break;
           if (temp93AE0_Y1_1 > 0)
           {
-              v371 = (unsigned __int16)-(__int16)textPixel.dword;
-              preTextPos.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
+              v371 = ((uint16)-textPixel.word[0]);
+              preTextPos.dword = __ROL4_16__(unk_93AE0[v1259y].v_3.a32 + scaledV.dword * v371);
               textPos.byte[1] = preTextPos.dword;
-              preTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0] + scaledU.dword * v371;
-              textPixel.dword = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 8;
-              textPos.byte[0] = (unsigned int)(unk_93AE0[v1259x - 1].u_2.a32 + scaledU.dword * v371) >> 16;
-              tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32 + scaledZ.dword * v371);
+              preTextPos.word[0] = unk_93AE0[v1259y].u_2.a16[0] + scaledU.dword * v371;
+              textPixel.dword = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * v371) >> 8;
+              textPos.byte[0] = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * v371) >> 16;
+              tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259y].z_4.a32 + scaledZ.dword * v371);
               textPixel.byte[1] = tempScrPosX.a32;
-              tempScrPosX.a16[0] = unk_93AE0[v1259x - 1].y_1.a16[1];
+              tempScrPosX.a16[0] = unk_93AE0[v1259y].y_1.a16[1];
               textPixel.dword = textPixel.word[0];
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
@@ -106345,6 +106345,7 @@ LABEL_485:
 LABEL_501:
           if ( !--ySum )
             return;
+          v1259y++;
         }
         if ( temp93AE0_Y1_1 > widthViewPort_93AD8 )
             temp93AE0_Y1_1 = widthViewPort_93AD8;
@@ -106353,13 +106354,13 @@ LABEL_501:
         if (temp93AE0_Y1_1 <= textPixel.word[0])
           goto LABEL_501;
         tempScrPtr3 += textPixel.dword;
-        textPos.byte[0] = unk_93AE0[v1259x - 1].u_2.a16[1];
-        textPos.byte[1] = unk_93AE0[v1259x - 1].v_3.a16[1];
-        preTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0];
-        preTextPos.word[1] = unk_93AE0[v1259x - 1].v_3.a16[0];    
+        textPos.byte[0] = unk_93AE0[v1259y].u_2.a16[1];
+        textPos.byte[1] = unk_93AE0[v1259y].v_3.a16[1];
+        preTextPos.word[0] = unk_93AE0[v1259y].u_2.a16[0];
+        preTextPos.word[1] = unk_93AE0[v1259y].v_3.a16[0];    
         tempScrPosX.a16[0] = temp93AE0_Y1_1 - textPixel.dword;
-        tempScrPosX.a16[1] = unk_93AE0[v1259x - 1].z_4.a16[0];
-        textPixel.byte[1] = unk_93AE0[v1259x - 1].z_4.a16[1];        
+        tempScrPosX.a16[1] = unk_93AE0[v1259y].z_4.a16[0];
+        textPixel.byte[1] = unk_93AE0[v1259y].z_4.a16[1];        
         goto LABEL_484;
       case 6:
 LABEL_503:
