@@ -106094,20 +106094,16 @@ LABEL_474:
               tempU.dword = unk_93AE0[v1259y].u_2.a32 + scaledU.dword * textIndex;
               tempV.dword = unk_93AE0[v1259y].v_3.a32 + scaledV.dword * textIndex;
               tempZ.dword = unk_93AE0[v1259y].z_4.a32 + scaledZ.dword * textIndex;
-              //preTextPos.dword = __ROL4_16__(tempV);
-              //preTextPos.word[0] = tempV.word[1];
-              preTextPos.word[1] = tempV.word[0];
-              textPos.byte[1] = tempV.byte[2];
+              
               preTextPos.word[0] = tempU.word[0];
-              textPixel.dword = tempU.byte[1];
+              preTextPos.word[1] = tempV.word[0];
               textPos.byte[0] = tempU.byte[2];
-              //tempScrPosX.a32 = __ROL4_16__(tempZ.dword);
-              //tempScrPosX.a16[0] = tempZ.word[1];
-              tempScrPosX.a16[1] = tempZ.word[0];
+              textPos.byte[1] = tempV.byte[2];
+              textPixel.byte[0] = tempU.byte[1];
               textPixel.byte[1] = tempZ.byte[2];
-              tempScrPosX.a16[0] = unk_93AE0[v1259y].y_1.a16[1];
-              //textPixel.dword = textPixel.word[0];
               textPixel.word[1] = 0;
+              tempScrPosX.a16[0] = unk_93AE0[v1259y].y_1.a16[1];
+              tempScrPosX.a16[1] = tempZ.word[0];              
               if (tempScrPosX.a16[0] > widthViewPort_93AD8)
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
