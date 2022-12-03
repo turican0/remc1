@@ -91987,7 +91987,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     unsigned int textPointer; // eax
     int v367; // ebx
     char* v368; // esi
-    int v369; // ecx
+    int temp93AE0_Y1_1; // ecx
     uint8* v370; // edi
     int v371; // ecx
     int v372; // edx
@@ -95585,12 +95585,12 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v368 = v1259;
                 v1259 += 20;
                 LOWORD(textPointer) = *((_WORD*)v368 + 1);
-                v369 = *((unsigned __int16*)v368 + 3);
+                temp93AE0_Y1_1 = *((unsigned __int16*)v368 + 3);
                 v370 = pitchViewPort_93AD4 + actScrPtr;
                 actScrPtr += pitchViewPort_93AD4;
                 if ((textPointer & 0x8000u) == 0)
                     break;
-                if ((__int16)v369 > 0)
+                if ((__int16)temp93AE0_Y1_1 > 0)
                 {
                     v371 = (unsigned __int16)-(__int16)textPointer;
                     v372 = __ROL4__(*((_DWORD*)v368 + 3) + scaledV * v371, 16);
@@ -95858,10 +95858,10 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 if (!--ySum)
                     return;
             }
-            if (v369 > widthViewPort_93AD8)
-                LOWORD(v369) = widthViewPort_93AD8;
-            v16 = (__int16)v369 <= (__int16)textPointer;
-            v374 = v369 - textPointer;
+            if (temp93AE0_Y1_1 > widthViewPort_93AD8)
+                LOWORD(temp93AE0_Y1_1) = widthViewPort_93AD8;
+            v16 = (__int16)temp93AE0_Y1_1 <= (__int16)textPointer;
+            v374 = temp93AE0_Y1_1 - textPointer;
             if (v16)
                 goto LABEL_501;
             v370 += textPointer;
@@ -102316,7 +102316,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   Type_dword_0x0_0 textPixel; // eax
   Type_dword_0x0_0 textPos; // ebx
   //char *v368; // esi
-  int16 v369; // ecx
+  int16 temp93AE0_Y1_1; // ecx
   uint8* tempScrPtr3; // edi
   int v371; // ecx
   Type_dword_0x0_0 preTextPos; // edx
@@ -106078,13 +106078,13 @@ LABEL_474:
           //v368 = v1259;
           //v1259 += 20;
           textPixel.word[0] = unk_93AE0[v1259x - 1].x_0.a16[1];
-          v369 = unk_93AE0[v1259x - 1].y_1.a16[1];
+          temp93AE0_Y1_1 = unk_93AE0[v1259x - 1].y_1.a16[1];
           //v370 = pitchViewPort_93AD4 + actScrPtr;
           actScrPtr += pitchViewPort_93AD4;
           tempScrPtr3 = actScrPtr;
           if ((textPixel.dword & 0x8000u) == 0)
               break;
-          if (v369 > 0)
+          if (temp93AE0_Y1_1 > 0)
           {
               v371 = (unsigned __int16)-(__int16)textPixel.dword;
               preTextPos.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32 + scaledV.dword * v371);
@@ -106346,18 +106346,18 @@ LABEL_501:
           if ( !--ySum )
             return;
         }
-        if ( v369 > widthViewPort_93AD8 )
-            v369 = widthViewPort_93AD8;
-        //bool16 = v369 <= textPixel.word[0];
-        //v374 = v369 - textPixel.dword;
-        if (v369 <= textPixel.word[0])
+        if ( temp93AE0_Y1_1 > widthViewPort_93AD8 )
+            temp93AE0_Y1_1 = widthViewPort_93AD8;
+        //bool16 = temp93AE0_Y1_1 <= textPixel.word[0];
+        //v374 = temp93AE0_Y1_1 - textPixel.dword;
+        if (temp93AE0_Y1_1 <= textPixel.word[0])
           goto LABEL_501;
         tempScrPtr3 += textPixel.dword;
         textPos.byte[0] = unk_93AE0[v1259x - 1].u_2.a16[1];
         textPos.byte[1] = unk_93AE0[v1259x - 1].v_3.a16[1];
         preTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0];
         preTextPos.word[1] = unk_93AE0[v1259x - 1].v_3.a16[0];    
-        tempScrPosX.a16[0] = v369 - textPixel.dword;
+        tempScrPosX.a16[0] = temp93AE0_Y1_1 - textPixel.dword;
         tempScrPosX.a16[1] = unk_93AE0[v1259x - 1].z_4.a16[0];
         textPixel.byte[1] = unk_93AE0[v1259x - 1].z_4.a16[1];        
         goto LABEL_484;
