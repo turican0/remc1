@@ -102322,7 +102322,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   Type_dword_0x0_0 oldTextPos; // edx
   un16_32 tempScrPosX; // ecx
   __int16 v374; // cx
-  __int16 v375; // bp
+  //__int16 v375; // bp
   uint8* tempScrPtr3plus; // edi
   uint8* textures; // ebp
   unsigned int v378; // eax
@@ -106355,12 +106355,12 @@ LABEL_501:
         tempScrPtr3 += textPixel.dword;
         textPos.byte[0] = unk_93AE0[v1259x - 1].u_2.a16[1];
         oldTextPos.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32);
-        v375 = v374;
+        //v375 = v374;
         textPos.byte[1] = oldTextPos.dword;
         oldTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32);
         textPixel.byte[1] = tempScrPosX.a32;
-        tempScrPosX.a16[0] = v375;
+        tempScrPosX.a16[0] = v374;
         goto LABEL_484;
       case 6:
 LABEL_503:
