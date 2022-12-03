@@ -81680,7 +81680,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
     //char* v368; // esi
     int v369; // ecx
     uint8* v370; // edi
-    int v371; // ecx
+    int textIndex; // ecx
     int v372; // edx
     int v373; // ecx
     __int16 v374; // cx
@@ -85287,13 +85287,13 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     break;
                 if ((__int16)v369 > 0)
                 {
-                    v371 = (unsigned __int16)-(__int16)textPointer;
-                    v372 = __ROL4__(unk_93AE0[v1259x].v_3.a32 + scaledV * v371, 16);
+                    textIndex = (unsigned __int16)-(__int16)textPointer;
+                    v372 = __ROL4__(unk_93AE0[v1259x].v_3.a32 + scaledV * textIndex, 16);
                     BYTE1(v367) = v372;
-                    LOWORD(v372) = unk_93AE0[v1259x].u_2.a16[0] + scaledU * v371;
-                    textPointer = (unsigned int)(unk_93AE0[v1259x].u_2.a32 + scaledU * v371) >> 8;
-                    LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x].y_1.a16[0] + scaledU * v371) >> 16;
-                    v373 = __ROL4__(unk_93AE0[v1259x].z_4.a32 + scaledZ * v371, 16);
+                    LOWORD(v372) = unk_93AE0[v1259x].u_2.a16[0] + scaledU * textIndex;
+                    textPointer = (unsigned int)(unk_93AE0[v1259x].u_2.a32 + scaledU * textIndex) >> 8;
+                    LOBYTE(v367) = (unsigned int)(unk_93AE0[v1259x].y_1.a16[0] + scaledU * textIndex) >> 16;
+                    v373 = __ROL4__(unk_93AE0[v1259x].z_4.a32 + scaledZ * textIndex, 16);
                     BYTE1(textPointer) = v373;
                     LOWORD(v373) = unk_93AE0[v1259x].y_1.a16[1];
                     textPointer = (unsigned __int16)textPointer;
@@ -91989,7 +91989,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
     char* v368; // esi
     int temp93AE0_Y1_1; // ecx
     uint8* v370; // edi
-    int v371; // ecx
+    int textIndex; // ecx
     int v372; // edx
     int v373; // ecx
     __int16 v374; // cx
@@ -95592,13 +95592,13 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     break;
                 if ((__int16)temp93AE0_Y1_1 > 0)
                 {
-                    v371 = (unsigned __int16)-(__int16)textPointer;
-                    v372 = __ROL4__(*((_DWORD*)v368 + 3) + scaledV * v371, 16);
+                    textIndex = (unsigned __int16)-(__int16)textPointer;
+                    v372 = __ROL4__(*((_DWORD*)v368 + 3) + scaledV * textIndex, 16);
                     BYTE1(v367) = v372;
-                    LOWORD(v372) = *((_WORD*)v368 + 4) + scaledU * v371;
-                    textPointer = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * v371) >> 8;
-                    LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * v371) >> 16;
-                    v373 = __ROL4__(*((_DWORD*)v368 + 4) + scaledZ * v371, 16);
+                    LOWORD(v372) = *((_WORD*)v368 + 4) + scaledU * textIndex;
+                    textPointer = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * textIndex) >> 8;
+                    LOBYTE(v367) = (unsigned int)(*((_DWORD*)v368 + 2) + scaledU * textIndex) >> 16;
+                    v373 = __ROL4__(*((_DWORD*)v368 + 4) + scaledZ * textIndex, 16);
                     BYTE1(textPointer) = v373;
                     LOWORD(v373) = *((_WORD*)v368 + 3);
                     textPointer = (unsigned __int16)textPointer;
@@ -102318,7 +102318,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //char *v368; // esi
   int16 temp93AE0_Y1_1; // ecx
   uint8* tempScrPtr3; // edi
-  int v371; // ecx
+  int textIndex; // ecx
   Type_dword_0x0_0 preTextPos; // edx
   un16_32 tempScrPosX; // ecx
   //__int16 v374; // cx
@@ -103304,6 +103304,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   v51x = 0;
   v57x = 0;
   v390x = 0;
+
+  Type_dword_0x0_0 tempU;
+  Type_dword_0x0_0 tempV;
+  Type_dword_0x0_0 tempZ;
   //fix
 
   sortPnt1 = pnt1;
@@ -106086,13 +106090,18 @@ LABEL_474:
               break;
           if (temp93AE0_Y1_1 > 0)
           {
-              v371 = ((uint16)-textPixel.word[0]);
-              preTextPos.dword = __ROL4_16__(unk_93AE0[v1259y].v_3.a32 + scaledV.dword * v371);
-              textPos.byte[1] = preTextPos.dword;
-              preTextPos.word[0] = unk_93AE0[v1259y].u_2.a16[0] + scaledU.dword * v371;
-              textPixel.dword = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * v371) >> 8;
-              textPos.byte[0] = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * v371) >> 16;
-              tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259y].z_4.a32 + scaledZ.dword * v371);
+              textIndex = ((uint16)-textPixel.word[0]);
+              tempU.dword = unk_93AE0[v1259y].u_2.a32 + scaledU.dword * textIndex;
+              tempV.dword = unk_93AE0[v1259y].v_3.a32 + scaledV.dword * textIndex;
+              tempZ.dword = unk_93AE0[v1259y].z_4.a32 + scaledZ.dword * textIndex;
+              //preTextPos.dword = __ROL4_16__(tempV);
+              //preTextPos.word[0] = tempV.word[1];
+              preTextPos.word[1] = tempV.word[0];
+              textPos.byte[1] = tempV.byte[2];
+              preTextPos.word[0] = unk_93AE0[v1259y].u_2.a16[0] + scaledU.dword * textIndex;
+              textPixel.dword = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * textIndex) >> 8;
+              textPos.byte[0] = (unsigned int)(unk_93AE0[v1259y].u_2.a32 + scaledU.dword * textIndex) >> 16;
+              tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259y].z_4.a32 + scaledZ.dword * textIndex);
               textPixel.byte[1] = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259y].y_1.a16[1];
               textPixel.dword = textPixel.word[0];
