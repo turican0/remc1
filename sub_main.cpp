@@ -106101,7 +106101,9 @@ LABEL_474:
               preTextPos.word[0] = tempU.word[0];
               textPixel.dword = tempU.dword >> 8;
               textPos.byte[0] = tempU.dword >> 16;
-              tempScrPosX.a32 = __ROL4_16__(tempZ.dword);
+              //tempScrPosX.a32 = __ROL4_16__(tempZ.dword);
+              tempScrPosX.a16[0] = tempZ.word[1];
+              tempScrPosX.a16[1] = tempZ.word[0];
               textPixel.byte[1] = tempScrPosX.a32;
               tempScrPosX.a16[0] = unk_93AE0[v1259y].y_1.a16[1];
               textPixel.dword = textPixel.word[0];
