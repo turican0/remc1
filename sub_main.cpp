@@ -106097,8 +106097,8 @@ LABEL_474:
               
               preTextPos.word[0] = tempU.word[0];
               preTextPos.word[1] = tempV.word[0];
-              textPos.byte[0] = tempU.byte[2];
-              textPos.byte[1] = tempV.byte[2];
+              textPos.byte[0] = tempU.byte[2];//text posX
+              textPos.byte[1] = tempV.byte[2];//text posY
               textPixel.byte[0] = tempU.byte[1];
               textPixel.byte[1] = tempZ.byte[2];
               textPixel.word[1] = 0;
@@ -106275,8 +106275,8 @@ compare_index_24629B++;
 //debug
                   textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                   textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                  preTextPos.word[0] += scaledU.dword;
                   textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
+                  preTextPos.word[0] += scaledU.word[0];
                   preTextPos.dword += scaledVB;
                   tempScrPtr3plus[11] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
                   textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
