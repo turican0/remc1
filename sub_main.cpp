@@ -106353,13 +106353,13 @@ LABEL_501:
         if (bool16)
           goto LABEL_501;
         tempScrPtr3 += textPixel.dword;
-        LOBYTE(textPos.dword) = unk_93AE0[v1259x - 1].u_2.a16[1];
+        textPos.byte[0] = unk_93AE0[v1259x - 1].u_2.a16[1];
         oldTextPos.dword = __ROL4_16__(unk_93AE0[v1259x - 1].v_3.a32);
         v375 = v374;
-        BYTE1(textPos.dword) = oldTextPos.dword;
-        LOWORD(oldTextPos.dword) = unk_93AE0[v1259x - 1].u_2.a16[0];
+        textPos.byte[1] = oldTextPos.dword;
+        oldTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0];
         tempScrPosX.a32 = __ROL4_16__(unk_93AE0[v1259x - 1].z_4.a32);
-        BYTE1(textPixel.dword) = tempScrPosX.a32;
+        textPixel.byte[1] = tempScrPosX.a32;
         tempScrPosX.a16[0] = v375;
         goto LABEL_484;
       case 6:
