@@ -102321,7 +102321,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v371; // ecx
   Type_dword_0x0_0 preTextPos; // edx
   un16_32 tempScrPosX; // ecx
-  __int16 v374; // cx
+  //__int16 v374; // cx
   //__int16 v375; // bp
   uint8* tempScrPtr3plus; // edi
   uint8* textures; // ebp
@@ -106348,16 +106348,16 @@ LABEL_501:
         }
         if ( v369 > widthViewPort_93AD8 )
             v369 = widthViewPort_93AD8;
-        bool16 = v369 <= (__int16)textPixel.dword;
-        v374 = v369 - textPixel.dword;
-        if (bool16)
+        //bool16 = v369 <= textPixel.word[0];
+        //v374 = v369 - textPixel.dword;
+        if (v369 <= textPixel.word[0])
           goto LABEL_501;
         tempScrPtr3 += textPixel.dword;
         textPos.byte[0] = unk_93AE0[v1259x - 1].u_2.a16[1];
         textPos.byte[1] = unk_93AE0[v1259x - 1].v_3.a16[1];
         preTextPos.word[0] = unk_93AE0[v1259x - 1].u_2.a16[0];
         preTextPos.word[1] = unk_93AE0[v1259x - 1].v_3.a16[0];    
-        tempScrPosX.a16[0] = v374;
+        tempScrPosX.a16[0] = v369 - textPixel.dword;
         tempScrPosX.a16[1] = unk_93AE0[v1259x - 1].z_4.a16[0];
         textPixel.byte[1] = unk_93AE0[v1259x - 1].z_4.a16[1];        
         goto LABEL_484;
