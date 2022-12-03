@@ -4181,7 +4181,7 @@ int dword_93AB0 = 80; // weak
 __int16 word_93AB4 = -4; // weak
 uint8* beginPrevLineFrame_93AC8 = nullptr; // weak
 uint8* beginFrame_93ACC = nullptr; // weak
-uint8* dword_93AD0 = nullptr; // weak
+uint8* actTexture_93AD0 = nullptr; // weak
 int pitchViewPort_93AD4 = 0; // weak
 uint16 widthViewPort_93AD8 = 0; // weak
 uint16 heightViewPort_93ADC = 0; // weak
@@ -33454,7 +33454,7 @@ LABEL_26:
                                     v203x[3] = v73[5];
                                     v198x[2] = v73[6];
                                     v198x[3] = v73[7];
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v71 + 41)].p;
+                                    actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v71 + 41)].p;
                                     v74 = *(_BYTE*)(v71 + 38);
                                     byte_967E1 = 5;
                                     if ((v74 & 1) != 0)
@@ -33540,7 +33540,7 @@ LABEL_26:
                                 v87 = *(unsigned __int8*)(v84 + 41);
                                 byte_967E1 = 5;
                                 v88 = *(_BYTE*)(v84 + 38);
-                                dword_93AD0 = dword_9334C[v87].p;
+                                actTexture_93AD0 = dword_9334C[v87].p;
                                 if ((v88 & 1) != 0)
                                 {
                                     DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v198x[0], (uint32*)&v208x[0]);
@@ -33686,7 +33686,7 @@ LABEL_26:
                                     v203x[3] = v90[5];
                                     v198x[2] = v90[6];
                                     v198x[3] = v90[7];
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
+                                    actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
                                     if ((*(_BYTE*)(v121 + 38) & 1) != 0)
                                     {
                                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33717,7 +33717,7 @@ LABEL_26:
                                     v198x[2] = v90[6];
                                     v198x[3] = v90[7];
                                     v124 = *(_BYTE*)(v121 + 38);
-                                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
+                                    actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v121 + 41)].p;
                                     if ((v124 & 1) != 0)
                                     {
                                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33784,7 +33784,7 @@ LABEL_26:
                         v198x[2] = *(_DWORD*)((char*)&unk_902DC + v106 + 24);
                         v198x[3] = *(_DWORD*)((char*)&unk_902DC + v106 + 28);
                         v107 = *(_BYTE*)(v102 + 38);
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
+                        actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
                         if ((v107 & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -33814,7 +33814,7 @@ LABEL_26:
                         v203x[3] = v105[5];
                         v198x[2] = v105[6];
                         v198x[3] = v105[7];
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
+                        actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v102 + 41)].p;
                         if ((*(_BYTE*)(v102 + 38) & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34030,7 +34030,7 @@ LABEL_26:
                     v198x[2] = v147[6];
                     v198x[3] = v147[7];
                     v182 = *(_BYTE*)(v179 + 38);
-                    dword_93AD0 = dword_9334C[*(unsigned __int8*)(v179 + 41)].p;
+                    actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v179 + 41)].p;
                     if ((v182 & 1) != 0)
                     {
                         DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34105,7 +34105,7 @@ LABEL_26:
                         v203x[3] = v147[5];
                         v198x[2] = v147[6];
                         v198x[3] = v147[7];
-                        dword_93AD0 = dword_9334C[*(unsigned __int8*)(v194 + 41)].p;
+                        actTexture_93AD0 = dword_9334C[*(unsigned __int8*)(v194 + 41)].p;
                         if ((*(_BYTE*)(v194 + 38) & 1) != 0)
                         {
                             DrawTriangle_729A3_72EB3_old((uint32*)&v213x[0], (uint32*)&v208x[0], (uint32*)&v198x[0]);
@@ -34628,7 +34628,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 							v203x.v_3 = unk_902DC[tempBegBscreen[index62].var_42][5];
 							v198x.u_2 = unk_902DC[tempBegBscreen[index62].var_42][6];
 							v198x.v_3 = unk_902DC[tempBegBscreen[index62].var_42][7];
-							dword_93AD0 = dword_9334C[tempBegBscreen[index62].haveTexture_41].p;
+							actTexture_93AD0 = dword_9334C[tempBegBscreen[index62].haveTexture_41].p;
 							byte_967E1 = 5;
 							if ((tempBegBscreen[index62].triangleDir_38._axis_2d.x & 1) != 0)
 							{
@@ -34685,7 +34685,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 								v198x.u_2 = unk_902DC[tempBegBscreen[indexv76].var_42][6];
 								v198x.v_3 = unk_902DC[tempBegBscreen[indexv76].var_42][7];
 								byte_967E1 = 5;
-								dword_93AD0 = dword_9334C[tempBegBscreen[indexv76].haveTexture_41].p;
+								actTexture_93AD0 = dword_9334C[tempBegBscreen[indexv76].haveTexture_41].p;
 								if ((tempBegBscreen[indexv76].triangleDir_38._axis_2d.x & 1) != 0)
 								{
 									DrawTriangle_729A3_72EB3(&v213x, &v198x, &v208x);
@@ -34772,7 +34772,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.v_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
 						v198x.u_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
 						v198x.v_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
+						actTexture_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34801,7 +34801,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.v_3 = unk_902DC[tempBegBscreen[indexv91].var_42][5];
 						v198x.u_2 = unk_902DC[tempBegBscreen[indexv91].var_42][6];
 						v198x.v_3 = unk_902DC[tempBegBscreen[indexv91].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
+						actTexture_93AD0 = dword_9334C[tempBegBscreen[indexv91].haveTexture_41].p;
 						if ((tempBegBscreen[indexv91].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34866,7 +34866,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.v_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
 						v198x.u_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
 						v198x.v_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
+						actTexture_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -34895,7 +34895,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.v_3 = unk_902DC[tempBegBscreen[index109].var_42][5];
 						v198x.u_2 = unk_902DC[tempBegBscreen[index109].var_42][6];
 						v198x.v_3 = unk_902DC[tempBegBscreen[index109].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
+						actTexture_93AD0 = dword_9334C[tempBegBscreen[index109].haveTexture_41].p;
 						if ((tempBegBscreen[index109].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -35064,7 +35064,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					v198x.u_2 = unk_902DC[tempBegBscreen[index168].var_42][6];
 					v198x.v_3 = unk_902DC[tempBegBscreen[index168].var_42][7];
 
-					dword_93AD0 = dword_9334C[tempBegBscreen[index168].haveTexture_41].p;
+					actTexture_93AD0 = dword_9334C[tempBegBscreen[index168].haveTexture_41].p;
 					if ((tempBegBscreen[index168].triangleDir_38._axis_2d.x & 1) != 0)
 					{
 						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -35117,7 +35117,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						v203x.v_3 = unk_902DC[tempBegBscreen[index183].var_42][5];
 						v198x.u_2 = unk_902DC[tempBegBscreen[index183].var_42][6];
 						v198x.v_3 = unk_902DC[tempBegBscreen[index183].var_42][7];
-						dword_93AD0 = dword_9334C[tempBegBscreen[index183].haveTexture_41].p;
+						actTexture_93AD0 = dword_9334C[tempBegBscreen[index183].haveTexture_41].p;
 						if ((tempBegBscreen[index183].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
@@ -84652,7 +84652,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v219 = (unsigned __int16)v226;
                 LABEL_361:
                     v1257 = v218;
-                    v227 = (int)dword_93AD0;
+                    v227 = (int)actTexture_93AD0;
                     while (1)
                     {
                         v228 = *(_BYTE*)(v220 + v227);
@@ -84880,7 +84880,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v275 = (unsigned __int16)v282;
                 LABEL_392:
                     v1258 = v274;
-                    v283 = (int)dword_93AD0;
+                    v283 = (int)actTexture_93AD0;
                     while (1)
                     {
                         v284 = *(_BYTE*)(v276 + v283);
@@ -85301,7 +85301,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
                     v376 = (_BYTE*)(dword_74F95_754A5[v373 & 0xF] + v370);
-                    v377 = (int)dword_93AD0;
+                    v377 = (int)actTexture_93AD0;
                     switch (v373 & 0xF)
                     {
                     case 0:
@@ -85602,7 +85602,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v385) = widthViewPort_93AD8;
                 LABEL_513:
                     v388 = (_BYTE*)(dword_74F95_754A5[v385 & 0xF] + v382);
-                    v389 = (int)dword_93AD0;
+                    v389 = (int)actTexture_93AD0;
                     switch (v385 & 0xF)
                     {
                     case 0:
@@ -85915,7 +85915,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v391 = (unsigned __int16)v398;
                 LABEL_574:
                     v1261 = v390;
-                    v399 = (int)dword_93AD0;
+                    v399 = (int)actTexture_93AD0;
                     BYTE1(v391) = byte_967E0;
                     while (1)
                     {
@@ -86144,7 +86144,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v431 = (unsigned __int16)v438;
                 LABEL_605:
                     v1262 = v430;
-                    v439 = (int)dword_93AD0;
+                    v439 = (int)actTexture_93AD0;
                     BYTE1(v431) = byte_967E0;
                     while (1)
                     {
@@ -86390,7 +86390,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v471 = (unsigned __int16)v478;
                 LABEL_668:
                     v1263 = v470;
-                    v479 = (int)dword_93AD0;
+                    v479 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v471) = *(_BYTE*)(v472 + v479);
@@ -86682,7 +86682,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v511 = (unsigned __int16)v518;
                 LABEL_731:
                     v1264 = v510;
-                    v519 = (int)dword_93AD0;
+                    v519 = (int)actTexture_93AD0;
                     LOBYTE(v511) = byte_967E0;
                     while (1)
                     {
@@ -86911,7 +86911,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v551 = (unsigned __int16)v558;
                 LABEL_762:
                     v1265 = v550;
-                    v559 = (int)dword_93AD0;
+                    v559 = (int)actTexture_93AD0;
                     BYTE1(v551) = byte_967E0;
                     while (1)
                     {
@@ -87751,7 +87751,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v707 = (unsigned __int16)v714;
                 LABEL_909:
                     v1266 = v706;
-                    v715 = (int)dword_93AD0;
+                    v715 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v707) = *(_BYTE*)(v708 + v715);
@@ -87995,7 +87995,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v747 = (unsigned __int16)v754;
                 LABEL_940:
                     v1267 = v746;
-                    v755 = (int)dword_93AD0;
+                    v755 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v747) = *(_BYTE*)(v748 + v755);
@@ -88241,7 +88241,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v787 = (unsigned __int16)v787;
                 LABEL_971:
                     v1268 = v786;
-                    v794 = (int)dword_93AD0;
+                    v794 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v787) = *(_BYTE*)(v788 + v794);
@@ -88569,7 +88569,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v826 = (unsigned __int16)v826;
                 LABEL_1002:
                     v1269 = v825;
-                    v833 = (int)dword_93AD0;
+                    v833 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v826) = *(_BYTE*)(v827 + v833);
@@ -88895,7 +88895,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v865 = (unsigned __int16)v872;
                 LABEL_1033:
                     v1270 = v864;
-                    v873 = (int)dword_93AD0;
+                    v873 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v865) = *(_BYTE*)(v866 + v873);
@@ -89187,7 +89187,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v905 = (unsigned __int16)v912;
                 LABEL_1096:
                     v1271 = v904;
-                    v913 = (int)dword_93AD0;
+                    v913 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v905) = *(_BYTE*)(v906 + v913);
@@ -89481,7 +89481,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v945 = (unsigned __int16)v945;
                 LABEL_1159:
                     v1272 = v944;
-                    v952 = (int)dword_93AD0;
+                    v952 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v945) = *(_BYTE*)(v946 + v952);
@@ -89857,7 +89857,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     v984 = (unsigned __int16)v984;
                 LABEL_1222:
                     v1273 = v983;
-                    v991 = (int)dword_93AD0;
+                    v991 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v984) = *(_BYTE*)(v985 + v991);
@@ -90235,7 +90235,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 v1023 = (unsigned __int16)v1023;
             LABEL_1285:
                 v1274 = v1022;
-                v1030 = (int)dword_93AD0;
+                v1030 = (int)actTexture_93AD0;
                 while (1)
                 {
                     LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
@@ -94960,7 +94960,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v219 = (unsigned __int16)v226;
                 LABEL_361:
                     v1257 = v218;
-                    v227 = (int)dword_93AD0;
+                    v227 = (int)actTexture_93AD0;
                     while (1)
                     {
                         v228 = *(_BYTE*)(v220 + v227);
@@ -95188,7 +95188,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v275 = (unsigned __int16)v282;
                 LABEL_392:
                     v1258 = v274;
-                    v283 = (int)dword_93AD0;
+                    v283 = (int)actTexture_93AD0;
                     while (1)
                     {
                         v284 = *(_BYTE*)(v276 + v283);
@@ -95606,7 +95606,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v373) = widthViewPort_93AD8;
                 LABEL_484:
                     v376 = (_BYTE*)(dword_74F95_754A5[v373 & 0xF] + v370);
-                    v377 = (int)dword_93AD0;
+                    v377 = (int)actTexture_93AD0;
                     switch (v373 & 0xF)
                     {
                     case 0:
@@ -95907,7 +95907,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v385) = widthViewPort_93AD8;
                 LABEL_513:
                     v388 = (_BYTE*)(dword_74F95_754A5[v385 & 0xF] + v382);
-                    v389 = (int)dword_93AD0;
+                    v389 = (int)actTexture_93AD0;
                     switch (v385 & 0xF)
                     {
                     case 0:
@@ -96220,7 +96220,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v391 = (unsigned __int16)v398;
                 LABEL_574:
                     v1261 = v390;
-                    v399 = (int)dword_93AD0;
+                    v399 = (int)actTexture_93AD0;
                     BYTE1(v391) = byte_967E0;
                     while (1)
                     {
@@ -96449,7 +96449,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v431 = (unsigned __int16)v438;
                 LABEL_605:
                     v1262 = v430;
-                    v439 = (int)dword_93AD0;
+                    v439 = (int)actTexture_93AD0;
                     BYTE1(v431) = byte_967E0;
                     while (1)
                     {
@@ -96695,7 +96695,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v471 = (unsigned __int16)v478;
                 LABEL_668:
                     v1263 = v470;
-                    v479 = (int)dword_93AD0;
+                    v479 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v471) = *(_BYTE*)(v472 + v479);
@@ -96987,7 +96987,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v511 = (unsigned __int16)v518;
                 LABEL_731:
                     v1264 = v510;
-                    v519 = (int)dword_93AD0;
+                    v519 = (int)actTexture_93AD0;
                     LOBYTE(v511) = byte_967E0;
                     while (1)
                     {
@@ -97216,7 +97216,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v551 = (unsigned __int16)v558;
                 LABEL_762:
                     v1265 = v550;
-                    v559 = (int)dword_93AD0;
+                    v559 = (int)actTexture_93AD0;
                     BYTE1(v551) = byte_967E0;
                     while (1)
                     {
@@ -98056,7 +98056,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v707 = (unsigned __int16)v714;
                 LABEL_909:
                     v1266 = v706;
-                    v715 = (int)dword_93AD0;
+                    v715 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v707) = *(_BYTE*)(v708 + v715);
@@ -98300,7 +98300,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v747 = (unsigned __int16)v754;
                 LABEL_940:
                     v1267 = v746;
-                    v755 = (int)dword_93AD0;
+                    v755 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v747) = *(_BYTE*)(v748 + v755);
@@ -98546,7 +98546,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v787 = (unsigned __int16)v787;
                 LABEL_971:
                     v1268 = v786;
-                    v794 = (int)dword_93AD0;
+                    v794 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v787) = *(_BYTE*)(v788 + v794);
@@ -98874,7 +98874,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v826 = (unsigned __int16)v826;
                 LABEL_1002:
                     v1269 = v825;
-                    v833 = (int)dword_93AD0;
+                    v833 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v826) = *(_BYTE*)(v827 + v833);
@@ -99200,7 +99200,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v865 = (unsigned __int16)v872;
                 LABEL_1033:
                     v1270 = v864;
-                    v873 = (int)dword_93AD0;
+                    v873 = (int)actTexture_93AD0;
                     while (1)
                     {
                         BYTE1(v865) = *(_BYTE*)(v866 + v873);
@@ -99492,7 +99492,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v905 = (unsigned __int16)v912;
                 LABEL_1096:
                     v1271 = v904;
-                    v913 = (int)dword_93AD0;
+                    v913 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v905) = *(_BYTE*)(v906 + v913);
@@ -99786,7 +99786,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v945 = (unsigned __int16)v945;
                 LABEL_1159:
                     v1272 = v944;
-                    v952 = (int)dword_93AD0;
+                    v952 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v945) = *(_BYTE*)(v946 + v952);
@@ -100162,7 +100162,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     v984 = (unsigned __int16)v984;
                 LABEL_1222:
                     v1273 = v983;
-                    v991 = (int)dword_93AD0;
+                    v991 = (int)actTexture_93AD0;
                     while (1)
                     {
                         LOBYTE(v984) = *(_BYTE*)(v985 + v991);
@@ -100540,7 +100540,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 v1023 = (unsigned __int16)v1023;
             LABEL_1285:
                 v1274 = v1022;
-                v1030 = (int)dword_93AD0;
+                v1030 = (int)actTexture_93AD0;
                 while (1)
                 {
                     LOBYTE(v1023) = *(_BYTE*)(v1024 + v1030);
@@ -102324,7 +102324,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //__int16 v374; // cx
   //__int16 v375; // bp
   uint8* tempScrPtr3plus; // edi
-  uint8* textures; // ebp
+  uint8* tempTexture; // ebp
   unsigned int v378; // eax
   int v379; // ebx
   //char *v380; // esi
@@ -105448,7 +105448,7 @@ LABEL_351:
             v219 = (unsigned __int16)v226;
 LABEL_361:
             v1257x = v218x;
-            v227 = (int)dword_93AD0;
+            v227 = (int)actTexture_93AD0;
             while ( 1 )
             {
               v228 = *(_BYTE *)(v220 + v227);
@@ -105679,7 +105679,7 @@ LABEL_382:
             v275 = (unsigned __int16)v282;
 LABEL_392:
             v1258x = v274x;
-            v283 = (int)dword_93AD0;
+            v283 = (int)actTexture_93AD0;
             while ( 1 )
             {
               v284 = *(_BYTE *)(v276 + v283);
@@ -106108,7 +106108,7 @@ LABEL_474:
                   tempScrPosX.a16[0] = widthViewPort_93AD8;
 LABEL_484:
               tempScrPtr3plus = &tempScrPtr3[dword_74F95_754A5[tempScrPosX.a16[0] & 0xF]];
-              textures = dword_93AD0;
+              tempTexture = actTexture_93AD0;
             switch (tempScrPosX.a16[0] & 0xF )
             {
               case 0:
@@ -106146,7 +106146,7 @@ LABEL_484:
                 {
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106158,7 +106158,7 @@ LABEL_484:
 LABEL_487:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106170,7 +106170,7 @@ LABEL_487:
 LABEL_488:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106182,7 +106182,7 @@ LABEL_488:
 LABEL_489:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106194,7 +106194,7 @@ LABEL_489:
 LABEL_490:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106206,7 +106206,7 @@ LABEL_490:
 LABEL_491:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106216,7 +106216,7 @@ LABEL_491:
                   tempScrPtr3plus[6] = strPal.byte_B7934_B7924[textPixel.dword];
                   BYTE1(textPixel.dword) += BYTE2(scaledZ.dword) + v171;
 LABEL_492:
-                  textPixel.byte[0] = textures[textPos.dword];
+                  textPixel.byte[0] = tempTexture[textPos.dword];
                   textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, preTextPos.dword);
                   preTextPos.word[0] += scaledU.dword;
                   textPos.byte[1] += scaledV.byte[2] + __CFADD__32(scaledVB, preTextPos.dword);
@@ -106227,7 +106227,7 @@ LABEL_492:
 LABEL_493:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106239,7 +106239,7 @@ LABEL_493:
 LABEL_494:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106251,7 +106251,7 @@ LABEL_494:
 LABEL_495:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106273,7 +106273,7 @@ add_compare(0x24629B, true, true);
 compare_index_24629B++;
 #endif debug1*/
 //debug
-                  textPixel.byte[0] = textures[textPos.dword];//original pixel
+                  textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                   textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                   preTextPos.word[0] += scaledU.dword;
                   textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
@@ -106284,7 +106284,7 @@ compare_index_24629B++;
 LABEL_497:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106296,7 +106296,7 @@ LABEL_497:
 LABEL_498:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106308,7 +106308,7 @@ LABEL_498:
 LABEL_499:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106320,7 +106320,7 @@ LABEL_499:
 LABEL_500:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106337,7 +106337,7 @@ LABEL_500:
 LABEL_485:
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)preTextPos.dword);
                   LOWORD(preTextPos.dword) = scaledU.dword + preTextPos.dword;
-                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + textures);
+                  LOBYTE(textPixel.dword) = *(_BYTE *)(textPos.dword + tempTexture);
                   LOBYTE(textPos.dword) = BYTE2(scaledU.dword) + v171 + textPos.dword;
                   v171 = __CFADD__(scaledVB, preTextPos.dword);
                   preTextPos.dword += scaledVB;
@@ -106362,8 +106362,8 @@ LABEL_501:
         if (temp93AE0_Y1_1 <= textPixel.word[0])
           goto LABEL_501;
         tempScrPtr3 += textPixel.dword;
-        textPos.byte[0] = unk_93AE0[v1259y].u_2.a16[1];
-        textPos.byte[1] = unk_93AE0[v1259y].v_3.a16[1];
+        textPos.byte[0] = unk_93AE0[v1259y].u_2.a16[1]; // U
+        textPos.byte[1] = unk_93AE0[v1259y].v_3.a16[1]; // V
         preTextPos.word[0] = unk_93AE0[v1259y].u_2.a16[0];
         preTextPos.word[1] = unk_93AE0[v1259y].v_3.a16[0];    
         tempScrPosX.a16[0] = temp93AE0_Y1_1 - textPixel.dword;
@@ -106406,7 +106406,7 @@ LABEL_503:
               LOWORD(v385) = widthViewPort_93AD8;
 LABEL_513:
             tempScrPtr8plus = &tempScrPtr8[dword_74F95_754A5[v385 & 0xF]];
-            v389 = (int)dword_93AD0;
+            v389 = (int)actTexture_93AD0;
             switch ( v385 & 0xF )
             {
               case 0:
@@ -106721,7 +106721,7 @@ LABEL_564:
             v391 = (unsigned __int16)v398;
 LABEL_574:
             v1261x = v390x;
-            v399 = (int)dword_93AD0;
+            v399 = (int)actTexture_93AD0;
             BYTE1(v391) = byte_967E0;
             while ( 1 )
             {
@@ -106953,7 +106953,7 @@ LABEL_595:
             v431 = (unsigned __int16)v438;
 LABEL_605:
             v1262x = v430x;
-            v439 = (int)dword_93AD0;
+            v439 = (int)actTexture_93AD0;
             BYTE1(v431) = byte_967E0;
             while ( 1 )
             {
@@ -107202,7 +107202,7 @@ LABEL_658:
             v471 = (unsigned __int16)v478;
 LABEL_668:
             v1263x = v470x;
-            v479 = (int)dword_93AD0;
+            v479 = (int)actTexture_93AD0;
             while ( 1 )
             {
               BYTE1(v471) = *(_BYTE *)(v472 + v479);
@@ -107497,7 +107497,7 @@ LABEL_721:
             v511 = (unsigned __int16)v518;
 LABEL_731:
             v1264x = v510x;
-            v519 = (int)dword_93AD0;
+            v519 = (int)actTexture_93AD0;
             LOBYTE(v511) = byte_967E0;
             while ( 1 )
             {
@@ -107729,7 +107729,7 @@ LABEL_752:
             v551 = (unsigned __int16)v558;
 LABEL_762:
             v1265x = v550x;
-            v559 = (int)dword_93AD0;
+            v559 = (int)actTexture_93AD0;
             BYTE1(v551) = byte_967E0;
             while ( 1 )
             {
@@ -108582,7 +108582,7 @@ LABEL_899:
             v707 = (unsigned __int16)v714;
 LABEL_909:
             v1266x = v706x;
-            v715 = (int)dword_93AD0;
+            v715 = (int)actTexture_93AD0;
             while ( 1 )
             {
               BYTE1(v707) = *(_BYTE *)(v708 + v715);
@@ -108829,7 +108829,7 @@ LABEL_930:
             v747 = (unsigned __int16)v754;
 LABEL_940:
             v1267x = v746x;
-            v755 = (int)dword_93AD0;
+            v755 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v747) = *(_BYTE *)(v748 + v755);
@@ -109078,7 +109078,7 @@ LABEL_961:
             v787 = (unsigned __int16)v787;
 LABEL_971:
             v1268x = v786x;
-            v794 = (int)dword_93AD0;
+            v794 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v787) = *(_BYTE *)(v788 + v794);
@@ -109409,7 +109409,7 @@ LABEL_992:
             v826 = (unsigned __int16)v826;
 LABEL_1002:
             v1269x = v825x;
-            v833 = (int)dword_93AD0;
+            v833 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v826) = *(_BYTE *)(v827 + v833);
@@ -109738,7 +109738,7 @@ LABEL_1023:
             v865 = (unsigned __int16)v872;
 LABEL_1033:
             v1270x = v864x;
-            v873 = (int)dword_93AD0;
+            v873 = (int)actTexture_93AD0;
             while ( 1 )
             {
               BYTE1(v865) = *(_BYTE *)(v866 + v873);
@@ -110033,7 +110033,7 @@ LABEL_1086:
             v905 = (unsigned __int16)v912;
 LABEL_1096:
             v1271x = v904x;
-            v913 = (int)dword_93AD0;
+            v913 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v905) = *(_BYTE *)(v906 + v913);
@@ -110329,7 +110329,7 @@ LABEL_1149:
             v945 = (unsigned __int16)v945;
 LABEL_1159:
             v1272x = v944x;
-            v952 = (int)dword_93AD0;
+            v952 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v945) = *(_BYTE *)(v946 + v952);
@@ -110708,7 +110708,7 @@ LABEL_1212:
             v984 = (unsigned __int16)v984;
 LABEL_1222:
             v1273x = v983x;
-            v991 = (int)dword_93AD0;
+            v991 = (int)actTexture_93AD0;
             while ( 1 )
             {
               LOBYTE(v984) = *(_BYTE *)(v985 + v991);
@@ -111089,7 +111089,7 @@ LABEL_1275:
         v1023 = (unsigned __int16)v1023;
 LABEL_1285:
         v1274x = v1022x;
-        v1030 = (int)dword_93AD0;
+        v1030 = (int)actTexture_93AD0;
         while ( 1 )
         {
           LOBYTE(v1023) = *(_BYTE *)(v1024 + v1030);
@@ -112471,7 +112471,7 @@ void SetViewPort2_79495_799A5(uint8* beginFrame, uint8* beginPointer, int pitch,
 		beginPrevLineFrame_93AC8 = beginFrame - pitchViewPort_93AD4;
 	}
 	if (beginPointer)
-		dword_93AD0 = beginPointer;
+		actTexture_93AD0 = beginPointer;
 	if (viewPortHeight)
 		heightViewPort_93ADC = viewPortHeight;
 	if (viewPortWidth)
