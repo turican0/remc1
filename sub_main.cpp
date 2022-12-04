@@ -106392,7 +106392,8 @@ LABEL_484:
                                 break;
                             }
                             tempScrPosX.a16[0] -= 16;
-    LABEL_485:
+                        LABEL_485:
+                            index %= 16;
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                       textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
