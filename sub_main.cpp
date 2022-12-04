@@ -14660,7 +14660,7 @@ __int16 word_B7726; // weak
 __int16 word_B7728; // weak
 char byte_B772A; // weak
 typedef struct {
-    char byte_B7934_B7924[0x4000]; // fix this size / find DOSBOX init !!! //0x14600
+    char fog_B7934_B7924[0x4000]; // fix this size / find DOSBOX init !!! //0x14600
     char byte_BB934_BB924[0x10000]; // weak
     char byte_CB934_CB924[0x300]; // weak
     uint8 byte_CBC34_CBC24[0x300]; // weak
@@ -28351,7 +28351,7 @@ void sub_247C0(int result, int a2, __int16 a3, __int16 a4, int a5, unsigned __in
     for ( result = v6; (__int16)result < a4 + (__int16)v6; ++result )
     {
       v9 = (_BYTE *)(pdwScreenBuffer_12EFF4 + scrWidth_12EFF0_12EFE0 * i + (__int16)result);
-      *v9 = strPal.byte_B7934_B7924[256 * a6 + (unsigned __int8)*v9];
+      *v9 = strPal.fog_B7934_B7924[256 * a6 + (unsigned __int8)*v9];
     }
   }
 }
@@ -35880,7 +35880,7 @@ LABEL_204:
                             LOBYTE(v96) = *v94;
                             v94 += v82[2];
                             if ( (_BYTE)v96 )
-                              *v95 = strPal.byte_B7934_B7924[v96];
+                              *v95 = strPal.fog_B7934_B7924[v96];
                             v95 += v84[3];
                             v82 += 4;
                             v84 += 6;
@@ -35890,7 +35890,7 @@ LABEL_214:
                             LOBYTE(v96) = *v94;
                             v94 += *v82;
                             if ( (_BYTE)v96 )
-                              *v95 = strPal.byte_B7934_B7924[v96];
+                              *v95 = strPal.fog_B7934_B7924[v96];
                             v95 += *v84;
                           }
                           break;
@@ -36045,7 +36045,7 @@ LABEL_254:
                             {
                               LOBYTE(v83) = *v114;
                               LOBYTE(v113) = strPal.byte_BB934_BB924[v83];
-                              *v114 = strPal.byte_B7934_B7924[v113];
+                              *v114 = strPal.fog_B7934_B7924[v113];
                             }
                             v114 += *v116;
                             v115 += 2;
@@ -36069,7 +36069,7 @@ LABEL_254:
                             {
                               BYTE1(v83) = *v119;
                               LOBYTE(v118) = strPal.byte_BB934_BB924[v83];
-                              *v119 = strPal.byte_B7934_B7924[v118];
+                              *v119 = strPal.fog_B7934_B7924[v118];
                             }
                             v119 += *v121;
                             v120 += 2;
@@ -36097,7 +36097,7 @@ LABEL_254:
                             if ( v127 )
                             {
                               LOBYTE(v123) = *v124;
-                              *v124 = strPal.byte_B7934_B7924[v123];
+                              *v124 = strPal.fog_B7934_B7924[v123];
                             }
                             v124 += v84[3];
                             v82 += 4;
@@ -36110,7 +36110,7 @@ LABEL_274:
                             if ( v126 )
                             {
                               LOBYTE(v123) = *v124;
-                              *v124 = strPal.byte_B7934_B7924[v123];
+                              *v124 = strPal.fog_B7934_B7924[v123];
                             }
                             v124 += *v84;
                           }
@@ -36512,7 +36512,7 @@ LABEL_38:
           LOBYTE(v25) = *v12;
           v12 += v14[2];
           if ( (_BYTE)v25 )
-            v24[1] = strPal.byte_B7934_B7924[v25];
+            v24[1] = strPal.fog_B7934_B7924[v25];
           v24 += 2;
           v14 += 4;
           if ( !--v26 )
@@ -36521,7 +36521,7 @@ LABEL_51:
           LOBYTE(v25) = *v12;
           v12 += *v14;
           if ( (_BYTE)v25 )
-            *v24 = strPal.byte_B7934_B7924[v25];
+            *v24 = strPal.fog_B7934_B7924[v25];
         }
         break;
       case 2:
@@ -36667,7 +36667,7 @@ LABEL_87:
           {
             LOBYTE(v39) = v37[1];
             LOBYTE(v38) = strPal.byte_BB934_BB924[v39];
-            v37[1] = strPal.byte_B7934_B7924[v38];
+            v37[1] = strPal.fog_B7934_B7924[v38];
           }
           v37 += 2;
           v14 += 4;
@@ -36680,7 +36680,7 @@ LABEL_96:
           {
             LOBYTE(v39) = *v37;
             LOBYTE(v38) = strPal.byte_BB934_BB924[v39];
-            *v37 = strPal.byte_B7934_B7924[v38];
+            *v37 = strPal.fog_B7934_B7924[v38];
           }
         }
         break;
@@ -36704,7 +36704,7 @@ LABEL_96:
           {
             BYTE1(v43) = v41[1];
             LOBYTE(v42) = strPal.byte_BB934_BB924[v43];
-            v41[1] = strPal.byte_B7934_B7924[v42];
+            v41[1] = strPal.fog_B7934_B7924[v42];
           }
           v41 += 2;
           v14 += 4;
@@ -36717,7 +36717,7 @@ LABEL_105:
           {
             BYTE1(v43) = *v41;
             LOBYTE(v42) = strPal.byte_BB934_BB924[v43];
-            *v41 = strPal.byte_B7934_B7924[v42];
+            *v41 = strPal.fog_B7934_B7924[v42];
           }
         }
         break;
@@ -54111,7 +54111,7 @@ void sub_44470_447B0()//215470_
       v25 = v6;
       v23 = v6;
       v21 = v6;
-      v15 = &strPal.byte_B7934_B7924[256 * i];
+      v15 = &strPal.fog_B7934_B7924[256 * i];
       v6 -= 8;
       sub_40EDC_4121C((_BYTE *)begPalDat_AE428_AE418_26C428_26C418, (uint8*)v15, v8, v32, v31, v21, v23, v25);
     }
@@ -54125,7 +54125,7 @@ void sub_44470_447B0()//215470_
       v26 = v10;
       v24 = v10;
       v22 = v10;
-      v16 = &strPal.byte_B7934_B7924[256 * i];
+      v16 = &strPal.fog_B7934_B7924[256 * i];
       v10 += 8;
       sub_40EDC_4121C((_BYTE *)begPalDat_AE428_AE418_26C428_26C418, (uint8*)v16, v34, v33, v11, v22, v24, v26);
     }
@@ -54142,7 +54142,7 @@ void sub_44470_447B0()//215470_
       strPal.byte_CBC34_CBC24[i] = Distance_410CE_4140E(0x10000 - i * i);
     }
     strPal.byte_CBC34_CBC24[0] = -1;
-    sub_62E60_63370((int)"data/tables.dat", (int)strPal.byte_B7934_B7924, &unk_CBF34_CBF24 - (_UNKNOWN *)strPal.byte_B7934_B7924);
+    sub_62E60_63370((int)"data/tables.dat", (int)strPal.fog_B7934_B7924, &unk_CBF34_CBF24 - (_UNKNOWN *)strPal.fog_B7934_B7924);
   }
 }
 
@@ -57194,14 +57194,14 @@ LABEL_97:
   v54 = (char *)(a5 / 2 + v65 + scrWidth_12EFF0_12EFE0 * (a6 / 2) - 1);
   v71 = v54;
   v55 = v54;
-  result = strPal.byte_B7934_B7924[(unsigned __int8)*v54 + 11264];
+  result = strPal.fog_B7934_B7924[(unsigned __int8)*v54 + 11264];
   v72 = v54;
   for ( *v54 = result; v61; --v61 )
   {
     v72 -= scrWidth_12EFF0_12EFE0;
     v53 -= 2048 / (a5 / 12);
     v71 += scrWidth_12EFF0_12EFE0;
-    v57 = &strPal.byte_B7934_B7924[v53 & 0xFF00];
+    v57 = &strPal.fog_B7934_B7924[v53 & 0xFF00];
     *v72 = v57[(unsigned __int8)*v72];
     v55[1] = v57[(unsigned __int8)v55[1]];
     *v71 = v57[(unsigned __int8)*v71];
@@ -57345,7 +57345,7 @@ int DrawMinimap_49300_49640(int a1, int a2, int a3, int a4, int a5, int a6, __in
         LOBYTE(v26) = mapTerrainType_CC1E0_CC1D0[v27];
         BYTE1(v27) = mapShading_EC1E0_EC1D0[v27];
         LOBYTE(v27) = strPal.byte_CB934_CB924[v26];
-        *v23++ = strPal.byte_B7934_B7924[v27];
+        *v23++ = strPal.fog_B7934_B7924[v27];
         v22 += v36;
         v25 += v37;
         --v24;
@@ -57377,7 +57377,7 @@ int DrawMinimap_49300_49640(int a1, int a2, int a3, int a4, int a5, int a6, __in
         LOBYTE(v33) = mapTerrainType_CC1E0_CC1D0[v34];
         BYTE1(v34) = mapShading_EC1E0_EC1D0[v34];
         LOBYTE(v34) = strPal.byte_CB934_CB924[v33];
-        LOBYTE(v34) = strPal.byte_B7934_B7924[v34];
+        LOBYTE(v34) = strPal.fog_B7934_B7924[v34];
         BYTE1(v34) = *v30;
         *v30++ = strPal.byte_BB934_BB924[v34];
         v29 += v36;
@@ -85121,112 +85121,112 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 LABEL_455:
                     while (1)
                     {
-                        *v332 = strPal.byte_B7934_B7924[v29];
+                        *v332 = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v335);
                         v336 = scaledZ + v335;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v337 = v331 - 1;
                         if (!v337)
                             break;
-                        v332[1] = strPal.byte_B7934_B7924[v29];
+                        v332[1] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v336);
                         v338 = scaledZ + v336;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v339 = v337 - 1;
                         if (!v339)
                             break;
-                        v332[2] = strPal.byte_B7934_B7924[v29];
+                        v332[2] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v338);
                         v340 = scaledZ + v338;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v341 = v339 - 1;
                         if (!v341)
                             break;
-                        v332[3] = strPal.byte_B7934_B7924[v29];
+                        v332[3] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v340);
                         v342 = scaledZ + v340;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v343 = v341 - 1;
                         if (!v343)
                             break;
-                        v332[4] = strPal.byte_B7934_B7924[v29];
+                        v332[4] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v342);
                         v344 = scaledZ + v342;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v345 = v343 - 1;
                         if (!v345)
                             break;
-                        v332[5] = strPal.byte_B7934_B7924[v29];
+                        v332[5] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v344);
                         v346 = scaledZ + v344;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v347 = v345 - 1;
                         if (!v347)
                             break;
-                        v332[6] = strPal.byte_B7934_B7924[v29];
+                        v332[6] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v346);
                         v348 = scaledZ + v346;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v349 = v347 - 1;
                         if (!v349)
                             break;
-                        v332[7] = strPal.byte_B7934_B7924[v29];
+                        v332[7] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v348);
                         v350 = scaledZ + v348;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v351 = v349 - 1;
                         if (!v351)
                             break;
-                        v332[8] = strPal.byte_B7934_B7924[v29];
+                        v332[8] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v350);
                         v352 = scaledZ + v350;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v353 = v351 - 1;
                         if (!v353)
                             break;
-                        v332[9] = strPal.byte_B7934_B7924[v29];
+                        v332[9] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v352);
                         v354 = scaledZ + v352;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v355 = v353 - 1;
                         if (!v355)
                             break;
-                        v332[10] = strPal.byte_B7934_B7924[v29];
+                        v332[10] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v354);
                         v356 = scaledZ + v354;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v357 = v355 - 1;
                         if (!v357)
                             break;
-                        v332[11] = strPal.byte_B7934_B7924[v29];
+                        v332[11] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v356);
                         v358 = scaledZ + v356;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v359 = v357 - 1;
                         if (!v359)
                             break;
-                        v332[12] = strPal.byte_B7934_B7924[v29];
+                        v332[12] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v358);
                         v360 = scaledZ + v358;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v361 = v359 - 1;
                         if (!v361)
                             break;
-                        v332[13] = strPal.byte_B7934_B7924[v29];
+                        v332[13] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v360);
                         v362 = scaledZ + v360;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v363 = v361 - 1;
                         if (!v363)
                             break;
-                        v332[14] = strPal.byte_B7934_B7924[v29];
+                        v332[14] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v362);
                         v364 = scaledZ + v362;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v365 = v363 - 1;
                         if (!v365)
                             break;
-                        v332[15] = strPal.byte_B7934_B7924[v29];
+                        v332[15] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v364);
                         v335 = scaledZ + v364;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
@@ -85346,7 +85346,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[1] = strPal.byte_B7934_B7924[textPointer];
+                            v376[1] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_487:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85358,7 +85358,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[2] = strPal.byte_B7934_B7924[textPointer];
+                            v376[2] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_488:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85370,7 +85370,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[3] = strPal.byte_B7934_B7924[textPointer];
+                            v376[3] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_489:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85382,7 +85382,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[4] = strPal.byte_B7934_B7924[textPointer];
+                            v376[4] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_490:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85394,7 +85394,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[5] = strPal.byte_B7934_B7924[textPointer];
+                            v376[5] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_491:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85406,7 +85406,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[6] = strPal.byte_B7934_B7924[textPointer];
+                            v376[6] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_492:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85418,7 +85418,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[7] = strPal.byte_B7934_B7924[textPointer];
+                            v376[7] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_493:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85430,7 +85430,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[8] = strPal.byte_B7934_B7924[textPointer];
+                            v376[8] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_494:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85442,7 +85442,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[9] = strPal.byte_B7934_B7924[textPointer];
+                            v376[9] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_495:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85454,7 +85454,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[10] = strPal.byte_B7934_B7924[textPointer];
+                            v376[10] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_496:
                             //adress 0x24629B_ 
@@ -85478,7 +85478,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[11] = strPal.byte_B7934_B7924[textPointer];//here
+                            v376[11] = strPal.fog_B7934_B7924[textPointer];//here
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_497:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85490,7 +85490,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[12] = strPal.byte_B7934_B7924[textPointer];
+                            v376[12] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_498:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85502,7 +85502,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[13] = strPal.byte_B7934_B7924[textPointer];
+                            v376[13] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_499:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85514,7 +85514,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[14] = strPal.byte_B7934_B7924[textPointer];
+                            v376[14] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_500:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -85526,7 +85526,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[15] = strPal.byte_B7934_B7924[textPointer];
+                            v376[15] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                             v376 += 16;
                             v16 = (__int16)v373 <= 16;
@@ -85543,7 +85543,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            *v376 = strPal.byte_B7934_B7924[textPointer];
+                            *v376 = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         }
                         break;
@@ -85640,7 +85640,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         {
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[1] = strPal.byte_B7934_B7924[v378];
+                                v388[1] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85653,7 +85653,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_520:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[2] = strPal.byte_B7934_B7924[v378];
+                                v388[2] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85666,7 +85666,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_523:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[3] = strPal.byte_B7934_B7924[v378];
+                                v388[3] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85679,7 +85679,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_526:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[4] = strPal.byte_B7934_B7924[v378];
+                                v388[4] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85692,7 +85692,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_529:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[5] = strPal.byte_B7934_B7924[v378];
+                                v388[5] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85705,7 +85705,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_532:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[6] = strPal.byte_B7934_B7924[v378];
+                                v388[6] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85718,7 +85718,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_535:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[7] = strPal.byte_B7934_B7924[v378];
+                                v388[7] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85731,7 +85731,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_538:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[8] = strPal.byte_B7934_B7924[v378];
+                                v388[8] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85744,7 +85744,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_541:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[9] = strPal.byte_B7934_B7924[v378];
+                                v388[9] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85757,7 +85757,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_544:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[10] = strPal.byte_B7934_B7924[v378];
+                                v388[10] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85770,7 +85770,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_547:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[11] = strPal.byte_B7934_B7924[v378];
+                                v388[11] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85783,7 +85783,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_550:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[12] = strPal.byte_B7934_B7924[v378];
+                                v388[12] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85796,7 +85796,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_553:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[13] = strPal.byte_B7934_B7924[v378];
+                                v388[13] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85809,7 +85809,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_556:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[14] = strPal.byte_B7934_B7924[v378];
+                                v388[14] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85822,7 +85822,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_559:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[15] = strPal.byte_B7934_B7924[v378];
+                                v388[15] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85840,7 +85840,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LABEL_514:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                *v388 = strPal.byte_B7934_B7924[v378];
+                                *v388 = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -85925,7 +85925,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v397);
                         v400 = v1152 + v397;
-                        *v394 = strPal.byte_B7934_B7924[v391];
+                        *v394 = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v401 = v393 - 1;
                         if (!v401)
@@ -85936,7 +85936,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v400);
                         v402 = v1152 + v400;
-                        v394[1] = strPal.byte_B7934_B7924[v391];
+                        v394[1] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v403 = v401 - 1;
                         if (!v403)
@@ -85947,7 +85947,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v402);
                         v404 = v1152 + v402;
-                        v394[2] = strPal.byte_B7934_B7924[v391];
+                        v394[2] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v405 = v403 - 1;
                         if (!v405)
@@ -85958,7 +85958,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v404);
                         v406 = v1152 + v404;
-                        v394[3] = strPal.byte_B7934_B7924[v391];
+                        v394[3] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v407 = v405 - 1;
                         if (!v407)
@@ -85969,7 +85969,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v406);
                         v408 = v1152 + v406;
-                        v394[4] = strPal.byte_B7934_B7924[v391];
+                        v394[4] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v409 = v407 - 1;
                         if (!v409)
@@ -85980,7 +85980,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v408);
                         v410 = v1152 + v408;
-                        v394[5] = strPal.byte_B7934_B7924[v391];
+                        v394[5] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v411 = v409 - 1;
                         if (!v411)
@@ -85991,7 +85991,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v410);
                         v412 = v1152 + v410;
-                        v394[6] = strPal.byte_B7934_B7924[v391];
+                        v394[6] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v413 = v411 - 1;
                         if (!v413)
@@ -86002,7 +86002,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v412);
                         v414 = v1152 + v412;
-                        v394[7] = strPal.byte_B7934_B7924[v391];
+                        v394[7] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v415 = v413 - 1;
                         if (!v415)
@@ -86013,7 +86013,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v414);
                         v416 = v1152 + v414;
-                        v394[8] = strPal.byte_B7934_B7924[v391];
+                        v394[8] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v417 = v415 - 1;
                         if (!v417)
@@ -86024,7 +86024,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v416);
                         v418 = v1152 + v416;
-                        v394[9] = strPal.byte_B7934_B7924[v391];
+                        v394[9] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v419 = v417 - 1;
                         if (!v419)
@@ -86035,7 +86035,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v418);
                         v420 = v1152 + v418;
-                        v394[10] = strPal.byte_B7934_B7924[v391];
+                        v394[10] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v421 = v419 - 1;
                         if (!v421)
@@ -86046,7 +86046,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v420);
                         v422 = v1152 + v420;
-                        v394[11] = strPal.byte_B7934_B7924[v391];
+                        v394[11] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v423 = v421 - 1;
                         if (!v423)
@@ -86057,7 +86057,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v422);
                         v424 = v1152 + v422;
-                        v394[12] = strPal.byte_B7934_B7924[v391];
+                        v394[12] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v425 = v423 - 1;
                         if (!v425)
@@ -86068,7 +86068,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v424);
                         v426 = v1152 + v424;
-                        v394[13] = strPal.byte_B7934_B7924[v391];
+                        v394[13] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v427 = v425 - 1;
                         if (!v427)
@@ -86079,7 +86079,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v426);
                         v428 = v1152 + v426;
-                        v394[14] = strPal.byte_B7934_B7924[v391];
+                        v394[14] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v429 = v427 - 1;
                         if (!v429)
@@ -86090,7 +86090,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v428);
                         v397 = v1152 + v428;
-                        v394[15] = strPal.byte_B7934_B7924[v391];
+                        v394[15] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         LOWORD(v393) = v429 - 1;
                         if (!(_WORD)v393)
@@ -86153,7 +86153,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v437) = scaledU + v437;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            *v434 = strPal.byte_B7934_B7924[v431];
+                            *v434 = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v437);
                         v440 = v1153 + v437;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86165,7 +86165,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v440) = scaledU + v440;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[1] = strPal.byte_B7934_B7924[v431];
+                            v434[1] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v440);
                         v442 = v1153 + v440;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86177,7 +86177,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v442) = scaledU + v442;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[2] = strPal.byte_B7934_B7924[v431];
+                            v434[2] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v442);
                         v444 = v1153 + v442;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86189,7 +86189,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v444) = scaledU + v444;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[3] = strPal.byte_B7934_B7924[v431];
+                            v434[3] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v444);
                         v446 = v1153 + v444;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86201,7 +86201,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v446) = scaledU + v446;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[4] = strPal.byte_B7934_B7924[v431];
+                            v434[4] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v446);
                         v448 = v1153 + v446;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86213,7 +86213,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v448) = scaledU + v448;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[5] = strPal.byte_B7934_B7924[v431];
+                            v434[5] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v448);
                         v450 = v1153 + v448;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86225,7 +86225,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v450) = scaledU + v450;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[6] = strPal.byte_B7934_B7924[v431];
+                            v434[6] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v450);
                         v452 = v1153 + v450;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86237,7 +86237,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v452) = scaledU + v452;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[7] = strPal.byte_B7934_B7924[v431];
+                            v434[7] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v452);
                         v454 = v1153 + v452;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86249,7 +86249,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v454) = scaledU + v454;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[8] = strPal.byte_B7934_B7924[v431];
+                            v434[8] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v454);
                         v456 = v1153 + v454;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86261,7 +86261,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v456) = scaledU + v456;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[9] = strPal.byte_B7934_B7924[v431];
+                            v434[9] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v456);
                         v458 = v1153 + v456;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86273,7 +86273,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v458) = scaledU + v458;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[10] = strPal.byte_B7934_B7924[v431];
+                            v434[10] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v458);
                         v460 = v1153 + v458;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86285,7 +86285,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v460) = scaledU + v460;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[11] = strPal.byte_B7934_B7924[v431];
+                            v434[11] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v460);
                         v462 = v1153 + v460;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86297,7 +86297,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v462) = scaledU + v462;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[12] = strPal.byte_B7934_B7924[v431];
+                            v434[12] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v462);
                         v464 = v1153 + v462;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86309,7 +86309,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v464) = scaledU + v464;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[13] = strPal.byte_B7934_B7924[v431];
+                            v434[13] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v464);
                         v466 = v1153 + v464;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86321,7 +86321,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v466) = scaledU + v466;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[14] = strPal.byte_B7934_B7924[v431];
+                            v434[14] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v466);
                         v468 = v1153 + v466;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86333,7 +86333,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v468) = scaledU + v468;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[15] = strPal.byte_B7934_B7924[v431];
+                            v434[15] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v468);
                         v437 = v1153 + v468;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -86400,7 +86400,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = *v474;
-                            *v474 = strPal.byte_B7934_B7924[v471];
+                            *v474 = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v477);
                         v480 = v1154 + v477;
@@ -86415,7 +86415,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[1];
-                            v474[1] = strPal.byte_B7934_B7924[v471];
+                            v474[1] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v480);
                         v482 = v1154 + v480;
@@ -86430,7 +86430,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[2];
-                            v474[2] = strPal.byte_B7934_B7924[v471];
+                            v474[2] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v482);
                         v484 = v1154 + v482;
@@ -86445,7 +86445,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[3];
-                            v474[3] = strPal.byte_B7934_B7924[v471];
+                            v474[3] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v484);
                         v486 = v1154 + v484;
@@ -86460,7 +86460,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[4];
-                            v474[4] = strPal.byte_B7934_B7924[v471];
+                            v474[4] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v486);
                         v488 = v1154 + v486;
@@ -86475,7 +86475,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[5];
-                            v474[5] = strPal.byte_B7934_B7924[v471];
+                            v474[5] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v488);
                         v490 = v1154 + v488;
@@ -86490,7 +86490,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[6];
-                            v474[6] = strPal.byte_B7934_B7924[v471];
+                            v474[6] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v490);
                         v492 = v1154 + v490;
@@ -86505,7 +86505,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[7];
-                            v474[7] = strPal.byte_B7934_B7924[v471];
+                            v474[7] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v492);
                         v494 = v1154 + v492;
@@ -86520,7 +86520,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[8];
-                            v474[8] = strPal.byte_B7934_B7924[v471];
+                            v474[8] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v494);
                         v496 = v1154 + v494;
@@ -86535,7 +86535,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[9];
-                            v474[9] = strPal.byte_B7934_B7924[v471];
+                            v474[9] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v496);
                         v498 = v1154 + v496;
@@ -86550,7 +86550,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[10];
-                            v474[10] = strPal.byte_B7934_B7924[v471];
+                            v474[10] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v498);
                         v500 = v1154 + v498;
@@ -86565,7 +86565,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[11];
-                            v474[11] = strPal.byte_B7934_B7924[v471];
+                            v474[11] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v500);
                         v502 = v1154 + v500;
@@ -86580,7 +86580,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[12];
-                            v474[12] = strPal.byte_B7934_B7924[v471];
+                            v474[12] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v502);
                         v504 = v1154 + v502;
@@ -86595,7 +86595,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[13];
-                            v474[13] = strPal.byte_B7934_B7924[v471];
+                            v474[13] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v504);
                         v506 = v1154 + v504;
@@ -86610,7 +86610,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[14];
-                            v474[14] = strPal.byte_B7934_B7924[v471];
+                            v474[14] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v506);
                         v508 = v1154 + v506;
@@ -86625,7 +86625,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[15];
-                            v474[15] = strPal.byte_B7934_B7924[v471];
+                            v474[15] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v508);
                         v477 = v1154 + v508;
@@ -87370,7 +87370,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 LABEL_851:
                     while (1)
                     {
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = *v635;
                         *v635 = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v638);
@@ -87379,7 +87379,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v640 = v634 - 1;
                         if (!v640)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[1];
                         v635[1] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v639);
@@ -87388,7 +87388,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v642 = v640 - 1;
                         if (!v642)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[2];
                         v635[2] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v641);
@@ -87397,7 +87397,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v644 = v642 - 1;
                         if (!v644)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[3];
                         v635[3] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v643);
@@ -87406,7 +87406,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v646 = v644 - 1;
                         if (!v646)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[4];
                         v635[4] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v645);
@@ -87415,7 +87415,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v648 = v646 - 1;
                         if (!v648)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[5];
                         v635[5] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v647);
@@ -87424,7 +87424,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v650 = v648 - 1;
                         if (!v650)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[6];
                         v635[6] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v649);
@@ -87433,7 +87433,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v652 = v650 - 1;
                         if (!v652)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[7];
                         v635[7] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v651);
@@ -87442,7 +87442,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v654 = v652 - 1;
                         if (!v654)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[8];
                         v635[8] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v653);
@@ -87451,7 +87451,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v656 = v654 - 1;
                         if (!v656)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[9];
                         v635[9] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v655);
@@ -87460,7 +87460,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v658 = v656 - 1;
                         if (!v658)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[10];
                         v635[10] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v657);
@@ -87469,7 +87469,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v660 = v658 - 1;
                         if (!v660)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[11];
                         v635[11] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v659);
@@ -87478,7 +87478,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v662 = v660 - 1;
                         if (!v662)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[12];
                         v635[12] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v661);
@@ -87487,7 +87487,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v664 = v662 - 1;
                         if (!v664)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[13];
                         v635[13] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v663);
@@ -87496,7 +87496,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v666 = v664 - 1;
                         if (!v666)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[14];
                         v635[14] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v665);
@@ -87505,7 +87505,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v668 = v666 - 1;
                         if (!v668)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[15];
                         v635[15] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v667);
@@ -87560,7 +87560,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                 LABEL_880:
                     while (1)
                     {
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = *v672;
                         *v672 = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v675);
@@ -87569,7 +87569,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v677 = v671 - 1;
                         if (!v677)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[1];
                         v672[1] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v676);
@@ -87578,7 +87578,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v679 = v677 - 1;
                         if (!v679)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[2];
                         v672[2] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v678);
@@ -87587,7 +87587,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v681 = v679 - 1;
                         if (!v681)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[3];
                         v672[3] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v680);
@@ -87596,7 +87596,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v683 = v681 - 1;
                         if (!v683)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[4];
                         v672[4] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v682);
@@ -87605,7 +87605,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v685 = v683 - 1;
                         if (!v685)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[5];
                         v672[5] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v684);
@@ -87614,7 +87614,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v687 = v685 - 1;
                         if (!v687)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[6];
                         v672[6] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v686);
@@ -87623,7 +87623,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v689 = v687 - 1;
                         if (!v689)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[7];
                         v672[7] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v688);
@@ -87632,7 +87632,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v691 = v689 - 1;
                         if (!v691)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[8];
                         v672[8] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v690);
@@ -87641,7 +87641,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v693 = v691 - 1;
                         if (!v693)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[9];
                         v672[9] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v692);
@@ -87650,7 +87650,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v695 = v693 - 1;
                         if (!v695)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[10];
                         v672[10] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v694);
@@ -87659,7 +87659,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v697 = v695 - 1;
                         if (!v697)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[11];
                         v672[11] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v696);
@@ -87668,7 +87668,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v699 = v697 - 1;
                         if (!v699)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[12];
                         v672[12] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v698);
@@ -87677,7 +87677,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v701 = v699 - 1;
                         if (!v701)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[13];
                         v672[13] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v700);
@@ -87686,7 +87686,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v703 = v701 - 1;
                         if (!v703)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[14];
                         v672[14] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v702);
@@ -87695,7 +87695,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         v705 = v703 - 1;
                         if (!v705)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[15];
                         v672[15] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v704);
@@ -88249,7 +88249,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v792) = scaledU + v792;
                         BYTE1(v787) = v793;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v792);
                         v795 = v1159 + v792;
                         LOBYTE(v787) = *v790;
@@ -88266,7 +88266,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v795) = scaledU + v795;
                         BYTE1(v787) = v796;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v795);
                         v797 = v1159 + v795;
                         LOBYTE(v787) = v790[1];
@@ -88283,7 +88283,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v797) = scaledU + v797;
                         BYTE1(v787) = v798;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v797);
                         v799 = v1159 + v797;
                         LOBYTE(v787) = v790[2];
@@ -88300,7 +88300,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v799) = scaledU + v799;
                         BYTE1(v787) = v800;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v799);
                         v801 = v1159 + v799;
                         LOBYTE(v787) = v790[3];
@@ -88317,7 +88317,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v801) = scaledU + v801;
                         BYTE1(v787) = v802;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v801);
                         v803 = v1159 + v801;
                         LOBYTE(v787) = v790[4];
@@ -88334,7 +88334,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v803) = scaledU + v803;
                         BYTE1(v787) = v804;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v803);
                         v805 = v1159 + v803;
                         LOBYTE(v787) = v790[5];
@@ -88351,7 +88351,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v805) = scaledU + v805;
                         BYTE1(v787) = v806;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v805);
                         v807 = v1159 + v805;
                         LOBYTE(v787) = v790[6];
@@ -88368,7 +88368,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v807) = scaledU + v807;
                         BYTE1(v787) = v808;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v807);
                         v809 = v1159 + v807;
                         LOBYTE(v787) = v790[7];
@@ -88385,7 +88385,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v809) = scaledU + v809;
                         BYTE1(v787) = v810;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v809);
                         v811 = v1159 + v809;
                         LOBYTE(v787) = v790[8];
@@ -88402,7 +88402,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v811) = scaledU + v811;
                         BYTE1(v787) = v812;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v811);
                         v813 = v1159 + v811;
                         LOBYTE(v787) = v790[9];
@@ -88419,7 +88419,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v813) = scaledU + v813;
                         BYTE1(v787) = v814;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v813);
                         v815 = v1159 + v813;
                         LOBYTE(v787) = v790[10];
@@ -88436,7 +88436,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v815) = scaledU + v815;
                         BYTE1(v787) = v816;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v815);
                         v817 = v1159 + v815;
                         LOBYTE(v787) = v790[11];
@@ -88453,7 +88453,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v817) = scaledU + v817;
                         BYTE1(v787) = v818;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v817);
                         v819 = v1159 + v817;
                         LOBYTE(v787) = v790[12];
@@ -88470,7 +88470,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v819) = scaledU + v819;
                         BYTE1(v787) = v820;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v819);
                         v821 = v1159 + v819;
                         LOBYTE(v787) = v790[13];
@@ -88487,7 +88487,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v821) = scaledU + v821;
                         BYTE1(v787) = v822;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v821);
                         v823 = v1159 + v821;
                         LOBYTE(v787) = v790[14];
@@ -88504,7 +88504,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v823) = scaledU + v823;
                         BYTE1(v787) = v824;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v823);
                         v792 = v1159 + v823;
                         LOBYTE(v787) = v790[15];
@@ -88577,7 +88577,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v831) = scaledU + v831;
                         BYTE1(v826) = v832;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v831);
                         v834 = v1160 + v831;
                         BYTE1(v826) = *v829;
@@ -88594,7 +88594,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v834) = scaledU + v834;
                         BYTE1(v826) = v835;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v834);
                         v836 = v1160 + v834;
                         BYTE1(v826) = v829[1];
@@ -88611,7 +88611,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v836) = scaledU + v836;
                         BYTE1(v826) = v837;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v836);
                         v838 = v1160 + v836;
                         BYTE1(v826) = v829[2];
@@ -88628,7 +88628,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v838) = scaledU + v838;
                         BYTE1(v826) = v839;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v838);
                         v840 = v1160 + v838;
                         BYTE1(v826) = v829[3];
@@ -88645,7 +88645,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v840) = scaledU + v840;
                         BYTE1(v826) = v841;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v840);
                         v842 = v1160 + v840;
                         BYTE1(v826) = v829[4];
@@ -88662,7 +88662,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v842) = scaledU + v842;
                         BYTE1(v826) = v843;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v842);
                         v844 = v1160 + v842;
                         BYTE1(v826) = v829[5];
@@ -88679,7 +88679,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v844) = scaledU + v844;
                         BYTE1(v826) = v845;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v844);
                         v846 = v1160 + v844;
                         BYTE1(v826) = v829[6];
@@ -88696,7 +88696,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v846) = scaledU + v846;
                         BYTE1(v826) = v847;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v846);
                         v848 = v1160 + v846;
                         BYTE1(v826) = v829[7];
@@ -88713,7 +88713,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v848) = scaledU + v848;
                         BYTE1(v826) = v849;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v848);
                         v850 = v1160 + v848;
                         BYTE1(v826) = v829[8];
@@ -88730,7 +88730,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v850) = scaledU + v850;
                         BYTE1(v826) = v851;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v850);
                         v852 = v1160 + v850;
                         BYTE1(v826) = v829[9];
@@ -88747,7 +88747,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v852) = scaledU + v852;
                         BYTE1(v826) = v853;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v852);
                         v854 = v1160 + v852;
                         BYTE1(v826) = v829[10];
@@ -88764,7 +88764,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v854) = scaledU + v854;
                         BYTE1(v826) = v855;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v854);
                         v856 = v1160 + v854;
                         BYTE1(v826) = v829[11];
@@ -88781,7 +88781,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v856) = scaledU + v856;
                         BYTE1(v826) = v857;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v856);
                         v858 = v1160 + v856;
                         BYTE1(v826) = v829[12];
@@ -88798,7 +88798,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v858) = scaledU + v858;
                         BYTE1(v826) = v859;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v858);
                         v860 = v1160 + v858;
                         BYTE1(v826) = v829[13];
@@ -88815,7 +88815,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v860) = scaledU + v860;
                         BYTE1(v826) = v861;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v860);
                         v862 = v1160 + v860;
                         BYTE1(v826) = v829[14];
@@ -88832,7 +88832,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         LOWORD(v862) = scaledU + v862;
                         BYTE1(v826) = v863;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v862);
                         v831 = v1160 + v862;
                         BYTE1(v826) = v829[15];
@@ -89488,7 +89488,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v951;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = *v948;
                             *v948 = strPal.byte_BB934_BB924[v945];
                         }
@@ -89508,7 +89508,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v954;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[1];
                             v948[1] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89528,7 +89528,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v956;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[2];
                             v948[2] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89548,7 +89548,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v958;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[3];
                             v948[3] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89568,7 +89568,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v960;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[4];
                             v948[4] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89588,7 +89588,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v962;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[5];
                             v948[5] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89608,7 +89608,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v964;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[6];
                             v948[6] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89628,7 +89628,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v966;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[7];
                             v948[7] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89648,7 +89648,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v968;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[8];
                             v948[8] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89668,7 +89668,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v970;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[9];
                             v948[9] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89688,7 +89688,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v972;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[10];
                             v948[10] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89708,7 +89708,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v974;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[11];
                             v948[11] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89728,7 +89728,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v976;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[12];
                             v948[12] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89748,7 +89748,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v978;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[13];
                             v948[13] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89768,7 +89768,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v980;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[14];
                             v948[14] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89788,7 +89788,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v982;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[15];
                             v948[15] = strPal.byte_BB934_BB924[v945];
                         }
@@ -89864,7 +89864,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v990;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = *v987;
                             *v987 = strPal.byte_BB934_BB924[v984];
                         }
@@ -89884,7 +89884,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v993;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[1];
                             v987[1] = strPal.byte_BB934_BB924[v984];
                         }
@@ -89904,7 +89904,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v995;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[2];
                             v987[2] = strPal.byte_BB934_BB924[v984];
                         }
@@ -89924,7 +89924,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v997;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[3];
                             v987[3] = strPal.byte_BB934_BB924[v984];
                         }
@@ -89944,7 +89944,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v999;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[4];
                             v987[4] = strPal.byte_BB934_BB924[v984];
                         }
@@ -89964,7 +89964,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1001;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[5];
                             v987[5] = strPal.byte_BB934_BB924[v984];
                         }
@@ -89984,7 +89984,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1003;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[6];
                             v987[6] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90004,7 +90004,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1005;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[7];
                             v987[7] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90024,7 +90024,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1007;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[8];
                             v987[8] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90044,7 +90044,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1009;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[9];
                             v987[9] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90064,7 +90064,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1011;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[10];
                             v987[10] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90084,7 +90084,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1013;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[11];
                             v987[11] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90104,7 +90104,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1015;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[12];
                             v987[12] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90124,7 +90124,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1017;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[13];
                             v987[13] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90144,7 +90144,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1019;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[14];
                             v987[14] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90164,7 +90164,7 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1021;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[15];
                             v987[15] = strPal.byte_BB934_BB924[v984];
                         }
@@ -90245,11 +90245,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1031 = strPal.byte_B7934_B7924[v1023];
+                        v1031 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = *v1026;
                         v1031 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90270,11 +90270,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1034 = strPal.byte_B7934_B7924[v1023];
+                        v1034 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[1];
                         v1034 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90295,11 +90295,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1037 = strPal.byte_B7934_B7924[v1023];
+                        v1037 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[2];
                         v1037 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90320,11 +90320,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1040 = strPal.byte_B7934_B7924[v1023];
+                        v1040 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[3];
                         v1040 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90345,11 +90345,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1043 = strPal.byte_B7934_B7924[v1023];
+                        v1043 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[4];
                         v1043 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90370,11 +90370,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1046 = strPal.byte_B7934_B7924[v1023];
+                        v1046 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[5];
                         v1046 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90395,11 +90395,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1049 = strPal.byte_B7934_B7924[v1023];
+                        v1049 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[6];
                         v1049 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90420,11 +90420,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1052 = strPal.byte_B7934_B7924[v1023];
+                        v1052 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[7];
                         v1052 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90445,11 +90445,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1055 = strPal.byte_B7934_B7924[v1023];
+                        v1055 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[8];
                         v1055 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90470,11 +90470,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1058 = strPal.byte_B7934_B7924[v1023];
+                        v1058 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[9];
                         v1058 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90495,11 +90495,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1061 = strPal.byte_B7934_B7924[v1023];
+                        v1061 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[10];
                         v1061 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90520,11 +90520,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1064 = strPal.byte_B7934_B7924[v1023];
+                        v1064 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[11];
                         v1064 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90545,11 +90545,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1067 = strPal.byte_B7934_B7924[v1023];
+                        v1067 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[12];
                         v1067 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90570,11 +90570,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1070 = strPal.byte_B7934_B7924[v1023];
+                        v1070 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[13];
                         v1070 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90595,11 +90595,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1073 = strPal.byte_B7934_B7924[v1023];
+                        v1073 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[14];
                         v1073 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -90620,11 +90620,11 @@ void DrawTriangle_729A3_72EB3_old(_DWORD* a1, _DWORD* a2, _DWORD* a3)
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1076 = strPal.byte_B7934_B7924[v1023];
+                        v1076 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[15];
                         v1076 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -95429,112 +95429,112 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 LABEL_455:
                     while (1)
                     {
-                        *v332 = strPal.byte_B7934_B7924[v29];
+                        *v332 = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v335);
                         v336 = scaledZ + v335;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v337 = v331 - 1;
                         if (!v337)
                             break;
-                        v332[1] = strPal.byte_B7934_B7924[v29];
+                        v332[1] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v336);
                         v338 = scaledZ + v336;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v339 = v337 - 1;
                         if (!v339)
                             break;
-                        v332[2] = strPal.byte_B7934_B7924[v29];
+                        v332[2] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v338);
                         v340 = scaledZ + v338;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v341 = v339 - 1;
                         if (!v341)
                             break;
-                        v332[3] = strPal.byte_B7934_B7924[v29];
+                        v332[3] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v340);
                         v342 = scaledZ + v340;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v343 = v341 - 1;
                         if (!v343)
                             break;
-                        v332[4] = strPal.byte_B7934_B7924[v29];
+                        v332[4] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v342);
                         v344 = scaledZ + v342;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v345 = v343 - 1;
                         if (!v345)
                             break;
-                        v332[5] = strPal.byte_B7934_B7924[v29];
+                        v332[5] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v344);
                         v346 = scaledZ + v344;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v347 = v345 - 1;
                         if (!v347)
                             break;
-                        v332[6] = strPal.byte_B7934_B7924[v29];
+                        v332[6] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v346);
                         v348 = scaledZ + v346;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v349 = v347 - 1;
                         if (!v349)
                             break;
-                        v332[7] = strPal.byte_B7934_B7924[v29];
+                        v332[7] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v348);
                         v350 = scaledZ + v348;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v351 = v349 - 1;
                         if (!v351)
                             break;
-                        v332[8] = strPal.byte_B7934_B7924[v29];
+                        v332[8] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v350);
                         v352 = scaledZ + v350;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v353 = v351 - 1;
                         if (!v353)
                             break;
-                        v332[9] = strPal.byte_B7934_B7924[v29];
+                        v332[9] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v352);
                         v354 = scaledZ + v352;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v355 = v353 - 1;
                         if (!v355)
                             break;
-                        v332[10] = strPal.byte_B7934_B7924[v29];
+                        v332[10] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v354);
                         v356 = scaledZ + v354;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v357 = v355 - 1;
                         if (!v357)
                             break;
-                        v332[11] = strPal.byte_B7934_B7924[v29];
+                        v332[11] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v356);
                         v358 = scaledZ + v356;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v359 = v357 - 1;
                         if (!v359)
                             break;
-                        v332[12] = strPal.byte_B7934_B7924[v29];
+                        v332[12] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v358);
                         v360 = scaledZ + v358;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v361 = v359 - 1;
                         if (!v361)
                             break;
-                        v332[13] = strPal.byte_B7934_B7924[v29];
+                        v332[13] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v360);
                         v362 = scaledZ + v360;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v363 = v361 - 1;
                         if (!v363)
                             break;
-                        v332[14] = strPal.byte_B7934_B7924[v29];
+                        v332[14] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v362);
                         v364 = scaledZ + v362;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
                         v365 = v363 - 1;
                         if (!v365)
                             break;
-                        v332[15] = strPal.byte_B7934_B7924[v29];
+                        v332[15] = strPal.fog_B7934_B7924[v29];
                         v171 = __CFADD__((_WORD)scaledZ, v364);
                         v335 = scaledZ + v364;
                         BYTE1(v29) += BYTE2(scaledZ) + v171;
@@ -95651,7 +95651,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[1] = strPal.byte_B7934_B7924[textPointer];
+                            v376[1] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_487:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95663,7 +95663,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[2] = strPal.byte_B7934_B7924[textPointer];
+                            v376[2] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_488:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95675,7 +95675,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[3] = strPal.byte_B7934_B7924[textPointer];
+                            v376[3] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_489:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95687,7 +95687,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[4] = strPal.byte_B7934_B7924[textPointer];
+                            v376[4] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_490:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95699,7 +95699,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[5] = strPal.byte_B7934_B7924[textPointer];
+                            v376[5] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_491:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95711,7 +95711,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[6] = strPal.byte_B7934_B7924[textPointer];
+                            v376[6] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_492:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95723,7 +95723,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[7] = strPal.byte_B7934_B7924[textPointer];
+                            v376[7] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_493:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95735,7 +95735,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[8] = strPal.byte_B7934_B7924[textPointer];
+                            v376[8] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_494:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95747,7 +95747,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[9] = strPal.byte_B7934_B7924[textPointer];
+                            v376[9] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_495:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95759,7 +95759,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[10] = strPal.byte_B7934_B7924[textPointer];
+                            v376[10] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_496:
                             //adress 0x24629B_ 
@@ -95783,7 +95783,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[11] = strPal.byte_B7934_B7924[textPointer];//here
+                            v376[11] = strPal.fog_B7934_B7924[textPointer];//here
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_497:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95795,7 +95795,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[12] = strPal.byte_B7934_B7924[textPointer];
+                            v376[12] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_498:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95807,7 +95807,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[13] = strPal.byte_B7934_B7924[textPointer];
+                            v376[13] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_499:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95819,7 +95819,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[14] = strPal.byte_B7934_B7924[textPointer];
+                            v376[14] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         LABEL_500:
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v372);
@@ -95831,7 +95831,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            v376[15] = strPal.byte_B7934_B7924[textPointer];
+                            v376[15] = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                             v376 += 16;
                             v16 = (__int16)v373 <= 16;
@@ -95848,7 +95848,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                             BYTE1(v367) += BYTE2(scaledV) + v171;
                             v171 = __CFADD__(v1166, v373);
                             v373 += v1166;
-                            *v376 = strPal.byte_B7934_B7924[textPointer];
+                            *v376 = strPal.fog_B7934_B7924[textPointer];
                             BYTE1(textPointer) += BYTE2(scaledZ) + v171;
                         }
                         break;
@@ -95945,7 +95945,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         {
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[1] = strPal.byte_B7934_B7924[v378];
+                                v388[1] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -95958,7 +95958,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_520:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[2] = strPal.byte_B7934_B7924[v378];
+                                v388[2] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -95971,7 +95971,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_523:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[3] = strPal.byte_B7934_B7924[v378];
+                                v388[3] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -95984,7 +95984,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_526:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[4] = strPal.byte_B7934_B7924[v378];
+                                v388[4] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -95997,7 +95997,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_529:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[5] = strPal.byte_B7934_B7924[v378];
+                                v388[5] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96010,7 +96010,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_532:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[6] = strPal.byte_B7934_B7924[v378];
+                                v388[6] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96023,7 +96023,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_535:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[7] = strPal.byte_B7934_B7924[v378];
+                                v388[7] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96036,7 +96036,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_538:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[8] = strPal.byte_B7934_B7924[v378];
+                                v388[8] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96049,7 +96049,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_541:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[9] = strPal.byte_B7934_B7924[v378];
+                                v388[9] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96062,7 +96062,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_544:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[10] = strPal.byte_B7934_B7924[v378];
+                                v388[10] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96075,7 +96075,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_547:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[11] = strPal.byte_B7934_B7924[v378];
+                                v388[11] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96088,7 +96088,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_550:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[12] = strPal.byte_B7934_B7924[v378];
+                                v388[12] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96101,7 +96101,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_553:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[13] = strPal.byte_B7934_B7924[v378];
+                                v388[13] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96114,7 +96114,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_556:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[14] = strPal.byte_B7934_B7924[v378];
+                                v388[14] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96127,7 +96127,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_559:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                v388[15] = strPal.byte_B7934_B7924[v378];
+                                v388[15] = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96145,7 +96145,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LABEL_514:
                             LOBYTE(v378) = *(_BYTE*)(v379 + v389);
                             if ((_BYTE)v378)
-                                *v388 = strPal.byte_B7934_B7924[v378];
+                                *v388 = strPal.fog_B7934_B7924[v378];
                             v171 = __CFADD__((_WORD)scaledU, (_WORD)v384);
                             LOWORD(v384) = scaledU + v384;
                             LOBYTE(v379) = BYTE2(scaledU) + v171 + v379;
@@ -96230,7 +96230,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v397);
                         v400 = v1152 + v397;
-                        *v394 = strPal.byte_B7934_B7924[v391];
+                        *v394 = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v401 = v393 - 1;
                         if (!v401)
@@ -96241,7 +96241,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v400);
                         v402 = v1152 + v400;
-                        v394[1] = strPal.byte_B7934_B7924[v391];
+                        v394[1] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v403 = v401 - 1;
                         if (!v403)
@@ -96252,7 +96252,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v402);
                         v404 = v1152 + v402;
-                        v394[2] = strPal.byte_B7934_B7924[v391];
+                        v394[2] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v405 = v403 - 1;
                         if (!v405)
@@ -96263,7 +96263,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v404);
                         v406 = v1152 + v404;
-                        v394[3] = strPal.byte_B7934_B7924[v391];
+                        v394[3] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v407 = v405 - 1;
                         if (!v407)
@@ -96274,7 +96274,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v406);
                         v408 = v1152 + v406;
-                        v394[4] = strPal.byte_B7934_B7924[v391];
+                        v394[4] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v409 = v407 - 1;
                         if (!v409)
@@ -96285,7 +96285,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v408);
                         v410 = v1152 + v408;
-                        v394[5] = strPal.byte_B7934_B7924[v391];
+                        v394[5] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v411 = v409 - 1;
                         if (!v411)
@@ -96296,7 +96296,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v410);
                         v412 = v1152 + v410;
-                        v394[6] = strPal.byte_B7934_B7924[v391];
+                        v394[6] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v413 = v411 - 1;
                         if (!v413)
@@ -96307,7 +96307,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v412);
                         v414 = v1152 + v412;
-                        v394[7] = strPal.byte_B7934_B7924[v391];
+                        v394[7] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v415 = v413 - 1;
                         if (!v415)
@@ -96318,7 +96318,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v414);
                         v416 = v1152 + v414;
-                        v394[8] = strPal.byte_B7934_B7924[v391];
+                        v394[8] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v417 = v415 - 1;
                         if (!v417)
@@ -96329,7 +96329,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v416);
                         v418 = v1152 + v416;
-                        v394[9] = strPal.byte_B7934_B7924[v391];
+                        v394[9] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v419 = v417 - 1;
                         if (!v419)
@@ -96340,7 +96340,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v418);
                         v420 = v1152 + v418;
-                        v394[10] = strPal.byte_B7934_B7924[v391];
+                        v394[10] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v421 = v419 - 1;
                         if (!v421)
@@ -96351,7 +96351,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v420);
                         v422 = v1152 + v420;
-                        v394[11] = strPal.byte_B7934_B7924[v391];
+                        v394[11] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v423 = v421 - 1;
                         if (!v423)
@@ -96362,7 +96362,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v422);
                         v424 = v1152 + v422;
-                        v394[12] = strPal.byte_B7934_B7924[v391];
+                        v394[12] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v425 = v423 - 1;
                         if (!v425)
@@ -96373,7 +96373,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v424);
                         v426 = v1152 + v424;
-                        v394[13] = strPal.byte_B7934_B7924[v391];
+                        v394[13] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v427 = v425 - 1;
                         if (!v427)
@@ -96384,7 +96384,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v426);
                         v428 = v1152 + v426;
-                        v394[14] = strPal.byte_B7934_B7924[v391];
+                        v394[14] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         v429 = v427 - 1;
                         if (!v429)
@@ -96395,7 +96395,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOBYTE(v392) = BYTE2(scaledU) + v171 + v392;
                         v171 = __CFADD__(v1152, v428);
                         v397 = v1152 + v428;
-                        v394[15] = strPal.byte_B7934_B7924[v391];
+                        v394[15] = strPal.fog_B7934_B7924[v391];
                         BYTE1(v392) += BYTE2(scaledV) + v171;
                         LOWORD(v393) = v429 - 1;
                         if (!(_WORD)v393)
@@ -96458,7 +96458,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v437) = scaledU + v437;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            *v434 = strPal.byte_B7934_B7924[v431];
+                            *v434 = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v437);
                         v440 = v1153 + v437;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96470,7 +96470,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v440) = scaledU + v440;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[1] = strPal.byte_B7934_B7924[v431];
+                            v434[1] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v440);
                         v442 = v1153 + v440;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96482,7 +96482,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v442) = scaledU + v442;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[2] = strPal.byte_B7934_B7924[v431];
+                            v434[2] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v442);
                         v444 = v1153 + v442;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96494,7 +96494,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v444) = scaledU + v444;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[3] = strPal.byte_B7934_B7924[v431];
+                            v434[3] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v444);
                         v446 = v1153 + v444;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96506,7 +96506,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v446) = scaledU + v446;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[4] = strPal.byte_B7934_B7924[v431];
+                            v434[4] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v446);
                         v448 = v1153 + v446;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96518,7 +96518,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v448) = scaledU + v448;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[5] = strPal.byte_B7934_B7924[v431];
+                            v434[5] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v448);
                         v450 = v1153 + v448;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96530,7 +96530,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v450) = scaledU + v450;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[6] = strPal.byte_B7934_B7924[v431];
+                            v434[6] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v450);
                         v452 = v1153 + v450;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96542,7 +96542,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v452) = scaledU + v452;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[7] = strPal.byte_B7934_B7924[v431];
+                            v434[7] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v452);
                         v454 = v1153 + v452;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96554,7 +96554,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v454) = scaledU + v454;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[8] = strPal.byte_B7934_B7924[v431];
+                            v434[8] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v454);
                         v456 = v1153 + v454;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96566,7 +96566,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v456) = scaledU + v456;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[9] = strPal.byte_B7934_B7924[v431];
+                            v434[9] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v456);
                         v458 = v1153 + v456;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96578,7 +96578,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v458) = scaledU + v458;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[10] = strPal.byte_B7934_B7924[v431];
+                            v434[10] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v458);
                         v460 = v1153 + v458;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96590,7 +96590,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v460) = scaledU + v460;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[11] = strPal.byte_B7934_B7924[v431];
+                            v434[11] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v460);
                         v462 = v1153 + v460;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96602,7 +96602,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v462) = scaledU + v462;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[12] = strPal.byte_B7934_B7924[v431];
+                            v434[12] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v462);
                         v464 = v1153 + v462;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96614,7 +96614,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v464) = scaledU + v464;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[13] = strPal.byte_B7934_B7924[v431];
+                            v434[13] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v464);
                         v466 = v1153 + v464;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96626,7 +96626,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v466) = scaledU + v466;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[14] = strPal.byte_B7934_B7924[v431];
+                            v434[14] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v466);
                         v468 = v1153 + v466;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96638,7 +96638,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v468) = scaledU + v468;
                         LOBYTE(v432) = BYTE2(scaledU) + v171 + v432;
                         if ((_BYTE)v431)
-                            v434[15] = strPal.byte_B7934_B7924[v431];
+                            v434[15] = strPal.fog_B7934_B7924[v431];
                         v171 = __CFADD__(v1153, v468);
                         v437 = v1153 + v468;
                         BYTE1(v432) += BYTE2(scaledV) + v171;
@@ -96705,7 +96705,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = *v474;
-                            *v474 = strPal.byte_B7934_B7924[v471];
+                            *v474 = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v477);
                         v480 = v1154 + v477;
@@ -96720,7 +96720,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[1];
-                            v474[1] = strPal.byte_B7934_B7924[v471];
+                            v474[1] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v480);
                         v482 = v1154 + v480;
@@ -96735,7 +96735,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[2];
-                            v474[2] = strPal.byte_B7934_B7924[v471];
+                            v474[2] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v482);
                         v484 = v1154 + v482;
@@ -96750,7 +96750,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[3];
-                            v474[3] = strPal.byte_B7934_B7924[v471];
+                            v474[3] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v484);
                         v486 = v1154 + v484;
@@ -96765,7 +96765,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[4];
-                            v474[4] = strPal.byte_B7934_B7924[v471];
+                            v474[4] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v486);
                         v488 = v1154 + v486;
@@ -96780,7 +96780,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[5];
-                            v474[5] = strPal.byte_B7934_B7924[v471];
+                            v474[5] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v488);
                         v490 = v1154 + v488;
@@ -96795,7 +96795,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[6];
-                            v474[6] = strPal.byte_B7934_B7924[v471];
+                            v474[6] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v490);
                         v492 = v1154 + v490;
@@ -96810,7 +96810,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[7];
-                            v474[7] = strPal.byte_B7934_B7924[v471];
+                            v474[7] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v492);
                         v494 = v1154 + v492;
@@ -96825,7 +96825,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[8];
-                            v474[8] = strPal.byte_B7934_B7924[v471];
+                            v474[8] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v494);
                         v496 = v1154 + v494;
@@ -96840,7 +96840,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[9];
-                            v474[9] = strPal.byte_B7934_B7924[v471];
+                            v474[9] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v496);
                         v498 = v1154 + v496;
@@ -96855,7 +96855,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[10];
-                            v474[10] = strPal.byte_B7934_B7924[v471];
+                            v474[10] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v498);
                         v500 = v1154 + v498;
@@ -96870,7 +96870,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[11];
-                            v474[11] = strPal.byte_B7934_B7924[v471];
+                            v474[11] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v500);
                         v502 = v1154 + v500;
@@ -96885,7 +96885,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[12];
-                            v474[12] = strPal.byte_B7934_B7924[v471];
+                            v474[12] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v502);
                         v504 = v1154 + v502;
@@ -96900,7 +96900,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[13];
-                            v474[13] = strPal.byte_B7934_B7924[v471];
+                            v474[13] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v504);
                         v506 = v1154 + v504;
@@ -96915,7 +96915,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[14];
-                            v474[14] = strPal.byte_B7934_B7924[v471];
+                            v474[14] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v506);
                         v508 = v1154 + v506;
@@ -96930,7 +96930,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if (BYTE1(v471))
                         {
                             LOBYTE(v471) = v474[15];
-                            v474[15] = strPal.byte_B7934_B7924[v471];
+                            v474[15] = strPal.fog_B7934_B7924[v471];
                         }
                         v171 = __CFADD__(v1154, v508);
                         v477 = v1154 + v508;
@@ -97675,7 +97675,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 LABEL_851:
                     while (1)
                     {
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = *v635;
                         *v635 = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v638);
@@ -97684,7 +97684,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v640 = v634 - 1;
                         if (!v640)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[1];
                         v635[1] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v639);
@@ -97693,7 +97693,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v642 = v640 - 1;
                         if (!v642)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[2];
                         v635[2] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v641);
@@ -97702,7 +97702,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v644 = v642 - 1;
                         if (!v644)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[3];
                         v635[3] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v643);
@@ -97711,7 +97711,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v646 = v644 - 1;
                         if (!v646)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[4];
                         v635[4] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v645);
@@ -97720,7 +97720,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v648 = v646 - 1;
                         if (!v648)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[5];
                         v635[5] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v647);
@@ -97729,7 +97729,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v650 = v648 - 1;
                         if (!v650)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[6];
                         v635[6] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v649);
@@ -97738,7 +97738,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v652 = v650 - 1;
                         if (!v652)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[7];
                         v635[7] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v651);
@@ -97747,7 +97747,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v654 = v652 - 1;
                         if (!v654)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[8];
                         v635[8] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v653);
@@ -97756,7 +97756,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v656 = v654 - 1;
                         if (!v656)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[9];
                         v635[9] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v655);
@@ -97765,7 +97765,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v658 = v656 - 1;
                         if (!v658)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[10];
                         v635[10] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v657);
@@ -97774,7 +97774,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v660 = v658 - 1;
                         if (!v660)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[11];
                         v635[11] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v659);
@@ -97783,7 +97783,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v662 = v660 - 1;
                         if (!v662)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[12];
                         v635[12] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v661);
@@ -97792,7 +97792,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v664 = v662 - 1;
                         if (!v664)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[13];
                         v635[13] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v663);
@@ -97801,7 +97801,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v666 = v664 - 1;
                         if (!v666)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[14];
                         v635[14] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v665);
@@ -97810,7 +97810,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v668 = v666 - 1;
                         if (!v668)
                             break;
-                        BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+                        BYTE1(v633) = strPal.fog_B7934_B7924[v29];
                         LOBYTE(v633) = v635[15];
                         v635[15] = strPal.byte_BB934_BB924[v633];
                         v171 = __CFADD__((_WORD)scaledZ, v667);
@@ -97865,7 +97865,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                 LABEL_880:
                     while (1)
                     {
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = *v672;
                         *v672 = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v675);
@@ -97874,7 +97874,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v677 = v671 - 1;
                         if (!v677)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[1];
                         v672[1] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v676);
@@ -97883,7 +97883,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v679 = v677 - 1;
                         if (!v679)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[2];
                         v672[2] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v678);
@@ -97892,7 +97892,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v681 = v679 - 1;
                         if (!v681)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[3];
                         v672[3] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v680);
@@ -97901,7 +97901,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v683 = v681 - 1;
                         if (!v683)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[4];
                         v672[4] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v682);
@@ -97910,7 +97910,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v685 = v683 - 1;
                         if (!v685)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[5];
                         v672[5] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v684);
@@ -97919,7 +97919,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v687 = v685 - 1;
                         if (!v687)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[6];
                         v672[6] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v686);
@@ -97928,7 +97928,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v689 = v687 - 1;
                         if (!v689)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[7];
                         v672[7] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v688);
@@ -97937,7 +97937,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v691 = v689 - 1;
                         if (!v691)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[8];
                         v672[8] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v690);
@@ -97946,7 +97946,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v693 = v691 - 1;
                         if (!v693)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[9];
                         v672[9] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v692);
@@ -97955,7 +97955,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v695 = v693 - 1;
                         if (!v695)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[10];
                         v672[10] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v694);
@@ -97964,7 +97964,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v697 = v695 - 1;
                         if (!v697)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[11];
                         v672[11] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v696);
@@ -97973,7 +97973,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v699 = v697 - 1;
                         if (!v699)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[12];
                         v672[12] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v698);
@@ -97982,7 +97982,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v701 = v699 - 1;
                         if (!v701)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[13];
                         v672[13] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v700);
@@ -97991,7 +97991,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v703 = v701 - 1;
                         if (!v703)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[14];
                         v672[14] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v702);
@@ -98000,7 +98000,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         v705 = v703 - 1;
                         if (!v705)
                             break;
-                        LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+                        LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
                         BYTE1(v670) = v672[15];
                         v672[15] = strPal.byte_BB934_BB924[v670];
                         v171 = __CFADD__((_WORD)scaledZ, v704);
@@ -98554,7 +98554,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v792) = scaledU + v792;
                         BYTE1(v787) = v793;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v792);
                         v795 = v1159 + v792;
                         LOBYTE(v787) = *v790;
@@ -98571,7 +98571,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v795) = scaledU + v795;
                         BYTE1(v787) = v796;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v795);
                         v797 = v1159 + v795;
                         LOBYTE(v787) = v790[1];
@@ -98588,7 +98588,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v797) = scaledU + v797;
                         BYTE1(v787) = v798;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v797);
                         v799 = v1159 + v797;
                         LOBYTE(v787) = v790[2];
@@ -98605,7 +98605,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v799) = scaledU + v799;
                         BYTE1(v787) = v800;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v799);
                         v801 = v1159 + v799;
                         LOBYTE(v787) = v790[3];
@@ -98622,7 +98622,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v801) = scaledU + v801;
                         BYTE1(v787) = v802;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v801);
                         v803 = v1159 + v801;
                         LOBYTE(v787) = v790[4];
@@ -98639,7 +98639,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v803) = scaledU + v803;
                         BYTE1(v787) = v804;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v803);
                         v805 = v1159 + v803;
                         LOBYTE(v787) = v790[5];
@@ -98656,7 +98656,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v805) = scaledU + v805;
                         BYTE1(v787) = v806;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v805);
                         v807 = v1159 + v805;
                         LOBYTE(v787) = v790[6];
@@ -98673,7 +98673,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v807) = scaledU + v807;
                         BYTE1(v787) = v808;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v807);
                         v809 = v1159 + v807;
                         LOBYTE(v787) = v790[7];
@@ -98690,7 +98690,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v809) = scaledU + v809;
                         BYTE1(v787) = v810;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v809);
                         v811 = v1159 + v809;
                         LOBYTE(v787) = v790[8];
@@ -98707,7 +98707,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v811) = scaledU + v811;
                         BYTE1(v787) = v812;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v811);
                         v813 = v1159 + v811;
                         LOBYTE(v787) = v790[9];
@@ -98724,7 +98724,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v813) = scaledU + v813;
                         BYTE1(v787) = v814;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v813);
                         v815 = v1159 + v813;
                         LOBYTE(v787) = v790[10];
@@ -98741,7 +98741,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v815) = scaledU + v815;
                         BYTE1(v787) = v816;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v815);
                         v817 = v1159 + v815;
                         LOBYTE(v787) = v790[11];
@@ -98758,7 +98758,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v817) = scaledU + v817;
                         BYTE1(v787) = v818;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v817);
                         v819 = v1159 + v817;
                         LOBYTE(v787) = v790[12];
@@ -98775,7 +98775,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v819) = scaledU + v819;
                         BYTE1(v787) = v820;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v819);
                         v821 = v1159 + v819;
                         LOBYTE(v787) = v790[13];
@@ -98792,7 +98792,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v821) = scaledU + v821;
                         BYTE1(v787) = v822;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v821);
                         v823 = v1159 + v821;
                         LOBYTE(v787) = v790[14];
@@ -98809,7 +98809,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v823) = scaledU + v823;
                         BYTE1(v787) = v824;
                         LOBYTE(v788) = BYTE2(scaledU) + v171 + v788;
-                        BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+                        BYTE1(v787) = strPal.fog_B7934_B7924[v787];
                         v171 = __CFADD__(v1159, v823);
                         v792 = v1159 + v823;
                         LOBYTE(v787) = v790[15];
@@ -98882,7 +98882,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v831) = scaledU + v831;
                         BYTE1(v826) = v832;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v831);
                         v834 = v1160 + v831;
                         BYTE1(v826) = *v829;
@@ -98899,7 +98899,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v834) = scaledU + v834;
                         BYTE1(v826) = v835;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v834);
                         v836 = v1160 + v834;
                         BYTE1(v826) = v829[1];
@@ -98916,7 +98916,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v836) = scaledU + v836;
                         BYTE1(v826) = v837;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v836);
                         v838 = v1160 + v836;
                         BYTE1(v826) = v829[2];
@@ -98933,7 +98933,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v838) = scaledU + v838;
                         BYTE1(v826) = v839;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v838);
                         v840 = v1160 + v838;
                         BYTE1(v826) = v829[3];
@@ -98950,7 +98950,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v840) = scaledU + v840;
                         BYTE1(v826) = v841;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v840);
                         v842 = v1160 + v840;
                         BYTE1(v826) = v829[4];
@@ -98967,7 +98967,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v842) = scaledU + v842;
                         BYTE1(v826) = v843;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v842);
                         v844 = v1160 + v842;
                         BYTE1(v826) = v829[5];
@@ -98984,7 +98984,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v844) = scaledU + v844;
                         BYTE1(v826) = v845;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v844);
                         v846 = v1160 + v844;
                         BYTE1(v826) = v829[6];
@@ -99001,7 +99001,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v846) = scaledU + v846;
                         BYTE1(v826) = v847;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v846);
                         v848 = v1160 + v846;
                         BYTE1(v826) = v829[7];
@@ -99018,7 +99018,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v848) = scaledU + v848;
                         BYTE1(v826) = v849;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v848);
                         v850 = v1160 + v848;
                         BYTE1(v826) = v829[8];
@@ -99035,7 +99035,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v850) = scaledU + v850;
                         BYTE1(v826) = v851;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v850);
                         v852 = v1160 + v850;
                         BYTE1(v826) = v829[9];
@@ -99052,7 +99052,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v852) = scaledU + v852;
                         BYTE1(v826) = v853;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v852);
                         v854 = v1160 + v852;
                         BYTE1(v826) = v829[10];
@@ -99069,7 +99069,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v854) = scaledU + v854;
                         BYTE1(v826) = v855;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v854);
                         v856 = v1160 + v854;
                         BYTE1(v826) = v829[11];
@@ -99086,7 +99086,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v856) = scaledU + v856;
                         BYTE1(v826) = v857;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v856);
                         v858 = v1160 + v856;
                         BYTE1(v826) = v829[12];
@@ -99103,7 +99103,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v858) = scaledU + v858;
                         BYTE1(v826) = v859;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v858);
                         v860 = v1160 + v858;
                         BYTE1(v826) = v829[13];
@@ -99120,7 +99120,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v860) = scaledU + v860;
                         BYTE1(v826) = v861;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v860);
                         v862 = v1160 + v860;
                         BYTE1(v826) = v829[14];
@@ -99137,7 +99137,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         LOWORD(v862) = scaledU + v862;
                         BYTE1(v826) = v863;
                         LOBYTE(v827) = BYTE2(scaledU) + v171 + v827;
-                        LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+                        LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
                         v171 = __CFADD__(v1160, v862);
                         v831 = v1160 + v862;
                         BYTE1(v826) = v829[15];
@@ -99793,7 +99793,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v951;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = *v948;
                             *v948 = strPal.byte_BB934_BB924[v945];
                         }
@@ -99813,7 +99813,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v954;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[1];
                             v948[1] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99833,7 +99833,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v956;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[2];
                             v948[2] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99853,7 +99853,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v958;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[3];
                             v948[3] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99873,7 +99873,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v960;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[4];
                             v948[4] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99893,7 +99893,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v962;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[5];
                             v948[5] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99913,7 +99913,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v964;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[6];
                             v948[6] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99933,7 +99933,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v966;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[7];
                             v948[7] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99953,7 +99953,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v968;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[8];
                             v948[8] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99973,7 +99973,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v970;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[9];
                             v948[9] = strPal.byte_BB934_BB924[v945];
                         }
@@ -99993,7 +99993,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v972;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[10];
                             v948[10] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100013,7 +100013,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v974;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[11];
                             v948[11] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100033,7 +100033,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v976;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[12];
                             v948[12] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100053,7 +100053,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v978;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[13];
                             v948[13] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100073,7 +100073,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v980;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[14];
                             v948[14] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100093,7 +100093,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v945)
                         {
                             BYTE1(v945) = v982;
-                            BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                            BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                             LOBYTE(v945) = v948[15];
                             v948[15] = strPal.byte_BB934_BB924[v945];
                         }
@@ -100169,7 +100169,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v990;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = *v987;
                             *v987 = strPal.byte_BB934_BB924[v984];
                         }
@@ -100189,7 +100189,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v993;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[1];
                             v987[1] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100209,7 +100209,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v995;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[2];
                             v987[2] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100229,7 +100229,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v997;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[3];
                             v987[3] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100249,7 +100249,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v999;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[4];
                             v987[4] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100269,7 +100269,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1001;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[5];
                             v987[5] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100289,7 +100289,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1003;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[6];
                             v987[6] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100309,7 +100309,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1005;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[7];
                             v987[7] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100329,7 +100329,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1007;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[8];
                             v987[8] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100349,7 +100349,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1009;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[9];
                             v987[9] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100369,7 +100369,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1011;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[10];
                             v987[10] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100389,7 +100389,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1013;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[11];
                             v987[11] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100409,7 +100409,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1015;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[12];
                             v987[12] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100429,7 +100429,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1017;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[13];
                             v987[13] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100449,7 +100449,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1019;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[14];
                             v987[14] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100469,7 +100469,7 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                         if ((_BYTE)v984)
                         {
                             BYTE1(v984) = v1021;
-                            LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                            LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                             BYTE1(v984) = v987[15];
                             v987[15] = strPal.byte_BB934_BB924[v984];
                         }
@@ -100550,11 +100550,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1031 = strPal.byte_B7934_B7924[v1023];
+                        v1031 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = *v1026;
                         v1031 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100575,11 +100575,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1034 = strPal.byte_B7934_B7924[v1023];
+                        v1034 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[1];
                         v1034 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100600,11 +100600,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1037 = strPal.byte_B7934_B7924[v1023];
+                        v1037 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[2];
                         v1037 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100625,11 +100625,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1040 = strPal.byte_B7934_B7924[v1023];
+                        v1040 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[3];
                         v1040 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100650,11 +100650,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1043 = strPal.byte_B7934_B7924[v1023];
+                        v1043 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[4];
                         v1043 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100675,11 +100675,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1046 = strPal.byte_B7934_B7924[v1023];
+                        v1046 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[5];
                         v1046 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100700,11 +100700,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1049 = strPal.byte_B7934_B7924[v1023];
+                        v1049 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[6];
                         v1049 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100725,11 +100725,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1052 = strPal.byte_B7934_B7924[v1023];
+                        v1052 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[7];
                         v1052 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100750,11 +100750,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1055 = strPal.byte_B7934_B7924[v1023];
+                        v1055 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[8];
                         v1055 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100775,11 +100775,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1058 = strPal.byte_B7934_B7924[v1023];
+                        v1058 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[9];
                         v1058 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100800,11 +100800,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1061 = strPal.byte_B7934_B7924[v1023];
+                        v1061 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[10];
                         v1061 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100825,11 +100825,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1064 = strPal.byte_B7934_B7924[v1023];
+                        v1064 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[11];
                         v1064 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100850,11 +100850,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1067 = strPal.byte_B7934_B7924[v1023];
+                        v1067 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[12];
                         v1067 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100875,11 +100875,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1070 = strPal.byte_B7934_B7924[v1023];
+                        v1070 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[13];
                         v1070 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100900,11 +100900,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1073 = strPal.byte_B7934_B7924[v1023];
+                        v1073 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[14];
                         v1073 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -100925,11 +100925,11 @@ void DrawTriangle_729A3_72EB3_semi(Type_RenderPoint* pnt1, Type_RenderPoint* pnt
                     LOBYTE(v1024) = BYTE2(scaledU) + v171 + v1024;
                     if ((unsigned __int8)v1023 >= 0xCu)
                     {
-                        v1076 = strPal.byte_B7934_B7924[v1023];
+                        v1076 = strPal.fog_B7934_B7924[v1023];
                     }
                     else
                     {
-                        LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+                        LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
                         BYTE1(v1023) = v1026[15];
                         v1076 = strPal.byte_BB934_BB924[v1023];
                     }
@@ -105924,112 +105924,112 @@ LABEL_445:
 LABEL_455:
             while ( 1 )
             {
-                tempScrPtr7[0] = strPal.byte_B7934_B7924[v29];
+                tempScrPtr7[0] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v335);
               v336 = scaledZ.dword + v335;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v337 = v331 - 1;
               if ( !v337 )
                 break;
-              tempScrPtr7[1] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[1] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v336);
               v338 = scaledZ.dword + v336;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v339 = v337 - 1;
               if ( !v339 )
                 break;
-              tempScrPtr7[2] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[2] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v338);
               v340 = scaledZ.dword + v338;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v341 = v339 - 1;
               if ( !v341 )
                 break;
-              tempScrPtr7[3] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[3] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v340);
               v342 = scaledZ.dword + v340;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v343 = v341 - 1;
               if ( !v343 )
                 break;
-              tempScrPtr7[4] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[4] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v342);
               v344 = scaledZ.dword + v342;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v345 = v343 - 1;
               if ( !v345 )
                 break;
-              tempScrPtr7[5] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[5] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v344);
               v346 = scaledZ.dword + v344;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v347 = v345 - 1;
               if ( !v347 )
                 break;
-              tempScrPtr7[6] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[6] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v346);
               v348 = scaledZ.dword + v346;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v349 = v347 - 1;
               if ( !v349 )
                 break;
-              tempScrPtr7[7] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[7] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v348);
               v350 = scaledZ.dword + v348;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v351 = v349 - 1;
               if ( !v351 )
                 break;
-              tempScrPtr7[8] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[8] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v350);
               v352 = scaledZ.dword + v350;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v353 = v351 - 1;
               if ( !v353 )
                 break;
-              tempScrPtr7[9] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[9] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v352);
               v354 = scaledZ.dword + v352;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v355 = v353 - 1;
               if ( !v355 )
                 break;
-              tempScrPtr7[10] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[10] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v354);
               v356 = scaledZ.dword + v354;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v357 = v355 - 1;
               if ( !v357 )
                 break;
-              tempScrPtr7[11] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[11] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v356);
               v358 = scaledZ.dword + v356;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v359 = v357 - 1;
               if ( !v359 )
                 break;
-              tempScrPtr7[12] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[12] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v358);
               v360 = scaledZ.dword + v358;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v361 = v359 - 1;
               if ( !v361 )
                 break;
-              tempScrPtr7[13] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[13] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v360);
               v362 = scaledZ.dword + v360;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v363 = v361 - 1;
               if ( !v363 )
                 break;
-              tempScrPtr7[14] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[14] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v362);
               v364 = scaledZ.dword + v362;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
               v365 = v363 - 1;
               if ( !v365 )
                 break;
-              tempScrPtr7[15] = strPal.byte_B7934_B7924[v29];
+              tempScrPtr7[15] = strPal.fog_B7934_B7924[v29];
               v171 = __CFADD__((_WORD)scaledZ.dword, v364);
               v335 = scaledZ.dword + v364;
               BYTE1(v29) += BYTE2(scaledZ.dword) + v171;
@@ -106111,303 +106111,30 @@ LABEL_484:
               tempScrPtr3plus = &tempScrPtr3[dword_74F95_754A5[tempScrPosX.a16[0] & 0xF]];
               tempTexture = actTexture_93AD0;
 
-
-              if (false)
-              {
-                  //for (int index = tempScrPosX.a16[0] & 0xF; tempScrPosX.a16[0] < 16; index++)
-                      //tempScrPtr3plus += 16;
-                      //bool16 = tempScrPosX.a16[0] <= 16;
-                      //tempScrPosX.a16[0] -= 16;
-                      //if (bool16)
-                      //    break;
-                  int index = 16 - tempScrPosX.a16[0] & 0xF;
-                  while(1)
-                  {
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-
-                      //tempScrPtr3plus++;
-                      if (index == 15)
-                      {
-                          index = 0;
-                          tempScrPtr3plus += 16;
-                          bool16 = tempScrPosX.a16[0] <= 16;
-                          tempScrPosX.a16[0] -= 16;
-                          if (bool16)
-                            break;
-                      }
-                      index++;
-                      index %= 16;
-                  }
-              }
-              else
-              { 
-                int index = 16 - tempScrPosX.a16[0] & 0xF;
-                //int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
-                if (index == 0xc)
-                {
-                    index++;
-                    index--;
-                }
-                test_index++;
-                if (test_index == 0xbc)
-                {
-                    index++;
-                    index--;
-                }
-                switch (tempScrPosX.a16[0] & 0xF )
-                {
-                  case 0:
-                    goto LABEL_487;
-                  case 1:
-                    goto LABEL_487;
-                  case 2:
-                    goto LABEL_487;
-                  case 3:
-                    goto LABEL_487;
-                  case 4:
-                    goto LABEL_487;
-                  case 5:
-                    goto LABEL_487;
-                  case 6:
-                    goto LABEL_487;
-                  case 7:
-                    goto LABEL_487;
-                  case 8:
-                    goto LABEL_487;
-                  case 9:
-                    goto LABEL_487;
-                  case 0xA:
-                    goto LABEL_487;
-                  case 0xB:
-                    goto LABEL_487;
-                  case 0xC:
-                    goto LABEL_487;
-                  case 0xD:
-                    goto LABEL_487;
-                  case 0xE:
-                    goto LABEL_487;
-                  case 0xF:
-                      //tempCount = 2;
-                    goto LABEL_487;
-                    while ( 1 )
-                    {
-                        /*if (index != 1)
-                            allert_error();
-
-                        textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;*/
-                    LABEL_487:
-                        while(index < 16)
-                        {
-                            index %= 16;
-                            textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                            textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                            textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                            preTextPos.word[0] += scaledU.word[0];
-                            preTextPos.dword += scaledVB;
-                            tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                            textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                            tempScrPosX.a32 += scaledZB;
-                            index++;
-                        }
-
-                        index = 0;
-
-                        /*textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;*/
-    /*LABEL_488:
-                        textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;*/
-    /*LABEL_489:
-                        textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;
-    LABEL_490:
-                        textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;
-    LABEL_491:
-                        textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                        textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                        textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                        preTextPos.word[0] += scaledU.word[0];
-                        preTextPos.dword += scaledVB;
-                        tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                        textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                        tempScrPosX.a32 += scaledZB;
-                        index++;
-                        index %= 16;*/
-    /*LABEL_492:
-                      textPixel.byte[0] = tempTexture[textPos.dword];
-                      textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, preTextPos.dword);
-                      preTextPos.word[0] += scaledU.dword;
-                      textPos.byte[1] += scaledV.byte[2] + __CFADD__32(scaledVB, preTextPos.dword);
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];
-                      textPixel.byte[1] += scaledZ.byte[2] + __CFADD__32(scaledZB, tempScrPosX.a32);
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_493:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_494:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;*/
-                        /*
-    LABEL_495:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_496:
-    //adress 0x24629B_
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_497:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;*/
-    /*LABEL_498:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_499:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;
-    LABEL_500:
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;
-                      index %= 16;*/
-                      
-                            tempScrPtr3plus += 16;
-                            //bool16 = tempScrPosX.a16[0] <= 16;
-
-                            if (tempScrPosX.a16[0] <= 16)
-                            {
-                                tempScrPosX.a16[0] -= 16;
-                                break;
-                            }
-                            tempScrPosX.a16[0] -= 16;
-                        /*LABEL_485:
-                            index %= 16;
-                      textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-                      textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-                      textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
-                      preTextPos.word[0] += scaledU.word[0];
-                      preTextPos.dword += scaledVB;
-                      tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
-                      textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
-                      tempScrPosX.a32 += scaledZB;
-                      index++;*/
-                    }
-                    break;
-                }                
-              }
+			  int index = 16 - tempScrPosX.a16[0] & 0xF;
+			  while (1)
+			  {
+				  for (;index < 16; index++)
+				  {
+					  index %= 16;
+					  textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
+					  textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
+					  textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
+					  preTextPos.word[0] += scaledU.word[0];
+					  preTextPos.dword += scaledVB;
+					  tempScrPtr3plus[index] = strPal.fog_B7934_B7924[textPixel.dword];//pixel with fog
+					  textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
+					  tempScrPosX.a32 += scaledZB;
+				  }
+				  index = 0;
+				  tempScrPtr3plus += 16;
+				  if (tempScrPosX.a16[0] <= 16)
+				  {
+					  tempScrPosX.a16[0] -= 16;
+					  break;
+				  }
+				  tempScrPosX.a16[0] -= 16;
+			  }
           }
 LABEL_501:
           if ( !--ySum )
@@ -106503,7 +106230,7 @@ LABEL_513:
                 {
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[1] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[1] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106516,7 +106243,7 @@ LABEL_513:
 LABEL_520:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[2] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[2] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106529,7 +106256,7 @@ LABEL_520:
 LABEL_523:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[3] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[3] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106542,7 +106269,7 @@ LABEL_523:
 LABEL_526:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[4] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[4] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106555,7 +106282,7 @@ LABEL_526:
 LABEL_529:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[5] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[5] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106568,7 +106295,7 @@ LABEL_529:
 LABEL_532:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[6] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[6] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106581,7 +106308,7 @@ LABEL_532:
 LABEL_535:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[7] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[7] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106594,7 +106321,7 @@ LABEL_535:
 LABEL_538:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[8] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[8] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106607,7 +106334,7 @@ LABEL_538:
 LABEL_541:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[9] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[9] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106620,7 +106347,7 @@ LABEL_541:
 LABEL_544:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[10] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[10] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106633,7 +106360,7 @@ LABEL_544:
 LABEL_547:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[11] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[11] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106646,7 +106373,7 @@ LABEL_547:
 LABEL_550:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[12] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[12] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106659,7 +106386,7 @@ LABEL_550:
 LABEL_553:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[13] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[13] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106672,7 +106399,7 @@ LABEL_553:
 LABEL_556:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[14] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[14] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106685,7 +106412,7 @@ LABEL_556:
 LABEL_559:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[15] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[15] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106703,7 +106430,7 @@ LABEL_559:
 LABEL_514:
                   LOBYTE(v378) = *(_BYTE *)(v379 + v389);
                   if ( (_BYTE)v378 )
-                      tempScrPtr8plus[0] = strPal.byte_B7934_B7924[v378];
+                      tempScrPtr8plus[0] = strPal.fog_B7934_B7924[v378];
                   v171 = __CFADD__((_WORD)scaledU.dword, (_WORD)v384);
                   LOWORD(v384) = scaledU.dword + v384;
                   LOBYTE(v379) = BYTE2(scaledU.dword) + v171 + v379;
@@ -106790,7 +106517,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v397);
               v400 = v1152 + v397;
-              tempScrPtr9[0] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[0] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v401 = v393 - 1;
               if ( !v401 )
@@ -106801,7 +106528,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v400);
               v402 = v1152 + v400;
-              tempScrPtr9[1] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[1] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v403 = v401 - 1;
               if ( !v403 )
@@ -106812,7 +106539,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v402);
               v404 = v1152 + v402;
-              tempScrPtr9[2] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[2] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v405 = v403 - 1;
               if ( !v405 )
@@ -106823,7 +106550,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v404);
               v406 = v1152 + v404;
-              tempScrPtr9[3] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[3] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v407 = v405 - 1;
               if ( !v407 )
@@ -106834,7 +106561,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v406);
               v408 = v1152 + v406;
-              tempScrPtr9[4] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[4] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v409 = v407 - 1;
               if ( !v409 )
@@ -106845,7 +106572,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v408);
               v410 = v1152 + v408;
-              tempScrPtr9[5] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[5] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v411 = v409 - 1;
               if ( !v411 )
@@ -106856,7 +106583,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v410);
               v412 = v1152 + v410;
-              tempScrPtr9[6] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[6] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v413 = v411 - 1;
               if ( !v413 )
@@ -106867,7 +106594,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v412);
               v414 = v1152 + v412;
-              tempScrPtr9[7] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[7] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v415 = v413 - 1;
               if ( !v415 )
@@ -106878,7 +106605,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v414);
               v416 = v1152 + v414;
-              tempScrPtr9[8] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[8] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v417 = v415 - 1;
               if ( !v417 )
@@ -106889,7 +106616,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v416);
               v418 = v1152 + v416;
-              tempScrPtr9[9] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[9] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v419 = v417 - 1;
               if ( !v419 )
@@ -106900,7 +106627,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v418);
               v420 = v1152 + v418;
-              tempScrPtr9[10] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[10] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v421 = v419 - 1;
               if ( !v421 )
@@ -106911,7 +106638,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v420);
               v422 = v1152 + v420;
-              tempScrPtr9[11] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[11] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v423 = v421 - 1;
               if ( !v423 )
@@ -106922,7 +106649,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v422);
               v424 = v1152 + v422;
-              tempScrPtr9[12] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[12] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v425 = v423 - 1;
               if ( !v425 )
@@ -106933,7 +106660,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v424);
               v426 = v1152 + v424;
-              tempScrPtr9[13] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[13] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v427 = v425 - 1;
               if ( !v427 )
@@ -106944,7 +106671,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v426);
               v428 = v1152 + v426;
-              tempScrPtr9[14] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[14] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               v429 = v427 - 1;
               if ( !v429 )
@@ -106955,7 +106682,7 @@ LABEL_574:
               LOBYTE(v392) = BYTE2(scaledU.dword) + v171 + v392;
               v171 = __CFADD__(v1152, v428);
               v397 = v1152 + v428;
-              tempScrPtr9[15] = strPal.byte_B7934_B7924[v391];
+              tempScrPtr9[15] = strPal.fog_B7934_B7924[v391];
               BYTE1(v392) += BYTE2(scaledV.dword) + v171;
               LOWORD(v393) = v429 - 1;
               if ( !(_WORD)v393 )
@@ -107021,7 +106748,7 @@ LABEL_605:
               LOWORD(v437) = scaledU.dword + v437;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[0] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[0] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v437);
               v440 = v1153 + v437;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107033,7 +106760,7 @@ LABEL_605:
               LOWORD(v440) = scaledU.dword + v440;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[1] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[1] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v440);
               v442 = v1153 + v440;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107045,7 +106772,7 @@ LABEL_605:
               LOWORD(v442) = scaledU.dword + v442;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[2] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[2] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v442);
               v444 = v1153 + v442;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107057,7 +106784,7 @@ LABEL_605:
               LOWORD(v444) = scaledU.dword + v444;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[3] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[3] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v444);
               v446 = v1153 + v444;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107069,7 +106796,7 @@ LABEL_605:
               LOWORD(v446) = scaledU.dword + v446;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[4] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[4] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v446);
               v448 = v1153 + v446;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107081,7 +106808,7 @@ LABEL_605:
               LOWORD(v448) = scaledU.dword + v448;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[5] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[5] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v448);
               v450 = v1153 + v448;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107093,7 +106820,7 @@ LABEL_605:
               LOWORD(v450) = scaledU.dword + v450;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[6] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[6] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v450);
               v452 = v1153 + v450;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107105,7 +106832,7 @@ LABEL_605:
               LOWORD(v452) = scaledU.dword + v452;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[7] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[7] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v452);
               v454 = v1153 + v452;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107117,7 +106844,7 @@ LABEL_605:
               LOWORD(v454) = scaledU.dword + v454;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[8] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[8] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v454);
               v456 = v1153 + v454;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107129,7 +106856,7 @@ LABEL_605:
               LOWORD(v456) = scaledU.dword + v456;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[9] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[9] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v456);
               v458 = v1153 + v456;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107141,7 +106868,7 @@ LABEL_605:
               LOWORD(v458) = scaledU.dword + v458;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[10] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[10] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v458);
               v460 = v1153 + v458;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107153,7 +106880,7 @@ LABEL_605:
               LOWORD(v460) = scaledU.dword + v460;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[11] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[11] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v460);
               v462 = v1153 + v460;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107165,7 +106892,7 @@ LABEL_605:
               LOWORD(v462) = scaledU.dword + v462;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[12] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[12] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v462);
               v464 = v1153 + v462;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107177,7 +106904,7 @@ LABEL_605:
               LOWORD(v464) = scaledU.dword + v464;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[13] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[13] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v464);
               v466 = v1153 + v464;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107189,7 +106916,7 @@ LABEL_605:
               LOWORD(v466) = scaledU.dword + v466;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[14] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[14] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v466);
               v468 = v1153 + v466;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107201,7 +106928,7 @@ LABEL_605:
               LOWORD(v468) = scaledU.dword + v468;
               LOBYTE(v432) = BYTE2(scaledU.dword) + v171 + v432;
               if ( (_BYTE)v431 )
-                  tempScrPtr10[15] = strPal.byte_B7934_B7924[v431];
+                  tempScrPtr10[15] = strPal.fog_B7934_B7924[v431];
               v171 = __CFADD__(v1153, v468);
               v437 = v1153 + v468;
               BYTE1(v432) += BYTE2(scaledV.dword) + v171;
@@ -107271,7 +106998,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[0];
-                tempScrPtr11[0] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[0] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v477);
               v480 = v1154 + v477;
@@ -107286,7 +107013,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[1];
-                tempScrPtr11[1] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[1] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v480);
               v482 = v1154 + v480;
@@ -107301,7 +107028,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[2];
-                tempScrPtr11[2] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[2] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v482);
               v484 = v1154 + v482;
@@ -107316,7 +107043,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[3];
-                tempScrPtr11[3] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[3] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v484);
               v486 = v1154 + v484;
@@ -107331,7 +107058,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[4];
-                tempScrPtr11[4] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[4] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v486);
               v488 = v1154 + v486;
@@ -107346,7 +107073,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[5];
-                tempScrPtr11[5] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[5] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v488);
               v490 = v1154 + v488;
@@ -107361,7 +107088,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[6];
-                tempScrPtr11[6] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[6] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v490);
               v492 = v1154 + v490;
@@ -107376,7 +107103,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[7];
-                tempScrPtr11[7] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[7] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v492);
               v494 = v1154 + v492;
@@ -107391,7 +107118,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[8];
-                tempScrPtr11[8] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[8] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v494);
               v496 = v1154 + v494;
@@ -107406,7 +107133,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[9];
-                tempScrPtr11[9] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[9] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v496);
               v498 = v1154 + v496;
@@ -107421,7 +107148,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[10];
-                tempScrPtr11[10] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[10] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v498);
               v500 = v1154 + v498;
@@ -107436,7 +107163,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[11];
-                tempScrPtr11[11] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[11] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v500);
               v502 = v1154 + v500;
@@ -107451,7 +107178,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[12];
-                tempScrPtr11[12] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[12] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v502);
               v504 = v1154 + v502;
@@ -107466,7 +107193,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[13];
-                tempScrPtr11[13] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[13] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v504);
               v506 = v1154 + v504;
@@ -107481,7 +107208,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[14];
-                tempScrPtr11[14] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[14] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v506);
               v508 = v1154 + v506;
@@ -107496,7 +107223,7 @@ LABEL_668:
               if ( BYTE1(v471) )
               {
                 LOBYTE(v471) = tempScrPtr11[15];
-                tempScrPtr11[15] = strPal.byte_B7934_B7924[v471];
+                tempScrPtr11[15] = strPal.fog_B7934_B7924[v471];
               }
               v171 = __CFADD__(v1154, v508);
               v477 = v1154 + v508;
@@ -108254,7 +107981,7 @@ LABEL_841:
 LABEL_851:
             while ( 1 )
             {
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[0];
               tempScrPtr16[0] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v638);
@@ -108263,7 +107990,7 @@ LABEL_851:
               v640 = v634 - 1;
               if ( !v640 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[1];
               tempScrPtr16[1] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v639);
@@ -108272,7 +107999,7 @@ LABEL_851:
               v642 = v640 - 1;
               if ( !v642 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[2];
               tempScrPtr16[2] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v641);
@@ -108281,7 +108008,7 @@ LABEL_851:
               v644 = v642 - 1;
               if ( !v644 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[3];
               tempScrPtr16[3] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v643);
@@ -108290,7 +108017,7 @@ LABEL_851:
               v646 = v644 - 1;
               if ( !v646 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[4];
               tempScrPtr16[4] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v645);
@@ -108299,7 +108026,7 @@ LABEL_851:
               v648 = v646 - 1;
               if ( !v648 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[5];
               tempScrPtr16[5] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v647);
@@ -108308,7 +108035,7 @@ LABEL_851:
               v650 = v648 - 1;
               if ( !v650 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[6];
               tempScrPtr16[6] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v649);
@@ -108317,7 +108044,7 @@ LABEL_851:
               v652 = v650 - 1;
               if ( !v652 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[7];
               tempScrPtr16[7] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v651);
@@ -108326,7 +108053,7 @@ LABEL_851:
               v654 = v652 - 1;
               if ( !v654 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[8];
               tempScrPtr16[8] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v653);
@@ -108335,7 +108062,7 @@ LABEL_851:
               v656 = v654 - 1;
               if ( !v656 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[9];
               tempScrPtr16[9] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v655);
@@ -108344,7 +108071,7 @@ LABEL_851:
               v658 = v656 - 1;
               if ( !v658 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[10];
               tempScrPtr16[10] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v657);
@@ -108353,7 +108080,7 @@ LABEL_851:
               v660 = v658 - 1;
               if ( !v660 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[11];
               tempScrPtr16[11] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v659);
@@ -108362,7 +108089,7 @@ LABEL_851:
               v662 = v660 - 1;
               if ( !v662 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[12];
               tempScrPtr16[12] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v661);
@@ -108371,7 +108098,7 @@ LABEL_851:
               v664 = v662 - 1;
               if ( !v664 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[13];
               tempScrPtr16[13] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v663);
@@ -108380,7 +108107,7 @@ LABEL_851:
               v666 = v664 - 1;
               if ( !v666 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[14];
               tempScrPtr16[14] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v665);
@@ -108389,7 +108116,7 @@ LABEL_851:
               v668 = v666 - 1;
               if ( !v668 )
                 break;
-              BYTE1(v633) = strPal.byte_B7934_B7924[v29];
+              BYTE1(v633) = strPal.fog_B7934_B7924[v29];
               LOBYTE(v633) = tempScrPtr16[15];
               tempScrPtr16[15] = strPal.byte_BB934_BB924[v633];
               v171 = __CFADD__((_WORD)scaledZ.dword, v667);
@@ -108447,7 +108174,7 @@ LABEL_870:
 LABEL_880:
             while ( 1 )
             {
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[0];
               tempScrPtr17[0] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v675);
@@ -108456,7 +108183,7 @@ LABEL_880:
               v677 = v671 - 1;
               if ( !v677 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[1];
               tempScrPtr17[1] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v676);
@@ -108465,7 +108192,7 @@ LABEL_880:
               v679 = v677 - 1;
               if ( !v679 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[2];
               tempScrPtr17[2] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v678);
@@ -108474,7 +108201,7 @@ LABEL_880:
               v681 = v679 - 1;
               if ( !v681 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[3];
               tempScrPtr17[3] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v680);
@@ -108483,7 +108210,7 @@ LABEL_880:
               v683 = v681 - 1;
               if ( !v683 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[4];
               tempScrPtr17[4] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v682);
@@ -108492,7 +108219,7 @@ LABEL_880:
               v685 = v683 - 1;
               if ( !v685 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[5];
               tempScrPtr17[5] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v684);
@@ -108501,7 +108228,7 @@ LABEL_880:
               v687 = v685 - 1;
               if ( !v687 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[6];
               tempScrPtr17[6] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v686);
@@ -108510,7 +108237,7 @@ LABEL_880:
               v689 = v687 - 1;
               if ( !v689 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[7];
               tempScrPtr17[7] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v688);
@@ -108519,7 +108246,7 @@ LABEL_880:
               v691 = v689 - 1;
               if ( !v691 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[8];
               tempScrPtr17[8] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v690);
@@ -108528,7 +108255,7 @@ LABEL_880:
               v693 = v691 - 1;
               if ( !v693 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[9];
               tempScrPtr17[9] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v692);
@@ -108537,7 +108264,7 @@ LABEL_880:
               v695 = v693 - 1;
               if ( !v695 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[10];
               tempScrPtr17[10] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v694);
@@ -108546,7 +108273,7 @@ LABEL_880:
               v697 = v695 - 1;
               if ( !v697 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[11];
               tempScrPtr17[11] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v696);
@@ -108555,7 +108282,7 @@ LABEL_880:
               v699 = v697 - 1;
               if ( !v699 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[12];
               tempScrPtr17[12] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v698);
@@ -108564,7 +108291,7 @@ LABEL_880:
               v701 = v699 - 1;
               if ( !v701 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[13];
               tempScrPtr17[13] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v700);
@@ -108573,7 +108300,7 @@ LABEL_880:
               v703 = v701 - 1;
               if ( !v703 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[14];
               tempScrPtr17[14] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v702);
@@ -108582,7 +108309,7 @@ LABEL_880:
               v705 = v703 - 1;
               if ( !v705 )
                 break;
-              LOBYTE(v670) = strPal.byte_B7934_B7924[v29];
+              LOBYTE(v670) = strPal.fog_B7934_B7924[v29];
               BYTE1(v670) = tempScrPtr17[15];
               tempScrPtr17[15] = strPal.byte_BB934_BB924[v670];
               v171 = __CFADD__((_WORD)scaledZ.dword, v704);
@@ -109145,7 +108872,7 @@ LABEL_971:
               LOWORD(v792) = scaledU.dword + v792;
               BYTE1(v787) = v793;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v792);
               v795 = v1159 + v792;
               LOBYTE(v787) = tempScrPtr20[0];
@@ -109162,7 +108889,7 @@ LABEL_971:
               LOWORD(v795) = scaledU.dword + v795;
               BYTE1(v787) = v796;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v795);
               v797 = v1159 + v795;
               LOBYTE(v787) = tempScrPtr20[1];
@@ -109179,7 +108906,7 @@ LABEL_971:
               LOWORD(v797) = scaledU.dword + v797;
               BYTE1(v787) = v798;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v797);
               v799 = v1159 + v797;
               LOBYTE(v787) = tempScrPtr20[2];
@@ -109196,7 +108923,7 @@ LABEL_971:
               LOWORD(v799) = scaledU.dword + v799;
               BYTE1(v787) = v800;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v799);
               v801 = v1159 + v799;
               LOBYTE(v787) = tempScrPtr20[3];
@@ -109213,7 +108940,7 @@ LABEL_971:
               LOWORD(v801) = scaledU.dword + v801;
               BYTE1(v787) = v802;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v801);
               v803 = v1159 + v801;
               LOBYTE(v787) = tempScrPtr20[4];
@@ -109230,7 +108957,7 @@ LABEL_971:
               LOWORD(v803) = scaledU.dword + v803;
               BYTE1(v787) = v804;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v803);
               v805 = v1159 + v803;
               LOBYTE(v787) = tempScrPtr20[5];
@@ -109247,7 +108974,7 @@ LABEL_971:
               LOWORD(v805) = scaledU.dword + v805;
               BYTE1(v787) = v806;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v805);
               v807 = v1159 + v805;
               LOBYTE(v787) = tempScrPtr20[6];
@@ -109264,7 +108991,7 @@ LABEL_971:
               LOWORD(v807) = scaledU.dword + v807;
               BYTE1(v787) = v808;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v807);
               v809 = v1159 + v807;
               LOBYTE(v787) = tempScrPtr20[7];
@@ -109281,7 +109008,7 @@ LABEL_971:
               LOWORD(v809) = scaledU.dword + v809;
               BYTE1(v787) = v810;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v809);
               v811 = v1159 + v809;
               LOBYTE(v787) = tempScrPtr20[8];
@@ -109298,7 +109025,7 @@ LABEL_971:
               LOWORD(v811) = scaledU.dword + v811;
               BYTE1(v787) = v812;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v811);
               v813 = v1159 + v811;
               LOBYTE(v787) = tempScrPtr20[9];
@@ -109315,7 +109042,7 @@ LABEL_971:
               LOWORD(v813) = scaledU.dword + v813;
               BYTE1(v787) = v814;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v813);
               v815 = v1159 + v813;
               LOBYTE(v787) = tempScrPtr20[10];
@@ -109332,7 +109059,7 @@ LABEL_971:
               LOWORD(v815) = scaledU.dword + v815;
               BYTE1(v787) = v816;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v815);
               v817 = v1159 + v815;
               LOBYTE(v787) = tempScrPtr20[11];
@@ -109349,7 +109076,7 @@ LABEL_971:
               LOWORD(v817) = scaledU.dword + v817;
               BYTE1(v787) = v818;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v817);
               v819 = v1159 + v817;
               LOBYTE(v787) = tempScrPtr20[12];
@@ -109366,7 +109093,7 @@ LABEL_971:
               LOWORD(v819) = scaledU.dword + v819;
               BYTE1(v787) = v820;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v819);
               v821 = v1159 + v819;
               LOBYTE(v787) = tempScrPtr20[13];
@@ -109383,7 +109110,7 @@ LABEL_971:
               LOWORD(v821) = scaledU.dword + v821;
               BYTE1(v787) = v822;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v821);
               v823 = v1159 + v821;
               LOBYTE(v787) = tempScrPtr20[14];
@@ -109400,7 +109127,7 @@ LABEL_971:
               LOWORD(v823) = scaledU.dword + v823;
               BYTE1(v787) = v824;
               LOBYTE(v788) = BYTE2(scaledU.dword) + v171 + v788;
-              BYTE1(v787) = strPal.byte_B7934_B7924[v787];
+              BYTE1(v787) = strPal.fog_B7934_B7924[v787];
               v171 = __CFADD__(v1159, v823);
               v792 = v1159 + v823;
               LOBYTE(v787) = tempScrPtr20[15];
@@ -109476,7 +109203,7 @@ LABEL_1002:
               LOWORD(v831) = scaledU.dword + v831;
               BYTE1(v826) = v832;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v831);
               v834 = v1160 + v831;
               BYTE1(v826) = tempScrPtr21[0];
@@ -109493,7 +109220,7 @@ LABEL_1002:
               LOWORD(v834) = scaledU.dword + v834;
               BYTE1(v826) = v835;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v834);
               v836 = v1160 + v834;
               BYTE1(v826) = tempScrPtr21[1];
@@ -109510,7 +109237,7 @@ LABEL_1002:
               LOWORD(v836) = scaledU.dword + v836;
               BYTE1(v826) = v837;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v836);
               v838 = v1160 + v836;
               BYTE1(v826) = tempScrPtr21[2];
@@ -109527,7 +109254,7 @@ LABEL_1002:
               LOWORD(v838) = scaledU.dword + v838;
               BYTE1(v826) = v839;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v838);
               v840 = v1160 + v838;
               BYTE1(v826) = tempScrPtr21[3];
@@ -109544,7 +109271,7 @@ LABEL_1002:
               LOWORD(v840) = scaledU.dword + v840;
               BYTE1(v826) = v841;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v840);
               v842 = v1160 + v840;
               BYTE1(v826) = tempScrPtr21[4];
@@ -109561,7 +109288,7 @@ LABEL_1002:
               LOWORD(v842) = scaledU.dword + v842;
               BYTE1(v826) = v843;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v842);
               v844 = v1160 + v842;
               BYTE1(v826) = tempScrPtr21[5];
@@ -109578,7 +109305,7 @@ LABEL_1002:
               LOWORD(v844) = scaledU.dword + v844;
               BYTE1(v826) = v845;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v844);
               v846 = v1160 + v844;
               BYTE1(v826) = tempScrPtr21[6];
@@ -109595,7 +109322,7 @@ LABEL_1002:
               LOWORD(v846) = scaledU.dword + v846;
               BYTE1(v826) = v847;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v846);
               v848 = v1160 + v846;
               BYTE1(v826) = tempScrPtr21[7];
@@ -109612,7 +109339,7 @@ LABEL_1002:
               LOWORD(v848) = scaledU.dword + v848;
               BYTE1(v826) = v849;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v848);
               v850 = v1160 + v848;
               BYTE1(v826) = tempScrPtr21[8];
@@ -109629,7 +109356,7 @@ LABEL_1002:
               LOWORD(v850) = scaledU.dword + v850;
               BYTE1(v826) = v851;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v850);
               v852 = v1160 + v850;
               BYTE1(v826) = tempScrPtr21[9];
@@ -109646,7 +109373,7 @@ LABEL_1002:
               LOWORD(v852) = scaledU.dword + v852;
               BYTE1(v826) = v853;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v852);
               v854 = v1160 + v852;
               BYTE1(v826) = tempScrPtr21[10];
@@ -109663,7 +109390,7 @@ LABEL_1002:
               LOWORD(v854) = scaledU.dword + v854;
               BYTE1(v826) = v855;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v854);
               v856 = v1160 + v854;
               BYTE1(v826) = tempScrPtr21[11];
@@ -109680,7 +109407,7 @@ LABEL_1002:
               LOWORD(v856) = scaledU.dword + v856;
               BYTE1(v826) = v857;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v856);
               v858 = v1160 + v856;
               BYTE1(v826) = tempScrPtr21[12];
@@ -109697,7 +109424,7 @@ LABEL_1002:
               LOWORD(v858) = scaledU.dword + v858;
               BYTE1(v826) = v859;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v858);
               v860 = v1160 + v858;
               BYTE1(v826) = tempScrPtr21[13];
@@ -109714,7 +109441,7 @@ LABEL_1002:
               LOWORD(v860) = scaledU.dword + v860;
               BYTE1(v826) = v861;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v860);
               v862 = v1160 + v860;
               BYTE1(v826) = tempScrPtr21[14];
@@ -109731,7 +109458,7 @@ LABEL_1002:
               LOWORD(v862) = scaledU.dword + v862;
               BYTE1(v826) = v863;
               LOBYTE(v827) = BYTE2(scaledU.dword) + v171 + v827;
-              LOBYTE(v826) = strPal.byte_B7934_B7924[v826];
+              LOBYTE(v826) = strPal.fog_B7934_B7924[v826];
               v171 = __CFADD__(v1160, v862);
               v831 = v1160 + v862;
               BYTE1(v826) = tempScrPtr21[15];
@@ -110395,7 +110122,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v951;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[0];
                 tempScrPtr24[0] = strPal.byte_BB934_BB924[v945];
               }
@@ -110415,7 +110142,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v954;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[1];
                 tempScrPtr24[1] = strPal.byte_BB934_BB924[v945];
               }
@@ -110435,7 +110162,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v956;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[2];
                 tempScrPtr24[2] = strPal.byte_BB934_BB924[v945];
               }
@@ -110455,7 +110182,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v958;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[3];
                 tempScrPtr24[3] = strPal.byte_BB934_BB924[v945];
               }
@@ -110475,7 +110202,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v960;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[4];
                 tempScrPtr24[4] = strPal.byte_BB934_BB924[v945];
               }
@@ -110495,7 +110222,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v962;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[5];
                 tempScrPtr24[5] = strPal.byte_BB934_BB924[v945];
               }
@@ -110515,7 +110242,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v964;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[6];
                 tempScrPtr24[6] = strPal.byte_BB934_BB924[v945];
               }
@@ -110535,7 +110262,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v966;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[7];
                 tempScrPtr24[7] = strPal.byte_BB934_BB924[v945];
               }
@@ -110555,7 +110282,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v968;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[8];
                 tempScrPtr24[8] = strPal.byte_BB934_BB924[v945];
               }
@@ -110575,7 +110302,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v970;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[9];
                 tempScrPtr24[9] = strPal.byte_BB934_BB924[v945];
               }
@@ -110595,7 +110322,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v972;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[10];
                 tempScrPtr24[10] = strPal.byte_BB934_BB924[v945];
               }
@@ -110615,7 +110342,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v974;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[11];
                 tempScrPtr24[11] = strPal.byte_BB934_BB924[v945];
               }
@@ -110635,7 +110362,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v976;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[12];
                 tempScrPtr24[12] = strPal.byte_BB934_BB924[v945];
               }
@@ -110655,7 +110382,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v978;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[13];
                 tempScrPtr24[13] = strPal.byte_BB934_BB924[v945];
               }
@@ -110675,7 +110402,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v980;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[14];
                 tempScrPtr24[14] = strPal.byte_BB934_BB924[v945];
               }
@@ -110695,7 +110422,7 @@ LABEL_1159:
               if ( (_BYTE)v945 )
               {
                 BYTE1(v945) = v982;
-                BYTE1(v945) = strPal.byte_B7934_B7924[v945];
+                BYTE1(v945) = strPal.fog_B7934_B7924[v945];
                 LOBYTE(v945) = tempScrPtr24[15];
                 tempScrPtr24[15] = strPal.byte_BB934_BB924[v945];
               }
@@ -110774,7 +110501,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v990;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[0];
                 tempScrPtr25[0] = strPal.byte_BB934_BB924[v984];
               }
@@ -110794,7 +110521,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v993;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[1];
                 tempScrPtr25[1] = strPal.byte_BB934_BB924[v984];
               }
@@ -110814,7 +110541,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v995;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[2];
                 tempScrPtr25[2] = strPal.byte_BB934_BB924[v984];
               }
@@ -110834,7 +110561,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v997;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[3];
                 tempScrPtr25[3] = strPal.byte_BB934_BB924[v984];
               }
@@ -110854,7 +110581,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v999;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[4];
                 tempScrPtr25[4] = strPal.byte_BB934_BB924[v984];
               }
@@ -110874,7 +110601,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1001;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[5];
                 tempScrPtr25[5] = strPal.byte_BB934_BB924[v984];
               }
@@ -110894,7 +110621,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1003;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[6];
                 tempScrPtr25[6] = strPal.byte_BB934_BB924[v984];
               }
@@ -110914,7 +110641,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1005;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[7];
                 tempScrPtr25[7] = strPal.byte_BB934_BB924[v984];
               }
@@ -110934,7 +110661,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1007;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[8];
                 tempScrPtr25[8] = strPal.byte_BB934_BB924[v984];
               }
@@ -110954,7 +110681,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1009;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[9];
                 tempScrPtr25[9] = strPal.byte_BB934_BB924[v984];
               }
@@ -110974,7 +110701,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1011;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[10];
                 tempScrPtr25[10] = strPal.byte_BB934_BB924[v984];
               }
@@ -110994,7 +110721,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1013;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[11];
                 tempScrPtr25[11] = strPal.byte_BB934_BB924[v984];
               }
@@ -111014,7 +110741,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1015;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[12];
                 tempScrPtr25[12] = strPal.byte_BB934_BB924[v984];
               }
@@ -111034,7 +110761,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1017;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[13];
                 tempScrPtr25[13] = strPal.byte_BB934_BB924[v984];
               }
@@ -111054,7 +110781,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1019;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[14];
                 tempScrPtr25[14] = strPal.byte_BB934_BB924[v984];
               }
@@ -111074,7 +110801,7 @@ LABEL_1222:
               if ( (_BYTE)v984 )
               {
                 BYTE1(v984) = v1021;
-                LOBYTE(v984) = strPal.byte_B7934_B7924[v984];
+                LOBYTE(v984) = strPal.fog_B7934_B7924[v984];
                 BYTE1(v984) = tempScrPtr25[15];
                 tempScrPtr25[15] = strPal.byte_BB934_BB924[v984];
               }
@@ -111158,11 +110885,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1031 = strPal.byte_B7934_B7924[v1023];
+            v1031 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[0];
             v1031 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111183,11 +110910,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1034 = strPal.byte_B7934_B7924[v1023];
+            v1034 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[1];
             v1034 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111208,11 +110935,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1037 = strPal.byte_B7934_B7924[v1023];
+            v1037 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[2];
             v1037 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111233,11 +110960,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1040 = strPal.byte_B7934_B7924[v1023];
+            v1040 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[3];
             v1040 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111258,11 +110985,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1043 = strPal.byte_B7934_B7924[v1023];
+            v1043 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[4];
             v1043 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111283,11 +111010,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1046 = strPal.byte_B7934_B7924[v1023];
+            v1046 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[5];
             v1046 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111308,11 +111035,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1049 = strPal.byte_B7934_B7924[v1023];
+            v1049 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[6];
             v1049 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111333,11 +111060,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1052 = strPal.byte_B7934_B7924[v1023];
+            v1052 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[7];
             v1052 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111358,11 +111085,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1055 = strPal.byte_B7934_B7924[v1023];
+            v1055 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[8];
             v1055 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111383,11 +111110,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1058 = strPal.byte_B7934_B7924[v1023];
+            v1058 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[9];
             v1058 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111408,11 +111135,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1061 = strPal.byte_B7934_B7924[v1023];
+            v1061 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[10];
             v1061 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111433,11 +111160,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1064 = strPal.byte_B7934_B7924[v1023];
+            v1064 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[11];
             v1064 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111458,11 +111185,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1067 = strPal.byte_B7934_B7924[v1023];
+            v1067 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[12];
             v1067 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111483,11 +111210,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1070 = strPal.byte_B7934_B7924[v1023];
+            v1070 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[13];
             v1070 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111508,11 +111235,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1073 = strPal.byte_B7934_B7924[v1023];
+            v1073 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[14];
             v1073 = strPal.byte_BB934_BB924[v1023];
           }
@@ -111533,11 +111260,11 @@ LABEL_1285:
           LOBYTE(v1024) = BYTE2(scaledU.dword) + v171 + v1024;
           if ( (unsigned __int8)v1023 >= 0xCu )
           {
-            v1076 = strPal.byte_B7934_B7924[v1023];
+            v1076 = strPal.fog_B7934_B7924[v1023];
           }
           else
           {
-            LOBYTE(v1023) = strPal.byte_B7934_B7924[v1023];
+            LOBYTE(v1023) = strPal.fog_B7934_B7924[v1023];
             BYTE1(v1023) = tempScrPtr26[15];
             v1076 = strPal.byte_BB934_BB924[v1023];
           }
