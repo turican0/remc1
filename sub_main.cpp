@@ -106148,8 +106148,8 @@ LABEL_484:
               }
               else
               { 
-                //int index = 16 - tempScrPosX.a16[0] & 0xF;
-                int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
+                int index = 16 - tempScrPosX.a16[0] & 0xF;
+                //int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
                 if (index == 0xc)
                 {
                     index++;
@@ -106164,7 +106164,7 @@ LABEL_484:
                 switch (tempScrPosX.a16[0] & 0xF )
                 {
                   case 0:
-                    goto LABEL_485;
+                    goto LABEL_487;
                   case 1:
                     goto LABEL_487;
                   case 2:
@@ -106393,7 +106393,7 @@ LABEL_484:
                                 break;
                             }
                             tempScrPosX.a16[0] -= 16;
-                        LABEL_485:
+                        /*LABEL_485:
                             index %= 16;
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
@@ -106403,7 +106403,7 @@ LABEL_484:
                       tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
                       textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                       tempScrPosX.a32 += scaledZB;
-                      index++;
+                      index++;*/
                     }
                     break;
                 }                
