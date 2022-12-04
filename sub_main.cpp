@@ -106380,16 +106380,19 @@ LABEL_484:
                       tempScrPosX.a32 += scaledZB;
                       index++;
                       index %= 16;*/
-
-                      tempScrPtr3plus += 16;
-                      //bool16 = tempScrPosX.a16[0] <= 16;
                       
-                      if (tempScrPosX.a16[0] <= 16)
-                      {
-                          tempScrPosX.a16[0] -= 16;
-                          break;
-                      }
-                      tempScrPosX.a16[0] -= 16;
+                        if (index == 0)
+                        {
+                            tempScrPtr3plus += 16;
+                            //bool16 = tempScrPosX.a16[0] <= 16;
+
+                            if (tempScrPosX.a16[0] <= 16)
+                            {
+                                tempScrPosX.a16[0] -= 16;
+                                break;
+                            }
+                            tempScrPosX.a16[0] -= 16;
+                        }
     LABEL_485:
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
