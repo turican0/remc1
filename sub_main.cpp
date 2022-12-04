@@ -106148,8 +106148,8 @@ LABEL_484:
               }
               else
               { 
-                int index = 16 - tempScrPosX.a16[0] & 0xF;
-                //int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
+                //int index = 16 - tempScrPosX.a16[0] & 0xF;
+                int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
                 if (index == 0xc)
                 {
                     index++;
