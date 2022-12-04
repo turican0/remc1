@@ -106118,12 +106118,12 @@ LABEL_484:
 				  {
 					  index %= 16;
 					  textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
-					  textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
-					  textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
+                      textPos.byte[0] += scaledU.byte[2] + (scaledU.word[0] > uint16(scaledU.word[0] + preTextPos.word[0]));
+					  textPos.byte[1] += scaledV.byte[2] + (scaledVB > uint32(scaledVB + preTextPos.dword));//texture y
 					  preTextPos.word[0] += scaledU.word[0];
 					  preTextPos.dword += scaledVB;
 					  tempScrPtr3plus[index] = strPal.fog_B7934_B7924[textPixel.dword];//pixel with fog
-					  textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
+					  textPixel.byte[1] += scaledZ.byte[2] + (scaledZB > uint32(scaledZB + tempScrPosX.a32));//z axis
 					  tempScrPosX.a32 += scaledZB;
 				  }
 				  index = 0;
