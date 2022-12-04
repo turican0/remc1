@@ -106183,11 +106183,11 @@ LABEL_484:
                   case 9:
                     goto LABEL_492;
                   case 0xA:
-                    goto LABEL_491;
+                    goto LABEL_487;
                   case 0xB:
-                    goto LABEL_490;
+                    goto LABEL_487;
                   case 0xC:
-                    goto LABEL_489;
+                    goto LABEL_487;
                   case 0xD:
                     goto LABEL_487;
                   case 0xE:
@@ -106211,7 +106211,7 @@ LABEL_484:
                         index++;
                         index %= 16;*/
                     LABEL_487:
-                        while(index != 4)
+                        while(index != 7)
                         {
                             textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                             textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
@@ -106246,7 +106246,7 @@ LABEL_484:
                         tempScrPosX.a32 += scaledZB;
                         index++;
                         index %= 16;*/
-    LABEL_489:
+    /*LABEL_489:
                         textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                         textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                         textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
@@ -106278,7 +106278,7 @@ LABEL_484:
                         textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                         tempScrPosX.a32 += scaledZB;
                         index++;
-                        index %= 16;
+                        index %= 16;*/
     LABEL_492:
                       textPixel.byte[0] = tempTexture[textPos.dword];
                       textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, preTextPos.dword);
