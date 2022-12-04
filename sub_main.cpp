@@ -106149,6 +106149,7 @@ LABEL_484:
               else
               { 
                 int index = 16 - tempScrPosX.a16[0] & 0xF;
+                //int index = (16 - (tempScrPosX.a16[0] + 1) & 0xF) + 1;// 16 - tempScrPosX.a16[0] & 0xF;
                 if (index == 0xc)
                 {
                     index++;
@@ -106213,6 +106214,7 @@ LABEL_484:
                     LABEL_487:
                         while(index != 0)
                         {
+                            index %= 16;
                             textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                             textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                             textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
@@ -106381,8 +106383,6 @@ LABEL_484:
                       index++;
                       index %= 16;*/
                       
-                        if (index == 0)
-                        {
                             tempScrPtr3plus += 16;
                             //bool16 = tempScrPosX.a16[0] <= 16;
 
@@ -106392,7 +106392,6 @@ LABEL_484:
                                 break;
                             }
                             tempScrPosX.a16[0] -= 16;
-                        }
     LABEL_485:
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
