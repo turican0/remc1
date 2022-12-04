@@ -101925,6 +101925,7 @@ LABEL_124:
 }
 
 int test_index = 0;
+int tempCount;
 //SYNCHRONIZED WITH REMC2
 void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Type_RenderPoint* pnt3)//2439A3_ // draw textured triangle
 {
@@ -106192,9 +106193,11 @@ LABEL_484:
                   case 0xE:
                     goto LABEL_487;
                   case 0xF:
+                      //tempCount = 2;
+                    goto LABEL_487;
                     while ( 1 )
                     {
-                        if (index != 1)
+                        /*if (index != 1)
                             allert_error();
 
                         textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
@@ -106206,8 +106209,22 @@ LABEL_484:
                         textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                         tempScrPosX.a32 += scaledZB;
                         index++;
-                        index %= 16;
-    LABEL_487:
+                        index %= 16;*/
+                    LABEL_487:
+                        if(index==1)
+                        {
+                            textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
+                            textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
+                            textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
+                            preTextPos.word[0] += scaledU.word[0];
+                            preTextPos.dword += scaledVB;
+                            tempScrPtr3plus[index] = strPal.byte_B7934_B7924[textPixel.dword];//pixel with fog
+                            textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
+                            tempScrPosX.a32 += scaledZB;
+                            index++;
+                            index %= 16;
+                        }
+
                         textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                         textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                         textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
