@@ -106165,11 +106165,11 @@ LABEL_484:
                   case 0:
                     goto LABEL_485;
                   case 1:
-                    goto LABEL_500;
+                    goto LABEL_487;
                   case 2:
-                    goto LABEL_499;
+                    goto LABEL_487;
                   case 3:
-                    goto LABEL_498;
+                    goto LABEL_487;
                   case 4:
                     goto LABEL_487;
                   case 5:
@@ -106211,7 +106211,7 @@ LABEL_484:
                         index++;
                         index %= 16;*/
                     LABEL_487:
-                        while(index != 13)
+                        while(index != 0)
                         {
                             textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                             textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
@@ -106347,7 +106347,7 @@ LABEL_484:
                       tempScrPosX.a32 += scaledZB;
                       index++;
                       index %= 16;*/
-    LABEL_498:
+    /*LABEL_498:
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
                       textPos.byte[1] += scaledV.byte[2] + (uint32(scaledVB) > uint32(scaledVB + preTextPos.dword));//texture y
@@ -106379,7 +106379,7 @@ LABEL_484:
                       textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                       tempScrPosX.a32 += scaledZB;
                       index++;
-                      index %= 16;
+                      index %= 16;*/
 
                       tempScrPtr3plus += 16;
                       //bool16 = tempScrPosX.a16[0] <= 16;
