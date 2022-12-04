@@ -106177,11 +106177,11 @@ LABEL_484:
                   case 6:
                     goto LABEL_495;
                   case 7:
-                    goto LABEL_494;
+                    goto LABEL_487;
                   case 8:
-                    goto LABEL_493;
+                    goto LABEL_487;
                   case 9:
-                    goto LABEL_492;
+                    goto LABEL_487;
                   case 0xA:
                     goto LABEL_487;
                   case 0xB:
@@ -106211,7 +106211,7 @@ LABEL_484:
                         index++;
                         index %= 16;*/
                     LABEL_487:
-                        while(index != 7)
+                        while(index != 10)
                         {
                             textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                             textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
@@ -106279,7 +106279,7 @@ LABEL_484:
                         tempScrPosX.a32 += scaledZB;
                         index++;
                         index %= 16;*/
-    LABEL_492:
+    /*LABEL_492:
                       textPixel.byte[0] = tempTexture[textPos.dword];
                       textPos.byte[0] += scaledU.byte[2] + __CFADD__16(scaledU.dword, preTextPos.dword);
                       preTextPos.word[0] += scaledU.dword;
@@ -106311,7 +106311,7 @@ LABEL_484:
                       textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                       tempScrPosX.a32 += scaledZB;
                       index++;
-                      index %= 16;
+                      index %= 16;*/
     LABEL_495:
                       textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (uint16(scaledU.dword) > uint16(scaledU.dword + preTextPos.dword));
