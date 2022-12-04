@@ -106212,7 +106212,7 @@ LABEL_484:
                         index++;
                         index %= 16;*/
                     LABEL_487:
-                        while(index != 0)
+                        while(index < 16)
                         {
                             index %= 16;
                             textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
@@ -106224,7 +106224,6 @@ LABEL_484:
                             textPixel.byte[1] += scaledZ.byte[2] + (uint32(scaledZB) > uint32(scaledZB + tempScrPosX.a32));//z axis
                             tempScrPosX.a32 += scaledZB;
                             index++;
-                            index %= 16;
                         }
 
                         /*textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
@@ -106404,7 +106403,6 @@ LABEL_484:
                       tempScrPosX.a32 += scaledZB;
 
                       index++;
-                      index %= 16;
                     }
                     break;
                 }                
