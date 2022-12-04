@@ -103117,7 +103117,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1147; // [esp+48h] [ebp-40h]
   int v1148; // [esp+4Ch] [ebp-3Ch]
   int v1149; // [esp+4Ch] [ebp-3Ch]
-  int scaledVB; // [esp+4Ch] [ebp-3Ch]
+  Type_dword_0x0_0 scaledVB; // [esp+4Ch] [ebp-3Ch]
   int v1151; // [esp+4Ch] [ebp-3Ch]
   int v1152; // [esp+4Ch] [ebp-3Ch]
   int v1153; // [esp+4Ch] [ebp-3Ch]
@@ -106058,7 +106058,7 @@ LABEL_472:
 LABEL_474:
         //v1259 = (char *)&unk_93AE0;
         v1259y = 0;
-        scaledVB = scaledV.dword << 16;
+        scaledVB.dword = scaledV.dword << 16;
         scaledZB = scaledZ.dword << 16;
         textPixel.word[1] = 0;
         textPos.word[1] = 0;
@@ -106119,9 +106119,9 @@ LABEL_484:
 					  index %= 16;
 					  textPixel.byte[0] = tempTexture[textPos.dword];//original pixel
                       textPos.byte[0] += scaledU.byte[2] + (scaledU.word[0] > uint16(scaledU.word[0] + preTextPos.word[0]));
-					  textPos.byte[1] += scaledV.byte[2] + (scaledVB > uint32(scaledVB + preTextPos.dword));//texture y
+					  textPos.byte[1] += scaledV.byte[2] + (scaledVB.dword > uint32(scaledVB.dword + preTextPos.dword));//texture y
 					  preTextPos.word[0] += scaledU.word[0];
-					  preTextPos.dword += scaledVB;
+					  preTextPos.dword += scaledVB.dword;
 					  tempScrPtr3plus[index] = strPal.fog_B7934_B7924[textPixel.dword];//pixel with fog
 					  textPixel.byte[1] += scaledZ.byte[2] + (scaledZB > uint32(scaledZB + tempScrPosX.a32));//z axis
 					  tempScrPosX.a32 += scaledZB;
