@@ -102091,14 +102091,14 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v149; // edi
   //_DWORD *v150; // edi
   //int v150x;
-  int v151; // eax
-  int v152; // ebx
-  int v153; // esi
+  //int v151; // eax
+  //int v152; // ebx
+  //int v153; // esi
   int v154; // edi
   //_DWORD *v155; // edi
   //int v155x;
-  int v156; // eax
-  int v157; // ebx
+  //int v156; // eax
+  //int v157; // ebx
   int v158; // edi
   //_DWORD *v159; // edi
   //int v159x;
@@ -104839,8 +104839,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       case 0:
       case 14:
       case 15:
-        v156 = sortPnt1->x_0 << 16;
-        v157 = sortPnt2->x_0 << 16;
+        xSum = sortPnt1->x_0 << 16;
+        ySum = sortPnt2->x_0 << 16;
         if ( v1278 )
         {
           v158 = -v1176;
@@ -104849,8 +104849,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           ySum_C += v1176;
           if (bool16)
             return;
-          v156 += v1081 * v158;
-          v157 += v158 * v1085;
+          xSum += v1081 * v158;
+          ySum += v158 * v1085;
           if ( v1282 )
           {
             ySum_C = heightViewPort_93ADC;
@@ -104863,18 +104863,17 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v159 = (uint32*)&unk_93AE0;
-        addIndexY = 0;
-        do
+        for (addIndexY = 0; v1091 > 0; addIndexY++)
         {
-          unk_93AE0[addIndexY].x_0.a32 = v156;
-          v156 += v1081;
-          unk_93AE0[addIndexY].y_1.a32 = v157;
-          v157 += v1085;
+          unk_93AE0[addIndexY].x_0.a32 = xSum;
+          xSum += v1081;
+          unk_93AE0[addIndexY].y_1.a32 = ySum;
+          ySum += v1085;
           //v159 += 5;
-          addIndexY++;
+          //addIndexY++;
           v1091--;
         }
-        while ( v1091 );
+        //while ( v1091 );
         v29 = (unsigned __int8)byte_967E1;
         switch ( byte_967E1 )
         {
@@ -104937,9 +104936,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       case 17:
         scaledZ.dword = (sortPnt2->z_4 - sortPnt1->z_4) / (sortPnt2->x_0 - sortPnt1->x_0);
         v1129 = (sortPnt3->z_4 - sortPnt1->z_4) / ySum_C;
-        v151 = sortPnt1->x_0 << 16;
-        v152 = sortPnt2->x_0 << 16;
-        v153 = sortPnt1->z_4;
+        xSum = sortPnt1->x_0 << 16;
+        ySum = sortPnt2->x_0 << 16;
+        zSum = sortPnt1->z_4;
         if ( v1278 )
         {
           v154 = -v1176;
@@ -104948,9 +104947,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           ySum_C += v1176;
           if (bool16)
             return;
-          v151 += v1081 * v154;
-          v152 += v154 * v1085;
-          v153 += v154 * v1129;
+          xSum += v1081 * v154;
+          ySum += v154 * v1085;
+          zSum += v154 * v1129;
           if ( v1282 )
           {
             ySum_C = heightViewPort_93ADC;
@@ -104963,20 +104962,19 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           v1091 = heightViewPort_93ADC - v1176;
         }
         //v155 = (uint32*)&unk_93AE0;
-        addIndexY = 0;
-        do
+        for (addIndexY = 0; v1091 > 0; addIndexY++)
         {
-          unk_93AE0[addIndexY].x_0.a32 = v151;
-          v151 += v1081;
-          unk_93AE0[addIndexY].y_1.a32 = v152;
-          v152 += v1085;
-          unk_93AE0[addIndexY].z_4.a32 = v153;
-          v153 += v1129;
+          unk_93AE0[addIndexY].x_0.a32 = xSum;
+          xSum += v1081;
+          unk_93AE0[addIndexY].y_1.a32 = ySum;
+          ySum += v1085;
+          unk_93AE0[addIndexY].z_4.a32 = zSum;
+          zSum += v1129;
           //v155 += 5;
-          addIndexY++;
+          //addIndexY++;
           v1091--;
         }
-        while ( v1091 );
+        //while ( v1091 );
         v29 = (unsigned __int8)byte_967E1;
         switch ( byte_967E1 )
         {
