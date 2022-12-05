@@ -103050,21 +103050,21 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1080; // [esp+4h] [ebp-84h]
   int v1081; // [esp+4h] [ebp-84h]
   int divPnt2Pnt1XY; // [esp+8h] [ebp-80h]
-  int v1083; // [esp+8h] [ebp-80h]
+  //int divPnt2Pnt1XY; // [esp+8h] [ebp-80h]
   int v1084; // [esp+8h] [ebp-80h]
   int v1085; // [esp+8h] [ebp-80h]
   int divPnt3Pnt2XY; // [esp+Ch] [ebp-7Ch]
-  int v1087; // [esp+Ch] [ebp-7Ch]
+  int divPnt2Pnt3XY; // [esp+Ch] [ebp-7Ch]
   int diffPnt3Pnt1Y; // [esp+10h] [ebp-78h]
   //int v1089; // [esp+10h] [ebp-78h]
   int v1090; // [esp+10h] [ebp-78h]
   int v1091; // [esp+10h] [ebp-78h]
   int diffPnt2Pnt1Y; // [esp+14h] [ebp-74h]
-  int v1093; // [esp+14h] [ebp-74h]
+  //int v1093; // [esp+14h] [ebp-74h]
   int diffPnt3Pnt2Y; // [esp+18h] [ebp-70h]
-  int v1095; // [esp+18h] [ebp-70h]
+  int diffPnt2Pnt3Y; // [esp+18h] [ebp-70h]
   //int v1096; // [esp+1Ch] [ebp-6Ch]
-  int v1097; // [esp+1Ch] [ebp-6Ch]
+  //int v1097; // [esp+1Ch] [ebp-6Ch]
   int ySum; // [esp+20h] [ebp-68h]
   Type_dword_0x0_0 scaledU; // [esp+24h] [ebp-64h]
   int divPnt3Pnt1UY; // [esp+28h] [ebp-60h]
@@ -103113,7 +103113,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   int v1143; // [esp+48h] [ebp-40h]
   int v1144; // [esp+48h] [ebp-40h]
   int v1145; // [esp+48h] [ebp-40h]
-  int v1146; // [esp+48h] [ebp-40h]
+  //int v1146; // [esp+48h] [ebp-40h]
   int v1147; // [esp+48h] [ebp-40h]
   int v1148; // [esp+4Ch] [ebp-3Ch]
   int v1149; // [esp+4Ch] [ebp-3Ch]
@@ -111327,15 +111327,15 @@ diffPnt3Pnt1Y = sortPnt3->y_1 - sortPnt1->y_1;
 //v62 = sortPnt2->y_1;
 pnt2YAfterScr = sortPnt2->y_1 > heightViewPort_93ADC;
 //v63 = sortPnt2->y_1 - sortPnt1->y_1;
-v1093 = sortPnt2->y_1 - sortPnt1->y_1;
+//v1093 = sortPnt2->y_1 - sortPnt1->y_1;
 ySum = sortPnt2->y_1 - sortPnt1->y_1;
-v1079 = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / diffPnt3Pnt1Y;
-if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > v1079)
+divPnt3Pnt1XY = ((sortPnt3->x_0 - sortPnt1->x_0) << 16) / diffPnt3Pnt1Y;
+if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > divPnt3Pnt1XY)
 {
-    v1083 = ((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1);
-    v1087 = ((sortPnt2->x_0 - sortPnt3->x_0) << 16) / (sortPnt2->y_1 - sortPnt3->y_1);
-    v1095 = sortPnt2->y_1 - sortPnt3->y_1;
-    v1097 = sortPnt3->x_0 << 16;
+    divPnt2Pnt1XY = ((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1);
+    divPnt2Pnt3XY = ((sortPnt2->x_0 - sortPnt3->x_0) << 16) / (sortPnt2->y_1 - sortPnt3->y_1);
+    diffPnt2Pnt3Y = sortPnt2->y_1 - sortPnt3->y_1;
+    //v1097 = sortPnt3->x_0 << 16;
     switch (byte_967E1)
     {
     case 0:
@@ -111345,20 +111345,20 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         v103 = v102;
         if (pnt1NotInView)
         {
-            bool16 = ySum <= -sortPnt1->y_1;
+            //bool16 = ySum <= -sortPnt1->y_1;
             ySum += sortPnt1->y_1;
-            if (bool16)
+            if (ySum <= -sortPnt1->y_1)
                 return;
-            v1146 = -sortPnt1->y_1;
+            //v1146 = -sortPnt1->y_1;
             if (-sortPnt1->y_1 - diffPnt3Pnt1Y >= 0)
             {
-                v1147 = v1146 - diffPnt3Pnt1Y;
-                v1095 -= v1147;
-                v104 = v1087 * v1147 + v1097;
-                v103 += v1147 * v1083 + diffPnt3Pnt1Y * v1083;
+                v1147 = -sortPnt1->y_1 - diffPnt3Pnt1Y;
+                diffPnt2Pnt3Y -= v1147;
+                v104 = divPnt2Pnt3XY * v1147 + sortPnt3->x_0 << 16;
+                v103 += v1147 * divPnt2Pnt1XY + diffPnt3Pnt1Y * divPnt2Pnt1XY;
                 if (pnt2YAfterScr)
                 {
-                    v1095 = heightViewPort_93ADC;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC;
                     ySum = heightViewPort_93ADC;
                 }
                 //v105 = (uint32*)&unk_93AE0;
@@ -111426,13 +111426,13 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 do
                 {
                     unk_93AE0[v105x].x_0.a32 = v104;
-                    v104 += v1087;
+                    v104 += divPnt2Pnt3XY;
                     unk_93AE0[v105x].y_1.a32 = v103;
-                    v103 += v1083;
+                    v103 += divPnt2Pnt1XY;
                     //v105 += 5;
                     v105x++;
-                    v1095--;
-                } while (v1095);
+                    diffPnt2Pnt3Y--;
+                } while (diffPnt2Pnt3Y);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
                 {
@@ -111491,8 +111491,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 }
             }
             diffPnt3Pnt1Y += sortPnt1->y_1;
-            v102 += v1079 * v1146;
-            v103 += v1146 * v1083;
+            v102 += divPnt3Pnt1XY * -sortPnt1->y_1;
+            v103 += -sortPnt1->y_1 * divPnt2Pnt1XY;
             if (pnt2YAfterScr)
             {
                 ySum = heightViewPort_93ADC;
@@ -111503,7 +111503,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 else
                 {
                     pnt3YAfterScr = heightViewPort_93ADC <= diffPnt3Pnt1Y;
-                    v1095 = heightViewPort_93ADC - diffPnt3Pnt1Y;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC - diffPnt3Pnt1Y;
                 }
             }
         }
@@ -111520,7 +111520,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 v27 = __OFSUB__(v106, diffPnt3Pnt1Y);
                 v107 = v106 - diffPnt3Pnt1Y;
                 pnt3YAfterScr = (v107 < 0) ^ v27 | (v107 == 0);
-                v1095 = v107;
+                diffPnt2Pnt3Y = v107;
             }
         }
         //v105 = (uint32*)&unk_93AE0;
@@ -111528,14 +111528,14 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         do
         {
             unk_93AE0[v105x].x_0.a32 = v102;
-            v102 += v1079;
+            v102 += divPnt3Pnt1XY;
             unk_93AE0[v105x].y_1.a32 = v103;
-            v103 += v1083;
+            v103 += divPnt2Pnt1XY;
             //v105 += 5;
             v105x++;
             diffPnt3Pnt1Y--;
         } while (diffPnt3Pnt1Y);
-        v104 = v1097;
+        v104 = sortPnt3->x_0 << 16;
         goto LABEL_219;
     case 1:
     case 4:
@@ -111549,9 +111549,9 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         if (bool16)
             return;
         if (!v93)
-            scaledZ.dword = (int)(sortPnt1->z_4 + diffPnt3Pnt1Y * (__int64)(sortPnt2->z_4 - sortPnt1->z_4) / v1093 - sortPnt3->z_4) / (v94 + 1);
+            scaledZ.dword = (int)(sortPnt1->z_4 + diffPnt3Pnt1Y * (__int64)(sortPnt2->z_4 - sortPnt1->z_4) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->z_4) / (v94 + 1);
         v1125 = (sortPnt3->z_4 - sortPnt1->z_4) / diffPnt3Pnt1Y;
-        v1131 = (sortPnt2->z_4 - sortPnt3->z_4) / v1095;
+        v1131 = (sortPnt2->z_4 - sortPnt3->z_4) / diffPnt2Pnt3Y;
         v95 = sortPnt1->x_0 << 16;
         v96 = v95;
         v97 = sortPnt1->z_4;
@@ -111565,13 +111565,13 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
             if (-sortPnt1->y_1 - diffPnt3Pnt1Y >= 0)
             {
                 v1145 = v1144 - diffPnt3Pnt1Y;
-                v1095 -= v1145;
-                v98 = v1087 * v1145 + v1097;
-                v96 += v1145 * v1083 + diffPnt3Pnt1Y * v1083;
+                diffPnt2Pnt3Y -= v1145;
+                v98 = divPnt2Pnt3XY * v1145 + sortPnt3->x_0 << 16;
+                v96 += v1145 * divPnt2Pnt1XY + diffPnt3Pnt1Y * divPnt2Pnt1XY;
                 v97 += v1145 * v1131 + diffPnt3Pnt1Y * v1125;
                 if (pnt2YAfterScr)
                 {
-                    v1095 = heightViewPort_93ADC;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC;
                     ySum = heightViewPort_93ADC;
                 }
                 //v99 = (uint32*)&unk_93AE0;
@@ -111639,15 +111639,15 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 do
                 {
                     unk_93AE0[v99x].x_0.a32 = v98;
-                    v98 += v1087;
+                    v98 += divPnt2Pnt3XY;
                     unk_93AE0[v99x].y_1.a32 = v96;
-                    v96 += v1083;
+                    v96 += divPnt2Pnt1XY;
                     unk_93AE0[v99x].z_4.a32 = v97;
                     v97 += v1131;
                     //v99 += 5;
                     v99x++;
-                    v1095--;
-                } while (v1095);
+                    diffPnt2Pnt3Y--;
+                } while (diffPnt2Pnt3Y);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
                 {
@@ -111706,8 +111706,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 }
             }
             diffPnt3Pnt1Y += sortPnt1->y_1;
-            v95 += v1079 * v1144;
-            v96 += v1144 * v1083;
+            v95 += divPnt3Pnt1XY * v1144;
+            v96 += v1144 * divPnt2Pnt1XY;
             v97 += v1144 * v1125;
             if (pnt2YAfterScr)
             {
@@ -111719,7 +111719,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 else
                 {
                     pnt3YAfterScr = heightViewPort_93ADC <= diffPnt3Pnt1Y;
-                    v1095 = heightViewPort_93ADC - diffPnt3Pnt1Y;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC - diffPnt3Pnt1Y;
                 }
             }
         }
@@ -111736,7 +111736,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 v27 = __OFSUB__(v100, diffPnt3Pnt1Y);
                 v101 = v100 - diffPnt3Pnt1Y;
                 pnt3YAfterScr = (v101 < 0) ^ v27 | (v101 == 0);
-                v1095 = v101;
+                diffPnt2Pnt3Y = v101;
             }
         }
         //v99 = (uint32*)&unk_93AE0;
@@ -111744,16 +111744,16 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         do
         {
             unk_93AE0[v99x].x_0.a32 = v95;
-            v95 += v1079;
+            v95 += divPnt3Pnt1XY;
             unk_93AE0[v99x].y_1.a32 = v96;
-            v96 += v1083;
+            v96 += divPnt2Pnt1XY;
             unk_93AE0[v99x].z_4.a32 = v97;
             v97 += v1125;
             //v99 += 5;
             v99x++;
             diffPnt3Pnt1Y--;
         } while (diffPnt3Pnt1Y);
-        v98 = v1097;
+        v98 = sortPnt3->x_0 << 16;
         goto LABEL_198;
     case 2:
     case 3:
@@ -111778,13 +111778,13 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         if (!v80)
         {
             v82 = v81 + 1;
-            scaledU.dword = (int)(sortPnt1->u_2 + diffPnt3Pnt1Y * (__int64)(sortPnt2->u_2 - sortPnt1->u_2) / v1093 - sortPnt3->u_2) / v82;
-            scaledV.dword = (int)(sortPnt1->v_3 + diffPnt3Pnt1Y * (__int64)(sortPnt2->v_3 - sortPnt1->v_3) / v1093 - sortPnt3->v_3) / v82;
+            scaledU.dword = (int)(sortPnt1->u_2 + diffPnt3Pnt1Y * (__int64)(sortPnt2->u_2 - sortPnt1->u_2) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->u_2) / v82;
+            scaledV.dword = (int)(sortPnt1->v_3 + diffPnt3Pnt1Y * (__int64)(sortPnt2->v_3 - sortPnt1->v_3) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->v_3) / v82;
         }
         v1103 = (sortPnt3->u_2 - sortPnt1->u_2) / diffPnt3Pnt1Y;
         v1114 = (sortPnt3->v_3 - sortPnt1->v_3) / diffPnt3Pnt1Y;
-        v1109 = (sortPnt2->u_2 - sortPnt3->u_2) / v1095;
-        v1120 = (sortPnt2->v_3 - sortPnt3->v_3) / v1095;
+        v1109 = (sortPnt2->u_2 - sortPnt3->u_2) / diffPnt2Pnt3Y;
+        v1120 = (sortPnt2->v_3 - sortPnt3->v_3) / diffPnt2Pnt3Y;
         v83 = sortPnt1->x_0 << 16;
         v84 = v83;
         v85 = sortPnt1->u_2;
@@ -111799,14 +111799,14 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
             if (-sortPnt1->y_1 - diffPnt3Pnt1Y >= 0)
             {
                 v1143 = v1142 - diffPnt3Pnt1Y;
-                v1095 -= v1143;
-                v87 = v1087 * v1143 + v1097;
-                v84 += v1143 * v1083 + diffPnt3Pnt1Y * v1083;
+                diffPnt2Pnt3Y -= v1143;
+                v87 = divPnt2Pnt3XY * v1143 + sortPnt3->x_0 << 16;
+                v84 += v1143 * divPnt2Pnt1XY + diffPnt3Pnt1Y * divPnt2Pnt1XY;
                 v85 += v1143 * v1109 + diffPnt3Pnt1Y * v1103;
                 v86 += v1143 * v1120 + diffPnt3Pnt1Y * v1114;
                 if (pnt2YAfterScr)
                 {
-                    v1095 = heightViewPort_93ADC;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC;
                     ySum = heightViewPort_93ADC;
                 }
                 //v88 = (uint32*)&unk_93AE0;
@@ -111874,17 +111874,17 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 do
                 {
                     unk_93AE0[v88x].x_0.a32 = v87;
-                    v87 += v1087;
+                    v87 += divPnt2Pnt3XY;
                     unk_93AE0[v88x].y_1.a32 = v84;
-                    v84 += v1083;
+                    v84 += divPnt2Pnt1XY;
                     unk_93AE0[v88x].u_2.a32 = v85;
                     v85 += v1109;
                     unk_93AE0[v88x].v_3.a32 = v86;
                     v86 += v1120;
                     //v88 += 5;
                     v88x++;
-                    v1095--;
-                } while (v1095);
+                    diffPnt2Pnt3Y--;
+                } while (diffPnt2Pnt3Y);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
                 {
@@ -111943,8 +111943,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 }
             }
             diffPnt3Pnt1Y += sortPnt1->y_1;
-            v83 += v1079 * v1142;
-            v84 += v1142 * v1083;
+            v83 += divPnt3Pnt1XY * v1142;
+            v84 += v1142 * divPnt2Pnt1XY;
             v85 += v1142 * v1103;
             v86 += v1142 * v1114;
             if (pnt2YAfterScr)
@@ -111957,7 +111957,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 else
                 {
                     pnt3YAfterScr = heightViewPort_93ADC <= diffPnt3Pnt1Y;
-                    v1095 = heightViewPort_93ADC - diffPnt3Pnt1Y;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC - diffPnt3Pnt1Y;
                 }
             }
         }
@@ -111974,7 +111974,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 v27 = __OFSUB__(v89, diffPnt3Pnt1Y);
                 v90 = v89 - diffPnt3Pnt1Y;
                 pnt3YAfterScr = (v90 < 0) ^ v27 | (v90 == 0);
-                v1095 = v90;
+                diffPnt2Pnt3Y = v90;
             }
         }
         //v88 = (uint32*)&unk_93AE0;
@@ -111982,9 +111982,9 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         do
         {
             unk_93AE0[v88x].x_0.a32 = v83;
-            v83 += v1079;
+            v83 += divPnt3Pnt1XY;
             unk_93AE0[v88x].y_1.a32 = v84;
-            v84 += v1083;
+            v84 += divPnt2Pnt1XY;
             unk_93AE0[v88x].u_2.a32 = v85;
             v85 += v1103;
             unk_93AE0[v88x].v_3.a32 = v86;
@@ -111993,7 +111993,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
             v88x++;
             diffPnt3Pnt1Y--;
         } while (diffPnt3Pnt1Y);
-        v87 = v1097;
+        v87 = sortPnt3->x_0 << 16;
         goto LABEL_174;
     case 5:
     case 6:
@@ -112012,17 +112012,17 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         if (!v66)
         {
             v68 = v67 + 1;
-            scaledU.dword = (int)(sortPnt1->u_2 + diffPnt3Pnt1Y * (__int64)(sortPnt2->u_2 - sortPnt1->u_2) / v1093 - sortPnt3->u_2) / v68;
-            scaledV.dword = (int)(sortPnt1->v_3 + diffPnt3Pnt1Y * (__int64)(sortPnt2->v_3 - sortPnt1->v_3) / v1093 - sortPnt3->v_3) / v68;
-            v64 = (int)(sortPnt1->z_4 + diffPnt3Pnt1Y * (__int64)(sortPnt2->z_4 - sortPnt1->z_4) / v1093 - sortPnt3->z_4) / v68;
+            scaledU.dword = (int)(sortPnt1->u_2 + diffPnt3Pnt1Y * (__int64)(sortPnt2->u_2 - sortPnt1->u_2) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->u_2) / v68;
+            scaledV.dword = (int)(sortPnt1->v_3 + diffPnt3Pnt1Y * (__int64)(sortPnt2->v_3 - sortPnt1->v_3) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->v_3) / v68;
+            v64 = (int)(sortPnt1->z_4 + diffPnt3Pnt1Y * (__int64)(sortPnt2->z_4 - sortPnt1->z_4) / (sortPnt2->y_1 - sortPnt1->y_1) - sortPnt3->z_4) / v68;
         }
         scaledZ.dword = v64;
         v1102 = (sortPnt3->u_2 - sortPnt1->u_2) / diffPnt3Pnt1Y;
         v1113 = (sortPnt3->v_3 - sortPnt1->v_3) / diffPnt3Pnt1Y;
         v1124 = (sortPnt3->z_4 - sortPnt1->z_4) / diffPnt3Pnt1Y;
-        v1108 = (sortPnt2->u_2 - sortPnt3->u_2) / v1095;
-        v1119 = (sortPnt2->v_3 - sortPnt3->v_3) / v1095;
-        v1130 = (sortPnt2->z_4 - sortPnt3->z_4) / v1095;
+        v1108 = (sortPnt2->u_2 - sortPnt3->u_2) / diffPnt2Pnt3Y;
+        v1119 = (sortPnt2->v_3 - sortPnt3->v_3) / diffPnt2Pnt3Y;
+        v1130 = (sortPnt2->z_4 - sortPnt3->z_4) / diffPnt2Pnt3Y;
         v69 = sortPnt1->x_0 << 16;
         v70 = v69;
         v71 = sortPnt1->u_2;
@@ -112038,15 +112038,15 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
             if (-sortPnt1->y_1 - diffPnt3Pnt1Y >= 0)
             {
                 v1141 = v1140 - diffPnt3Pnt1Y;
-                v1095 -= v1141;
-                v74 = v1087 * v1141 + v1097;
-                v70 += v1141 * v1083 + diffPnt3Pnt1Y * v1083;
+                diffPnt2Pnt3Y -= v1141;
+                v74 = divPnt2Pnt3XY * v1141 + sortPnt3->x_0 << 16;
+                v70 += v1141 * divPnt2Pnt1XY + diffPnt3Pnt1Y * divPnt2Pnt1XY;
                 v71 += v1141 * v1108 + diffPnt3Pnt1Y * v1102;
                 v72 += v1141 * v1119 + diffPnt3Pnt1Y * v1113;
                 v73 += v1141 * v1130 + diffPnt3Pnt1Y * v1124;
                 if (pnt2YAfterScr)
                 {
-                    v1095 = heightViewPort_93ADC;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC;
                     ySum = heightViewPort_93ADC;
                 }
                 //v75 = (uint32*)&unk_93AE0;
@@ -112114,9 +112114,9 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 do
                 {
                     unk_93AE0[v75x].x_0.a32 = v74;
-                    v74 += v1087;
+                    v74 += divPnt2Pnt3XY;
                     unk_93AE0[v75x].y_1.a32 = v70;
-                    v70 += v1083;
+                    v70 += divPnt2Pnt1XY;
                     unk_93AE0[v75x].u_2.a32 = v71;
                     v71 += v1108;
                     unk_93AE0[v75x].v_3.a32 = v72;
@@ -112125,8 +112125,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                     v73 += v1130;
                     //v75 += 5;
                     v75x++;
-                    v1095--;
-                } while (v1095);
+                    diffPnt2Pnt3Y--;
+                } while (diffPnt2Pnt3Y);
                 v29 = (unsigned __int8)byte_967E1;
                 switch (byte_967E1)
                 {
@@ -112185,8 +112185,8 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 }
             }
             diffPnt3Pnt1Y += sortPnt1->y_1;
-            v69 += v1079 * v1140;
-            v70 += v1140 * v1083;
+            v69 += divPnt3Pnt1XY * v1140;
+            v70 += v1140 * divPnt2Pnt1XY;
             v71 += v1140 * v1102;
             v72 += v1140 * v1113;
             v73 += v1140 * v1124;
@@ -112200,7 +112200,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 else
                 {
                     pnt3YAfterScr = heightViewPort_93ADC <= diffPnt3Pnt1Y;
-                    v1095 = heightViewPort_93ADC - diffPnt3Pnt1Y;
+                    diffPnt2Pnt3Y = heightViewPort_93ADC - diffPnt3Pnt1Y;
                 }
             }
         }
@@ -112217,7 +112217,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
                 v27 = __OFSUB__(v76, diffPnt3Pnt1Y);
                 v77 = v76 - diffPnt3Pnt1Y;
                 pnt3YAfterScr = (v77 < 0) ^ v27 | (v77 == 0);
-                v1095 = v77;
+                diffPnt2Pnt3Y = v77;
             }
         }
         //v75 = (uint32*)&unk_93AE0;
@@ -112225,9 +112225,9 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
         do
         {
             unk_93AE0[v75x].x_0.a32 = v69;
-            v69 += v1079;
+            v69 += divPnt3Pnt1XY;
             unk_93AE0[v75x].y_1.a32 = v70;
-            v70 += v1083;
+            v70 += divPnt2Pnt1XY;
             unk_93AE0[v75x].u_2.a32 = v71;
             v71 += v1102;
             unk_93AE0[v75x].v_3.a32 = v72;
@@ -112238,7 +112238,7 @@ if (((sortPnt2->x_0 - sortPnt1->x_0) << 16) / (sortPnt2->y_1 - sortPnt1->y_1) > 
             v75x++;
             diffPnt3Pnt1Y--;
         } while (diffPnt3Pnt1Y);
-        v74 = v1097;
+        v74 = sortPnt3->x_0 << 16;
         goto LABEL_150;
     }
 }
