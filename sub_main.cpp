@@ -102054,10 +102054,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //_DWORD *v117; // edi
   //int v117x;
   int v118; // ebx
-  int v119; // eax
-  int v120; // ebx
-  int v121; // ecx
-  int v122; // edx
+  //int v119; // eax
+  //int v120; // ebx
+  //int v121; // ecx
+  //int v122; // edx
   int v123; // edi
   //_DWORD *v124; // edi
   //int v124x;
@@ -104594,10 +104594,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           scaledV.dword = (sortPnt2->v_3 - sortPnt3->v_3) / v118;
           v1105 = (sortPnt3->u_2 - sortPnt1->u_2) / ySum_C;
           v1116 = (sortPnt3->v_3 - sortPnt1->v_3) / ySum_C;
-          v119 = sortPnt1->x_0 << 16;
-          v120 = v119;
-          v121 = sortPnt1->u_2;
-          v122 = sortPnt1->v_3;
+          xSum = sortPnt1->x_0 << 16;
+          ySum = xSum;
+          uSum = sortPnt1->u_2;
+          vSum = sortPnt1->v_3;
           if (v1277)
           {
               v123 = -sortPnt1->y_1;
@@ -104606,10 +104606,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               ySum_C += sortPnt1->y_1;
               if (bool16)
                   return;
-              v119 += v1080 * v123;
-              v120 += v123 * v1084;
-              v121 += v123 * v1105;
-              v122 += v123 * v1116;
+              xSum += v123 * v1080;
+              ySum += v123 * v1084;
+              uSum += v123 * v1105;
+              vSum += v123 * v1116;
               if (v1281)
               {
                   ySum_C = heightViewPort_93ADC;
@@ -104622,21 +104622,20 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               v1090 = heightViewPort_93ADC - sortPnt1->y_1;
           }
           //v124 = (uint32*)&unk_93AE0;
-          addIndexY = 0;
-          do
+          for (addIndexY = 0; v1090 > 0; addIndexY++)
           {
-              unk_93AE0[addIndexY].x_0.a32 = v119;
-              v119 += v1080;
-              unk_93AE0[addIndexY].y_1.a32 = v120;
-              v120 += v1084;
-              unk_93AE0[addIndexY].u_2.a32 = v121;
-              v121 += v1105;
-              unk_93AE0[addIndexY].v_3.a32 = v122;
-              v122 += v1116;
+              unk_93AE0[addIndexY].x_0.a32 = xSum;
+              xSum += v1080;
+              unk_93AE0[addIndexY].y_1.a32 = ySum;
+              ySum += v1084;
+              unk_93AE0[addIndexY].u_2.a32 = uSum;
+              uSum += v1105;
+              unk_93AE0[addIndexY].v_3.a32 = vSum;
+              vSum += v1116;
               //v124 += 5;
-              addIndexY++;
+              //addIndexY++;
               v1090--;
-          } while (v1090);
+          } //while (v1090);
           v29 = (unsigned __int8)byte_967E1;
           switch (byte_967E1)
           {
