@@ -101962,10 +101962,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   _BOOL1 v32; // zf
   int v33; // ebx
   int v34; // ebx
-  int v35; // eax
-  int v36; // ebx
-  int v37; // ecx
-  int v38; // edx
+  //int v35; // eax
+  //int v36; // ebx
+  //int v37; // ecx
+  //int v38; // edx
   int v39; // ebx
   //_DWORD *v40; // edi
   //int v40x;
@@ -101978,7 +101978,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //int x47; // eax
   //int v48; // ebx
   //int v49; // esi
-  int v50; // ebx
+  //int v50; // ebx
   //_DWORD *v51; // edi
   //int v51x;
   int v52; // edi
@@ -103698,7 +103698,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       diffSPnt3SPnt2Y -= v1136 - diffSPnt2SPnt1Y;
                       v1137 = v1136 - diffSPnt2SPnt1Y;
                       xSum += divSPnt3SPnt1XY * v1137 + diffSPnt2SPnt1Y * divSPnt3SPnt1XY;
-                      v50 = divSPnt3SPnt2XY * v1137 + (sortPnt2->x_0 << 16);
+                      ySumB = divSPnt3SPnt2XY * v1137 + (sortPnt2->x_0 << 16);
                       zSum += v1137 * v1123 + diffSPnt2SPnt1Y * v1123;
                       if (sPnt3YAfterScr)
                       {
@@ -103771,8 +103771,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       {
                           unk_93AE0[addIndexY].x_0.a32 = xSum;
                           xSum += divSPnt3SPnt1XY;
-                          unk_93AE0[addIndexY].y_1.a32 = v50;
-                          v50 += divSPnt3SPnt2XY;
+                          unk_93AE0[addIndexY].y_1.a32 = ySumB;
+                          ySumB += divSPnt3SPnt2XY;
                           unk_93AE0[addIndexY].z_4.a32 = zSum;
                           zSum += v1123;
                           //v51 += 5;
@@ -103867,7 +103867,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       //addIndexY++;
                       diffSPnt2SPnt1Y--;
                   } //while (diffSPnt2SPnt1Y);
-                  v50 = (sortPnt2->x_0 << 16);
+                  ySumB = (sortPnt2->x_0 << 16);
                   goto LABEL_98;
               }
               return;
@@ -103899,10 +103899,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
               }
               v1101 = (sortPnt3->u_2 - sortPnt1->u_2) / diffSPnt3SPnt1Y;
               v1112 = (sortPnt3->v_3 - sortPnt1->v_3) / diffSPnt3SPnt1Y;
-              v35 = sortPnt1->x_0 << 16;
-              v36 = v35;
-              v37 = sortPnt1->u_2;
-              v38 = sortPnt1->v_3;
+              xSum = sortPnt1->x_0 << 16;
+              ySum = xSum;
+              uSum = sortPnt1->u_2;
+              vSum = sortPnt1->v_3;
               if (!sPnt1NotInView)
               {
                   if (sPnt3YAfterScr)
@@ -103932,10 +103932,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   {
                       diffSPnt3SPnt2Y -= v1134 - diffSPnt2SPnt1Y;
                       v1135 = v1134 - diffSPnt2SPnt1Y;
-                      v35 += divSPnt3SPnt1XY * v1135 + diffSPnt2SPnt1Y * divSPnt3SPnt1XY;
+                      xSum += divSPnt3SPnt1XY * v1135 + diffSPnt2SPnt1Y * divSPnt3SPnt1XY;
                       v39 = divSPnt3SPnt2XY * v1135 + (sortPnt2->x_0 << 16);
-                      v37 += v1135 * v1101 + diffSPnt2SPnt1Y * v1101;
-                      v38 += v1135 * v1112 + diffSPnt2SPnt1Y * v1112;
+                      uSum += v1135 * v1101 + diffSPnt2SPnt1Y * v1101;
+                      vSum += v1135 * v1112 + diffSPnt2SPnt1Y * v1112;
                       if (sPnt3YAfterScr)
                       {
                           diffSPnt3SPnt2Y = heightViewPort_93ADC;
@@ -104003,20 +104003,20 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                               goto LABEL_1275;
                           }
                       }
-                      do
+                      for (; diffSPnt3SPnt2Y > 0; addIndexY++)
                       {
-                          unk_93AE0[addIndexY].x_0.a32 = v35;
-                          v35 += divSPnt3SPnt1XY;
+                          unk_93AE0[addIndexY].x_0.a32 = xSum;
+                          xSum += divSPnt3SPnt1XY;
                           unk_93AE0[addIndexY].y_1.a32 = v39;
                           v39 += divSPnt3SPnt2XY;
-                          unk_93AE0[addIndexY].u_2.a32 = v37;
-                          v37 += v1101;
-                          unk_93AE0[addIndexY].v_3.a32 = v38;
-                          v38 += v1112;
+                          unk_93AE0[addIndexY].u_2.a32 = uSum;
+                          uSum += v1101;
+                          unk_93AE0[addIndexY].v_3.a32 = vSum;
+                          vSum += v1112;
                           //v40 += 5;
-                          addIndexY++;
+                          //addIndexY++;
                           diffSPnt3SPnt2Y--;
-                      } while (diffSPnt3SPnt2Y);
+                      } //while (diffSPnt3SPnt2Y);
                       v29 = (unsigned __int8)byte_967E1;
                       switch (byte_967E1)
                       {
@@ -104075,10 +104075,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                       }
                   }
                   diffSPnt2SPnt1Y += sortPnt1->y_1;
-                  v35 += divSPnt3SPnt1XY * v1134;
-                  v36 += v1134 * divSPnt2SPnt1XY;
-                  v37 += v1134 * v1101;
-                  v38 += v1134 * v1112;
+                  xSum += divSPnt3SPnt1XY * v1134;
+                  ySum += v1134 * divSPnt2SPnt1XY;
+                  uSum += v1134 * v1101;
+                  vSum += v1134 * v1112;
                   if (sPnt3YAfterScr)
                   {
                       ySum_C = heightViewPort_93ADC;
@@ -104094,21 +104094,20 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
                   }
               LABEL_71:
                   //v40 = (uint32*)&unk_93AE0;
-                  addIndexY = 0;
-                  do
+                  for (addIndexY = 0; diffSPnt2SPnt1Y > 0; addIndexY++)
                   {
-                      unk_93AE0[addIndexY].x_0.a32 = v35;
-                      v35 += divSPnt3SPnt1XY;
-                      unk_93AE0[addIndexY].y_1.a32 = v36;
-                      v36 += divSPnt2SPnt1XY;
-                      unk_93AE0[addIndexY].u_2.a32 = v37;
-                      v37 += v1101;
-                      unk_93AE0[addIndexY].v_3.a32 = v38;
-                      v38 += v1112;
+                      unk_93AE0[addIndexY].x_0.a32 = xSum;
+                      xSum += divSPnt3SPnt1XY;
+                      unk_93AE0[addIndexY].y_1.a32 = ySum;
+                      ySum += divSPnt2SPnt1XY;
+                      unk_93AE0[addIndexY].u_2.a32 = uSum;
+                      uSum += v1101;
+                      unk_93AE0[addIndexY].v_3.a32 = vSum;
+                      vSum += v1112;
                       //v40 += 5;
-                      addIndexY++;
+                      //addIndexY++;
                       diffSPnt2SPnt1Y--;
-                  } while (diffSPnt2SPnt1Y);
+                  } //while (diffSPnt2SPnt1Y);
                   v39 = (sortPnt2->x_0 << 16);
                   goto LABEL_74;
               }
