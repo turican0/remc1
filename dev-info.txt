@@ -616,6 +616,35 @@ pnt1 0xe2 0xa9 0x00000 0x1ffff 0
 pnt1 0xec 0xab 0x00000 0x00000 0
 pnt2 0xe5 0xaf 0x1ffff 0x1ffff 0x3b8da
 
+0x229768
+
+dword_AE44C_AE43C
+26C44C-> 63220 9FCA0
+
+adr 205C49 26C44C-> 68D10 6CD40
+26C3B8 .. 68D10 6A280
+234585/63585(read)
+211478/40478(sub_40440)
+205B05/34B05(sub_34B00)
+
+26C3B8 000000
+234585/63585(read)
+211478/40478(sub_40440)
+205B05/34B05(sub_34B00)
+205241/34241(sub_340B0)
+
+adr 2197B7 26C44C-> 63220 9FCA0
+26C3B8 .. 9F6A0 63220
+
+
+487B7 sub_48710 sub_5A3C0_5A8D0(1);
+
+//find here
+
+addprocedurestop(0x2114f0, 0, true, true, 0x26C3B8, 0x12345678, 0);
+//addprocedurestop(0x2114f0, 0, true, true, 0x26C44C, 0x12345678, 0);
+
+
 
 
 

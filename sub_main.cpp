@@ -41381,7 +41381,7 @@ void TopProcedure_340B0_34470(int argc, const char** argv)//2050B0_205470
         sub_5C05C_5C56C(&begPointersTab_AE450_AE440_26C450_26C440[0]);
         if ( !str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u8_13327 )
           sub_34460_34820();
-        sub_34B00_34EC0();
+        sub_34B00_34EC0();//find here
         sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
         sub_61610_61B20((Pathstruct*)"data/music0-0.dat");
         sub_41540_41880();
@@ -66606,7 +66606,7 @@ LABEL_5:
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-int sub_58768_58C78(__int16 a1, __int16 a2, int a3, unsigned __int8 a4)
+int sub_58768_58C78(__int16 a1, __int16 a2, int a3, unsigned __int8 a4)//229768
 {
   __int16 v4; // dx
   uint8_t* sprite; // esi
@@ -68052,7 +68052,7 @@ int sub_5A120(int a1, int a2)
 // AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (0005A180) --------------------------------------------------------
-void drawText_5A180_5A690(char* a1, int a2, __int16 a3, unsigned __int8 a4)
+void drawText_5A180_5A690(char* a1, int a2, __int16 a3, unsigned __int8 a4)//22B180_
 {
   char* v4; // esi
   int v5; // ebx
@@ -68139,7 +68139,7 @@ __int16 getLetterY_5A3B0_5A8C0()
 }
 // AE44C: using guessed type int dword_AE44C_AE43C;
 
-void sub_5A3C0_5A8D0(int fontIndex)
+void sub_5A3C0_5A8D0(int fontIndex)//22B3C0_
 {
     if (!dword_AE3B8_2[fontIndex]->bTab)//fix !!!!
         dword_AE44C_AE43C = dword_AE3B8_2[0]->bTab;
