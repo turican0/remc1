@@ -27315,6 +27315,9 @@ void sub_20E60_20E60()
 
 
 //SAME WITH REMC1
+
+int DrawGameFrame_20FB0_index = 0;
+ 
 //----- (00020FB0) --------------------------------------------------------
 void DrawGameFrame_20FB0()//1F1FB0_
 {
@@ -27453,6 +27456,11 @@ void DrawGameFrame_20FB0()//1F1FB0_
       sub_30A70_30AB0(str_AE400_AE3F0->var_u8_8600);
       //v1 = 2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0();
       //v2 = *(_WORD *)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13337);
+      if (DrawGameFrame_20FB0_index == 6)
+      {
+          DrawGameFrame_20FB0_index++;
+          DrawGameFrame_20FB0_index--;
+      }
       sub_30D90_30DD0(
         pdwScreenBuffer_12EFF4,
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].axis.x,
@@ -27463,6 +27471,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].var_10,
               str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13337_14 + 1].var_12);
       SaveCompare((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+      DrawGameFrame_20FB0_index++;
       //v3 = dword_AE400_AE3F0() + 2049 * str_AE400_AE3F0->var_u16_8;
       if ( str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13333].var_u32_29807_12 >= 0
         && (str_AE408_AE3F8->var_u8_0 & 4) == 0 )
@@ -33735,7 +33744,7 @@ LABEL_49:
               //adress 0x1FBFF0
                          //debug
 #ifdef debug1
-                if (compare_index_1FBFF0 == 0x18f)
+                if (compare_index_1FBFF0 == 0x3609)
                 {
                     compare_index_1FBFF0++;
                     compare_index_1FBFF0--;
@@ -82138,17 +82147,19 @@ void sub_729A3(_DWORD *a1, _DWORD *a2, _DWORD *a3)//2439A3_
 //  adress 2439A3
 //debug
 #ifdef debug1
-  /*if (compare_index_729A7 == 0x240c)
+  SaveCompare((char*)"fullframeTra1", 0, 12, (uint8*)a1);
+  SaveCompare((char*)"fullframeTr", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+  if (compare_index_729A7 == 0x3609)
   {
       compare_index_729A7++;
       compare_index_729A7--;
   }
   //add_compare(0x2439A7, true, true);
-  add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
-  uint8 origbyte20;
-  uint8 remakebyte20;
-  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&a1[1], 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
-  compare_index_729A7++;*/
+  //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
+  //uint8 origbyte20;
+  //uint8 remakebyte20;
+  //int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&a1[1], 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  compare_index_729A7++;
 #endif debug1
   //debug
 

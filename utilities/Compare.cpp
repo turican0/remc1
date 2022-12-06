@@ -1,6 +1,6 @@
 #include "Compare.h"
 
-std::string regressionsDataPath = "c:/prenos/remc1/Debug/regressions/";
+std::string regressionsDataPath = "c:/prenos/remc1-second/Debug/regressions/";
 
 uint32 HashFromStr(char* name, int plus) {
 	int index = 0;
