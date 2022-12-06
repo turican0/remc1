@@ -292,7 +292,7 @@ void sub_15EC0(int a1);
 unsigned int sub_16000(int a1, unsigned __int8 a2);
 char sub_16030(int a1);
 char sub_16310(_DWORD *a1);
-int sub_16540();
+void sub_16540();
 unsigned int sub_16800(unsigned int a1, int a2);
 int sub_16870(int a1);
 char sub_16890(int a1, int a2);
@@ -13879,6 +13879,10 @@ __int16 word_AC5DA = 0; // weak
 __int16 word_AC5DC = 0; // weak
 __int16 word_AC5DE = 0; // weak
 int dword_AC5E0_AC5D0[] = { 0 }; // weak
+
+int dword_AC5F0x[100][6];
+
+/*
 int dword_AC5F0[] = { 0 }; // weak
 int dword_AC5F4[] = { 0 }; // weak
 int dword_AC5F8[] = { 0 }; // weak
@@ -14481,7 +14485,7 @@ int dword_AC604[595] =
   0,
   0,
   0
-}; // weak
+}; // weak*/
 int dword_ACF50 = 0; // weak
 char byte_ACFF0 = '\0'; // weak
 char byte_ACFF1 = '\0'; // weak
@@ -16526,27 +16530,27 @@ LABEL_26:
 int sub_11410(int a1, int a2)
 {
   int v2; // edx
-  int i; // eax
-  int v4; // eax
+  //int ix; // eax
+  //int v4; // eax
   int v5; // ecx
   int *v6; // ebx
 
   v2 = 1;
-  for ( i = 6; i < 600; i += 6 )
+  for ( int ix = 1; ix < 100; ix++ )
   {
-    if ( dword_AC5F8[i] == -1 )
+    if (dword_AC5F0x[ix][2] == -1 )
       break;
-    ++v2;
+    v2++;
   }
-  v4 = 3 * v2;
-  dword_AC5F0[2 * v4] = a1;
-  dword_AC5F8[2 * v4] = a1;
-  dword_AC5FC[2 * v4] = 0;
-  v5 = dword_AC5F8[6 * v2];
-  dword_AC5F4[2 * v4] = a2;
+  //v4 = 3 * v2;
+  dword_AC5F0x[v2][0] = a1;
+  dword_AC5F0x[v2][2] = a1;
+  dword_AC5F0x[v2][3] = 0;
+  v5 = dword_AC5F0x[v2][2];
+  dword_AC5F0x[v2][1] = a2;
   v6 = (int *)((char *)&dword_AD008_ACFF8 + 6 * v5);
-  dword_AC600[2 * v4] = (int)v6;
-  dword_AC604[2 * v4] = *v6;
+  dword_AC5F0x[v2][4] = (int)v6;
+  dword_AC5F0x[v2][5] = *v6;
   return v2;
 }
 // AC5F0: using guessed type int dword_AC5F0[];
@@ -16560,7 +16564,7 @@ int sub_11410(int a1, int a2)
 //----- (00011490) --------------------------------------------------------
 int sub_11490(int a1)
 {
-  dword_AC5F8[6 * a1] = -1;
+    dword_AC5F0x[a1][2] = -1;
   return 1;
 }
 // AC5F8: using guessed type int dword_AC5F8[];
@@ -16576,7 +16580,7 @@ int sub_114B0(int a1, _DWORD *a2, _DWORD *a3)
   int v8; // edi
   int v9; // ebp
 
-  v3 = &dword_AC5F0[6 * a1];
+  v3 = &dword_AC5F0x[a1][0];
   v4 = (char *)v3[5];
   v5 = v3[4];
   *a2 = *v4;
@@ -16944,7 +16948,7 @@ int sub_11C00(__int16 *a1)
 // 10C1E0: using guessed type __int16 mapEntityIndex_10C1E0_10C1D0[7953];
 
 //----- (00011D10) --------------------------------------------------------
-int sub_11D10(int a1)
+int sub_11D10(int a1)//1E2D10
 {
   int v1; // edx
   int v2; // ebp
@@ -19463,7 +19467,7 @@ LABEL_42:
 }
 
 //----- (00016540) --------------------------------------------------------
-int sub_16540()
+void sub_16540()
 {
   Type_AE400_29795* i; // edi
   Type_AE400_29795* v2; // esi
@@ -19599,7 +19603,6 @@ LABEL_49:
       }
     }
   }
-  return result;
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE408: using guessed type int dword_AE408_AE3F8();
@@ -26851,7 +26854,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].pitch_8,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].roll_10,
 			str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_13895_572[v4x + 1].fov_12);
-        CompareWith((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+        //CompareWith((char*)"fullframe", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
         DrawGameFrame_20FB0_index++;
         if (str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].var_u32_29807_12 >= 0
 			&& (str_AE408_AE3F8->var_u8_0 & 4) == 0)
@@ -70009,6 +70012,8 @@ void sub_5CDA0_5D2B0()
     if (!byte_9AD96)
         sub_5BE50_5C360();
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));//fix it
+
     //tempScreenBuffer_A0000 = pdwScreenBuffer_12EFF4;
     /*
   if ( !byte_9AD96 )
@@ -103290,8 +103295,9 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
       compare_index_729A7++;
       compare_index_729A7--;
   }
-  CompareWith((char*)"fullframeTra1", 0, 12, (uint8*)pnt1);
-  CompareWith((char*)"fullframeTr", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+  //CompareWith((char*)"fullframeTra1", 0, 12, (uint8*)pnt1);
+  //CompareWith((char*)"fullframeTr", 0, 320 * 200, (uint8*)pdwScreenBuffer_12EFF4);
+  
   //add_compare(0x2439A7, true, true);
   //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   uint8 origbyte20;
