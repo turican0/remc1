@@ -652,6 +652,10 @@ TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12
 
 +		begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8	0x05e0d280 {Tab_0=0x06b43900 "" dim={x=0x00 '\0' y=0x00 '\0' } }	TypeTab *
 
+switch ( lastPressedKey_12EF70 )
+
+sub_16B00
+
 
 
 

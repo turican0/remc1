@@ -158,9 +158,9 @@ typedef struct {//14
 } Type_13895;
 
 typedef struct {//68
-	char var_13351_28[64];//fix size
-	uint16 var_u16_13415;//92
-	uint16 var_u16_13417;//94
+	char messageText_13351_28[64];//fix size
+	uint16 periods_13415;//92
+	uint16 drawType_13417;//94
 }
 Type_str_28;
 
@@ -179,7 +179,7 @@ typedef struct {//2049
 	uint32 var_u32_13341_18;//24 //diameter
 	uint8 stub1[2];
 	uint32 var_u32_13347_24;//24
-	Type_str_28 str_13351_28[8];//28
+	Type_str_28 messages_13351_28[8];//28
 
 	Type_13895 str_13895_572[33];
 	//Type_13895 str_13909_586[32];//fix size

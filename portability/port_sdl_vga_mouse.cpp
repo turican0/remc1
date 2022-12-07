@@ -18,8 +18,8 @@ SDL_Surface* m_gamePalletisedSurface = NULL;
 SDL_Surface* m_gameRGBASurface = NULL;
 SDL_Color m_currentPalletColours[256];
 
-uint8_t lastPressedKey_12EF70; //3516e4
-int8_t pressedKeys_12EEF0[128]; // idb
+int8_t lastPressedKey_12EF70_12EF60; //3516e4
+int8_t pressedKeys_12EEF0_12EEE0[128]; // idb
 
 uint16_t m_iOrigw = 640;
 uint16_t m_iOrigh = 480;
@@ -1301,16 +1301,16 @@ void setPress(bool locpressed, uint16_t loclastchar) {
 
 	if (locpressed)
 	{
-		lastPressedKey_12EF70 = (loclastchar & 0xff00) >> 8;// VGA_read_char_from_buffer();
-		pressedKeys_12EEF0[lastPressedKey_12EF70 & 0x7F] = lastPressedKey_12EF70;
+		lastPressedKey_12EF70_12EF60 = (loclastchar & 0xff00) >> 8;// VGA_read_char_from_buffer();
+		pressedKeys_12EEF0_12EEE0[lastPressedKey_12EF70_12EF60 & 0x7F] = lastPressedKey_12EF70_12EF60;
 	}
 	else
 	{
-		pressedKeys_12EEF0[((loclastchar & 0xff00) >> 8) & 0x7F] = 0;
+		pressedKeys_12EEF0_12EEE0[((loclastchar & 0xff00) >> 8) & 0x7F] = 0;
 	}
 }
 
 void VGA_mouse_clear_keys() {
 	for (int i = 0; i < 128; i++)
-		pressedKeys_12EEF0[i] = 0;
+		pressedKeys_12EEF0_12EEE0[i] = 0;
 }
