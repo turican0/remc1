@@ -644,6 +644,16 @@ adr 2197B7 26C44C-> 63220 9FCA0
 addprocedurestop(0x2114f0, 0, true, true, 0x26C3B8, 0x12345678, 0);
 //addprocedurestop(0x2114f0, 0, true, true, 0x26C44C, 0x12345678, 0);
 
+begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8 begFont1Tab_AE3BC_26C3BC_26C3AC
+
+pathStrArray[PSdatafont0tab]
+
+TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12CB34_2EAB34_2EAB24 };
+
++		begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8	0x05e0d280 {Tab_0=0x06b43900 "" dim={x=0x00 '\0' y=0x00 '\0' } }	TypeTab *
+
+
+
 
 
 
