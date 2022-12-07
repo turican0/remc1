@@ -5382,7 +5382,8 @@ TypeStrFont sFont0Tab_12CB28_2EAB28_2EAB18;
 
 TypeStrFont sFont1Tab_12CB34_2EAB34_2EAB24;
 
-TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12CB34_2EAB34_2EAB24 };
+//TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12CB34_2EAB34_2EAB24 };
+TypeStrFont dword_AE3B8_2[2];// = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12CB34_2EAB34_2EAB24 };
 
 /*
 uint8_t* begSFont0Tab_12CB28_2EAB28_2EAB18;//begSFont0Tab_12CB28_2EAB28_2EAB18
@@ -34933,7 +34934,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	//adress 1FC930_
   //debug
 #ifdef debug1
-	add_compare(0x1FC930, true, true);
+	//add_compare(0x1FC930, true, true);
 #endif debug1
 	//debug
 
@@ -34997,7 +34998,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	//adress 1FCBE3_
   //debug
 #ifdef debug1
-	add_compare(0x1FCBE3, true, true);
+	//add_compare(0x1FCBE3, true, true);
 #endif debug1
 	//debug
 	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
@@ -35031,7 +35032,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 
 	//debug
 #ifdef debug1
-	add_compare(0x1FCCA3, true, true);
+	//add_compare(0x1FCCA3, true, true);
 #endif debug1
 	//debug
 	if (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606)
@@ -68141,10 +68142,15 @@ __int16 getLetterY_5A3B0_5A8C0()
 
 void sub_5A3C0_5A8D0(int fontIndex)//22B3C0_
 {
-    if (!dword_AE3B8_2[fontIndex]->bTab)//fix !!!!
-        dword_AE44C_AE43C = dword_AE3B8_2[0]->bTab;
+    dword_AE3B8_2[0].bTab = begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8;
+    dword_AE3B8_2[1].bTab = begFont1Tab_AE3BC_26C3BC_26C3AC;
+    
+    if (!dword_AE3B8_2[fontIndex].bTab)//fix !!!!
+
+        //26C3B8
+        dword_AE44C_AE43C = dword_AE3B8_2[0].bTab;
     else
-        dword_AE44C_AE43C = dword_AE3B8_2[fontIndex]->bTab;
+        dword_AE44C_AE43C = dword_AE3B8_2[fontIndex].bTab;
     /*if (!*off_99974[1 + fontIndex].beg)//fix !!!!
         dword_AE44C_AE43C = *off_99974[1 + 0].beg;
     else
