@@ -1281,7 +1281,7 @@ unsigned __int64 sub_60BDC(int a1);
 void DrawBitmap_60CE0_611F0(__int16 a1, __int16 a2, TypeTab* a3);
 void DrawBitmap_60D18_61228(__int16 a1, __int16 a2, TypeTab* a3);
 void sub_60D50_61260(TypeTabDimm a1, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6);
-void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6);
+void sub_60D65_61275(TypeTabDimm a1, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6);
 int sub_61594(unsigned __int16 a1, unsigned __int16 a2, __int16 a3);
 int sub_615D4(unsigned __int16 a1, unsigned __int16 a2, __int16 a3);
 void sub_61610_61B20(Pathstruct* pathstruct);
@@ -14947,8 +14947,8 @@ int dword_12F014; // weak
 int dword_12F018_12F008; // weak
 int dword_12F01C; // weak
 int dword_12F020; // weak
-int dword_12F024; // weak
-int dword_12F028; // weak
+int dword_12F024_12F014; // weak
+int dword_12F028_12F018; // weak
 __int16 word_12F02C; // weak
 __int16 typeResolution_12F02E_12F01E; // weak
 int dword_12F030; // weak
@@ -62407,13 +62407,13 @@ int sub_51ECC(int a1, int a2, int a3, int a4, char a5, char a6)
     a4 += a2;
     v6 = 0;
   }
-  if ( a4 + v6 > dword_12F028 )
-    a4 = dword_12F028 - v6;
+  if ( a4 + v6 > dword_12F028_12F018 )
+    a4 = dword_12F028_12F018 - v6;
   if ( a4 <= 0 )
     return v14;
   v7 = scrWidth_12EFF0_12EFE0 * (dword_12F018_12F008 + v6);
   v8 = a1;
-  if ( a1 >= dword_12F024 )
+  if ( a1 >= dword_12F024_12F014 )
     return v14;
   if ( a1 < 0 )
   {
@@ -62464,8 +62464,8 @@ int sub_51ECC(int a1, int a2, int a3, int a4, char a5, char a6)
 // 12F008: using guessed type int dword_12F008_12EFF8;
 // 12F010: using guessed type int dword_12F010;
 // 12F018: using guessed type int dword_12F018_12F008;
-// 12F024: using guessed type int dword_12F024;
-// 12F028: using guessed type int dword_12F028;
+// 12F024: using guessed type int dword_12F024_12F014;
+// 12F028: using guessed type int dword_12F028_12F018;
 
 //----- (00051FC0) --------------------------------------------------------
 void sub_51FC0()
@@ -66619,7 +66619,7 @@ void DrawLetter_58768_58C78(__int16 a1, __int16 a2, TypeTab* a3, unsigned __int8
   else
   {
     if ( (typeResolution_12F02E_12F01E & 8) != 0 )
-      sub_60D65_61275(*(__int16*)&a3->dim, a2, a1, a3->Tab_0, a4, 0);
+      sub_60D65_61275(a3->dim, a2, a1, a3->Tab_0, a4, 0);
     return;
   }
 }
@@ -69236,15 +69236,15 @@ void sub_5C05C_5C56C(TypeTab* a1x)//22D05C_
   dword_12F014 = dword_12F018_12F008;
   dword_12F00C = dword_12F010;
   dword_12F004 = dword_12F008_12EFF8;
-  dword_12F01C = dword_12F024;
+  dword_12F01C = dword_12F024_12F014;
   dword_12EFFC = dword_12F000_12EFF0;
-  dword_12F020 = dword_12F028;
+  dword_12F020 = dword_12F028_12F018;
   dword_12F018_12F008 = 0;
   dword_12F010 = 64;
   dword_12F008_12EFF8 = 0;
-  dword_12F024 = 64;
+  dword_12F024_12F014 = 64;
   dword_12F000_12EFF0 = 64;
-  dword_12F028 = 64;
+  dword_12F028_12F018 = 64;
   __int16 temp9ADFC = word_9ADFC;
   word_9ADFC = 0;
   int temp12EFF0 = scrWidth_12EFF0_12EFE0;
@@ -69258,9 +69258,9 @@ void sub_5C05C_5C56C(TypeTab* a1x)//22D05C_
   dword_12F018_12F008 = dword_12F014;
   dword_12F010 = dword_12F00C;
   dword_12F008_12EFF8 = dword_12F004;
-  dword_12F024 = dword_12F01C;
+  dword_12F024_12F014 = dword_12F01C;
   dword_12F000_12EFF0 = dword_12EFFC;
-  dword_12F028 = dword_12F020;
+  dword_12F028_12F018 = dword_12F020;
   //result = v5;
   pdwScreenBuffer_12EFF4 = tempPdwBuffer;
   dword_9AD88 = 0;
@@ -69282,8 +69282,8 @@ void sub_5C05C_5C56C(TypeTab* a1x)//22D05C_
 // 12F018: using guessed type int dword_12F018_12F008;
 // 12F01C: using guessed type int dword_12F01C;
 // 12F020: using guessed type int dword_12F020;
-// 12F024: using guessed type int dword_12F024;
-// 12F028: using guessed type int dword_12F028;
+// 12F024: using guessed type int dword_12F024_12F014;
+// 12F028: using guessed type int dword_12F028_12F018;
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (0005C214) --------------------------------------------------------
@@ -72022,7 +72022,7 @@ unsigned __int64 sub_60BDC(int a1)
 //----- (00060CE0) --------------------------------------------------------
 void DrawBitmap_60CE0_611F0(__int16 a1, __int16 a2, TypeTab* a3)//231CE0_
 {
-  sub_60D65_61275(*(__int16*)&a3->dim, a2, a1, *(uint8_t**)a3, 0, 0);
+  sub_60D65_61275(a3->dim, a2, a1, *(uint8_t**)a3, 0, 0);
 }
 // 60D15: variable 'v4' is possibly undefined
 // 12EFF4: using guessed type int dword_12EFF4;
@@ -72030,7 +72030,7 @@ void DrawBitmap_60CE0_611F0(__int16 a1, __int16 a2, TypeTab* a3)//231CE0_
 //----- (00060D18) --------------------------------------------------------
 void DrawBitmap_60D18_61228(__int16 a1, __int16 a2, TypeTab* a3)
 {
-  sub_60D65_61275(*(__int16*)&a3->dim, a2, a1, *(uint8_t**)a3, 0, 0);
+  sub_60D65_61275(a3->dim, a2, a1, *(uint8_t**)a3, 0, 0);
 }
 // 60D4D: variable 'v4' is possibly undefined
 // 12EFF4: using guessed type int dword_12EFF4;
@@ -72038,11 +72038,11 @@ void DrawBitmap_60D18_61228(__int16 a1, __int16 a2, TypeTab* a3)
 //----- (00060D50) --------------------------------------------------------
 void sub_60D50_61260(TypeTabDimm a1, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6)
 {
-  sub_60D65_61275(*(__int16*)&a1, a2, a3, sprite, a5, a6);
+  sub_60D65_61275(a1, a2, a3, sprite, a5, a6);
 }
 
-//----- (00060D65) --------------------------------------------------------
-void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6)//231D65_
+//SYNCHRONIZED WITH REMC1
+void sub_60D65_61275(TypeTabDimm a1x, int a2, int a3, uint8_t* sprite, unsigned __int8 a5, char a6)//231D65_
 {
   int v6; // edi
   _BYTE *v7; // edi
@@ -72169,12 +72169,12 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
   int v128; // eax
   uint8_t* v129; // [esp-4h] [ebp-Ch]
   unsigned __int8 v130; // [esp+2h] [ebp-6h]
-  unsigned __int8 v131; // [esp+2h] [ebp-6h]
-  unsigned __int8 v132; // [esp+2h] [ebp-6h]
-  unsigned __int8 v133; // [esp+2h] [ebp-6h]
+  //unsigned __int8 v131; // [esp+2h] [ebp-6h]
+  //unsigned __int8 v132; // [esp+2h] [ebp-6h]
+  //unsigned __int8 v133; // [esp+2h] [ebp-6h]
   unsigned __int8 v134; // [esp+2h] [ebp-6h]
-  unsigned __int8 v135; // [esp+2h] [ebp-6h]
-  unsigned __int8 v136; // [esp+2h] [ebp-6h]
+  //unsigned __int8 v135; // [esp+2h] [ebp-6h]
+  //unsigned __int8 v136; // [esp+2h] [ebp-6h]
   unsigned __int8 v137; // [esp+2h] [ebp-6h]
   char v138; // [esp+3h] [ebp-5h]
   char v139; // [esp+3h] [ebp-5h]
@@ -72185,13 +72185,13 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
   v46 = 0;
   //fix
 
-  if ( !HIBYTE(a1) )
+  if ( !a1x.y )
     return;
   v6 = (int)pdwScreenBuffer_12EFF4 + dword_12F008_12EFF8 + scrWidth_12EFF0_12EFE0 * dword_12F018_12F008;
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
   {
-    LOBYTE(a1) = (unsigned __int8)a1 >> 1;
-    HIBYTE(a1) >>= 1;
+    a1x.x >>= 1;
+    a1x.y >>= 1;
     a3 >>= 1;
     a2 >>= 1;
   }
@@ -72199,21 +72199,20 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
   {
     if ( (word_9ADFC & 2) != 0 )
     {
-      v126 = a2 + HIBYTE(a1);
-      //fix v46 = (v126 + 1 < 0) ^ __OFADD__(1, v126) | (v126 == -1);
+      v126 = a2 + a1x.y;
+      v46 = (v126 + 1 < 0) ^ __OFADD__(1, v126) | (v126 == -1);
       v127 = v126 + 1;
       if ( v46 )
         return;
       a2 = -1;
-      HIBYTE(a1) = v127;
+      a1x.y = v127;
     }
     else
     {
-      v128 = a2 + HIBYTE(a1);
-      //fix
-      /*if ((v128 < 0) ^ __OFADD__(a2, HIBYTE(a1)) | (v128 == 0))
-        return;*/
-      HIBYTE(a1) = v128;
+      v128 = a2 + a1x.y;
+      if ( (v128 < 0) ^ __OFADD__(a2, a1x.y) | (v128 == 0) )
+        return;
+      a1x.y = v128;
       BYTE1(v128) = 0;
       do
       {
@@ -72230,14 +72229,14 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
       while ( a2 );
     }
   }
-  else if ( a2 + HIBYTE(a1) >= dword_12F028 )
+  else if ( a2 + a1x.y >= dword_12F028_12F018 )
   {
     if ( (word_9ADFC & 2) != 0 )
     {
-      if ( a2 + 1 >= dword_12F028 )
+      if ( a2 + 1 >= dword_12F028_12F018 )
         return;
-      v123 = HIBYTE(a1) + a2 + 1 - dword_12F028;
-      HIBYTE(a1) = dword_12F028 - (a2 + 1);
+      v123 = a1x.y + a2 + 1 - dword_12F028_12F018;
+      a1x.y = dword_12F028_12F018 - (a2 + 1);
       v124 = v123;
       v125 = 0;
       do
@@ -72257,14 +72256,14 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
     }
     else
     {
-      if ( dword_12F028 <= a2 )
+      if ( dword_12F028_12F018 <= a2 )
         return;
-      HIBYTE(a1) = dword_12F028 - a2;
+      a1x.y = dword_12F028_12F018 - a2;
     }
   }
   if ( a3 >= 0 )
   {
-    if ( a3 + (unsigned __int8)a1 >= dword_12F000_12EFF0 )
+    if ( a3 + a1x.x >= dword_12F000_12EFF0 )
     {
       if ( word_9ADFC )
       {
@@ -72272,13 +72271,13 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
         {
           if ( (word_9ADFC & 2) != 0 )
           {
-            if ( dword_12F024 - a3 >= 0 )
+            if ( dword_12F024_12F014 - a3 >= 0 )
             {
-              v77 = (unsigned __int8)a1 + a3;
-              v78 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + v77 + v6);
+              v77 = a1x.x + a3;
+              v78 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + v77 + v6);
               v79 = 0;
-              LOBYTE(a1) = dword_12F024 - v77 - 2;
-              v131 = a1;
+              a1x.x = dword_12F024_12F014 - v77 - 2;
+              //v131 = a1x.x;
               v80 = -1;
               v81 = v78;
               do
@@ -72291,7 +72290,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                     if ( (v80 & 0x80u) == 0 )
                       break;
                     v78 += v80;
-                    LOBYTE(a1) = a1 - v80;
+                    a1x.x -= v80;
                   }
                   if ( !(_BYTE)v80 )
                     break;
@@ -72299,8 +72298,8 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                   do
                   {
                     v82 = *sprite++;
-                    LOBYTE(a1) = a1 + 1;
-                    if ( (a1 & 0x80u) == 0 )
+                    a1x.x++;
+                    if ( (a1x.x & 0x80u) == 0 )
                       *v78 = v82;
                     --v78;
                     --v79;
@@ -72309,18 +72308,20 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                 }
                 v81 -= scrWidth_12EFF0_12EFE0;
                 v78 = v81;
-                a1 = __PAIR16__(HIBYTE(a1), v131) - 256;
+                //a1 = __PAIR16__(a1x.y, v131) - 256;
+                a1x.y--;//fix
+                //a1x.x= v131;//fix
               }
-              while ( HIBYTE(a1) );
+              while ( a1x.y );
             }
           }
-          else if ( dword_12F024 - a3 >= 0 )
+          else if ( dword_12F024_12F014 - a3 >= 0 )
           {
-            v83 = (unsigned __int8)a1 + a3;
+            v83 = a1x.x + a3;
             v84 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + v83 + v6);
             v85 = 0;
-            LOBYTE(a1) = dword_12F024 - v83 - 2;
-            v132 = a1;
+            a1x.x = dword_12F024_12F014 - v83 - 2;
+            //v132 = a1x.x;
             v86 = -1;
             v87 = v84;
             do
@@ -72333,7 +72334,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                   if ( (v86 & 0x80u) == 0 )
                     break;
                   v84 += v86;
-                  LOBYTE(a1) = a1 - v86;
+                  a1x.x -= v86;
                 }
                 if ( !(_BYTE)v86 )
                   break;
@@ -72341,8 +72342,8 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                 do
                 {
                   v88 = *sprite++;
-                  LOBYTE(a1) = a1 + 1;
-                  if ( (a1 & 0x80u) == 0 )
+                  a1x.x++;
+                  if ( (a1x.x & 0x80u) == 0 )
                     *v84 = v88;
                   --v84;
                   --v85;
@@ -72351,20 +72352,22 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
               }
               v87 += scrWidth_12EFF0_12EFE0;
               v84 = v87;
-              a1 = __PAIR16__(HIBYTE(a1), v132) - 256;
+              //a1 = __PAIR16__(a1x.y, v132) - 256;
+              a1x.y--;
+              //a1x.x = v132;
             }
-            while ( HIBYTE(a1) );
+            while ( a1x.y );
           }
         }
         else if ( (word_9ADFC & 2) != 0 )
         {
-          v89 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + a3 + v6);
+          v89 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + a3 + v6);
           v90 = 0;
-          v91 = dword_12F024 - a3;
+          v91 = dword_12F024_12F014 - a3;
           if ( v91 >= 0 )
           {
-            LOBYTE(a1) = v91;
-            v133 = v91;
+            a1x.x = v91;
+            //v133 = v91;
             v92 = -1;
             v93 = v89;
             do
@@ -72377,7 +72380,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                   if ( (v92 & 0x80u) == 0 )
                     break;
                   v89 -= v92;
-                  LOBYTE(a1) = v92 + a1;
+                  a1x.x += v92;
                 }
                 if ( !(_BYTE)v92 )
                   break;
@@ -72385,8 +72388,8 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                 do
                 {
                   v94 = *sprite++;
-                  LOBYTE(a1) = a1 - 1;
-                  if ( (a1 & 0x80u) == 0 )
+                  a1x.x--;
+                  if ( (a1x.x & 0x80u) == 0 )
                     *v89++ = v94;
                   --v90;
                 }
@@ -72394,20 +72397,21 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
               }
               v93 -= scrWidth_12EFF0_12EFE0;
               v89 = v93;
-              a1 = __PAIR16__(HIBYTE(a1), v133) - 256;
+              //a1 = __PAIR16__(a1x.y, v133) - 256;
+              a1x.y--;
             }
-            while ( HIBYTE(a1) );
+            while ( a1x.y );
           }
         }
       }
       else
       {
         v68 = a3 + v6;
-        v69 = dword_12F024 - a3;
+        v69 = dword_12F024_12F014 - a3;
         if ( v69 >= 0 )
         {
           v70 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + v68);
-          BYTE1(v69) = HIBYTE(a1);
+          BYTE1(v69) = a1x.y;
           v130 = v69;
           v71 = v70;
           v72 = 0;
@@ -72420,7 +72424,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
                 v73 = *sprite++;
                 if ( v73 >= 0 )
                   break;
-                //fix v46 = ((char)(v73 + v69) < 0) ^ __OFADD__(v73, (_BYTE)v69) | (v73 + (_BYTE)v69 == 0);
+                v46 = ((char)(v73 + v69) < 0) ^ __OFADD__(v73, (_BYTE)v69) | (v73 + (_BYTE)v69 == 0);
                 LOBYTE(v69) = v73 + v69;
                 if ( !v46 )
                 {
@@ -72463,7 +72467,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
     {
       if ( (word_9ADFC & 2) != 0 )
       {
-        v7 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + (unsigned __int8)a1 + a3 + v6);
+        v7 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + a1x.x + a3 + v6);
         v8 = 0;
         v9 = -1;
         v10 = v7;
@@ -72500,13 +72504,13 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v10 -= scrWidth_12EFF0_12EFE0;
           v7 = v10;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
       else
       {
-        v14 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + (unsigned __int8)a1 + a3 + v6);
+        v14 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + a1x.x + a3 + v6);
         v15 = 0;
         v16 = -1;
         v17 = v14;
@@ -72543,16 +72547,16 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v17 += scrWidth_12EFF0_12EFE0;
           v14 = v17;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
     }
     else if ( word_9ADFC )
     {
       if ( (word_9ADFC & 2) != 0 )
       {
-        v28 = (char *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + a3 + v6);
+        v28 = (char *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + a3 + v6);
         v29 = 0;
         v30 = -1;
         v31 = v28;
@@ -72584,9 +72588,9 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v31 -= scrWidth_12EFF0_12EFE0;
           v28 = v31;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
       else if ( (word_9ADFC & 4) != 0 )
       {
@@ -72620,16 +72624,16 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v38 += scrWidth_12EFF0_12EFE0;
           v36 = v38;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
       else if ( (word_9ADFC & 8) != 0 )
       {
         v41 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + a3 + v6);
         v42 = 0;
         v140 = v41;
-        v138 = HIBYTE(a1);
+        v138 = a1x.y;
         for ( i = a5; ; i = a5 )
         {
           while ( 1 )
@@ -72691,7 +72695,7 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
       {
         v49 = (char *)(scrWidth_12EFF0_12EFE0 * a2 + a3 + v6);
         v141 = (uint8*)v49;
-        v139 = HIBYTE(a1);
+        v139 = a1x.y;
         do
         {
           while ( 1 )
@@ -72768,9 +72772,9 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v59 += scrWidth_12EFF0_12EFE0;
           v56 = v59;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
       else
       {
@@ -72806,9 +72810,9 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
           }
           v64 += scrWidth_12EFF0_12EFE0;
           v61 = v64;
-          --HIBYTE(a1);
+          --a1x.y;
         }
-        while ( HIBYTE(a1) );
+        while ( a1x.y );
       }
     }
     else
@@ -72845,19 +72849,19 @@ void sub_60D65_61275(__int16 a1, int a2, int a3, uint8_t* sprite, unsigned __int
         }
         v24 += scrWidth_12EFF0_12EFE0;
         v21 = v24;
-        --HIBYTE(a1);
+        --a1x.y;
       }
-      while ( HIBYTE(a1) );
+      while ( a1x.y );
     }
     return;
   }
   if ( !word_9ADFC )
   {
     v95 = -a3;
-    if ( (unsigned __int8)a1 <= v95 )
+    if ( a1x.x <= v95 )
       return;
     v96 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + v6);
-    BYTE1(v95) = HIBYTE(a1);
+    BYTE1(v95) = a1x.y;
     v97 = v96;
     v134 = v95;
     v98 = 0;
@@ -72921,10 +72925,10 @@ LABEL_179:
     if ( (word_9ADFC & 2) == 0 )
       return;
     v115 = -a3;
-    if ( (unsigned __int8)a1 <= v115 )
+    if ( a1x.x <= v115 )
       return;
-    v116 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + v6);
-    BYTE1(v115) = HIBYTE(a1);
+    v116 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + v6);
+    BYTE1(v115) = a1x.y;
     v117 = v116;
     v137 = v115;
     v118 = 0;
@@ -72985,13 +72989,13 @@ LABEL_225:
   }
   if ( (word_9ADFC & 2) != 0 )
   {
-    v103 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (HIBYTE(a1) + a2) + (unsigned __int8)a1 + a3 + v6);
+    v103 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * (a1x.y + a2) + a1x.x + a3 + v6);
     v104 = 0;
-    v105 = (unsigned __int8)a1 + a3 + 1;
+    v105 = a1x.x + a3 + 1;
     if ( v105 >= 0 )
     {
-      LOBYTE(a1) = v105;
-      v135 = v105;
+        a1x.x = v105;
+      //v135 = v105;
       v106 = v103;
       v107 = -1;
       do
@@ -73004,7 +73008,7 @@ LABEL_225:
             if ( (v107 & 0x80u) == 0 )
               break;
             v103 += v107;
-            LOBYTE(a1) = v107 + a1;
+            a1x.x += v107;
           }
           if ( !(_BYTE)v107 )
             break;
@@ -73012,8 +73016,8 @@ LABEL_225:
           do
           {
             v108 = *sprite++;
-            LOBYTE(a1) = a1 - 1;
-            if ( (a1 & 0x80u) == 0 )
+            a1x.x--;
+            if ( (a1x.x & 0x80u) == 0 )
               *v103 = v108;
             --v103;
             --v104;
@@ -73022,20 +73026,21 @@ LABEL_225:
         }
         v106 -= scrWidth_12EFF0_12EFE0;
         v103 = v106;
-        a1 = __PAIR16__(HIBYTE(a1), v135) - 256;
+        //a1 = __PAIR16__(a1x.y, v135) - 256;
+        a1x.y--;
       }
-      while ( HIBYTE(a1) );
+      while ( a1x.y );
     }
   }
   else
   {
-    v109 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + (unsigned __int8)a1 + a3 + v6);
+    v109 = (_BYTE *)(scrWidth_12EFF0_12EFE0 * a2 + a1x.x + a3 + v6);
     v110 = 0;
-    v111 = (unsigned __int8)a1 + a3 + 1;
+    v111 = a1x.x + a3 + 1;
     if ( v111 >= 0 )
     {
-      LOBYTE(a1) = v111;
-      v136 = v111;
+      a1x.x = v111;
+      //v136 = v111;
       v112 = v109;
       v113 = -1;
       do
@@ -73048,7 +73053,7 @@ LABEL_225:
             if ( (v113 & 0x80u) == 0 )
               break;
             v109 += v113;
-            LOBYTE(a1) = v113 + a1;
+            a1x.x += v113;
           }
           if ( !(_BYTE)v113 )
             break;
@@ -73056,8 +73061,8 @@ LABEL_225:
           do
           {
             v114 = *sprite++;
-            LOBYTE(a1) = a1 - 1;
-            if ( (a1 & 0x80u) == 0 )
+            a1x.x--;
+            if ( (a1x.x & 0x80u) == 0 )
               *v109 = v114;
             --v109;
             --v110;
@@ -73066,22 +73071,13 @@ LABEL_225:
         }
         v112 += scrWidth_12EFF0_12EFE0;
         v109 = v112;
-        a1 = __PAIR16__(HIBYTE(a1), v136) - 256;
+        //a1 = __PAIR16__(a1x.y, v136) - 256;
+        a1x.y--;
       }
-      while ( HIBYTE(a1) );
+      while ( a1x.y );
     }
   }
 }
-// 9ADFC: using guessed type __int16 word_9ADFC;
-// 9AFA0: using guessed type int dword_9AFA0;
-// 12EFF0: using guessed type int pitch_12EFF0_12EFE0;
-// 12EFF4: using guessed type int dword_12EFF4;
-// 12F000: using guessed type int dword_12F000_12EFF0;
-// 12F008: using guessed type int dword_12F008_12EFF8;
-// 12F018: using guessed type int dword_12F018_12F008;
-// 12F024: using guessed type int dword_12F024;
-// 12F028: using guessed type int dword_12F028;
-// 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (00061594) --------------------------------------------------------
 int sub_61594(unsigned __int16 a1, unsigned __int16 a2, __int16 a3)
@@ -74966,16 +74962,16 @@ void sub_65EB0_663C0(__int16 a1, __int16 a2, __int16 a3, __int16 a4)
   dword_12F008_12EFF8 = a1;
   dword_12F018_12F008 = a2;
   dword_12F000_12EFF0 = a3;
-  dword_12F028 = a4;
-  dword_12F024 = a3 + a1;
+  dword_12F028_12F018 = a4;
+  dword_12F024_12F014 = a3 + a1;
   dword_12F010 = a4 + a2;
 }
 // 12F000: using guessed type int dword_12F000_12EFF0;
 // 12F008: using guessed type int dword_12F008_12EFF8;
 // 12F010: using guessed type int dword_12F010;
 // 12F018: using guessed type int dword_12F018_12F008;
-// 12F024: using guessed type int dword_12F024;
-// 12F028: using guessed type int dword_12F028;
+// 12F024: using guessed type int dword_12F024_12F014;
+// 12F028: using guessed type int dword_12F028_12F018;
 
 //----- (00065F10) --------------------------------------------------------
 void sub_65F10(__int16 a1, __int16 a2)
@@ -77697,7 +77693,7 @@ int sub_6B260(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
   v16 = 0;
   //fix
 
-  v6 = 2 * dword_12F024;
+  v6 = 2 * dword_12F024_12F014;
   v7 = 2 * dword_12F018_12F008;
   v8 = 2 * dword_12F010;
   if ( a1 < (__int16)(2 * dword_12F008_12EFF8) )
@@ -77707,7 +77703,7 @@ int sub_6B260(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
   if ( a1 >= v6 )
     return v16;
   if ( a3 >= v6 )
-    a3 = 2 * dword_12F024;
+    a3 = 2 * dword_12F024_12F014;
   if ( a2 < v7 )
     a2 = 2 * dword_12F018_12F008;
   if ( a4 < v7 )
@@ -77773,7 +77769,7 @@ int sub_6B260(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
 // 12F008: using guessed type int dword_12F008_12EFF8;
 // 12F010: using guessed type int dword_12F010;
 // 12F018: using guessed type int dword_12F018_12F008;
-// 12F024: using guessed type int dword_12F024;
+// 12F024: using guessed type int dword_12F024_12F014;
 
 //----- (0006B378) --------------------------------------------------------
 int sub_6B378(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a5, __int16 a6)
@@ -77794,10 +77790,10 @@ int sub_6B378(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
     a1 = dword_12F008_12EFF8;
   if ( a3 < (__int16)dword_12F008_12EFF8 )
     return v13;
-  if ( a1 >= (__int16)dword_12F024 )
+  if ( a1 >= (__int16)dword_12F024_12F014 )
     return v13;
-  if ( a3 >= (__int16)dword_12F024 )
-    a3 = dword_12F024;
+  if ( a3 >= (__int16)dword_12F024_12F014 )
+    a3 = dword_12F024_12F014;
   if ( a2 < (__int16)dword_12F018_12F008 )
     a2 = dword_12F018_12F008;
   if ( a4 < (__int16)dword_12F018_12F008 )
@@ -77860,7 +77856,7 @@ int sub_6B378(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a
 // 12F008: using guessed type int dword_12F008_12EFF8;
 // 12F010: using guessed type int dword_12F010;
 // 12F018: using guessed type int dword_12F018_12F008;
-// 12F024: using guessed type int dword_12F024;
+// 12F024: using guessed type int dword_12F024_12F014;
 
 //----- (0006B47C) --------------------------------------------------------
 void sub_6B47C_6B98C(TColor* palette)
