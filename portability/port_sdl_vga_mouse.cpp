@@ -18,8 +18,8 @@ SDL_Surface* m_gamePalletisedSurface = NULL;
 SDL_Surface* m_gameRGBASurface = NULL;
 SDL_Color m_currentPalletColours[256];
 
-int8_t lastPressedKey_12EF70_12EF60; //3516e4
-int8_t pressedKeys_12EEF0_12EEE0[128]; // idb
+uint8_t lastPressedKey_12EF70_12EF60; //3516e4
+uint8_t pressedKeys_12EEF0_12EEE0[128]; // idb
 
 uint16_t m_iOrigw = 640;
 uint16_t m_iOrigh = 480;

@@ -335,7 +335,8 @@ Type_AE400_29795;
 typedef struct {// len 106
 	uint32 var_u32_232607;
 	uint8_t var_u8_232611[96];
-	uint8_t stubb[6];
+	uint16_t var_u16_232707;
+	uint32_t var_u32_232709;
 }
 Type_AE400_232607;
 
@@ -415,7 +416,7 @@ typedef struct {//size 232713
 	uint8 stub10[12];
 	uint8 var_u8_8621;
 	uint8 var_u8_8622;
-	uint8 var_u8_8623;
+	uint8 skyOn_8623;//sky is on
 	uint8 var_u8_8624;
 	uint8 var_u8_8625;
 	uint8 var_u8_8626;
@@ -484,7 +485,7 @@ Type_168;
 
 typedef struct {//size 36478
 	uint8 var_u8_0;
-	uint8 var_u8_1;
+	int8 var_u8_1;
 	uint8 var_u8_2;
 	uint8 var_u8_3;
 	Type_29811 var_u32_4;

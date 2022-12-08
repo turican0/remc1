@@ -59,7 +59,7 @@ void Draw_debug_matrix1();
 void Draw_black();
 void SetBlackPalette();
 
-extern int8_t lastPressedKey_12EF70_12EF60; // weak//3516e4
-extern int8_t pressedKeys_12EEF0_12EEE0[128]; // idb
+extern uint8_t lastPressedKey_12EF70_12EF60; // weak//3516e4
+extern uint8_t pressedKeys_12EEF0_12EEE0[128]; // idb
 
 #endif //PORT_SDL_VGA_MOUSE
