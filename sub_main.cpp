@@ -19773,354 +19773,340 @@ void sub_169E0()//1E79E0_
 //----- (00016B00) --------------------------------------------------------
 void ProcessKeys_16B00()//1E7B00_
 {
-  if (str_AE400_AE3F0->var_29715[str_AE400_AE3F0->var_u16_8][0])
-    return;
-  if (pressedKeys_12EEF0_12EEE0[56])//byte_12EF28 8/*/Up (shift/alt/ctrl ?)
-  {
-      switch (lastPressedKey_12EF70_12EF60) {
-      case 0x1f:// 's' save
-          if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
-          {
-              sub_593B0_598C0();
-              str_AE400_AE3F0->str_232607.var_u16_232707 = str_AE408_AE3F8->var_u16_17;
-              str_AE400_AE3F0->str_232607.var_u32_232709 = dword_AC5D4_AC5C4;
-              sub_3E750_3EA90(199);
-              sub_3E8C0_3EC00(199);
-              sub_37220_375E0();
-              str_AE400_AE3F0->var_u32_4593 = -1;
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 100;
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 0;
-              strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, "Game saved.");
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          break;
-      case 0x26:// 'l' load
-        if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
-        {
-            sub_3E690_3E9D0(199);
-            sub_3E7F0_3EB30(199);
-            str_AE408_AE3F8->var_u16_17 = str_AE400_AE3F0->str_232607.var_u16_232707;
-            dword_AC5D4_AC5C4 = str_AE400_AE3F0->str_232607.var_u32_232709;
-            sub_59420_59930();
-            FlvInitSet_356E0_35AA0();
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 100;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 0;
-            strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, "Game loaded.");
-        }
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x2F:// 'v'
-        if (str_AE408_AE3F8->var_u8_1 < 0)
-            MakeControlCommand_188A0(4, 8);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x3B://'F1'
-        MakeControlCommand_188A0(30, 1);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x3Cu://'F2'
-        MakeControlCommand_188A0(30, 2);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x3D://'F3'
-        MakeControlCommand_188A0(30, 3);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x3E://'F4'
-        MakeControlCommand_188A0(30, 4);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x3F://'F5'
-        MakeControlCommand_188A0(30, 5);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x40://'F6'
-        MakeControlCommand_188A0(30, 6);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      case 0x41://'F7'
-        MakeControlCommand_188A0(30, 7);
-        lastPressedKey_12EF70_12EF60 = 0;
-        break;
-      }
-  }
-  else
-  {
-    if ( !pressedKeys_12EEF0_12EEE0[42] && !pressedKeys_12EEF0_12EEE0[54])//byte_12EF1A shift + 8/*  byte_12EF26 6/^/Right
-    {
-      if ( (str_AE408_AE3F8->var_u8_0 & 0x10) == 0 && lastPressedKey_12EF70_12EF60 == 0x19)//'p'
-      {
-        str_AE408_AE3F8->var_u8_2 ^= 1;
-        if ( (str_AE408_AE3F8->var_u8_2 & 1) != 0 )
-        {
-          if ( byte_939E5 )
-            sub_5D010_5D520();
-          if ( byte_939CD )
-            sub_20E60_20E60();
-        }
-        else if ( byte_939CD )
-        {
-          sub_5D290_5D7A0(str_AE400_AE3F0->var_u32_576.a16[0]);
-        }
-        lastPressedKey_12EF70_12EF60 = 0;
-      }
-      if ( lastPressedKey_12EF70_12EF60 == 0x13)//'r'
-      {
-        if (str_AE400_AE3F0->var_u8_8631 && !str_AE400_AE3F0->var_u8_8603 )
-          sub_34C80_35040();
-        lastPressedKey_12EF70_12EF60 = 0;
-      }
-      if ( lastPressedKey_12EF70_12EF60 == 0x39)//'SPACE'
-      {
-        MakeControlCommand_188A0(15, 0);
-        MakeControlCommand_188A0(27, 0);
-        lastPressedKey_12EF70_12EF60 = 0;
-      }
-      switch ( lastPressedKey_12EF70_12EF60 )
-      {
-        case 0x3B://F1
-          if ( byte_939E4 )
-          {
-            byte_939E5 ^= 1u;
-            if ( byte_939E5 )
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[75]);
-            else
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[76]);
-            sub_5D010_5D520();
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x3C://F2
-          if ( !byte_939CC )
-            goto LABEL_180;
-          if ( byte_939CD )
-          {
-            sub_20E60_20E60();
-            strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[78]);
-            byte_939CD = 0;
-          }
-          else
-          {
-            byte_939CD = 1;
-            sub_5D290_5D7A0(str_AE400_AE3F0->var_u32_576.a16[0]);
-            strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[77]);
-          }
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x3D://F3
-          if ( (str_AE408_AE3F8->var_u8_0 & 0x10) == 0 )
-          {
-              str_AE408_AE3F8->var_u8_150++;
-              str_AE408_AE3F8->var_u8_150 %= 3;
-              switch (str_AE408_AE3F8->var_u8_150)
-              {
-              case 0:
-                  strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[63]);
-                  break;
-              case 1:
-                  strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[64]);
-                  break;
-              case 2:
-                  strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[65]);
-                  break;
-              }
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x3E://F4
-          if (str_AE400_AE3F0->var_u8_8629)
-          {
-            str_AE400_AE3F0->var_u8_8605 ^= 1u;
-            if (str_AE400_AE3F0->var_u8_8605)
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[41]);
-            else
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[42]);
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x3F://F5
-          if (str_AE400_AE3F0->var_u8_8621)
-          {
-            str_AE400_AE3F0->var_u8_8597 ^= 1u;
-            if (str_AE400_AE3F0->var_u8_8597)
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[39]);
-            else
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[40]);
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x40://F6
-          if ( !str_AE400_AE3F0->skyOn_8623 || !begSky_AE3D8_AE3C8_26C3D8_26C3C8 )
-            goto LABEL_180;
-          str_AE400_AE3F0->var_u8_8599 ^= 1u;
-          if (str_AE400_AE3F0->var_u8_8599)
-          {
-              strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[43]);
-          }
-          else
-          {
+	if (str_AE400_AE3F0->var_29715[str_AE400_AE3F0->var_u16_8][0])
+		return;
+	if (pressedKeys_12EEF0_12EEE0[56])//byte_12EF28 8/*/Up (shift/alt/ctrl ?)
+	{
+		switch (lastPressedKey_12EF70_12EF60) {
+		case 0x1f:// 's' save
+			if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
+			{
+				sub_593B0_598C0();
+				str_AE400_AE3F0->str_232607.var_u16_232707 = str_AE408_AE3F8->var_u16_17;
+				str_AE400_AE3F0->str_232607.var_u32_232709 = dword_AC5D4_AC5C4;
+				sub_3E750_3EA90(199);
+				sub_3E8C0_3EC00(199);
+				sub_37220_375E0();
+				str_AE400_AE3F0->var_u32_4593 = -1;
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 100;
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 0;
+				strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, "Game saved.");
+			}
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x26:// 'l' load
+			if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
+			{
+				sub_3E690_3E9D0(199);
+				sub_3E7F0_3EB30(199);
+				str_AE408_AE3F8->var_u16_17 = str_AE400_AE3F0->str_232607.var_u16_232707;
+				dword_AC5D4_AC5C4 = str_AE400_AE3F0->str_232607.var_u32_232709;
+				sub_59420_59930();
+				FlvInitSet_356E0_35AA0();
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 100;
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 0;
+				strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, "Game loaded.");
+			}
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x2F:// 'v'
+			if (str_AE408_AE3F8->var_u8_1 < 0)
+				MakeControlCommand_188A0(4, 8);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x3B://'F1'
+			MakeControlCommand_188A0(30, 1);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x3Cu://'F2'
+			MakeControlCommand_188A0(30, 2);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x3D://'F3'
+			MakeControlCommand_188A0(30, 3);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x3E://'F4'
+			MakeControlCommand_188A0(30, 4);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x3F://'F5'
+			MakeControlCommand_188A0(30, 5);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x40://'F6'
+			MakeControlCommand_188A0(30, 6);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x41://'F7'
+			MakeControlCommand_188A0(30, 7);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		}
+	}
+	else
+	{
+		if (!pressedKeys_12EEF0_12EEE0[0x2A] && !pressedKeys_12EEF0_12EEE0[0x36])//byte_12EF1A shift + 8/*  byte_12EF26 6/^/Right
+		{
+			switch (lastPressedKey_12EF70_12EF60)
+			{
+			case 0x19://'p'
+				if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
+				{
+					str_AE408_AE3F8->var_u8_2 ^= 1;
+					if ((str_AE408_AE3F8->var_u8_2 & 1) != 0)
+					{
+						if (byte_939E5)
+							sub_5D010_5D520();
+						if (byte_939CD)
+							sub_20E60_20E60();
+					}
+					else if (byte_939CD)
+					{
+						sub_5D290_5D7A0(str_AE400_AE3F0->var_u32_576.a16[0]);
+					}
+					lastPressedKey_12EF70_12EF60 = 0;
+				}
+				break;
+			case 0x13://'r'
+				if (str_AE400_AE3F0->var_u8_8631 && !str_AE400_AE3F0->var_u8_8603)
+					sub_34C80_35040();
+				lastPressedKey_12EF70_12EF60 = 0;
+				break;
+			case 0x39://'SPACE'
+				MakeControlCommand_188A0(15, 0);
+				MakeControlCommand_188A0(27, 0);
+				lastPressedKey_12EF70_12EF60 = 0;
+				break;
+			case 0x3B://F1
+				if (byte_939E4)
+				{
+					byte_939E5 ^= 1u;
+					if (byte_939E5)
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[75]);
+					else
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[76]);
+					sub_5D010_5D520();
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x3C://F2
+				if (byte_939CC)
+				{
+					if (byte_939CD)
+					{
+						sub_20E60_20E60();
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[78]);
+						byte_939CD = 0;
+					}
+					else
+					{
+						byte_939CD = 1;
+						sub_5D290_5D7A0(str_AE400_AE3F0->var_u32_576.a16[0]);
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[77]);
+					}
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x3D://F3
+				if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
+				{
+					str_AE408_AE3F8->var_u8_150++;
+					str_AE408_AE3F8->var_u8_150 %= 3;
+					switch (str_AE408_AE3F8->var_u8_150)
+					{
+					case 0:
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[63]);
+						break;
+					case 1:
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[64]);
+						break;
+					case 2:
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[65]);
+						break;
+					}
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x3E://F4
+				if (str_AE400_AE3F0->var_u8_8629)
+				{
+					str_AE400_AE3F0->var_u8_8605 ^= 1u;
+					if (str_AE400_AE3F0->var_u8_8605)
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[41]);
+					else
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[42]);
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x3F://F5
+				if (str_AE400_AE3F0->var_u8_8621)
+				{
+					str_AE400_AE3F0->var_u8_8597 ^= 1u;
+					if (str_AE400_AE3F0->var_u8_8597)
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[39]);
+					else
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[40]);
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x40://F6
+				if (str_AE400_AE3F0->skyOn_8623 && begSky_AE3D8_AE3C8_26C3D8_26C3C8)
+				{
+					str_AE400_AE3F0->var_u8_8599 ^= 1u;
+					if (str_AE400_AE3F0->var_u8_8599)
+					{
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[43]);
+					}
+					else
+					{
 
-            strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[44]);
-          }
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x41://F7
-          if (str_AE400_AE3F0->var_u8_8622)
-          {
-            str_AE400_AE3F0->var_u8_8598 ^= 1u;
-            if (str_AE400_AE3F0->var_u8_8598)
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[37]);
-            else
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[38]);
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          }
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x42://F8
-          str_AE400_AE3F0->var_u8_8601 ^= 1u;
-          str_AE400_AE3F0->var_u8_8602 ^= 1u;
-          if (str_AE400_AE3F0->var_u8_8601)
-             strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[45]);
-          else
-          strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[46]);
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x43://F9
-          if ( !str_AE400_AE3F0->var_u8_8628)
-            goto LABEL_169;
-          if (str_AE400_AE3F0->var_u8_8604)
-          {
-            if (str_AE400_AE3F0->var_u8_8604 <= 1u )
-            {
-                
-              str_AE400_AE3F0->var_u8_8604++;
-              strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[50]);
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-              lastPressedKey_12EF70_12EF60 = 0;
-              return;
-            }
-            if (str_AE400_AE3F0->var_u8_8604 == 2 )
-            {
-                strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[51]);
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-              str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-              str_AE400_AE3F0->var_u8_8604 = 0;
-            }
-          }
-          else if ( dword_AE404_AE3F4 )
-          {
-            str_AE400_AE3F0->var_u8_8604 = 1;
-            strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[49]);
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-            lastPressedKey_12EF70_12EF60 = 0;
-            return;
-          }
-LABEL_169:
-          lastPressedKey_12EF70_12EF60 = 0;
-          return;
-        case 0x44://F10
-          if (str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098 || !str_AE400_AE3F0->var_u8_8627)
-            goto LABEL_180;
-          if (str_AE400_AE3F0->var_u8_8603)
-          {
-            if (str_AE400_AE3F0->var_u8_8603 <= 1u )
-            {
-              sub_315C0_31600();
-              str_AE400_AE3F0->var_u8_8603 = 2;
-              lastPressedKey_12EF70_12EF60 = 0;
-            }
-            else
-            {
-              if (str_AE400_AE3F0->var_u8_8603 == 2 )
-              {
-                str_AE400_AE3F0->var_u8_8603 = 0;
-                goto LABEL_180;
-              }
-              lastPressedKey_12EF70_12EF60 = 0;
-            }
-          }
-          else
-          {
-            if ( !dword_AE404_AE3F4 )
-              goto LABEL_180;
-            sub_31600_31640();
-            str_AE400_AE3F0->var_u8_8603 = 1;
-            str_AE400_AE3F0->var_u8_8600 = 40;
-            lastPressedKey_12EF70_12EF60 = 0;
-          }
-          return;
-        default:
-          return;
-      }
-    }
-    if ( lastPressedKey_12EF70_12EF60 < 0x13u )
-    {
-      if ( lastPressedKey_12EF70_12EF60 >= 0x10u )
-      {
-        if ( lastPressedKey_12EF70_12EF60 <= 0x10u )//'q'
-        {
-          MakeControlCommand_188A0(2, 0);
-          lastPressedKey_12EF70_12EF60 = 0;
-        }
-        else if ( lastPressedKey_12EF70_12EF60 == 0x12u )//'e'
-        {
-          if (str_AE408_AE3F8->var_u8_1 < 0 )
-            MakeControlCommand_188A0(26, 0);
-          lastPressedKey_12EF70_12EF60 = 0;
-        }
-      }
-    }
-    else if ( lastPressedKey_12EF70_12EF60 <= 0x13u )//'r'
-    {
-      if ( (str_AE408_AE3F8->var_u8_0 & 0x10) == 0 )
-      {
-        str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 0xCu;
-        str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_1103.var_50 = 0;
-      }
-      lastPressedKey_12EF70_12EF60 = 0;
-    }
-    else if ( lastPressedKey_12EF70_12EF60 >= 0x21u )
-    {
-      if ( lastPressedKey_12EF70_12EF60 <= 0x21u )//'f'
-      {
-        if (str_AE408_AE3F8->var_u8_1 < 0 )
-        {
-          str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 4u;
-        }
-        lastPressedKey_12EF70_12EF60 = 0;
-      }
-      else if ( lastPressedKey_12EF70_12EF60 == 0x2E )//'c'
-      {
-        if (str_AE408_AE3F8->var_u8_1 >= 0 )
-        {
-LABEL_180:
-          lastPressedKey_12EF70_12EF60 = 0;
-        }
-        else
-        {
-            str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 2u;
-          lastPressedKey_12EF70_12EF60 = 0;
-        }
-      }
-    }
-  }
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[44]);
+					}
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x41://F7
+				if (str_AE400_AE3F0->var_u8_8622)
+				{
+					str_AE400_AE3F0->var_u8_8598 ^= 1u;
+					if (str_AE400_AE3F0->var_u8_8598)
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[37]);
+					else
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[38]);
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x42://F8
+				str_AE400_AE3F0->var_u8_8601 ^= 1u;
+				str_AE400_AE3F0->var_u8_8602 ^= 1u;
+				if (str_AE400_AE3F0->var_u8_8601)
+					strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[45]);
+				else
+					strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[46]);
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x43://F9
+				if (str_AE400_AE3F0->var_u8_8628)
+				{
+					if (str_AE400_AE3F0->var_u8_8604)
+					{
+						if (str_AE400_AE3F0->var_u8_8604 <= 1u)
+						{
+
+							str_AE400_AE3F0->var_u8_8604++;
+							strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[50]);
+							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+							lastPressedKey_12EF70_12EF60 = 0;
+							return;
+						}
+						if (str_AE400_AE3F0->var_u8_8604 == 2)
+						{
+							strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[51]);
+							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+							str_AE400_AE3F0->var_u8_8604 = 0;
+						}
+					}
+					else if (dword_AE404_AE3F4)
+					{
+						str_AE400_AE3F0->var_u8_8604 = 1;
+						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[49]);
+						str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+						str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+						lastPressedKey_12EF70_12EF60 = 0;
+						return;
+					}
+				}
+				lastPressedKey_12EF70_12EF60 = 0;
+				return;
+			case 0x44://F10
+				if (str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098 || !str_AE400_AE3F0->var_u8_8627)
+				{
+					lastPressedKey_12EF70_12EF60 = 0;
+					return;
+				}
+				if (str_AE400_AE3F0->var_u8_8603)
+				{
+					if (str_AE400_AE3F0->var_u8_8603 <= 1u)
+					{
+						sub_315C0_31600();
+						str_AE400_AE3F0->var_u8_8603 = 2;
+						lastPressedKey_12EF70_12EF60 = 0;
+					}
+					else
+					{
+						if (str_AE400_AE3F0->var_u8_8603 == 2)
+							str_AE400_AE3F0->var_u8_8603 = 0;
+						lastPressedKey_12EF70_12EF60 = 0;
+					}
+				}
+				else
+				{
+					if (dword_AE404_AE3F4)
+					{
+						sub_31600_31640();
+						str_AE400_AE3F0->var_u8_8603 = 1;
+						str_AE400_AE3F0->var_u8_8600 = 40;
+					}
+					lastPressedKey_12EF70_12EF60 = 0;
+				}
+				return;
+			default:
+				return;
+			}
+		}
+		switch (lastPressedKey_12EF70_12EF60)
+		{
+		case 0x10u://'q'
+			MakeControlCommand_188A0(2, 0);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x12u://'e'
+			if (str_AE408_AE3F8->var_u8_1 < 0)
+				MakeControlCommand_188A0(26, 0);
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x13u://'r'
+			if ((str_AE408_AE3F8->var_u8_0 & 0x10) == 0)
+			{
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 0xCu;
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].str_1103.var_50 = 0;
+			}
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x21u://'f'
+			if (str_AE408_AE3F8->var_u8_1 < 0)
+			{
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 4u;
+			}
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+		case 0x2E://'c'
+			if (str_AE408_AE3F8->var_u8_1 < 0)
+				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 |= 2u;
+			lastPressedKey_12EF70_12EF60 = 0;
+			break;
+
+		}
+	}
 }
 
 //----- (00017C20) --------------------------------------------------------
@@ -69640,7 +69626,7 @@ void sub_5D010_5D520()
 
   if ( byte_939E4 )
   {
-    for ( i = 0; i < 0x20u; ++i )
+    for ( i = 0; i < 0x20u; i++ )
     {
       while ( !sub_651F8(dword_CC140, i) )
         sub_65965(dword_CC140, i);
