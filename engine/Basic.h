@@ -264,7 +264,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	_Type_AE400_29795* next;
 	uint32 rand_29799_4;//4
 	uint32 maxLife_29803_8;//8
-	int32 var_u32_29807_12;//12 //act live?
+	int32 actLife_29807_12;//12 //act live?
 	Type_29811 var_29811_16;//16
 	//uint8 var_u8_29812;//17
 	uint16 var_u16_29815_20;//20
@@ -401,7 +401,7 @@ typedef struct {//size 232713
 	Type_AE400_29795* var_u32_593[1000];
 	int32 var_u32_4593;
 	Type_AE400_29795* var_u32_4597[1000];
-	uint8 var_u8_8597;
+	uint8 reflections_8597;//0 is on
 	uint8 var_u8_8598;
 	uint8 var_u8_8599;
 	int8 var_u8_8600;
@@ -409,7 +409,7 @@ typedef struct {//size 232713
 	uint8 var_u8_8602;
 	uint8 var_u8_8603;
 	uint8 var_u8_8604;
-	uint8 var_u8_8605;
+	uint8 softenOn_8605;
 	uint8 var_u8_8606;
 	uint8 stub9[1];
 	uint8 var_u8_8608;
@@ -430,7 +430,7 @@ typedef struct {//size 232713
 	uint8 stub12[2033];
 	TypeStrAE400_13323 str_11274;
 	TypeStrAE400_13323 str_13323[8];//fix
-	char var_29715[8][10];
+	char var_29715[8][10];// 5 - arrows
 	Type_AE400_29795 str_29795[1000];// len 164000	
 	Type_AE400_193795 str_193795;
 	Type_AE400_232607 str_232607;// len 106
@@ -505,7 +505,7 @@ typedef struct {//size 36478
 	uint8 stubb[8];
 	char textBuffer_117[32];//fix size
 	uint8 stubc[1];
-	uint8 var_u8_150;
+	uint8 gameSpeed_150;
 	uint8 var_u8_151;
 	uint8 var_u8_152;
 	uint32 var_u32_153;

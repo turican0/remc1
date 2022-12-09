@@ -655,6 +655,16 @@ TypeStrFont* dword_AE3B8_2[2] = { &sFont0Tab_12CB28_2EAB28_2EAB18, &sFont1Tab_12
 switch ( lastPressedKey_12EF70 )
 
 sub_16B00
+---------------------------------
+pdwScreenBuffer_12EFF4 + 0
+0x36 0xversus 0x55
+
+---------------------------------
+pdwScreenBuffer_12EFF4 + 0xa696
+0xb4 0xversus 0x49
+
+(uint8*)pnt1+0
+0xb4 versus 0xff
 
 
 
