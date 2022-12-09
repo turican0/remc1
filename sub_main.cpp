@@ -20604,7 +20604,7 @@ LABEL_177:
 // 12EFE2: using guessed type __int16 mouseRightButton2_12EFE2_12EFD2;
 // 12EFE4: using guessed type __int16 mouseLeftButton2_12EFE4_12EFD4;
 
-//----- (000188A0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void MakeControlCommand_188A0(int a1, char a2)
 {
   int v2; // edx
@@ -20822,11 +20822,8 @@ LABEL_79:
     default:
 LABEL_80:
       dword_AE400_AE3F0(v2);
-      return;
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 void sub_192D8()
 {
