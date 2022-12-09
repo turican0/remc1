@@ -5,6 +5,8 @@
 
 #define FIX_MOUSE
 
+#define MODIFY_SETTINGS
+
 #define MAX_WIDTH 1920
 
 bool IsHiddenWord = false;
@@ -41077,6 +41079,9 @@ void sub_34610_349D0()
 {
   //int v3; // ebx
   //int result; // eax
+#ifdef MODIFY_SETTINGS
+    *(_BYTE*)(dword_AE400_AE3F0() + 8605) = 1;
+#endif //MODIFY_SETTINGS
 
   //v3 = dword_AE400_AE3F0();
     str_AE408_AE3F8->var_u8_23 = 0;
