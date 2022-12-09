@@ -5,7 +5,7 @@
 
 #define FIX_MOUSE
 
-#define MODIFY_SETTINGS
+//#define MODIFY_SETTINGS
 
 #define MAX_WIDTH 1920
 
@@ -27458,7 +27458,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
       sub_30A70_30AB0(str_AE400_AE3F0->var_u8_8600);
       //v1 = 2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0();
       //v2 = *(_WORD *)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13337);
-      if (DrawGameFrame_20FB0_index == 6)
+      if (DrawGameFrame_20FB0_index == 7)
       {
           DrawGameFrame_20FB0_index++;
           DrawGameFrame_20FB0_index--;
@@ -34190,7 +34190,7 @@ LABEL_122:
   //adress 1FC930
 //debug
 #ifdef debug1
-  add_compare(0x1FC930, true, true);
+  //add_compare(0x1FC930, true, true);
 #endif debug1
   //debug
   v238 = 21;
@@ -34271,7 +34271,7 @@ LABEL_163:
   //adress 1FCBE3
 //debug
 #ifdef debug1
-  add_compare(0x1FCBE3, true, true);
+  //add_compare(0x1FCBE3, true, true);
 #endif debug1
   //debug
   v138 = a7 & 0x7FF;
@@ -34316,7 +34316,7 @@ LABEL_163:
   //adress 1FCCA3
 //debug
 #ifdef debug1
-  add_compare(0x1FCCA3, true, true);
+  //add_compare(0x1FCCA3, true, true);
 #endif debug1
   //debug
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8603) != 2 || *(_BYTE *)(dword_AE400_AE3F0() + 8606) )
@@ -41080,7 +41080,7 @@ void sub_34610_349D0()
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    *(_BYTE*)(dword_AE400_AE3F0() + 8605) = 1;
+    *(_BYTE*)(dword_AE400_AE3F0() + 8597) = 0;
 #endif //MODIFY_SETTINGS
 
   //v3 = dword_AE400_AE3F0();
