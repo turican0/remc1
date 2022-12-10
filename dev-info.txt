@@ -665,7 +665,20 @@ pdwScreenBuffer_12EFF4 + 0xa696
 
 (uint8*)pnt1+0
 0xb4 versus 0xff
+---------------------------------
+pdwScreenBuffer_12EFF4 + 0
+0x2ECFF4 + 0
+0xb4 0xversus 0x35
 
+0x1FCBE3
+
+tempBegBscreen 26C400->1F690
+edi 26C3FC->77160
+
+((int)tempBegBscreen)+35200+16 versus 0x7FAE0+16
+in adress 1FCC57/2BC57 DrawSkyTerrainParticles_2A700_2A740
+
+test after 0x1FCBE3 2BBE3
 
 
 
