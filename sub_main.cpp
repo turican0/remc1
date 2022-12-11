@@ -33784,6 +33784,9 @@ LABEL_26:
     }
 }
 
+int index1fd013 = 0;
+int index1FD1D8 = 0;
+
 //DrawSkyTerrainParticles_2A700_2A740(roll, tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
 void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw, int posZ, int pitch, __int16 roll, int fow)//1FB700_
 {
@@ -33791,7 +33794,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	int yawAngle; // eax
 	int tempCosCount; // ebp
 	int tempCosShift; // edi
-	int tempSinCountSh; // ecx
+	//int tempSinCountSh; // ecx
 	int powX; // ebx
 	int tempY; // esi
 	int sumPowXY; // ebx
@@ -33875,19 +33878,18 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	default:
 		break;
 	}
-	tempCosCount = yawY * tempCos;
 
-	tempSinShift = tempSin << 8;
-	tempSinCount = yawY * tempSin;
-	Type_BegBscreen* tempBegBscreen = (Type_BegBscreen*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
-	int index = 0;
+    Type_BegBscreen* tempBegBscreen = (Type_BegBscreen*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
+	tempCosCount = yawY * tempCos;	
+	tempSinCount = yawY * tempSin;	
+    tempSinShift = tempSin << 8;
 	tempCosShift = tempCos << 8;
+    int index = 0;
 	for (int indexR = 0; indexR < textRows; indexR++)
 	{
-		tempSinCountSh = tempSinCount >> 16;
 		for (int indexC = 0; indexC < textColumns; indexC++)
 		{
-			tempBegBscreen[index].x_0 = tempSinCountSh;
+			tempBegBscreen[index].x_0 = tempSinCount >> 16;
 			tempBegBscreen[index].y_12 = tempCosCount >> 16;
 			if (yawY < 0)
 				tempBegBscreen[index].triangleDir_38.word = 0;
@@ -33901,16 +33903,16 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		tempSinCount += tempSinShift;
 	}
 	tempSinCount = tempSin * yawX;
+    tempCosCount = tempCos * yawX;
 	tempSinShift = tempSin << 8;
-	tempCosShift = tempCos << 8;
-	tempCosCount = tempCos * yawX;
+	tempCosShift = tempCos << 8;	
 	index = 0;
 	for (int indexC = 0; indexC < textColumns; indexC++)
 	{
 		for (int indexR = 0; indexR < textRows; indexR++)
 		{
 			tempBegBscreen[index].x_0 -= tempCosCount >> 16;
-			tempBegBscreen[index].y_12 += (tempSinCount >> 16);
+			tempBegBscreen[index].y_12 += tempSinCount >> 16;
 			index++;
 		}
 		tempSinCount += tempSinShift;
@@ -34471,20 +34473,20 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 #endif debug1
 	//debug
 
-	v238 = textColumns;
-	do
-	{
-		v243 = textRows;
-		do
+	
+    for (v238 = textColumns; v238; v238--)
+	{		
+		for(v243 = textRows; v243; v243--)
 		{
 			int powX = pow(tempBegBscreen[index].x_0, 2);
-			int powY = pow(tempBegBscreen[index].y_12, 2);
+            int tempY = tempBegBscreen[index].y_12;
+			int powY = pow(tempY, 2);
 			tempBegBscreen[index].haveSprite_36 = 0;
-			if (tempBegBscreen[index].y_12 > -256 && powY + powX < dword_B5D00_B5CF0)
+			if (tempY > -256 && powY + powX < dword_B5D00_B5CF0)
 			{
-				if (tempBegBscreen[index].y_12 < 128)
-					tempBegBscreen[index].y_12 = 128;
-				tempBegBscreen[index].pnt1_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempBegBscreen[index].y_12;
+				if (tempY < 128)
+                    tempY = 128;
+				tempBegBscreen[index].pnt1_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempY;
 				tempBegBscreen[index].var_4 = 32 * mapHeightmap_DC1E0_DC1D0[yawXY.word] - posZ;
 				tempCosDiaY = cos_90B4C[((str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6) + (yawXY._axis_2d.y << 7)) & 0x7FF] >> 8;
 				tempCosXSin = pow(tempCosDiaY, 2);
@@ -34493,6 +34495,26 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				else
 					tempCosXSin = 0;
 				tempVar32 = (((mapShading_EC1E0_EC1D0[yawXY.word] << 8) + 128) << 8) + 8 * tempCosXSin;
+                if (powY + powX > dword_B5CF0_B5CE0)
+                {
+                    if (powY + powX >= dword_B5D0C_B5CFC)
+                        tempBegBscreen[index].pnt5_32 = 0;
+                    else
+                        tempBegBscreen[index].pnt5_32 = tempVar32 * (__int64)(dword_B5D0C_B5CFC - (powY + powX)) / dword_B5CEC_B5CDC;
+                }
+                else
+                    tempBegBscreen[index].pnt5_32 = tempVar32;
+                tempBegBscreen[index].pnt2_20 = dword_B5CFC_B5CEC + fowDist_B5D14_B5D04 * tempBegBscreen[index].var_4 / tempY;
+                uaxis_2d tempYawXY = yawXY;
+                tempYawXY._axis_2d.x += yawQuartal[2];
+                tempYawXY._axis_2d.y += yawQuartal[3];
+                tempBegBscreen[index].haveTexture_41 = mapTerrainType_CC1E0_CC1D0[tempYawXY.word];
+                tempBegBscreen[index].var_43 = byte_900C4[tempBegBscreen[index].haveTexture_41];
+                tempBegBscreen[index].var_42 = modYaw + ((mapAngle_FC1E0_FC1D0[tempYawXY.word] >> 2) & 0x1C);
+                tempYawXY._axis_2d.x += yawQuartal[4];
+                tempYawXY._axis_2d.y += yawQuartal[5];
+                tempBegBscreen[index].haveSprite_36 = mapEntityIndex_10C1E0_10C1D0[tempYawXY.word];
+                /*
 				if (powY + powX > dword_B5CF0_B5CE0)
 				{
 					if (powY + powX >= dword_B5D0C_B5CFC)
@@ -34513,31 +34535,36 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					tempVar32 = tempVar32 * (__int64)(dword_B5D0C_B5CFC - powY + powX) / dword_B5CEC_B5CDC;
 				}
 				tempBegBscreen[index].pnt5_32 = tempVar32;
-				goto LABEL_161;
+				goto LABEL_161;*/
 			}
-			tempBegBscreen[index].triangleDir_38._axis_2d.x |= 2u;
-		LABEL_163:
+            else
+			    tempBegBscreen[index].triangleDir_38._axis_2d.x |= 2u;
+		//LABEL_163:
 			tempBegBscreen[index].triangleDir_38.word |= (yawXY._axis_2d.x + yawXY._axis_2d.y) & 1;
 			yawXY._axis_2d.x += yawQuartal[8];
 			yawXY._axis_2d.y += yawQuartal[9];
-			--v243;
+			//--v243;
 			index++;
-		} while (v243);
+		} //while (v243);
 		yawXY._axis_2d.x += yawQuartal[6];
 		yawXY._axis_2d.y += yawQuartal[7];
-		--v238;
-	} while (v238);
+		//--v238;
+	} //while (v238);
 
 	//adress 1FCBE3_
   //debug
 #ifdef debug1
 	//add_compare(0x1FCBE3, true, true);
 #endif debug1
-	//debug
-	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
+	//debug	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
 	dword_B5CE8_B5CD8 = sin_9134C[roll & 0x7FF];
     for (int index142 = 0; index142 < textRows * textColumns; index142++)
 	{
+        if (index142 == 0x32)
+        {
+            index142++;
+            index142--;
+        }
 		tempSubVar20 = (dword_B5CD4_B5CC4 * tempBegBscreen[index142].pnt1_16 + dword_B5CE8_B5CD8 * tempBegBscreen[index142].pnt2_20) >> 16;
 		tempBegBscreen[index142].pnt1_16 = ((tempBegBscreen[index142].pnt1_16 * dword_B5CE8_B5CD8 - dword_B5CD4_B5CC4 * tempBegBscreen[index142].pnt2_20) >> 16)
 			+ dword_B5D08_B5CF8;
@@ -34579,6 +34606,18 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			{
                 if ((tempBegBscreen[index169 + 1].triangleDir_38._axis_2d.x & 4) != 0)
                     break;
+
+//debug 0x1fd013
+#ifdef debug1
+    //add_compare(0x1fd013, true, true);
+                if (index1fd013 == 0x21)
+                {
+                    index1fd013++;
+                    index1fd013--;
+                }
+                index1fd013++;
+#endif debug1
+    //debug
 
 				v213x.x_0 = tempBegBscreen[index169].pnt1_16;
 				v213x.y_1 = tempBegBscreen[index169].pnt2_20;
@@ -34631,9 +34670,20 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 			}
 			if (index232)
 			{
-				int index183 = index169 - 1;
+				int index183 = index169;
                 for(int index184 = index168 + textRows - 2; index184 >= index183; index184--)
 				{
+                    //0x1FD1D8
+#ifdef debug1
+//add_compare(0x1FD1D8, true, true);
+                    if (index1FD1D8 == 0x13)
+                    {
+                        index1FD1D8++;
+                        index1FD1D8--;
+                    }
+                    index1FD1D8++;
+#endif debug1
+                    //debug
 					v213x.x_0 = tempBegBscreen[index184].pnt1_16;
 					v213x.y_1 = tempBegBscreen[index184].pnt2_20;
 					v213x.z_4 = tempBegBscreen[index184].pnt5_32;
@@ -34683,6 +34733,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                     //index184--;
 				}// while (index183 >= 100/*v183*/);//fix
 			}
+            index168 -= textRows;
 		}
 	}
 	else
@@ -102765,7 +102816,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
 //  adress 2439A3_
 //debug
 #ifdef debug1
-  if (compare_index_729A7 == 0x3609)
+  if (compare_index_729A7 == 0x11)
   {
       compare_index_729A7++;
       compare_index_729A7--;

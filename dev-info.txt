@@ -680,6 +680,31 @@ in adress 1FCC57/2BC57 DrawSkyTerrainParticles_2A700_2A740
 
 test after 0x1FCBE3 2BBE3
 
+tempBegBscreen[0x32f].pnt2_20
+0x7FD88
+9090d690
+1c1e211c
+0000000
+c5ffffff
+9f000000
+1FCC5F/2BC5F
+
+((int)tempBegBscreen)+0x30
+0x77160+0x30 0x5E3FFFF 0xA0FDFFFF
+0x1FB9CD/2A9CD
+
+test after 0x1FC930
+
+2A96A
+
+add_compare(0x1FC930, true, true);
+
+2c312 // 1FD312
+2c339 // 1FD339
+2c34e // 1FD34e
+
+			if (index232)
+
 
 
 
