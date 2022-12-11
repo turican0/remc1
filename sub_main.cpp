@@ -19872,7 +19872,7 @@ void ProcessKeys_16B00()//1E7B00_
 				}
 				break;
 			case 0x13://'r'
-				if (str_AE400_AE3F0->var_u8_8631 && !str_AE400_AE3F0->var_u8_8603)
+				if (str_AE400_AE3F0->var_u8_8631 && !str_AE400_AE3F0->mod3D_8603)
 					sub_34C80_35040();
 				lastPressedKey_12EF70_12EF60 = 0;
 				break;
@@ -19900,9 +19900,9 @@ void ProcessKeys_16B00()//1E7B00_
 				{
 					if (byte_939CD)
 					{
+                        byte_939CD = 0;
 						sub_20E60_20E60();
 						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[78]);
-						byte_939CD = 0;
 					}
 					else
 					{
@@ -19963,29 +19963,24 @@ void ProcessKeys_16B00()//1E7B00_
 				}
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
-			case 0x40://F6
-				if (str_AE400_AE3F0->skyOn_8623 && begSky_AE3D8_AE3C8_26C3D8_26C3C8)
+			case 0x40://F6 skyOn
+				if (str_AE400_AE3F0->var_u8_8623 && begSky_AE3D8_AE3C8_26C3D8_26C3C8)
 				{
-					str_AE400_AE3F0->var_u8_8599 ^= 1u;
-					if (str_AE400_AE3F0->var_u8_8599)
-					{
+					str_AE400_AE3F0->skyOn_8599 ^= 1u;
+					if (str_AE400_AE3F0->skyOn_8599)
 						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[43]);
-					}
 					else
-					{
-
 						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[44]);
-					}
 					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
 					str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
 				}
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
-			case 0x41://F7
+			case 0x41://F7 shadowsOn
 				if (str_AE400_AE3F0->var_u8_8622)
 				{
-					str_AE400_AE3F0->var_u8_8598 ^= 1u;
-					if (str_AE400_AE3F0->var_u8_8598)
+					str_AE400_AE3F0->shadowsOn_8598 ^= 1u;
+					if (str_AE400_AE3F0->shadowsOn_8598)
 						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[37]);
 					else
 						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[38]);
@@ -19994,10 +19989,10 @@ void ProcessKeys_16B00()//1E7B00_
 				}
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
-			case 0x42://F8
-				str_AE400_AE3F0->var_u8_8601 ^= 1u;
-				str_AE400_AE3F0->var_u8_8602 ^= 1u;
-				if (str_AE400_AE3F0->var_u8_8601)
+			case 0x42://F8 IconsAndMap
+				str_AE400_AE3F0->mapOn_8601 ^= 1u;
+				str_AE400_AE3F0->iconsOn_8602 ^= 1u;
+				if (str_AE400_AE3F0->mapOn_8601)
 					strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[45]);
 				else
 					strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[46]);
@@ -20005,72 +20000,52 @@ void ProcessKeys_16B00()//1E7B00_
 				str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
-			case 0x43://F9
+			case 0x43://F9 blur
 				if (str_AE400_AE3F0->var_u8_8628)
 				{
-					if (str_AE400_AE3F0->var_u8_8604)
-					{
-						if (str_AE400_AE3F0->var_u8_8604 <= 1u)
-						{
-
-							str_AE400_AE3F0->var_u8_8604++;
-							strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[50]);
-							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-							lastPressedKey_12EF70_12EF60 = 0;
-							return;
-						}
-						if (str_AE400_AE3F0->var_u8_8604 == 2)
-						{
-							strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[51]);
-							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-							str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-							str_AE400_AE3F0->var_u8_8604 = 0;
-						}
-					}
-					else if (dword_AE404_AE3F4)
-					{
-						str_AE400_AE3F0->var_u8_8604 = 1;
-						strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[49]);
-						str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
-						str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
-						lastPressedKey_12EF70_12EF60 = 0;
-						return;
-					}
+                    switch (str_AE400_AE3F0->blur_8604)
+                    {
+                    case 0:
+                        strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[49]);
+                        break;
+                    case 1:
+                        strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[50]);
+                        break;
+                    case 2:
+                        strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[51]);
+                        break;
+                    str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
+                    str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
+                    str_AE400_AE3F0->blur_8604++;
+                    str_AE400_AE3F0->blur_8604 %= 3;
+                    }
 				}
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
-			case 0x44://F10
+			case 0x44://F10 3Dmod
 				if (str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098 || !str_AE400_AE3F0->var_u8_8627)
 				{
 					lastPressedKey_12EF70_12EF60 = 0;
 					return;
 				}
-				if (str_AE400_AE3F0->var_u8_8603)
-				{
-					if (str_AE400_AE3F0->var_u8_8603 <= 1u)
-					{
-						sub_315C0_31600();
-						str_AE400_AE3F0->var_u8_8603 = 2;
-						lastPressedKey_12EF70_12EF60 = 0;
-					}
-					else
-					{
-						if (str_AE400_AE3F0->var_u8_8603 == 2)
-							str_AE400_AE3F0->var_u8_8603 = 0;
-						lastPressedKey_12EF70_12EF60 = 0;
-					}
-				}
-				else
-				{
-					if (dword_AE404_AE3F4)
-					{
-						sub_31600_31640();
-						str_AE400_AE3F0->var_u8_8603 = 1;
-						str_AE400_AE3F0->var_u8_8600 = 40;
-					}
-					lastPressedKey_12EF70_12EF60 = 0;
-				}
+                switch (str_AE400_AE3F0->mod3D_8603)
+                {
+                case 0:
+                    if (dword_AE404_AE3F4)
+                    {
+                        sub_31600_31640();
+                        str_AE400_AE3F0->var_u8_8600 = 40;
+                    }
+                    break;
+                case 1:
+                    sub_315C0_31600();
+                    break;
+                case 2:
+                    break;
+                }
+                str_AE400_AE3F0->mod3D_8603++;
+                str_AE400_AE3F0->mod3D_8603 %= 3;
+                lastPressedKey_12EF70_12EF60 = 0;
 				return;
 			default:
 				return;
@@ -20347,7 +20322,7 @@ LABEL_54:
       }
       if ( lastPressedKey_12EF70_12EF60 == 27 )
       {
-        if ( !str_AE400_AE3F0->var_u8_8603 )
+        if ( !str_AE400_AE3F0->mod3D_8603 )
         {
           v10 = str_AE400_AE3F0->var_u8_8600;
           if ( v10 > 17 )
@@ -26385,7 +26360,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
         if (str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].actLife_29807_12 >= 0
 			&& (str_AE408_AE3F8->var_u8_0 & 4) == 0)
 		{
-			if (str_AE400_AE3F0->var_u8_8601)
+			if (str_AE400_AE3F0->mapOn_8601)
 			{
 				DrawMinimap_49300_49640(
 					0,
@@ -26422,7 +26397,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
 #endif debug1
 		//debug
 			Type_160* v6x = str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].var_u32_29955_160;
-			if (str_AE400_AE3F0->var_u8_8602)
+			if (str_AE400_AE3F0->iconsOn_8602)
 			{
 				sub_23D40(
 					510,
@@ -33837,7 +33812,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	uPosX.word = posX;
 	uPosY.word = posY;
 
-	byte_B5D3F_B5D2F = str_AE400_AE3F0->var_u8_8598;
+	byte_B5D3F_B5D2F = str_AE400_AE3F0->shadowsOn_8598;
 	heightViewPort_B5CE4_B5CD4 = heightViewPort_93ADC >> 1;
 	posX_B5D3C_B5D2C = posX;
 	yaw_B5D38_B5D28 = yaw & 0x7FF;
@@ -33931,28 +33906,28 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	dword_B5CE8_B5CD8 = sin_9134C[roll & 0x7FF];
 	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
 	int drawShift = 0;
-	uint32 pattern = 0;
-	if (str_AE400_AE3F0->var_u8_8603 == 2 && !str_AE400_AE3F0->var_u8_8606)
+	uint8 pattern = 0;
+	if (str_AE400_AE3F0->mod3D_8603 == 2 && !str_AE400_AE3F0->var_u8_8606)
 	{
 		drawShift = pitchViewPort_93AD4 - widthViewPort_93AD8;
-		pattern = 0x400040;
-		for (index = heightViewPort_93ADC; index < heightViewPort_93ADC; index++)
+		pattern = 0x40;
+        uint8* drawBuffer = beginFrame_93ACC;
+		for (index = 0; index < heightViewPort_93ADC; index++)
 		{
-			uint8* drawBuffer = beginFrame_93ACC;
-			memset(drawBuffer, pattern, widthViewPort_93AD8 >> 2);
-			drawBuffer += 4 * (widthViewPort_93AD8 >> 2) + drawShift;
+			memset(drawBuffer, pattern, widthViewPort_93AD8);
+			drawBuffer += widthViewPort_93AD8 + drawShift;
 		}
 	}
 	else
-		if (!str_AE400_AE3F0->var_u8_8599)
+		if (!str_AE400_AE3F0->skyOn_8599)
 		{
 			drawShift = pitchViewPort_93AD4 - widthViewPort_93AD8;
-			pattern = 0xffffffff;
-			for (index = heightViewPort_93ADC; index < heightViewPort_93ADC; index++)
+			pattern = 0xff;
+            uint8* drawBuffer = beginFrame_93ACC;
+			for (index = 0; index < heightViewPort_93ADC; index++)
 			{
-				uint8* drawBuffer = beginFrame_93ACC;
-				memset(drawBuffer, pattern, widthViewPort_93AD8 >> 2);
-				drawBuffer += 4 * (widthViewPort_93AD8 >> 2) + drawShift;
+				memset(drawBuffer, pattern, widthViewPort_93AD8);
+				drawBuffer += widthViewPort_93AD8 + drawShift;
 			}
 		}
 		else
@@ -33965,7 +33940,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 
 	//debug
 	index = 0;
-	if (str_AE400_AE3F0->reflections_8597 && (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606))
+	if (str_AE400_AE3F0->reflections_8597 && (str_AE400_AE3F0->mod3D_8603 != 2 || str_AE400_AE3F0->var_u8_8606))
 	{
 		for (int indexC = 0; indexC < textColumns; indexC++)
 		{
@@ -34595,7 +34570,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	//add_compare(0x1FCCA5, true, true);
 #endif debug1
 	//debug
-	if (str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606)
+	if (str_AE400_AE3F0->mod3D_8603 != 2 || str_AE400_AE3F0->var_u8_8606)
 	{
 		int index168 = textRows * (textColumns - 1);
 		for (int index244 = textColumns - 1; index244; index244--)
@@ -37847,7 +37822,7 @@ void sub_30B30()
   uint8* v15; // [esp+8h] [ebp-14h]
   _BYTE *v16; // [esp+8h] [ebp-14h]
 
-  if ( str_AE400_AE3F0->var_u8_8603 == 1 && !byte_90708 )
+  if ( str_AE400_AE3F0->mod3D_8603 == 1 && !byte_90708 )
   {
     v13 = (int)widthViewPort_93AD8 >> 2;
     v15 = beginFrame_93ACC;
@@ -37930,7 +37905,7 @@ LABEL_20:
   }
   else
   {
-    if ( str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->var_u8_8603 )
+    if ( str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->mod3D_8603 )
     {
       sub_79B2D();
       return;
@@ -38098,7 +38073,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   tempFixPosX = fixPosX_90710 + posX;
   tempFixPosY = fixPosY_90714 + posY;
   int tempYaw = yaw & 0x7FF;
-  if ( str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->var_u8_8603 && scrWidth_12EFF0_12EFE0 == 640 )
+  if ( str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->mod3D_8603 && scrWidth_12EFF0_12EFE0 == 640 )
   {
     SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, 2 * scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0 / 2 - 8, scrHeight_12EFF8_12EFE8 / 2 - 40);
     dword_9070C = 20;
@@ -38112,11 +38087,11 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
     dword_902B0 = 0;
     SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0, scrHeight_12EFF8_12EFE8);
   }
-  else if ( str_AE400_AE3F0->var_u8_8603 != 2 || str_AE400_AE3F0->var_u8_8606 )
+  else if ( str_AE400_AE3F0->mod3D_8603 != 2 || str_AE400_AE3F0->var_u8_8606 )
   {
-    if ( str_AE400_AE3F0->var_u8_8603 != 1 || str_AE400_AE3F0->var_u8_8606 )
+    if ( str_AE400_AE3F0->mod3D_8603 != 1 || str_AE400_AE3F0->var_u8_8606 )
     {
-      temp8604 = str_AE400_AE3F0->var_u8_8604;
+      temp8604 = str_AE400_AE3F0->blur_8604;
       if ( typeResolution_12F02E_12F01E == 1 )
       {          
         if ( !str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098)
@@ -38129,13 +38104,13 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
               {
                 actSpeed = str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].actSpeed_29921_126;
                 if ( (int)((HIDWORD(actSpeed) ^ actSpeed) - HIDWORD(actSpeed)) > 80 )//fix it
-                  str_AE400_AE3F0->var_u8_8604 = 1;
+                  str_AE400_AE3F0->blur_8604 = 1;
               }
             }
           }
         }
       }
-      if ( str_AE400_AE3F0->var_u8_8604 && dword_AE404_AE3F4 )
+      if ( str_AE400_AE3F0->blur_8604 && dword_AE404_AE3F4 )
       {
         //v73 = beginFrame_93ACC;
         SetViewPort2_79495_799A5(dword_AE404_AE3F4, 0, 0, 0, 0);
@@ -38148,7 +38123,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
         int tempFix = dword_AE400_AE3F0();
         //fix
         HIWORD(v50) = HIWORD(tempFix);
-        if ( str_AE400_AE3F0->var_u8_8604 == 1 )
+        if ( str_AE400_AE3F0->blur_8604 == 1 )
         {
           v51 = (_BYTE *)beginFrame_93ACC;
           v52 = (_BYTE *)dword_AE404_AE3F4;
@@ -38262,7 +38237,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
           }
         }
       }
-      str_AE400_AE3F0->var_u8_8604 = temp8604;
+      str_AE400_AE3F0->blur_8604 = temp8604;
     }
     else
     {
@@ -38422,7 +38397,7 @@ void sub_31600_31640()//202600_
   char v53; // [esp+30Ch] [ebp-18h]
   char v54; // [esp+310h] [ebp-14h]
 
-  if ( str_AE400_AE3F0->var_u8_8603 && pitchViewPort_93AD4 == 640 )
+  if ( str_AE400_AE3F0->mod3D_8603 && pitchViewPort_93AD4 == 640 )
     sub_5B500();
   if ( dword_AE404_AE3F4 && !str_AE400_AE3F0->var_u8_8606 )
   {
@@ -38658,17 +38633,17 @@ void sub_31A00_31A40()
   //unsigned __int8 *v1; // [esp-4h] [ebp-8h]
 
   result = dword_AE400_AE3F0();
-  if ( str_AE400_AE3F0->var_u8_8603 )
+  if ( str_AE400_AE3F0->mod3D_8603 )
   {
     if ( str_AE400_AE3F0->var_u8_8606 )
     {
       if ( pitchViewPort_93AD4 == 640 )
         sub_5B560();
     }
-    byte_90754 = str_AE400_AE3F0->var_u8_8603;
+    byte_90754 = str_AE400_AE3F0->mod3D_8603;
     sub_315C0_31600();
     //v1 = (unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418;
-    str_AE400_AE3F0->var_u8_8603 = 0;
+    str_AE400_AE3F0->mod3D_8603 = 0;
     sub_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
   }
 }
@@ -38683,7 +38658,7 @@ void sub_31A60_31AA0()
   char v0; // dl
 
   v0 = byte_90754;
-  str_AE400_AE3F0->var_u8_8603 = byte_90754;
+  str_AE400_AE3F0->mod3D_8603 = byte_90754;
   if ( v0 == 1 )
     sub_31600_31640();
   byte_90754 = 0;
@@ -41067,7 +41042,7 @@ int sub_344F0()
 //----- (00034530) --------------------------------------------------------
 void DrawAndEventsInGame_34530()//205530_
 {
-	if (!str_AE400_AE3F0->var_u8_8603)
+	if (!str_AE400_AE3F0->mod3D_8603)
 		sub_34690();
 	if ((str_AE408_AE3F8->var_u8_2 & 1) == 0)
 		sub_590D0();
@@ -41115,7 +41090,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
@@ -41139,7 +41114,7 @@ void GameLoop_34610_349D0()//205610_
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    str_AE400_AE3F0->reflections_8597 = 0;
+    str_AE400_AE3F0->blur_8604 = 0;
 #endif //MODIFY_SETTINGS
 
   //v3 = dword_AE400_AE3F0();
@@ -41188,7 +41163,7 @@ char sub_34690()
   }
   else if ( (_BYTE)v1 == 3 )
   {
-    if ( str_AE400_AE3F0->var_u8_8603 )
+    if ( str_AE400_AE3F0->mod3D_8603 )
       sub_61EC8();
     LOBYTE(v1) = *(_BYTE *)(dword_AE408_AE3F8() + 152);
     switch ( (char)v1 )
@@ -41623,7 +41598,7 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		str_AE400_AE3F0->var_u8_8621 = 1;
 		str_AE400_AE3F0->var_u8_8621 = 1;
 		str_AE400_AE3F0->var_u8_8622 = 1;
-		str_AE400_AE3F0->skyOn_8623 = 1;
+		str_AE400_AE3F0->var_u8_8623 = 1;
 		str_AE400_AE3F0->var_u8_8624 = 1;
 		str_AE400_AE3F0->var_u8_8625 = 1;
 		str_AE400_AE3F0->var_u8_8626 = 1;
@@ -41636,16 +41611,16 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		if (str_AE408_AE3F8->var_u8_8)
 		{
 			str_AE400_AE3F0->reflections_8597 = 1;
-			str_AE400_AE3F0->var_u8_8599 = 1;
+			str_AE400_AE3F0->skyOn_8599 = 1;
 		}
 		else
 		{
 			str_AE400_AE3F0->reflections_8597 = 0;
-			str_AE400_AE3F0->var_u8_8599 = 0;
+			str_AE400_AE3F0->skyOn_8599 = 0;
 		}
-		str_AE400_AE3F0->var_u8_8598 = 1;
-		str_AE400_AE3F0->var_u8_8602 = 1;
-		str_AE400_AE3F0->var_u8_8601 = 1;
+		str_AE400_AE3F0->shadowsOn_8598 = 1;
+		str_AE400_AE3F0->iconsOn_8602 = 1;
+		str_AE400_AE3F0->mapOn_8601 = 1;
 		str_AE400_AE3F0->var_u8_8600 = 40;
 		str_AE400_AE3F0->var_u16_10 = varPlayers;
 		strcpy(str_AE408_AE3F8->textBuffer_117, textBuffer3);
@@ -41653,8 +41628,8 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		if (!varDetail)
 		{
 			str_AE400_AE3F0->reflections_8597 = 0;
-			str_AE400_AE3F0->var_u8_8599 = 0;
-			str_AE400_AE3F0->var_u8_8598 = 0;
+			str_AE400_AE3F0->skyOn_8599 = 0;
+			str_AE400_AE3F0->shadowsOn_8598 = 0;
 			str_AE400_AE3F0->var_u8_8600 = 40;
 		}
 		if (varDemo)
@@ -102830,7 +102805,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   uint8 origbyte20;
   uint8 remakebyte20;
-  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  //int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
   compare_index_729A7++;
 #endif debug1
 

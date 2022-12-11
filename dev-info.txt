@@ -705,6 +705,12 @@ add_compare(0x1FC930, true, true);
 
 			if (index232)
 
+0x2055DE
+002439C2-FFFFFFF4
+
+--------------
+pdwScreenBuffer_12EFF4+0
+0xff versus 0x08
 
 
 

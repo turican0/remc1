@@ -402,13 +402,13 @@ typedef struct {//size 232713
 	int32 var_u32_4593;
 	Type_AE400_29795* var_u32_4597[1000];
 	uint8 reflections_8597;//0 is on
-	uint8 var_u8_8598;
-	uint8 var_u8_8599;
+	uint8 shadowsOn_8598;
+	uint8 skyOn_8599;
 	int8 var_u8_8600;
-	uint8 var_u8_8601;
-	uint8 var_u8_8602;
-	uint8 var_u8_8603;
-	uint8 var_u8_8604;
+	uint8 mapOn_8601;
+	uint8 iconsOn_8602;
+	uint8 mod3D_8603;
+	uint8 blur_8604;
 	uint8 softenOn_8605;
 	uint8 var_u8_8606;
 	uint8 stub9[1];
@@ -416,7 +416,7 @@ typedef struct {//size 232713
 	uint8 stub10[12];
 	uint8 var_u8_8621;
 	uint8 var_u8_8622;
-	uint8 skyOn_8623;//sky is on
+	uint8 var_u8_8623;//sky is on
 	uint8 var_u8_8624;
 	uint8 var_u8_8625;
 	uint8 var_u8_8626;
