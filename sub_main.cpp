@@ -5,7 +5,7 @@
 
 #define FIX_MOUSE
 
-//#define MODIFY_SETTINGS
+#define MODIFY_SETTINGS
 
 #define MAX_WIDTH 1920
 
@@ -34313,10 +34313,10 @@ LABEL_163:
     --v139;
   }
   while ( v139 );
-  //adress 1FCCA3
+  //adress 1FCCA5
 //debug
 #ifdef debug1
-  //add_compare(0x1FCCA3, true, true);
+  //add_compare(0x1FCCA5, true, true);
 #endif debug1
   //debug
   if ( *(_BYTE *)(dword_AE400_AE3F0() + 8603) != 2 || *(_BYTE *)(dword_AE400_AE3F0() + 8606) )
