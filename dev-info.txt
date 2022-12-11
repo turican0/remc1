@@ -709,8 +709,24 @@ add_compare(0x1FC930, true, true);
 002439C2-FFFFFFF4
 
 --------------
-pdwScreenBuffer_12EFF4+0
-0xff versus 0x08
+pdwScreenBuffer_12EFF4+0x3658
+tempFrame+0x3658
+[0x2ECFF4](65be0)+0x3658
+0xae versus 0xb5
+
+0x1FBB4D/2AB4D
+
+-------------
+0A050505
+0x20248C/3148C sub_30D90
+
+beginFrame_93ACC
+blurBuffer_AE404_AE3F4
+
+0x2023CD
+
+test 0x65be0+0x3658
+test 0x735a98+0x3658
 
 
 

@@ -14554,7 +14554,7 @@ uint8_t* begBlkDat_AE3F0_26C3F0_26C3E0; // weak
 uint8_t* begSearch_AE3F4_26C3F4_26C3E4; // weak
 uint8_t* begBscreen_AE3FC_AE3EC_26C3FC_26C3EC; // weak
 //int dword_AE400_AE3F0(); // weak
-uint8* dword_AE404_AE3F4; // weak
+uint8* blurBuffer_AE404_AE3F4; // weak
 //int dword_AE408_AE3F8(); // weak
 int dword_AE410; // weak
 TColor* begPalMem_AE418_AE408_26C418_26C408; // weak
@@ -20031,7 +20031,7 @@ void ProcessKeys_16B00()//1E7B00_
                 switch (str_AE400_AE3F0->mod3D_8603)
                 {
                 case 0:
-                    if (dword_AE404_AE3F4)
+                    if (blurBuffer_AE404_AE3F4)
                     {
                         sub_31600_31640();
                         str_AE400_AE3F0->var_u8_8600 = 40;
@@ -37827,7 +37827,7 @@ void sub_30B30()
     v13 = (int)widthViewPort_93AD8 >> 2;
     v15 = beginFrame_93ACC;
     v0 = heightViewPort_93ADC / 2;
-    v1 = (int)dword_AE404_AE3F4;
+    v1 = (int)blurBuffer_AE404_AE3F4;
     for ( i = v0; i; --i )
     {
       v2 = v13;
@@ -37926,7 +37926,7 @@ LABEL_20:
 // 93AD8: using guessed type int widthViewPort_93AD8;
 // 93ADC: using guessed type int heightViewPort_93ADC;
 // AE400: using guessed type int dword_AE400_AE3F0();
-// AE404: using guessed type int dword_AE404_AE3F4;
+// AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (00030D30) --------------------------------------------------------
@@ -37996,17 +37996,15 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   int v47; // ebx
   //int v48; // eax
   __int64 actSpeed; // rax
-  int v50; // eax
-  _BYTE *v51; // edi
-  _BYTE *v52; // esi
-  int v53; // edx
-  int v54; // ebx
-  int v55; // ecx
-  _BYTE *v56; // edi
-  _BYTE *v57; // esi
-  int v58; // edx
-  int v59; // ebx
-  int v60; // ecx
+  //int v50; // eax
+  //_BYTE *v51; // edi
+  //_BYTE *v52; // esi
+  //int v55; // ecx
+  //_BYTE *v56; // edi
+  //_BYTE *v57; // esi
+  //int v58; // edx
+  //int v59; // ebx
+  //int v60; // ecx
   //_BYTE *v61; // edi
   //int v62; // esi
   //int v63; // ecx
@@ -38098,7 +38096,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
         {
           if ( str_AE408_AE3F8->var_u8_8 )
           {
-            if ( dword_AE404_AE3F4 )
+            if ( blurBuffer_AE404_AE3F4 )
             {
               if ( str_AE400_AE3F0->var_u8_8600 == 40 )
               {
@@ -38110,92 +38108,119 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
           }
         }
       }
-      if ( str_AE400_AE3F0->blur_8604 && dword_AE404_AE3F4 )
+      if ( str_AE400_AE3F0->blur_8604 && blurBuffer_AE404_AE3F4 )
       {
         //v73 = beginFrame_93ACC;
-        SetViewPort2_79495_799A5(dword_AE404_AE3F4, 0, 0, 0, 0);
+        uint8* tempBeginFrame = beginFrame_93ACC;
+        SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
         DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-        SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
+        SetViewPort2_79495_799A5(tempBeginFrame, 0, 0, 0, 0);
         halfViewpX = widthViewPort_93AD8 >> 2;
         frameViewp = pitchViewPort_93AD4 - widthViewPort_93AD8;
-        indexY = heightViewPort_93ADC;
+        //indexY = heightViewPort_93ADC;
         //fix
-        int tempFix = dword_AE400_AE3F0();
+        //int tempFix = dword_AE400_AE3F0();
         //fix
-        HIWORD(v50) = HIWORD(tempFix);
+        //HIWORD(v50) = HIWORD(tempFix);
         if ( str_AE400_AE3F0->blur_8604 == 1 )
         {
-          v51 = (_BYTE *)beginFrame_93ACC;
-          v52 = (_BYTE *)dword_AE404_AE3F4;
-          HIWORD(v53) = 0;
-          HIWORD(v54) = 0;
-          do
+          uint8* tempFrame = tempBeginFrame;
+          uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
+          //HIWORD(v53) = 0;
+          //HIWORD(v54) = 0;
+          for(indexY = heightViewPort_93ADC; indexY; indexY--)
           {
-            v55 = halfViewpX;
-            do
+            
+            for(int indexX = halfViewpX; indexX; indexX--)
             {
-              LOBYTE(v54) = v52[2];
-              BYTE1(v54) = v51[2];
-              LOBYTE(v53) = v52[3];
-              LOBYTE(v50) = strPal.byte_BB934_BB924[v54];
-              BYTE1(v53) = v51[3];
-              BYTE1(v50) = strPal.byte_BB934_BB924[v53];
-              v50 <<= 16;
-              LOBYTE(v54) = v52[0];
-              BYTE1(v54) = v51[0];
-              LOBYTE(v53) = v52[1];
-              LOBYTE(v50) = strPal.byte_BB934_BB924[v54];
-              BYTE1(v53) = v51[1];
-              BYTE1(v50) = strPal.byte_BB934_BB924[v53];
-              *(_DWORD *)v51 = v50;
-              v51 += 4;
-              v52 += 4;
-              v55--;
+              uaxis_2d point0;
+              uaxis_2d point1;
+              uaxis_2d point2;
+              uaxis_2d point3;
+              point0._axis_2d.x = tempBlurBuffer[0];
+              point0._axis_2d.y = tempFrame[0];
+              point1._axis_2d.x = tempBlurBuffer[1];
+              point1._axis_2d.y = tempFrame[1];
+              point2._axis_2d.x = tempBlurBuffer[2];
+              point2._axis_2d.y = tempFrame[2];
+              point3._axis_2d.x = tempBlurBuffer[3];
+              point3._axis_2d.y = tempFrame[3];
+              tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
+              tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
+              tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
+              tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
+
+              //v50 <<= 16;
+
+              
+              //*(_DWORD *)tempFrame = v50;
+              tempFrame += 4;
+              tempBlurBuffer += 4;
+              //v55--;
             }
-            while ( v55 );
-            HIWORD(v50) = HIWORD(frameViewp);
-            v52 += frameViewp;
-            v51 += frameViewp;
-            indexY--;
+            //while ( v55 );
+            //HIWORD(v50) = HIWORD(frameViewp);
+            tempBlurBuffer += frameViewp;
+            tempFrame += frameViewp;
+            //indexY--;
           }
-          while ( indexY );
+          //while ( indexY );
         }
         else
         {
-          v56 = (_BYTE *)beginFrame_93ACC;
-          v57 = (_BYTE *)dword_AE404_AE3F4;
-          HIWORD(v58) = 0;
-          HIWORD(v59) = 0;
-          do
+          uint8* tempFrame = tempBeginFrame;
+          uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
+          //HIWORD(v58) = 0;
+          //HIWORD(v59) = 0;
+          for(indexY = heightViewPort_93ADC; indexY; indexY--)
           {
-            v60 = halfViewpX;
-            do
+            //v60 = halfViewpX;
+            for (int indexX = halfViewpX; indexX; indexX--)
+            //do
             {
-              BYTE1(v59) = v57[2];
-              LOBYTE(v59) = v56[2];
-              BYTE1(v58) = v57[3];
+                uaxis_2d point0;
+                uaxis_2d point1;
+                uaxis_2d point2;
+                uaxis_2d point3;
+                point0._axis_2d.x = tempBlurBuffer[0];
+                point0._axis_2d.y = tempFrame[0];
+                point1._axis_2d.x = tempBlurBuffer[1];
+                point1._axis_2d.y = tempFrame[1];
+                point2._axis_2d.x = tempBlurBuffer[2];
+                point2._axis_2d.y = tempFrame[2];
+                point3._axis_2d.x = tempBlurBuffer[3];
+                point3._axis_2d.y = tempFrame[3];
+                tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
+                tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
+                tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
+                tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
+                /*
+              BYTE1(v59) = tempBlurBuffer[2];
+              LOBYTE(v59) = tempFrame[2];
+              BYTE1(v58) = tempBlurBuffer[3];
               LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
-              LOBYTE(v58) = v56[3];
+              LOBYTE(v58) = tempFrame[3];
               BYTE1(v50) = strPal.byte_BB934_BB924[v58];
               v50 <<= 16;
-              BYTE1(v59) = v57[0];
-              LOBYTE(v59) = v56[0];
-              BYTE1(v58) = v57[1];
+              BYTE1(v59) = tempBlurBuffer[0];
+              LOBYTE(v59) = tempFrame[0];
+              BYTE1(v58) = tempBlurBuffer[1];
               LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
-              LOBYTE(v58) = v56[1];
+              LOBYTE(v58) = tempFrame[1];
               BYTE1(v50) = strPal.byte_BB934_BB924[v58];
-              *(_DWORD *)v56 = v50;
-              v56 += 4;
-              v57 += 4;
-              v60--;
+              *(_DWORD *)tempFrame = v50;
+              */
+              tempFrame += 4;
+              tempBlurBuffer += 4;
+              //v60--;
             }
-            while ( v60 );
-            HIWORD(v50) = HIWORD(frameViewp);
-            v57 += frameViewp;
-            v56 += frameViewp;
-            indexY--;
+            //while ( v60 );
+            //HIWORD(v50) = HIWORD(frameViewp);
+            tempBlurBuffer += frameViewp;
+            tempFrame += frameViewp;
+            //indexY--;
           }
-          while ( indexY );
+          //while ( indexY );
         }
       }
       else
@@ -38249,7 +38274,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
       LOWORD(v46) = v46 >> 14;
       DrawSkyTerrainParticles_2A700_2A740(v46 + tempFixPosX, v47 + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
       v71 = beginFrame_93ACC;
-      SetViewPort2_79495_799A5(dword_AE404_AE3F4, 0, 0, 0, 0);
+      SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
       dword_902B0 = 0-(pitchViewPort_93AD4 / 0x28u);
       DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - v46, tempFixPosY - v47, tempYaw, posZ, pitch, roll, fow);
       SetViewPort2_79495_799A5(v71, 0, 0, 0, 0);
@@ -38259,7 +38284,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   else
   {
     v25 = beginFrame_93ACC;
-    SetViewPort2_79495_799A5(dword_AE404_AE3F4, 0, 0, 0, 0);
+    SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
     DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
     SetViewPort2_79495_799A5(v25, 0, 0, 0, 0);
     v26 = heightViewPort_93ADC;
@@ -38288,7 +38313,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
     v31 = widthViewPort_93AD8 / 2;
     v32 = heightViewPort_93ADC;
     v33 = v31 + beginFrame_93ACC;
-    v34 = (unsigned __int8 *)(v31 + (int)dword_AE404_AE3F4);
+    v34 = (unsigned __int8 *)(v31 + (int)blurBuffer_AE404_AE3F4);
     if ( (_WORD)heightViewPort_93ADC )
     {
       do
@@ -38310,7 +38335,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
     v24 = widthViewPort_93AD8 / 2;
     v38 = heightViewPort_93ADC;
     v39 = (_BYTE *)(v24 + beginFrame_93ACC);
-    v40 = (unsigned __int8 *)(v24 + (int)dword_AE404_AE3F4);
+    v40 = (unsigned __int8 *)(v24 + (int)blurBuffer_AE404_AE3F4);
     for ( j = heightViewPort_93ADC == 0; !j; j = v38 == 0 )
     {
       v76 = *v40;
@@ -38399,7 +38424,7 @@ void sub_31600_31640()//202600_
 
   if ( str_AE400_AE3F0->mod3D_8603 && pitchViewPort_93AD4 == 640 )
     sub_5B500();
-  if ( dword_AE404_AE3F4 && !str_AE400_AE3F0->var_u8_8606 )
+  if ( blurBuffer_AE404_AE3F4 && !str_AE400_AE3F0->var_u8_8606 )
   {
     if ( scrWidth_12EFF0_12EFE0 == 320 )
       v0 = 270;
@@ -38574,7 +38599,7 @@ void sub_31600_31640()//202600_
 // 90708: using guessed type char byte_90708;
 // 93AD4: using guessed type int pitchViewPort_93AD4;
 // AE400: using guessed type int dword_AE400_AE3F0();
-// AE404: using guessed type int dword_AE404_AE3F4;
+// AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
 // B32A0: using guessed type char byte_B32A0;
 // B33A0: using guessed type char byte_B33A0;
@@ -40953,8 +40978,8 @@ void TopProcedure_340B0_34470(int argc, const char** argv)//2050B0_205470
       {
         pseudoRand = str_AE408_AE3F8->var_u16_17;
         sub_407A0_40AE0();
-        if ( typeResolution_12F02E_12F01E == 1 && !dword_AE404_AE3F4 )
-          dword_AE404_AE3F4 = (uint8*)malloc_42540_42880(64000);
+        if ( typeResolution_12F02E_12F01E == 1 && !blurBuffer_AE404_AE3F4 )
+          blurBuffer_AE404_AE3F4 = (uint8*)malloc_42540_42880(64000);
       }
       while ( 1 )
       {
@@ -41090,7 +41115,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        //add_compare(0x2055DE, true, true);
+        add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
@@ -41114,7 +41139,7 @@ void GameLoop_34610_349D0()//205610_
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    str_AE400_AE3F0->blur_8604 = 0;
+    str_AE400_AE3F0->blur_8604 = 1;
 #endif //MODIFY_SETTINGS
 
   //v3 = dword_AE400_AE3F0();
@@ -41351,8 +41376,8 @@ void sub_34C80_35040()
 
   FadeInOut_61CC0_621D0(0, 0x10u, 0);
   sub_315C0_31600();
-  free_426E0_42A20((void*)dword_AE404_AE3F4);
-  dword_AE404_AE3F4 = 0;
+  free_426E0_42A20((void*)blurBuffer_AE404_AE3F4);
+  blurBuffer_AE404_AE3F4 = 0;
   sub_3F370_3F6B0();
   sub_59560_59A70((unsigned int **)&off_99974);
   if ( typeResolution_12F02E_12F01E == 1 )
@@ -41369,7 +41394,7 @@ void sub_34C80_35040()
     sub_40440_40780(&pathStrArray[PSWScreen]);
     v0 = (uint8*)malloc_42540_42880(64000);
   }
-  dword_AE404_AE3F4 = v0;
+  blurBuffer_AE404_AE3F4 = v0;
   sub_59500_59A10(off_99974);
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
     sub_61B90_620A0((unsigned __int8 *)pdwScreenBuffer_12EFF4);
@@ -41385,7 +41410,7 @@ void sub_34C80_35040()
   *(_BYTE *)(dword_AE408_AE3F8() + 23) = 0;
 }
 // 99974: using guessed type int *off_99974;
-// AE404: using guessed type int dword_AE404_AE3F4;
+// AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // AE408: using guessed type int dword_AE408_AE3F8();
 // AE450: using guessed type int begPointersTab_AE450_AE440_26C450_26C440;
 // 12EFF4: using guessed type int dword_12EFF4;
@@ -111791,9 +111816,9 @@ void sub_79906(int a1)
   int savedregs; // [esp+Ch] [ebp+0h] BYREF
 
   sub_61A1C_61F2C(0);
-  v1 = (_BYTE *)dword_AE404_AE3F4;
+  v1 = (_BYTE *)blurBuffer_AE404_AE3F4;
   v2 = (_BYTE *)pdwScreenBuffer_12EFF4;
-  v3 = sub_79A70_79F80(0, (_BYTE *)pdwScreenBuffer_12EFF4, (_BYTE *)dword_AE404_AE3F4, 0, (int)&savedregs, a1);
+  v3 = sub_79A70_79F80(0, (_BYTE *)pdwScreenBuffer_12EFF4, (_BYTE *)blurBuffer_AE404_AE3F4, 0, (int)&savedregs, a1);
   sub_61A1C_61F2C(1);
   v4 = sub_79A70_79F80(v3, v2, v1, 0, (int)&savedregs, a1);
   sub_61A1C_61F2C(2);
@@ -111813,7 +111838,7 @@ void sub_79906(int a1)
   sub_61A1C_61F2C(9);
   sub_79A70_79F80(v11, v2, v1, 0, (int)&savedregs, a1);
 }
-// AE404: using guessed type int dword_AE404_AE3F4;
+// AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // 12EFF4: using guessed type int dword_12EFF4;
 
 //----- (00079A1B) --------------------------------------------------------
@@ -111825,13 +111850,13 @@ void sub_79A1B(int a1)
   int savedregs; // [esp+Ch] [ebp+0h] BYREF
 
   sub_61A1C_61F2C(0);
-  v1 = (_BYTE *)dword_AE404_AE3F4;
+  v1 = (_BYTE *)blurBuffer_AE404_AE3F4;
   v2 = (_BYTE *)pdwScreenBuffer_12EFF4;
-  v3 = sub_79A70_79F80(0, (_BYTE *)pdwScreenBuffer_12EFF4, (_BYTE *)dword_AE404_AE3F4, 0, (int)&savedregs, a1);
+  v3 = sub_79A70_79F80(0, (_BYTE *)pdwScreenBuffer_12EFF4, (_BYTE *)blurBuffer_AE404_AE3F4, 0, (int)&savedregs, a1);
   sub_61A1C_61F2C(1);
   sub_79A70_79F80(v3, v2, v1, 0, (int)&savedregs, a1);
 }
-// AE404: using guessed type int dword_AE404_AE3F4;
+// AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // 12EFF4: using guessed type int dword_12EFF4;
 
 //----- (00079A70) --------------------------------------------------------
