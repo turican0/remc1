@@ -703,7 +703,7 @@ add_compare(0x1FC930, true, true);
 2c339 // 1FD339
 2c34e // 1FD34e
 
-			if (index232)
+2ecff4			if (index232)
 
 0x2055DE
 002439C2-FFFFFFF4
@@ -725,9 +725,13 @@ blurBuffer_AE404_AE3F4
 
 0x2023CD
 
-test 0x65be0+0x3658
-test 0x735a98+0x3658
+test 0x65be0+0x3658 ae050505
+test 0x735a98+0x3658 b5b4b4b4
 
+tempBlurBuffer+0x3658 b4b4b4b4
+tempFrame+0x3658 000000
+
+0x20239f
 
 
 

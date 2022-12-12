@@ -41115,7 +41115,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
@@ -41140,6 +41140,12 @@ void GameLoop_34610_349D0()//205610_
   //int result; // eax
 #ifdef MODIFY_SETTINGS
     str_AE400_AE3F0->blur_8604 = 1;
+
+    //clean scr
+    /*
+    for (int i = 0; i < 320 * 200; i++)
+        pdwScreenBuffer_12EFF4[i] = 0;
+        */
 #endif //MODIFY_SETTINGS
 
   //v3 = dword_AE400_AE3F0();
