@@ -4,6 +4,8 @@
 #define autostart
 
 #define MODIFY_SETTINGS
+bool modset_used = true;
+int modset_key = 0x0;
 //#define COMPARE_WITH
 
 #define FIX_MOUSE
@@ -19776,6 +19778,14 @@ void sub_169E0()//1E79E0_
 //----- (00016B00) --------------------------------------------------------
 void ProcessKeys_16B00()//1E7B00_
 {
+#ifdef MODIFY_SETTINGS
+    if (!modset_used)
+    {
+        lastPressedKey_12EF70_12EF60 = modset_key;
+        modset_used = true;
+    }
+#endif
+
 	if (str_AE400_AE3F0->var_29715[str_AE400_AE3F0->var_u16_8][0])
 		return;
 	if (pressedKeys_12EEF0_12EEE0[56])//byte_12EF28 8/*/Up (shift/alt/ctrl ?)
@@ -34715,29 +34725,30 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	{
 		byte_967E1 = 1;
 		int index148 = textRows * (textColumns - 1);
-		for (int indexC = 0; indexC < textColumns - 1; indexC++)
+		for (int index245 = textColumns - 1; index245; index245--)
 		{
-			int indexR;
-			for (indexR = 0; indexR < textRows - 1; indexR++)
+            int index149 = index148;
+			int index236;
+			for (index236 = textRows - 1; index236; index236--)
 			{
-                if ((tempBegBscreen[index148 + 1].triangleDir_38._axis_2d.x & 4) != 0)
+                if ((tempBegBscreen[index149 + 1].triangleDir_38._axis_2d.x & 4) != 0)
                     break;
-				v213x.x_0 = tempBegBscreen[index148].pnt1_16;
-				v213x.y_1 = tempBegBscreen[index148].pnt2_20;
-				v213x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148].y_12);
-				v208x.x_0 = tempBegBscreen[index148 + 1].pnt1_16;
-				v208x.y_1 = tempBegBscreen[index148 + 1].pnt2_20;
-				v208x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1].y_12);
-				v203x.x_0 = tempBegBscreen[index148 + 1 - textRows].pnt1_16;
-				v203x.y_1 = tempBegBscreen[index148 + 1 - textRows].pnt2_20;
-				v203x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 + 1 - textRows].y_12);
-				v198x.x_0 = tempBegBscreen[index148 - textRows].pnt1_16;
-				v198x.y_1 = tempBegBscreen[index148 - textRows].pnt2_20;
-				v198x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index148 - textRows].y_12);
-				if ((((tempBegBscreen[index148 - textRows].triangleDir_38.word | tempBegBscreen[index148 + 1 - textRows].triangleDir_38.word | tempBegBscreen[index148 + 1].triangleDir_38.word | tempBegBscreen[index148].triangleDir_38.word)) & 2) == 0 &&
-					((tempBegBscreen[index148 - textRows].triangleDir_38.word & tempBegBscreen[index148 + 1 - textRows].triangleDir_38.word & tempBegBscreen[index148 + 1].triangleDir_38.word & tempBegBscreen[index148].triangleDir_38.word) & 0x78) == 0)
+				v213x.x_0 = tempBegBscreen[index149].pnt1_16;
+				v213x.y_1 = tempBegBscreen[index149].pnt2_20;
+				v213x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index149].y_12);
+				v208x.x_0 = tempBegBscreen[index149 + 1].pnt1_16;
+				v208x.y_1 = tempBegBscreen[index149 + 1].pnt2_20;
+				v208x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index149 + 1].y_12);
+				v203x.x_0 = tempBegBscreen[index149 + 1 - textRows].pnt1_16;
+				v203x.y_1 = tempBegBscreen[index149 + 1 - textRows].pnt2_20;
+				v203x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index149 + 1 - textRows].y_12);
+				v198x.x_0 = tempBegBscreen[index149 - textRows].pnt1_16;
+				v198x.y_1 = tempBegBscreen[index149 - textRows].pnt2_20;
+				v198x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index149 - textRows].y_12);
+				if ((((tempBegBscreen[index149 - textRows].triangleDir_38.word | tempBegBscreen[index149 + 1 - textRows].triangleDir_38.word | tempBegBscreen[index149 + 1].triangleDir_38.word | tempBegBscreen[index149].triangleDir_38.word)) & 2) == 0 &&
+					((tempBegBscreen[index149 - textRows].triangleDir_38.word & tempBegBscreen[index149 + 1 - textRows].triangleDir_38.word & tempBegBscreen[index149 + 1].triangleDir_38.word & tempBegBscreen[index149].triangleDir_38.word) & 0x78) == 0)
 				{
-					if ((tempBegBscreen[index148].triangleDir_38._axis_2d.x & 1) != 0)
+					if ((tempBegBscreen[index149].triangleDir_38._axis_2d.x & 1) != 0)
 					{
 						DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
 						DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
@@ -34748,31 +34759,31 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 					}
 				}
-				if (tempBegBscreen[index148].haveSprite_36)
-					sub_2F170_2F1B0(5120, (int)&tempBegBscreen[index148]);
-				index148++;
+				if (tempBegBscreen[index149].haveSprite_36)
+					sub_2F170_2F1B0(5120, (int)&tempBegBscreen[index149]);
+                index149++;
 			}
-			if (indexR < textRows - 1)
+			if (index236)
 			{
-				int index158 = index148;
-				do
+				int index158 = index149;                
+				for(int index159 = index148 + textRows - 2; index159 >= index158;index159--)
 				{
-					v213x.x_0 = tempBegBscreen[index158].pnt1_16;
-					v213x.y_1 = tempBegBscreen[index158].pnt2_20;
-					v213x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158].y_12);
-					v208x.x_0 = tempBegBscreen[index158 + 1].pnt1_16;
-					v208x.y_1 = tempBegBscreen[index158 + 1].pnt2_20;
-					v208x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1].y_12);
-					v203x.x_0 = tempBegBscreen[index158 + 1 - textRows].pnt1_16;
-					v203x.y_1 = tempBegBscreen[index158 + 1 - textRows].pnt2_20;
-					v203x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 + 1 - textRows].y_12);
-					v198x.x_0 = tempBegBscreen[index158 - textRows].pnt1_16;
-					v198x.y_1 = tempBegBscreen[index158 - textRows].pnt2_20;
-					v198x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index158 - textRows].y_12);
-					if ((((tempBegBscreen[index158 - textRows].triangleDir_38.word | tempBegBscreen[index158 + 1 - textRows].triangleDir_38.word | tempBegBscreen[index158 + 1].triangleDir_38.word | tempBegBscreen[index158].triangleDir_38.word)) & 2) == 0 &&
-						((tempBegBscreen[index158 - textRows].triangleDir_38.word & tempBegBscreen[index158 + 1 - textRows].triangleDir_38.word & tempBegBscreen[index158 + 1].triangleDir_38.word & tempBegBscreen[index158].triangleDir_38.word) & 0x78) == 0)
+					v213x.x_0 = tempBegBscreen[index159].pnt1_16;
+					v213x.y_1 = tempBegBscreen[index159].pnt2_20;
+					v213x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index159].y_12);
+					v208x.x_0 = tempBegBscreen[index159 + 1].pnt1_16;
+					v208x.y_1 = tempBegBscreen[index159 + 1].pnt2_20;
+					v208x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index159 + 1].y_12);
+					v203x.x_0 = tempBegBscreen[index159 + 1 - textRows].pnt1_16;
+					v203x.y_1 = tempBegBscreen[index159 + 1 - textRows].pnt2_20;
+					v203x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index159 + 1 - textRows].y_12);
+					v198x.x_0 = tempBegBscreen[index159 - textRows].pnt1_16;
+					v198x.y_1 = tempBegBscreen[index159 - textRows].pnt2_20;
+					v198x.z_4 = 0x400000 - 350 * (5120 - tempBegBscreen[index159 - textRows].y_12);
+					if ((((tempBegBscreen[index159 - textRows].triangleDir_38.word | tempBegBscreen[index159 + 1 - textRows].triangleDir_38.word | tempBegBscreen[index159 + 1].triangleDir_38.word | tempBegBscreen[index159].triangleDir_38.word)) & 2) == 0 &&
+						((tempBegBscreen[index159 - textRows].triangleDir_38.word & tempBegBscreen[index159 + 1 - textRows].triangleDir_38.word & tempBegBscreen[index159 + 1].triangleDir_38.word & tempBegBscreen[index159].triangleDir_38.word) & 0x78) == 0)
 					{
-						if ((tempBegBscreen[index158].triangleDir_38._axis_2d.x & 1) != 0)
+						if ((tempBegBscreen[index159].triangleDir_38._axis_2d.x & 1) != 0)
 						{
 							DrawTriangle_729A3_72EB3(&v213x, &v208x, &v198x);
 							DrawTriangle_729A3_72EB3(&v198x, &v208x, &v203x);
@@ -34783,10 +34794,10 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 							DrawTriangle_729A3_72EB3(&v213x, &v203x, &v198x);
 						}
 					}
-					if (tempBegBscreen[index158].haveSprite_36)
-						sub_2F170_2F1B0(5120, (int)&tempBegBscreen[index158]);
-					index158--;
-				} while (index158 >= 100/*v158*/);//fix it
+					if (tempBegBscreen[index159].haveSprite_36)
+						sub_2F170_2F1B0(5120, (int)&tempBegBscreen[index159]);
+					//index158--;
+				} //while (index158 >= 100/*v158*/);//fix it
 			}
 			index148 -= textRows;
 		}
@@ -37990,10 +38001,10 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   _BOOL1 j; // zf
   int v42; // eax
   _BYTE *k; // ebx
-  char v44; // dl
-  int v45; // edx
-  int v46; // esi
-  int v47; // ebx
+  //char v44; // dl
+  //int tempCos; // edx
+  //int modX; // esi
+  //int modY; // ebx
   //int v48; // eax
   __int64 actSpeed; // rax
   //int v50; // eax
@@ -38014,7 +38025,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   int frameViewp; // [esp+0h] [ebp-24h]
   int indexY; // [esp+4h] [ebp-20h]
   int halfViewpX; // [esp+8h] [ebp-1Ch]
-  uint8* v71; // [esp+Ch] [ebp-18h]
+  //uint8* v71; // [esp+Ch] [ebp-18h]
   char temp8604; // [esp+10h] [ebp-14h]
   //uint8* v73; // [esp+14h] [ebp-10h]
   //uint8* v74; // [esp+18h] [ebp-Ch]
@@ -38266,18 +38277,18 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
     }
     else
     {
-      v45 = cos_90B4C[tempYaw];
+      //tempCos = cos_90B4C[tempYaw];
       dword_9070C = 20;
-      v46 = 5 * sin_9134C[tempYaw];
       dword_902B0 = pitchViewPort_93AD4 / 0x28u;
-      v47 = (20 * v45) >> 16;
-      LOWORD(v46) = v46 >> 14;
-      DrawSkyTerrainParticles_2A700_2A740(v46 + tempFixPosX, v47 + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-      v71 = beginFrame_93ACC;
+      int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
+      int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
+      //LOWORD(v46) = v46 >> 14;
+      DrawSkyTerrainParticles_2A700_2A740(tempSin + tempFixPosX, tempCos + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
+      //v71 = beginFrame_93ACC;
       SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
       dword_902B0 = 0-(pitchViewPort_93AD4 / 0x28u);
-      DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - v46, tempFixPosY - v47, tempYaw, posZ, pitch, roll, fow);
-      SetViewPort2_79495_799A5(v71, 0, 0, 0, 0);
+      DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
+      SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
       dword_902B0 = 0;
     }
   }
@@ -38343,8 +38354,8 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
       for ( k = &v39[-*v40]; v42; v42-- )
       {
         k--;
-        v44 = k[*--v40];
-        *k = v44;
+        //v44 = k[*--v40];
+        *k = k[*--v40];
       }
       v24 = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
       v39 = &k[v24];
@@ -38678,13 +38689,10 @@ void sub_31A00_31A40()
 // AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
 
 //----- (00031A60) --------------------------------------------------------
-void sub_31A60_31AA0()
+void sub_31A60_31AA0()//202A60_
 {
-  char v0; // dl
-
-  v0 = byte_90754;
   str_AE400_AE3F0->mod3D_8603 = byte_90754;
-  if ( v0 == 1 )
+  if (byte_90754 == 1 )
     sub_31600_31640();
   byte_90754 = 0;
 }
@@ -41115,7 +41123,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        //add_compare(0x2055DE, true, true);
+        add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
@@ -41139,7 +41147,10 @@ void GameLoop_34610_349D0()//205610_
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    str_AE400_AE3F0->blur_8604 = 1;
+    modset_used = false;
+    modset_key = 0x44;
+
+    //byte_90754 = 1;// str_AE400_AE3F0->mod3D_8603 = 1;
 
     //clean scr
     /*
