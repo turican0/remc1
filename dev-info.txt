@@ -752,6 +752,8 @@ modX + tempFixPosX 0x2E98 0x2E84
 void DrawWorld_30D90_30DD0()//201D90_
 void DrawGameFrame_20FB0()//1F1FB0_
 
+fix sub_31600_31640
+
 
 
 

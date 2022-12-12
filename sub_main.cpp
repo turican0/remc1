@@ -3,7 +3,7 @@
 #define debug1
 #define autostart
 
-#define MODIFY_SETTINGS
+//#define MODIFY_SETTINGS
 bool modset_used = true;
 int modset_key = 0x0;
 //#define COMPARE_WITH
@@ -178,6 +178,8 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
             ;// printf("external pefifery - compute timer\n");
         else if (!strcmp(text, "MOUSE SET POS"))
             printf("external pefifery - set mouse pos\n");
+        else if (!strcmp(text, "SET PAL REG"))
+            printf("external pefifery - Set Individual Palette Registers(EGA / VGA)\n");
         else
             printf("unknown external pefifery!!!! - Fix It\n");
     }
@@ -532,11 +534,11 @@ void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
 void setViewPort_30A70_30AB0(int a1);
 void sub_30B30();
-int sub_30D30(__int16 a1);
+int sub_30D30_30D70(__int16 a1);
 void DrawWorld_30D90_30DD0(int a2, int a3, __int16 a4, int a5, int a6, int a7, int a8);
 void sub_315C0_31600();
 void sub_31600_31640();
-void sub_319A0_319E0(TColor* palette);
+void SetPalette_319A0_319E0(TColor* palette);
 void sub_31A00_31A40();
 void sub_31A60_31AA0();
 void sub_31AA0(int a1);
@@ -1199,7 +1201,7 @@ int sub_5B3B0_5B8C0();
 int sub_5B3E0(int a1);
 int sub_5B450(__int16 a1);
 int sub_5B480_5B990(int a1, int16_t* a2, int16_t* a3);
-void sub_5B500();
+void sub_5B500_5BA10();
 void sub_5B560();
 int nullsub_11(_DWORD); // weak
 void sub_5B5E0();
@@ -1295,7 +1297,7 @@ void sub_616C0(unsigned __int16 a1, unsigned __int16 a2, unsigned __int16 a3, __
 int sub_61740(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a5);
 int sub_61810(__int16 a1, __int16 a2, __int16 a3, __int16 a4, unsigned __int16 a5);
 int sub_618E0(__int16 a1);
-int sub_619B8(__int16 a1);
+int sub_619B8_61EC8(__int16 a1);
 void sub_61A1C_61F2C(__int16 a1);
 int sub_61AB0();
 void sub_61B90_620A0(unsigned __int8 *a1);
@@ -4152,7 +4154,7 @@ myNCB* mainconnection_9398C;
 myNCB* connection_93990[8] = { 0, 0, 0, 0, 0, 0, 0, 0 }; // weak
 char byte_939AF[] = { '\0' }; // weak
 char byte_939B0[] = { '\0' }; // weak
-char aTester[7] = "TESTER"; // weak
+//char aTester[7] = "TESTER"; // weak
 char byte_939CC = '\x01'; // weak
 char byte_939CD = '\x01'; // weak
 __int16 word_939D0 = 0; // weak
@@ -7051,7 +7053,7 @@ char byte_9C156[16] =
 char byte_9C166[] = { '\0' }; // weak
 char byte_9C176[6] = { '\0', '\0', '\0', '\0', '\0', '\0' }; // weak
 int dword_9C1A6[8] = { -1, -1, -1, -1, -1, -1, -1, -1 }; // weak
-char aHmimdrv386[12] = "hmimdrv.386"; // weak
+//char aHmimdrv386[12] = "hmimdrv.386"; // weak
 _UNKNOWN unk_9C1D2; // weak
 int dword_9C1F2 = 0; // weak
 _UNKNOWN unk_9C1FE; // weak
@@ -12485,8 +12487,8 @@ char aGeneral[8] = "GENERAL"; // weak
 int dword_A99A0_A99B8 = 5457241; // weak
 //char aCarpetCd_1[11] = "\\carpet.cd"; // weak
 //char aC[3] = "C:"; // weak
-char aE388[5] = "e388"; // weak
-char aNewt[5] = "newt"; // weak
+//char aE388[5] = "e388"; // weak
+//char aNewt[5] = "newt"; // weak
 //char aDataScreensGco[25] = "data/screens/gconfig.dat"; // weak
 //char aDataScreensGco_0[25] = "data\\screens\\gconfig.pal"; // weak
 //char aDataScreensMai[26] = "data\\screens\\mainmenu.dat"; // weak
@@ -12515,8 +12517,8 @@ char aNewt[5] = "newt"; // weak
 //char aVersionNumber[15] = "Version number"; // weak
 //char aBetaV80[10] = "Beta v8.0"; // weak
 //char aVersionDate[13] = "Version date"; // weak
-char aJun051995[12] = "Jun 05 1995"; // weak
-char a162618[9] = "16:26:18"; // weak
+//char aJun051995[12] = "Jun 05 1995"; // weak
+//char a162618[9] = "16:26:18"; // weak
 //char aProgrammer[11] = "Programmer"; // weak
 //char aBullfrogSeanCo[23] = "Bullfrog, Sean Cooper."; // weak
 //char aSuppliedTo[12] = "Supplied to"; // weak
@@ -12531,9 +12533,9 @@ char a162618[9] = "16:26:18"; // weak
 //void *off_ABCE0_ABCDC = &unk_A7325; // weak
 //char aVipport[8] = "VIPPORT"; // weak
 //char aVfx1Cyberpuck[15] = "VFX1 CyberPuck"; // weak
-char aVesa[5] = "VESA"; // weak
+//char aVesa[5] = "VESA"; // weak
 //char aHmidet386[11] = "hmidet.386"; // weak
-char aHmidrv386[11] = "hmidrv.386"; // weak
+//char aHmidrv386[11] = "hmidrv.386"; // weak
 char IsTable[256] =
 {
 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x03, 0x03, 0x03, 0x03, 0x03, 0x01,
@@ -14578,16 +14580,16 @@ Type_dword_96884 byte_AE460; // weak
 _DWORD dword_B3288; // weak
 int dword_B3294; // weak
 __int16 word_B329C; // weak
-char byte_B32A0[256]; // weak
-char byte_B33A0[256]; // weak
-char byte_B34A0[256]; // weak
-char byte_B35A0[256]; // weak
-char byte_B36A0[256]; // weak
-char byte_B37A0[256]; // weak
-char byte_B38A0[256]; // weak
-char byte_B39A0[256]; // weak
-_UNKNOWN unk_B3AA0; // weak
-_UNKNOWN unk_B3CA0; // weak
+char byte_B32A0_B3290[256]; // weak
+char byte_B33A0_B3390[256]; // weak
+char byte_B34A0_B3490[256]; // weak
+char byte_B35A0_B3590[256]; // weak
+char byte_B36A0_B3690[256]; // weak
+char byte_B37A0_B3790[256]; // weak
+char byte_B38A0_B3890[256]; // weak
+char byte_B39A0_B3990[256]; // weak
+_UNKNOWN unk_B3AA0_B3A90; // weak
+_UNKNOWN unk_B3CA0_B3C90; // weak
 uint32 dword_B3EA0_B3E90x[4096][3]; // for 4K
 int dword_B5CA0_B5C90; // weak
 int dword_B5CA4; // weak
@@ -15921,7 +15923,7 @@ void sub_104D0()
     //allert_error();//fix beam
     if ( word_90024 )
     {
-      sub_319A0_319E0(colorBuffer_AC2B8_AC2A8);
+      SetPalette_319A0_319E0(colorBuffer_AC2B8_AC2A8);
       v20 = sub_5CC70_5D180(colorBuffer_AC2B8_AC2A8, 0x3Fu, 0x3Fu, 0x3Fu);
       sub_24BF0(v20);
     }
@@ -26350,7 +26352,7 @@ void DrawGameFrame_20FB0()//1F1FB0_
 				sub_411FD_4153D((void*)pdwScreenBuffer_12EFF4, 0x1E0u, 0);
 		}
 		setViewPort_30A70_30AB0(str_AE400_AE3F0->var_u8_8600);//set viewport
-        if (DrawGameFrame_20FB0_index == 7)
+        if (DrawGameFrame_20FB0_index == 1)
         {
             DrawGameFrame_20FB0_index++;
             DrawGameFrame_20FB0_index--;
@@ -33829,7 +33831,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	posY_B5D3A_B5D2A = posY;
 	tempYaw = (yaw & 0x7FF) + 256;
 	posZ_B5CF8_B5CE8 = posZ;
-	dword_B5D08_B5CF8 = dword_902B0 + widthViewPort_93AD8 >> 1;
+	dword_B5D08_B5CF8 = dword_902B0 + (widthViewPort_93AD8 >> 1);
 	dword_B5CDC_B5CCC = cos_90B4C[tempYaw + 0x100];
 	modYaw = (tempYaw >> 9) & 3;
 	yawAngle = ((((yaw & 0x7FF) + 256) & 0x1FF) - 256) & 0x7FF;
@@ -37850,17 +37852,17 @@ void sub_30B30()
       {
         LOBYTE(v6) = v4[2];
         LOBYTE(v5) = v3[2];
-        LOBYTE(v0) = byte_B36A0[v5] + byte_B37A0[v6];
+        LOBYTE(v0) = byte_B36A0_B3690[v5] + byte_B37A0_B3790[v6];
         LOBYTE(v6) = v4[3];
         LOBYTE(v5) = v3[3];
-        BYTE1(v0) = byte_B39A0[v5] + byte_B34A0[v6];
+        BYTE1(v0) = byte_B39A0_B3990[v5] + byte_B34A0_B3490[v6];
         v0 <<= 16;
         LOBYTE(v6) = *v4;
         LOBYTE(v5) = *v3;
-        LOBYTE(v0) = byte_B36A0[v5] + byte_B37A0[v6];
+        LOBYTE(v0) = byte_B36A0_B3690[v5] + byte_B37A0_B3790[v6];
         LOBYTE(v6) = v4[1];
         LOBYTE(v5) = v3[1];
-        BYTE1(v0) = byte_B39A0[v5] + byte_B34A0[v6];
+        BYTE1(v0) = byte_B39A0_B3990[v5] + byte_B34A0_B3490[v6];
         *(_DWORD *)v3 = v0;
         v3 += 4;
         v4 += 4;
@@ -37878,17 +37880,17 @@ void sub_30B30()
       {
         LOBYTE(v12) = v8[2];
         LOBYTE(v9) = v11[2];
-        LOBYTE(v0) = byte_B33A0[v9] + byte_B32A0[v12];
+        LOBYTE(v0) = byte_B33A0_B3390[v9] + byte_B32A0_B3290[v12];
         LOBYTE(v12) = v8[3];
         LOBYTE(v9) = v11[3];
-        BYTE1(v0) = byte_B38A0[v9] + byte_B35A0[v12];
+        BYTE1(v0) = byte_B38A0_B3890[v9] + byte_B35A0_B3590[v12];
         v0 <<= 16;
         LOBYTE(v12) = *v8;
         LOBYTE(v9) = *v11;
-        LOBYTE(v0) = byte_B33A0[v9] + byte_B32A0[v12];
+        LOBYTE(v0) = byte_B33A0_B3390[v9] + byte_B32A0_B3290[v12];
         LOBYTE(v12) = v8[1];
         LOBYTE(v9) = v11[1];
-        BYTE1(v0) = byte_B38A0[v9] + byte_B35A0[v12];
+        BYTE1(v0) = byte_B38A0_B3890[v9] + byte_B35A0_B3590[v12];
         *(_DWORD *)v11 = v0;
         v11 += 4;
         v8 += 4;
@@ -37904,7 +37906,7 @@ void sub_30B30()
   {
     if ( byte_90708 )
     {
-      sub_79A1B((int)&unk_B3AA0);
+      sub_79A1B((int)&unk_B3AA0_B3A90);
       return;
     }
     if ( (typeResolution_12F02E_12F01E & 1) != 0 )
@@ -37923,7 +37925,7 @@ LABEL_20:
     }
     if ( byte_90708 )
     {
-      sub_79906((int)&unk_B3AA0);
+      sub_79906((int)&unk_B3AA0_B3A90);
       return;
     }
     if ( (typeResolution_12F02E_12F01E & 1) != 0 )
@@ -37941,7 +37943,7 @@ LABEL_20:
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (00030D30) --------------------------------------------------------
-int sub_30D30(__int16 a1)
+int sub_30D30_30D70(__int16 a1)
 {
   _WORD *v1; // eax
   __int16 v3; // si
@@ -38374,7 +38376,7 @@ void sub_315C0_31600()//2025C0_
   byte_90708 = 0;
 }
 
-//----- (00031600) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_31600_31640()//202600_
 {
   __int16 v0; // bx
@@ -38434,18 +38436,18 @@ void sub_31600_31640()//202600_
   char v54; // [esp+310h] [ebp-14h]
 
   if ( str_AE400_AE3F0->mod3D_8603 && pitchViewPort_93AD4 == 640 )
-    sub_5B500();
+    sub_5B500_5BA10();
   if ( blurBuffer_AE404_AE3F4 && !str_AE400_AE3F0->var_u8_8606 )
   {
     if ( scrWidth_12EFF0_12EFE0 == 320 )
       v0 = 270;
     else
       v0 = 273;
-    if ( sub_30D30(v0) )
+    if ( sub_30D30_30D70(v0) )
     {
-      v1 = (uint16*)&unk_B3AA0;
-      v2 = (uint16*)&unk_B3CA0;
-      sub_619B8(v0);
+      v1 = (uint16*)&unk_B3AA0_B3A90;
+      v2 = (uint16*)&unk_B3CA0_B3C90;
+      sub_619B8_61EC8(v0);
       v3 = 256;
       byte_90708 = 1;
       v4 = (_BYTE *)begPalDat_AE428_AE418_26C428_26C418;
@@ -38468,8 +38470,8 @@ void sub_31600_31640()//202600_
     else
     {
       v7 = 256;
-      v8 = (char*)&byte_B37A0;
-      v9 = (char*)&byte_B36A0;
+      v8 = (char*)&byte_B37A0_B3790;
+      v9 = (char*)&byte_B36A0_B3690;
       v10 = (_BYTE *)begPalDat_AE428_AE418_26C428_26C418;
       do
       {
@@ -38494,8 +38496,8 @@ void sub_31600_31640()//202600_
       }
       while ( v7 );
       v16 = 256;
-      v17 = (char*)&byte_B35A0;
-      v18 = (char*)&byte_B38A0;
+      v17 = (char*)&byte_B35A0_B3590;
+      v18 = (char*)&byte_B38A0_B3890;
       v19 = (_BYTE *)begPalDat_AE428_AE418_26C428_26C418;
       do
       {
@@ -38520,8 +38522,8 @@ void sub_31600_31640()//202600_
       }
       while ( v16 );
       v25 = 256;
-      v26 = (char*)&byte_B34A0;
-      v27 = (char*)&byte_B39A0;
+      v26 = (char*)&byte_B34A0_B3490;
+      v27 = (char*)&byte_B39A0_B3990;
       v28 = (_BYTE *)begPalDat_AE428_AE418_26C428_26C418;
       do
       {
@@ -38546,8 +38548,8 @@ void sub_31600_31640()//202600_
       }
       while ( v25 );
       v34 = 256;
-      v35 = (char*)&byte_B32A0;
-      v36 = (char*)&byte_B33A0;
+      v35 = (char*)&byte_B32A0_B3290;
+      v36 = (char*)&byte_B33A0_B3390;
       v37 = (_BYTE *)begPalDat_AE428_AE418_26C428_26C418;
       do
       {
@@ -38603,27 +38605,13 @@ void sub_31600_31640()//202600_
         ++v50;
       }
       while ( v50 < 8 );
-      sub_319A0_319E0((TColor*)v49);
+      SetPalette_319A0_319E0((TColor*)v49);
     }
   }
 }
-// 90708: using guessed type char byte_90708;
-// 93AD4: using guessed type int pitchViewPort_93AD4;
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE404: using guessed type int blurBuffer_AE404_AE3F4;
-// AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
-// B32A0: using guessed type char byte_B32A0;
-// B33A0: using guessed type char byte_B33A0;
-// B34A0: using guessed type char byte_B34A0;
-// B35A0: using guessed type char byte_B35A0;
-// B36A0: using guessed type char byte_B36A0;
-// B37A0: using guessed type char byte_B37A0;
-// B38A0: using guessed type char byte_B38A0;
-// B39A0: using guessed type char byte_B39A0;
-// 12EFF0: using guessed type int pitch_12EFF0_12EFE0;
 
 //----- (000319A0) --------------------------------------------------------
-void sub_319A0_319E0(TColor* palette)//2029A0_
+void SetPalette_319A0_319E0(TColor* palette)//2029A0_
 {
     FixPerifery((char*)"port0x3C8");
     VGA_Set_Palette((uint8_t*)palette);
@@ -38680,7 +38668,7 @@ void sub_31A00_31A40()
     sub_315C0_31600();
     //v1 = (unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418;
     str_AE400_AE3F0->mod3D_8603 = 0;
-    sub_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
+    SetPalette_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
   }
 }
 // 90754: using guessed type char byte_90754;
@@ -41123,7 +41111,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
@@ -41318,7 +41306,7 @@ char sub_34690()
         }
 LABEL_61:
         sub_61EC8();
-        sub_319A0_319E0((TColor*)byte_B7010);
+        SetPalette_319A0_319E0((TColor*)byte_B7010);
         LOBYTE(v1) = dword_AE408_AE3F8();
         *(_BYTE *)(dword_AE408_AE3F8() + 152) = 1;
         break;
@@ -50293,14 +50281,14 @@ void sub_40440_40780(Pathstruct* pathstruct)//211440_211780
 			int compVar = sub_634E0_639F0(&pathstruct[i]);
 			if (compVar < 0)
 			{
-				sub_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
+				SetPalette_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
 				printf("ERROR: Allocation %s.\n", &pathstruct[i]);
 				printf("Press return to continue\n");
 				gets_s(input);
 			}
 			else if (!compVar)
 			{
-				sub_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
+				SetPalette_319A0_319E0(begPalDat_AE428_AE418_26C428_26C418);
 				printf("ERROR: File %s.\n", &pathstruct[i]);
 				printf("Press return to continue\n");
 				gets_s(input);
@@ -52390,7 +52378,7 @@ int sub_42A00_42D40(__int16 a1)
   char v16[32]; // [esp+0h] [ebp-20h] BYREF
 
   *(_BYTE *)connection_93990[word_9395A] = -112;
-  sprintf(v16, "%s%d", aTester, a1);
+  sprintf(v16, "%s%d", "TESTER", a1);
   v1 = v16;
   v2 = (char *)(connection_93990[word_9395A] + 10);
   do
@@ -52595,7 +52583,7 @@ int sub_42E10(__int16 a1)
 
   if ( *(_BYTE *)(connection_93990[a1] + 49) == 0xFF )
     return -*(unsigned __int8 *)(connection_93990[a1] + 49);
-  sprintf(v12, "%s%d", aTester, a1);
+  sprintf(v12, "%s%d", "TESTER", a1);
   *(_BYTE *)connection_93990[a1] = -111;
   v1 = v12;
   v2 = (char *)(connection_93990[a1] + 10);
@@ -52923,7 +52911,7 @@ int sub_43430_43770(char *a1, __int16 a2)
   {
     if ( byte_93959 )
       return word_9395A;
-    v3 = aTester;
+    v3 = (char*)"TESTER";
     v4 = 0;
     word_93988 = (unsigned __int8)byte_93959;
     word_9395C = a2;
@@ -52948,7 +52936,7 @@ int sub_43430_43770(char *a1, __int16 a2)
     {
       if ( word_9395A != -1 || word_93988 )
         break;
-      sprintf(v24, "%s%d", aTester, v8);
+      sprintf(v24, "%s%d", "TESTER", v8);
       v7 = sub_42930((_BYTE *)connection_93990[v8], v24, v8);
       if ( v7 < 0xFFFE7961 )
       {
@@ -52967,7 +52955,7 @@ int sub_43430_43770(char *a1, __int16 a2)
       return -1;
     if ( word_93988 )
     {
-      sprintf(v24, "%s%d", aTester, word_9395A);
+      sprintf(v24, "%s%d", "TESTER", word_9395A);
       sub_42D40((_BYTE *)connection_93990[v8], v24);
       return -1;
     }
@@ -53033,7 +53021,7 @@ int sub_43430_43770(char *a1, __int16 a2)
           {
             if ( v19 == word_9395A )
             {
-              sprintf(v24, "%s%d", aTester, word_9395A);
+              sprintf(v24, "%s%d", "TESTER", word_9395A);
               sub_42D40((_BYTE *)connection_93990[v21], v24);
             }
             else
@@ -53088,7 +53076,7 @@ int sub_43760(__int16 a1)
           sub_42DE0((_BYTE *)connection_93990[i]);
         }
       }
-      sprintf(v4, "%s%d", aTester, word_9395A);
+      sprintf(v4, "%s%d", "TESTER", word_9395A);
       sub_42D40((_BYTE *)connection_93990[a1], v4);
       byte_93959 = 0;
     }
@@ -57389,8 +57377,8 @@ void sub_4AC70_4AFB0()//21BC70_
 							else
 							{
 								settingPage_12CBC9_12CBB9 = 6;
-								sprintf(string_12CA94_12CA84, "%s", &aE388[1]);
-								sprintf(string_12CAA8_12CA98, "%s", &aE388[1]);
+                                sprintf(string_12CA94_12CA84, "%s", "3");
+								sprintf(string_12CAA8_12CA98, "%s", "3");
 							}
 						}
 						break;
@@ -57410,7 +57398,7 @@ void sub_4AC70_4AFB0()//21BC70_
 							if (!strcmp((const char*)&dword_12CABC_12CAAC, (const char*)&dword_A99A0_A99B8))
 							{
 								sprintf(textBuffer, "%s%s\\sndsetup.inf", "C:", "\\carpet.cd");
-								FILE* file = fopen(textBuffer, &aNewt[2]);
+								FILE* file = fopen(textBuffer, "w");
 								if (file)
 								{
 									fprintf(
@@ -67916,7 +67904,7 @@ void sub_5A560()
     v3 = GetLetterY_5A3B0_5A8C0() + v2;
     DrawText_5A180_5A690((char*)"Version date", 320, v3, byte_AD167_AD157[3841]);
     v4 = GetLetterY_5A3B0_5A8C0() + v3;
-    sprintf(v32, "%s %s", a162618, aJun051995);
+    sprintf(v32, "%s %s", "16:26:18", "Jun 05 1995");
     DrawText_5A180_5A690(v32, 320, v4, byte_AD167_AD157[16]);
     v5 = GetLetterY_5A3B0_5A8C0() + v4;
     DrawText_5A180_5A690((char*)"Programmer", 320, v5, byte_AD167_AD157[3841]);
@@ -68470,7 +68458,7 @@ int sub_5B480_5B990(int a1, int16_t* a2, int16_t* a3)
 // 5B480: using guessed type char var_18[24];
 
 //----- (0005B500) --------------------------------------------------------
-void sub_5B500()
+void sub_5B500_5BA10()
 {
     FixPerifery();
 
@@ -69191,7 +69179,7 @@ void sub_5C8F4()
       v0 = v11 - 1;
     }
     while ( v11 != 1 );
-    sub_319A0_319E0(begPalMem_AE418_AE408_26C418_26C408);
+    SetPalette_319A0_319E0(begPalMem_AE418_AE408_26C418_26C408);
   }
 }
 // 9ADBC: using guessed type int dword_9ADBC;
@@ -72875,7 +72863,7 @@ int sub_618E0(__int16 a1)
 // 12F084: using guessed type __int16 word_12F084;
 
 //----- (000619B8) --------------------------------------------------------
-int sub_619B8(__int16 a1)
+int sub_619B8_61EC8(__int16 a1)
 {
   char v2[28]; // [esp+0h] [ebp-38h] BYREF
   _WORD v3[14]; // [esp+1Ch] [ebp-1Ch] BYREF
@@ -72922,7 +72910,7 @@ int sub_61AB0()
   char v3[28]; // [esp+50h] [ebp-2Ch] BYREF
   char v4[12]; // [esp+6Ch] [ebp-10h] BYREF
 
-  FixPerifery();
+  FixPerifery((char*)"SET PAL REG");
 
   memset(v1, 0, 50);
   HIWORD(v1[8]) = (unsigned int)dword_12F080_12F070 >> 4;
@@ -72938,7 +72926,7 @@ int sub_61AB0()
   v2[1] = 16;
   v2[5] = (int)v1;
   int386x(49, (uint32)v2, (uint32)v3, (uint32)v4);
-  return strncmp((char*)dword_12F080_12F070, aVesa, 4);
+  return strncmp((char*)dword_12F080_12F070, "VESA", 4);
 }
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
 // 636BC: using guessed type _DWORD segread(_DWORD);
@@ -72953,7 +72941,7 @@ void sub_61B90_620A0(unsigned __int8 *a1)//232B90_
 
     scrWidth_12EFF0_12EFE0 = 320;
     scrHeight_12EFF8_12EFE8 = 200;
-    sub_319A0_319E0((TColor*)a1);
+    SetPalette_319A0_319E0((TColor*)a1);
     sub_5C468_5C978();
     sub_65EB0_663C0(0, 0, 320, 200);
     /*
@@ -72990,8 +72978,8 @@ void sub_61C30_62140(unsigned __int8 *a1)
     word_12F02C = (unsigned __int8)v2[0];
   scrWidth_12EFF0_12EFE0 = 640;
   scrHeight_12EFF8_12EFE8 = 480;
-  sub_619B8(257);
-  sub_319A0_319E0((TColor*)a1);
+  sub_619B8_61EC8(257);
+  SetPalette_319A0_319E0((TColor*)a1);
   sub_5C468_5C978();
   sub_65EB0_663C0(0, 0, 640, 480);
 }
@@ -73031,7 +73019,7 @@ void FadeInOut_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3)//232CC0
         palette2[i].blue = byte_12F090_12F080[i].blue + (palette[i].blue - byte_12F090_12F080[i].blue) * word_12F690_12F680 / a2;
     }
     //WaitForBeam_5CC54_5D164();
-    sub_319A0_319E0(palette2);
+    SetPalette_319A0_319E0(palette2);
     fixWaitForBeam_5CC54_5D164();
   }
   else
@@ -73051,7 +73039,7 @@ void FadeInOut_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3)//232CC0
           palette2[i].blue = byte_12F090_12F080[i].blue + (palette[i].blue - byte_12F090_12F080[i].blue) * word_12F690_12F680 / a2;
       }
       //WaitForBeam_5CC54_5D164();
-      sub_319A0_319E0(palette2);
+      SetPalette_319A0_319E0(palette2);
       fixWaitForBeam_5CC54_5D164();
     }
     byte_9AFA8 = 0;
@@ -76012,7 +76000,7 @@ int sub_68622_68B32(
   if ( a3 < 0xA000 || a3 > 0xA200 )
     return 6;
   strcpy(&unk_9EE07, &unk_9ED08);
-  strcat(&unk_9EE07, aHmimdrv386);
+  strcat(&unk_9EE07, "hmimdrv.386");
   v14 = open((uint32)&unk_9EE07, 512);
   if ( v14 != -1 )
   {
@@ -78513,7 +78501,7 @@ int sub_6DE34_6E344(
   if ( a3 < 0xE000 || a3 > 0xE200 )
     return 6;
   strcpy(&unk_A05D1, &byte_A04D2);
-  strcat(&unk_A05D1, aHmidrv386);
+  strcat(&unk_A05D1, "hmidrv.386");
   v14 = open((uint32)&unk_A05D1, 512);
   if ( v14 != -1 )
   {
@@ -78598,7 +78586,7 @@ int sub_6E09A_6E5AA(__int16 a1, int a2, unsigned int a3, int *a4, unsigned int a
   if ( a3 < 0x1000 || a3 > 0x1023 )
     return 6;
   strcpy(&unk_A05D1, &byte_A04D2);
-  strcat(&unk_A05D1, aHmidrv386);
+  strcat(&unk_A05D1, "hmidrv.386");
   v13 = open((uint32)&unk_A05D1, 512);
   if ( v13 != -1 )
   {
