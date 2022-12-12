@@ -20014,11 +20014,11 @@ void ProcessKeys_16B00()//1E7B00_
                     case 2:
                         strcpy(str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].messageText_13351_28, dword_AE238_AE228[51]);
                         break;
+                    }
                     str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].periods_13415 = 50;
                     str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].messages_13351_28[str_AE400_AE3F0->var_u16_8].drawType_13417 = 2;
                     str_AE400_AE3F0->blur_8604++;
                     str_AE400_AE3F0->blur_8604 %= 3;
-                    }
 				}
 				lastPressedKey_12EF70_12EF60 = 0;
 				return;
@@ -38182,14 +38182,14 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 uaxis_2d point1;
                 uaxis_2d point2;
                 uaxis_2d point3;
-                point0._axis_2d.x = tempBlurBuffer[0];
-                point0._axis_2d.y = tempFrame[0];
-                point1._axis_2d.x = tempBlurBuffer[1];
-                point1._axis_2d.y = tempFrame[1];
-                point2._axis_2d.x = tempBlurBuffer[2];
-                point2._axis_2d.y = tempFrame[2];
-                point3._axis_2d.x = tempBlurBuffer[3];
-                point3._axis_2d.y = tempFrame[3];
+                point0._axis_2d.x = tempFrame[0];
+                point0._axis_2d.y = tempBlurBuffer[0];
+                point1._axis_2d.x = tempFrame[1];
+                point1._axis_2d.y = tempBlurBuffer[1];
+                point2._axis_2d.x = tempFrame[2];
+                point2._axis_2d.y = tempBlurBuffer[2];
+                point3._axis_2d.x = tempFrame[3];
+                point3._axis_2d.y = tempBlurBuffer[3];
                 tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
                 tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
                 tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
