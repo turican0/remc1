@@ -1658,7 +1658,8 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
 void SetViewPort2_79495_799A5(uint8* a1, uint8* a2, int a3, int a4, int a5);
 void sub_79906(uint16 a1[2][256]);
 void sub_79A1B(uint16 a1[2][256]);
-int sub_79A70_79F80(int result, _BYTE *a2, _BYTE *a3, int a4, /*int a5,*/ uint16 a6[2][256]);
+void sub_79A70_79F80(uint8* a2, uint8* a3, uint16 a6[2][256], int scrSize);//24AA70
+int sub_79A70_79F80(int result, _BYTE *a2, _BYTE *a3, /*int a4, int a5,*/ uint16 a6[2][256]);
 void sub_79B2D();
 // int gettextposition(_DWORD); weak
 // _DWORD settextposition(_DWORD, _DWORD); weak
@@ -10446,7 +10447,7 @@ char byte_9F1A8[6] = { '\0', '\0', '\0', '\0', '\0', '\0' }; // weak
 __int16 word_9F1B0 = 0; // weak
 __int16 word_9F1B6 = 0; // weak
 //uint8_t* tempScreenBuffer_A0000;// [640 * 480] ; // weak
-uint8_t tempScreenBuffer_A0000[307200];
+uint8_t tempScreenBuffer_A0000[640 * 480 * 2];
 __int16 word_A01C2 = 0; // weak
 int dword_A01C4 = 0; // weak
 int dword_A01CC = 0; // weak
@@ -72824,12 +72825,21 @@ int sub_619B8_61EC8(__int16 videoMode)
   //videoMode = 0x101;//640x480 256 color
   //videoMode = 0x10e;//320x200 65536 color
   //videoMode = 0x111;//640x480 65536 color
-  if(videoMode==0x101)
-    VGA_Resize(640, 480);
-  if (videoMode == 0x10e)
-      VGA_Resize(320, 200);
-  if (videoMode == 0x111)
+  if (videoMode == 0x101)
+  {
       VGA_Resize(640, 480);
+      VGA_SetColors(8);
+  }
+  if (videoMode == 0x10e)
+  {
+      VGA_Resize(320, 200);
+      VGA_SetColors(16);
+  }
+  if (videoMode == 0x111)
+  {
+      VGA_Resize(640, 480);
+      VGA_SetColors(16);
+  }
   return sub_618E0(videoMode);
 }
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
@@ -72838,19 +72848,18 @@ int sub_619B8_61EC8(__int16 videoMode)
 //----- (00061A1C) --------------------------------------------------------
 void sub_61A1C_61F2C(__int16 a1)
 {
-  int result; // eax
+  //int result; // eax
 
   FixPerifery((char*)"port0x3C8 2");
 
   word_9AFA4 = a1;
-  if ( (unsigned __int16)a1 >= 6u )
-  {
+  //if ( (unsigned __int16)a1 >= 6u )
+  //{
     //__outbyte(0x3C8u, 0);
     //__outbyte(0x3C9u, 0x3Fu);
     //__outbyte(0x3C9u, 0);
     //__outbyte(0x3C9u, 0);
-    VGA_Set_Palette_oneColor(0, 0x3Fu, 0, 0);//fix
-  }
+  //}
 
   //test
   Set_basic_Palette0();
@@ -72859,7 +72868,7 @@ void sub_61A1C_61F2C(__int16 a1)
   //test
 
   //fix __asm { int     10h; - VIDEO - VESA SuperVGA BIOS -  VESA SuperVGA BIOS - CPU VIDEO MEMORY CONTROL }
-  result = 0x4F05;//change memory for drawing
+  //result = 0x4F05;//change memory for drawing
   //fix __asm { int     10h; - VIDEO - VESA SuperVGA BIOS -  VESA SuperVGA BIOS - CPU VIDEO MEMORY CONTROL }
 }
 // 9AFA4: using guessed type __int16 word_9AFA4;
@@ -111787,25 +111796,25 @@ void sub_79906(uint16 a1[2][256])
   sub_61A1C_61F2C(0);
   v1 = (_BYTE *)blurBuffer_AE404_AE3F4;
   v2 = (_BYTE *)pdwScreenBuffer_12EFF4;
-  v3 = sub_79A70_79F80(0, (_BYTE *)pdwScreenBuffer_12EFF4, (_BYTE *)blurBuffer_AE404_AE3F4, 0, a1);
+  v3 = sub_79A70_79F80(0, pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, a1);
   sub_61A1C_61F2C(1);
-  v4 = sub_79A70_79F80(v3, v2, v1, 0, a1);
+  v4 = sub_79A70_79F80(v3, v2, v1, a1);
   sub_61A1C_61F2C(2);
-  v5 = sub_79A70_79F80(v4, v2, v1, 0, a1);
+  v5 = sub_79A70_79F80(v4, v2, v1, a1);
   sub_61A1C_61F2C(3);
-  v6 = sub_79A70_79F80(v5, v2, v1, 0, a1);
+  v6 = sub_79A70_79F80(v5, v2, v1, a1);
   sub_61A1C_61F2C(4);
-  v7 = sub_79A70_79F80(v6, v2, v1, 0, a1);
+  v7 = sub_79A70_79F80(v6, v2, v1, a1);
   sub_61A1C_61F2C(5);
-  v8 = sub_79A70_79F80(v7, v2, v1, 0, a1);
+  v8 = sub_79A70_79F80(v7, v2, v1, a1);
   sub_61A1C_61F2C(6);
-  v9 = sub_79A70_79F80(v8, v2, v1, 0, a1);
+  v9 = sub_79A70_79F80(v8, v2, v1, a1);
   sub_61A1C_61F2C(7);
-  v10 = sub_79A70_79F80(v9, v2, v1, 0, a1);
+  v10 = sub_79A70_79F80(v9, v2, v1, a1);
   sub_61A1C_61F2C(8);
-  v11 = sub_79A70_79F80(v10, v2, v1, 0, a1);
+  v11 = sub_79A70_79F80(v10, v2, v1, a1);
   sub_61A1C_61F2C(9);
-  sub_79A70_79F80(v11, v2, v1, 0, a1);
+  sub_79A70_79F80(v11, v2, v1, a1);
 }
 // AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // 12EFF4: using guessed type int dword_12EFF4;
@@ -111813,23 +111822,32 @@ void sub_79906(uint16 a1[2][256])
 //----- (00079A1B) --------------------------------------------------------
 void sub_79A1B(uint16 a1[2][256])//24AA1B
 {
-  //_BYTE *v1; // ecx
-  //_BYTE *v2; // edx
-  int v3; // [esp-30h] [ebp-3Ch]
-  int savedregs; // [esp+Ch] [ebp+0h] BYREF
-
-  sub_61A1C_61F2C(0);
-  //v1 = (_BYTE *)blurBuffer_AE404_AE3F4;
-  //v2 = (_BYTE *)pdwScreenBuffer_12EFF4;
-  v3 = sub_79A70_79F80(0, pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, 0, a1);
+  /*sub_61A1C_61F2C(0);
+  int v3 = sub_79A70_79F80(0, pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, a1);
   sub_61A1C_61F2C(1);
-  sub_79A70_79F80(v3, pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, 0, a1);
+  sub_79A70_79F80(v3, pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, a1);
+  */
+  sub_79A70_79F80(pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, a1,320*200);
+
+  Set_basic_Palette0();
+  VGA_Blit(tempScreenBuffer_A0000);
 }
 // AE404: using guessed type int blurBuffer_AE404_AE3F4;
 // 12EFF4: using guessed type int dword_12EFF4;
 
+void sub_79A70_79F80(uint8* a2, uint8* a3, uint16 a6[2][256], int scrSize)//24AA70
+{
+	for (int i = 0; i < scrSize * 2; i += 2)
+	{
+		((uint16*)tempScreenBuffer_A0000)[i] = a6[1][a2[0]] + a6[0][a3[0]];
+		((uint16*)tempScreenBuffer_A0000)[i + 1] = a6[1][a2[1]] + a6[0][a3[1]];
+		a3 += 2;
+		a2 += 2;
+	}
+}
+
 //SYNCHRONIZED WITH REMC1
-int sub_79A70_79F80(int result,_BYTE *a2,_BYTE *a3,int a4,/*int a5,*/ uint16 a6[2][256])//24AA70
+int sub_79A70_79F80(int result,_BYTE *a2,_BYTE *a3,uint16 a6[2][256])//24AA70
 {
   //int *v6; // edi
   int v7; // eax
@@ -111842,45 +111860,45 @@ int sub_79A70_79F80(int result,_BYTE *a2,_BYTE *a3,int a4,/*int a5,*/ uint16 a6[
   int v6x = 0;
   do
   {
-    LOBYTE(a4) = a3[1];
-    LOWORD(result) = a6[0][a4];
-    LOBYTE(a4) = a2[1];
-    LOWORD(result) = a6[1][a4] + result;
+    //LOBYTE(a4) = a3[1];
+    LOWORD(result) = a6[0][a3[1]];
+    //LOBYTE(a4) = a2[1];
+    LOWORD(result) = a6[1][a2[1]] + result;
     v7 = result << 16;
-    LOBYTE(a4) = a3[0];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[0];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[0];
+    LOWORD(v7) = a6[0][a3[0]];
+    //LOBYTE(a4) = a2[0];
+    LOWORD(v7) = a6[1][a2[0]] + v7;
     tempScreenBuffer_A0000[v6x] = v7;
-    LOBYTE(a4) = a3[3];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[3];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[3];
+    LOWORD(v7) = a6[0][a3[3]];
+    //LOBYTE(a4) = a2[3];
+    LOWORD(v7) = a6[1][a2[3]] + v7;
     v7 <<= 16;
-    LOBYTE(a4) = a3[2];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[2];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[2];
+    LOWORD(v7) = a6[0][a3[2]];
+    //LOBYTE(a4) = a2[2];
+    LOWORD(v7) = a6[1][a2[2]] + v7;
     tempScreenBuffer_A0000[v6x+1] = v7;
-    LOBYTE(a4) = a3[5];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[5];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[5];
+    LOWORD(v7) = a6[0][a3[5]];
+    //LOBYTE(a4) = a2[5];
+    LOWORD(v7) = a6[1][a2[5]] + v7;
     v7 <<= 16;
-    LOBYTE(a4) = a3[4];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[4];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[4];
+    LOWORD(v7) = a6[0][a3[4]];
+    //LOBYTE(a4) = a2[4];
+    LOWORD(v7) = a6[1][a2[4]] + v7;
     tempScreenBuffer_A0000[v6x+2] = v7;
-    LOBYTE(a4) = a3[7];
-    LOWORD(v7) = a6[0][a4];
-    LOBYTE(a4) = a2[7];
-    LOWORD(v7) = a6[1][a4] + v7;
+    //LOBYTE(a4) = a3[7];
+    LOWORD(v7) = a6[0][a3[7]];
+    //LOBYTE(a4) = a2[7];
+    LOWORD(v7) = a6[1][a2[7]] + v7;
     result = v7 << 16;
-    LOBYTE(a4) = a3[6];
-    LOWORD(result) = a6[0][a4];
-    LOBYTE(a4) = a2[6];
-    LOWORD(result) = a6[1][a4] + result;
+    //LOBYTE(a4) = a3[6];
+    LOWORD(result) = a6[0][a3[6]];
+    //LOBYTE(a4) = a2[6];
+    LOWORD(result) = a6[1][a2[6]] + result;
     tempScreenBuffer_A0000[v6x+3] = result;
     a3 += 8;
     a2 += 8;
