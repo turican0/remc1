@@ -25,6 +25,13 @@
 
 #pragma pack (1)
 
+typedef struct {//size 44
+	char text[14];
+	uint16 x;//14
+	uint16 y;//16
+	uint8 stub[238];
+} vesa_str;
+
 typedef struct {
 	uint16_t x;
 	uint16_t y;

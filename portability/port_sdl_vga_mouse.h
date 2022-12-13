@@ -59,6 +59,8 @@ void Draw_debug_matrix1();
 void Draw_black();
 void SetBlackPalette();
 
+void VGA_Set_Palette_oneColor(uint8_t index, uint8_t red, uint8_t green, uint8_t blue);
+
 extern uint8_t lastPressedKey_12EF70_12EF60; // weak//3516e4
 extern uint8_t pressedKeys_12EEF0_12EEE0[128]; // idb
 

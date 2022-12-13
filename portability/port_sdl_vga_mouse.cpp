@@ -497,6 +497,21 @@ void VGA_Set_file_Palette(char* filename) {
 	SetPalette(colors);
 }
 
+void VGA_Set_Palette_oneColor(uint8_t index, uint8_t red, uint8_t green, uint8_t blue) {
+	tempPalettebuffer[index * 3] = red;
+	tempPalettebuffer[index * 3 + 1] = green;
+	tempPalettebuffer[index * 3 + 2] = blue;
+	SDL_Color colors[256];
+	/* Fill colors with color information */
+	//for (int i = 0; i < 256; i++)
+	{
+		colors[index].r = 4 * tempPalettebuffer[index * 3];
+		colors[index].g = 4 * tempPalettebuffer[index * 3 + 1];
+		colors[index].b = 4 * tempPalettebuffer[index * 3 + 2];
+	}
+	SetPalette(colors);
+}
+
 void VGA_Set_Palette(Uint8* Palettebuffer) {
 	memcpy(tempPalettebuffer, Palettebuffer, 768);
 	SDL_Color colors[256];
