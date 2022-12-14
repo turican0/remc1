@@ -4,7 +4,7 @@
 #define autostart
 
 #define MODIFY_SETTINGS
-bool modset_used = true;
+int modset_used_count = 0;
 int modset_key = 0x0;
 //#define COMPARE_WITH
 
@@ -181,7 +181,7 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
         else if (!strcmp(text, "GET VIDEOMODES"))
             printf("external pefifery - Get VGA video modes\n");
         else if (!strcmp(text, "SET VIDEOMOD"))
-            printf("external pefifery - Get VGA video modes\n");
+            printf("external pefifery - Set VGA resolution and colors\n");
         else if (!strcmp(text, "GET MORE GRAPHICS INFO"))
             printf("More detailed information about individual graphics modes\n");
         else if (!strcmp(text, "port0x3C8 2"))
@@ -14737,7 +14737,7 @@ int16_t mapEntityIndex_10C1E0_10C1D0[0x10000]; // weak
 //_UNKNOWN unk_123333; // weak
 //_UNKNOWN unk_1234DC; // weak
 
-__int16 word_12C1E0_12C1D0; // weak
+uint16 word_12C1E0_12C1D0; // weak
 __int16 word_12C1F0[256]; // weak
 __int16 word_12C1F2[959]; // weak
 int array_12C970[6]; // weak
@@ -19797,10 +19797,10 @@ void sub_169E0()//1E79E0_
 void ProcessKeys_16B00()//1E7B00_
 {
 #ifdef MODIFY_SETTINGS
-    if (!modset_used)
+    if (modset_used_count)
     {
         lastPressedKey_12EF70_12EF60 = modset_key;
-        modset_used = true;
+        modset_used_count--;
     }
 #endif
 
@@ -34741,6 +34741,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	}
 	else
 	{
+    //adress 1FCCC4_
 		byte_967E1 = 1;
 		int index148 = textRows * (textColumns - 1);
 		for (int index245 = textColumns - 1; index245; index245--)
@@ -38007,23 +38008,23 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   //int v21; // edx
   //int v22; // esi
   //int v23; // ebx
-  int v24; // eax
-  uint8* v25; // esi
-  int v26; // ecx
+  //int v24; // eax
+  //uint8* v25; // esi
+  //int v26; // ecx
   uint8* v27; // esi
-  int v28; // eax
+  //int v28; // eax
   char *v29; // ebx
-  char v30; // dl
-  int v31; // eax
-  int v32; // esi
+  //char v30; // dl
+  //int v31; // eax
+  //int v32; // esi
   uint8* v33; // ebx
-  unsigned __int8 *v34; // ecx
+  uint8* v34; // ecx
   int i; // eax
-  _BYTE *v36; // edi
+  //uint8* v36; // edi
   int v37; // edx
   int v38; // esi
-  _BYTE *v39; // ebx
-  unsigned __int8 *v40; // ecx
+  uint8* v39; // ebx
+  uint8* v40; // ecx
   _BOOL1 j; // zf
   int v42; // eax
   _BYTE *k; // ebx
@@ -38320,72 +38321,75 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
   }
   else
   {
-    v25 = beginFrame_93ACC;
+  //adress 0x202022
+    //v25 = beginFrame_93ACC;
     SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
     DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-    SetViewPort2_79495_799A5(v25, 0, 0, 0, 0);
-    v26 = heightViewPort_93ADC;
+    SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
+    //v26 = heightViewPort_93ADC;
     v27 = beginFrame_93ACC + widthViewPort_93AD8 / 2 - 64;
-    if ( (_WORD)heightViewPort_93ADC )
+    if ( heightViewPort_93ADC )
     {
-      do
+      for(int index26= heightViewPort_93ADC; index26; index26--)
       {
         word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-        v28 = 64;//2020CE_
+        //v28 = 64;//2020CE_
         //v29 = (char *)off_9359C + 256 * (v26 & 0x1F) + (unsigned __int16)word_12C1E0_12C1D0 % 7u;
-        v29 = (char*)&dword_9334C[148] + 256 * (v26 & 0x1F) + (unsigned __int16)word_12C1E0_12C1D0 % 7u;//test it !!
-        do
-        {
+        v29 = (char*)&dword_9334C[148] + 256 * (index26 & 0x1F) + word_12C1E0_12C1D0 % 7u;//test it !!
+        for(int index28 = 64; index28; index28--)
+        {          
+          //v30 = v29[0];
+          v27[0] = v29[0];
           v27++;
-          v30 = *v29++;
-          *(_BYTE *)(v27 - 1) = v30;
-          v28--;
+          v29++;
+          //v28--;
         }
-        while ( v28 );
+        //while ( v28 );
         v27 += pitchViewPort_93AD4 - 64;
-        v26--;
+        //v26--;
       }
-      while ( v26 );
+      //while ( v26 );
     }
-    v31 = widthViewPort_93AD8 / 2;
-    v32 = heightViewPort_93ADC;
-    v33 = v31 + beginFrame_93ACC;
-    v34 = (unsigned __int8 *)(v31 + (int)blurBuffer_AE404_AE3F4);
-    if ( (_WORD)heightViewPort_93ADC )
+    //v31 = widthViewPort_93AD8 / 2;
+    //v32 = heightViewPort_93ADC;
+    v33 = &beginFrame_93ACC[widthViewPort_93AD8 / 2];
+    v34 = &blurBuffer_AE404_AE3F4[widthViewPort_93AD8 / 2];
+    if ( heightViewPort_93ADC )
     {
-      do
+      for(int index32 = heightViewPort_93ADC; index32; index32--)
       {
-        for ( i = widthViewPort_93AD8 / 2; i; --i )
+        for ( i = widthViewPort_93AD8 / 2; i; i-- )
         {
-          v36 = (_BYTE *)(v33 - *v34);
+          //v36 = &v33[-v34[0]];
+          v33[0] = v33[-v34[0]];
           v33++;
           v34++;
-          *(_BYTE *)(v33 - 1) = *v36;
         }
         v37 = pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
         v33 += v37;
         v34 += v37;
-        v32--;
+        //v32--;
       }
-      while ( v32 );
+      //while ( v32 );
     }
-    v24 = widthViewPort_93AD8 / 2;
+    //v24 = widthViewPort_93AD8 / 2;
     v38 = heightViewPort_93ADC;
-    v39 = (_BYTE *)(v24 + beginFrame_93ACC);
-    v40 = (unsigned __int8 *)(v24 + (int)blurBuffer_AE404_AE3F4);
+    v39 = &beginFrame_93ACC[widthViewPort_93AD8 / 2];
+    v40 = &blurBuffer_AE404_AE3F4[widthViewPort_93AD8 / 2];
     for ( j = heightViewPort_93ADC == 0; !j; j = v38 == 0 )
     {
-      v76 = *v40;
-      v42 = widthViewPort_93AD8 / 2 - *v40;
-      for ( k = &v39[-*v40]; v42; v42-- )
-      {
-        k--;
+      v76 = v40[0];
+      v42 = widthViewPort_93AD8 / 2 - v40[0];
+      for ( k = &v39[-v40[0]]; v42; v42-- )
+      {        
         //v44 = k[*--v40];
-        *k = k[*--v40];
+        k[0] = k[v40[0]];
+        v40--;
+        k--;
       }
-      v24 = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
-      v39 = &k[v24];
-      v40 = &v40[v24 - v76];
+      //v24 = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
+      v39 = &k[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2];
+      v40 = &v40[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - v76];
       v38--;
     }
   }
@@ -41052,10 +41056,10 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        //add_compare(0x2055DE, true, true);
+        add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
-	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
+	str_AE408_AE3F8->var_u32_153 -= dword_AC5D4_AC5C4;
 	sub_5A560();
     //2055F4
             //debug
@@ -41076,7 +41080,7 @@ void GameLoop_34610_349D0()//205610_
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    modset_used = false;
+    modset_used_count = 2;
     modset_key = 0x44;
 
     //byte_90754 = 1;// str_AE400_AE3F0->mod3D_8603 = 1;
@@ -68928,6 +68932,7 @@ void ResizeScr_5C468_5C978()
         v4 = 400;*/
         VGA_Resize(320, 200);
     }
+    VGA_SetColors(8);
     /*
   int result; // eax
   char v1[28]; // [esp+0h] [ebp-38h] BYREF
@@ -102794,7 +102799,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
 //  adress 2439A3_
 //debug
 #ifdef debug1
-  if (compare_index_729A7 == 0x11)
+  if (compare_index_729A7 == 0x15fe)
   {
       compare_index_729A7++;
       compare_index_729A7--;
@@ -102808,7 +102813,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   uint8 origbyte20;
   uint8 remakebyte20;
-  //int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
   compare_index_729A7++;
 #endif debug1
 
@@ -102827,6 +102832,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   v1022x = 0;
   scaledU.dword = 0;
   scaledV.dword = 0;
+  scaledZ.dword = 0;
   //v51x = 0;
   addIndexY = 0;
   v390x = 0;

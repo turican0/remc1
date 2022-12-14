@@ -754,6 +754,15 @@ void DrawGameFrame_20FB0()//1F1FB0_
 
 fix sub_31600_31640
 
+--------------
+pdwScreenBuffer_12EFF4+0x0
+[0x2ECFF4](65be0)+0x0
+0x1d 0x46
+
+0x2021d7/0x311D7
+
+test adress adress 0x202022
+
 
 
 
