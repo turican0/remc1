@@ -37992,407 +37992,380 @@ while (videoMode != videoModes_12F080[i])
 //SYNCHRONIZED WITH REMC1
 void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch, int roll, int fow)//201D90_
 {
-  //unsigned __int16 v8; // ax
-  //unsigned __int16 v9; // cx
-  //int v10; // edx
-  //int v11; // ecx
-  //int v12; // ebx
-  //int v13; // edx
-  //int v14; // ecx
-  //int v15; // ebx
-  //int v16; // edx
-  //int v17; // ecx
-  //int v18; // ebx
-  //int v19; // edx
-  //int v20; // edi
-  //int v21; // edx
-  //int v22; // esi
-  //int v23; // ebx
-  //int v24; // eax
-  //uint8* v25; // esi
-  //int v26; // ecx
-  uint8* v27; // esi
-  //int v28; // eax
-  char *v29; // ebx
-  //char v30; // dl
-  //int v31; // eax
-  //int v32; // esi
-  uint8* v33; // ebx
-  uint8* v34; // ecx
-  int i; // eax
-  //uint8* v36; // edi
-  int v37; // edx
-  int v38; // esi
-  uint8* v39; // ebx
-  uint8* v40; // ecx
-  _BOOL1 j; // zf
-  int v42; // eax
-  _BYTE *k; // ebx
-  //char v44; // dl
-  //int tempCos; // edx
-  //int modX; // esi
-  //int modY; // ebx
-  //int v48; // eax
-  __int64 actSpeed; // rax
-  //int v50; // eax
-  //_BYTE *v51; // edi
-  //_BYTE *v52; // esi
-  //int v55; // ecx
-  //_BYTE *v56; // edi
-  //_BYTE *v57; // esi
-  //int v58; // edx
-  //int v59; // ebx
-  //int v60; // ecx
-  //_BYTE *v61; // edi
-  //int v62; // esi
-  //int v63; // ecx
-  uaxis_2d point13; // eax
-  uaxis_2d point24; // ebx
-  uaxis_2d point1234; // edx
-  int frameViewp; // [esp+0h] [ebp-24h]
-  int indexY; // [esp+4h] [ebp-20h]
-  int halfViewpX; // [esp+8h] [ebp-1Ch]
-  //uint8* v71; // [esp+Ch] [ebp-18h]
-  char temp8604; // [esp+10h] [ebp-14h]
-  //uint8* v73; // [esp+14h] [ebp-10h]
-  //uint8* v74; // [esp+18h] [ebp-Ch]
-  //int v75; // [esp+1Ch] [ebp-8h]
-  unsigned __int8 v76; // [esp+20h] [ebp-4h]
-  int tempFixPosX; // [esp+3Ch] [ebp+18h]
-  int tempFixPosY; // [esp+40h] [ebp+1Ch]
+	//unsigned __int16 v8; // ax
+	//unsigned __int16 v9; // cx
+	//int v10; // edx
+	//int v11; // ecx
+	//int v12; // ebx
+	//int v13; // edx
+	//int v14; // ecx
+	//int v15; // ebx
+	//int v16; // edx
+	//int v17; // ecx
+	//int v18; // ebx
+	//int v19; // edx
+	//int v20; // edi
+	//int v21; // edx
+	//int v22; // esi
+	//int v23; // ebx
+	//int v24; // eax
+	//uint8* v25; // esi
+	//int v26; // ecx
+	//uint8* v27; // esi
+	//int v28; // eax
+	//uint8* v29; // ebx
+	//char v30; // dl
+	//int v31; // eax
+	//int v32; // esi
+	//uint8* v33; // ebx
+	//uint8* v34; // ecx
+	int i; // eax
+	//uint8* v36; // edi
+	//int v37; // edx
+	//int v38; // esi
+	//uint8* v39; // ebx
+	uint8* v40; // ecx
+	//_BOOL1 j; // zf
+	//int v42; // eax
+	//_BYTE* k; // ebx
+	//char v44; // dl
+	//int tempCos; // edx
+	//int modX; // esi
+	//int modY; // ebx
+	//int v48; // eax
+	__int64 actSpeed; // rax
+	//int v50; // eax
+	//_BYTE *v51; // edi
+	//_BYTE *v52; // esi
+	//int v55; // ecx
+	//_BYTE *v56; // edi
+	//_BYTE *v57; // esi
+	//int v58; // edx
+	//int v59; // ebx
+	//int v60; // ecx
+	//_BYTE *v61; // edi
+	//int v62; // esi
+	//int v63; // ecx
+	uaxis_2d point13; // eax
+	uaxis_2d point24; // ebx
+	uaxis_2d point1234; // edx
+	int frameViewp; // [esp+0h] [ebp-24h]
+	int indexY; // [esp+4h] [ebp-20h]
+	int halfViewpX; // [esp+8h] [ebp-1Ch]
+	//uint8* v71; // [esp+Ch] [ebp-18h]
+	char temp8604; // [esp+10h] [ebp-14h]
+	//uint8* v73; // [esp+14h] [ebp-10h]
+	//uint8* v74; // [esp+18h] [ebp-Ch]
+	//int v75; // [esp+1Ch] [ebp-8h]
+	//unsigned __int8 v76; // [esp+20h] [ebp-4h]
+	int tempFixPosX; // [esp+3Ch] [ebp+18h]
+	int tempFixPosY; // [esp+40h] [ebp+1Ch]
 
-  uaxis_2d tempX;
-  uaxis_2d tempY;
-  tempX.word = posX;
-  tempY.word = posY;
-  uaxis_2d pos;
-  pos._axis_2d.x = tempX._axis_2d.y;
-  pos._axis_2d.y = tempY._axis_2d.y;
+	uaxis_2d tempX;
+	uaxis_2d tempY;
+	tempX.word = posX;
+	tempY.word = posY;
+	uaxis_2d pos;
+	pos._axis_2d.x = tempX._axis_2d.y;
+	pos._axis_2d.y = tempY._axis_2d.y;
 
-  if (tempX._axis_2d.x < 0x80u )
-      pos._axis_2d.x = tempX._axis_2d.y - 1;
-  if (tempY._axis_2d.x < 0x80u )
-      pos._axis_2d.y = tempY._axis_2d.y - 1;
-  uint8 point1 = mapHeightmap_DC1E0_DC1D0[pos.word];
-  pos._axis_2d.x += 2;
-  uint8 point2 = mapHeightmap_DC1E0_DC1D0[pos.word];
-  pos._axis_2d.y += 2;
-  int diff1 = point1 - point2;
-  int diff2 = point2 + point1;
-  uint8 point3 = mapHeightmap_DC1E0_DC1D0[pos.word];
-  pos._axis_2d.x -= 2;
-  int diff3 = diff1 - point3;
-  int diff4 = diff2 - point3;
-  uint8 point4 = mapHeightmap_DC1E0_DC1D0[pos.word];
-  int diff5 = 2 * (point4 + diff3);
-  int diff6 = 2 * (diff4 - point4);
-  if (diff5 <= 100 )
-  {
-    if (diff5 < -100 )
-        diff5 = -100;
-  }
-  else
-  {
-      diff5 = 100;
-  }
-  if (diff6 <= 100 )
-  {
-    if (diff6 < -100 )
-        diff6 = -100;
-  }
-  else
-  {
-      diff6 = 100;
-  }
-  fixPosX_90710 += (diff5 - fixPosX_90710) >> 3;
-  fixPosY_90714 += (diff6 - fixPosY_90714) >> 3;
-  tempFixPosX = fixPosX_90710 + posX;
-  tempFixPosY = fixPosY_90714 + posY;
-  int tempYaw = yaw & 0x7FF;
-  if ( str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->mod3D_8603 && scrWidth_12EFF0_12EFE0 == 640 )
-  {
-    SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, 2 * scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0 / 2 - 8, scrHeight_12EFF8_12EFE8 / 2 - 40);
-    dword_9070C = 20;
-    dword_902B0 = -5;
-    int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
-    int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
-    DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
-    SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4 + scrWidth_12EFF0_12EFE0 / 2, 0, 0, 0, 0);
-    dword_902B0 = 5;
-    DrawSkyTerrainParticles_2A700_2A740(tempFixPosX + tempSin, tempFixPosY + tempCos, tempYaw, posZ, pitch, roll, fow);
-    dword_902B0 = 0;
-    SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0, scrHeight_12EFF8_12EFE8);
-  }
-  else if ( str_AE400_AE3F0->mod3D_8603 != 2 || str_AE400_AE3F0->var_u8_8606 )
-  {
-    if ( str_AE400_AE3F0->mod3D_8603 != 1 || str_AE400_AE3F0->var_u8_8606 )
-    {
-      temp8604 = str_AE400_AE3F0->blur_8604;
-      if ( typeResolution_12F02E_12F01E == 1 )
-      {          
-        if ( !str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098)
-        {
-          if ( str_AE408_AE3F8->var_u8_8 )
-          {
-            if ( blurBuffer_AE404_AE3F4 )
-            {
-              if ( str_AE400_AE3F0->var_u8_8600 == 40 )
-              {
-                actSpeed = str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].actSpeed_29921_126;
-                if ( (int)((HIDWORD(actSpeed) ^ actSpeed) - HIDWORD(actSpeed)) > 80 )//fix it
-                  str_AE400_AE3F0->blur_8604 = 1;
-              }
-            }
-          }
-        }
-      }
-      if ( str_AE400_AE3F0->blur_8604 && blurBuffer_AE404_AE3F4 )
-      {
-        //v73 = beginFrame_93ACC;
-        uint8* tempBeginFrame = beginFrame_93ACC;
-        SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
-        DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-        SetViewPort2_79495_799A5(tempBeginFrame, 0, 0, 0, 0);
-        halfViewpX = widthViewPort_93AD8 >> 2;
-        frameViewp = pitchViewPort_93AD4 - widthViewPort_93AD8;
-        //indexY = heightViewPort_93ADC;
-        //fix
-        //int tempFix = dword_AE400_AE3F0();
-        //fix
-        //HIWORD(v50) = HIWORD(tempFix);
-        if ( str_AE400_AE3F0->blur_8604 == 1 )
-        {
-          uint8* tempFrame = tempBeginFrame;
-          uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
-          //HIWORD(v53) = 0;
-          //HIWORD(v54) = 0;
-          for(indexY = heightViewPort_93ADC; indexY; indexY--)
-          {
-            
-            for(int indexX = halfViewpX; indexX; indexX--)
-            {
-              uaxis_2d point0;
-              uaxis_2d point1;
-              uaxis_2d point2;
-              uaxis_2d point3;
-              point0._axis_2d.x = tempBlurBuffer[0];
-              point0._axis_2d.y = tempFrame[0];
-              point1._axis_2d.x = tempBlurBuffer[1];
-              point1._axis_2d.y = tempFrame[1];
-              point2._axis_2d.x = tempBlurBuffer[2];
-              point2._axis_2d.y = tempFrame[2];
-              point3._axis_2d.x = tempBlurBuffer[3];
-              point3._axis_2d.y = tempFrame[3];
-              tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
-              tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
-              tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
-              tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
+	if (tempX._axis_2d.x < 0x80u)
+		pos._axis_2d.x = tempX._axis_2d.y - 1;
+	if (tempY._axis_2d.x < 0x80u)
+		pos._axis_2d.y = tempY._axis_2d.y - 1;
+	uint8 point1 = mapHeightmap_DC1E0_DC1D0[pos.word];
+	pos._axis_2d.x += 2;
+	uint8 point2 = mapHeightmap_DC1E0_DC1D0[pos.word];
+	pos._axis_2d.y += 2;
+	int diff1 = point1 - point2;
+	int diff2 = point2 + point1;
+	uint8 point3 = mapHeightmap_DC1E0_DC1D0[pos.word];
+	pos._axis_2d.x -= 2;
+	int diff3 = diff1 - point3;
+	int diff4 = diff2 - point3;
+	uint8 point4 = mapHeightmap_DC1E0_DC1D0[pos.word];
+	int diff5 = 2 * (point4 + diff3);
+	int diff6 = 2 * (diff4 - point4);
+	if (diff5 <= 100)
+	{
+		if (diff5 < -100)
+			diff5 = -100;
+	}
+	else
+	{
+		diff5 = 100;
+	}
+	if (diff6 <= 100)
+	{
+		if (diff6 < -100)
+			diff6 = -100;
+	}
+	else
+	{
+		diff6 = 100;
+	}
+	fixPosX_90710 += (diff5 - fixPosX_90710) >> 3;
+	fixPosY_90714 += (diff6 - fixPosY_90714) >> 3;
+	tempFixPosX = fixPosX_90710 + posX;
+	tempFixPosY = fixPosY_90714 + posY;
+	int tempYaw = yaw & 0x7FF;
+	if (str_AE400_AE3F0->var_u8_8606 && str_AE400_AE3F0->mod3D_8603 && scrWidth_12EFF0_12EFE0 == 640)
+	{
+		SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, 2 * scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0 / 2 - 8, scrHeight_12EFF8_12EFE8 / 2 - 40);
+		dword_9070C = 20;
+		dword_902B0 = -5;
+		int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
+		int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
+		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
+		SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4 + scrWidth_12EFF0_12EFE0 / 2, 0, 0, 0, 0);
+		dword_902B0 = 5;
+		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX + tempSin, tempFixPosY + tempCos, tempYaw, posZ, pitch, roll, fow);
+		dword_902B0 = 0;
+		SetViewPort2_79495_799A5(pdwScreenBuffer_12EFF4, 0, scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0, scrHeight_12EFF8_12EFE8);
+	}
+	else if (str_AE400_AE3F0->mod3D_8603 != 2 || str_AE400_AE3F0->var_u8_8606)
+	{
+		if (str_AE400_AE3F0->mod3D_8603 != 1 || str_AE400_AE3F0->var_u8_8606)
+		{
+			temp8604 = str_AE400_AE3F0->blur_8604;
+			if (typeResolution_12F02E_12F01E == 1)
+			{
+				if (!str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_14421_1098)
+				{
+					if (str_AE408_AE3F8->var_u8_8)
+					{
+						if (blurBuffer_AE404_AE3F4)
+						{
+							if (str_AE400_AE3F0->var_u8_8600 == 40)
+							{
+								actSpeed = str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333].actSpeed_29921_126;
+								if ((int)((HIDWORD(actSpeed) ^ actSpeed) - HIDWORD(actSpeed)) > 80)//fix it
+									str_AE400_AE3F0->blur_8604 = 1;
+							}
+						}
+					}
+				}
+			}
+			if (str_AE400_AE3F0->blur_8604 && blurBuffer_AE404_AE3F4)
+			{
+				//v73 = beginFrame_93ACC;
+				uint8* tempBeginFrame = beginFrame_93ACC;
+				SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
+				DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
+				SetViewPort2_79495_799A5(tempBeginFrame, 0, 0, 0, 0);
+				halfViewpX = widthViewPort_93AD8 >> 2;
+				frameViewp = pitchViewPort_93AD4 - widthViewPort_93AD8;
+				//indexY = heightViewPort_93ADC;
+				//fix
+				//int tempFix = dword_AE400_AE3F0();
+				//fix
+				//HIWORD(v50) = HIWORD(tempFix);
+				if (str_AE400_AE3F0->blur_8604 == 1)
+				{
+					uint8* tempFrame = tempBeginFrame;
+					uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
+					//HIWORD(v53) = 0;
+					//HIWORD(v54) = 0;
+					for (indexY = heightViewPort_93ADC; indexY; indexY--)
+					{
 
-              //v50 <<= 16;
+						for (int indexX = halfViewpX; indexX; indexX--)
+						{
+							uaxis_2d point0;
+							uaxis_2d point1;
+							uaxis_2d point2;
+							uaxis_2d point3;
+							point0._axis_2d.x = tempBlurBuffer[0];
+							point0._axis_2d.y = tempFrame[0];
+							point1._axis_2d.x = tempBlurBuffer[1];
+							point1._axis_2d.y = tempFrame[1];
+							point2._axis_2d.x = tempBlurBuffer[2];
+							point2._axis_2d.y = tempFrame[2];
+							point3._axis_2d.x = tempBlurBuffer[3];
+							point3._axis_2d.y = tempFrame[3];
+							tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
+							tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
+							tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
+							tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
 
-              
-              //*(_DWORD *)tempFrame = v50;
-              tempFrame += 4;
-              tempBlurBuffer += 4;
-              //v55--;
-            }
-            //while ( v55 );
-            //HIWORD(v50) = HIWORD(frameViewp);
-            tempBlurBuffer += frameViewp;
-            tempFrame += frameViewp;
-            //indexY--;
-          }
-          //while ( indexY );
-        }
-        else
-        {
-          uint8* tempFrame = tempBeginFrame;
-          uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
-          //HIWORD(v58) = 0;
-          //HIWORD(v59) = 0;
-          for(indexY = heightViewPort_93ADC; indexY; indexY--)
-          {
-            //v60 = halfViewpX;
-            for (int indexX = halfViewpX; indexX; indexX--)
-            //do
-            {
-                uaxis_2d point0;
-                uaxis_2d point1;
-                uaxis_2d point2;
-                uaxis_2d point3;
-                point0._axis_2d.x = tempFrame[0];
-                point0._axis_2d.y = tempBlurBuffer[0];
-                point1._axis_2d.x = tempFrame[1];
-                point1._axis_2d.y = tempBlurBuffer[1];
-                point2._axis_2d.x = tempFrame[2];
-                point2._axis_2d.y = tempBlurBuffer[2];
-                point3._axis_2d.x = tempFrame[3];
-                point3._axis_2d.y = tempBlurBuffer[3];
-                tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
-                tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
-                tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
-                tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
-                /*
-              BYTE1(v59) = tempBlurBuffer[2];
-              LOBYTE(v59) = tempFrame[2];
-              BYTE1(v58) = tempBlurBuffer[3];
-              LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
-              LOBYTE(v58) = tempFrame[3];
-              BYTE1(v50) = strPal.byte_BB934_BB924[v58];
-              v50 <<= 16;
-              BYTE1(v59) = tempBlurBuffer[0];
-              LOBYTE(v59) = tempFrame[0];
-              BYTE1(v58) = tempBlurBuffer[1];
-              LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
-              LOBYTE(v58) = tempFrame[1];
-              BYTE1(v50) = strPal.byte_BB934_BB924[v58];
-              *(_DWORD *)tempFrame = v50;
-              */
-              tempFrame += 4;
-              tempBlurBuffer += 4;
-              //v60--;
-            }
-            //while ( v60 );
-            //HIWORD(v50) = HIWORD(frameViewp);
-            tempBlurBuffer += frameViewp;
-            tempFrame += frameViewp;
-            //indexY--;
-          }
-          //while ( indexY );
-        }
-      }
-      else
-      {
-//adress 202509_
-//debug
+							//v50 <<= 16;
+
+
+							//*(_DWORD *)tempFrame = v50;
+							tempFrame += 4;
+							tempBlurBuffer += 4;
+							//v55--;
+						}
+						//while ( v55 );
+						//HIWORD(v50) = HIWORD(frameViewp);
+						tempBlurBuffer += frameViewp;
+						tempFrame += frameViewp;
+						//indexY--;
+					}
+					//while ( indexY );
+				}
+				else
+				{
+					uint8* tempFrame = tempBeginFrame;
+					uint8* tempBlurBuffer = blurBuffer_AE404_AE3F4;
+					//HIWORD(v58) = 0;
+					//HIWORD(v59) = 0;
+					for (indexY = heightViewPort_93ADC; indexY; indexY--)
+					{
+						//v60 = halfViewpX;
+						for (int indexX = halfViewpX; indexX; indexX--)
+							//do
+						{
+							uaxis_2d point0;
+							uaxis_2d point1;
+							uaxis_2d point2;
+							uaxis_2d point3;
+							point0._axis_2d.x = tempFrame[0];
+							point0._axis_2d.y = tempBlurBuffer[0];
+							point1._axis_2d.x = tempFrame[1];
+							point1._axis_2d.y = tempBlurBuffer[1];
+							point2._axis_2d.x = tempFrame[2];
+							point2._axis_2d.y = tempBlurBuffer[2];
+							point3._axis_2d.x = tempFrame[3];
+							point3._axis_2d.y = tempBlurBuffer[3];
+							tempFrame[0] = strPal.byte_BB934_BB924[point0.word];
+							tempFrame[1] = strPal.byte_BB934_BB924[point1.word];
+							tempFrame[2] = strPal.byte_BB934_BB924[point2.word];
+							tempFrame[3] = strPal.byte_BB934_BB924[point3.word];
+							/*
+						  BYTE1(v59) = tempBlurBuffer[2];
+						  LOBYTE(v59) = tempFrame[2];
+						  BYTE1(v58) = tempBlurBuffer[3];
+						  LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
+						  LOBYTE(v58) = tempFrame[3];
+						  BYTE1(v50) = strPal.byte_BB934_BB924[v58];
+						  v50 <<= 16;
+						  BYTE1(v59) = tempBlurBuffer[0];
+						  LOBYTE(v59) = tempFrame[0];
+						  BYTE1(v58) = tempBlurBuffer[1];
+						  LOBYTE(v50) = strPal.byte_BB934_BB924[v59];
+						  LOBYTE(v58) = tempFrame[1];
+						  BYTE1(v50) = strPal.byte_BB934_BB924[v58];
+						  *(_DWORD *)tempFrame = v50;
+						  */
+							tempFrame += 4;
+							tempBlurBuffer += 4;
+							//v60--;
+						}
+						//while ( v60 );
+						//HIWORD(v50) = HIWORD(frameViewp);
+						tempBlurBuffer += frameViewp;
+						tempFrame += frameViewp;
+						//indexY--;
+					}
+					//while ( indexY );
+				}
+			}
+			else
+			{
+				//adress 202509_
+				//debug
 #ifdef debug1
-          //add_compare(0x202509, true);
+		  //add_compare(0x202509, true);
 #endif debug1
 //debug
-        DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);//draw screen without minimap
-//adress 202527_
-//debug
+				DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);//draw screen without minimap
+				//adress 202527_
+				//debug
 #ifdef debug1
-        //add_compare(0x202527, true, true);
+		//add_compare(0x202527, true, true);
 #endif debug1
 //debug
-        if ( str_AE400_AE3F0->softenOn_8605)
-        {   
-          if ( heightViewPort_93ADC != 1 )
-          {
-              int posY = 0;
-            for(int indexY = heightViewPort_93ADC - 1; indexY; indexY--)
-            {
-              int posX = posY;
-              for(int indexX = widthViewPort_93AD8 - 1; indexX; indexX--)
-              {
-                point13._axis_2d.x = beginFrame_93ACC[posX];
-                point13._axis_2d.y = beginFrame_93ACC[posX + pitchViewPort_93AD4];
-                point24._axis_2d.x = beginFrame_93ACC[posX +1];
-                point24._axis_2d.y = beginFrame_93ACC[posX + pitchViewPort_93AD4 + 1];
-                point1234._axis_2d.x = strPal.byte_BB934_BB924[point13.word];
-                point1234._axis_2d.y = strPal.byte_BB934_BB924[point24.word];
-                beginFrame_93ACC[posX] = strPal.byte_BB934_BB924[point1234.word];
-                posX++;
-              }
-              posY += pitchViewPort_93AD4;
-            }
-          }
-        }
-      }
-      str_AE400_AE3F0->blur_8604 = temp8604;
-    }
-    else
-    {
-      //tempCos = cos_90B4C[tempYaw];
-      dword_9070C = 20;
-      dword_902B0 = pitchViewPort_93AD4 / 0x28u;
-      int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
-      int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
-      //LOWORD(v46) = v46 >> 14;
-      DrawSkyTerrainParticles_2A700_2A740(tempSin + tempFixPosX, tempCos + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-      //v71 = beginFrame_93ACC;
-      SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
-      dword_902B0 = 0-(pitchViewPort_93AD4 / 0x28u);
-      DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
-      SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
-      dword_902B0 = 0;
-    }
-  }
-  else
-  {
-  //adress 0x202022
-    //v25 = beginFrame_93ACC;
-    SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
-    DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-    SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
-    //v26 = heightViewPort_93ADC;
-    v27 = beginFrame_93ACC + widthViewPort_93AD8 / 2 - 64;
-    if ( heightViewPort_93ADC )
-    {
-      for(int index26= heightViewPort_93ADC; index26; index26--)
-      {
-        word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-        //v28 = 64;//2020CE_
-        //v29 = (char *)off_9359C + 256 * (v26 & 0x1F) + (unsigned __int16)word_12C1E0_12C1D0 % 7u;
-        v29 = (char*)&dword_9334C[148] + 256 * (index26 & 0x1F) + word_12C1E0_12C1D0 % 7u;//test it !!
-        for(int index28 = 64; index28; index28--)
-        {          
-          //v30 = v29[0];
-          v27[0] = v29[0];
-          v27++;
-          v29++;
-          //v28--;
-        }
-        //while ( v28 );
-        v27 += pitchViewPort_93AD4 - 64;
-        //v26--;
-      }
-      //while ( v26 );
-    }
-    //v31 = widthViewPort_93AD8 / 2;
-    //v32 = heightViewPort_93ADC;
-    v33 = &beginFrame_93ACC[widthViewPort_93AD8 / 2];
-    v34 = &blurBuffer_AE404_AE3F4[widthViewPort_93AD8 / 2];
-    if ( heightViewPort_93ADC )
-    {
-      for(int index32 = heightViewPort_93ADC; index32; index32--)
-      {
-        for ( i = widthViewPort_93AD8 / 2; i; i-- )
-        {
-          //v36 = &v33[-v34[0]];
-          v33[0] = v33[-v34[0]];
-          v33++;
-          v34++;
-        }
-        v37 = pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
-        v33 += v37;
-        v34 += v37;
-        //v32--;
-      }
-      //while ( v32 );
-    }
-    //v24 = widthViewPort_93AD8 / 2;
-    v38 = heightViewPort_93ADC;
-    v39 = &beginFrame_93ACC[widthViewPort_93AD8 / 2];
-    v40 = &blurBuffer_AE404_AE3F4[widthViewPort_93AD8 / 2];
-    for ( j = heightViewPort_93ADC == 0; !j; j = v38 == 0 )
-    {
-      v76 = v40[0];
-      v42 = widthViewPort_93AD8 / 2 - v40[0];
-      for ( k = &v39[-v40[0]]; v42; v42-- )
-      {        
-        //v44 = k[*--v40];
-        k[0] = k[v40[0]];
-        v40--;
-        k--;
-      }
-      //v24 = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
-      v39 = &k[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2];
-      v40 = &v40[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - v76];
-      v38--;
-    }
-  }
+				if (str_AE400_AE3F0->softenOn_8605)
+				{
+					if (heightViewPort_93ADC != 1)
+					{
+						int posY = 0;
+						for (int indexY = heightViewPort_93ADC - 1; indexY; indexY--)
+						{
+							int posX = posY;
+							for (int indexX = widthViewPort_93AD8 - 1; indexX; indexX--)
+							{
+								point13._axis_2d.x = beginFrame_93ACC[posX];
+								point13._axis_2d.y = beginFrame_93ACC[posX + pitchViewPort_93AD4];
+								point24._axis_2d.x = beginFrame_93ACC[posX + 1];
+								point24._axis_2d.y = beginFrame_93ACC[posX + pitchViewPort_93AD4 + 1];
+								point1234._axis_2d.x = strPal.byte_BB934_BB924[point13.word];
+								point1234._axis_2d.y = strPal.byte_BB934_BB924[point24.word];
+								beginFrame_93ACC[posX] = strPal.byte_BB934_BB924[point1234.word];
+								posX++;
+							}
+							posY += pitchViewPort_93AD4;
+						}
+					}
+				}
+			}
+			str_AE400_AE3F0->blur_8604 = temp8604;
+		}
+		else
+		{
+			//tempCos = cos_90B4C[tempYaw];
+			dword_9070C = 20;
+			dword_902B0 = pitchViewPort_93AD4 / 0x28u;
+			int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
+			int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
+			//LOWORD(v46) = v46 >> 14;
+			DrawSkyTerrainParticles_2A700_2A740(tempSin + tempFixPosX, tempCos + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
+			//v71 = beginFrame_93ACC;
+			SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
+			dword_902B0 = 0 - (pitchViewPort_93AD4 / 0x28u);
+			DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
+			SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
+			dword_902B0 = 0;
+		}
+	}
+	else
+	{
+		//adress 0x202022
+		SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
+		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
+		SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
+
+		int maxEyeDistanceInPixels = 64;//can be fixed for bigger resolutions
+		int index27 = widthViewPort_93AD8 / 2 - maxEyeDistanceInPixels;
+		if (heightViewPort_93ADC)
+		{
+			for (int index26 = heightViewPort_93ADC; index26; index26--)//add noise
+			{
+				word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
+				int index29 = 256 * (index26 & 0x1F) + word_12C1E0_12C1D0 % 7u;
+				for (int index28 = maxEyeDistanceInPixels; index28; index28--)
+					beginFrame_93ACC[index27++] = dword_9334C[148].p[index29++];
+				index27 += pitchViewPort_93AD4 - maxEyeDistanceInPixels;
+			}
+
+			int index33 = widthViewPort_93AD8 / 2;
+			for (int index32 = heightViewPort_93ADC; index32; index32--)
+			{
+				for (i = widthViewPort_93AD8 / 2; i; i--)
+				{
+					beginFrame_93ACC[index33] = beginFrame_93ACC[index33 - blurBuffer_AE404_AE3F4[index33]];
+					index33++;
+				}
+				index33 += pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
+			}
+
+			int index40 = widthViewPort_93AD8 / 2;
+            //int tindex38 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4 [*(widthViewPort_93AD8 / 2];
+			for (int index38 = heightViewPort_93ADC; index38; index38--)
+			{
+				int index76 = blurBuffer_AE404_AE3F4[index40];
+				for (int indx42 = index40 - blurBuffer_AE404_AE3F4[index40]; indx42; indx42--)
+				{
+                    //index40 - blurBuffer_AE404_AE3F4[index40]
+                    beginFrame_93ACC[index40 - blurBuffer_AE404_AE3F4[index40]] = beginFrame_93ACC[index40];
+					//beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index40]];
+                    index40--;
+				}
+                index40 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - index76;
+			}
+		}
+	}
 }
 
 void sub_315C0_31600()//2025C0_
@@ -102813,7 +102786,7 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
   //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   uint8 origbyte20;
   uint8 remakebyte20;
-  int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
+  //int comp20 = compare_with_sequence("002439C2-FFFFFFF4", (uint8_t*)&pnt1->y_1, 0x28A1E0, compare_index_729A7, 0x4, 0x4, &origbyte20, &remakebyte20, 0, 0);
   compare_index_729A7++;
 #endif debug1
 
