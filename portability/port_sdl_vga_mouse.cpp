@@ -23,6 +23,8 @@ uint8_t pressedKeys_12EEF0_12EEE0[128]; // idb
 
 uint16_t m_iOrigw = 640;
 uint16_t m_iOrigh = 480;
+int m_iColorsByte = 1;
+int act_ColorsByte = 1;
 
 bool m_bMaintainAspectRatio = true;
 
@@ -474,6 +476,10 @@ void VGA_Resize(int width, int height) {
 	m_iOrigh = height;
 }
 
+void VGA_SetColors(int colors) {
+	m_iColorsByte = colors/8;
+};
+
 FILE* fptpal;
 void SavePal(Uint8* Palettebuffer, char* filename)
 {
@@ -837,7 +843,8 @@ void VGA_Set_mouse(int16_t x, int16_t y) {
 	SDL_WarpMouseInWindow(m_window, x, y);
 };
 
-void VGA_Blit(Uint8* srcBuffer) {
+/*
+void VGA_Blit_old(Uint8* srcBuffer) {
 	//fix it !!!! if (unitTests)return;
 
 	oldWidth = m_gamePalletisedSurface->w;
@@ -873,6 +880,56 @@ void VGA_Blit(Uint8* srcBuffer) {
 	if(srcBuffer)
 		memcpy(m_gamePalletisedSurface->pixels, srcBuffer, m_gamePalletisedSurface->h * m_gamePalletisedSurface->w);
 	
+	if (SDL_MUSTLOCK(m_gamePalletisedSurface)) {
+		SDL_UnlockSurface(m_gamePalletisedSurface);
+	}
+	SubBlit(m_iOrigw, m_iOrigh);
+	//fix it !!!! SOUND_UPDATE();
+}
+*/
+
+void VGA_Blit(Uint8* srcBuffer) {
+	//fix it !!!! if (unitTests)return;
+
+	oldWidth = m_gamePalletisedSurface->w;
+	if (CommandLineParams.DoHideGraphics()) return;
+	events();
+
+	if ((m_iOrigh != m_gamePalletisedSurface->h)||(m_iColorsByte != act_ColorsByte))
+	{
+		act_ColorsByte = m_iColorsByte;
+		SDL_RenderClear(m_renderer);
+		SDL_FreeSurface(m_gamePalletisedSurface);
+
+		m_gamePalletisedSurface =
+			SDL_CreateRGBSurface(
+				SDL_SWSURFACE, m_iOrigw, m_iOrigh, 24,
+				redMask, greenMask, blueMask, alphaMask);
+
+		if (m_iColorsByte == 1)
+			m_gamePalletisedSurface =
+			SDL_ConvertSurfaceFormat(
+				m_gamePalletisedSurface, SDL_PIXELFORMAT_INDEX8, 0);
+		else
+		m_gamePalletisedSurface =
+			SDL_ConvertSurfaceFormat(
+				m_gamePalletisedSurface, SDL_PIXELFORMAT_RGB565, 0);
+
+		SDL_SetPaletteColors(m_gamePalletisedSurface->format->palette, m_currentPalletColours, 0, 256);
+
+		lastResHeight = m_iOrigh;
+	}
+
+	if (SDL_MUSTLOCK(m_gamePalletisedSurface)) {
+		if (SDL_LockSurface(m_gamePalletisedSurface) < 0) {
+			fprintf(stderr, "Can't lock screen: %s\n", SDL_GetError());
+			return;
+		}
+	}
+
+	if (srcBuffer)
+		memcpy(m_gamePalletisedSurface->pixels, srcBuffer, m_gamePalletisedSurface->h * m_gamePalletisedSurface->w * act_ColorsByte);
+
 	if (SDL_MUSTLOCK(m_gamePalletisedSurface)) {
 		SDL_UnlockSurface(m_gamePalletisedSurface);
 	}

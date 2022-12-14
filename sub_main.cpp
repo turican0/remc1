@@ -185,7 +185,7 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
         else if (!strcmp(text, "GET MORE GRAPHICS INFO"))
             printf("More detailed information about individual graphics modes\n");
         else if (!strcmp(text, "port0x3C8 2"))
-            printf("external pefifery - Write VGA palette - one color!!!! - Fix It\n");
+            printf("external pefifery - Blit part of screen - not use this, rewrite to standard Blit!!!! - Fix It\n");
         else
             printf("unknown external pefifery!!!! - Fix It\n");
     }
@@ -72851,6 +72851,7 @@ void sub_61A1C_61F2C(__int16 a1)
   //int result; // eax
 
   FixPerifery((char*)"port0x3C8 2");
+  allert_error();
 
   word_9AFA4 = a1;
   //if ( (unsigned __int16)a1 >= 6u )
@@ -72862,9 +72863,8 @@ void sub_61A1C_61F2C(__int16 a1)
   //}
 
   //test
-  Set_basic_Palette0();
 //  VGA_Blit(pdwScreenBuffer_12EFF4);
-  VGA_Blit(tempScreenBuffer_A0000);
+  //VGA_Blit(tempScreenBuffer_A0000);
   //test
 
   //fix __asm { int     10h; - VIDEO - VESA SuperVGA BIOS -  VESA SuperVGA BIOS - CPU VIDEO MEMORY CONTROL }
@@ -111829,7 +111829,6 @@ void sub_79A1B(uint16 a1[2][256])//24AA1B
   */
   sub_79A70_79F80(pdwScreenBuffer_12EFF4, blurBuffer_AE404_AE3F4, a1,320*200);
 
-  Set_basic_Palette0();
   VGA_Blit(tempScreenBuffer_A0000);
 }
 // AE404: using guessed type int blurBuffer_AE404_AE3F4;

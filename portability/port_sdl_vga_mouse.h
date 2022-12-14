@@ -29,6 +29,7 @@ void VGA_Init(Uint32 flags, int width, int height, bool maintainAspectRatio);
 bool VGA_LoadFont();
 void VGA_close();
 void VGA_Resize(int width, int height);
+void VGA_SetColors(int colors);
 void VGA_Blit(Uint8* srcBuffer);
 void SubBlit(uint16_t originalResWidth, uint16_t originalResHeight);
 void VGA_Debug_Blit(int width, int height, Uint8* srcBuffer);
