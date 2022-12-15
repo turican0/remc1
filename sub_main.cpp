@@ -38351,24 +38351,21 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 				index33 += pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
 			}
 
-            int result = widthViewPort_93AD8 / 2;
             int index39 = heightViewPort_93ADC;
-            uint8* buffer40 = (uint8*)(result + beginFrame_93ACC);
-            uint8* buffer41 = (unsigned __int8*)(result + blurBuffer_AE404_AE3F4);
+            uint8* buffer40 = &beginFrame_93ACC[widthViewPort_93AD8 / 2];
+            uint8* buffer41 = &blurBuffer_AE404_AE3F4[widthViewPort_93AD8 / 2];
             for (int j = heightViewPort_93ADC == 0; !j; j = index39 == 0)
             {
                 uint8 v77 = *buffer41;
                 int index43 = widthViewPort_93AD8 / 2 - *buffer41;
-                uint8* k;
-                for (k = &buffer40[-*buffer41]; index43; --index43)
+                uint8* bufferk;
+                for (bufferk = &buffer40[-*buffer41]; index43; --index43)
                 {
-                    k--;
-                    uint8 v45 = k[*--buffer41];
-                    *k = v45;
+                    bufferk--;
+                    *bufferk = bufferk[*--buffer41];
                 }
-                result = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
-                buffer40 = &k[result];
-                buffer41 = &buffer41[result - v77];
+                buffer40 = &bufferk[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2];
+                buffer41 = &buffer41[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - v77];
                 index39--;
             }
 
