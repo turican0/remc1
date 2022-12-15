@@ -38370,7 +38370,8 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 }
                 //buffer40 = &bufferk[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2];
                 //index40 = &bufferk[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2] - beginFrame_93ACC;
-                index40 = &(&beginFrame_93ACC[indexk])[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2] - beginFrame_93ACC;
+                //index40 = &(&beginFrame_93ACC[indexk])[pitchViewPort_93AD4 + widthViewPort_93AD8 / 2] - beginFrame_93ACC;
+                index40 = indexk + pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
                 index41 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - v77;
                 index39--;
             }
