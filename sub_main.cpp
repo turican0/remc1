@@ -38024,7 +38024,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 	//int v37; // edx
 	//int v38; // esi
 	//uint8* v39; // ebx
-	uint8* v40; // ecx
+	//uint8* v40; // ecx
 	//_BOOL1 j; // zf
 	//int v42; // eax
 	//_BYTE* k; // ebx
@@ -38322,9 +38322,10 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 	else
 	{
 		//adress 0x202022
+        uint8* tempBeginFrame = beginFrame_93ACC;
 		SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
 		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
-		SetViewPort2_79495_799A5(beginFrame_93ACC, 0, 0, 0, 0);
+		SetViewPort2_79495_799A5(tempBeginFrame, 0, 0, 0, 0);
 
 		int maxEyeDistanceInPixels = 64;//can be fixed for bigger resolutions
 		int index27 = widthViewPort_93AD8 / 2 - maxEyeDistanceInPixels;
@@ -38350,7 +38351,28 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 				index33 += pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
 			}
 
-			int index40 = widthViewPort_93AD8 / 2;
+            int result = widthViewPort_93AD8 / 2;
+            int index39 = heightViewPort_93ADC;
+            uint8* buffer40 = (uint8*)(result + beginFrame_93ACC);
+            uint8* buffer41 = (unsigned __int8*)(result + blurBuffer_AE404_AE3F4);
+            for (int j = heightViewPort_93ADC == 0; !j; j = index39 == 0)
+            {
+                uint8 v77 = *buffer41;
+                int index43 = widthViewPort_93AD8 / 2 - *buffer41;
+                uint8* k;
+                for (k = &buffer40[-*buffer41]; index43; --index43)
+                {
+                    k--;
+                    uint8 v45 = k[*--buffer41];
+                    *k = v45;
+                }
+                result = pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
+                buffer40 = &k[result];
+                buffer41 = &buffer41[result - v77];
+                index39--;
+            }
+
+			/*int index40 = widthViewPort_93AD8 / 2;
             //int tindex38 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4 [*(widthViewPort_93AD8 / 2];
 			for (int index38 = heightViewPort_93ADC; index38; index38--)//extend to left
 			{
@@ -38358,12 +38380,13 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 				for (int indx42 = index40 - blurBuffer_AE404_AE3F4[index40]; indx42; indx42--)
 				{
                     //index40 - blurBuffer_AE404_AE3F4[index40]
-                    beginFrame_93ACC[index40 - blurBuffer_AE404_AE3F4[index40]] = beginFrame_93ACC[blurBuffer_AE404_AE3F4[index40]];
-					//beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index40]];
                     index40--;
+                    beginFrame_93ACC[blurBuffer_AE404_AE3F4[index40] - blurBuffer_AE404_AE3F4[index40] - 1] = beginFrame_93ACC[widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4[index40] - 1];
+					//beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index40]];
+                    //index40--;
 				}
                 index40 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - index76;
-			}
+			}*/
 		}
 	}
 }

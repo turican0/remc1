@@ -768,10 +768,21 @@ test adress adress 0x202022
 251ADC->c8
 25159C->723818 2B2B2B2B2C
 2EA1E0->230
+26C404->735A98
 
 0x2021d1 0x9f beginFrame_93ACC[0x9f]
 ecx-1 .. 404040
 ecx?
+blurBuffer_AE404_AE3F4[0xa0]
+
+251ACC->65BE0
+versus
+26C404->735A98
+
+beginFrame_93ACC
+versus
+blurBuffer_AE404_AE3F4
+
 
 
 
