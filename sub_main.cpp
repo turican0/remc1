@@ -38340,7 +38340,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 			}
 
 			int index33 = widthViewPort_93AD8 / 2;
-			for (int index32 = heightViewPort_93ADC; index32; index32--)
+			for (int index32 = heightViewPort_93ADC; index32; index32--)//extend to right
 			{
 				for (i = widthViewPort_93AD8 / 2; i; i--)
 				{
@@ -38352,13 +38352,13 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 
 			int index40 = widthViewPort_93AD8 / 2;
             //int tindex38 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4 [*(widthViewPort_93AD8 / 2];
-			for (int index38 = heightViewPort_93ADC; index38; index38--)
+			for (int index38 = heightViewPort_93ADC; index38; index38--)//extend to left
 			{
 				int index76 = blurBuffer_AE404_AE3F4[index40];
 				for (int indx42 = index40 - blurBuffer_AE404_AE3F4[index40]; indx42; indx42--)
 				{
                     //index40 - blurBuffer_AE404_AE3F4[index40]
-                    beginFrame_93ACC[index40 - blurBuffer_AE404_AE3F4[index40]] = beginFrame_93ACC[index40];
+                    beginFrame_93ACC[index40 - blurBuffer_AE404_AE3F4[index40]] = beginFrame_93ACC[blurBuffer_AE404_AE3F4[index40]];
 					//beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index40]];
                     index40--;
 				}
