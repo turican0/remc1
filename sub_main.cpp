@@ -38362,7 +38362,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 int index43 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4[index41];
                 //uint8* bufferk;
                 int indexk;//&beginFrame_93ACC[indexk]
-                for (indexk = &beginFrame_93ACC[index40]-blurBuffer_AE404_AE3F4[index41]- beginFrame_93ACC; index43; --index43)
+                for (indexk = index40 - blurBuffer_AE404_AE3F4[index41]; index43; --index43)
                 {
                     indexk--;
                     index41--;
