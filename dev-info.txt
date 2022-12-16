@@ -782,6 +782,12 @@ versus
 beginFrame_93ACC
 versus
 blurBuffer_AE404_AE3F4
+-----------------
+d ds:ebp+14 
+2f0b60->735a98
+2ecff4
+sub_61610_61B20
+2344A0
 
 
 

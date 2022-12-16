@@ -3,7 +3,7 @@
 #define debug1
 #define autostart
 
-#define MODIFY_SETTINGS
+//#define MODIFY_SETTINGS
 int modset_used_count = 0;
 int modset_key = 0x0;
 //#define COMPARE_WITH
@@ -578,7 +578,7 @@ int sub_34460_34820();
 int sub_344F0();
 // void DrawAndEventsInGame_34530(__int16 a1, __int16 a2, __int16 a3);
 void GameLoop_34610_349D0();
-char sub_34690();
+void sub_34690();
 void sub_34B00_34EC0();
 void sub_34B40_34F00();
 void sub_34C60_35020();
@@ -14952,8 +14952,8 @@ __int16 word_12EFE0_12EFD0; // weak
 __int16 mouseRightButton2_12EFE2_12EFD2; // weak
 __int16 mouseLeftButton2_12EFE4_12EFD4; // weak
 int scrWidth_12EFF0_12EFE0; // weak //2ECFF0_
-uint8_t preReadBuffer_12EFF4[640000]; // weak
-uint8_t* pdwScreenBuffer_12EFF4= preReadBuffer_12EFF4; // weak
+//uint8_t preReadBuffer_12EFF4[640000]; // weak
+//uint8_t* pdwScreenBuffer_12EFF4= preReadBuffer_12EFF4; // weak
 int scrHeight_12EFF8_12EFE8; // weak
 int dword_12EFFC; // weak
 int dword_12F000_12EFF0; // weak
@@ -41085,10 +41085,10 @@ void GameLoop_34610_349D0()//205610_
 // AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (00034690) --------------------------------------------------------
-char sub_34690()
+void sub_34690()
 {
-  int v0; // ebx
-  __int16 v1; // ax
+  //int v0; // ebx
+  //__int16 v1; // ax
   int i; // eax
   int v3; // edx
   int j; // eax
@@ -41100,36 +41100,36 @@ char sub_34690()
   int ii; // ebx
   char v11; // al
 
-  v0 = dword_AE408_AE3F8();
-  LOBYTE(v1) = *(_BYTE *)(dword_AE408_AE3F8() + 23);
-  if ( (unsigned __int8)v1 < 2u )
+  //v0 = dword_AE408_AE3F8();
+  //LOBYTE(v1) = str_AE408_AE3F8->var_u8_23;
+  if (str_AE408_AE3F8->var_u8_23 < 2u )
   {
     sub_344F0();
-    LOBYTE(v1) = dword_AE408_AE3F8();
-    ++*(_BYTE *)(dword_AE408_AE3F8() + 23);
+    //LOBYTE(v1) = dword_AE408_AE3F8();
+    str_AE408_AE3F8->var_u8_23++;
   }
-  else if ( (unsigned __int8)v1 <= 2u )
+  else if (str_AE408_AE3F8->var_u8_23 <= 2u )
   {
-    LOBYTE(v1) = v1 + 1;
-    *(_BYTE *)(dword_AE408_AE3F8() + 152) = 1;
-    *(_BYTE *)(v0 + 23) = v1;
+    //LOBYTE(v1) = v1 + 1;
+    str_AE408_AE3F8->var_u8_152 = 1;
+    str_AE408_AE3F8->var_u8_23++;
   }
-  else if ( (_BYTE)v1 == 3 )
+  else if (str_AE408_AE3F8->var_u8_23 == 3 )
   {
     if ( str_AE400_AE3F0->mod3D_8603 )
       sub_61EC8();
-    LOBYTE(v1) = *(_BYTE *)(dword_AE408_AE3F8() + 152);
-    switch ( (char)v1 )
+    //LOBYTE(v1) = *(_BYTE *)(dword_AE408_AE3F8() + 152);
+    switch (str_AE408_AE3F8->var_u8_152)
     {
       case 1:
         FadeInOut_61CC0_621D0(begPalDat_AE428_AE418_26C428_26C418, 4u, 1);
-        v1 = word_12F690_12F680;
-        if (v1 == 4 )
+        //v1 = word_12F690_12F680;
+        if (word_12F690_12F680 == 4 )
         {
-          LOBYTE(v1) = dword_AE408_AE3F8();
-          *(_BYTE *)(dword_AE408_AE3F8() + 152) = 0;
+          //LOBYTE(v1) = dword_AE408_AE3F8();
+          str_AE408_AE3F8->var_u8_152 = 0;
         }
-        return v1;
+        return;// v1;
       case 2:
         for ( i = 3; i != 768; byte_B700F[i] = *(_BYTE *)(v3 + i - 1) )
         {
@@ -41230,14 +41230,14 @@ char sub_34690()
 LABEL_61:
         sub_61EC8();
         SetPalette_319A0_319E0((TColor*)byte_B7010);
-        LOBYTE(v1) = dword_AE408_AE3F8();
-        *(_BYTE *)(dword_AE408_AE3F8() + 152) = 1;
+        //LOBYTE(v1) = dword_AE408_AE3F8();
+        str_AE408_AE3F8->var_u8_152 = 1;
         break;
       default:
-        return v1;
+          return;// v1;
     }
   }
-  return v1;
+  //return v1;
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE408: using guessed type int dword_AE408_AE3F8();
@@ -41314,9 +41314,9 @@ void sub_34C80_35040()//205C80_
   }
   else
   {
-    sub_61610_61B20(&pathStrArray[PSWScreen2]);
+    sub_61610_61B20(&pathStrArray[PSWScreen2]);//735a98 clean pdwScreenBuffer_12EFF4
     typeResolution_12F02E_12F01E = 1;
-    sub_40440_40780(&pathStrArray[PSWScreen]);
+    sub_40440_40780(&pathStrArray[PSWScreen]);//735a98 set pdwScreenBuffer_12EFF4
     blurBuffer_AE404_AE3F4 = (uint8*)malloc_42540_42880(64000);
   }
   sub_59500_59A10(off_99974);
@@ -72906,7 +72906,7 @@ void sub_61B90_620A0(TColor* a1)//232B90_
 // 12F02C: using guessed type __int16 word_12F02C;
 
 //----- (00061C30) --------------------------------------------------------
-void sub_61C30_62140(TColor* a1)
+void sub_61C30_62140(TColor* a1)//232C30_
 {
   uint8 v2[28]; // [esp+0h] [ebp-38h] BYREF
   int v3[7]; // [esp+1Ch] [ebp-1Ch] BYREF
