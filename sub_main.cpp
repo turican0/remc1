@@ -154,6 +154,8 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
             printf("external pefifery - Write VGA palette!!!! - Fix It\n");
         else if (!strcmp(text, "initVga320"))
             printf("external pefifery - Init VGA - resolution 320x200!!!! - Fix It\n");
+        else if (!strcmp(text, "initVga640"))
+            printf("external pefifery - Init VGA - resolution 640x480!!!! - Fix It\n");
         else if (!strcmp(text, "chRes"))
             printf("external pefifery - Change resolution type:%d!!!! - Fix It\n", a);
         else if (!strcmp(text, "mouseRes"))
@@ -178,6 +180,8 @@ void FixPerifery(char* text = nullptr,int a = 0, int b = 0, int c = 0) {
             ;// printf("external pefifery - compute timer\n");
         else if (!strcmp(text, "MOUSE SET POS"))
             printf("external pefifery - set mouse pos\n");
+        else if (!strcmp(text, "MOUSE RESET"))
+            printf("external pefifery - reset mouse\n");
         else if (!strcmp(text, "GET VIDEOMODES"))
             printf("external pefifery - Get VGA video modes\n");
         else if (!strcmp(text, "SET VIDEOMOD"))
@@ -843,7 +847,7 @@ int sub_3EF20_3F260();
 bool access_3EF30_3F270(char* a1);
 char sub_3EF50_3F290(char *a1, char *a2, const char *a3);
 void sub_3F1D0_3F510();
-int sub_3F370_3F6B0();
+void sub_3F370_3F6B0();
 void sub_3F398_3F6D8();
 void sub_3F413(unsigned __int8 a1);
 void sub_3F54D_3F88D(__int16 a1, __int16 a2, __int16 a3, __int16 a4);
@@ -1146,7 +1150,7 @@ void sub_59370();
 int sub_593B0_598C0();
 char sub_59420_59930();
 void sub_59500_59A10(Type_99974* a1);
-unsigned int sub_59560_59A70(unsigned int **a1);
+void sub_59560_59A70(Type_99974* a1);
 void sub_59720_59C30();
 void sub_59750(int16 a1, int16 a2);
 void Blit_599B0_59EC0(__int16 a1);
@@ -1306,8 +1310,8 @@ int sub_618E0(__int16 a1);
 int sub_619B8_61EC8(__int16 a1);
 void sub_61A1C_61F2C(__int16 a1);
 int sub_61AB0_61FC0();
-void sub_61B90_620A0(unsigned __int8 *a1);
-void sub_61C30_62140(unsigned __int8 *a1);
+void sub_61B90_620A0(TColor* a1);
+void sub_61C30_62140(TColor* a1);
 void FadeInOut_61CC0_621D0(TColor* palette, unsigned __int8 a2, char a3);
 void sub_61EC8();
 // _DWORD stricmp(_DWORD, _DWORD); weak
@@ -1397,8 +1401,8 @@ void sub_66250(__int16 a1, __int16 a2, unsigned __int16 a3);
 void sub_66313();
 int sub_66324(int a1);
 void sub_6637C();
-unsigned int sub_66390(unsigned int a1, unsigned int a2, unsigned int a3);
-unsigned int *sub_66410(unsigned int *a1, unsigned int a2, unsigned int a3);
+void sub_66390(TypeTab* a1, TypeTab* a2, uint8_t* a3);
+void sub_66410(TypeTab* a1, TypeTab* a2, uint8_t* a3);
 int sub_664AB_669BB(char* vipEnv, char** a2, int a3, int a4);
 int sub_6660D_66B1D(char* vipEnv, char** a2, int a3);
 int sub_66612(unsigned __int8 a1);
@@ -32338,8 +32342,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		break;
 	}
 	//fix it - size of dword_B3EA0_B3E90
-	if (dword_B5D34_B5D24 > 0x140)
-		allert_error();
+	//if (dword_B5D34_B5D24 > 0x140)allert_error();
 	//fix it
 
 	int oldValue = 0;
@@ -38351,8 +38354,8 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 				index33 += pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
 			}
 
-            int index40 = widthViewPort_93AD8 / 2;//&beginFrame_93ACC[index40];
-            int index41 = widthViewPort_93AD8 / 2;//&blurBuffer_AE404_AE3F4[index41];
+            int index40 = widthViewPort_93AD8 / 2;
+            int index41 = widthViewPort_93AD8 / 2;
             for (int index39 = heightViewPort_93ADC; index39; index39--)
             {
                 uint8 oldDiff = blurBuffer_AE404_AE3F4[index41];
@@ -38366,22 +38369,6 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 index40 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
                 index41 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - oldDiff;
             }
-
-			/*int index40 = widthViewPort_93AD8 / 2;
-            //int tindex38 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4 [*(widthViewPort_93AD8 / 2];
-			for (int index38 = heightViewPort_93ADC; index38; index38--)//extend to left
-			{
-				int index76 = blurBuffer_AE404_AE3F4[index40];
-				for (int indx42 = index40 - blurBuffer_AE404_AE3F4[index40]; indx42; indx42--)
-				{
-                    //index40 - blurBuffer_AE404_AE3F4[index40]
-                    index40--;
-                    beginFrame_93ACC[blurBuffer_AE404_AE3F4[index40] - blurBuffer_AE404_AE3F4[index40] - 1] = beginFrame_93ACC[widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4[index40] - 1];
-					//beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index40]];
-                    //index40--;
-				}
-                index40 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - index76;
-			}*/
 		}
 	}
 }
@@ -38389,9 +38376,9 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 void sub_315C0_31600()//2025C0_
 {
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-    sub_61B90_620A0((unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418);
+    sub_61B90_620A0(begPalDat_AE428_AE418_26C428_26C418);
   else
-    sub_61C30_62140((unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418);
+    sub_61C30_62140(begPalDat_AE428_AE418_26C428_26C418);
   byte_90708 = 0;
 }
 
@@ -41047,7 +41034,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 -= dword_AC5D4_AC5C4;
@@ -41071,7 +41058,7 @@ void GameLoop_34610_349D0()//205610_
   //int v3; // ebx
   //int result; // eax
 #ifdef MODIFY_SETTINGS
-    modset_used_count = 2;
+    modset_used_count = 3;
     modset_key = 0x44;
 
     //byte_90754 = 1;// str_AE400_AE3F0->mod3D_8603 = 1;
@@ -41310,45 +41297,40 @@ void sub_34C60_35020()//205C60
 }
 
 //----- (00034C80) --------------------------------------------------------
-void sub_34C80_35040()
+void sub_34C80_35040()//205C80_
 {
-  uint8* v0; // eax
-  int result; // eax
-
   FadeInOut_61CC0_621D0(0, 0x10u, 0);
   sub_315C0_31600();
   free_426E0_42A20((void*)blurBuffer_AE404_AE3F4);
   blurBuffer_AE404_AE3F4 = 0;
   sub_3F370_3F6B0();
-  sub_59560_59A70((unsigned int **)&off_99974);
+  sub_59560_59A70(off_99974);
   if ( typeResolution_12F02E_12F01E == 1 )
   {
     sub_61610_61B20(&pathStrArray[PSWScreen]);
     typeResolution_12F02E_12F01E = 8;
     sub_40440_40780(&pathStrArray[PSWScreen2]);
-    v0 = (uint8*)malloc_42540_42880((int)&loc_4AFFD + 3);
+    blurBuffer_AE404_AE3F4 = (uint8*)malloc_42540_42880(307200);
   }
   else
   {
     sub_61610_61B20(&pathStrArray[PSWScreen2]);
     typeResolution_12F02E_12F01E = 1;
     sub_40440_40780(&pathStrArray[PSWScreen]);
-    v0 = (uint8*)malloc_42540_42880(64000);
+    blurBuffer_AE404_AE3F4 = (uint8*)malloc_42540_42880(64000);
   }
-  blurBuffer_AE404_AE3F4 = v0;
   sub_59500_59A10(off_99974);
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-    sub_61B90_620A0((unsigned __int8 *)pdwScreenBuffer_12EFF4);
+    sub_61B90_620A0((TColor*)pdwScreenBuffer_12EFF4);
   else
-    sub_61C30_62140((unsigned __int8 *)pdwScreenBuffer_12EFF4);
+    sub_61C30_62140((TColor*)pdwScreenBuffer_12EFF4);
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
     sub_411D7_41517((void *)pdwScreenBuffer_12EFF4, 0xC8u, 0);
   else
     sub_411FD_4153D((void *)pdwScreenBuffer_12EFF4, 0x1E0u, 0);
   sub_5C214_5C724();
   sub_5C05C_5C56C(&begPointersTab_AE450_AE440_26C450_26C440[0]);
-  result = dword_AE408_AE3F8();
-  *(_BYTE *)(dword_AE408_AE3F8() + 23) = 0;
+  str_AE408_AE3F8->var_u8_23 = 0;
 }
 // 99974: using guessed type int *off_99974;
 // AE404: using guessed type int blurBuffer_AE404_AE3F4;
@@ -49270,18 +49252,18 @@ void sub_3F1D0_3F510()
 }
 
 //----- (0003F370) --------------------------------------------------------
-int sub_3F370_3F6B0()
+void sub_3F370_3F6B0()
 {
-  int result; // eax
+  /*int result; // eax
   int v1; // [esp+0h] [ebp-38h] BYREF
   __int16 v2[14]; // [esp+1Ch] [ebp-1Ch] BYREF
-
-  FixPerifery();
-
+  */
+  FixPerifery((char*)"MOUSE RESET");
+  /*
   v2[0] = 0;
-  result = int386(51, (uint32)v2, (uint32)&v1);
+  result = int386(0x33, (uint32)v2, (uint32)&v1);
   dword_9AD98 = 0;
-  return result;
+  */
 }
 // 62F78: using guessed type _DWORD int386(_DWORD, _DWORD, _DWORD);
 // 9AD98: using guessed type int dword_9AD98;
@@ -49863,7 +49845,7 @@ char sub_3FCA0_3FFE0(
           lastPressedKey_12EF70_12EF60 = 28;
       }
       if ( dword_9AD98 )
-        LOBYTE(a1) = sub_3F370_3F6B0();
+        sub_3F370_3F6B0();
       HIBYTE(a2) = byte_90B20;
       mouseRightButton_12EFDC_12EFCC = 0;
       mouseRightButton2_12EFE2_12EFD2 = 0;
@@ -53703,17 +53685,17 @@ void sub_44730_44A70()//215730_
     if ( (*(_WORD *)dword_AE408_AE3F8() & 0x110) != 0 )
     {
       if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-        sub_61B90_620A0((unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418);
+        sub_61B90_620A0(begPalDat_AE428_AE418_26C428_26C418);
       else
-        sub_61C30_62140((unsigned __int8 *)begPalDat_AE428_AE418_26C428_26C418);
+        sub_61C30_62140(begPalDat_AE428_AE418_26C428_26C418);
     }
     else
     {
       FadeInOut_61CC0_621D0(0, 0x10u, 0);
       if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-        sub_61B90_620A0((unsigned __int8 *)pdwScreenBuffer_12EFF4);
+        sub_61B90_620A0((TColor*)pdwScreenBuffer_12EFF4);
       else
-        sub_61C30_62140((unsigned __int8 *)pdwScreenBuffer_12EFF4);
+        sub_61C30_62140((TColor*)pdwScreenBuffer_12EFF4);
     }
     sub_5C214_5C724();
     if ( !dword_9AD98 )
@@ -66895,27 +66877,15 @@ void sub_59500_59A10(Type_99974* a1)
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (00059560) --------------------------------------------------------
-unsigned int sub_59560_59A70(unsigned int **a1)
+void sub_59560_59A70(Type_99974* a1)
 {
-  unsigned int **v1; // ebx
-  unsigned int result; // eax
-  unsigned int *v3; // ecx
-
-  v1 = a1;
-  if ( *a1 )
-  {
-    do
-    {
-      if ( (typeResolution_12F02E_12F01E & 1) != 0 )
-        result = sub_66390(**v1, *v1[1], *v1[2]);
-      else
-        result = (unsigned int)sub_66410((unsigned int *)**v1, *v1[1], *v1[2]);
-      v3 = v1[3];
-      v1 += 3;
-    }
-    while ( v3 );
-  }
-  return result;
+	for (int i = 0; a1[i].beg; i++)
+	{
+		if ((typeResolution_12F02E_12F01E & 1) != 0)
+			sub_66390(*a1[i].beg, *a1[i].end, *a1[i].var_3);
+		else
+			sub_66410(*a1[i].beg, *a1[i].end, *a1[i].var_3);
+	}
 }
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
@@ -67070,6 +67040,8 @@ void Blit_599B0_59EC0(__int16 a1)//22A9B0_
         if (!byte_9AD96)
             sub_5BE50_5C360();
     }
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));//fix it
+
     //tempScreenBuffer_A0000 = pdwScreenBuffer_12EFF4;
     /*
   char *v1; // esi
@@ -68610,11 +68582,11 @@ void sub_5BB60_5C070()
 
   if ( (typeResolution_12F02E_12F01E & 1) == 0 )
   {
-    word_12EFD0 = HIWORD(mouseByteIndex2_12EF8C_12EF7C);
-    sub_61A1C_61F2C(SHIWORD(mouseByteIndex2_12EF8C_12EF7C));
+      word_12EFD0 = 0;// HIWORD(mouseByteIndex2_12EF8C_12EF7C);
+      sub_61A1C_61F2C(0/* SHIWORD(mouseByteIndex2_12EF8C_12EF7C)*/);
   }
   dword_12EFA8_12EF98 = dword_12EF88_12EF78;
-  dword_12EFA4_12EF94 = (int)&tempScreenBuffer_A0000[(unsigned __int16)mouseByteIndex2_12EF8C_12EF7C];
+  dword_12EFA4_12EF94 = (int)&tempScreenBuffer_A0000[mouseByteIndex2_12EF8C_12EF7C];
   if ( (typeResolution_12F02E_12F01E & 1) != 0 )
   {
     for ( word_12EFD4_12EFC4 = 0; ; ++word_12EFD4_12EFC4 )
@@ -68876,7 +68848,7 @@ int sub_5C214_5C724()
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (0005C468) --------------------------------------------------------
-void ResizeScr_5C468_5C978()
+void ResizeScr_5C468_5C978()//22D468_
 {
     FixPerifery((char*)"chRes", typeResolution_12F02E_12F01E);
     if (typeResolution_12F02E_12F01E == 8)
@@ -68888,7 +68860,7 @@ void ResizeScr_5C468_5C978()
         v2[0] = 8;
         v3 = 0;
         v4 = 3840;*/
-        VGA_Resize(512, 384);
+        //VGA_Resize(5120, 3840);//fix
     }
     if (typeResolution_12F02E_12F01E == 2)
     {
@@ -72847,7 +72819,7 @@ void sub_61A1C_61F2C(__int16 a1)
   //int result; // eax
 
   FixPerifery((char*)"port0x3C8 2");
-  allert_error();
+  //allert_error();
 
   word_9AFA4 = a1;
   //if ( (unsigned __int16)a1 >= 6u )
@@ -72904,13 +72876,13 @@ int sub_61AB0_61FC0()//232AB0
 }
 
 //----- (00061B90) --------------------------------------------------------
-void sub_61B90_620A0(unsigned __int8 *a1)//232B90_
+void sub_61B90_620A0(TColor* a1)//232B90_
 {
     FixPerifery((char*)"initVga320");
 
     scrWidth_12EFF0_12EFE0 = 320;
     scrHeight_12EFF8_12EFE8 = 200;
-    SetPalette_319A0_319E0((TColor*)a1);
+    SetPalette_319A0_319E0(a1);
     ResizeScr_5C468_5C978();
     ViewportResize_65EB0_663C0(0, 0, 320, 200);
     /*
@@ -72934,21 +72906,21 @@ void sub_61B90_620A0(unsigned __int8 *a1)//232B90_
 // 12F02C: using guessed type __int16 word_12F02C;
 
 //----- (00061C30) --------------------------------------------------------
-void sub_61C30_62140(unsigned __int8 *a1)
+void sub_61C30_62140(TColor* a1)
 {
-  char v2[28]; // [esp+0h] [ebp-38h] BYREF
+  uint8 v2[28]; // [esp+0h] [ebp-38h] BYREF
   int v3[7]; // [esp+1Ch] [ebp-1Ch] BYREF
 
-  FixPerifery();
+  FixPerifery((char*)"initVga640");
 
-  v3[0] = 3840;
-  int386(16, (uint32)v3, (uint32)v2);
+  v3[0] = 0xf00;
+  //int386(0x10, (uint32)v3, (uint32)v2);
   if ( !word_12F02C )
-    word_12F02C = (unsigned __int8)v2[0];
+    word_12F02C = v2[0];
   scrWidth_12EFF0_12EFE0 = 640;
   scrHeight_12EFF8_12EFE8 = 480;
   sub_619B8_61EC8(0x101);
-  SetPalette_319A0_319E0((TColor*)a1);
+  SetPalette_319A0_319E0(a1);
   ResizeScr_5C468_5C978();
   ViewportResize_65EB0_663C0(0, 0, 640, 480);
 }
@@ -74676,41 +74648,29 @@ void sub_6637C()
 }
 
 //----- (00066390) --------------------------------------------------------
-unsigned int sub_66390(unsigned int a1, unsigned int a2, unsigned int a3)
+void sub_66390(TypeTab* a1, TypeTab* a2, uint8_t* a3)
 {
-  unsigned int result; // eax
-
-  while ( 1 )
-  {
-    result = a1;
-    if ( a1 >= a2 )
-      break;
-    if ( *(_DWORD *)a1 >= a3 )
-    {
-      *(_BYTE *)(a1 + 4) = (int)*(unsigned __int8 *)(a1 + 4) >> 1;
-      *(_BYTE *)(a1 + 5) = (int)*(unsigned __int8 *)(a1 + 5) >> 1;
-      *(_DWORD *)a1 -= a3;
-    }
-    a1 += 6;
-  }
-  return result;
+	for (int i = 0; &a1[i] < a2; i++)
+	{
+		if (a1[i].Tab_0 >= a3)
+		{
+			a1[i].dim.x >>= 1;
+			a1[i].dim.y >>= 1;
+			a1[i].Tab_0 -= a3 - ZERO_PTR;
+		}
+	}
 }
 
 //----- (00066410) --------------------------------------------------------
-unsigned int *sub_66410(unsigned int *a1, unsigned int a2, unsigned int a3)
+void sub_66410(TypeTab* a1, TypeTab* a2, uint8_t* a3)
 {
-  unsigned int *result; // eax
-
-  while ( 1 )
-  {
-    result = a1;
-    if ( (unsigned int)a1 >= a2 )
-      break;
-    if ( *a1 >= a3 )
-      *a1 -= a3;
-    a1 = (unsigned int *)((char *)a1 + 6);
-  }
-  return result;
+    for (int i = 0; &a1[i] < a2; i++)
+    {
+        if (a1[i].Tab_0 >= a3)
+        {
+            a1[i].Tab_0 -= a3 - ZERO_PTR;
+        }
+    }
 }
 
 //----- (000664AB) --------------------------------------------------------
