@@ -130,10 +130,10 @@ uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint
 	fread(buffer, size2, 1, fptestepc);
 	if (size2 == 320 * 200)
 	{
-		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
+		VGA_Debug_Blit(320, 200, begWscreen_2ECFF4_2ECFE4);
 		/*for (int iii = 0; iii < 320 * 200; iii++)pdwScreenBuffer_351628[iii] = buffer[iii];*/
-		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
-		VGA_Debug_Blit(320, 200, pdwScreenBuffer_12EFF4);
+		VGA_Debug_Blit(320, 200, begWscreen_2ECFF4_2ECFE4);
+		VGA_Debug_Blit(320, 200, begWscreen_2ECFF4_2ECFE4);
 	}
 	//for (i = size-1; i >0; i--)
 	for (i = 0; i < size2; i++)
@@ -306,7 +306,7 @@ void add_compare(uint32_t adress, bool debugafterload, bool compareGraphics, int
 				}
 				//if(debugcounter_271478>5)
 				if(compareGraphics)
-					comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_12EFF4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
+					comp20 = compare_with_sequence(buffer4, begWscreen_2ECFF4_2ECFE4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
 				if (stopstep > -1)
 				{
 					comp20 = index;

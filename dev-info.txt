@@ -789,6 +789,10 @@ d ds:ebp+14
 sub_61610_61B20
 2344A0
 
+Pathstruct pathStrArray[32]
+begWscreen_2ECFF4_2ECFE4
+pdwScreenBuffer_12EFF4
+
 
 
 

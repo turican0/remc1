@@ -653,7 +653,7 @@ typedef struct {//size 4*5
 
 #pragma pack (16)
 
-extern uint8_t* pdwScreenBuffer_12EFF4;
+extern uint8_t* begWscreen_2ECFF4_2ECFE4;
 
 extern int16_t mapEntityIndex_10C1E0_10C1D0[0x10000];
 extern uint8_t mapTerrainType_CC1E0_CC1D0[0x10000];
