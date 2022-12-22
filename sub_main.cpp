@@ -37739,6 +37739,8 @@ void DrawSky_30730_30770(int16_t roll)//201730_
   int lineWidthSQ = skyTextSize * skyTextSize;
 
   bsaxis_2d errLine[3840]; // for 4K
+  uint32 beginX;
+  uint32 beginY;
   int roundRoll = roll & 0x7FF;
   int cosRoll = (cos_90B4C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
   int sinRoll = (sin_9134C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
@@ -37764,8 +37766,8 @@ void DrawSky_30730_30770(int16_t roll)//201730_
   uint8_t* viewPortRenderBufferStart = beginFrame_93ACC;
   int addX = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
   int addY = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
-  int beginX = (yaw_B5D38_B5D28 << 15) - (addX * sinRoll - addY * cosRoll);
-  int beginY = -(cosRoll * addX + sinRoll * addY);
+  beginX = (yaw_B5D38_B5D28 << 15) - (addX * sinRoll - addY * cosRoll);
+  beginY = -(cosRoll * addX + sinRoll * addY);
   for(int height = heightViewPort_93ADC-1; height >= 0; height--)
     {
       index = 0;
