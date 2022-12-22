@@ -37735,15 +37735,19 @@ LABEL_69:
 void DrawSky_30730_30770(int16_t roll)//201730_
 {
   int skyTextSize = 256;
+
   int lineWidthSQ = skyTextSize * skyTextSize;
+
   bsaxis_2d errLine[3840]; // for 4K
   int roundRoll = roll & 0x7FF;
-  int cosRoll = (cos_90B4C[roundRoll] << 8) / widthViewPort_93AD8;
-  int sinRoll = (sin_9134C[roundRoll] << 8) / widthViewPort_93AD8;
+  int cosRoll = (cos_90B4C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
+  int sinRoll = (sin_9134C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
   int errorX = 0;
   int errorY = 0;
   int8_t oldErrorX = 0;
   int8_t oldErrorY = 0;
+
+  // prepare sky texture lookup table
   int index = 0;
   uint16_t width = widthViewPort_93AD8;
   while (width)
@@ -37772,6 +37776,7 @@ void DrawSky_30730_30770(int16_t roll)//201730_
       int texturePixelIndexX = texturePixelIndex % skyTextSize;
       int texturePixelIndexY = (int32)(texturePixelIndex / skyTextSize);
 
+      //Scales sky texture to viewport
       for (uint8_t* endLine = viewPortLineRenderBufferStart + widthViewPort_93AD8; viewPortLineRenderBufferStart < endLine; viewPortLineRenderBufferStart++)
       {
           *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[texturePixelIndexX + skyTextSize * texturePixelIndexY];
@@ -41034,7 +41039,7 @@ void DrawAndEventsInGame_34530()//205530_
     //2055DE
             //debug
 #ifdef debug1
-        //add_compare(0x2055DE, true, true);
+        add_compare(0x2055DE, true, true);
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 -= dword_AC5D4_AC5C4;
