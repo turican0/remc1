@@ -37744,18 +37744,19 @@ void DrawSky_30730_30770(int16_t roll)//201730_
   int errorY = 0;
   int8_t oldErrorX = 0;
   int8_t oldErrorY = 0;
-
-
-  for (uint16_t width = 0; width < widthViewPort_93AD8; width++)
+  int index = 0;
+  uint16_t width = widthViewPort_93AD8;
+  while (width)
     {
-        errLine[width].x = (errorX >> 16) - oldErrorX;
-        errLine[width].y = (errorY >> 16) - oldErrorY;
-        oldErrorX = (errorX >> 16);
-        oldErrorY = (errorY >> 16);
+        errLine[index].x = BYTE2(errorY) - oldErrorX;
+        errLine[index].y = BYTE2(errorX) - oldErrorY;
+        oldErrorX = BYTE2(errorY);        
+        oldErrorY = BYTE2(errorX);
         errorX += cosRoll;
         errorY += sinRoll;
+        index++;
+        width--;
     }
-  int index = 0;
   uint8_t* viewPortRenderBufferStart = beginFrame_93ACC;
   int addX = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
   int addY = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
