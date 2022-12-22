@@ -2725,7 +2725,7 @@ __int16 word_90B2E = 224; // weak
 __int16 word_90B34 = 394; // weak
 __int16 word_90B36 = 228; // weak
 char byte_90B48 = '\0'; // weak
-int32 cos_90B4C[(256 + 256 + 256 + 256) * 2] = {
+int32 sin_90B4C[(256 + 256 + 256 + 256) * 2] = {
 0x00000000,0x000000C9,0x00000192,0x0000025B,
 0x00000324,0x000003ED,0x000004B6,0x0000057F,
 0x00000648,0x00000711,0x000007DA,0x000008A3,
@@ -3240,7 +3240,7 @@ int32 cos_90B4C[(256 + 256 + 256 + 256) * 2] = {
 0xFFFFF9B8,0xFFFFFA81,0xFFFFFB4A,0xFFFFFC13,
 0xFFFFFCDC, 0xFFFFFDA5, 0xFFFFFE6E, 0xFFFFFF37 };
 
-int32 sin_9134C[(256 + 256 + 256 + 256) * 2] = {
+int32 cos_9134C[(256 + 256 + 256 + 256) * 2] = {
 0x00010000,0x00010000,0x0000FFFF,0x0000FFFD,
 0x0000FFFB,0x0000FFF8,0x0000FFF5,0x0000FFF1,
 0x0000FFEC,0x0000FFE7,0x0000FFE1,0x0000FFDB,
@@ -14618,7 +14618,7 @@ int dword_B5CD0; // weak
 int dword_B5CD4_B5CC4; // weak
 int dword_B5CD8_B5CC8; // weak
 int dword_B5CDC_B5CCC; // weak
-int sinRoll_B5CE0_B5CD0; // weak
+int cosRoll_B5CE0_B5CD0; // weak
 int heightViewPort_B5CE4_B5CD4; // weak
 int dword_B5CE8_B5CD8; // weak
 int dword_B5CEC_B5CDC; // weak
@@ -14632,7 +14632,7 @@ int dword_B5D08_B5CF8; // weak
 int dword_B5D0C_B5CFC; // weak
 int dword_B5D10_B5D00; // weak
 int fowDist_B5D14_B5D04; // weak
-int cosRoll_B5D18_B5D08; // weak
+int sinRoll_B5D18_B5D08; // weak
 int dword_B5D1C_B5D0C; // weak
 int dword_B5D20_B5D10; // weak
 int dword_B5D24_B5D14; // weak
@@ -31526,12 +31526,12 @@ void PrepRot_29C30_29C70_old(__int16 roll)
     switch (v1 >> 8)
     {
     case 0:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v1];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v1];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v1];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v1];
         v89 = pitchViewPort_93AD4;
         v93 = widthViewPort_93AD8;
-        dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-        v103 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+        dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+        v103 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
         v5 = (_DWORD*)dword_B3EA0_B3E90x;
         v6 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
         v7 = 0;
@@ -31564,8 +31564,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         v14 = -1 - dword_B5D2C_B5D1C;
         goto LABEL_62;
     case 1:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v1];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v1];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v1];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v1];
         v85 = pitchViewPort_93AD4;
         v94 = heightViewPort_93ADC;
         if (v1 == 256)
@@ -31591,8 +31591,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         else
         {
-            dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-            v104 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+            dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+            v104 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
             v20 = (_DWORD*)dword_B3EA0_B3E90x;
             v21 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
             v22 = 0;
@@ -31627,10 +31627,10 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5CD8_B5CC8 = 4 * (-1 - dword_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 2:
-        v26 = cos_90B4C[v3];
-        v27 = sin_9134C[v3];
-        cosRoll_B5D18_B5D08 = v26;
-        sinRoll_B5CE0_B5CD0 = v27;
+        v26 = sin_90B4C[v3];
+        v27 = cos_9134C[v3];
+        sinRoll_B5D18_B5D08 = v26;
+        cosRoll_B5CE0_B5CD0 = v27;
         v86 = pitchViewPort_93AD4;
         v95 = heightViewPort_93ADC;
         dword_B5CF4_B5CE4 = (v26 << 8) / (v27 >> 8);
@@ -31668,10 +31668,10 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5CD8_B5CC8 = 4 * (v33 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 3:
-        v34 = cos_90B4C[v3];
-        v35x = sin_9134C[v3];
-        cosRoll_B5D18_B5D08 = v34;
-        sinRoll_B5CE0_B5CD0 = v35x;
+        v34 = sin_90B4C[v3];
+        v35x = cos_9134C[v3];
+        sinRoll_B5D18_B5D08 = v34;
+        cosRoll_B5CE0_B5CD0 = v35x;
         v90 = pitchViewPort_93AD4;
         v96 = widthViewPort_93AD8;
         if (v102 == 256)
@@ -31697,8 +31697,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         else
         {
-            dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-            v106 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+            dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+            v106 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
             v41 = (_DWORD*)dword_B3EA0_B3E90x;
             v42 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
             v43 = 0;
@@ -31733,12 +31733,12 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         v47 = -pitchViewPort_93AD4;
         goto LABEL_63;
     case 4:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v2];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v2];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v2];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v2];
         v91 = -pitchViewPort_93AD4;
         v97 = widthViewPort_93AD8;
-        dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-        v107 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+        dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+        v107 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
         v48 = (_DWORD*)dword_B3EA0_B3E90x;
         v49 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
         v50 = 0;
@@ -31772,8 +31772,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5CD8_B5CC8 = 4 * (v53 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         goto LABEL_63;
     case 5:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v2];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v2];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v2];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v2];
         v87 = -pitchViewPort_93AD4;
         v98 = heightViewPort_93ADC;
         if (v1 == 1280)
@@ -31799,8 +31799,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         else
         {
-            dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-            v108 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+            dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+            v108 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
             v59 = (_DWORD*)dword_B3EA0_B3E90x;
             v60 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
             v61 = 0;
@@ -31835,12 +31835,12 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5CD8_B5CC8 = 4 * (-1 - dword_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 6:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v4];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v4];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v4];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v4];
         v88 = -pitchViewPort_93AD4;
         v99 = heightViewPort_93ADC;
-        dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-        v109 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+        dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+        v109 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
         v65 = (_DWORD*)dword_B3EA0_B3E90x;
         v66 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
         v67 = 0;
@@ -31874,8 +31874,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5CD8_B5CC8 = 4 * (v70 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 7:
-        cosRoll_B5D18_B5D08 = cos_90B4C[v4];
-        sinRoll_B5CE0_B5CD0 = sin_9134C[v4];
+        sinRoll_B5D18_B5D08 = sin_90B4C[v4];
+        cosRoll_B5CE0_B5CD0 = cos_9134C[v4];
         v92 = -pitchViewPort_93AD4;
         v100 = widthViewPort_93AD8;
         if (v1 == 1792)
@@ -31901,8 +31901,8 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         else
         {
-            dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-            v110 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+            dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+            v110 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
             v76 = (_DWORD*)dword_B3EA0_B3E90x;
             v77 = (int*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
             v78 = 0;
@@ -31975,10 +31975,10 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 	switch ((roll & 0x7FF) >> 8)
 	{
 	case 0:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF)];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF)];
-		dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-		par5 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF)];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF)];
+		dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+		par5 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
 		indexv6 = 14840;// 59360 / 4;
 		par1 = 0;
 		par3 = 0;
@@ -32009,8 +32009,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5D04_B5CF4 = pitchViewPort_93AD4;
 		break;
 	case 1:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF)];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF)];
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF)];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF)];
 		if ((roll & 0x7FF) == 256)
 		{
 			indexv6 = 14840;// 59360 / 4;
@@ -32033,8 +32033,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		else
 		{
-			dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-			par5 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+			dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+			par5 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
 			indexv6 = 14840;// 59360 / 4;
 			par1 = 0;
 			par3 = 0;
@@ -32066,10 +32066,10 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
 		break;
 	case 2:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 512];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 512];
-		dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-		par5 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 512];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 512];
+		dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+		par5 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
 		indexv6 = 14840;// 59360 / 4;
 		par1 = 0;
 		par3 = 0;
@@ -32100,8 +32100,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 + par2];
 		break;
 	case 3:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 512];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 512];
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 512];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 512];
 		if (((roll & 0x7FF) - 512) == 256)
 		{
 			indexv6 = 14840;// 59360 / 4;
@@ -32124,8 +32124,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		else
 		{
-			dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-			par5 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+			dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+			par5 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
 			indexv6 = 14840;// 59360 / 4;
 			par1 = 0;
 			par3 = 0;
@@ -32157,10 +32157,10 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5D04_B5CF4 = -pitchViewPort_93AD4;
 		break;
 	case 4:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 1024];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 1024];
-		dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-		par5 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 1024];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 1024];
+		dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+		par5 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
 		indexv6 = 14840;// 59360 / 4;
 		par1 = 0;
 		par3 = 0;
@@ -32191,8 +32191,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5D04_B5CF4 = -pitchViewPort_93AD4;
 		break;
 	case 5:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 1024];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 1024];
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 1024];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 1024];
 		if ((roll & 0x7FF) == 1280)
 		{
 			dword_B5CF4_B5CE4 = 0x10000;
@@ -32215,8 +32215,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		else
 		{
-			dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-			par5 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+			dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+			par5 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
 			indexv6 = 14840;// 59360 / 4;
 			par1 = 0;
 			par3 = 0;
@@ -32248,10 +32248,10 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
 		break;
 	case 6:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 1536];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 1536];
-		dword_B5CF4_B5CE4 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
-		par5 = (cosRoll_B5D18_B5D08 << 8) / (sinRoll_B5CE0_B5CD0 >> 8);
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 1536];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 1536];
+		dword_B5CF4_B5CE4 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
+		par5 = (sinRoll_B5D18_B5D08 << 8) / (cosRoll_B5CE0_B5CD0 >> 8);
 		indexv6 = 14840;// 59360 / 4;
 		par1 = 0;
 		par3 = 0;
@@ -32282,8 +32282,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 + par2];
 		break;
 	case 7:
-		cosRoll_B5D18_B5D08 = cos_90B4C[(roll & 0x7FF) - 1536];
-		sinRoll_B5CE0_B5CD0 = sin_9134C[(roll & 0x7FF) - 1536];
+		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 1536];
+		cosRoll_B5CE0_B5CD0 = cos_9134C[(roll & 0x7FF) - 1536];
 		if ((roll & 0x7FF) == 1792)
 		{
 			indexv6 = 14840;// 59360 / 4;
@@ -32306,8 +32306,8 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		else
 		{
-			dword_B5CF4_B5CE4 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
-			par5 = (sinRoll_B5CE0_B5CD0 << 8) / (cosRoll_B5D18_B5D08 >> 8);
+			dword_B5CF4_B5CE4 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
+			par5 = (cosRoll_B5CE0_B5CD0 << 8) / (sinRoll_B5D18_B5D08 >> 8);
 			indexv6 = 14840;// 59360 / 4;
 			par1 = 0;
 			par3 = 0;
@@ -32611,14 +32611,14 @@ void DrawSkyTerrainParticles_2A700_2A740_old(int a1, __int16 a2, __int16 a3, __i
     posY_B5D3A_B5D2A = a3;
     v8 = (a4 & 0x7FF) + 256;
     posZ_B5CF8_B5CE8 = a5;
-    v9 = cos_90B4C[v8 + 0x100];
+    v9 = sin_90B4C[v8 + 0x100];
     dword_B5D08_B5CF8 = dword_902B0 + ((int)widthViewPort_93AD8 >> 1);
     dword_B5CDC_B5CCC = v9;
     v10 = dword_9074C[v8];
     v223 = (v8 >> 9) & 3;
     v11 = ((((a4 & 0x7FF) + 256) & 0x1FF) - 256) & 0x7FF;
-    v12 = cos_90B4C[v11];
-    v224x = sin_9134C[v11];
+    v12 = sin_90B4C[v11];
+    v224x = cos_9134C[v11];
     dword_B5D10_B5D00 = v10;
     v225 = v12;
     PrepRot_29C30_29C70(-a7 & 0x7FF);
@@ -32712,8 +32712,8 @@ void DrawSkyTerrainParticles_2A700_2A740_old(int a1, __int16 a2, __int16 a3, __i
     LOBYTE(v231) = v26 + HIBYTE(a2);
     HIBYTE(v231) = v221[1] + HIBYTE(a3);
     v27 = a7 & 0x7FF;
-    v28 = cos_90B4C[v27];
-    dword_B5CE8_B5CD8 = sin_9134C[v27];
+    v28 = sin_90B4C[v27];
+    dword_B5CE8_B5CD8 = cos_9134C[v27];
     dword_B5CD4_B5CC4 = v28;
     v29 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
     if (*(_BYTE*)(dword_AE400_AE3F0() + 8603) == 2 && !*(_BYTE*)(dword_AE400_AE3F0() + 8606))
@@ -32801,8 +32801,8 @@ LABEL_26:
                 *(_DWORD*)(v29 + 16) = fowDist_B5D14_B5D04 * *(int32*)v29 / v37;
                 *(_DWORD*)(v29 + 4) = 32 * mapHeightmap_DC1E0_DC1D0[v39] - a5;
                 v40 = (unsigned __int16)*(_DWORD*)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13341) << 6;
-                v227 = cos_90B4C[(v40 + (HIBYTE(v231) << 7)) & 0x7FF] >> 8;
-                v41 = v227 * (cos_90B4C[(((unsigned __int8)v231 << 7) + v40) & 0x7FF] >> 8);
+                v227 = sin_90B4C[(v40 + (HIBYTE(v231) << 7)) & 0x7FF] >> 8;
+                v41 = v227 * (sin_90B4C[(((unsigned __int8)v231 << 7) + v40) & 0x7FF] >> 8);
                 v227 = (unsigned __int8)mapHeightmap_DC1E0_DC1D0[v39];
                 *(_DWORD*)(v29 + 8) = -((v227 * ((v41 >> 4) + 0x8000)) >> 10) - a5;
                 if ((mapAngle_FC1E0_FC1D0[v39] & 8) != 0)
@@ -33412,8 +33412,8 @@ LABEL_26:
                 *(_DWORD*)(v29 + 16) = fowDist_B5D14_B5D04 * *(_DWORD*)v29 / v127;
                 *(_DWORD*)(v29 + 4) = 32 * (unsigned __int8)mapHeightmap_DC1E0_DC1D0[v130] - a5;
                 v131 = (unsigned __int16)*(_DWORD*)(2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0() + 13341) << 6;
-                v227 = cos_90B4C[(v131 + (HIBYTE(v231) << 7)) & 0x7FF] >> 8;
-                v132 = v227 * (cos_90B4C[(((unsigned __int8)v231 << 7) + v131) & 0x7FF] >> 8);
+                v227 = sin_90B4C[(v131 + (HIBYTE(v231) << 7)) & 0x7FF] >> 8;
+                v132 = v227 * (sin_90B4C[(((unsigned __int8)v231 << 7) + v131) & 0x7FF] >> 8);
                 if ((mapAngle_FC1E0_FC1D0[v130] & 8) != 0)
                     *(_DWORD*)(v29 + 4) -= v132 >> 10;
                 else
@@ -33475,8 +33475,8 @@ LABEL_26:
     //debug
     v138 = a7 & 0x7FF;
     v139 = 840;
-    v140 = cos_90B4C[v138];
-    v141x = sin_9134C[v138];
+    v140 = sin_90B4C[v138];
+    v141x = cos_9134C[v138];
     dword_B5CD4_B5CC4 = v140;
     dword_B5CE8_B5CD8 = v141x;
     v142 = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
@@ -33798,14 +33798,14 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 {
 	int tempYaw; // eax
 	int yawAngle; // eax
-	int tempCosCount; // ebp
-	int tempCosShift; // edi
-	//int tempSinCountSh; // ecx
+	int tempSinCount; // ebp
+	int tempSinShift; // edi
+	//int tempCosCountSh; // ecx
 	int powX; // ebx
 	int tempY; // esi
 	int sumPowXY; // ebx
 	__int16 tempDiameter; // ax
-	int tempCosXSin; // eax
+	int tempSinXSin; // eax
 	int tempShadCos; // eax
 	int tempVar20; // esi
 	int subTempVar28; // edx
@@ -33816,18 +33816,18 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
     Type_RenderPoint v203x; // [esp+18h] [ebp-C8h] BYREF
     Type_RenderPoint v208x; // [esp+30h] [ebp-B0h] BYREF
     Type_RenderPoint v213x; // [esp+48h] [ebp-98h] BYREF
-	int tempSinShift; // [esp+60h] [ebp-80h]
+	int tempCosShift; // [esp+60h] [ebp-80h]
 	int tempShad; // [esp+68h] [ebp-78h]
 	_BYTE* yawQuartal; // [esp+6Ch] [ebp-74h]
 	int modYaw; // [esp+74h] [ebp-6Ch]
 	void (*v224)(); // [esp+78h] [ebp-68h]
-	int32 tempSin;
-	int32 tempCos; // [esp+7Ch] [ebp-64h]
+	int32 tempCos;
+	int32 tempSin; // [esp+7Ch] [ebp-64h]
 	int yawX; // [esp+80h] [ebp-60h]
-	int tempCosDiaX;
-	int tempCosDiaY; // [esp+84h] [ebp-5Ch]
+	int tempSinDiaX;
+	int tempSinDiaY; // [esp+84h] [ebp-5Ch]
 	int tempHeightm;
-	int tempSinCount; // [esp+88h] [ebp-58h]
+	int tempCosCount; // [esp+88h] [ebp-58h]
 	char v238; // [esp+B0h] [ebp-30h]
 	char v243; // [esp+C4h] [ebp-1Ch]
 	char v245; // [esp+CCh] [ebp-14h]
@@ -33851,12 +33851,12 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	tempYaw = (yaw & 0x7FF) + 256;
 	posZ_B5CF8_B5CE8 = posZ;
 	dword_B5D08_B5CF8 = dword_902B0 + (widthViewPort_93AD8 >> 1);
-	dword_B5CDC_B5CCC = cos_90B4C[tempYaw + 0x100];
+	dword_B5CDC_B5CCC = sin_90B4C[tempYaw + 0x100];
 	modYaw = (tempYaw >> 9) & 3;
 	yawAngle = ((((yaw & 0x7FF) + 256) & 0x1FF) - 256) & 0x7FF;
-	tempSin = sin_9134C[yawAngle];
+	tempCos = cos_9134C[yawAngle];
 	dword_B5D10_B5D00 = dword_9074C[tempYaw];
-	tempCos = cos_90B4C[yawAngle];
+	tempSin = sin_90B4C[yawAngle];
 	PrepRot_29C30_29C70(-roll & 0x7FF);
 	fowDist_B5D14_B5D04 = (fow
 		* Distance_410CE_4140E(
@@ -33886,17 +33886,17 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	}
 
     Type_BegBscreen* tempBegBscreen = (Type_BegBscreen*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
-	tempCosCount = yawY * tempCos;	
 	tempSinCount = yawY * tempSin;	
-    tempSinShift = tempSin << 8;
-	tempCosShift = tempCos << 8;
+	tempCosCount = yawY * tempCos;	
+    tempCosShift = tempCos << 8;
+	tempSinShift = tempSin << 8;
     int index = 0;
 	for (int indexR = 0; indexR < textRows; indexR++)
 	{
 		for (int indexC = 0; indexC < textColumns; indexC++)
 		{
-			tempBegBscreen[index].x_0 = tempSinCount >> 16;
-			tempBegBscreen[index].y_12 = tempCosCount >> 16;
+			tempBegBscreen[index].x_0 = tempCosCount >> 16;
+			tempBegBscreen[index].y_12 = tempSinCount >> 16;
 			if (yawY < 0)
 				tempBegBscreen[index].triangleDir_38.word = 0;
 			else
@@ -33905,24 +33905,24 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 		}
 		index -= textRows * textColumns - 1;
 		yawY += 256;
-		tempCosCount += tempCosShift;
 		tempSinCount += tempSinShift;
+		tempCosCount += tempCosShift;
 	}
-	tempSinCount = tempSin * yawX;
-    tempCosCount = tempCos * yawX;
-	tempSinShift = tempSin << 8;
-	tempCosShift = tempCos << 8;	
+	tempCosCount = tempCos * yawX;
+    tempSinCount = tempSin * yawX;
+	tempCosShift = tempCos << 8;
+	tempSinShift = tempSin << 8;	
 	index = 0;
 	for (int indexC = 0; indexC < textColumns; indexC++)
 	{
 		for (int indexR = 0; indexR < textRows; indexR++)
 		{
-			tempBegBscreen[index].x_0 -= tempCosCount >> 16;
-			tempBegBscreen[index].y_12 += tempSinCount >> 16;
+			tempBegBscreen[index].x_0 -= tempSinCount >> 16;
+			tempBegBscreen[index].y_12 += tempCosCount >> 16;
 			index++;
 		}
-		tempSinCount += tempSinShift;
 		tempCosCount += tempCosShift;
+		tempSinCount += tempSinShift;
 		yawX += 256;
 	}
 	dword_B5D0C_B5CFC = 23658496;
@@ -33934,8 +33934,8 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	uaxis_2d yawXY;
 	yawXY._axis_2d.x = yawQuartal[0] + uPosX._axis_2d.y;
 	yawXY._axis_2d.y = yawQuartal[1] + uPosY._axis_2d.y;
-	dword_B5CE8_B5CD8 = sin_9134C[roll & 0x7FF];
-	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
+	dword_B5CE8_B5CD8 = cos_9134C[roll & 0x7FF];
+	dword_B5CD4_B5CC4 = sin_90B4C[roll & 0x7FF];
 	int drawShift = 0;
 	uint8 pattern = 0;
 	if (str_AE400_AE3F0->mod3D_8603 == 2 && !str_AE400_AE3F0->var_u8_8606)
@@ -34014,16 +34014,16 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					tempBegBscreen[index].pnt1_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempY;
 					tempBegBscreen[index].var_4 = 32 * mapHeightmap_DC1E0_DC1D0[yawXY.word] - posZ;
 					tempDiameter = str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6;
-					tempCosDiaY = cos_90B4C[((yawXY._axis_2d.y << 7) + tempDiameter) & 0x7FF] >> 8;
-					tempCosDiaX = cos_90B4C[((yawXY._axis_2d.x << 7) + tempDiameter) & 0x7FF] >> 8;
-					tempCosXSin = tempCosDiaY * tempCosDiaX;
+					tempSinDiaY = sin_90B4C[((yawXY._axis_2d.y << 7) + tempDiameter) & 0x7FF] >> 8;
+					tempSinDiaX = sin_90B4C[((yawXY._axis_2d.x << 7) + tempDiameter) & 0x7FF] >> 8;
+					tempSinXSin = tempSinDiaY * tempSinDiaX;
 					tempHeightm = mapHeightmap_DC1E0_DC1D0[yawXY.word];
-					tempBegBscreen[index].var_8 = -((tempHeightm * ((tempCosXSin >> 4) + 0x8000)) >> 10) - posZ;
+					tempBegBscreen[index].var_8 = -((tempHeightm * ((tempSinXSin >> 4) + 0x8000)) >> 10) - posZ;
 					if ((mapAngle_FC1E0_FC1D0[yawXY.word] & 8) != 0)
-						tempBegBscreen[index].var_4 -= tempCosXSin >> 10;
+						tempBegBscreen[index].var_4 -= tempSinXSin >> 10;
 					else
-						tempCosXSin = 0;
-					tempShadCos = (tempShad << 8) + 8 * tempCosXSin;
+						tempSinXSin = 0;
+					tempShadCos = (tempShad << 8) + 8 * tempSinXSin;
 					if (sumPowXY <= dword_B5CF0_B5CE0)
 						tempBegBscreen[index].pnt5_32 = tempShadCos;
 					else if (sumPowXY < dword_B5D0C_B5CFC)
@@ -34494,13 +34494,13 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                     tempY = 128;
 				tempBegBscreen[index].pnt1_16 = fowDist_B5D14_B5D04 * tempBegBscreen[index].x_0 / tempY;
 				tempBegBscreen[index].var_4 = 32 * mapHeightmap_DC1E0_DC1D0[yawXY.word] - posZ;
-				tempCosDiaY = cos_90B4C[((str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6) + (yawXY._axis_2d.y << 7)) & 0x7FF] >> 8;
-				tempCosXSin = pow(tempCosDiaY, 2);
+				tempSinDiaY = sin_90B4C[((str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u32_13341_18 << 6) + (yawXY._axis_2d.y << 7)) & 0x7FF] >> 8;
+				tempSinXSin = pow(tempSinDiaY, 2);
 				if ((mapAngle_FC1E0_FC1D0[yawXY.word] & 8) != 0)
-					tempBegBscreen[index].var_4 -= tempCosXSin >> 10;
+					tempBegBscreen[index].var_4 -= tempSinXSin >> 10;
 				else
-					tempCosXSin = 0;
-				tempVar32 = (((mapShading_EC1E0_EC1D0[yawXY.word] << 8) + 128) << 8) + 8 * tempCosXSin;
+					tempSinXSin = 0;
+				tempVar32 = (((mapShading_EC1E0_EC1D0[yawXY.word] << 8) + 128) << 8) + 8 * tempSinXSin;
                 if (powY + powX > dword_B5CF0_B5CE0)
                 {
                     if (powY + powX >= dword_B5D0C_B5CFC)
@@ -34563,7 +34563,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	//add_compare(0x1FCBE3, true, true);
 #endif debug1
 	//debug	dword_B5CD4_B5CC4 = cos_90B4C[roll & 0x7FF];
-	dword_B5CE8_B5CD8 = sin_9134C[roll & 0x7FF];
+	dword_B5CE8_B5CD8 = cos_9134C[roll & 0x7FF];
     for (int index142 = 0; index142 < textRows * textColumns; index142++)
 	{
         if (index142 == 0x32)
@@ -35038,17 +35038,17 @@ LABEL_136:
       if ( a1 != 2 )
       {
 LABEL_137:
-        v56 = (sinRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
+        v56 = (cosRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
         v57 = dword_B5CC8 << 16;
         v58 = dword_B5CCC << 16;
-        v59 = (cosRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
+        v59 = (sinRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
         switch ( dword_B5D28_B5D18 )
         {
           case 0:
-            v60 = (sinRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
+            v60 = (cosRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
             if ( v60 <= 0 )
               goto LABEL_404;
-            v61 = (dword_B5CC8 << 16) / sinRoll_B5CE0_B5CD0;
+            v61 = (dword_B5CC8 << 16) / cosRoll_B5CE0_B5CD0;
             if ( v61 <= 0 )
               goto LABEL_404;
             v176 = (dword_B5CCC << 16) / v61;
@@ -35062,7 +35062,7 @@ LABEL_137:
               v176 = -v176;
             }
             v182 = dword_B5CB8 << 16;
-            v174 = cosRoll_B5D18_B5D08 * dword_B5CC8 / v61;
+            v174 = sinRoll_B5D18_B5D08 * dword_B5CC8 / v61;
             v62 = dword_B5CB4 - ((dword_B5CF4_B5CE4 * dword_B5CB8) >> 16);
             v63 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if ( v62 >= dword_B5D2C_B5D1C )
@@ -35079,10 +35079,10 @@ LABEL_146:
             v186 = v62 * pitchViewPort_93AD4 + beginFrame_93ACC;
             goto LABEL_147;
           case 1:
-            v60 = (cosRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
+            v60 = (sinRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
             if ( v60 <= 0 )
               goto LABEL_404;
-            v61 = (dword_B5CC8 << 16) / cosRoll_B5D18_B5D08;
+            v61 = (dword_B5CC8 << 16) / sinRoll_B5D18_B5D08;
             if ( v61 <= 0 )
               goto LABEL_404;
             v176 = (dword_B5CCC << 16) / v61;
@@ -35096,7 +35096,7 @@ LABEL_146:
               v176 = -v176;
             }
             v138 = dword_B5CB4 << 16;
-            v173 = sinRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
+            v173 = cosRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
             v175 = dword_B5CB8 - ((dword_B5CF4_B5CE4 * dword_B5CB4) >> 16);
             v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if ( v175 < dword_B5D30_B5D20 )
@@ -35117,11 +35117,11 @@ LABEL_146:
             v141 = v175 + beginFrame_93ACC;
             goto LABEL_310;
           case 2:
-            v60 = (sinRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
+            v60 = (cosRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
             if ( v56 <= 0 )
               goto LABEL_404;
-            v61 = v57 / sinRoll_B5CE0_B5CD0;
-            if ( v57 / sinRoll_B5CE0_B5CD0 <= 0 )
+            v61 = v57 / cosRoll_B5CE0_B5CD0;
+            if ( v57 / cosRoll_B5CE0_B5CD0 <= 0 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35134,7 +35134,7 @@ LABEL_146:
               v176 = -v176;
             }
             v182 = dword_B5CB4 << 16;
-            v174 = cosRoll_B5D18_B5D08 * dword_B5CC8 / v61;
+            v174 = sinRoll_B5D18_B5D08 * dword_B5CC8 / v61;
             v62 = dword_B5D30_B5D20 - dword_B5CB8 - ((dword_B5CF4_B5CE4 * dword_B5CB4) >> 16);
             v63 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if ( v62 >= dword_B5D2C_B5D1C )
@@ -35151,11 +35151,11 @@ LABEL_354:
             v186 = dword_B5D30_B5D20 + beginFrame_93ACC - 1 - v62;
             goto LABEL_147;
           case 3:
-            v60 = (cosRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
+            v60 = (sinRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
             if ( v59 <= 0 )
               goto LABEL_404;
-            v61 = v57 / cosRoll_B5D18_B5D08;
-            if ( v57 / cosRoll_B5D18_B5D08 <= 0 )
+            v61 = v57 / sinRoll_B5D18_B5D08;
+            if ( v57 / sinRoll_B5D18_B5D08 <= 0 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35167,7 +35167,7 @@ LABEL_354:
               dword_B5CC0 = (v61 - 1) * v176;
               v176 = -v176;
             }
-            v173 = sinRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
+            v173 = cosRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
             v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             v175 = dword_B5CB4 - ((dword_B5CF4_B5CE4 * (dword_B5D34_B5D24 - dword_B5CB8)) >> 16);
             v138 = (dword_B5D34_B5D24 - dword_B5CB8) << 16;
@@ -35189,11 +35189,11 @@ LABEL_354:
             v186 = dword_B5D34_B5D24 + pitchViewPort_93AD4 * v175 - 1 + beginFrame_93ACC;
             goto LABEL_311;
           case 4:
-            v60 = (sinRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
+            v60 = (cosRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
             if ( v56 <= 0 )
               goto LABEL_404;
-            v61 = v57 / sinRoll_B5CE0_B5CD0;
-            if ( v57 / sinRoll_B5CE0_B5CD0 <= 0 )
+            v61 = v57 / cosRoll_B5CE0_B5CD0;
+            if ( v57 / cosRoll_B5CE0_B5CD0 <= 0 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35206,7 +35206,7 @@ LABEL_354:
               v176 = -v176;
             }
             v182 = (dword_B5D34_B5D24 - dword_B5CB8) << 16;
-            v174 = cosRoll_B5D18_B5D08 * dword_B5CC8 / v61;
+            v174 = sinRoll_B5D18_B5D08 * dword_B5CC8 / v61;
             v62 = dword_B5D30_B5D20 - dword_B5CB4 - (((dword_B5D34_B5D24 - dword_B5CB8) * dword_B5CF4_B5CE4) >> 16);
             v63 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if ( v62 >= dword_B5D2C_B5D1C )
@@ -35223,11 +35223,11 @@ LABEL_373:
             v186 = dword_B5D34_B5D24 + beginFrame_93ACC + pitchViewPort_93AD4 * (dword_B5D30_B5D20 - v62 - 1) - 1;
             goto LABEL_147;
           case 5:
-            v60 = (cosRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
+            v60 = (sinRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
             if ( v59 <= 0 )
               goto LABEL_404;
-            v61 = v57 / cosRoll_B5D18_B5D08;
-            if ( v57 / cosRoll_B5D18_B5D08 <= 0 )
+            v61 = v57 / sinRoll_B5D18_B5D08;
+            if ( v57 / sinRoll_B5D18_B5D08 <= 0 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35239,7 +35239,7 @@ LABEL_373:
               dword_B5CC0 = (v61 - 1) * v176;
               v176 = -v176;
             }
-            v173 = sinRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
+            v173 = cosRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
             v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             v138 = (dword_B5D34_B5D24 - dword_B5CB4) << 16;
             v161 = dword_B5D30_B5D20 - dword_B5CB8 - ((dword_B5CF4_B5CE4 * (dword_B5D34_B5D24 - dword_B5CB4)) >> 16);
@@ -35264,11 +35264,11 @@ LABEL_310:
             v186 = v141;
             goto LABEL_311;
           case 6:
-            v60 = (sinRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
+            v60 = (cosRoll_B5CE0_B5CD0 * dword_B5CA8) >> 16;
             if ( v56 <= 0 )
               goto LABEL_404;
-            v61 = v57 / sinRoll_B5CE0_B5CD0;
-            if ( v57 / sinRoll_B5CE0_B5CD0 <= 0 )
+            v61 = v57 / cosRoll_B5CE0_B5CD0;
+            if ( v57 / cosRoll_B5CE0_B5CD0 <= 0 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35281,7 +35281,7 @@ LABEL_310:
               v176 = -v176;
             }
             v182 = (dword_B5D34_B5D24 - dword_B5CB4) << 16;
-            v174 = cosRoll_B5D18_B5D08 * dword_B5CC8 / v61;
+            v174 = sinRoll_B5D18_B5D08 * dword_B5CC8 / v61;
             v163 = dword_B5CB8 - ((dword_B5CF4_B5CE4 * (dword_B5D34_B5D24 - dword_B5CB4)) >> 16);
             v63 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             v62 = v163;
@@ -35811,11 +35811,11 @@ LABEL_159:
             v184 = v68;
             goto LABEL_160;
           case 7:
-            v60 = (cosRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
+            v60 = (sinRoll_B5D18_B5D08 * dword_B5CA8) >> 16;
             if ( v59 <= 0 )
               goto LABEL_404;
-            v61 = v57 / cosRoll_B5D18_B5D08;
-            if ( v57 / cosRoll_B5D18_B5D08 <= 0 || dword_B5CB8 >= dword_B5D34_B5D24 )
+            v61 = v57 / sinRoll_B5D18_B5D08;
+            if ( v57 / sinRoll_B5D18_B5D08 <= 0 || dword_B5CB8 >= dword_B5D34_B5D24 )
               goto LABEL_404;
             v176 = v58 / v61;
             if ( a1 == 1 )
@@ -35829,7 +35829,7 @@ LABEL_159:
               dword_B5CC0 = v166;
             }
             v138 = dword_B5CB8 << 16;
-            v173 = sinRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
+            v173 = cosRoll_B5CE0_B5CD0 * dword_B5CC8 / v61;
             v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             v167 = dword_B5D30_B5D20 - dword_B5CB4 - ((dword_B5CB8 * dword_B5CF4_B5CE4) >> 16);
             v175 = v167;
@@ -36415,11 +36415,11 @@ LABEL_118:
 // B5CD0: using guessed type int dword_B5CD0;
 // B5CD4: using guessed type int dword_B5CD4_B5CC4;
 // B5CD8: using guessed type int dword_B5CD8_B5CC8;
-// B5CE0: using guessed type int sinRoll_B5CE0_B5CD0;
+// B5CE0: using guessed type int cosRoll_B5CE0_B5CD0;
 // B5CE8: using guessed type int dword_B5CE8_B5CD8;
 // B5CF4: using guessed type int dword_B5CF4_B5CE4;
 // B5D04: using guessed type int dword_B5D04_B5CF4;
-// B5D18: using guessed type int cosRoll_B5D18_B5D08;
+// B5D18: using guessed type int sinRoll_B5D18_B5D08;
 // B5D1C: using guessed type int dword_B5D1C_B5D0C;
 // B5D20: using guessed type int dword_B5D20_B5D10;
 // B5D24: using guessed type int dword_B5D24_B5D14;
@@ -37742,54 +37742,54 @@ void DrawSky_30730_30770(int16_t roll)//201730_
   uint32 beginX;
   uint32 beginY;
   int roundRoll = roll & 0x7FF;
-  int cosRoll = (cos_90B4C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
-  int sinRoll = (sin_9134C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
+  int sinRoll = (sin_90B4C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
+  int cosRoll = (cos_9134C[roundRoll] * skyTextSize) / widthViewPort_93AD8;
   int errorX = 0;
   int errorY = 0;
   int8_t oldErrorX = 0;
   int8_t oldErrorY = 0;
 
   // prepare sky texture lookup table
-  int index = 0;
-  uint16_t width = widthViewPort_93AD8;
-  while (width)
+  for (uint16_t width = 0; width < widthViewPort_93AD8; width++)
     {
-        errLine[index].x = BYTE2(errorY) - oldErrorX;
-        errLine[index].y = BYTE2(errorX) - oldErrorY;
-        oldErrorX = BYTE2(errorY);        
-        oldErrorY = BYTE2(errorX);
-        errorX += cosRoll;
+          errLine[width].x = (errorX >> 16) - oldErrorX;
+          errLine[width].y = (errorY >> 16) - oldErrorY;
+          oldErrorX = (errorX >> 16);
+          oldErrorY = (errorY >> 16);
         errorY += sinRoll;
-        index++;
-        width--;
+        errorX += cosRoll;
     }
+
   uint8_t* viewPortRenderBufferStart = beginFrame_93ACC;
   int addX = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
   int addY = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
-  beginX = (yaw_B5D38_B5D28 << 15) - (addX * sinRoll - addY * cosRoll);
-  beginY = -(cosRoll * addX + sinRoll * addY);
-  for(int height = heightViewPort_93ADC-1; height >= 0; height--)
-    {
-      index = 0;
-      uint8_t* viewPortLineRenderBufferStart = viewPortRenderBufferStart;
-      int texturePixelIndex = ((uint32)beginX / (256 * 256)) % skyTextSize + ((uint32)beginY / (256 * 256)) * skyTextSize;
-      texturePixelIndex = (texturePixelIndex + lineWidthSQ * 2) % lineWidthSQ;
+  beginX = (yaw_B5D38_B5D28 << 15) * (skyTextSize / 256) - (addX * cosRoll - addY * sinRoll);
+  beginY = -(sinRoll * addX + cosRoll * addY);
 
-      int texturePixelIndexX = texturePixelIndex % skyTextSize;
-      int texturePixelIndexY = (int32)(texturePixelIndex / skyTextSize);
+  for (int height = 0; height < heightViewPort_93ADC; height++)
+  {
+      uint8* viewPortLineRenderBufferStart = viewPortRenderBufferStart;
+
+      uint32 texturePixelIndexX = (beginX >> 16);
+      uint32 texturePixelIndexY = (beginY >> 16);
+      if (skyTextSize == 0x100)
+      {
+          texturePixelIndexX %= (skyTextSize - 1);
+          texturePixelIndexY %= (skyTextSize - 1);
+      }
 
       //Scales sky texture to viewport
-      for (uint8_t* endLine = viewPortLineRenderBufferStart + widthViewPort_93AD8; viewPortLineRenderBufferStart < endLine; viewPortLineRenderBufferStart++)
+      for (uint16_t width = 0; width < widthViewPort_93AD8; width++)
       {
-          *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[texturePixelIndexX + skyTextSize * texturePixelIndexY];
-          texturePixelIndexX = (texturePixelIndexX + errLine[index].x + skyTextSize) % skyTextSize;
-          texturePixelIndexY = (texturePixelIndexY + errLine[index].y + skyTextSize) % skyTextSize;
-          index++;
+          *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[(texturePixelIndexX + skyTextSize * texturePixelIndexY) % lineWidthSQ];
+          texturePixelIndexX = (texturePixelIndexX + errLine[width].x + skyTextSize) % skyTextSize;
+          texturePixelIndexY = (texturePixelIndexY + errLine[width].y + skyTextSize) % skyTextSize;
+          viewPortLineRenderBufferStart++;
       }
       viewPortRenderBufferStart += pitchViewPort_93AD4;
-      beginX -= cosRoll;
-      beginY += sinRoll;
-    }
+      beginX -= sinRoll;
+      beginY += cosRoll;
+  }
 }
 
 
@@ -38124,8 +38124,8 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 		SetViewPort2_79495_799A5(begWscreen_2ECFF4_2ECFE4, 0, 2 * scrWidth_12EFF0_12EFE0, scrWidth_12EFF0_12EFE0 / 2 - 8, scrHeight_12EFF8_12EFE8 / 2 - 40);
 		dword_9070C = 20;
 		dword_902B0 = -5;
-		int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
-		int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
+		int tempSin = (5 * cos_9134C[tempYaw]) >> 14;
+		int tempCos = (5 * sin_90B4C[tempYaw]) >> 14;
 		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX - tempSin, tempFixPosY - tempCos, tempYaw, posZ, pitch, roll, fow);
 		SetViewPort2_79495_799A5(begWscreen_2ECFF4_2ECFE4 + scrWidth_12EFF0_12EFE0 / 2, 0, 0, 0, 0);
 		dword_902B0 = 5;
@@ -38317,8 +38317,8 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 			//tempCos = cos_90B4C[tempYaw];
 			dword_9070C = 20;
 			dword_902B0 = pitchViewPort_93AD4 / 0x28u;
-			int tempSin = (5 * sin_9134C[tempYaw]) >> 14;
-			int tempCos = (5 * cos_90B4C[tempYaw]) >> 14;
+			int tempSin = (5 * cos_9134C[tempYaw]) >> 14;
+			int tempCos = (5 * sin_90B4C[tempYaw]) >> 14;
 			//LOWORD(v46) = v46 >> 14;
 			DrawSkyTerrainParticles_2A700_2A740(tempSin + tempFixPosX, tempCos + tempFixPosY, tempYaw, posZ, pitch, roll, fow);
 			//v71 = beginFrame_93ACC;
@@ -51661,11 +51661,11 @@ void sub_41EC0(axis_3d* a1x, unsigned __int16 a2, __int16 a3, __int16 a4)//212EC
     HIBYTE(a2) &= 7u;
     if ( v5 )
     {
-      a1x->z -= (unsigned int)(a4 * cos_90B4C[v5]) >> 16;
-      v6 = (a4 * sin_9134C[v5]) >> 16;
+      a1x->z -= (unsigned int)(a4 * sin_90B4C[v5]) >> 16;
+      v6 = (a4 * cos_9134C[v5]) >> 16;
     }
-    a1x->x += (unsigned int)((__int16)v6 * cos_90B4C[a2]) >> 16;
-    a1x->y -= (unsigned int)(sin_9134C[a2] * (__int16)v6) >> 16;
+    a1x->x += (unsigned int)((__int16)v6 * sin_90B4C[a2]) >> 16;
+    a1x->y -= (unsigned int)(cos_9134C[a2] * (__int16)v6) >> 16;
   }
 }
 // 90B4C: using guessed type int cos_90B4C[256];
@@ -56396,8 +56396,8 @@ char sub_48710_48A50(int a1, int a2, __int16 a3, __int16 a4, int a5, int a6, __i
   HIDWORD(v11) = (int)0x10000 >> 31;
   v12 = v11 / v10;
   v58 = a5 / 2;
-  v13 = v12 * cos_90B4C[a7 & 0x7FF];
-  v14 = (sin_9134C[a7 & 0x7FF] * v12) >> 16;
+  v13 = v12 * sin_90B4C[a7 & 0x7FF];
+  v14 = (cos_9134C[a7 & 0x7FF] * v12) >> 16;
   v70 = a6 / 2;
   sub_5A3C0_5A8D0(1);
   v62 = v14;
@@ -56426,8 +56426,8 @@ char sub_48710_48A50(int a1, int a2, __int16 a3, __int16 a4, int a5, int a6, __i
                                                                 * *(unsigned __int8 *)(v65 + v27 + scrWidth_12EFF0_12EFE0 * v64)
                                                                 + (unsigned __int8)byte_AE167_AE157] )
     {
-      v27 = ((i * cos_90B4C[v66]) >> 16) + v23;
-      v64 = v20 + ((-i * sin_9134C[v66]) >> 16);
+      v27 = ((i * sin_90B4C[v66]) >> 16) + v23;
+      v64 = v20 + ((-i * cos_9134C[v66]) >> 16);
       if ( v27 < 0 )
         break;
       if ( v27 >= a5 )
@@ -56837,8 +56837,8 @@ int DrawMinimap_49300_49640(int a1, int a2, int a3, int a4, int a5, int a6, __in
     }
   }
   v19 = a7 & 0x7FF;
-  v40 = (a8 * cos_90B4C[v19]) >> 16;
-  v39 = (a8 * sin_9134C[v19]) >> 16;
+  v40 = (a8 * sin_90B4C[v19]) >> 16;
+  v39 = (a8 * cos_9134C[v19]) >> 16;
   v37 = a6 * v40 / a5;
   v36 = a6 * v39 / a5;
   v44 = a3 - (a5 * v36 - a6 * v40) / 2;
@@ -63938,10 +63938,10 @@ int sub_54A90(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4)
     sub_524E0(a2);
     if ( v7 <= 5120 )
     {
-      v8 = v7 * sin_9134C[v12];
-      v9 = v7 * cos_90B4C[v12];
-      v10 = v7 * sin_9134C[v13];
-      v11 = (__int16)((cos_90B4C[v13] * v7) >> 14);
+      v8 = v7 * cos_9134C[v12];
+      v9 = v7 * sin_90B4C[v12];
+      v10 = v7 * cos_9134C[v13];
+      v11 = (__int16)((sin_90B4C[v13] * v7) >> 14);
       return (v10 >> 16) * (v10 >> 16) + (v8 >> 16) * (v8 >> 16) + (__int16)(v9 >> 14) * (__int16)(v9 >> 14) + v11 * v11;
     }
     else
@@ -63986,10 +63986,10 @@ int sub_54BD0(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4)
   v10 = sub_423D0((axis_3d*)v5, (axis_3d*)v4);
   if ( v10 > 5120 )
     return -1;
-  v11 = v10 * sin_9134C[v15];
-  v12 = v10 * cos_90B4C[v15];
-  v13 = v10 * sin_9134C[v9];
-  v14 = (__int16)((cos_90B4C[v9] * v10) >> 14);
+  v11 = v10 * cos_9134C[v15];
+  v12 = v10 * sin_90B4C[v15];
+  v13 = v10 * cos_9134C[v9];
+  v14 = (__int16)((sin_90B4C[v9] * v10) >> 14);
   return (__int16)(v12 >> 14) * (__int16)(v12 >> 14) + (v11 >> 16) * (v11 >> 16) + (v13 >> 16) * (v13 >> 16) + v14 * v14;
 }
 // 90B4C: using guessed type int cos_90B4C[256];
