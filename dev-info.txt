@@ -792,6 +792,15 @@ sub_61610_61B20
 Pathstruct pathStrArray[32]
 begWscreen_2ECFF4_2ECFE4
 pdwScreenBuffer_12EFF4
+--------------------
+((int)str_AE400_AE3F0)+0x28
+0x1F690+0x28
+0x71 versus 0x70
+0x212eab 41EAB sub_41E90
+0x1f89ba 279BA sub_277D0
+0x1f8402 27402 sub_27030
+
+
 
 
 
