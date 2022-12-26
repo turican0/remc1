@@ -245,6 +245,7 @@ typedef struct {// len 32
 	uint16 v_16;
 	uint16 v_18;
 	uint32 v_20;
+	uint16 v_22;
 	uint16 v_26;
 	uint16 v_28;
 	uint16 v_30;
@@ -286,7 +287,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 var_u16_29835_40;//40
 	uint16 var_u16_29837_42;//42
 	uint16 var_u16_29839_44;//44
-	uint16 var_u16_29841_46;//46
+	int16 var_u16_29841_46;//46
 	uint16 var_48;//29843
 	uint16 var_50;
 	uint8_t stub2e[6];
@@ -388,11 +389,51 @@ typedef struct {//len 38812
 }
 Type_AE400_193795;
 
-typedef struct {//size 232713
+typedef struct {
 	uint8 stub0[1];
 	uint8 var_u8_1;
 	uint8 var_u8_2;
 	uint8 stub0b[1];
+}
+Type_str_AE400_AE3F0_0;
+
+typedef struct {
+	uint8 reflections_8597;//0 is on
+	uint8 shadowsOn_8598;
+	uint8 skyOn_8599;
+	uint8 var_u8_8600;
+
+	uint8 mapOn_8601;
+	uint8 iconsOn_8602;
+	uint8 mod3D_8603;
+	uint8 blur_8604;
+
+	uint8 softenOn_8605;
+	uint8 var_u8_8606;
+	uint8 stub9[1];
+	uint8 var_u8_8608;
+
+	uint8 stub10[12];
+
+	uint8 var_u8_8621;
+	uint8 var_u8_8622;
+	uint8 var_u8_8623;//sky is on
+	uint8 var_u8_8624;
+
+	uint8 var_u8_8625;
+	uint8 var_u8_8626;
+	uint8 var_u8_8627;
+	uint8 var_u8_8628;
+
+	uint8 var_u8_8629;
+	uint8 var_u8_8630;
+	uint8 var_u8_8631;
+	uint8 var_u8_8632;
+}
+Type_settings;
+
+typedef struct {//size 232713
+	Type_str_AE400_AE3F0_0 var_0;
 	uint32 rand_4;
 	uint16 var_u16_8;
 	uint16 var_u16_10;
@@ -408,31 +449,10 @@ typedef struct {//size 232713
 	Type_AE400_29795* var_u32_593[1000];
 	int32 var_u32_4593;
 	Type_AE400_29795* var_u32_4597[1000];
-	uint8 reflections_8597;//0 is on
-	uint8 shadowsOn_8598;
-	uint8 skyOn_8599;
-	int8 var_u8_8600;
-	uint8 mapOn_8601;
-	uint8 iconsOn_8602;
-	uint8 mod3D_8603;
-	uint8 blur_8604;
-	uint8 softenOn_8605;
-	uint8 var_u8_8606;
-	uint8 stub9[1];
-	uint8 var_u8_8608;
-	uint8 stub10[12];
-	uint8 var_u8_8621;
-	uint8 var_u8_8622;
-	uint8 var_u8_8623;//sky is on
-	uint8 var_u8_8624;
-	uint8 var_u8_8625;
-	uint8 var_u8_8626;
-	uint8 var_u8_8627;
-	uint8 var_u8_8628;
-	uint8 var_u8_8629;
-	uint8 var_u8_8630;
-	uint8 var_u8_8631;
-	uint8 stub11[545];
+
+	Type_settings set;
+
+	uint8 stub11[544];
 	Type_AE400_9177 str_9177[8];// len 48
 	uint8 stub12[2033];
 	TypeStrAE400_13323 str_11274;
@@ -650,6 +670,22 @@ typedef struct {//size 4*5
 	un16_32 v_3;
 	un16_32 z_4;
 } Type_RenderPoint2;
+
+typedef struct {//size 6
+	uint8* pointer_0;
+	uint16 pos_4;
+}
+Type_AD008_ACFF8;
+
+typedef struct {//size 6*4
+	int32 stub_0;
+	int32 stub_1;
+	int32 stub_2;
+	int32 stub_3;
+	Type_AD008_ACFF8* stub_4;
+	uint8* stub_5;
+}
+Type_AC5F0;
 
 #pragma pack (16)
 

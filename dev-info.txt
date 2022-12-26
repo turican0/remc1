@@ -800,6 +800,13 @@ pdwScreenBuffer_12EFF4
 0x1f89ba 279BA sub_277D0
 0x1f8402 27402 sub_27030
 
+dword_AD008_ACFF8
+Type_AC5F0
+--------------------
+((int)str_AE400_AE3F0)+0x4
+0x1F690+0x4
+0xdf versus 0x71
+
 
 
 
