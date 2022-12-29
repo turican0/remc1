@@ -158,6 +158,7 @@ uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint
 int test_D41A0_id_pointer(uint32_t adress) {
 
 	if ((adress >= 593) && (adress < 593 + 1000 * 4))return 2;//event
+	if ((adress >= 4597) && (adress < 4597 + 1000 * 4))return 2;//event
 	if ((adress >= 0x74FF) && (adress < 0x75a3 * 1000 + 8))return 2;//event
 
 	if ((adress >= 0x39d5) && (adress < 0x39d5+4))return 1; //timer
@@ -303,10 +304,11 @@ void add_compare(uint32_t adress, bool debugafterload, bool compareGraphics, int
 
 					//screen
 					//comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_351628, 0x3aa0a4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20);
+					//if(debugcounter_271478>5)
+					if(compareGraphics)
+						comp20 = compare_with_sequence(buffer4, begWscreen_2ECFF4_2ECFE4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
 				}
-				//if(debugcounter_271478>5)
-				if(compareGraphics)
-					comp20 = compare_with_sequence(buffer4, begWscreen_2ECFF4_2ECFE4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
+
 				if (stopstep > -1)
 				{
 					comp20 = index;

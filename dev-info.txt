@@ -806,6 +806,28 @@ Type_AC5F0
 ((int)str_AE400_AE3F0)+0x4
 0x1F690+0x4
 0xdf versus 0x71
+--------------------
+((int)str_AE400_AE3F0)+0x11f5
+0x1F690+0x11f5
+0x00 versus 0x87
+
+--------------------
+((int)str_AE400_AE3F0)+0x4
+0x1F690+0x4
+0x4 versus 0xdf
+
+--------------------
+((int)str_AE400_AE3F0)+0x11f5
+0x1F690+0x11f5
+0x17 versus 0x87
+
+str_AE400_AE3F0->var_u32_4597
+
+&str_AE400_AE3F0->str_29795[jx]
+--------------------
+((int)str_AE400_AE3F0)+0x380c
+0x1F690+0x380c
+0x8 versus 0x10
 
 
 

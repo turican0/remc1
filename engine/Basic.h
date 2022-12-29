@@ -33,10 +33,17 @@ typedef struct {//size 44
 } vesa_str;
 
 typedef struct {
-	uint16_t x;
-	uint16_t y;
+	int16_t x;
+	int16_t y;
 	int16_t z;
 }axis_3d;
+
+/*
+typedef struct {
+	int16_t x;
+	int16_t y;
+	int16_t z;
+}axis_3dB;*/
 
 typedef struct {
 	uint16_t var_u16_29873_78;//78
@@ -278,19 +285,22 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 var_u16_29815_20;//20
 	uint16 var_u16_29817_22;//22
 	uint16 id_29819_24;//24
-	uint16 var_u16_29821_26;//26
+	int16 var_u16_29821_26;//26 z plus
 	uint16 var_u16_29823_28;//28
 	uint16 var_u16_29825_30;//30
 	uint16 var_u16_29827_32;//32
-	uint8_t stub2a[4];
+	uint16 var_u16_29829_34;//34
+	uint8_t stub2a[2];
 	uint16 var_u16_29833_38;//38
 	uint16 var_u16_29835_40;//40
 	uint16 var_u16_29837_42;//42
 	uint16 var_u16_29839_44;//44
 	int16 var_u16_29841_46;//46
 	uint16 var_48;//29843
-	uint16 var_50;
-	uint8_t stub2e[6];
+	uint16 var_50;//50
+	uint16 var_u16_29847_52;//52
+	uint16 var_u16_29849_54;//54
+	uint8_t stub2eb[2];//56
 	int8_t var_u8_29853_58;//58
 	uint8_t stub2ax[2];
 	uint8_t var_u8_29856_61;//61
@@ -326,13 +336,13 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 actSpeed_29921_126;//126
 
 	uint16 actSpeed_29923_128;//128
-	uint8_t stub3ay[2];
+	uint16 var_u16_29925_130;//130
 	uint16 var_u16_29927_132;//132
 	uint8_t stub3[2];
 	uint32 var_u32_29931;//136
 	uint32 var_u32_29935_140;//140
 	uint16 var_u16_29939_144;//144
-	uint16 var_u16_29941_146;//146
+	uint16 var_u16_29941_146;//146 //index entity
 	uint8_t stub4[2];
 	axis_3d var_u32_150;
 	//uint16 var_u16_154;
@@ -474,10 +484,11 @@ typedef struct {// len 14 //184
 	uint8_t stubb[2];
 }
 Type_AE408_184;
+/*
 typedef struct {// len 80
 	uint8_t stub[80];
 }
-Type_AE408_36382;
+Type_AE408_36382;*/
 
 typedef struct {//size 14
 	uint16 var_u16_0[2];
@@ -549,7 +560,7 @@ typedef struct {//size 36478
 	uint32 var_u32_210;
 	uint8 stubf[36164];
 	uint32 var_u32_36378;
-	Type_AE408_36382 str_36382;// len 80
+	Type_AE400_29795* str_36382x[20];// len 80
 	Type_AE400_29795* var_u32_36462[4];
 	//uint32 var_u32_36466;
 	//uint32 var_u32_36470;
