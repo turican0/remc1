@@ -828,6 +828,38 @@ str_AE400_AE3F0->var_u32_4597
 ((int)str_AE400_AE3F0)+0x380c
 0x1F690+0x380c
 0x8 versus 0x10
+0x1f690+a versus
+str_AE400_AE3F0->var_u16_10 is zero
+
+&(&str_AE400_AE3F0->str_29795[0x276])->var_u32_29867_72.z
+0x3fe8b+0x48+4
+
+sub_41C70_41FB0
+sub_455D0
+sub_45C90
+
+word_AE454_AE444
+
+word_AE454_AE444
+
+int sub_45410(Type_AE400_29795* a1x)
+
+&str_AE400_AE3F0
+&str_AE400_AE3F0->str_29795[0x276].var_u32_29951_156
+&str_AE400_AE3F0->str_29795[0x276].var_u32_29951_156->v_12
+&a1x->var_u32_29951_156->v_12
+0x257024
+
+str_AE408_AE3F8->var_u32_168
+
+str_AE400_AE3F0->str_29795[1].var_u32_29951_156
+
+unk_98F38
+
+str_AE400_AE3F0->var_u32_593[str_AE400_AE3F0->var_u32_40]
+
+&str_AE400_AE3F0->str_29795[i]
+
 
 
 
