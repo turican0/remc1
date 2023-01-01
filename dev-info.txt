@@ -860,6 +860,62 @@ str_AE400_AE3F0->var_u32_593[str_AE400_AE3F0->var_u32_40]
 
 &str_AE400_AE3F0->str_29795[i]
 
+dword_12DF8C
+byte_12E7D0
+--------------------
+((int)str_AE400_AE3F0)+0x28
+0x1F690+0x28
+0x71 versus 0x70
+
+Type_AE400_29795* sub_11D10(Type_AE400_29795* event)//1E2D10
+
+int sub_114B0(int a1, _DWORD *a2, _DWORD *a3)//1E24B0_
+dword_AC5F0x[1].stub_5
+
+------------------------
+event->id_29819_24 != v6->id_29819_24
+0xDF 0x1E6 versus 0x1E4 0x1E4
+str_AE400_AE3F0->str_29795[0x1e4]
+
+&str_AE400_AE3F0->str_29795[jx].id_29819_24
+
+&str_AE400_AE3F0->var_u32_593[0x20c]
+&str_AE400_AE3F0->str_29795
+
+0x2F9E7 0xDF
+0x3A263 0x1E6
+0x3a11b
+
+if (compareindex_41780_2 == 0x943)
+sub_41780 212780_ ok
+sub_27030 1F8030_
+sub_11D10 1E2D10
+sub_114B0 1E24B0_
+0 0x3a11b 0x39b57 (0x1e4 0x1e4)
+1 0x3a11b 0x39b57 (0x1e4 0x1e4)
+2
+
+i = v6->var_u16_29815_20
+
+  v9 = (event->var_u32_29867_72.x + 128) >> 8;
+  v2 = (event->var_u32_29867_72.y + 128) >> 8;
+problem
+
+Type_AE400_29795* sub_11D10(Type_AE400_29795* event)//1E2D10
+
+&str_AE400_AE3F0->str_29795[0x1e4].var_u32_29867_72
+versus 0x3a14b
+
+0x21187D -ok
+void GameLoop_34610_349D0()//205610_ begin -ok
+0x212A0A -OK
+if (compareindex_41780_2 == 0x943) - z problem
+
+7F8F 1562 D001
+808f 1562 D001
+
+
+
 
 
 

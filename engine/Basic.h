@@ -33,17 +33,17 @@ typedef struct {//size 44
 } vesa_str;
 
 typedef struct {
-	int16_t x;
-	int16_t y;
+	uint16_t x;
+	uint16_t y;
 	int16_t z;
 }axis_3d;
 
-/*
+
 typedef struct {
 	int16_t x;
 	int16_t y;
 	int16_t z;
-}axis_3dB;*/
+}axis_3du;
 
 typedef struct {
 	uint16_t var_u16_29873_78;//78
@@ -344,7 +344,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 var_u16_29939_144;//144
 	uint16 var_u16_29941_146;//146 //index entity
 	uint8_t stub4[2];
-	axis_3d var_u32_150;
+	axis_3du var_u32_150;
 	//uint16 var_u16_154;
 	Type_156* var_u32_29951_156;//156
 	Type_160* var_u32_29955_160;//160
@@ -452,7 +452,7 @@ typedef struct {//size 232713
 	uint16 var_u16_36;
 	uint16 var_u16_38;
 	int32 var_u32_40;
-	uint8 stub4[532];
+	uint8 var_u8_44[532];
 	un16_32 var_u32_576;
 	uint8 var_u8_580;
 	uint8 stub4b[12];
