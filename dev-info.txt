@@ -905,14 +905,24 @@ Type_AE400_29795* sub_11D10(Type_AE400_29795* event)//1E2D10
 
 &str_AE400_AE3F0->str_29795[0x1e4].var_u32_29867_72
 versus 0x3a14b
+&str_AE400_AE3F0->str_29795[0x1e4].var_u32_150
+versus 0x3a199
+
 
 0x21187D -ok
 void GameLoop_34610_349D0()//205610_ begin -ok
 0x212A0A -OK
-if (compareindex_41780_2 == 0x943) - z problem
+if (compareindex_41780_2 == 0x6ce) - x problem
 
 7F8F 1562 D001
 808f 1562 D001
+
+--------------------
+((int)str_AE400_AE3F0)+0x4
+0x1F690+0x4
+0xfe versus 0x61
+
+0xbf versus 0x42
 
 
 

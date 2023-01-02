@@ -16732,11 +16732,13 @@ int sub_114B0(int a1, _DWORD *a2, _DWORD *a3)//1E24B0_
         counter_sub_114B0++;
         counter_sub_114B0--;
     }
+    /*
     uint8_t origbyte20 = 0;
     uint8_t remakebyte20 = 0;
     char buffer1[500];
     sprintf(buffer1, "%08X-FFFFFFF5", 0x1e24d0);
     int comp20 = compare_with_sequence(buffer1, (uint8_t*)dword_AC5F0x[a1].stub_5, 0xFFFFFFF5, counter_sub_114B0 - 0, 8, 8, &origbyte20, &remakebyte20, 0, true);
+    */
     counter_sub_114B0++;
     //debug
   
@@ -29740,7 +29742,7 @@ void sub_27030(Type_AE400_29795* event)//1F8030_
     word_AE454_AE444.y = event->var_u32_150.y + event->var_u32_29867_72.y;
     //v12 = event->var_u16_29841_46;
     word_AE454_AE444.z += event->var_u16_29841_46;
-    event->var_u16_29841_46 = event->var_u16_29841_46 - 16;
+    event->var_u16_29841_46 -= 16;
     if (event->var_u16_29841_46 < -128 )
         event->var_u16_29841_46 = -128;
     int16 tempV13 = sub_11F50(&word_AE454_AE444);
@@ -29761,12 +29763,16 @@ void sub_27030(Type_AE400_29795* event)//1F8030_
       if (tempV15)
         sub_277D0(event, tempV15);
       sub_41F50_42290(&event->var_u32_29867_72, &word_AE454_AE444);
-      event->var_u32_150.x += word_AE454_AE444.x;
+      event->var_u32_150.x += (int16)word_AE454_AE444.x;
       //v16 = 250 * event->var_u32_150.x;
-      event->var_u32_150.y += word_AE454_AE444.y;
+      event->var_u32_150.y += (int16)word_AE454_AE444.y;
       //v17 = event->var_u32_150.y;
-      event->var_u32_150.x = (250 * event->var_u32_150.x - (__CFSHL__((250 * event->var_u32_150.x) >> 31, 8) + ((250 * event->var_u32_150.x) >> 31 << 8))) >> 8;
-      event->var_u32_150.y = (250 * event->var_u32_150.y - (__CFSHL__((250 * event->var_u32_150.y) >> 31, 8) + ((250 * event->var_u32_150.y) >> 31 << 8))) >> 8;
+      //event->var_u32_150.x = (250 * event->var_u32_150.x - (((250 * event->var_u32_150.x) >> 31) << 8) + ((250 * event->var_u32_150.x) >> 31)) >> 8;
+      //event->var_u32_150.x = (250 * event->var_u32_150.x - (__CFSHL__((250 * event->var_u32_150.x) >> 31, 8) + ((250 * event->var_u32_150.x) >> 31 << 8))) >> 8;
+      //event->var_u32_150.y = (250 * event->var_u32_150.y - (((250 * event->var_u32_150.y) >> 31) << 8) + ((250 * event->var_u32_150.y) >> 31)) >> 8;
+      //event->var_u32_150.y = (250 * event->var_u32_150.y - (__CFSHL__((250 * event->var_u32_150.y) >> 31, 8) + ((250 * event->var_u32_150.y) >> 31 << 8))) >> 8;      
+      event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
+      event->var_u32_150.y = (250 * event->var_u32_150.y) >> 8;
     }
     sub_274D0(event);
   }
@@ -31286,20 +31292,20 @@ void sub_293D0(Type_AE400_29795* a1x)
 //----- (00029540) --------------------------------------------------------
 void sub_29540(Type_AE400_29795* a1x)
 {
-  int v1; // eax
+  //int v1; // eax
   __int16 v2; // ax
 
   sub_41F50_42290(&a1x->var_u32_29867_72, &word_AE454_AE444);
   a1x->var_u32_150.x += word_AE454_AE444.x;
-  v1 = a1x->var_u32_150.x;
+  //v1 = a1x->var_u32_150.x;
   a1x->var_u32_150.y += word_AE454_AE444.y;
-  if ( v1 < -128 )
+  if ((int16)a1x->var_u32_150.x < -128 )
       a1x->var_u32_150.x = -128;
-  if (a1x->var_u32_150.x > 128 )
+  if ((int16)a1x->var_u32_150.x > 128 )
       a1x->var_u32_150.x = 128;
-  if (a1x->var_u32_150.y < -128 )
+  if ((int16)a1x->var_u32_150.y < -128 )
       a1x->var_u32_150.y = -128;
-  if (a1x->var_u32_150.y > 128 )
+  if ((int16)a1x->var_u32_150.y > 128 )
       a1x->var_u32_150.y = 128;
   word_AE454_AE444 = a1x->var_u32_29867_72;
   //word_AE454_AE444.z = *(_WORD *)(a1 + 76);
@@ -50693,12 +50699,12 @@ void convert() {
 int sub_main(int argc, char* argv[])//2114f0_211830
 {
     //convert();
-    //for (int i = 0; i<256; i++)
-    //{
-    //    int y = (3 * i - (__CFSHL__((3 * i) >> 31, 2) + 4 * ((3 * i) >> 31))) >> 2;
-    //    int y2 = (3 * i/* - 8 * ((3 * i) >> 31)*/) >> 2;
-    //    printf("%d %d %d\n", i, y,y2);
-    //}
+    /*for (int i = 256 * 256; i>0; i--)
+    {
+        int y = (250 * i - (((250 * i) >> 31) << 8) + ((250 * i) >> 31)) >> 8;
+        int y2 = (uint32)(250 * i) >> 8;
+        printf("%d %d %d\n", i, y,y2);
+    }*/
 
 	//fix
 	mkdir(gameDataPath2.c_str());
@@ -51606,7 +51612,7 @@ LABEL_40:
           compareindex_41780++;
           compareindex_41780--;
       }
-      add_compare(0x212A0A, true);
+      //add_compare(0x212A0A, true);
       compareindex_41780++;
 #endif debug1
       //debug
@@ -51620,22 +51626,23 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x943)
+            if (compareindex_41780_2 == 0x459)
             //if (compareindex_41780_2 == 0x4e2)
             //if (compareindex_41780_2 == 0x3702)
             {
                 compareindex_41780_2++;
                 compareindex_41780_2--;
                 //str_AE400_AE3F0->str_29795[jx].id_29819_24
-            }            
-            add_compare(0x212A70, true);
-
+            }      
+            
+            //add_compare(0x212A70, true);
+            /*
             uint8_t origbyte20 = 0;
             uint8_t remakebyte20 = 0;
             char buffer1[500];
             sprintf(buffer1, "%08X-FFFFFFF6", 0x212A70);
-            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[jx].id_29819_24, 0xFFFFFFF5, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
-
+            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[jx].id_29819_24, 0xFFFFFFF6, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
+            */
             compareindex_41780_2++;
 #endif debug1
             //debug
