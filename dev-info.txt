@@ -924,6 +924,9 @@ if (compareindex_41780_2 == 0x6ce) - x problem
 
 0xbf versus 0x42
 
+int dword_AE3E0; // weak struct 6? 0-u16? 2-u32*(28*0x211u)
+int dword_AE3EC; // weak 4-u32 8-u32 12-u16 Type_168
+
 
 
 

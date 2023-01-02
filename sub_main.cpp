@@ -1157,7 +1157,7 @@ char sub_59230();
 void sub_59320();
 void sub_59370();
 void sub_593B0_598C0();
-char sub_59420_59930();
+void sub_59420_59930();
 void sub_59500_59A10(Type_99974* a1);
 void sub_59560_59A70(Type_99974* a1);
 void sub_59720_59C30();
@@ -14673,8 +14673,8 @@ int dword_AE370; // weak
 char* dword_AE374; // weak*/
 TypeTab* begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8; // weak
 uint8_t* begSky_AE3D8_AE3C8_26C3D8_26C3C8; // weak
-int dword_AE3E0; // weak
-int dword_AE3EC; // weak
+int dword_AE3E0; // weak struct 6? 0-u16? 2-u32*(28*0x211u)
+int dword_AE3EC; // weak 4-u32 8-u32 12-u16 Type_168
 uint8_t* begBlkDat_AE3F0_26C3F0_26C3E0; // weak
 uint8_t* begSearch_AE3F4_26C3F4_26C3E4; // weak
 uint8_t* begBscreen_AE3FC_AE3EC_26C3FC_26C3EC; // weak
@@ -21701,7 +21701,7 @@ void sub_1A390(Type_AE400_29795* a1x, unsigned __int16 a2)
   int i; // eax
   int v8; // edx
   unsigned __int8 v9; // al
-  __int16 v10; // ax
+  //__int16 v10; // ax
   __int16 v11; // ax
   __int16 v12; // ax
   unsigned int v13; // ecx
@@ -21768,7 +21768,7 @@ LABEL_35:
       sub_424F0(a1x, v9);
       return;
     }
-    v10 = 41 * a1x->var_u16_29835_40;
+    //v10 = 41 * a1x->var_u16_29835_40;
     if ( *(_BYTE *)(dword_AE400_AE3F0() + 164 * a1x->var_u16_29835_40 + 29859) == 3 )
     {
       v11 = a1x->var_u16_29835_40;
@@ -21784,7 +21784,7 @@ LABEL_35:
   else
   {
     sub_196E0(a1x);
-    v10 = a1x->var_u8_29858_63 / a1x->var_u32_29951_156->v_26;
+    //v10 = a1x->var_u8_29858_63 / a1x->var_u32_29951_156->v_26;
     if ( !(a1x->var_u8_29858_63 % a1x->var_u32_29951_156->v_26) )
     {
       switch (v3x->var_u8_29865_70 - a2 )
@@ -21827,8 +21827,8 @@ LABEL_24:
         }
         v13 = *(_DWORD *)v13;
       }
-      v10 = v3x->var_u16_29925_130 + v3x->actSpeed_29921_126;
-      a1x->actSpeed_29921_126 = v10;
+      //v10 = v3x->var_u16_29925_130 + v3x->actSpeed_29921_126;
+      a1x->actSpeed_29921_126 *= v3x->var_u16_29925_130;
     }
   }
 }
@@ -41217,7 +41217,7 @@ void DrawAndEventsInGame_34530()//205530_
         counter_34530++;
         counter_34530--;
     }
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
         counter_34530++;
 #endif debug1
         //debug
@@ -49105,7 +49105,7 @@ char sub_3E8C0_3EC00(__int16 saveSlot)
   FileWrite_62ED0_633E0(file, (uint8_t*)mapShading_EC1E0_EC1D0, 0x10000);
   FileWrite_62ED0_633E0(file, (uint8_t*)mapAngle_FC1E0_FC1D0, 0x10000);
   FileWrite_62ED0_633E0(file, (uint8_t*)mapEntityIndex_10C1E0_10C1D0, 0x20000);
-  FileWrite_62ED0_633E0(file, (uint8_t*)byte_B5D40x, 4802);
+  FileWrite_62ED0_633E0(file, (uint8_t*)byte_B5D40x, 7*7*7*7*2);
   DataFileIO::Close(file);
   return 0;
 }
@@ -66976,10 +66976,10 @@ void sub_593B0_598C0()
 // 12DF8C: using guessed type int dword_12DF8C[529];
 
 //----- (00059420) --------------------------------------------------------
-char sub_59420_59930()
+void sub_59420_59930()
 {
   unsigned __int16 i; // bx
-  char result; // al
+  //char result; // al
   unsigned int v2; // edi
   unsigned __int16 j; // si
   char v4; // [esp+0h] [ebp-14h]
@@ -66988,27 +66988,27 @@ char sub_59420_59930()
   v5 = 0;
   if ( !dword_AE3EC )
     sub_58E70();
-  for ( i = 0; i < 0x211u; ++i )
+  for ( i = 0; i < 529; i++ )
   {
-    result = i;
-    if ( !*(_BYTE *)(dword_AE400_AE3F0() + i + 44) )
-      result = sub_58910(i);
+    //result = i;
+    if ( !str_AE400_AE3F0->var_u8_44[i])
+      /*result = */sub_58910(i);
   }
-  v4 = 2;
-  do
+  //v4 = 2;
+  for(v4 = 2;v4;v4--)
   {
     if ( v5 )
       break;
-    for ( j = 0; j < 0x211u; ++j )
+    for ( j = 0; j < 529; j++ )
     {
       if ( v5 )
         break;
-      if ( v4 == *(_BYTE *)(j + dword_AE400_AE3F0() + 44) && !dword_12DF8C[j] )
+      if ( v4 == str_AE400_AE3F0->var_u8_44[j] && !dword_12DF8C[j] )
       {
         v2 = sub_58AD0(j);
         if ( v2 >= sub_369D0(dword_AE3EC) )
         {
-          if ( 0x1000/*v2*//*sub_369D0(dword_AE3EC)*/ < 0x400u)//fix
+          if (sub_369D0(dword_AE3EC) < 0x400u)//fix
             v5 = 1;
         }
         else
@@ -67017,10 +67017,9 @@ char sub_59420_59930()
         }
       }
     }
-    result = --v4;
+    //v4--;
   }
-  while ( v4 );
-  return result;
+  //while ( v4 );
 }
 // 369D0: using guessed type _DWORD ios::failure::cause(_DWORD);
 // AE3EC: using guessed type int dword_AE3EC;
