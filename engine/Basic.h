@@ -51,6 +51,26 @@ typedef struct {
 	uint16_t var_u16_29879_84;//84
 }axis_4d;
 
+typedef struct {//size 28
+	uint32 var_0;
+	uint8** var_4; //size 6?
+	uint32 var_8;
+	uint8 stubb[2];
+	uint16 var_14;
+	uint16 var_16;
+	uint16 var_18;
+	uint8 stubbb[4];
+	uint16 var_22;
+	uint8 stubc[2];
+	uint16 var_26;
+}Type_sub_AE3E0;
+
+typedef struct {//size 6
+	uint16_t var_0;//count
+	Type_sub_AE3E0* var_2;
+}Type_AE3E0;
+
+
 typedef struct {//size 8
 	uint8 stub_a[4];
 	int16 var_u16_4;
