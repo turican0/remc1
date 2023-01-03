@@ -247,7 +247,7 @@ int sub_10D40(unsigned __int16 *a1, int *a2, __int16 a3);
 int sub_10EB0(Type_sub_AE3E0* a1);
 Type_sub_AE3E0* sub_10F10(Type_sub_AE3E0* a1);
 Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1, __int16 a2);
-void sub_11010(Type_AE3E0* *a1);
+void sub_11010(Type_AE3E0* a1);
 bool sub_11050();
 void sub_111B0(int a1, int a2);
 int sub_11410(int a1, int a2);
@@ -614,12 +614,12 @@ void GenerateFeatures_36430(Type_AE400_193795* a1);
 void sub_36480(Type_AE400_193795* a1, Type_1090* a2);
 _WORD *sub_365C0(int a1);
 void sub_36620();
-Type_168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3);
-int sub_36850(Type_168* a1);
+Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3);
+int sub_36850(Type_sub168* a1);
 // _DWORD ios::failure::cause(_DWORD); weak
-Type_sub168_2* sub_369E0(Type_168* a1, unsigned int a2, __int16 a3);
-__int16 sub_36A90(Type_168* a1, int a2);
-void sub_36C10(Type_168* a1);
+Type_sub168_2* sub_369E0(Type_sub168* a1, unsigned int a2, __int16 a3);
+__int16 sub_36A90(Type_sub168* a1, int a2);
+void sub_36C10(Type_sub168* a1);
 // void sub_36C65(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void cleanPressedKeys_36D83();
 int sub_36DC2_37182();
@@ -14674,7 +14674,7 @@ char* dword_AE374; // weak*/
 TypeTab* begFont0Tab_AE3B8_AE3A8_26C3B8_26C3A8; // weak
 uint8_t* begSky_AE3D8_AE3C8_26C3D8_26C3C8; // weak
 Type_AE3E0* dword_AE3E0; // weak struct 6? 0-u16? 2-u32*(28*0x211u)
-Type_168* dword_AE3EC; // weak 4-u32 8-u32 12-u16 Type_168
+Type_sub168* dword_AE3EC; // weak 4-u32 8-u32 12-u16 Type_168
 uint8_t* begBlkDat_AE3F0_26C3F0_26C3E0; // weak
 uint8_t* begSearch_AE3F4_26C3F4_26C3E4; // weak
 uint8_t* begBscreen_AE3FC_AE3EC_26C3FC_26C3EC; // weak
@@ -15201,7 +15201,7 @@ _UNKNOWN unk_131BDC; // weak
 _UNKNOWN unk_131BE0; // weak
 
 //---------------- fixproc
-int sub_369D0(Type_168* a1);
+int sub_369D0(Type_sub168* a1);
 int nullsub_3(_DWORD a) { return 0; }; // weak
 int nullsub_19(_DWORD a) { return 0; }; // weak
 //_DWORD dos_getdiskfree(_DWORD a, uint32 b) { return 0; };// weak
@@ -16481,14 +16481,14 @@ Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
 }
 
 //----- (00011010) --------------------------------------------------------
-void sub_11010(Type_AE3E0* *a1x)
+void sub_11010(Type_AE3E0* a1x)
 {
-  if ( *a1x )
+  if ( a1x )
   {
-    free_426E0_42A20((*a1x)->var_2);
-    (*a1x)->var_2 = nullptr;
-    free_426E0_42A20((void*)*a1x);
-    *a1x = nullptr;
+    free_426E0_42A20(a1x->var_2);
+    a1x->var_2 = nullptr;
+    free_426E0_42A20((void*)a1x);
+    a1x = nullptr;
   }
 }
 
@@ -42871,16 +42871,16 @@ void sub_36620_new()//207620_
 }
 
 //----- (00036700) --------------------------------------------------------
-Type_168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
+Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
 {
   unsigned __int16 v3; // bx
   int v5; // edx
   Type_sub168* v6; // esi
-  Type_sub168_2* v7; // edx
+  Type_sub168_3* v7; // edx
   Type_sub168* v8; // edi
-  Type_sub168_3* v9; // eax
+  uint8* v9; // eax
   Type_sub168_2* v10; // eax
-  Type_sub168_2* v11; // eax
+  Type_sub168_3* v11; // eax
 
   v3 = a2;
   if ( a3x )
@@ -42901,9 +42901,9 @@ Type_168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
       //a3x[0]->var_8 = a3 + 26;
       a3x->sub_0.var_8 = a3x->sub_26;
       //v7 = 14 * a2 + a3 + 26;
-      v7 = &a3x->sub_26[a2];
+      v7 = a3x->sub_7432;
       a3x->sub_0.var_12 = v7;
-      a3x->sub_0.var_16 = &a3x->sub_7432[a2];//4 * a2 + v7;
+      a3x->sub_0.var_16 = a3x->last;//4 * a2 + v7;
     }
   }
   else
@@ -42911,9 +42911,9 @@ Type_168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
     v8 = (Type_sub168*)malloc_42540_42880(sizeof(Type_sub168));
     v6 = v8;
     if ( !v8
-      || (v9 = (Type_sub168_3*)malloc_42540_42880(a1), (v8->var_16 = v9) == 0)
-      || (v10 = (Type_sub168_2*)malloc_42540_42880(14 * a2), (v8->var_8 = v10) == 0)
-      || (v11 = (Type_sub168_2*)malloc_42540_42880(4 * a2), (v8->var_12 = v11) == 0) )
+      || (v9 = (uint8*)malloc_42540_42880(a1), (v8->var_16 = v9) == 0)
+      || (v10 = (Type_sub168_2*)malloc_42540_42880(sizeof(Type_sub168_2) * a2), (v8->var_8 = v10) == 0)
+      || (v11 = (Type_sub168_3*)malloc_42540_42880(sizeof(Type_sub168_3) * a2), (v8->var_12 = v11) == 0) )
     {
       if ( v8 )
       {
@@ -42935,24 +42935,24 @@ Type_168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
     while ( --v3 != 0xFFFF )
       v8->var_8[v3].var_u32_4 = 0;
   }
-  return (Type_168*)v6;
+  return v6;
 }
 
 //----- (00036850) --------------------------------------------------------
-int sub_36850(Type_168* a1x)
+int sub_36850(Type_sub168* a1x)
 {
   int result; // eax
 
-  for ( result = 0; (__int16)result < a1x->sub_0.var_22; ++result )
+  for ( result = 0; (__int16)result < a1x->var_22; ++result )
   {
-    if ( !*(_DWORD *)(a1x->sub_0.var_8 + 14 * (__int16)result + 4) )
+    if ( !*(_DWORD *)(a1x->var_8 + 14 * (__int16)result + 4) )
       return result;
   }
   return -1;
 }
 
 //----- (000369E0) --------------------------------------------------------
-Type_sub168_2* sub_369E0(Type_168* a1x, unsigned int a2, __int16 a3)
+Type_sub168_2* sub_369E0(Type_sub168* a1x, unsigned int a2, __int16 a3)
 {
   __int16 v3; // si
   __int16 v4; // ax
@@ -42961,7 +42961,7 @@ Type_sub168_2* sub_369E0(Type_168* a1x, unsigned int a2, __int16 a3)
   int v7; // eax
 
   v3 = -1;
-  if ( a2 < a1x->sub_0.var_4)
+  if ( a2 < a1x->var_4)
   {
     v4 = sub_36850(a1x);
     v5 = v4;
@@ -42970,23 +42970,23 @@ Type_sub168_2* sub_369E0(Type_168* a1x, unsigned int a2, __int16 a3)
     if ( v4 > -1 )
     {
       v7 = 14 * v4;
-      *(_WORD *)(a1x->sub_0.var_8 + v7 + 10) = v5;
-      *(_DWORD *)(a1x->sub_0.var_8 + v7 + 4) = a2;
-      *(_DWORD *)(a1x->sub_0.var_8 + v7) = (uint32)(a1x->sub_0.var_0 + a1x->sub_0.var_16 - a1x->sub_0.var_4);
-      *(_WORD *)(a1x->sub_0.var_8 + v7 + 12) = a3;
-      a1x->sub_0.var_4 -= a2;
-      *(_WORD *)(a1x->sub_0.var_8 + v7 + 8) = a1x->sub_0.var_20;
-      *(_DWORD *)(a1x->sub_0.var_12 + 4 * (unsigned __int16)(a1x->sub_0.var_20)++) = (uint32)&a1x->sub_0.var_8[v6];
+      *(_WORD *)(a1x->var_8 + v7 + 10) = v5;
+      *(_DWORD *)(a1x->var_8 + v7 + 4) = a2;
+      *(_DWORD *)(a1x->var_8 + v7) = (uint32)(a1x->var_0 + a1x->var_16 - a1x->var_4);
+      *(_WORD *)(a1x->var_8 + v7 + 12) = a3;
+      a1x->var_4 -= a2;
+      *(_WORD *)(a1x->var_8 + v7 + 8) = a1x->var_20;
+      *(_DWORD *)(a1x->var_12 + 4 * (unsigned __int16)(a1x->var_20)++) = (uint32)&a1x->var_8[v6];
     }
   }
   if ( v3 <= -1 )
     return 0;
   else
-    return /*14 * v3 +*/ &a1x->sub_0.var_8[v3];
+    return /*14 * v3 +*/ &a1x->var_8[v3];
 }
 
 //----- (00036A90) --------------------------------------------------------
-__int16 sub_36A90(Type_168* a1x, int a2)
+__int16 sub_36A90(Type_sub168* a1x, int a2)
 {
   int v2; // ecx
   int v3x; // eax
@@ -43004,24 +43004,24 @@ __int16 sub_36A90(Type_168* a1x, int a2)
   int v16; // [esp+4h] [ebp-14h]
 
   LOWORD(v3x) = *(_WORD *)(a2 + 10);
-  if ( (unsigned __int16)v3x < a1x->sub_0.var_22)
+  if ( (unsigned __int16)v3x < a1x->var_22)
   {
     int v3 = 14 * (unsigned __int16)v3x;
     //v4 = a1x->sub_0.var_8[v3x];
     //a1x->sub_0.var_8[v3x].var_u16_8
-    if (a1x->sub_0.var_8[v3x].var_u32_4)
+    if (a1x->var_8[v3x].var_u32_4)
     {
-      LOWORD(v2) = a1x->sub_0.var_8[v3x].var_u16_8[0];
-      v5 = a1x->sub_0.var_8[v3x].var_u32_4 + a1x->sub_0.var_4;
+      LOWORD(v2) = a1x->var_8[v3x].var_u16_8[0];
+      v5 = a1x->var_8[v3x].var_u32_4 + a1x->var_4;
       //v6 = a1x->sub_0.var_8;
-      a1x->sub_0.var_4 = v5;
-      a1x->sub_0.var_8[v3x].var_u32_4 = 0;
-      v7 = (char*)a1x->sub_0.var_8[v3].var_u16_0;
+      a1x->var_4 = v5;
+      a1x->var_8[v3x].var_u32_4 = 0;
+      v7 = (char*)a1x->var_8[v3].var_u16_0;
       v15 = v2;
       v16 = v2 - 1;
       while ( 1 )
       {
-        v8 = a1x->sub_0.var_20;
+        v8 = a1x->var_20;
         v9 = v16 + 1;
         v10 = v15 + 1;
         ++v16;
@@ -43029,17 +43029,17 @@ __int16 sub_36A90(Type_168* a1x, int a2)
         if ( (unsigned __int16)v10 >= v8 )
           break;
         v11 = v10;
-        *(_DWORD *)(a1x->sub_0.var_12 + 4 * (unsigned __int16)v10 - 4) = *(_DWORD *)(a1x->sub_0.var_12
+        *(_DWORD *)(a1x->var_12 + 4 * (unsigned __int16)v10 - 4) = *(_DWORD *)(a1x->var_12
                                                                                       + 4 * (unsigned __int16)v10);
-        v12 = *(_DWORD *)(a1x->sub_0.var_12 + 4 * (unsigned __int16)v10);
+        v12 = *(_DWORD *)(a1x->var_12 + 4 * (unsigned __int16)v10);
         *(_WORD *)(v12 + 8) = v9;
         v13 = *(const void **)v12;
-        **(_DWORD **)(a1x->sub_0.var_12 + 4 * v11) = (uint32)v7;
-        qmemcpy(v7, v13, *(_DWORD *)(*(_DWORD *)(a1x->sub_0.var_12 + 4 * v11) + 4));
-        v7 += *(_DWORD *)(*(_DWORD *)(a1x->sub_0.var_12 + 4 * v11) + 4);
+        **(_DWORD **)(a1x->var_12 + 4 * v11) = (uint32)v7;
+        qmemcpy(v7, v13, *(_DWORD *)(*(_DWORD *)(a1x->var_12 + 4 * v11) + 4));
+        v7 += *(_DWORD *)(*(_DWORD *)(a1x->var_12 + 4 * v11) + 4);
       }
       LOWORD(v3) = v8 - 1;
-      a1x->sub_0.var_20 = v8 - 1;
+      a1x->var_20 = v8 - 1;
     }
   }
   return v3x;
@@ -43047,20 +43047,20 @@ __int16 sub_36A90(Type_168* a1x, int a2)
 // 36AF0: variable 'v2' is possibly undefined
 
 //----- (00036C10) --------------------------------------------------------
-void sub_36C10(Type_168* *a1)
+void sub_36C10(Type_sub168* a1)
 {
   //Type_168* v1; // edx
   //v1 = *a1;
-  if ( *a1 )
+  if ( a1 )
   {
-    if ((*a1)->sub_0.var_24 == 1 )
+    if (a1->var_24 == 1 )
     {
-      free_426E0_42A20((*a1)->sub_0.var_16);
-      free_426E0_42A20((*a1)->sub_0.var_8);
-      free_426E0_42A20((*a1)->sub_0.var_12);
-      free_426E0_42A20(*a1);
+      free_426E0_42A20(a1->var_16);
+      free_426E0_42A20(a1->var_8);
+      free_426E0_42A20(a1->var_12);
+      free_426E0_42A20(a1);
     }
-    *a1 = nullptr;
+    a1 = nullptr;
   }
 }
 
@@ -66634,7 +66634,7 @@ LABEL_38:
 //----- (00058E70) --------------------------------------------------------
 void sub_58E70()
 {
-  dword_AE3EC = sub_36700(str_AE408_AE3F8->var_u32_172, 0x211u, str_AE408_AE3F8->var_u32_168);
+  dword_AE3EC = sub_36700(str_AE408_AE3F8->var_u32_172, 529, str_AE408_AE3F8->var_u32_168);
   if ( dword_AE3EC )
     dword_AE3E0 = sub_10CB0(529);
   sub_587E0();
@@ -66655,8 +66655,8 @@ void sub_58E70()
 //----- (00058F00) --------------------------------------------------------
 void sub_58F00_59410()//229F00
 {
-  sub_36C10(&dword_AE3EC);
-  sub_11010(&dword_AE3E0);
+  sub_36C10(dword_AE3EC);
+  sub_11010(dword_AE3E0);
   sub_59140();
   memset(dword_12DF8C, 0, sizeof(dword_12DF8C));
   memset(dword_12D748, 0, sizeof(dword_12D748));
@@ -66853,9 +66853,9 @@ int sub_591E0(unsigned __int16 a1)
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 
 //ios::failure::cause
-int sub_369D0(Type_168* a1x)
+int sub_369D0(Type_sub168* a1x)
 {
-    return a1x->sub_0.var_4;
+    return a1x->var_4;
 }
 
 //----- (00059230) --------------------------------------------------------

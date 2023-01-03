@@ -521,12 +521,12 @@ typedef struct {//size 4
 }
 Type_sub168_3;
 
-typedef struct {
+typedef struct {//size 26
 	uint32 var_0;
 	uint32 var_4;
 	Type_sub168_2* var_8;
-	Type_sub168_2* var_12;
-	Type_sub168_3* var_16;
+	Type_sub168_3* var_12;
+	uint8* var_16;
 	uint16 var_20;
 	uint16 var_22;
 	uint16 var_24;
@@ -537,6 +537,8 @@ typedef struct {
 	Type_sub168 sub_0;
 	Type_sub168_2 sub_26[529];
 	Type_sub168_3 sub_7432[529];
+	uint8 last[529];
+	uint8 stub[];
 }
 Type_168;
 
