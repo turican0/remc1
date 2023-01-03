@@ -927,15 +927,17 @@ if (compareindex_41780_2 == 0x6ce) - x problem
 int dword_AE3E0; // weak struct 6? 0-u16? 2-u32*(28*0x211u)
 int dword_AE3EC; // weak 4-u32 8-u32 12-u16 Type_168
 
-sub_10CB0
-sub_10D40
-sub_10F10
-sub_10FD0
-sub_11010
-sub_36700
-sub_369D0
-sub_36A90
-sub_36C10
+sub_10CB0 .
+sub_10D40 .?
+sub_10F10 .
+sub_10FD0 .
+sub_11010 .
+sub_36700 .
+sub_369D0 .
+sub_36A90 ?
+sub_36C10 ?
+sub_58B30 --
+sub_59370 .
 
 
 

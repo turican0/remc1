@@ -55,13 +55,13 @@ typedef struct {//size 28
 	uint32 var_0;
 	uint8** var_4; //size 6?
 	uint32 var_8;
-	uint8 stubb[2];
+	uint16 var_12;
 	uint16 var_14;
 	uint16 var_16;
 	uint16 var_18;
-	uint8 stubbb[4];
+	uint16 var_20;
 	uint16 var_22;
-	uint8 stubc[2];
+	uint16 var_24;
 	uint16 var_26;
 }Type_sub_AE3E0;
 

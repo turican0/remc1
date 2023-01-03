@@ -243,9 +243,9 @@ void sub_10960();
 void sub_10AB0();
 __int16 sub_10BD0();
 Type_AE3E0* sub_10CB0(unsigned __int16 a1);
-int sub_10D40(unsigned __int16 *a1, int *a2, __int16 a3);
+void sub_10D40(Type_AE3E0* a1, int *a2, __int16 a3);
 int sub_10EB0(Type_sub_AE3E0* a1);
-Type_sub_AE3E0* sub_10F10(Type_sub_AE3E0* a1);
+void sub_10F10(Type_sub_AE3E0* a1);
 Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1, __int16 a2);
 void sub_11010(Type_AE3E0* a1);
 bool sub_11050();
@@ -618,7 +618,7 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3);
 int sub_36850(Type_sub168* a1);
 // _DWORD ios::failure::cause(_DWORD); weak
 Type_sub168_2* sub_369E0(Type_sub168* a1, unsigned int a2, __int16 a3);
-__int16 sub_36A90(Type_sub168* a1, int a2);
+void sub_36A90(Type_sub168* a1, int a2);
 void sub_36C10(Type_sub168* a1);
 // void sub_36C65(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void cleanPressedKeys_36D83();
@@ -1142,7 +1142,7 @@ int sub_58860(unsigned __int16 a1, uint8_t* a2);
 char sub_58910(unsigned __int16 a1);
 char sub_58A00(unsigned __int16 a1);
 int sub_58AD0(unsigned __int16 a1);
-__int16 sub_58B30(unsigned __int16 a1);
+void sub_58B30(unsigned __int16 a1);
 int sub_58C30(unsigned int a1);
 void sub_58E70();
 void sub_58F00_59410();
@@ -16354,7 +16354,7 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
     while ( --v1 != 0xFFFF )
     {
       //v5 = 28 * v1;
-      v2->var_2[v1].var_4 = 0;
+      v2->var_2[v1].var_4 = nullptr;
       v2->var_2[v1].var_0 = 0;
     }
   }
@@ -16368,27 +16368,27 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
 }
 
 //----- (00010D40) --------------------------------------------------------
-int sub_10D40(unsigned __int16 *a1, int *a2, __int16 a3)
+void sub_10D40(Type_AE3E0* a1x, int *a2, __int16 a3)
 {
   __int16 v3; // si
   __int16 v4; // di
   __int16 i; // ax
-  _DWORD *v6; // edx
+  //Type_sub_AE3E0* v6; // edx
   int v7; // ecx
   int v8; // eax
-  int v9; // edx
+  //int v9; // edx
   __int16 v11; // [esp+8h] [ebp-14h]
 
   v3 = -1;
   v4 = -1;
-  if ( !*a1 )
-    return 0;
-  for ( i = 0; i < (int)*a1; ++i )
+  if ( !a1x->var_0 )
+    return;
+  for ( i = 0; i < a1x->var_0; i++ )
   {
-    v6 = (_DWORD *)(28 * i + *(_DWORD *)(a1 + 1));
-    if ( v6[1] )
+    //v6 = &a1x->var_2[i];
+    if (a1x->var_2[i].var_4 )
     {
-      if ( !*v6 )
+      if ( !a1x->var_2[i].var_0 )
         v4 = i;
     }
     else
@@ -16399,23 +16399,22 @@ int sub_10D40(unsigned __int16 *a1, int *a2, __int16 a3)
   if ( v3 <= 0 )
     v3 = v4;
   if ( v3 <= -1 )
-    return 0;
+    return;
   v7 = *a2;
   v8 = *(unsigned __int16 *)(*a2 + 4) * *(unsigned __int16 *)(*a2 + 2);
   v11 = *(_WORD *)(*a2 + v8 + 6);
-  v9 = 28 * v3;
-  *(_DWORD *)(v9 + *(_DWORD *)(a1 + 1) + 4) = (uint32)a2;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 12) = 6;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 14) = v8 + 6;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 16) = v11;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 18) = *(_WORD *)(v7 + 2);
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 20) = *(_WORD *)(v7 + 4);
-  *(_DWORD *)(*(_DWORD *)(a1 + 1) + v9 + 8) = v8 + 6;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 22) = 1;
-  *(_DWORD *)(v9 + *(_DWORD *)(a1 + 1)) = 1;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 24) = v3;
-  *(_WORD *)(v9 + *(_DWORD *)(a1 + 1) + 26) = a3;
-  return *(_DWORD *)(a1 + 1) + v9;
+  //v9 = 28 * v3;
+  a1x->var_2[v3].var_4 = (uint8**)(uint32)a2;
+  a1x->var_2[v3].var_12 = 6;
+  a1x->var_2[v3].var_14 = v8 + 6;
+  a1x->var_2[v3].var_16 = v11;
+  a1x->var_2[v3].var_18 = *(_WORD *)(v7 + 2);
+  a1x->var_2[v3].var_20 = *(_WORD *)(v7 + 4);
+  a1x->var_2[v3].var_8 = v8 + 6;
+  a1x->var_2[v3].var_22 = 1;
+  a1x->var_2[v3].var_0 = 1;
+  a1x->var_2[v3].var_24 = v3;
+  a1x->var_2[v3].var_26 = a3;
 }
 
 //----- (00010EB0) --------------------------------------------------------
@@ -16446,17 +16445,13 @@ int sub_10EB0(Type_sub_AE3E0* a1x)
 }
 
 //----- (00010F10) --------------------------------------------------------
-Type_sub_AE3E0* sub_10F10(Type_sub_AE3E0* a1x)
+void sub_10F10(Type_sub_AE3E0* a1x)
 {
-  Type_sub_AE3E0* result; // eax
-
-  result = a1x;
   if ( a1x )
   {
     a1x->var_0 = 0;
     a1x->var_4 = nullptr;
   }
-  return result;
 }
 
 //----- (00010FD0) --------------------------------------------------------
@@ -42885,8 +42880,8 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
   v3 = a2;
   if ( a3x )
   {
-    v5 = a1 - (4 * a2 + 14 * a2 + 26);
-    if ( a1 == 4 * a2 + 14 * a2 + 26 )
+    v5 = a1 - (sizeof(Type_sub168_3) * a2 + sizeof(Type_sub168_2) * a2 + sizeof(Type_sub168));
+    if ( a1 == (sizeof(Type_sub168_3) * a2 + sizeof(Type_sub168_2) * a2 + sizeof(Type_sub168)))
     {
       return 0;
     }
@@ -42986,7 +42981,7 @@ Type_sub168_2* sub_369E0(Type_sub168* a1x, unsigned int a2, __int16 a3)
 }
 
 //----- (00036A90) --------------------------------------------------------
-__int16 sub_36A90(Type_sub168* a1x, int a2)
+void sub_36A90(Type_sub168* a1x, int a2)
 {
   int v2; // ecx
   int v3x; // eax
@@ -43006,7 +43001,7 @@ __int16 sub_36A90(Type_sub168* a1x, int a2)
   LOWORD(v3x) = *(_WORD *)(a2 + 10);
   if ( (unsigned __int16)v3x < a1x->var_22)
   {
-    int v3 = 14 * (unsigned __int16)v3x;
+    //int v3 = 14 * (unsigned __int16)v3x;
     //v4 = a1x->sub_0.var_8[v3x];
     //a1x->sub_0.var_8[v3x].var_u16_8
     if (a1x->var_8[v3x].var_u32_4)
@@ -43016,7 +43011,7 @@ __int16 sub_36A90(Type_sub168* a1x, int a2)
       //v6 = a1x->sub_0.var_8;
       a1x->var_4 = v5;
       a1x->var_8[v3x].var_u32_4 = 0;
-      v7 = (char*)a1x->var_8[v3].var_u16_0;
+      v7 = (char*)a1x->var_8[v3x].var_u16_0;
       v15 = v2;
       v16 = v2 - 1;
       while ( 1 )
@@ -43038,11 +43033,11 @@ __int16 sub_36A90(Type_sub168* a1x, int a2)
         qmemcpy(v7, v13, *(_DWORD *)(*(_DWORD *)(a1x->var_12 + 4 * v11) + 4));
         v7 += *(_DWORD *)(*(_DWORD *)(a1x->var_12 + 4 * v11) + 4);
       }
-      LOWORD(v3) = v8 - 1;
+      //LOWORD(v3) = v8 - 1;
       a1x->var_20 = v8 - 1;
     }
   }
-  return v3x;
+  //return v3x;
 }
 // 36AF0: variable 'v2' is possibly undefined
 
@@ -66442,7 +66437,7 @@ int sub_58AD0(unsigned __int16 a1)
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 
 //----- (00058B30) --------------------------------------------------------
-__int16 sub_58B30(unsigned __int16 a1)
+void sub_58B30(unsigned __int16 a1)
 {
   int v1; // eax
   int v2; // ebp
@@ -66453,7 +66448,7 @@ __int16 sub_58B30(unsigned __int16 a1)
   LOWORD(v1) = *(_WORD *)(begTmapsTab_12D744_2EB744_2EB734 + 10 * a1 + 8);
   v2 = *(_DWORD *)(dword_AE408_AE3F8() + 4);
   v6 = v1;
-  for ( i = v1; i < 0x211u; ++i )
+  for ( i = v1; i < 529; ++i )
   {
     v1 = (int)begTmapsTab_12D744_2EB744_2EB734 + 10 * i;
     if ( v6 != *(_WORD *)(v1 + 8) )
@@ -66472,12 +66467,11 @@ __int16 sub_58B30(unsigned __int16 a1)
           dword_12CF00[i] = v2;
           v1 = *v3;
           if ( (*(_BYTE *)*v3 & 1) != 0 )
-            LOWORD(v1) = sub_10D40((unsigned __int16 *)dword_AE3E0, v3, i);
+            sub_10D40(dword_AE3E0, v3, i);
         }
       }
     }
   }
-  return v1;
 }
 // AE3E0: using guessed type int dword_AE3E0;
 // AE3EC: using guessed type int dword_AE3EC;
@@ -66940,14 +66934,10 @@ void sub_59320()
 //----- (00059370) --------------------------------------------------------
 void sub_59370()
 {
-  unsigned __int16 i; // bx
-  __int16 result; // ax
-
-  for ( i = 0; i < 0x211u; ++i )
+  for ( int i = 0; i < 529; i++ )
   {
-    result = i;
     if ( byte_12E7D0[i] )
-      result = sub_58B30(i);
+      sub_58B30(i);
   }
 }
 
