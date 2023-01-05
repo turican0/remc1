@@ -16344,6 +16344,8 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
   //int v4; // eax
   //int v5; // eax
 
+  allert_error();//test it
+
   v1 = a1;
   sub_42530_42870(9);
   v2 = (Type_AE3E0*)malloc_42540_42880(sizeof(Type_AE3E0));
@@ -16378,6 +16380,8 @@ void sub_10D40(Type_AE3E0* a1x, int *a2, __int16 a3)
   int v8; // eax
   //int v9; // edx
   __int16 v11; // [esp+8h] [ebp-14h]
+
+  allert_error();//test it
 
   v3 = -1;
   v4 = -1;
@@ -16447,6 +16451,8 @@ int sub_10EB0(Type_sub_AE3E0* a1x)
 //----- (00010F10) --------------------------------------------------------
 void sub_10F10(Type_sub_AE3E0* a1x)
 {
+    allert_error();//test it
+
   if ( a1x )
   {
     a1x->var_0 = 0;
@@ -16478,6 +16484,8 @@ Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
 //----- (00011010) --------------------------------------------------------
 void sub_11010(Type_AE3E0* a1x)
 {
+    allert_error();//test it
+
   if ( a1x )
   {
     free_426E0_42A20(a1x->var_2);
@@ -42877,6 +42885,8 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
   Type_sub168_2* v10; // eax
   Type_sub168_3* v11; // eax
 
+  //allert_error();//test it
+
   v3 = a2;
   if ( a3x )
   {
@@ -42998,6 +43008,8 @@ void sub_36A90(Type_sub168* a1x, int a2)
   int v15; // [esp+0h] [ebp-18h]
   int v16; // [esp+4h] [ebp-14h]
 
+  allert_error();//test it
+
   LOWORD(v3x) = *(_WORD *)(a2 + 10);
   if ( (unsigned __int16)v3x < a1x->var_22)
   {
@@ -43044,6 +43056,8 @@ void sub_36A90(Type_sub168* a1x, int a2)
 //----- (00036C10) --------------------------------------------------------
 void sub_36C10(Type_sub168* a1)
 {
+    allert_error();//test it
+
   //Type_168* v1; // edx
   //v1 = *a1;
   if ( a1 )
@@ -66853,6 +66867,8 @@ int sub_591E0(unsigned __int16 a1)
 //ios::failure::cause
 int sub_369D0(Type_sub168* a1x)
 {
+    allert_error();//test it
+
     return a1x->var_4;
 }
 
@@ -66938,6 +66954,8 @@ void sub_59320()
 //----- (00059370) --------------------------------------------------------
 void sub_59370()
 {
+    allert_error();//test it
+
   for ( int i = 0; i < 529; i++ )
   {
     if ( byte_12E7D0[i] )
