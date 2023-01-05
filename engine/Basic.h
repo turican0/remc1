@@ -51,6 +51,12 @@ typedef struct {
 	uint16_t var_u16_29879_84;//84
 }axis_4d;
 
+typedef struct {//size 10
+	uint32 var_0;
+	uint32 var_4;
+	uint16 var_8;
+} Tmaps_str;
+
 typedef struct {//size 28
 	uint32 var_0;
 	uint8** var_4; //size 6?
