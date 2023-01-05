@@ -16338,26 +16338,27 @@ __int16 sub_10BD0()
 //----- (00010CB0) --------------------------------------------------------
 Type_AE3E0* sub_10CB0(unsigned __int16 a1)
 {
-  unsigned __int16 v1; // bx
+  //unsigned __int16 v1; // bx
   Type_AE3E0* v2; // edi
   Type_AE3E0* v3; // esi
   //int v4; // eax
   //int v5; // eax
 
-  allert_error();//test it
+  //allert_error();//test it
 
-  v1 = a1;
+  //v1 = a1;
   sub_42530_42870(9);
   v2 = (Type_AE3E0*)malloc_42540_42880(sizeof(Type_AE3E0));
   v3 = v2;
   if ( v2 && ((v2->var_2 = (Type_sub_AE3E0*)malloc_42540_42880(sizeof(Type_sub_AE3E0) * a1)) != 0) )
   {
     v2->var_0 = a1;
-    while ( --v1 != 0xFFFF )
+    for(int i=0;i< a1;i++)
+    //while ( --v1 != 0xFFFF )
     {
       //v5 = 28 * v1;
-      v2->var_2[v1].var_4 = nullptr;
-      v2->var_2[v1].var_0 = 0;
+      v2->var_2[i].var_4 = nullptr;
+      v2->var_2[i].var_0 = 0;
     }
   }
   else if ( v2 )
@@ -16465,6 +16466,8 @@ Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
 {
   Type_sub_AE3E0* result; // eax
   int v3; // edx
+
+  allert_error();//test it
 
   //HIWORD(v3) = HIWORD(a1);
   result = a1x->var_2;
@@ -42876,7 +42879,7 @@ void sub_36620_new()//207620_
 //----- (00036700) --------------------------------------------------------
 Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
 {
-  unsigned __int16 v3; // bx
+  //unsigned __int16 v3; // bx
   int v5; // edx
   Type_sub168* v6; // esi
   Type_sub168_3* v7; // edx
@@ -42887,7 +42890,6 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
 
   //allert_error();//test it
 
-  v3 = a2;
   if ( a3x )
   {
     v5 = a1 - (sizeof(Type_sub168_3) * a2 + sizeof(Type_sub168_2) * a2 + sizeof(Type_sub168));
@@ -42924,8 +42926,14 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
       {
         if (v8->var_16)
         {
-          if (v8->var_8)
-            free_426E0_42A20((void*)v8->var_8);
+            if (v8->var_8)
+            {
+                free_426E0_42A20((void*)v8->var_8);
+                //fixed
+                if (v8->var_12)
+                    free_426E0_42A20((void*)v8->var_12);
+                //fixed
+            }
           free_426E0_42A20((void*)v8->var_16);
         }
         free_426E0_42A20((void*)v8);
@@ -42937,8 +42945,10 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
     v8->var_22 = a2;
     v8->var_0 = a1;
     v8->var_4 = a1;
-    while ( --v3 != 0xFFFF )
-      v8->var_8[v3].var_u32_4 = 0;
+    //v3 = a2;
+    //while ( --v3 != 0xFFFF )
+    for(int i=0;i < a2;i++)
+      v8->var_8[i].var_u32_4 = 0;
   }
   return v6;
 }
@@ -66457,16 +66467,16 @@ void sub_58B30(unsigned __int16 a1)
 {
   //int v1; // eax
   int v2; // ebp
-  int *v3; // esi
+  Type_sub168_2* v3x; // esi
   unsigned __int16 i; // [esp+0h] [ebp-18h]
   __int16 v6; // [esp+4h] [ebp-14h]
 
-  allert_error();//test it
+  //allert_error();//test it
 
   //LOWORD(v1) = begTmapsTab_12D744_2EB744_2EB734x[a1].var_8;
   v2 = *(_DWORD *)(dword_AE408_AE3F8() + 4);
   v6 = begTmapsTab_12D744_2EB744_2EB734x[a1].var_8;
-  for ( i = begTmapsTab_12D744_2EB744_2EB734x[a1].var_8; i < 529; ++i )
+  for ( i = begTmapsTab_12D744_2EB744_2EB734x[a1].var_8; i < 529; i++ )
   {
     //v1 = (int)begTmapsTab_12D744_2EB744_2EB734 + 10 * i;
     if ( v6 != begTmapsTab_12D744_2EB744_2EB734x[i].var_8)
@@ -66474,18 +66484,18 @@ void sub_58B30(unsigned __int16 a1)
     if ( !dword_12DF8C[i] )
     {
       //v1 = (int)sub_369E0(dword_AE3EC, (unsigned __int16)(4 * ((unsigned int)(begTmapsTab_12D744_2EB744_2EB734x[i].var_0 + 13) >> 2)), i);
-      v3 = (int *)sub_369E0(dword_AE3EC, (unsigned __int16)(4 * ((unsigned int)(begTmapsTab_12D744_2EB744_2EB734x[i].var_0 + 13) >> 2)), i);
-      if ( v3 )
+      v3x = sub_369E0(dword_AE3EC, (unsigned __int16)(4 * ((unsigned int)(begTmapsTab_12D744_2EB744_2EB734x[i].var_0 + 13) >> 2)), i);
+      if ( v3x )
       {
         //v1 = sub_58860(i, *(uint8_t**)v3);
-        if (sub_58860(i, *(uint8_t**)v3) != -1 )
+        if (sub_58860(i, *(uint8_t**)v3x) != -1 )
         {
-          dword_12D748[i] = (int)v3;
-          dword_12DF8C[i] = (int)v3;
+          dword_12D748[i] = (int)v3x;
+          dword_12DF8C[i] = (int)v3x;
           dword_12CF00[i] = v2;
           //v1 = *v3;
-          if ( (*(_BYTE *)*v3 & 1) != 0 )
-            sub_10D40(dword_AE3E0, v3, i);
+          if ( (*(_BYTE *)*v3x & 1) != 0 )
+            sub_10D40(dword_AE3E0, v3x, i);
         }
       }
     }
@@ -66954,7 +66964,7 @@ void sub_59320()
 //----- (00059370) --------------------------------------------------------
 void sub_59370()
 {
-    allert_error();//test it
+    //allert_error();//test it
 
   for ( int i = 0; i < 529; i++ )
   {
