@@ -243,7 +243,7 @@ void sub_10960();
 void sub_10AB0();
 __int16 sub_10BD0();
 Type_AE3E0* sub_10CB0(unsigned __int16 a1);
-void sub_10D40(Type_AE3E0* a1, int *a2, __int16 a3);
+void sub_10D40(Type_AE3E0* a1, Type_sub168_2* a2, __int16 a3);
 int sub_10EB0(Type_sub_AE3E0* a1);
 void sub_10F10(Type_sub_AE3E0* a1);
 Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1, __int16 a2);
@@ -618,7 +618,7 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3);
 int sub_36850(Type_sub168* a1);
 // _DWORD ios::failure::cause(_DWORD); weak
 Type_sub168_2* sub_369E0(Type_sub168* a1, unsigned int a2, __int16 a3);
-void sub_36A90(Type_sub168* a1, int a2);
+void sub_36A90(Type_sub168* a1, Type_sub168_2* a2);
 void sub_36C10(Type_sub168* a1);
 // void sub_36C65(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void cleanPressedKeys_36D83();
@@ -14964,8 +14964,8 @@ __int16 word_12CD26[9999]; // weak
 __int16 word_12CD28[236]; // weak
 int dword_12CF00[529]; // weak
 //int begTmapsTab_12D744_2EB744_2EB734; // weak //2EB744_
-int dword_12D748[529]; // weak
-int dword_12DF8C[529]; // weak
+Type_sub168_2* dword_12D748[529]; // weak
+Type_sub168_2* dword_12DF8C[529]; // weak
 char byte_12E7D0[529]; // weak
 char byte_12E9E1[529]; // weak
 int dword_12EC00; // weak
@@ -16340,7 +16340,7 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
 {
   //unsigned __int16 v1; // bx
   Type_AE3E0* v2; // edi
-  Type_AE3E0* v3; // esi
+  //Type_AE3E0* v3; // esi
   //int v4; // eax
   //int v5; // eax
 
@@ -16349,7 +16349,7 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
   //v1 = a1;
   sub_42530_42870(9);
   v2 = (Type_AE3E0*)malloc_42540_42880(sizeof(Type_AE3E0));
-  v3 = v2;
+  //v3 = v2;
   if ( v2 && ((v2->var_2 = (Type_sub_AE3E0*)malloc_42540_42880(sizeof(Type_sub_AE3E0) * a1)) != 0) )
   {
     v2->var_0 = a1;
@@ -16363,26 +16363,26 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
   }
   else if ( v2 )
   {
-    free_426E0_42A20((void*)v2);
-    v3 = nullptr;
+    free_426E0_42A20(v2);
+    v2 = nullptr;
   }
   sub_42530_42870(10);
-  return v3;
+  return v2;
 }
 
 //----- (00010D40) --------------------------------------------------------
-void sub_10D40(Type_AE3E0* a1x, int *a2, __int16 a3)
+void sub_10D40(Type_AE3E0* a1x, Type_sub168_2* a2x, __int16 a3)
 {
   __int16 v3; // si
   __int16 v4; // di
   __int16 i; // ax
   //Type_sub_AE3E0* v6; // edx
-  int v7; // ecx
+  //int v7; // ecx
   int v8; // eax
   //int v9; // edx
-  __int16 v11; // [esp+8h] [ebp-14h]
+  //__int16 v11; // [esp+8h] [ebp-14h]
 
-  allert_error();//test it
+  //allert_error();//test it
 
   v3 = -1;
   v4 = -1;
@@ -16405,16 +16405,16 @@ void sub_10D40(Type_AE3E0* a1x, int *a2, __int16 a3)
     v3 = v4;
   if ( v3 <= -1 )
     return;
-  v7 = *a2;
-  v8 = *(unsigned __int16 *)(*a2 + 4) * *(unsigned __int16 *)(*a2 + 2);
-  v11 = *(_WORD *)(*a2 + v8 + 6);
+  //v7 = (int)a2x->var_u32_0;
+  v8 = a2x->var_u32_0->y * a2x->var_u32_0->x;
+  //v11 = *(uint16*)&a2x->var_u32_0->data[v8];
   //v9 = 28 * v3;
-  a1x->var_2[v3].var_4 = (uint8**)(uint32)a2;
+  a1x->var_2[v3].var_4 = a2x;
   a1x->var_2[v3].var_12 = 6;
   a1x->var_2[v3].var_14 = v8 + 6;
-  a1x->var_2[v3].var_16 = v11;
-  a1x->var_2[v3].var_18 = *(_WORD *)(v7 + 2);
-  a1x->var_2[v3].var_20 = *(_WORD *)(v7 + 4);
+  a1x->var_2[v3].var_16 = *(uint16*)&a2x->var_u32_0->data[v8];
+  a1x->var_2[v3].var_18 = a2x->var_u32_0->x;
+  a1x->var_2[v3].var_20 = a2x->var_u32_0->y;
   a1x->var_2[v3].var_8 = v8 + 6;
   a1x->var_2[v3].var_22 = 1;
   a1x->var_2[v3].var_0 = 1;
@@ -16425,7 +16425,7 @@ void sub_10D40(Type_AE3E0* a1x, int *a2, __int16 a3)
 //----- (00010EB0) --------------------------------------------------------
 int sub_10EB0(Type_sub_AE3E0* a1x)
 {
-  uint8_t* v1; // esi
+  Type_sub168_2_2* v1; // esi
   int v2; // edi
   uint8_t* v3; // eax
   __int16 v4; // cx
@@ -16437,13 +16437,13 @@ int sub_10EB0(Type_sub_AE3E0* a1x)
       a1x->var_8 = a1x->var_14;
   }
   //v1 = (uint8_t*)**(_DWORD **)(a1 + 4);
-  v1 = *a1x->var_4;
+  v1 = a1x->var_4->var_u32_0;
   v2 = a1x->var_8;
   sub_10010(a1x->var_18, 0);
-  v1 += 6;
-  v3 = sub_1002D(v1 + v2, v1);
+  //v1 += 6;
+  v3 = sub_1002D(&v1->data[v2], v1->data);
   v4 = a1x->var_22;
-  result = v3 - v1;
+  result = v3 - v1->data;
   a1x->var_8 = result;
   a1x->var_22 = v4 + 1;
   return result;
@@ -16452,7 +16452,7 @@ int sub_10EB0(Type_sub_AE3E0* a1x)
 //----- (00010F10) --------------------------------------------------------
 void sub_10F10(Type_sub_AE3E0* a1x)
 {
-    allert_error();//test it
+    //allert_error();//test it
 
   if ( a1x )
   {
@@ -16467,7 +16467,7 @@ Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
   Type_sub_AE3E0* result; // eax
   int v3; // edx
 
-  allert_error();//test it
+  //allert_error();//test it
 
   //HIWORD(v3) = HIWORD(a1);
   result = a1x->var_2;
@@ -42956,11 +42956,9 @@ Type_sub168* sub_36700(int a1, unsigned __int16 a2, Type_168* a3x)//207700_
 //----- (00036850) --------------------------------------------------------
 int sub_36850(Type_sub168* a1x)
 {
-  int result; // eax
-
-  for ( result = 0; (__int16)result < a1x->var_22; ++result )
+  for ( int result = 0; result < a1x->var_22; result++ )
   {
-    if ( !*(_DWORD *)(a1x->var_8 + 14 * (__int16)result + 4) )
+    if ( !a1x->var_8[result].var_u32_4 )
       return result;
   }
   return -1;
@@ -42973,7 +42971,7 @@ Type_sub168_2* sub_369E0(Type_sub168* a1x, unsigned int a2, __int16 a3)
   __int16 v4; // ax
   __int16 v5; // dx
   int v6; // ecx
-  int v7; // eax
+  //int v7; // eax
 
   v3 = -1;
   if ( a2 < a1x->var_4)
@@ -42984,14 +42982,15 @@ Type_sub168_2* sub_369E0(Type_sub168* a1x, unsigned int a2, __int16 a3)
     v3 = v4;
     if ( v4 > -1 )
     {
-      v7 = 14 * v4;
-      *(_WORD *)(a1x->var_8 + v7 + 10) = v5;
-      *(_DWORD *)(a1x->var_8 + v7 + 4) = a2;
-      *(_DWORD *)(a1x->var_8 + v7) = (uint32)(a1x->var_0 + a1x->var_16 - a1x->var_4);
-      *(_WORD *)(a1x->var_8 + v7 + 12) = a3;
+      //v7 = 14 * v4;
+      a1x->var_8[v4].var_u16_8[1] = v5;
+      a1x->var_8[v4].var_u32_4 = a2;
+      a1x->var_8[v4].var_u32_0 = (Type_sub168_2_2*)&a1x->var_16[a1x->var_0 - a1x->var_4];
+      a1x->var_8[v4].var_u16_8[2] = a3;
       a1x->var_4 -= a2;
-      *(_WORD *)(a1x->var_8 + v7 + 8) = a1x->var_20;
-      *(_DWORD *)(a1x->var_12 + 4 * (unsigned __int16)(a1x->var_20)++) = (uint32)&a1x->var_8[v6];
+      a1x->var_8[v4].var_u16_8[0] = a1x->var_20;
+      a1x->var_12[a1x->var_20].var_u32_0 = &a1x->var_8[v6];
+      a1x->var_20++;
     }
   }
   if ( v3 <= -1 )
@@ -43001,7 +43000,7 @@ Type_sub168_2* sub_369E0(Type_sub168* a1x, unsigned int a2, __int16 a3)
 }
 
 //----- (00036A90) --------------------------------------------------------
-void sub_36A90(Type_sub168* a1x, int a2)
+void sub_36A90(Type_sub168* a1x, Type_sub168_2* a2x)
 {
   int v2; // ecx
   int v3x; // eax
@@ -43018,9 +43017,9 @@ void sub_36A90(Type_sub168* a1x, int a2)
   int v15; // [esp+0h] [ebp-18h]
   int v16; // [esp+4h] [ebp-14h]
 
-  allert_error();//test it
+  //allert_error();//test it
 
-  LOWORD(v3x) = *(_WORD *)(a2 + 10);
+  LOWORD(v3x) = a2x->var_u16_8[1];
   if ( (unsigned __int16)v3x < a1x->var_22)
   {
     //int v3 = 14 * (unsigned __int16)v3x;
@@ -43033,7 +43032,7 @@ void sub_36A90(Type_sub168* a1x, int a2)
       //v6 = a1x->sub_0.var_8;
       a1x->var_4 = v5;
       a1x->var_8[v3x].var_u32_4 = 0;
-      v7 = (char*)a1x->var_8[v3x].var_u16_0;
+      v7 = (char*)a1x->var_8[v3x].var_u32_0;
       v15 = v2;
       v16 = v2 - 1;
       while ( 1 )
@@ -66447,7 +66446,7 @@ int sub_58AD0(unsigned __int16 a1)
   unsigned __int16 i; // si
   Tmaps_str* v4; // edx
 
-  allert_error();//fix it
+  //allert_error();//fix it
   //begTmapsTab_12D744_2EB744_2EB734x[v6 + 1].var_8
   v1 = begTmapsTab_12D744_2EB744_2EB734x[a1].var_8;
   v2 = 0;
@@ -66488,13 +66487,13 @@ void sub_58B30(unsigned __int16 a1)
       if ( v3x )
       {
         //v1 = sub_58860(i, *(uint8_t**)v3);
-        if (sub_58860(i, *(uint8_t**)v3x) != -1 )
+        if (sub_58860(i, (uint8_t*)v3x->var_u32_0) != -1 )
         {
-          dword_12D748[i] = (int)v3x;
-          dword_12DF8C[i] = (int)v3x;
+          dword_12D748[i] = v3x;
+          dword_12DF8C[i] = v3x;
           dword_12CF00[i] = v2;
           //v1 = *v3;
-          if ( (*(_BYTE *)*v3x & 1) != 0 )
+          if ( (v3x->var_u32_0->x & 1) != 0 )
             sub_10D40(dword_AE3E0, v3x, i);
         }
       }
@@ -66714,7 +66713,7 @@ void sub_58F90_594A0()//229F90_
 
   sub_587E0();
   v0 = (unsigned __int16 *)&unk_99BA0;
-  v1 = (uint8_t*)begWscreen_2ECFF4_2ECFE4;
+  v1 = begWscreen_2ECFF4_2ECFE4;
   while ( v0[3] || v0[4] )
   {
     if ( sub_58860(*v0, v1) == -1 )
@@ -66877,7 +66876,7 @@ int sub_591E0(unsigned __int16 a1)
 //ios::failure::cause
 int sub_369D0(Type_sub168* a1x)
 {
-    allert_error();//test it
+    //allert_error();//test it
 
     return a1x->var_4;
 }

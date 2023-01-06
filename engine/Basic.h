@@ -57,9 +57,49 @@ typedef struct {//size 10
 	uint16 var_8;
 } Tmaps_str;
 
+typedef struct {//size 14
+	uint16 x;
+	uint16 y;
+	uint8 data[];
+}
+Type_sub168_2_2;
+
+typedef struct {//size 14
+	Type_sub168_2_2* var_u32_0;
+	uint32 var_u32_4;
+	uint16 var_u16_8[3];
+}
+Type_sub168_2;
+
+typedef struct {//size 4
+	Type_sub168_2* var_u32_0;
+}
+Type_sub168_3;
+
+typedef struct {//size 26
+	uint32 var_0;
+	int32 var_4;
+	Type_sub168_2* var_8;
+	Type_sub168_3* var_12;
+	uint8* var_16;
+	uint16 var_20;
+	uint16 var_22;
+	uint16 var_24;
+}
+Type_sub168;
+
+typedef struct {
+	Type_sub168 sub_0;
+	Type_sub168_2 sub_26[529];
+	Type_sub168_3 sub_7432[529];
+	uint8 last[529];
+	uint8 stub[];
+}
+Type_168;
+
 typedef struct {//size 28
 	uint32 var_0;
-	uint8** var_4; //size 6?
+	Type_sub168_2* var_4; //size 6?
 	uint32 var_8;
 	uint16 var_12;
 	uint16 var_14;
@@ -514,39 +554,6 @@ typedef struct {// len 80
 	uint8_t stub[80];
 }
 Type_AE408_36382;*/
-
-typedef struct {//size 14
-	uint16 var_u16_0[2];
-	uint32 var_u32_4;
-	uint16 var_u16_8[3];
-}
-Type_sub168_2;
-
-typedef struct {//size 4
-	uint32 var_u16_0;
-}
-Type_sub168_3;
-
-typedef struct {//size 26
-	uint32 var_0;
-	uint32 var_4;
-	Type_sub168_2* var_8;
-	Type_sub168_3* var_12;
-	uint8* var_16;
-	uint16 var_20;
-	uint16 var_22;
-	uint16 var_24;
-}
-Type_sub168;
-
-typedef struct {
-	Type_sub168 sub_0;
-	Type_sub168_2 sub_26[529];
-	Type_sub168_3 sub_7432[529];
-	uint8 last[529];
-	uint8 stub[];
-}
-Type_168;
 
 typedef struct {//size 36478
 	uint8 var_u8_0;
