@@ -51441,7 +51441,7 @@ void sub_416B0()//2126B0_
   //int v4; // esi
   //int v5; // eax
   //unsigned int result; // eax
-  int v7; // esi
+  //int v7; // esi
 
   //v0 = dword_AE400_AE3F0();
   //v1 = dword_AE400_AE3F0() + 29795;
@@ -51459,14 +51459,14 @@ void sub_416B0()//2126B0_
   //999
   //v7 = &unk_98F38[7] - str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[0].playIndex_13333].var_u32_29951_156;
   //v7 = str_AE400_AE3F0->str_29795[0].var_u32_29951_156 - str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[0].playIndex_13333].var_u32_29951_156;
-  v7 = ((int64)0x257018 - (int64)str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[0].playIndex_13333].var_u32_29951_156) / sizeof(Type_156);
+  //v7 = ((int64)0x257018 - (int64)str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[0].playIndex_13333].var_u32_29951_156) / sizeof(Type_156);
   for(int i=1;i<1000;i++)
   //while ( result < dword_AE400_AE3F0() + 193795 )
   {
     if (str_AE400_AE3F0->str_29795[i].var_u8_29859_64)
         //str_AE400_AE3F0->str_29795[i].var_u32_29951_156 += v7;
         //str_AE400_AE3F0->str_29795[i].var_u32_29951_156 = &unk_98F38[7+v7+i];
-        str_AE400_AE3F0->str_29795[i].var_u32_29951_156 = &unk_98F38[((int64)str_AE400_AE3F0->str_29795[i].var_u32_29951_156 - (int64)0x257018) / sizeof(Type_156) + 7];
+        str_AE400_AE3F0->str_29795[i].var_u32_29951_156 = &unk_98F38[str_AE400_AE3F0->str_29795[i].var_u32_29951_156 - str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[0].playIndex_13333].var_u32_29951_156 + 7];
     //result += 164;
   }
   //dword_AE400_AE3F0(dword_AE400_AE3F0());
@@ -56687,7 +56687,7 @@ char sub_48710_48A50(int a1, int a2, __int16 a3, __int16 a4, int a5, int a6, __i
           }
           else
           {
-            v37 = byte_99B58[1+2 * *(__int16 *)(*(_DWORD *)(dword_AE400_AE3F0() + 164 * v35 + 29955) + 48)];
+            v37 = byte_99B58[1+2 * str_AE400_AE3F0->str_29795[v35].var_u32_29955_160->var_48];
           }
           v74 = v37;
           v29 = 1;

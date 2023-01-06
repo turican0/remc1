@@ -942,6 +942,16 @@ sub_36C10 ?
 sub_58B30 --
 sub_59370 .
 
+str_AE400_AE3F0->str_29795[0x50].var_u32_29955_160->var_48
+sub_416B0
+
+&unk_98F38[((int64)str_AE400_AE3F0->str_29795[i].var_u32_29951_156 - (int64)0x257018) / sizeof(Type_156) + 7]
+&unk_98F38[0x4988]
+
+str_AE400_AE3F0->str_29795[0x50].var_u32_29951_156 - nejde p5e49ct paměť
+
+unk_98F38 ?
+
 
 
 
