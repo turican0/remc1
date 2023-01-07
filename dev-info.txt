@@ -940,6 +940,7 @@ sub_369E0
 sub_36A90 ?
 sub_36C10 ?
 sub_58B30 --
+sub_59230
 sub_59370 .
 
 str_AE400_AE3F0->str_29795[0x50].var_u32_29955_160->var_48
@@ -951,6 +952,62 @@ sub_416B0
 str_AE400_AE3F0->str_29795[0x50].var_u32_29951_156 - nejde p5e49ct paměť
 
 unk_98F38 ?
+
+sub_36A90
+sub_58B30
+
+sub_58E70 - set of dword_AE3EC
+&dword_AE3EC->var_8[0x64].var_u32_4
+
+dword_AE3EC->var_8[0x33].var_u32_4
+  if ( a2 < a1x->var_4)
+
+sub_36700 a3x->sub_0.var_4x 0x2ffa9c 3fdab4
+0x30002e
+207a27 36A27 sub_369E0
+counter_sub_369E0 2 -ok
+counter_sub_369E0 3 -problem
+a1x->var_4x versus edx 0x2ffab2
+sub_36850
+0x63 0x350 0x350
+0x64 0x3b90 0x1ac8
+229890 00
+2298bf 137
+2298c6 d330
+
+fix sub_36A90 !!!!
+
+0x3b90
+
+207a27 36A27 sub_369E0
+a1x->var_8[0x64].var_u32_4
+a1x->var_8[0x64].var_u32_4 = a2;
+
+bool sub_59050 22A050
+char sub_59230()//22A230_
+void sub_59370()//22A370_
+void sub_59420_59930()//22A420_
+
+char sub_59230()//22A230_
+
+byte_12E9E1/2ec9e1 - spatna inicializace
+
+unk_99BA0
+struct 14
+0 - word
+2 - word
+4 - word
+6 - word
+8 - word
+10 - byte
+11 - byte
+12 - byte
+13 - byte
+
+word_989C6 2569c6
+
+find byte_12E7D0
+
 
 
 

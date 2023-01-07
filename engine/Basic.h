@@ -57,6 +57,24 @@ typedef struct {//size 10
 	uint16 var_8;
 } Tmaps_str;
 
+typedef struct {//size 34
+	int16 var_0;
+	int16 var_2;
+	uint16 i16_4[15];
+} Type_989C6;
+
+typedef struct {//size 14
+	uint16 var_0;
+	uint16 var_2;
+	uint16 var_4;
+	uint16 var_6;
+	uint16 var_8;
+	int8 var_10;
+	int8 var_11;
+	int8 var_12;
+	int8 var_13;
+} Type_99BA0;
+
 typedef struct {//size 14
 	uint16 x;
 	uint16 y;
@@ -78,7 +96,7 @@ Type_sub168_3;
 
 typedef struct {//size 26
 	uint32 var_0;
-	int32 var_4;
+	int32 var_4x;
 	Type_sub168_2* var_8;
 	Type_sub168_3* var_12;
 	uint8* var_16;
