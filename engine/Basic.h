@@ -89,6 +89,8 @@ typedef struct {//size 14
 }
 Type_sub168_2;
 
+
+
 typedef struct {//size 4
 	Type_sub168_2* var_u32_0;
 }
@@ -329,9 +331,9 @@ typedef struct {// len 32
 	uint16 v_4;//?
 	uint16 v_6;//?
 	uint16 v_8;//?
-	uint16 v_10;
-	uint16 v_12;
-	uint16 v_14;
+	int16 v_10;
+	int16 v_12;
+	int16 v_14;
 	uint16 v_16;
 	uint16 v_18;
 	uint32 v_20;

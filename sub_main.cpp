@@ -29821,12 +29821,12 @@ void sub_27030(Type_AE400_29795* event)//1F8030_
       //v16 = 250 * event->var_u32_150.x;
       event->var_u32_150.y += (int16)word_AE454_AE444.y;
       //v17 = event->var_u32_150.y;
-      //event->var_u32_150.x = (250 * event->var_u32_150.x - (((250 * event->var_u32_150.x) >> 31) << 8) + ((250 * event->var_u32_150.x) >> 31)) >> 8;
+      event->var_u32_150.x = (250 * event->var_u32_150.x - (((250 * event->var_u32_150.x) >> 31) << 8) + ((250 * event->var_u32_150.x) >> 31)) >> 8;
       //event->var_u32_150.x = (250 * event->var_u32_150.x - (__CFSHL__((250 * event->var_u32_150.x) >> 31, 8) + ((250 * event->var_u32_150.x) >> 31 << 8))) >> 8;
-      //event->var_u32_150.y = (250 * event->var_u32_150.y - (((250 * event->var_u32_150.y) >> 31) << 8) + ((250 * event->var_u32_150.y) >> 31)) >> 8;
+      event->var_u32_150.y = (250 * event->var_u32_150.y - (((250 * event->var_u32_150.y) >> 31) << 8) + ((250 * event->var_u32_150.y) >> 31)) >> 8;
       //event->var_u32_150.y = (250 * event->var_u32_150.y - (__CFSHL__((250 * event->var_u32_150.y) >> 31, 8) + ((250 * event->var_u32_150.y) >> 31 << 8))) >> 8;      
-      event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
-      event->var_u32_150.y = (250 * event->var_u32_150.y) >> 8;
+      //event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
+      //event->var_u32_150.y = (250 * event->var_u32_150.y) >> 8;
     }
     sub_274D0(event);
   }
@@ -41279,7 +41279,7 @@ void DrawAndEventsInGame_34530()//205530_
         counter_34530++;
         counter_34530--;
     }
-        add_compare(0x2055DE, true, true);
+        //add_compare(0x2055DE, true, true);
         counter_34530++;
 #endif debug1
         //debug
@@ -43125,8 +43125,8 @@ __int16 __cdecl sub_36A90_old(int a1, int a2)
 //----- (00036A90) --------------------------------------------------------
 void sub_36A90(Type_sub168* a1x, Type_sub168_2* a2x)//207A90_
 {
-    sub_36A90_old((int) a1x, (int) a2x);
-    /*
+    //sub_36A90_old((int) a1x, (int) a2x);
+    
     
   //int v2; // ecx
   uint16 v3x; // eax
@@ -43159,8 +43159,8 @@ void sub_36A90(Type_sub168* a1x, Type_sub168_2* a2x)//207A90_
       a1x->var_4x += a1x->var_8[v3x].var_u32_4;
       a1x->var_8[v3x].var_u32_4 = 0;
       v7x = a1x->var_8[v3x].var_u32_0;
-      v15 = v3x;
-      v16 = v3x - 1;
+      v15 = a1x->var_8[v3x].var_u16_8[0];
+      v16 = a1x->var_8[v3x].var_u16_8[0] - 1;
       while ( 1 )
       {
         v8 = a1x->var_20;
@@ -43177,13 +43177,13 @@ void sub_36A90(Type_sub168* a1x, Type_sub168_2* a2x)//207A90_
         v13 = v12x->var_u32_0;
         a1x->var_12[v11].var_u32_0->var_u32_0 = v7x;
         qmemcpy(v7x, v13, a1x->var_12[v11].var_u32_0->var_u32_4);
-        v7x += (int)a1x->var_12[v11 + 1].var_u32_0;
+        v7x = (Type_sub168_2_2*)((uint8*)v7x + a1x->var_12[v11].var_u32_0->var_u32_4);
       }
       //LOWORD(v3) = v8 - 1;
       a1x->var_20 = v8 - 1;
     }
   }
-  //return v3x;*/
+  //return v3x;
 }
 // 36AF0: variable 'v2' is possibly undefined
 
@@ -51117,12 +51117,14 @@ void convert() {
 //----- (000404F0_00040830) --------------------------------------------------------
 int sub_main(int argc, char* argv[])//2114f0_211830
 {
-    convert();
-    /*for (int i = 256 * 256; i>0; i--)
+    //convert();
+    /*for (int16 i = 0xffff; i!=0xfff0; i--)
     {
-        int y = (250 * i - (((250 * i) >> 31) << 8) + ((250 * i) >> 31)) >> 8;
-        int y2 = (uint32)(250 * i) >> 8;
-        printf("%d %d %d\n", i, y,y2);
+        int16 y = (250 * i - (((250 * i) >> 31) << 8) + ((250 * i) >> 31)) >> 8;
+        int16 y2 = (int16)(((249 * i) >> 8) + 1);
+        if(y!=y2)
+            printf("%04X %04X %04X\n", i, y, y2);
+        printf("%04X %04X %04X\n", i, y,y2);
     }*/
 
 	//fix
@@ -52026,7 +52028,7 @@ LABEL_40:
           compareindex_41780--;
       }
 
-      if (compareindex_41780 == 0x1180)
+      if (compareindex_41780 == 0x194e)
       {
           compareindex_41780++;
           compareindex_41780--;
@@ -52045,7 +52047,7 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x459)
+            if (compareindex_41780_2 == 0x458)
             //if (compareindex_41780_2 == 0x4e2)
             //if (compareindex_41780_2 == 0x3702)
             {
@@ -52062,6 +52064,19 @@ LABEL_40:
             sprintf(buffer1, "%08X-FFFFFFF6", 0x212A70);
             int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[jx].id_29819_24, 0xFFFFFFF6, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
             */
+
+            /*
+            uint8_t origbyte20 = 0;
+            uint8_t remakebyte20 = 0;
+            char buffer1[500];
+            sprintf(buffer1, "%08X-0003A1EF", 0x212A70);
+            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1e5].var_u32_29867_72, 0x0003A1EF, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            sprintf(buffer1, "%08X-0003A23D", 0x212A70);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1e5].var_u32_150, 0x0003A23D, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            sprintf(buffer1, "%08X-0026C454", 0x212A70);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&word_AE454_AE444, 0x0026C454, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            */
+
             compareindex_41780_2++;
 #endif debug1
             //debug
