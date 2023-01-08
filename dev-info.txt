@@ -1024,6 +1024,17 @@ word_AE454_AE444 0693e1608a01
 3a1ef                    ff92d5608b01
 &str_AE400_AE3F0->str_29795[0x1e5].var_u32_29867_72
 
+word_AE454_AE444
+26c454
+
+sub_196E0
+
+&str_AE400_AE3F0->str_29795[0x1e5].var_u32_150
+0x0003A23D
+
+event->var_u32_150.x = (250 * event->var_u32_150.x - (((250 * event->var_u32_150.x) >> 31) << 8) + ((250 * event->var_u32_150.x) >> 31)) >> 8;
+event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
+
 
 
 
