@@ -15014,7 +15014,7 @@ int dword_12CF00_12CEF0[529]; // weak
 Type_sub168_2* dword_12D748[529]; // weak
 Type_sub168_2* dword_12DF8C_12DF7C[529]; // weak
 char byte_12E7D0[529]; // weak
-char byte_12E9E1[529]; // weak
+char byte_12E9E1_12E9D1[529]; // weak
 int dword_12EC00; // weak
 __int16 word_12EC04; // weak
 char byte_12EC10_12EC00[9999]; // weak
@@ -67314,7 +67314,7 @@ void sub_58F90_594A0()//229F90_
     v0x->var_12 = *(_BYTE *)(v1 + 1);
     v0x++;
   }
-  sub_58F70_59480();
+  sub_58F70_59480(); if ((*v4 & 0x8000u) != 0)
 }
 // 12EFF4: using guessed type int dword_12EFF4;
 
@@ -67390,10 +67390,10 @@ char *sub_590D0()
 //----- (00059140) --------------------------------------------------------
 void sub_59140()
 {
-  memset(byte_12E9E1, 0, 529);
+  memset(byte_12E9E1_12E9D1, 0, 529);
 }
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
-// 12E9E1: using guessed type char byte_12E9E1;
+// 12E9E1: using guessed type char byte_12E9E1_12E9D1;
 
 //----- (00059160) --------------------------------------------------------
 void sub_59160(unsigned __int16 a1, unsigned __int16 a2, signed __int16 a3)//22A160_
@@ -67448,7 +67448,7 @@ void sub_591E0(unsigned __int16 a1)//22A1E0_
   //v1x = &unk_99BA0x[a1];
   //v2 = unk_99BA0x[a1]->var_11;
   //result = begTmapsTab_12D744_12D734_2EB744_2EB734x[unk_99BA0x[a1].var_0].var_8;
-  byte_12E9E1[begTmapsTab_12D744_12D734_2EB744_2EB734x[unk_99BA0x[a1].var_0].var_8] = unk_99BA0x[a1].var_11;
+  byte_12E9E1_12E9D1[begTmapsTab_12D744_12D734_2EB744_2EB734x[unk_99BA0x[a1].var_0].var_8] = unk_99BA0x[a1].var_11;
   //return result;
 }
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
@@ -67479,7 +67479,7 @@ char sub_59230()//22A230_
   for(int v0=0;v0<529;v0++)
   {
     result = v0;
-    if ( !byte_12E9E1[v0] )
+    if ( !byte_12E9E1_12E9D1[v0] )
       result = sub_58910(v0);
     //++v0;
   }
@@ -67493,7 +67493,7 @@ char sub_59230()//22A230_
     {
       if ( v5 )
         break;
-      if ( v4 == byte_12E9E1[i] && !dword_12DF8C_12DF7C[i] )
+      if ( v4 == byte_12E9E1_12E9D1[i] && !dword_12DF8C_12DF7C[i] )
       {
         v2 = sub_58AD0(i);
         if ( v2 >= sub_369D0(dword_AE3EC) )
