@@ -1037,6 +1037,9 @@ event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
 
 ----------------------------------
 begWscreen_2ECFF4_2ECFE4 + 0xbfeb b2 versus b4
+0x71BCB
+
+1fdf16 2CF16 sub_2C410
 
 
 
