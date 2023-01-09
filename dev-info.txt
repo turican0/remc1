@@ -1035,6 +1035,10 @@ sub_196E0
 event->var_u32_150.x = (250 * event->var_u32_150.x - (((250 * event->var_u32_150.x) >> 31) << 8) + ((250 * event->var_u32_150.x) >> 31)) >> 8;
 event->var_u32_150.x = (250 * event->var_u32_150.x) >> 8;
 
+----------------------------------
+begWscreen_2ECFF4_2ECFE4 + 0xbfeb b2 versus b4
+
+
 
 
 

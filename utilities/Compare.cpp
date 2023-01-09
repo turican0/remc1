@@ -306,7 +306,7 @@ void add_compare(uint32_t adress, bool debugafterload, bool compareGraphics, int
 					//comp20 = compare_with_sequence(buffer4, pdwScreenBuffer_351628, 0x3aa0a4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20);
 					//if(debugcounter_271478>5)
 					if (compareGraphics)
-						;// comp20 = compare_with_sequence(buffer4, begWscreen_2ECFF4_2ECFE4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
+						comp20 = compare_with_sequence(buffer4, begWscreen_2ECFF4_2ECFE4, 0x002ECFF4, index, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, (exitindex != 1000000));
 				}
 
 				if (stopstep > -1)

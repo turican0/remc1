@@ -3,7 +3,7 @@
 #define debug1
 #define autostart
 
-#define MODIFY_SETTINGS
+//#define MODIFY_SETTINGS
 int modset_used_precount = 0;
 int modset_used_count = 0;
 int modset_key = 0x0;
@@ -37958,7 +37958,177 @@ LABEL_69:
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 // 12DF8C: using guessed type int dword_12DF8C[529];
 
+
+void DrawSky_30730_30770(int16_t roll)
+{
+    int v1; // ebx
+    int v2; // edx
+    __int64 v3; // rtt
+    int v4; // ebp
+    int v5; // ebx
+    _BYTE* v6; // edx
+    int v7; // eax
+    unsigned __int8 v8; // ch
+    int v9; // edx
+    int v10; // eax
+    __int16 result; // ax
+    int v12; // ebp
+    int v13; // eax
+    _BYTE* v14; // esi
+    int* v15; // edi
+    int v16; // edx
+    int v17; // ecx
+    int v18; // ebx
+    int v19; // eax
+    _BYTE v20[1280]; // [esp+0h] [ebp-538h] BYREF
+    int v21; // [esp+500h] [ebp-38h]
+    int v22; // [esp+504h] [ebp-34h]
+    int v23; // [esp+508h] [ebp-30h]
+    int v24; // [esp+50Ch] [ebp-2Ch]
+    int v25; // [esp+510h] [ebp-28h]
+    int v26; // [esp+514h] [ebp-24h]
+    int v27; // [esp+518h] [ebp-20h]
+    unsigned __int8 v28; // [esp+51Ch] [ebp-1Ch]
+    unsigned __int8 v29; // [esp+520h] [ebp-18h]
+    char v30; // [esp+524h] [ebp-14h]
+
+    v1 = roll & 0x7FF;
+    v2 = (_DWORD)cos_9134C[v1] << 8;
+    v26 = (sin_90B4C[v1] << 8) / (unsigned __int16)widthViewPort_93AD8;
+    v3 = v2;
+    v4 = 0;
+    v30 = 0;
+    v29 = 0;
+    v5 = (unsigned __int16)widthViewPort_93AD8;
+    v6 = v20;
+    v25 = v3 / (unsigned __int16)widthViewPort_93AD8;
+    v7 = 0;
+    if ((_WORD)widthViewPort_93AD8)
+    {
+        do
+        {
+            LOBYTE(v23) = BYTE2(v4);
+            *v6 = BYTE2(v7) - v30;
+            v8 = v23;
+            v23 = (unsigned __int8)v23 - v29;
+            v28 = v8;
+            v6 += 2;
+            v30 = BYTE2(v7);
+            *(v6 - 1) = v23;
+            v29 = v28;
+            v4 += v26;
+            v7 += v25;
+            --v5;
+        } while (v5);
+    }
+    v9 = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
+    v10 = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
+    v21 = ((unsigned __int16)yaw_B5D38_B5D28 << 15) - (v9 * v25 - v10 * v26);
+    v27 = -(v26 * v9 + v25 * v10);
+    result = heightViewPort_93ADC;
+    v12 = (int)beginFrame_93ACC;
+    v22 = (unsigned __int16)heightViewPort_93ADC;
+    if ((_WORD)heightViewPort_93ADC)
+    {
+        do
+        {
+            v13 = (int)(unsigned __int16)widthViewPort_93AD8 >> 2;
+            v14 = v20;
+            v23 = v27 >> 16;
+            v15 = (int*)v12;
+            v24 = v21 >> 16;
+            v16 = (int)begSky_AE3D8_AE3C8_26C3D8_26C3C8;
+            BYTE1(v18) = BYTE2(v27);
+            v17 = v13;
+            LOBYTE(v18) = BYTE2(v21);
+            v18 = (unsigned __int16)v18;
+            do
+            {
+                LOBYTE(v13) = *(_BYTE*)(v18 + v16);
+                LOBYTE(v18) = *v14 + v18;
+                BYTE1(v18) += v14[1];
+                BYTE1(v13) = *(_BYTE*)(v18 + v16);
+                LOBYTE(v18) = v14[2] + v18;
+                BYTE1(v18) += v14[3];
+                v19 = v13 << 16;
+                LOBYTE(v19) = *(_BYTE*)(v18 + v16);
+                LOBYTE(v18) = v14[4] + v18;
+                BYTE1(v18) += v14[5];
+                BYTE1(v19) = *(_BYTE*)(v18 + v16);
+                LOBYTE(v18) = v14[6] + v18;
+                BYTE1(v18) += v14[7];
+                v13 = __ROL4__(v19, 16);
+                *v15++ = v13;
+                v14 += 8;
+                --v17;
+            } while (v17);
+            result = v25;
+            v12 += pitchViewPort_93AD4;
+            v21 -= v26;
+            v27 += v25;
+            --v22;
+        } while (v22);
+    }
+}
+
 //SYNCHRONIZED WITH REMC1
+/*
+void DrawSky_30730_30770(int16_t roll)//201730_
+{
+    int skyTextSize = 256;
+    int lineWidthSQ = skyTextSize * skyTextSize;
+    bsaxis_2d errLine[3840]; // for 4K
+    int roundRoll = roll & 0x7FF;
+    int cosRoll = (sin_90B4C[roundRoll] << 8) / widthViewPort_93AD8;
+    int sinRoll = (cos_9134C[roundRoll] << 8) / widthViewPort_93AD8;
+    int errorX = 0;
+    int errorY = 0;
+    int8_t oldErrorX = 0;
+    int8_t oldErrorY = 0;
+    int index = 0;
+    uint16_t width = widthViewPort_93AD8;
+    while (width)
+    {
+        errLine[index].x = BYTE2(errorY) - oldErrorX;
+        errLine[index].y = BYTE2(errorX) - oldErrorY;
+        oldErrorX = BYTE2(errorY);
+        oldErrorY = BYTE2(errorX);
+        errorX += cosRoll;
+        errorY += sinRoll;
+        index++;
+        width--;
+    }
+    uint8_t* viewPortRenderBufferStart = beginFrame_93ACC;
+    int addX = (-(dword_B5CD4_B5CC4 * dword_B5CFC_B5CEC) >> 16) + dword_B5D08_B5CF8;
+    int addY = heightViewPort_B5CE4_B5CD4 - ((dword_B5CE8_B5CD8 * dword_B5CFC_B5CEC) >> 16);
+    int beginX = (yaw_B5D38_B5D28 << 15) - (addX * sinRoll - addY * cosRoll);
+    int beginY = -(cosRoll * addX + sinRoll * addY);
+    for (int height = heightViewPort_93ADC - 1; height >= 0; height--)
+    {
+        index = 0;
+        uint8_t* viewPortLineRenderBufferStart = viewPortRenderBufferStart;
+        int texturePixelIndex = ((uint32)beginX / (256 * 256)) % skyTextSize + ((uint32)beginY / (256 * 256)) * skyTextSize;
+        texturePixelIndex = (texturePixelIndex + lineWidthSQ * 2) % lineWidthSQ;
+
+        int texturePixelIndexX = texturePixelIndex % skyTextSize;
+        int texturePixelIndexY = (int32)(texturePixelIndex / skyTextSize);
+
+        for (uint8_t* endLine = viewPortLineRenderBufferStart + widthViewPort_93AD8; viewPortLineRenderBufferStart < endLine; viewPortLineRenderBufferStart++)
+        {
+            *viewPortLineRenderBufferStart = begSky_AE3D8_AE3C8_26C3D8_26C3C8[texturePixelIndexX + skyTextSize * texturePixelIndexY];
+            texturePixelIndexX = (texturePixelIndexX + errLine[index].x + skyTextSize) % skyTextSize;
+            texturePixelIndexY = (texturePixelIndexY + errLine[index].y + skyTextSize) % skyTextSize;
+            index++;
+        }
+        viewPortRenderBufferStart += pitchViewPort_93AD4;
+        beginX -= cosRoll;
+        beginY += sinRoll;
+    }
+}
+*/
+
+//SYNCHRONIZED WITH REMC1
+/*
 void DrawSky_30730_30770(int16_t roll)//201730_
 {
   int skyTextSize = 256;
@@ -38018,7 +38188,7 @@ void DrawSky_30730_30770(int16_t roll)//201730_
       beginY += cosRoll;
   }
 }
-
+*/
 
 //----- (000309D0) --------------------------------------------------------
 void sub_309D0_30A10(int a1)
@@ -41279,7 +41449,7 @@ void DrawAndEventsInGame_34530()//205530_
         counter_34530++;
         counter_34530--;
     }
-        //add_compare(0x2055DE, true, true);
+        add_compare(0x2055DE, true, true);
         counter_34530++;
 #endif debug1
         //debug
