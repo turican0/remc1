@@ -89,8 +89,6 @@ typedef struct {//size 14
 }
 Type_sub168_2;
 
-
-
 typedef struct {//size 4
 	Type_sub168_2* var_u32_0;
 }
