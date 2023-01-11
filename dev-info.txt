@@ -1042,6 +1042,33 @@ begWscreen_2ECFF4_2ECFE4 + 0xbfeb b2 versus b4
 
 1fdf16 2CF16 sub_2C410
 
+----------------------------------
+begWscreen_2ECFF4_2ECFE4 + 0xacc6 b4 versus 49
+0x708A6
+----------------------------------
+dword_B5CA8_B5C98 273CA8
+sub_2FC50_2FC90 adress 0x36706 versus dword_B5CA8_B5C98 = dword_B5CC8_B5CB8 * dword_B5CD0_B5CC0 / dword_B5CCC_B5CCC;
+adress 
+
+DrawSkyTerrainParticles_2A700_2A740
+
+compare
+index62
+tempBegBscreen[index62].haveSprite_36
+indexv76
+tempBegBscreen[indexv76].haveSprite_36
+tempBegBscreen[indexv91].haveSprite_36
+tempBegBscreen[index109].haveSprite_36
+tempBegBscreen[index169].haveSprite_36
+tempBegBscreen[index184].haveSprite_36
+
+sub_2C410_2C450
+sub_2FC50_2FC90
+----------------------------------
+begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
+0x2ECFF4 -> 0x065be0
+0x74316
+
 
 
 

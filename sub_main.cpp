@@ -548,7 +548,7 @@ void PrepRot_29C30_29C70(__int16 roll);
 void sub_2C410_2C450(unsigned int a1);
 void sub_2DCB0_2DCF0(Type_BegBscreen* a2);
 void sub_2F170_2F1B0(int a1, int a2);
-unsigned __int16 sub_2FC50_2FC90(int a2);
+void sub_2FC50_2FC90(Type_BegBscreen* a2);
 void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
 void setViewPort_30A70_30AB0(int a1);
@@ -33236,7 +33236,7 @@ LABEL_26:
                                 if (!*(_WORD*)(v71 + 36))
                                     goto LABEL_85;
                             LABEL_84:
-                                sub_2FC50_2FC90(v71);
+                                sub_2FC50_2FC90((Type_BegBscreen*)v71);
                                 goto LABEL_85;
                             }
                             if (*(_WORD*)(v71 + 36))
@@ -33319,7 +33319,7 @@ LABEL_26:
                             }
                             if (*(_WORD*)(v84 + 36))
                                 LABEL_99:
-                            sub_2FC50_2FC90(v84);
+                            sub_2FC50_2FC90((Type_BegBscreen*)v84);
                         }
                         else if (*(_WORD*)(v84 + 36))
                         {
@@ -34417,7 +34417,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						}
 					}
 					if (tempBegBscreen[index62].haveSprite_36)
-						sub_2FC50_2FC90((int)&tempBegBscreen[index61]);
+						sub_2FC50_2FC90(&tempBegBscreen[index62]);
 					index62++;
 				}
 				//int indexv76 = textColumns * textRows - 2;
@@ -34474,7 +34474,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					}
 					if (tempBegBscreen[indexv76].haveSprite_36)
 					{
-						sub_2FC50_2FC90((int)&tempBegBscreen[indexv76]);//fix it
+						sub_2FC50_2FC90(&tempBegBscreen[indexv76]);//fix it
 					}
 					//indexv76--;
 				}
@@ -37570,7 +37570,7 @@ LABEL_61:
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 //----- (0002FC50) --------------------------------------------------------
-unsigned __int16 sub_2FC50_2FC90(int a2)//200C50_
+void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
   unsigned __int16 result; // ax
   int v3; // eax
@@ -37610,7 +37610,7 @@ unsigned __int16 sub_2FC50_2FC90(int a2)//200C50_
   v33 = 0;
   //fix
 
-  result = *(_WORD *)(a2 + 36);
+  result = a2x->haveSprite_36;
   do
   {
     if ( result < 0x3E8u )
@@ -37888,7 +37888,6 @@ LABEL_69:
     result = *(_WORD *)(v33 + 20);
   }
   while ( result );
-  return result;
 }
 // 30718: variable 'v33' is possibly undefined
 // AE400: using guessed type int dword_AE400_AE3F0();
