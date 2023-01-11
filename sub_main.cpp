@@ -36714,6 +36714,7 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   }
           add_compare(0x1FECB0, true, true);
           counter_sub_2DCB0_2DCF0++;
+          counter_sub_2DCB0_2DCF0++;
 #endif debug1
 //debug
 
