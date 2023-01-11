@@ -33339,7 +33339,7 @@ LABEL_26:
                     //  adress 1FC3D0
            //debug
 #ifdef debug1
-                    add_compare(0x1FC3D0, true, true);
+                    //add_compare(0x1FC3D0, true, true);
 #endif debug1
                     //debug
                     v90 = (int*)&unk_902DC;
@@ -34050,6 +34050,10 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 	char v238; // [esp+B0h] [ebp-30h]
 	char v243; // [esp+C4h] [ebp-1Ch]
 	char v245; // [esp+CCh] [ebp-14h]
+
+    int a1xx = 0;
+    DrawSkyTerrainParticles_2A700_2A740_old(a1xx, posX, posY, yaw, posZ, pitch, roll, fow);
+    return;
 
 	const int textRows = 40;
 	const int textColumns = 21;
