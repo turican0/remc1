@@ -1070,8 +1070,17 @@ begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
 0x74316
 
 compare_index_1FC68A
+----------------------------------
+begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
+0x2ECFF4 -> 0x065be0
+0x74316
 
+  if (counter_sub_2DCB0_2DCF0 == 0x1a)
 
+&posX_B5D3C_B5D2C 0x2e82 versus 0x2e84
+
+tempFixPosX = fixPosX_90710 + posX - test it
+24e710 .. 4
 
 
 

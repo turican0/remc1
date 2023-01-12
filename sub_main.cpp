@@ -36728,6 +36728,15 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
       counter_sub_2DCB0_2DCF0--;
   }
           add_compare(0x1FECB0, true, true);
+
+          //fixPosX_90710 .. 24e710
+          uint8_t origbyte20 = 0;
+          uint8_t remakebyte20 = 0;
+          char buffer1[500];
+          sprintf(buffer1, "%08X-0024e710", 0x1FECB0);
+          int comp20 = compare_with_sequence(buffer1, (uint8_t*)&fixPosX_90710, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+
+
           counter_sub_2DCB0_2DCF0++;
 #endif debug1
 //debug
