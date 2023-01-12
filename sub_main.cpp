@@ -33396,6 +33396,14 @@ LABEL_26:
                                 compare_index_1FC68A++;
                                 compare_index_1FC68A--;
                             }
+
+                            uint8_t origbyte20 = 0;
+                            uint8_t remakebyte20 = 0;
+                            char buffer1[500];
+                            sprintf(buffer1, "%08X-00273CA8", 0x1FC68A);
+                            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FC68A, compare_index_1FC68A - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+
+
                             //add_compare(0x1FC68A, true, true);
                             compare_index_1FC68A++;
 #endif debug1
@@ -34598,11 +34606,18 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				//  adress 1FC68A_
 				//debug
 #ifdef debug1
-				if (compare_index_1FC68A == 0x20)
+				if (compare_index_1FC68A == 0x225)
 				{
 					compare_index_1FC68A++;
 					compare_index_1FC68A--;
 				}
+
+                uint8_t origbyte20 = 0;
+                uint8_t remakebyte20 = 0;
+                char buffer1[500];
+                sprintf(buffer1, "%08X-00273CA8", 0x1FC68A);
+                int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FC68A, compare_index_1FC68A - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+
 				//add_compare(0x1FC68A, true, true);
 				compare_index_1FC68A++;
 #endif debug1
