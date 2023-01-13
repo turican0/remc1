@@ -1072,6 +1072,7 @@ begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
 compare_index_1FC68A
 ----------------------------------
 begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
+pdwScreenBuffer_12EFF4 + 0xe736 b4 versus ac
 0x2ECFF4 -> 0x065be0
 0x74316
 
@@ -1081,6 +1082,20 @@ begWscreen_2ECFF4_2ECFE4 + 0xe736 b4 versus ac
 
 tempFixPosX = fixPosX_90710 + posX - test it
 24e710 .. 4
+
+LABEL 163
+LABEL_181:
+case 1:
+v94 = (_BYTE *)(v83 + v82[1]); 0x1FDF27
+0x381b42 versus v83 - odkaz
+(dword_B5CC0_B5CB0 >> 16) * dword_B5CD0_B5CC0 + dword_B5CB0_B5CA0 + 16
+&dword_B5CB0_B5CA0
+dword_12DF8C_12DF7C[0xfc]->var_u32_0->data
+
+v83+16
+LOBYTE(v96) = *v94;
+
+dword_B5CB0_B5CA0 = a1 + 6;
 
 
 
