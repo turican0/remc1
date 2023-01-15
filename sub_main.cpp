@@ -1343,10 +1343,10 @@ void free_62128_62638(void* buffer);
 // _DWORD DataFileIO::FileLengthBytes(_DWORD); weak
 //int DataFileIO::Seek(int a1, int a2, char a3);
 int sub_62B60_63070(uint8_t* input, uint8_t* output);
-char sub_62CF4_63204(int *a1);
-__int16 sub_62CFD_6320D(__int16 *a1, int a2);
-__int16 sub_62D40_63250(unsigned __int8 a1, int a2);
-char sub_62DC3_632D3(int a1);
+uint16 sub_62CF4_63204(uint8_t** a1);
+__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2);
+__int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2);
+void sub_62DC3_632D3(__int16* a0, uint8_t** a1);
 void sub_62E60_63370(char* name, uint8* buffer, int size);
 size_t FileWrite_62ED0_633E0(FILE* descriptor, uint8_t* buffer, uint32_t count);
 // _DWORD access(_DWORD, _DWORD); weak
@@ -6614,13 +6614,13 @@ __int16 word_9B0C0[64] =
   0,
   0
 }; // weak
-int dword_9B140 = 0; // weak
-int dword_9B144 = 0; // weak
+uint32 dword_9B140 = 0; // weak
+uint32 dword_9B144 = 0; // weak
 __int16 word_9B14A = 0; // weak
-__int16 word_9B14C = 0; // weak
+uint16 word_9B14C = 0; // weak
 __int16 word_9B14E = 0; // weak
-char byte_9B150 = '\0'; // weak
-char byte_9B151 = '\0'; // weak
+int8 byte_9B150 = 0; // weak
+uint8 byte_9B151 = 0; // weak
 int dword_9B15C = 0; // weak
 __int16 word_9B160[] = { 0 }; // weak
 int dword_9B17A[5] = { 0, 0, 0, 0, 0 }; // weak
@@ -36652,6 +36652,7 @@ LABEL_118:
 }
 
 int counter_sub_2DCB0_2DCF0 = 0;
+int counter_dword_B5CB0_B5CA0 = 0;
 //SYNCHRONIZED WITH REMC1
 void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 {
@@ -36722,7 +36723,7 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //adress 1FECB0_
   //debug
 #ifdef debug1
-  if (counter_sub_2DCB0_2DCF0 == 0x1a)
+  if (counter_sub_2DCB0_2DCF0 == 0x19)
   {
       counter_sub_2DCB0_2DCF0++;
       counter_sub_2DCB0_2DCF0--;
@@ -36736,6 +36737,11 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
           sprintf(buffer1, "%08X-0024e710", 0x1FECB0);
           int comp20 = compare_with_sequence(buffer1, (uint8_t*)&fixPosX_90710, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
 
+          origbyte20 = 0;
+          remakebyte20 = 0;
+          //char buffer1[500];
+          sprintf(buffer1, "%08X-FFFFFFF4", 0x1FECBF);
+          comp20 = compare_with_sequence(buffer1, (uint8_t*)&a2x->haveSprite_36, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 1, 1, &origbyte20, &remakebyte20, 0, true);
 
           counter_sub_2DCB0_2DCF0++;
 #endif debug1
@@ -36936,7 +36942,24 @@ LABEL_64:
                   dword_B5CBC_B5CAC = v15;
 LABEL_65:
                   v27 = *(_BYTE *)a1 | 8;
-                  dword_B5CB0_B5CA0 = a1 + 6;
+                  dword_B5CB0_B5CA0 = a1 + 6;//a1x->var_u32_0->data+2 //0x1ff64c
+                  //debug
+                  if (counter_dword_B5CB0_B5CA0 == 0x19)
+                  {
+                      counter_dword_B5CB0_B5CA0++;
+                      counter_dword_B5CB0_B5CA0--;
+                  }
+
+
+                  //fixPosX_90710 .. 24e710
+                  origbyte20 = 0;
+                  remakebyte20 = 0;
+                  //char buffer1[500];
+                  sprintf(buffer1, "%08X-FFFFFFF4", 0x1FF64C);
+                  comp20 = compare_with_sequence(buffer1, (uint8_t*)a1 + 6, 0x1FF64C, counter_dword_B5CB0_B5CA0 - 0, 40, 40, &origbyte20, &remakebyte20, 0, true);
+
+                  counter_dword_B5CB0_B5CA0++;
+                  //debug
                   v28 = dword_B5CA4_B5C94;
                   *(_BYTE *)a1 = v27;
                   if ( v28 == 0x2000 )
@@ -37204,6 +37227,7 @@ LABEL_135:
             dword_B5CBC_B5CAC = v45;
 LABEL_136:
             v57 = *(_BYTE *)a1 | 8;
+
             dword_B5CB0_B5CA0 = a1 + 6;
             v58 = dword_B5CA4_B5C94;
             *(_BYTE *)a1 = v57;
@@ -43188,7 +43212,7 @@ Type_sub168_2* sub_369E0_36DA0(Type_sub168* a1x, unsigned int a2, __int16 a3)//2
   //int v7; // eax
 
   //debug
-  if (counter_sub_369E0_36DA0 == 0x64)
+  if (counter_sub_369E0_36DA0 == 0x80)
   {
       counter_sub_369E0_36DA0++;
       counter_sub_369E0_36DA0--;
@@ -49575,7 +49599,7 @@ int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)
     }
     else
     {
-        if (fileLenght2 == -1) return fileLenght;
+        //if (fileLenght2 == -1) return fileLenght;
       printf("ERROR decompressing %s\n", path);
       return -2;
     }
@@ -66906,8 +66930,7 @@ int sub_58860_58D70(unsigned __int16 a1, uint8_t* a2)//229860_
   }
   else
   {
-      if (result == -1)
-          return dataSize;
+      //if (result == -1) return dataSize;
     printf("ERROR decompressing tmap%03d\n", a1);
     return -2;
   }
@@ -67044,7 +67067,7 @@ void sub_58B30_59040(unsigned __int16 a1)//229B30_
   //allert_error();//test it
 
   //debug
-  if (counter_sub_58B30_59040 == 0x2d)
+  if (counter_sub_58B30_59040 == 0x34)
   {
       counter_sub_58B30_59040++;
       counter_sub_58B30_59040--;
@@ -73827,7 +73850,141 @@ void free_62128_62638_orig(int a1)
   free_426E0_42A20((void*)a1);
 }
 
-int sub_62B60_63070(uint8_t* input, uint8_t* output)
+//SYNCHRONIZED WITH REMC1
+//int sub_62B60_63070_new(uint8_t* input, uint8_t* output)
+int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
+{
+    unsigned int i; // ecx
+    //int* data; // esi
+    //int v4; // eax
+    //int v5; // eax
+    uint8_t* v6x; // esi
+    uint8_t* v7; // edx
+    uint8_t* v8; // ebx
+    _DWORD* v9; // esi
+    uint8_t* v10; // edi
+    _DWORD* v11; // esi
+    _WORD* v12; // edi
+    _BYTE* v13; // esi
+    _BYTE* v14; // edi
+    char* v15; // edi
+    int v16; // eax
+    __int16 v17; // bx
+    __int16 v18; // ax
+    __int16 v19; // dx
+    __int16 v20; // ax
+    unsigned __int16 v22; // [esp-1Ah] [ebp-1Eh]
+
+    //fix
+    i = 0;
+    //fix
+    uint8_t* input_esi = input;
+    char RNSSING[5] = "RNC\x1";
+    if (memcmp((char*)input, RNSSING, 4))
+        return 0;
+    input_esi += 4;
+    /*
+    if (*(_WORD*)input != 0x4E52)
+        return 0;
+
+    if (*(_WORD*)(input + 2) != 0x143)
+        return 0;*/
+
+    //LOBYTE(v4) = sub_62CF4_63204(v3);
+
+    //*data = 0x01020304;
+    //int test = sub_62CF4_63204(data);
+
+    
+    //int* data = (int*)(input + 4);
+
+    dword_9B140 = sub_62CF4_63204(&input_esi);
+    dword_9B144 = sub_62CF4_63204(&input_esi);
+    
+
+    
+    //dword_9B140 = input[4 + 3];
+    //dword_9B144 = input[4 + 3];
+    
+    byte_9B150 = input_esi[5];
+    input_esi += 6;
+    //byte_9B150 = input[9];
+    v6x = &input[10+8];
+    v7 = &input[dword_9B144 + 18];
+    if (v7 > output)
+    {
+        v8 = &output[dword_9B140 + input[16]];
+        if (v8 > v7)
+        {
+            v9 = (_DWORD*)(v7 - 4);
+            v10 = v8 - 4;
+            for (i = dword_9B144 >> 2; i; i--)
+            {
+                *(_DWORD*)v10 = *v9--;
+                v10 -= 4;
+            }
+            v11 = v9 + 1;
+            v12 = (uint16*)(v10 + 4);
+            LOWORD(i) = dword_9B144 & 3;
+            if ((dword_9B144 & 3) != 0)
+            {
+                v13 = (uint8*)v11 - 1;
+                v14 = (uint8*)v12 - 1;
+                while (i)
+                {
+                    *v14-- = *v13--;
+                    --i;
+                }
+                v12 = (uint16*)(v14 + 1);
+            }
+            v6x = (uint8*)v12;
+        }
+    }
+    v15 = (char*)output;
+    byte_9B151 = 0;
+    word_9B14C = *(uint16*)v6x;
+    sub_62D40_63250(2u, &v6x);
+    do
+    {
+        sub_62DC3_632D3(word_9AFC0 ,&v6x);
+        sub_62DC3_632D3(word_9B040, &v6x);
+        sub_62DC3_632D3(word_9B0C0, &v6x);
+        word_9B14A = sub_62D40_63250(0x10u, &v6x);
+        while (1)
+        {
+            sub_62CFD_6320D(word_9AFC0, &v6x);
+            if ((_WORD)i)
+            {
+                qmemcpy(v15, v6x, i);
+                v6x += i;
+                v15 += i;
+                i = (unsigned __int8)byte_9B151;
+                v17 = *v6x;
+                v18 = __ROL2__(*v6x, byte_9B151);
+                v19 = (1 << byte_9B151) - 1;
+                word_9B14C &= v19;
+                v20 = v18 & v19 | (*(uint16*)&v6x[2] << byte_9B151);
+                word_9B14C |= v17 << byte_9B151;
+                word_9B14E = v20;
+            }
+            if (!--word_9B14A)
+                break;
+            sub_62CFD_6320D(word_9B040, &v6x);
+            v22 = i;
+            sub_62CFD_6320D(word_9B0C0, &v6x);
+            LOWORD(i) = i + 2;
+            v16 = v22;
+            LOWORD(v16) = v22 + 1;
+            qmemcpy(v15, &v15[-v16], i);
+            v15 += i;
+            i = 0;
+        }
+        byte_9B150--;
+    } while (byte_9B150);
+    return dword_9B140;
+}
+
+int sub_62B60_63070_new(uint8_t* input, uint8_t* output)
 {
     char RNSSING[5] = "RNC\x1";
     Type_fileSize fileSize;
@@ -73844,6 +74001,7 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)
     return fileSize.size;
 }
 
+/*
 //----- (00062B60) --------------------------------------------------------
 int sub_62B60_63070_orig(int a1, char *a2)
 {
@@ -73966,20 +74124,29 @@ int sub_62B60_63070_orig(int a1, char *a2)
 // 9B14E: using guessed type __int16 word_9B14E;
 // 9B150: using guessed type char byte_9B150;
 // 9B151: using guessed type char byte_9B151;
+*/
 
 //----- (00062CF4) --------------------------------------------------------
-char sub_62CF4_63204(int *a1)
+uint16 sub_62CF4_63204(uint8** a1)
 {
+    /*
   int v1; // eax
 
   v1 = *a1;
   BYTE1(v1) = *a1;
   LOBYTE(v1) = BYTE1(*a1);
   return (unsigned __int16)__ROL4__(v1, 16) >> 8;
+  */
+    uaxis_2d result;
+    result._axis_2d.x = *a1[3];
+    result._axis_2d.y = *a1[2];
+    *a1 += 4;
+    return result.word;
+
 }
 
 //----- (00062CFD) --------------------------------------------------------
-__int16 sub_62CFD_6320D(__int16 *a1, int a2)
+__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)
 {
   __int16 *v3; // esi
   __int16 v5; // ax
@@ -74000,29 +74167,46 @@ __int16 sub_62CFD_6320D(__int16 *a1, int a2)
   }
   while ( v8 != v7 );
   v9 = v3[30];
-  result = sub_62D40_63250(HIBYTE(v9), a2);
+  result = sub_62D40_63250(HIBYTE(v9), a2x);
   if ( (unsigned __int8)v9 >= 2u )
-    return (1 << (v9 - 1)) | sub_62D40_63250(v9 - 1, a2);
+    return (1 << (v9 - 1)) | sub_62D40_63250(v9 - 1, a2x);
   return result;
 }
 // 9B14C: using guessed type __int16 word_9B14C;
 
+int compare_index_62D40_63250 = 0;
 //----- (00062D40) --------------------------------------------------------
-__int16 sub_62D40_63250(unsigned __int8 a1, int a2)
+__int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
 {
   unsigned __int16 v3; // ax
   unsigned __int16 v4; // bx
   char v5; // ch
   __int16 v7; // [esp-4h] [ebp-4h]
 
+  //debug
+#ifdef debug1
+  if (compare_index_62D40_63250 == 0x23)
+  {
+      compare_index_62D40_63250++;
+      compare_index_62D40_63250--;
+  }
+  //add_compare(0x2439A7, true, true);
+  uint8 origbyte20;
+  uint8 remakebyte20;
+  int comp20 = compare_with_sequence("00233D40-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+  compare_index_62D40_63250++;
+#endif debug1
+  //debug
+
   v3 = word_9B14E;
   v4 = word_9B14C;
   v7 = word_9B14C & ((1 << a1) - 1);
   v5 = byte_9B151 - a1;
-  if ( (unsigned __int8)byte_9B151 < a1 )
+  if ( byte_9B151 < a1 )
   {
-    v4 = __ROR2__(word_9B14E & ((1 << byte_9B151) - 1), byte_9B151) | ((unsigned __int16)word_9B14C >> byte_9B151);
-    v3 = *(_WORD *)(a2 + 2);
+    v4 = __ROR2__(word_9B14E & ((1 << byte_9B151) - 1), byte_9B151) | (word_9B14C >> byte_9B151);
+    *a2x += 2;
+    v3 = *(_WORD *)*a2x;
     a1 -= byte_9B151;
     v5 = 16 - a1;
   }
@@ -74035,8 +74219,10 @@ __int16 sub_62D40_63250(unsigned __int8 a1, int a2)
 // 9B14E: using guessed type __int16 word_9B14E;
 // 9B151: using guessed type char byte_9B151;
 
+int counter_62DC3_632D3 = 0;
+
 //----- (00062DC3) --------------------------------------------------------
-char sub_62DC3_632D3(int a1)
+void sub_62DC3_632D3(__int16* a0, uint8_t** a1x)//233DC3_
 {
   _BYTE *v1; // edi
   unsigned __int16 v2; // ax
@@ -74059,25 +74245,34 @@ char sub_62DC3_632D3(int a1)
   int v21; // [esp-18h] [ebp-1Ch]
   _DWORD v22[6]; // [esp-14h] [ebp-18h] BYREF
 
-  FixPerifery();
+  //debug
+  if (counter_62DC3_632D3 == 0x50)
+  {
+      counter_62DC3_632D3++;
+      counter_62DC3_632D3--;
+  }
+  counter_62DC3_632D3++;
+  //debug
 
   v1 = (uint8*)v22;
-  v2 = sub_62D40_63250(5u, a1);
+  v2 = sub_62D40_63250(5u, a1x);
   v3 = v2;
   if ( v2 )
   {
     v21 = v2;
     do
     {
-      v2 = sub_62D40_63250(4u, a1);
+      v2 = sub_62D40_63250(4u, a1x);
       *v1++ = v2;
-      --v3;
+      v3--;
     }
     while ( v3 );
     v4 = v21;
-    v21 = a1;
+    v21 = (int)*a1x;
     v5 = (uint8*)v22;
-    v6 = (_WORD *)v22[4];
+    //v6 = (_WORD *)v22[4];
+    v6 = (uint16*)a0;
+
     LOBYTE(v2) = 1;
     v7 = 0;
     v8 = 0x8000;
@@ -74096,18 +74291,20 @@ char sub_62DC3_632D3(int a1)
           v9 = v6 + 1;
           v10 = v7 >> (16 - v2);
           LOBYTE(v4) = v2;
-          //fix _AX = 0;
+          int x_AX = 0;
           v11 = 0;
           do
           {
             v13 = v11 << 15;
             v11 = v10 & 1;
             v10 = (v10 >> 1) | v13;
-            __asm { rcl     ax, 1 }
-            --v4;
+            //allert_error();
+            x_AX <<= 1;//fix
+            //__asm { rcl     ax, 1 }
+            v4--;
           }
           while ( v4 );
-          //fix *v9 = _AX;
+          *v9 = x_AX;
           v6 = v9 + 1;
           LOBYTE(v14) = v5 - (_BYTE *)&v16 - 16;
           HIBYTE(v14) = *v5;
@@ -74116,8 +74313,8 @@ char sub_62DC3_632D3(int a1)
           v2 = v18;
           v7 = v8 + v17;
         }
-        ++v5;
-        --v4;
+        v5++;
+        v4--;
       }
       while ( v4 );
       v5 = v19;
@@ -74127,7 +74324,6 @@ char sub_62DC3_632D3(int a1)
     }
     while ( (_BYTE)v2 != 17 );
   }
-  return v2;
 }
 
 //----- (00062E60) --------------------------------------------------------

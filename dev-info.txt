@@ -1090,12 +1090,70 @@ v94 = (_BYTE *)(v83 + v82[1]); 0x1FDF27
 0x381b42 versus v83 - odkaz
 (dword_B5CC0_B5CB0 >> 16) * dword_B5CD0_B5CC0 + dword_B5CB0_B5CA0 + 16
 &dword_B5CB0_B5CA0
-dword_12DF8C_12DF7C[0xfc]->var_u32_0->data
+0x1ff64c
 
 v83+16
 LOBYTE(v96) = *v94;
 
 dword_B5CB0_B5CA0 = a1 + 6;
+
+(&a1x->var_8[0x80])->var_u32_0->data+2
+v3x->var_u32_0->data+2
+dword_12DF8C_12DF7C[0xfd]->var_u32_0->data+2
+
+void sub_58B30_59040(unsigned __int16 a1)//229B30_
+
+Type_sub168_2* sub_369E0_36DA0(Type_sub168* a1x, unsigned int a2, __int16 a3)//2079E0_
+
+if (sub_58860_58D70(i, (uint8_t*)v3x->var_u32_0) != -1 )
+
+((int)begTmapsTab_12D744_12D734_2EB744_2EB734x)+0x9ce
+0x63890 + 0x09ce = 0x6425E
+
+dword_12DF8C_12DF7C[0xfd]->var_u32_0->data+2
+0x383242 - ok
+
+
+  if (counter_sub_2C410_2C450 == 0x67)
+
+.....................
+dword_B5CB0_B5CA0 versus 0x273CB0
+0x2016C6 306C6 value
+383242 381B42 395562 37BDDA
+37D60E 384972 395562 37BDDA 388D26
+37D60E 395562 383242
+
+0x383242
+find 383242+32
+
+0x2FFAB2 = dword_12DF8C_12DF7C[0]
+
+0x17bc3d4c .. 0x301FE4
+
+dword_B5CB0_B5CA0 versus 0x273CB0
+dword_B5CB0_B5CA0
+adress 0x2016C6 0x38323C+6
+
+0x38323C 0B 14 1A 00 35 00 00 ...
+
+dword_12DF8C_12DF7C[0xfd]
+XXXX 30 17
+XXXX 0B141A00 35 0000 000 nikoli a3
+0x38323C - test it
+
+sub_58860_58D70 - fix it
+
+sub_62D40_63250 - test
+
+byte_9B151 259151 0 versus 2
+
+v6 = (_WORD *)v22[4];
+
+0x2F0A8C .. 0x258FC0
+0x233DC5 62DC5 sub_62DC3
+esp
+
+
 
 
 
