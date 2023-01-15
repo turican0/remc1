@@ -1151,7 +1151,8 @@ v6 = (_WORD *)v22[4];
 
 0x2F0A8C .. 0x258FC0
 0x233DC5 62DC5 sub_62DC3
-esp
+esp edx
+mov edx,258FC0
 
 
 
