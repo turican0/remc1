@@ -73969,9 +73969,9 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
             }
             if (!--word_9B14A)
                 break;
-            sub_62CFD_6320D(word_9B040, &v6x);
+            i=sub_62CFD_6320D(word_9B040, &v6x);
             v22 = i;
-            sub_62CFD_6320D(word_9B0C0, &v6x);
+            i = sub_62CFD_6320D(word_9B0C0, &v6x);
             LOWORD(i) = i + 2;
             v16 = v22;
             LOWORD(v16) = v22 + 1;
@@ -74185,7 +74185,7 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x46)
+  if (compare_index_62D40_63250 == 0x37)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
