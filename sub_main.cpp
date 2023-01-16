@@ -73952,15 +73952,15 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
         word_9B14A = sub_62D40_63250(0x10u, &v6x);
         while (1)
         {
-            sub_62CFD_6320D(word_9AFC0, &v6x);
+            i=sub_62CFD_6320D(word_9AFC0, &v6x);
             if ((_WORD)i)
             {
                 qmemcpy(v15, v6x, i);
                 v6x += i;
                 v15 += i;
                 i = (unsigned __int8)byte_9B151;
-                v17 = *v6x;
-                v18 = __ROL2__(*v6x, byte_9B151);
+                v17 = *(uint16*)v6x;
+                v18 = __ROL2__(*(uint16*)v6x, byte_9B151);
                 v19 = (1 << byte_9B151) - 1;
                 word_9B14C &= v19;
                 v20 = v18 & v19 | (*(uint16*)&v6x[2] << byte_9B151);
@@ -74146,7 +74146,7 @@ uint16 sub_62CF4_63204(uint8** a1)
 }
 
 //----- (00062CFD) --------------------------------------------------------
-__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)
+__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)//233CFD_
 {
   __int16 *v3; // esi
   __int16 v5; // ax
@@ -74185,7 +74185,7 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x23)
+  if (compare_index_62D40_63250 == 0x46)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74194,6 +74194,14 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
   uint8 origbyte20;
   uint8 remakebyte20;
   int comp20 = compare_with_sequence("00233D40-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+  comp20 = compare_with_sequence("00233D40-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+  comp20 = compare_with_sequence("00233D40-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+  comp20 = compare_with_sequence("00233D40-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+
+  comp20 = compare_with_sequence("00233D40-FFFFFF01", (uint8_t*)*a2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+
+  comp20 = compare_with_sequence("00233D40-00258FC0", (uint8_t*)word_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+
   compare_index_62D40_63250++;
 #endif debug1
   //debug
@@ -74234,7 +74242,7 @@ void sub_62DC3_632D3(__int16* a0, uint8_t** a1x)//233DC3_
   unsigned __int16 v8; // dx
   _WORD *v9; // edi
   unsigned __int16 v10; // bx
-  char v11; // cf
+  char v11_CF; // cf
   __int16 v13; // t2
   __int16 v14; // ax
   __int16 v16; // [esp-24h] [ebp-28h] BYREF
@@ -74292,21 +74300,23 @@ void sub_62DC3_632D3(__int16* a0, uint8_t** a1x)//233DC3_
           v10 = v7 >> (16 - v2);
           LOBYTE(v4) = v2;
           int x_AX = 0;
-          v11 = 0;
+          v11_CF = 0;
           do
           {
-            v13 = v11 << 15;
-            v11 = v10 & 1;
+            v13 = v11_CF << 15;
+            v11_CF = v10 & 1;
             v10 = (v10 >> 1) | v13;
             //allert_error();
             x_AX <<= 1;//fix
+            x_AX |= v11_CF;
             //__asm { rcl     ax, 1 }
             v4--;
           }
           while ( v4 );
           *v9 = x_AX;
           v6 = v9 + 1;
-          LOBYTE(v14) = v5 - (_BYTE *)&v16 - 16;
+          //LOBYTE(v14) = v5 - (_BYTE *)&v16 - 16;
+          LOBYTE(v14) = v5 - (uint8*)v22;
           HIBYTE(v14) = *v5;
           v6[30] = v14;
           LOWORD(v4) = v16;
