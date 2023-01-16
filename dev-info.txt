@@ -1160,6 +1160,10 @@ versus
 word_9B14E 0
 adress 233C79 CX .. i
 
+*a2x .. esi
+LOWORD(i) = i + 2;-chyba
+qmemcpy(v15, &v15[-v16], i);
+
 
 
 
