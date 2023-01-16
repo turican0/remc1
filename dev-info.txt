@@ -1154,6 +1154,12 @@ v6 = (_WORD *)v22[4];
 esp edx
 mov edx,258FC0
 
+-----------------------
+0x25914E 0xE4CC
+versus
+word_9B14E 0
+adress 233C79 CX .. i
+
 
 
 
