@@ -1164,6 +1164,19 @@ adress 233C79 CX .. i
 LOWORD(i) = i + 2;-chyba
 qmemcpy(v15, &v15[-v16], i);
 
+(CX = count)
+edi->esi .. v15
+esi->edx
+edi = esi-A
+
+*a2x
+7bf2f643217f
+51f2f643217f 
+
+v6x 0x660BF 0xBB14237
+v15 0x62250 0xBB14230
+
+
 
 
 
