@@ -1344,9 +1344,9 @@ void free_62128_62638(void* buffer);
 //int DataFileIO::Seek(int a1, int a2, char a3);
 int sub_62B60_63070(uint8_t* input, uint8_t* output);
 uint16 sub_62CF4_63204(uint8_t** a1);
-__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2);
-__int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2);
-void sub_62DC3_632D3(__int16* a0, uint8_t** a1);
+__int16 sub_62CFD_6320D(uint16* a0, __int16 *a1, uint8_t** a2);
+__int16 sub_62D40_63250(uint16* a0, uint8 a1, uint8** a2);
+void sub_62DC3_632D3(uint16* a0x, __int16* a0, uint8_t** a1);
 void sub_62E60_63370(char* name, uint8* buffer, int size);
 size_t FileWrite_62ED0_633E0(FILE* descriptor, uint8_t* buffer, uint32_t count);
 // _DWORD access(_DWORD, _DWORD); weak
@@ -73943,16 +73943,17 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
     v15 = (char*)output;
     byte_9B151 = 0;
     word_9B14C = *(uint16*)v6x;
-    sub_62D40_63250(2u, &v6x);
+    uint16 CX_ = 0;
+    sub_62D40_63250(&CX_,2u, &v6x);
     do
     {
-        sub_62DC3_632D3(word_9AFC0 ,&v6x);
-        sub_62DC3_632D3(word_9B040, &v6x);
-        sub_62DC3_632D3(word_9B0C0, &v6x);
-        word_9B14A = sub_62D40_63250(0x10u, &v6x);
+        sub_62DC3_632D3(&CX_, word_9AFC0 ,&v6x);
+        sub_62DC3_632D3(&CX_, word_9B040, &v6x);
+        sub_62DC3_632D3(&CX_, word_9B0C0, &v6x);
+        word_9B14A = sub_62D40_63250(&CX_, 0x10u, &v6x);
         while (1)
         {
-            i=sub_62CFD_6320D(word_9AFC0, &v6x);
+            i=sub_62CFD_6320D(&CX_, word_9AFC0, &v6x);
             if ((_WORD)i)
             {
                 qmemcpy(v15, v6x, i);
@@ -73969,15 +73970,17 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
             }
             if (!--word_9B14A)
                 break;
-            i=sub_62CFD_6320D(word_9B040, &v6x);
+            i=sub_62CFD_6320D(&CX_, word_9B040, &v6x);
             v22 = i;
-            i = sub_62CFD_6320D(word_9B0C0, &v6x);
+            sub_62CFD_6320D(&CX_, word_9B0C0, &v6x);
+            i = CX_;
             LOWORD(i) = i + 2;
             v16 = v22;
             LOWORD(v16) = v22 + 1;
             qmemcpy(v15, &v15[-v16], i);
             v15 += i;
             i = 0;
+            CX_ = i;
         }
         byte_9B150--;
     } while (byte_9B150);
@@ -74145,8 +74148,10 @@ uint16 sub_62CF4_63204(uint8** a1)
 
 }
 
+int counter_62CFD_6320D = 0;
+
 //----- (00062CFD) --------------------------------------------------------
-__int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)//233CFD_
+__int16 sub_62CFD_6320D(uint16* a0x, __int16 *a1, uint8_t** a2x)//233CFD_
 {
   __int16 *v3; // esi
   __int16 v5; // ax
@@ -74155,6 +74160,14 @@ __int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)//233CFD_
   __int16 v8; // ax
   __int16 v9; // cx
   __int16 result; // ax
+
+  if (counter_62CFD_6320D == 0x2f)
+  {
+      counter_62CFD_6320D++;
+      counter_62CFD_6320D--;
+  }
+
+  counter_62CFD_6320D++;
 
   v3 = a1;
   do
@@ -74167,16 +74180,25 @@ __int16 sub_62CFD_6320D(__int16 *a1, uint8_t** a2x)//233CFD_
   }
   while ( v8 != v7 );
   v9 = v3[30];
-  result = sub_62D40_63250(HIBYTE(v9), a2x);
-  if ( (unsigned __int8)v9 >= 2u )
-    return (1 << (v9 - 1)) | sub_62D40_63250(v9 - 1, a2x);
+  *a0x = v9;
+  result = sub_62D40_63250(a0x,HIBYTE(v9), a2x);
+  HIBYTE(v9) = 0;
+  if (v9 >= 2u)
+  {
+      v9--;
+      *a0x = v9;
+      __int16 result2 = (1 << v9) | sub_62D40_63250(a0x, v9, a2x);
+      *a0x = result2;
+      return result2;
+  }
+  *a0x = v9;
   return result;
 }
 // 9B14C: using guessed type __int16 word_9B14C;
 
 int compare_index_62D40_63250 = 0;
 //----- (00062D40) --------------------------------------------------------
-__int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
+__int16 sub_62D40_63250(uint16* a0, uint8 a1, uint8** a2x)//233D40_
 {
   unsigned __int16 v3; // ax
   unsigned __int16 v4; // bx
@@ -74185,7 +74207,7 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x37)
+  if (compare_index_62D40_63250 == 0x41)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74199,6 +74221,7 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
   comp20 = compare_with_sequence("00233D40-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
   comp20 = compare_with_sequence("00233D40-FFFFFF01", (uint8_t*)*a2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+  comp20 = compare_with_sequence("00233D40-FFFFFF03", (uint8_t*)a0, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
   comp20 = compare_with_sequence("00233D40-00258FC0", (uint8_t*)word_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
 
@@ -74230,11 +74253,11 @@ __int16 sub_62D40_63250(unsigned __int8 a1, uint8** a2x)//233D40_
 int counter_62DC3_632D3 = 0;
 
 //----- (00062DC3) --------------------------------------------------------
-void sub_62DC3_632D3(__int16* a0, uint8_t** a1x)//233DC3_
+void sub_62DC3_632D3(uint16* a0x, __int16* a0, uint8_t** a1x)//233DC3_
 {
   _BYTE *v1; // edi
   unsigned __int16 v2; // ax
-  int v3; // ecx
+  //int v3; // ecx
   int v4; // ecx
   _BYTE *v5; // esi
   _WORD *v6; // edi
@@ -74263,19 +74286,21 @@ void sub_62DC3_632D3(__int16* a0, uint8_t** a1x)//233DC3_
   //debug
 
   v1 = (uint8*)v22;
-  v2 = sub_62D40_63250(5u, a1x);
-  v3 = v2;
-  if ( v2 )
+  v2 = sub_62D40_63250(a0x,5u, a1x);
+  //v3 = v2;
+  *a0x = v2;
+  if (*a0x)
   {
     v21 = v2;
     do
     {
-      v2 = sub_62D40_63250(4u, a1x);
+      v2 = sub_62D40_63250(a0x,4u, a1x);
       *v1++ = v2;
-      v3--;
+      (*a0x)--;
     }
-    while ( v3 );
+    while (*a0x);
     v4 = v21;
+    *a0x = v21;
     v21 = (int)*a1x;
     v5 = (uint8*)v22;
     //v6 = (_WORD *)v22[4];

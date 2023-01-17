@@ -88395,3 +88395,369 @@ Read fread length 8 result 8
 myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
 myopen:open end 04B0EE40
 Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00B14540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00B14540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04814540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04814540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00B14540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00B14540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 009144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 009144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 044144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 044144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 015144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 015144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 015144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 015144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 041144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 041144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 043144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 043144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04E144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04E144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 016144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 016144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 0130E900
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 0130E900
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00F144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00F144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00D144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00D144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 041144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 041144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 047144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 011144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 011144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 044144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 044144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00A144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 045144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 042144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 046144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04C14540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04C14540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04614540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04614540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 043144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 043144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04614540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04614540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B0E960
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B0E960
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04714540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04714540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04514540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04514540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04114540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04114540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04414540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 048144E0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 0140E900
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 0140E900
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B14540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B14540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B14540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04B14540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00914540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00914540
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00514540
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 00514540
+Read fread length 2785 result 2785
