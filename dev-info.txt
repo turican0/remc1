@@ -1176,6 +1176,13 @@ edi = esi-A
 v6x 0x660BF 0xBB14237
 v15 0x62250 0xBB14230
 
+84b - a0
+
+--------------------
+begWscreen_2ECFF4_2ECFE4
+*pathstruct->colorPalette_var28 02242f
+sub_3EEA0_3F1E0((char*)"data/search.dat", begWscreen_2ECFF4_2ECFE4);
+
 
 
 
