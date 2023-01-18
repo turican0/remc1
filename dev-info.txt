@@ -1184,8 +1184,13 @@ begWscreen_2ECFF4_2ECFE4
 sub_3EEA0_3F1E0((char*)"data/search.dat", begWscreen_2ECFF4_2ECFE4);
 -------------------
 qmemcpy(v15, &v15[-v16], i);
+v16?
  if (counter_58F90_594A0 == 7)
+v15 not edi
 
+v22 EAX not 0x3f versus 0xf
+i=sub_62CFD_6320D(&CX_, word_9B040, &v6x);
+0x233C45
 
 
 
