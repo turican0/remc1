@@ -67302,6 +67302,8 @@ void sub_58F70_59480()
 }
 // 968EC: using guessed type int dword_968EC;
 
+int counter_58F90_594A0 = 0;
+
 //----- (00058F90) --------------------------------------------------------
 void sub_58F90_594A0()//229F90_
 {
@@ -67313,6 +67315,15 @@ void sub_58F90_594A0()//229F90_
   v1 = begWscreen_2ECFF4_2ECFE4;
   while ( v0x->var_6 || v0x->var_8)
   {
+      //debug
+      //229FB9
+      if (counter_58F90_594A0 == 7)
+      {
+          counter_58F90_594A0++;
+          counter_58F90_594A0--;
+      }
+      counter_58F90_594A0++;
+      //debug
     if ( sub_58860_58D70(v0x->var_0, v1) == -1 )
     {
       *(_WORD *)(v1 + 2) = 255;

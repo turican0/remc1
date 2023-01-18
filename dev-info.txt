@@ -1182,7 +1182,9 @@ v15 0x62250 0xBB14230
 begWscreen_2ECFF4_2ECFE4
 *pathstruct->colorPalette_var28 02242f
 sub_3EEA0_3F1E0((char*)"data/search.dat", begWscreen_2ECFF4_2ECFE4);
-
+-------------------
+qmemcpy(v15, &v15[-v16], i);
+ if (counter_58F90_594A0 == 7)
 
 
 
