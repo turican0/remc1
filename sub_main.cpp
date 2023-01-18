@@ -49583,7 +49583,7 @@ void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2)
 }
 
 //----- (0003EEA0) --------------------------------------------------------
-int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)
+int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)//20FEA0_
 {
   FILE* file = DataFileIO::CreateOrOpenFile(FixPath(path), 512);
   if (file != nullptr )
@@ -49594,7 +49594,8 @@ int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)
     int fileLenght2 = sub_62B60_63070(buffer, buffer);
     if (fileLenght2 >= 0 )
     {
-      //if ( !fileLenght)
+      if ( !fileLenght2)
+        return fileLenght;
       return fileLenght2;
     }
     else
@@ -73909,7 +73910,7 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
     byte_9B150 = input_esi[5];
     input_esi += 6;
     //byte_9B150 = input[9];
-    v6x = &input[10+8];
+    v6x = input_esi;
     v7 = &input[dword_9B144 + 18];
     if (v7 > output)
     {
@@ -73954,6 +73955,7 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
         while (1)
         {
             i=sub_62CFD_6320D(&CX_, word_9AFC0, &v6x);
+            i = CX_;
             if ((_WORD)i)
             {
                 qmemcpy(v15, v6x, i);
@@ -74141,8 +74143,8 @@ uint16 sub_62CF4_63204(uint8** a1)
   return (unsigned __int16)__ROL4__(v1, 16) >> 8;
   */
     uaxis_2d result;
-    result._axis_2d.x = *a1[3];
-    result._axis_2d.y = *a1[2];
+    result._axis_2d.x = (*a1)[3];
+    result._axis_2d.y = (*a1)[2];
     *a1 += 4;
     return result.word;
 
@@ -74207,7 +74209,7 @@ __int16 sub_62D40_63250(uint16* a0, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x41)
+  if (compare_index_62D40_63250 == 0x20df)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74215,15 +74217,15 @@ __int16 sub_62D40_63250(uint16* a0, uint8 a1, uint8** a2x)//233D40_
   //add_compare(0x2439A7, true, true);
   uint8 origbyte20;
   uint8 remakebyte20;
-  int comp20 = compare_with_sequence("00233D40-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+  //int comp20 = compare_with_sequence("00233D40-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D40-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D40-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
-  comp20 = compare_with_sequence("00233D40-FFFFFF01", (uint8_t*)*a2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-FFFFFF03", (uint8_t*)a0, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)*a2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)a0, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
-  comp20 = compare_with_sequence("00233D40-00258FC0", (uint8_t*)word_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+  //comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)word_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
 
   compare_index_62D40_63250++;
 #endif debug1
@@ -74568,8 +74570,19 @@ void sub_634A0_639B0(Pathstruct* pathstruct)
 	}
 }
 
+int counter_634E0_639F0 = 0;
+
 int sub_634E0_639F0(Pathstruct* pathstruct)//2344e0_
 {
+    //debug
+    if (counter_634E0_639F0 == 0x1)
+    {
+        counter_634E0_639F0++;
+        counter_634E0_639F0--;
+    }
+    counter_634E0_639F0++;
+    //debug
+
 	void* (*mallocVar)(size_t);
 	sub_63010_63520();
 	if ((pathstruct->var40_alloc_type & 1) != 0)
@@ -74591,6 +74604,7 @@ int sub_634E0_639F0(Pathstruct* pathstruct)//2344e0_
 		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer);
 		if (!(*pathstruct->colorPalette_var28))
 			return -1;
+        
 		if (sub_3EEA0_3F1E0(pathstruct->path, *pathstruct->colorPalette_var28) != pathstruct->var36_size_buffer)
 		{
 			*pathstruct->colorPalette_var28 = 0;
