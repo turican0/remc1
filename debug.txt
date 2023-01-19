@@ -91274,3 +91274,51 @@ Read fread length 8 result 8
 myopen:open file:c:/prenos/magic1/cd2/CARPET/data/font0.dat
 myopen:open end 0470AE20
 Read fread length 1380 result 1380
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04E14C00
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04E14C00
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.tab
+myopen:open end 04E14C00
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.tab
+myopen:open end 04E14C00
+Read fread length 278 result 278
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/font0.dat
+myopen:open end 04E14C00
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/font0.dat
+myopen:open end 04E14C00
+Read fread length 1380 result 1380
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/font0.tab
+myopen:open end 04E14C00
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/font0.tab
+myopen:open end 04E14C00
+Read fread length 671 result 671
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04917060
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04917060
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04613AC0
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04613AC0
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04617240
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04617240
+Read fread length 2785 result 2785
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04710400
+Read fread length 8 result 8
+myopen:open file:c:/prenos/magic1/cd2/CARPET/data/build0-0.dat
+myopen:open end 04710400
+Read fread length 2785 result 2785

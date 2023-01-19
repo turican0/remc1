@@ -1342,11 +1342,11 @@ void free_62128_62638(void* buffer);
 // _DWORD sscanf(_DWORD, _DWORD, ...); weak
 // _DWORD DataFileIO::FileLengthBytes(_DWORD); weak
 //int DataFileIO::Seek(int a1, int a2, char a3);
-int sub_62B60_63070(uint8_t* input, uint8_t* output);
+int RncUnpack_62B60_63070(uint8_t* input, uint8_t* output);
 uint16 sub_62CF4_63204(uint8_t** a1);
-__int16 sub_62CFD_6320D(uint16* a0, __int16 *a1, uint8_t** a2);
-__int16 sub_62D40_63250(uint16* a0, uint8 a1, uint8** a2);
-void sub_62DC3_632D3(uint16* a0x, __int16* a0, uint8_t** a1);
+__int16 HufRead_62CFD_6320D(uint16* a0, __int16 *a1, uint8_t** a2);
+__int16 BitRead_62D40_63250(uint16* a0, uint8 a1, uint8** a2);
+void ReadHuftable_62DC3_632D3(uint16* a0x, __int16* a0, uint8_t** a1);
 void sub_62E60_63370(char* name, uint8* buffer, int size);
 size_t FileWrite_62ED0_633E0(FILE* descriptor, uint8_t* buffer, uint32_t count);
 // _DWORD access(_DWORD, _DWORD); weak
@@ -6413,7 +6413,7 @@ char byte_9AF9C = '\0'; // weak
 int dword_9AFA0 = 0; // weak
 __int16 word_9AFA4 = 0; // weak
 char byte_9AFA8 = '\0'; // weak
-__int16 word_9AFC0[64] =
+__int16 rncRaw_9AFC0[64] =
 {
   0,
   0,
@@ -6480,7 +6480,7 @@ __int16 word_9AFC0[64] =
   0,
   0
 }; // weak
-__int16 word_9B040[64] =
+__int16 rncDist_9B040[64] =
 {
   0,
   0,
@@ -6547,7 +6547,7 @@ __int16 word_9B040[64] =
   0,
   0
 }; // weak
-__int16 word_9B0C0[64] =
+__int16 rncLen_9B0C0[64] =
 {
   0,
   0,
@@ -6614,9 +6614,9 @@ __int16 word_9B0C0[64] =
   0,
   0
 }; // weak
-uint32 dword_9B140 = 0; // weak
-uint32 dword_9B144 = 0; // weak
-__int16 word_9B14A = 0; // weak
+uint32 rncRetLen_9B140 = 0; // weak
+uint32 rncInpLen_9B144 = 0; // weak
+__int16 rncChCount_9B14A = 0; // weak
 uint16 word_9B14C = 0; // weak
 __int16 word_9B14E = 0; // weak
 int8 byte_9B150 = 0; // weak
@@ -49171,7 +49171,7 @@ void LoadLevel_3E100(int level, void* buffer)
     {
       DataFileIO::Seek(fileDat, tabBuffer[level], 0);
       DataFileIO::Read(fileDat, begBscreen_AE3FC_AE3EC_26C3FC_26C3EC, tabBuffer[level + 1] - tabBuffer[level]);
-      if ( sub_62B60_63070(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC, begBscreen_AE3FC_AE3EC_26C3FC_26C3EC) < 0 )
+      if ( RncUnpack_62B60_63070(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC, begBscreen_AE3FC_AE3EC_26C3FC_26C3EC) < 0 )
       {
         printf("ERROR decompressing levels.dat\n");
         return;
@@ -49591,7 +49591,7 @@ int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)//20FEA0_
       int fileLenght = DataFileIO::FileLengthBytes(file);
     DataFileIO::Read(file, buffer, fileLenght);
     DataFileIO::Close(file);
-    int fileLenght2 = sub_62B60_63070(buffer, buffer);
+    int fileLenght2 = RncUnpack_62B60_63070(buffer, buffer);
     if (fileLenght2 >= 0 )
     {
       if ( !fileLenght2)
@@ -66923,7 +66923,7 @@ int sub_58860_58D70(unsigned __int16 a1, uint8_t* a2)//229860_
   DataFileIO::Seek(dword_968EC, begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_4, 0);
   int dataSize = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1 + 1].var_4 - begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_4;
   DataFileIO::Read(dword_968EC, a2, dataSize);
-  result = sub_62B60_63070(a2, a2);
+  result = RncUnpack_62B60_63070(a2, a2);
   if ( result >= 0 )
   {
     if ( !result )
@@ -73862,10 +73862,400 @@ void free_62128_62638_orig(int a1)
   free_426E0_42A20((void*)a1);
 }
 
+//-----------------
+//-----------------
+typedef struct {
+    int num;                   /* number of nodes in the tree */
+    struct {
+        unsigned long code;
+        int codelen;
+        int value;
+    } table[32];
+} huf_table;
+
+typedef struct {
+    unsigned long bitbuf;           /* holds between 16 and 32 bits */
+    int bitcount;               /* how many bits does bitbuf hold? */
+} bit_stream;
+/*
+ * Error returns
+ */
+#define RNC_FILE_IS_NOT_RNC    -1
+#define RNC_HUF_DECODE_ERROR   -2
+#define RNC_FILE_SIZE_MISMATCH -3
+#define RNC_PACKED_CRC_ERROR   -4
+#define RNC_UNPACKED_CRC_ERROR -5
+#define RNC_HEADER_VAL_ERROR   -6
+#define RNC_HUF_EXCEEDS_RANGE  -7
+
+ /*
+  * Flags to ignore errors
+  */
+#define RNC_IGNORE_FILE_IS_NOT_RNC    0x0001
+#define RNC_IGNORE_HUF_DECODE_ERROR   0x0002
+#define RNC_IGNORE_FILE_SIZE_MISMATCH 0x0004
+#define RNC_IGNORE_PACKED_CRC_ERROR   0x0008
+#define RNC_IGNORE_UNPACKED_CRC_ERROR 0x0010
+#define RNC_IGNORE_HEADER_VAL_ERROR   0x0020
+#define RNC_IGNORE_HUF_EXCEEDS_RANGE  0x0040
+
+#define RNC_SIGNATURE 0x524E4301       /* "RNC\001" */ 
+
+short crctab_ready = false;
+unsigned short crctab[256];
+
+long rnc_crc(void* data, unsigned long len)
+{
+    unsigned short val;
+    int i, j;
+    unsigned char* p = (unsigned char*)data;
+    //computing CRC table
+    if (!crctab_ready)
+    {
+        for (i = 0; i < 256; i++)
+        {
+            val = i;
+
+            for (j = 0; j < 8; j++)
+            {
+                if (val & 1)
+                    val = (val >> 1) ^ 0xA001;
+                else
+                    val = (val >> 1);
+            }
+            crctab[i] = val;
+        }
+        crctab_ready = true;
+    }
+
+    val = 0;
+    while (len--)
+    {
+        val ^= *p++;
+        val = (val >> 8) ^ crctab[val & 0xFF];
+    }
+    return val;
+}
+
+static void bitread_init(bit_stream* bs, unsigned char** p, unsigned char* pend)
+{
+    if (pend - (*p) >= 0)
+        bs->bitbuf = *(uint16*)(*p);
+    else
+        bs->bitbuf = 0;
+    bs->bitcount = 16;
+}
+
+static void bit_advance(bit_stream* bs, int n, unsigned char** p, unsigned char* pend)
+{
+    bs->bitbuf >>= n;
+    bs->bitcount -= n;
+    if (bs->bitcount < 16)
+    {
+        (*p) += 2;
+        if (pend - (*p) >= 0)
+            bs->bitbuf |= (*(uint16*)(*p) << bs->bitcount);
+        bs->bitcount += 16;
+    }
+}
+
+static unsigned long bit_peek(bit_stream* bs, unsigned long mask)
+{
+    return bs->bitbuf & mask;
+}
+
+static unsigned long bit_read(bit_stream* bs, unsigned long mask,
+    int n, unsigned char** p, unsigned char* pend)
+{
+    unsigned long result = bit_peek(bs, mask);
+    bit_advance(bs, n, p, pend);
+    return result;
+}
+
+static unsigned long mirror(unsigned long x, int n) {
+    unsigned long top = 1 << (n - 1), bottom = 1;
+    while (top > bottom)
+    {
+        unsigned long mask = top | bottom;
+        unsigned long masked = x & mask;
+        if (masked != 0 && masked != mask)
+            x ^= mask;
+        top >>= 1;
+        bottom <<= 1;
+    }
+    return x;
+}
+
+static void read_huftable(huf_table* h, bit_stream* bs,
+    unsigned char** p, unsigned char* pend)
+{
+    int i, j, k, num;
+    int leaflen[32];
+    int leafmax;
+    unsigned long codeb;           // big-endian form of code
+
+    num = bit_read(bs, 0x1F, 5, p, pend);
+    if (!num)
+        return;
+
+    leafmax = 1;
+    for (i = 0; i < num; i++)
+    {
+        leaflen[i] = bit_read(bs, 0x0F, 4, p, pend);
+        if (leafmax < leaflen[i])
+            leafmax = leaflen[i];
+    }
+
+    codeb = 0L;
+    k = 0;
+    for (i = 1; i <= leafmax; i++)
+    {
+        for (j = 0; j < num; j++)
+            if (leaflen[j] == i)
+            {
+                h->table[k].code = mirror(codeb, i);
+                h->table[k].codelen = i;
+                h->table[k].value = j;
+                codeb++;
+                k++;
+            }
+        codeb <<= 1;
+    }
+
+    h->num = k;
+}
+
+static long huf_read(huf_table* h, bit_stream* bs,
+    unsigned char** p, unsigned char* pend)
+{
+    int i;
+    unsigned long val;
+
+    for (i = 0; i < h->num; i++)
+    {
+        unsigned long mask = (1 << h->table[i].codelen) - 1;
+        if (bit_peek(bs, mask) == h->table[i].code)
+            break;
+    }
+    if (i == h->num)
+        return -1;
+    bit_advance(bs, h->table[i].codelen, p, pend);
+
+    val = h->table[i].value;
+
+    if (val >= 2)
+    {
+        val = 1 << (val - 1);
+        val |= bit_read(bs, val - 1, h->table[i].value - 1, p, pend);
+    }
+    return val;
+}
+
+static void bitread_fix(bit_stream* bs, unsigned char** p, unsigned char* pend)
+{
+    bs->bitcount -= 16;
+    bs->bitbuf &= (1 << bs->bitcount) - 1; // remove the top 16 bits
+    if (pend - (*p) >= 0)
+        bs->bitbuf |= (*(uint16*)(*p) << bs->bitcount);// replace with what's at *p
+    bs->bitcount += 16;
+}
+
+long rnc_unpack(void* packed, void* unpacked, unsigned int flags
+#ifdef COMPRESSOR
+    , long* leeway
+#endif
+)
+{
+    unsigned char* input = (unsigned char*)packed;
+    unsigned char* output = (unsigned char*)unpacked;
+    unsigned char* inputend, * outputend;
+    bit_stream bs;
+    huf_table raw, dist, len;
+    unsigned long ch_count;
+    unsigned long ret_len, inp_len;
+    long out_crc;
+#ifdef COMPRESSOR
+    long lee = 0;
+#endif
+    if (*(uint32*)(input) != RNC_SIGNATURE)
+        if (!(flags & RNC_IGNORE_HEADER_VAL_ERROR)) return RNC_HEADER_VAL_ERROR;
+    ret_len = *(uint32*)(input + 4);
+    inp_len = *(uint32*)(input + 8);
+    if ((ret_len > (1 << 30)) || (inp_len > (1 << 30)))
+        return RNC_HEADER_VAL_ERROR;
+
+    outputend = output + ret_len;
+    inputend = input + 18 + inp_len;
+
+    input += 18;               // skip header
+
+    // Check the packed-data CRC. Also save the unpacked-data CRC
+    // for later.
+
+    if (rnc_crc(input, inputend - input) != (long)*(uint16*)(input - 4))
+        if (!(flags & RNC_IGNORE_PACKED_CRC_ERROR)) return RNC_PACKED_CRC_ERROR;
+    out_crc = *(uint16*)(input - 6);
+
+    bitread_init(&bs, &input, inputend);
+    bit_advance(&bs, 2, &input, inputend);      // discard first two bits
+
+    // Process chunks.
+
+    while (output < outputend)
+    {
+#ifdef COMPRESSOR
+        long this_lee;
+#endif
+        if (inputend - input < 6)
+        {
+            if (!(flags & RNC_IGNORE_HUF_EXCEEDS_RANGE))
+                return RNC_HUF_EXCEEDS_RANGE;
+            else {
+                output = outputend;
+                ch_count = 0;
+                break;
+            }
+        }
+        read_huftable(&raw, &bs, &input, inputend);
+        read_huftable(&dist, &bs, &input, inputend);
+        read_huftable(&len, &bs, &input, inputend);
+        ch_count = bit_read(&bs, 0xFFFF, 16, &input, inputend);
+
+        while (1)
+        {
+            long length, posn;
+
+            length = huf_read(&raw, &bs, &input, inputend);
+            if (length == -1)
+            {
+                if (!(flags & RNC_IGNORE_HUF_DECODE_ERROR))
+                    return RNC_HUF_DECODE_ERROR;
+                else
+                {
+                    output = outputend; ch_count = 0; break;
+                }
+            }
+            if (length)
+            {
+                while (length--)
+                {
+                    if ((input >= inputend) || (output >= outputend))
+                    {
+                        if (!(flags & RNC_IGNORE_HUF_EXCEEDS_RANGE))
+                            return RNC_HUF_EXCEEDS_RANGE;
+                        else {
+                            output = outputend;
+                            ch_count = 0;
+                            break;
+                        }
+                    }
+                    *output++ = *input++;
+                }
+                bitread_fix(&bs, &input, inputend);
+            }
+            if (--ch_count <= 0)
+                break;
+
+            posn = huf_read(&dist, &bs, &input, inputend);
+            if (posn == -1)
+            {
+                if (!(flags & RNC_IGNORE_HUF_DECODE_ERROR))
+                    return RNC_HUF_DECODE_ERROR;
+                else
+                {
+                    output = outputend; ch_count = 0; break;
+                }
+            }
+            length = huf_read(&len, &bs, &input, inputend);
+            if (length == -1)
+            {
+                if (!(flags & RNC_IGNORE_HUF_DECODE_ERROR))
+                    return RNC_HUF_DECODE_ERROR;
+                else
+                {
+                    output = outputend; ch_count = 0; break;
+                }
+            }
+            posn += 1;
+            length += 2;
+            while (length--)
+            {
+                if (((output - posn) < (unsigned char*)unpacked)
+                    || ((output - posn) > (unsigned char*)outputend)
+                    || ((output) < (unsigned char*)unpacked)
+                    || ((output) > (unsigned char*)outputend))
+                {
+                    if (!(flags & RNC_IGNORE_HUF_EXCEEDS_RANGE))
+                        return RNC_HUF_EXCEEDS_RANGE;
+                    else {
+                        output = outputend - 1;
+                        ch_count = 0;
+                        break;
+                    }
+                }
+                *output = output[-posn];
+                output++;
+            }
+#ifdef COMPRESSOR
+            this_lee = (inputend - input) - (outputend - output);
+            if (lee < this_lee)
+                lee = this_lee;
+#endif
+        }
+    }
+
+    if (outputend != output)
+    {
+        if (!(flags & RNC_IGNORE_FILE_SIZE_MISMATCH))
+            return RNC_FILE_SIZE_MISMATCH;
+    }
+
+#ifdef COMPRESSOR
+    if (leeway)
+        *leeway = lee;
+#endif
+
+    // Check the unpacked-data CRC.
+
+    if (rnc_crc(outputend - ret_len, ret_len) != out_crc)
+    {
+        if (!(flags & RNC_IGNORE_UNPACKED_CRC_ERROR))
+            return RNC_UNPACKED_CRC_ERROR;
+    }
+
+    return ret_len;
+}
+
+long UnpackM1(unsigned char* buffer, ulong bufsize)
+{
+    //If file isn't compressed - return zero
+    if (*(uint32*)(buffer + 0) != RNC_SIGNATURE)
+        return 0;
+    // Originally this function was able do decompress data without additional buffer.
+    // If you know how to decompress the data this way, please correct this.
+    ulong packedsize = *(uint32*)(buffer + 4);
+    if (packedsize > bufsize)
+        packedsize = bufsize;
+    void* packed = malloc(packedsize);
+    memcpy(packed, buffer, packedsize);
+    if (packed == NULL) return -1;
+    int retcode = rnc_unpack(packed, buffer, 0);
+    free(packed);
+    return retcode;
+}
+
+int RncUnpack_62B60_63070(uint8_t* input, uint8_t* output) {
+    int result = UnpackM1(input, 0);
+    return result;
+
+};
+//-----------------
+//-----------------
+
 int counter_62B60_63070 = 0;
 //SYNCHRONIZED WITH REMC1
 //int sub_62B60_63070_new(uint8_t* input, uint8_t* output)
-int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
+int RncUnpack_62B60_63070_orig(uint8_t* input, uint8_t* output)//233B60_
 {
     unsigned int i; // ecx
     //int* data; // esi
@@ -73911,8 +74301,8 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
     
     //int* data = (int*)(input + 4);
 
-    dword_9B140 = sub_62CF4_63204(&input_esi);
-    dword_9B144 = sub_62CF4_63204(&input_esi);
+    rncRetLen_9B140 = sub_62CF4_63204(&input_esi);
+    rncInpLen_9B144 = sub_62CF4_63204(&input_esi);
     
 
     
@@ -73923,23 +74313,23 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
     input_esi += 6;
     //byte_9B150 = input[9];
     v6x = input_esi;
-    v7 = &input[dword_9B144 + 18];
+    v7 = &input[rncInpLen_9B144 + 18];
     if (v7 > output)
     {
-        v8 = &output[dword_9B140 + input[16]];
+        v8 = &output[rncRetLen_9B140 + input[16]];
         if (v8 > v7)
         {
             v9 = (_DWORD*)(v7 - 4);
             v10 = v8 - 4;
-            for (i = dword_9B144 >> 2; i; i--)
+            for (i = rncInpLen_9B144 >> 2; i; i--)
             {
                 *(_DWORD*)v10 = *v9--;
                 v10 -= 4;
             }
             v11 = v9 + 1;
             v12 = (uint16*)(v10 + 4);
-            LOWORD(i) = dword_9B144 & 3;
-            if ((dword_9B144 & 3) != 0)
+            LOWORD(i) = rncInpLen_9B144 & 3;
+            if ((rncInpLen_9B144 & 3) != 0)
             {
                 v13 = (uint8*)v11 - 1;
                 v14 = (uint8*)v12 - 1;
@@ -73957,13 +74347,13 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
     byte_9B151 = 0;
     word_9B14C = *(uint16*)v6x;
     uint16 CX_ = 0;
-    sub_62D40_63250(&CX_,2u, &v6x);
+    BitRead_62D40_63250(&CX_,2u, &v6x);
     do
     {
-        sub_62DC3_632D3(&CX_, word_9AFC0 ,&v6x);
-        sub_62DC3_632D3(&CX_, word_9B040, &v6x);
-        sub_62DC3_632D3(&CX_, word_9B0C0, &v6x);
-        word_9B14A = sub_62D40_63250(&CX_, 0x10u, &v6x);
+        ReadHuftable_62DC3_632D3(&CX_, rncRaw_9AFC0 ,&v6x);
+        ReadHuftable_62DC3_632D3(&CX_, rncDist_9B040, &v6x);
+        ReadHuftable_62DC3_632D3(&CX_, rncLen_9B0C0, &v6x);
+        rncChCount_9B14A = BitRead_62D40_63250(&CX_, 0x10u, &v6x);
         while (1)
         {
             //debug
@@ -73980,7 +74370,7 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
             counter_62B60_63070++;
             //debug
 
-            i=sub_62CFD_6320D(&CX_, word_9AFC0, &v6x);
+            i=HufRead_62CFD_6320D(&CX_, rncRaw_9AFC0, &v6x);
             i = CX_;
             if ((_WORD)i)
             {
@@ -73996,11 +74386,11 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
                 word_9B14C |= v17 << byte_9B151;
                 word_9B14E = v20;
             }
-            if (!--word_9B14A)
+            if (!--rncChCount_9B14A)
                 break;
-            i=sub_62CFD_6320D(&CX_, word_9B040, &v6x);
+            i=HufRead_62CFD_6320D(&CX_, rncDist_9B040, &v6x);
             v22 = i;
-            i = sub_62CFD_6320D(&CX_, word_9B0C0, &v6x);
+            i = HufRead_62CFD_6320D(&CX_, rncLen_9B0C0, &v6x);
             i = CX_;
             LOWORD(i) = i + 2;
             v16 = v22;
@@ -74012,7 +74402,7 @@ int sub_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
         }
         byte_9B150--;
     } while (byte_9B150);
-    return dword_9B140;
+    return rncRetLen_9B140;
 }
 
 int sub_62B60_63070_new(uint8_t* input, uint8_t* output)
@@ -74179,7 +74569,7 @@ uint16 sub_62CF4_63204(uint8** a1)
 int counter_62CFD_6320D = 0;
 
 //----- (00062CFD) --------------------------------------------------------
-__int16 sub_62CFD_6320D(uint16* CX_, __int16 *a1, uint8_t** a2x)//233CFD_
+__int16 HufRead_62CFD_6320D(uint16* CX_, __int16 *a1, uint8_t** a2x)//233CFD_
 {
   __int16 *v3; // esi
   __int16 v5; // ax
@@ -74209,14 +74599,14 @@ __int16 sub_62CFD_6320D(uint16* CX_, __int16 *a1, uint8_t** a2x)//233CFD_
   while ( v8 != v7 );
   v9 = v3[30];
   *CX_ = v9;
-  result = sub_62D40_63250(CX_,HIBYTE(v9), a2x);
+  result = BitRead_62D40_63250(CX_,HIBYTE(v9), a2x);
   //result = *a0x;
   HIBYTE(v9) = 0;
   if (v9 >= 2u)
   {
       v9--;
       *CX_ = v9;
-      __int16 result2 = (1 << v9) | sub_62D40_63250(CX_, v9, a2x);
+      __int16 result2 = (1 << v9) | BitRead_62D40_63250(CX_, v9, a2x);
       *CX_ = result2;
       return result2;
   }
@@ -74227,7 +74617,7 @@ __int16 sub_62CFD_6320D(uint16* CX_, __int16 *a1, uint8_t** a2x)//233CFD_
 
 int compare_index_62D40_63250 = 0;
 //----- (00062D40) --------------------------------------------------------
-__int16 sub_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
+__int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 {
   unsigned __int16 v3; // ax
   unsigned __int16 v4; // bx
@@ -74252,7 +74642,7 @@ __int16 sub_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
   comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)*a2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
   comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
-  comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)word_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+  comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
 
   compare_index_62D40_63250++;
 #endif debug1
@@ -74283,7 +74673,7 @@ __int16 sub_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 int counter_62DC3_632D3 = 0;
 
 //----- (00062DC3) --------------------------------------------------------
-void sub_62DC3_632D3(uint16* CX_, __int16* a0, uint8_t** a1x)//233DC3_
+void ReadHuftable_62DC3_632D3(uint16* CX_, __int16* a0, uint8_t** a1x)//233DC3_
 {
   _BYTE *v1; // edi
   unsigned __int16 v2; // ax
@@ -74316,7 +74706,7 @@ void sub_62DC3_632D3(uint16* CX_, __int16* a0, uint8_t** a1x)//233DC3_
   //debug
 
   v1 = (uint8*)v22;
-  v2 = sub_62D40_63250(CX_,5u, a1x);
+  v2 = BitRead_62D40_63250(CX_,5u, a1x);
   //v3 = v2;
   *CX_ = v2;
   if (*CX_)
@@ -74324,7 +74714,7 @@ void sub_62DC3_632D3(uint16* CX_, __int16* a0, uint8_t** a1x)//233DC3_
     v21 = v2;
     do
     {
-      v2 = sub_62D40_63250(CX_,4u, a1x);
+      v2 = BitRead_62D40_63250(CX_,4u, a1x);
       *v1++ = v2;
       (*CX_)--;
     }
