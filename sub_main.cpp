@@ -74236,7 +74236,7 @@ __int16 sub_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x1)
+  if (compare_index_62D40_63250 == 0x2616)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;

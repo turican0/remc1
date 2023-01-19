@@ -1192,6 +1192,8 @@ v22 EAX not 0x3f versus 0xf
 i=sub_62CFD_6320D(&CX_, word_9B040, &v6x);
 0x233C45
 
+&output[0x5fa+15] not 0xbe
+
 
 
 
