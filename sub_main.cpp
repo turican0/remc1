@@ -49582,9 +49582,21 @@ void CreateGameDir_3EC90_3EFD0(uint8_t diskChar, char* dir1, char* dir2)
     }
 }
 
+int counter_3EEA0_3F1E0 = 0;
 //----- (0003EEA0) --------------------------------------------------------
 int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)//20FEA0_
 {
+    if (dword_12DF8C_12DF7C[0xfb] != 0)
+    {
+        counter_3EEA0_3F1E0++;
+        counter_3EEA0_3F1E0--;
+    }
+    if (counter_3EEA0_3F1E0 == 0x12)
+    {
+        counter_3EEA0_3F1E0++;
+        counter_3EEA0_3F1E0--;
+    }
+    counter_3EEA0_3F1E0++;
   FILE* file = DataFileIO::CreateOrOpenFile(FixPath(path), 512);
   if (file != nullptr )
   {
@@ -54439,16 +54451,27 @@ void sub_44470_447B0()//215470_
 }
 
 //----- (00044700) --------------------------------------------------------
-void sub_44700_44A40(char* a1, char** a2, int a3)
+void sub_44700_44A40(char* a1, char** a2, int a3)//215700_
 {
     for (int i = 0; i < a3; i++)
     {
         a2[i] = a1;
         a1 += strlen(a1) + 1;
     }
-    sub_44470_447B0();
 }
 // 44718: control flows out of bounds to 446F1
+
+/*
+void sub_44700_44A40x(int* a1, int* a2, int* a3) {
+    int ebx = 0, esi = *a3, edi = *a2;
+    char cl = 0;
+    do {
+        int edx = ebx;
+        ebx += 4;
+        a2[edx] = *a1;
+        while (cl != *a1++);
+    } while (esi-- != -1);
+}*/
 
 //----- (00044730) --------------------------------------------------------
 void sub_44730_44A70()//215730_
@@ -67055,6 +67078,7 @@ int sub_58AD0(unsigned __int16 a1)
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 
 int counter_sub_58B30_59040 = 0;
+int counter_sub_58B30_59040_2 = 0;
 
 //SYNCHRONIZED WITH REMC1
 void sub_58B30_59040(unsigned __int16 a1)//229B30_
@@ -67068,7 +67092,7 @@ void sub_58B30_59040(unsigned __int16 a1)//229B30_
   //allert_error();//test it
 
   //debug
-  if (counter_sub_58B30_59040 == 0x34)
+  if (counter_sub_58B30_59040 == 0xfb)
   {
       counter_sub_58B30_59040++;
       counter_sub_58B30_59040--;
@@ -67081,6 +67105,14 @@ void sub_58B30_59040(unsigned __int16 a1)//229B30_
   v6 = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8;
   for ( i = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8; i < 529; i++ )
   {
+      //debug
+      if (counter_sub_58B30_59040_2==0xb2)
+      {
+          counter_sub_58B30_59040_2++;
+          counter_sub_58B30_59040_2--;
+      }
+      counter_sub_58B30_59040_2++;
+      //debug
     //v1 = (int)begTmapsTab_12D744_2EB744_2EB734 + 10 * i;
     if ( v6 != begTmapsTab_12D744_12D734_2EB744_2EB734x[i].var_8)
       break;
@@ -74677,15 +74709,15 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0xc3628)
+  if (compare_index_62D40_63250 == 0xf0d5a)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
   }
   //add_compare(0x2439A7, true, true);
 
-  /*
-  if (compare_index_62D40_63250>0xc3000)
+  
+  if (compare_index_62D40_63250>0xf0700)
   {
       uint8 origbyte20;
       uint8 remakebyte20;
@@ -74744,12 +74776,88 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
       {
           nextskip = 0x10 - 2;
       }
+        if ((compare_index_62D40_63250 >= 0x000f0d5b) && (compare_index_62D40_63250 <= 0x000f0d5b))
+        {
+            nextskip = 0x10 - 1;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0d5c) && (compare_index_62D40_63250 <= 0x000f0d5f))
+        {
+            nextskip = 0x10 - 3;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0d60) && (compare_index_62D40_63250 <= 0x000f0d60))
+        {
+            nextskip = 0x10 - 4;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0d61) && (compare_index_62D40_63250 <= 0x000f0d65))
+        {
+            nextskip = 0x10 - 6;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0d66) && (compare_index_62D40_63250 <= 0x000f0d69))
+        {
+            nextskip = 0x10 - 8;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0ed6) && (compare_index_62D40_63250 <= 0x000f0ed9))
+        {
+            nextskip = 0x10 - 1;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0eda) && (compare_index_62D40_63250 <= 0x000f0edf))
+        {
+            nextskip = 0x10 - 3;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0ee0) && (compare_index_62D40_63250 <= 0x000f0ee3))
+        {
+            nextskip = 0x10 - 5;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0ee4) && (compare_index_62D40_63250 <= 0x000f0ee4))
+        {
+            nextskip = 0x10 - 7;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0ee5) && (compare_index_62D40_63250 <= 0x000f0ee9))
+        {
+            nextskip = 0x10 - 8;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0eea) && (compare_index_62D40_63250 <= 0x000f0eeb))
+        {
+            nextskip = 0x10 - 12;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f0eec) && (compare_index_62D40_63250 <= 0x000f0eee))
+        {
+            nextskip = 0x10 - 14;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f19ab) && (compare_index_62D40_63250 <= 0x000f19ab))
+        {
+            nextskip = 0x10 - 2;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f223a) && (compare_index_62D40_63250 <= 0x000f223c))
+        {
+            nextskip = 0x10 - 1;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f223d) && (compare_index_62D40_63250 <= 0x000f223f))
+        {
+            nextskip = 0x10 - 3;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2240) && (compare_index_62D40_63250 <= 0x000f2244))
+        {
+            nextskip = 0x10 - 5;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2245) && (compare_index_62D40_63250 <= 0x000f2249))
+        {
+            nextskip = 0x10 - 7;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f224a) && (compare_index_62D40_63250 <= 0x000f224e))
+        {
+            nextskip = 0x10 - 9;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f224f) && (compare_index_62D40_63250 <= 0x000f2250))
+        {
+            nextskip = 0x10 - 11;
+        }
       comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
       comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
       comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
   }
-  */
+  
   compare_index_62D40_63250++;
 #endif debug1
   //debug

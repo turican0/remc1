@@ -21,3 +21,17 @@ edi = 0x7183C5 (esi+0x1892D)
 sub_3EEA0_3F1E0
 
 0x9df00
+
+*(uint32*)dword_12DF8C_12DF7C[0xfb]
+
+0xb2
+
+0x144cb4
+ec78b
+0xd0000 -ok
+
+word_9B14C 8888 versus 9094
+
+sub_44700_44A40 215700
+
+test JUMPOUT
