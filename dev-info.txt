@@ -1196,6 +1196,9 @@ i=sub_62CFD_6320D(&CX_, word_9B040, &v6x);
 
 ------------------------
 https://github.com/mefistotelis/swars/blob/f832cbafaa5d980aa6199df03d0186da5ce1d93f/bflibrary/src/general/rnc_1fm.c
+----------------
+word_9B14E 0 versus 0x351
+0x25914e
 
 
 

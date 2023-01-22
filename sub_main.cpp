@@ -1343,7 +1343,7 @@ void free_62128_62638(void* buffer);
 // _DWORD DataFileIO::FileLengthBytes(_DWORD); weak
 //int DataFileIO::Seek(int a1, int a2, char a3);
 int RncUnpack_62B60_63070(uint8_t* input, uint8_t* output);
-uint16 sub_62CF4_63204(uint8_t** a1);
+uint32 sub_62CF4_63204(uint8_t** a1);
 __int16 HufRead_62CFD_6320D(uint16* a0, __int16 *a1, uint8_t** a2);
 __int16 BitRead_62D40_63250(uint16* a0, uint8 a1, uint8** a2);
 void ReadHuftable_62DC3_632D3(uint16* a0x, __int16* a0, uint8_t** a1);
@@ -74418,6 +74418,8 @@ int RncUnpack_62B60_63070(uint8_t* input, uint8_t* output)//233B60_
                 v6x += i;
                 v15 += i;
                 i = (unsigned __int8)byte_9B151;
+                CX_ &= 0xff00;
+                CX_ |= i;
                 v17 = *(uint16*)v6x;
                 v18 = __ROL2__(*(uint16*)v6x, byte_9B151);
                 v19 = (1 << byte_9B151) - 1;
@@ -74589,7 +74591,7 @@ int sub_62B60_63070_orig(int a1, char *a2)
 */
 
 //----- (00062CF4) --------------------------------------------------------
-uint16 sub_62CF4_63204(uint8** a1)
+uint32 sub_62CF4_63204(uint8** a1)
 {
     /*
   int v1; // eax
@@ -74599,11 +74601,19 @@ uint16 sub_62CF4_63204(uint8** a1)
   LOBYTE(v1) = BYTE1(*a1);
   return (unsigned __int16)__ROL4__(v1, 16) >> 8;
   */
+    uint32 n;
+    n = (*a1)[0];
+    n = (n << 8) + (*a1)[1];
+    n = (n << 8) + (*a1)[2];
+    n = (n << 8) + (*a1)[3];
+    *a1 += 4;
+    return n;
+    /*
     uaxis_2d result;
     result._axis_2d.x = (*a1)[3];
     result._axis_2d.y = (*a1)[2];
     *a1 += 4;
-    return result.word;
+    return result.word;*/
 
 }
 
@@ -74667,97 +74677,79 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x2971)
+  if (compare_index_62D40_63250 == 0xc3628)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
   }
   //add_compare(0x2439A7, true, true);
-  uint8 origbyte20;
-  uint8 remakebyte20;
-  int comp20 = compare_with_sequence("00233D40-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D40-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
-  char tempa2x[0x10];
-  for (int iii = 0; iii < 0x10; iii++)
+  /*
+  if (compare_index_62D40_63250>0xc3000)
   {
-      tempa2x[iii] = (*a2x)[iii];
-  }
-  if ((compare_index_62D40_63250 >= 0x20a8)&&(compare_index_62D40_63250 <= 0x20ab))
-      tempa2x[15] = 0;
-  if ((compare_index_62D40_63250 >= 0x20ac) && (compare_index_62D40_63250 <= 0x20af))
-  {
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  if ((compare_index_62D40_63250 >= 0x20b0) && (compare_index_62D40_63250 <= 0x20b1))
-  {
-      tempa2x[11] = 0;
-      tempa2x[12] = 0;
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  if ((compare_index_62D40_63250 >= 0x20b2) && (compare_index_62D40_63250 <= 0x20b5))
-  {
-      tempa2x[9] = 0;
-      tempa2x[10] = 0;
-      tempa2x[11] = 0;
-      tempa2x[12] = 0;
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  if ((compare_index_62D40_63250 >= 0x20b6) && (compare_index_62D40_63250 <= 0x20b9))
-  {
-      tempa2x[7] = 0;
-      tempa2x[8] = 0;
-      tempa2x[9] = 0;
-      tempa2x[10] = 0;
-      tempa2x[11] = 0;
-      tempa2x[12] = 0;
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  if ((compare_index_62D40_63250 >= 0x20ba) && (compare_index_62D40_63250 <= 0x20bf))
-  {
-      tempa2x[5] = 0;
-      tempa2x[6] = 0;
-      tempa2x[7] = 0;
-      tempa2x[8] = 0;
-      tempa2x[9] = 0;
-      tempa2x[10] = 0;
-      tempa2x[11] = 0;
-      tempa2x[12] = 0;
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  if ((compare_index_62D40_63250 >= 0x20c0) && (compare_index_62D40_63250 <= 0x20c1))
-  {
-      tempa2x[3] = 0;
-      tempa2x[4] = 0;
-      tempa2x[5] = 0;
-      tempa2x[6] = 0;
-      tempa2x[7] = 0;
-      tempa2x[8] = 0;
-      tempa2x[9] = 0;
-      tempa2x[10] = 0;
-      tempa2x[11] = 0;
-      tempa2x[12] = 0;
-      tempa2x[13] = 0;
-      tempa2x[14] = 0;
-      tempa2x[15] = 0;
-  }
-  //comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
-  comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+      uint8 origbyte20;
+      uint8 remakebyte20;
+      int comp20 = compare_with_sequence("00233D42-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
+      comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+      comp20 = compare_with_sequence("00233D42-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+      comp20 = compare_with_sequence("00233D42-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
-  comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+      char tempa2x[0x10];
+      long nextskip = 1000000;
+      for (int iii = 0; iii < 0x10; iii++)
+      {
+          tempa2x[iii] = (*a2x)[iii];
+      }
+      if ((compare_index_62D40_63250 >= 0x20a8) && (compare_index_62D40_63250 <= 0x20ab))
+          nextskip = 0x10 - 1;
+      if ((compare_index_62D40_63250 >= 0x20ac) && (compare_index_62D40_63250 <= 0x20af))
+      {
+          nextskip = 0x10 - 3;
+      }
+      if ((compare_index_62D40_63250 >= 0x20b0) && (compare_index_62D40_63250 <= 0x20b1))
+      {
+          nextskip = 0x10 - 5;
+      }
+      if ((compare_index_62D40_63250 >= 0x20b2) && (compare_index_62D40_63250 <= 0x20b5))
+      {
+          nextskip = 0x10 - 7;
+      }
+      if ((compare_index_62D40_63250 >= 0x20b6) && (compare_index_62D40_63250 <= 0x20b9))
+      {
+          nextskip = 0x10 - 9;
+      }
+      if ((compare_index_62D40_63250 >= 0x20ba) && (compare_index_62D40_63250 <= 0x20bf))
+      {
+          nextskip = 0x10 - 11;
+      }
+      if ((compare_index_62D40_63250 >= 0x20c0) && (compare_index_62D40_63250 <= 0x20c1))
+      {
+          nextskip = 0x10 - 13;
+      }
+      if ((compare_index_62D40_63250 >= 0x20c2) && (compare_index_62D40_63250 <= 0x20c2))
+      {
+          nextskip = 0x10 - 14;
+      }
+      if ((compare_index_62D40_63250 >= 0x2617) && (compare_index_62D40_63250 <= 0x261b))
+          nextskip = 0x10 - 1;
+      if ((compare_index_62D40_63250 >= 0x261c) && (compare_index_62D40_63250 <= 0x261c))
+      {
+          nextskip = 0x10 - 2;
+      }
+      if ((compare_index_62D40_63250 >= 0x261d) && (compare_index_62D40_63250 <= 0x2620))
+      {
+          nextskip = 0x10 - 4;
+      }
+      if ((compare_index_62D40_63250 >= 0x2656) && (compare_index_62D40_63250 <= 0x2656))
+      {
+          nextskip = 0x10 - 2;
+      }
+      comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
+      comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
+      comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
+  }
+  */
   compare_index_62D40_63250++;
 #endif debug1
   //debug
@@ -75107,7 +75099,7 @@ int counter_634E0_639F0 = 0;
 int sub_634E0_639F0(Pathstruct* pathstruct)//2344e0_
 {
     //debug
-    if (counter_634E0_639F0 == 0x5)
+    if (counter_634E0_639F0 == 0x11)
     {
         counter_634E0_639F0++;
         counter_634E0_639F0--;
@@ -75133,7 +75125,7 @@ int sub_634E0_639F0(Pathstruct* pathstruct)//2344e0_
 		pathstruct->var36_size_buffer = GetRNCFilesize_63910_63E20(pathstruct);
 		if (pathstruct->var36_size_buffer <= 0)
 			return 0;
-		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer+1);
+		*pathstruct->colorPalette_var28 = (uint8_t*)mallocVar(pathstruct->var36_size_buffer+0x10);
 		if (!(*pathstruct->colorPalette_var28))
 			return -1;
         

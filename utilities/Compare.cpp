@@ -98,7 +98,7 @@ int getcompindex(uint32_t adress) {
 	}
 };
 
-uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint32_t  /*adressdos*/, long count, long size1, uint32_t size2, uint8_t* origbyte, uint8_t* copybyte, long offset, bool regressions) {
+uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint32_t  /*adressdos*/, long count, long size1, uint32_t size2, uint8_t* origbyte, uint8_t* copybyte, long offset, bool regressions, long skip) {
 	std::string finddir;
 	uint8_t* buffer = (uint8_t*)malloc(size2);
 	FILE* fptestepc;
@@ -145,7 +145,8 @@ uint32_t compare_with_sequence(const char* filename, const uint8_t* adress, uint
 			break;
 		}
 	}
-
+	if (skip < size2)
+		size2 = skip;
 	if (i < size2) {
 		std::cout << "Regression compare sequence error @ function " << __FUNCTION__ << ", line " << __LINE__ << ": " << i << std::endl;
 		allert_error();
