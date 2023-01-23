@@ -74709,7 +74709,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0xf0d5a)
+  if (compare_index_62D40_63250 == 0xf2255)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74717,12 +74717,14 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
   //add_compare(0x2439A7, true, true);
 
   
-  if (compare_index_62D40_63250>0xf0700)
+  if (compare_index_62D40_63250>0xf2000)
   {
       uint8 origbyte20;
       uint8 remakebyte20;
       int comp20 = compare_with_sequence("00233D42-00259151", (uint8_t*)&byte_9B151, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
-      comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
+      if((compare_index_62D40_63250!= 0xf2256)&&
+          (compare_index_62D40_63250 != 0xf2257))
+        comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
       comp20 = compare_with_sequence("00233D42-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
       comp20 = compare_with_sequence("00233D42-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
@@ -74848,9 +74850,17 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
         {
             nextskip = 0x10 - 9;
         }
-        if ((compare_index_62D40_63250 >= 0x000f224f) && (compare_index_62D40_63250 <= 0x000f2250))
+        if ((compare_index_62D40_63250 >= 0x000f224f) && (compare_index_62D40_63250 <= 0x000f2252))
         {
             nextskip = 0x10 - 11;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2253) && (compare_index_62D40_63250 <= 0x000f2255))
+        {
+            nextskip = 0x10 - 13;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2256) && (compare_index_62D40_63250 <= 0x000f2257))
+        {
+            nextskip = 0x10 - 15;
         }
       comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
       comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
