@@ -38,3 +38,8 @@ test JUMPOUT
 
 
 0x25914e word_9B14E 4 versus 0
+
+a02 a
+a04 b c d
+a06 e f
+

@@ -74709,7 +74709,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0xf2255)
+  if (compare_index_62D40_63250 == 0xf3045)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74862,7 +74862,43 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
         {
             nextskip = 0x10 - 15;
         }
-      comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
+        if ((compare_index_62D40_63250 >= 0x000f27c0) && (compare_index_62D40_63250 <= 0x000f27c4))
+        {
+            nextskip = 0x10 - 1;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f27c5) && (compare_index_62D40_63250 <= 0x000f27c7))
+        {
+            nextskip = 0x10 - 2;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f27c8) && (compare_index_62D40_63250 <= 0x000f27c9))
+        {
+            nextskip = 0x10 - 4;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f27ca) && (compare_index_62D40_63250 <= 0x000f27ce))
+        {
+            nextskip = 0x10 - 5;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f27cf) && (compare_index_62D40_63250 <= 0x000f27d3))
+        {
+            nextskip = 0x10 - 6;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2ee7) && (compare_index_62D40_63250 <= 0x000f2ee9))
+        {
+            nextskip = 0x10 - 1;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2eea) && (compare_index_62D40_63250 <= 0x000f2eea))
+        {
+            nextskip = 0x10 - 2;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2eeb) && (compare_index_62D40_63250 <= 0x000f2eed))
+        {
+            nextskip = 0x10 - 4;
+        }
+        if ((compare_index_62D40_63250 >= 0x000f2eee) && (compare_index_62D40_63250 <= 0x000f2eef))
+        {
+            nextskip = 0x10 - 6;
+        }
+      //comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
       comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
 
       comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
