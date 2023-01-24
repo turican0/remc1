@@ -74727,9 +74727,13 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
           && (compare_index_62D40_63250 != 0x000f3046)
           && (compare_index_62D40_63250 != 0x000f3047)
           && (compare_index_62D40_63250 != 0x000f3048)
-          && (compare_index_62D40_63250 != 0x000f3049))
+          && (compare_index_62D40_63250 != 0x000f3049)
+          && (compare_index_62D40_63250 != 0x00140b50)
+          && (compare_index_62D40_63250 != 0x00140b51))
         comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
-      if ((compare_index_62D40_63250 != 0x000f3049))
+      if ((compare_index_62D40_63250 != 0x000f3049)
+          && (compare_index_62D40_63250 != 0x00140b52)
+          && (compare_index_62D40_63250 != 0x00140b53))
         comp20 = compare_with_sequence("00233D42-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
       comp20 = compare_with_sequence("00233D42-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
@@ -74914,6 +74918,18 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
         if ((compare_index_62D40_63250 >= 0x000f3048) && (compare_index_62D40_63250 <= 0x000f3049))
         {
             nextskip = 0x10 - 15;
+        }
+        if ((compare_index_62D40_63250 >= 0x00140b4c) && (compare_index_62D40_63250 <= 0x00140b4f))
+        {
+            nextskip = 0x10 - 13;
+        }
+        if ((compare_index_62D40_63250 >= 0x00140b50) && (compare_index_62D40_63250 <= 0x00140b51))
+        {
+            nextskip = 0x10 - 14;
+        }
+        if ((compare_index_62D40_63250 >= 0x00140b52) && (compare_index_62D40_63250 <= 0x00140b54))
+        {
+            nextskip = 0x10 - 16;
         }
       comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
       comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
