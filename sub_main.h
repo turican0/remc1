@@ -36,7 +36,7 @@ typedef struct {
 } Type_99974;
 #pragma pack (16)
 
-extern int dword_A99A0_A99B8;
+extern char string_A99A0_A99B8[4];
 
 extern uint8_t* begSearch_AE3F4_26C3F4_26C3E4;
 extern TypeTab* begBuildTab_AE440_AE430_26C440_26C430;

@@ -6453,9 +6453,9 @@ char pathBuffer_9ADC8[64]; // weak
 __int16 word_9ADFA = 0; // weak
 __int16 word_9ADFC = 0; // weak
 //char aDataMusic00Dat[18] = "data/music0-0.dat"; // weak
-char aDataMusic00Tab[18] = "data/music0-0.tab"; // weak
+//char aDataMusic00Tab[18] = "data/music0-0.tab"; // weak
 //char aDataSnds00Dat[17] = "data/snds0-0.dat"; // weak
-char aDataSnds00Tab[17] = "data/snds0-0.tab"; // weak
+//char aDataSnds00Tab[17] = "data/snds0-0.tab"; // weak
 int dword_9AF08 = 0; // weak
 int dword_9AF0C = 0; // weak
 int dword_9AF10 = 0; // weak
@@ -12627,7 +12627,7 @@ int dword_A8874 = 16; // weak
 //char aPassword[9] = "password"; // weak
 //char aPlayers[8] = "players"; // weak
 //char aSession[8] = "session"; // weak
-char byte_A9058 = '\0'; // weak
+//char byte_A9058 = '\0'; // weak
 //char aInitialiseMusi[17] = "Initialise Music"; // weak
 //char aInitialiseSoun[17] = "Initialise Sound"; // weak
 //char aSoundDisabled[15] = "Sound Disabled"; // weak
@@ -12681,7 +12681,7 @@ char byte_A9058 = '\0'; // weak
 //char aInitialiseMode[18] = "Initialise Models"; // weak
 char asc_A95F4[2] = " "; // weak
 char aNetbios[8] = "netbios"; // weak
-_UNKNOWN unk_A9608; // weak
+//_UNKNOWN unk_A9608; // weak
 //char aDataInstBnk[14] = "data\\inst.bnk"; // weak
 //char aDataDrumBnk[14] = "data\\drum.bnk"; // weak
 char aSblast_0[7] = "SBLAST"; // weak
@@ -12703,7 +12703,7 @@ char aWblast[7] = "WBLAST"; // weak
 char aRoland[7] = "ROLAND"; // weak
 char aGeneral[8] = "GENERAL"; // weak
 
-int dword_A99A0_A99B8 = 5457241; // weak
+char string_A99A0_A99B8[4] = "SEY"; // weak
 //char aCarpetCd_1[11] = "\\carpet.cd"; // weak
 //char aC[3] = "C:"; // weak
 //char aE388[5] = "e388"; // weak
@@ -14961,13 +14961,13 @@ int array_12C970[6]; // weak
 //int dword_12C97C; // weak
 //int dword_12C980; // weak
 //int dword_12C984; // weak
-int unk_12C988[6]; // weak
+char string_12C988[0x18]; // weak
 char string_12C9A0_12C990[32]; // weak
 char string_12C9C0_12C9B0[32]; // weak
 char string_12C9E0_12C9D0[32]; // weak
 char string_12CA00_12C9F0[32]; // weak
-__int16 word_12CA20_12CA10; // weak
-_UNKNOWN unk_12CA60; // weak
+char string_12CA20_12CA10[64]; // weak
+char string_12CA60[0x18]; // weak
 int dword_12CA78; // weak
 bool bool_12CA7C_12CA6C; // weak
 char string_12CA80_12CA70[10]; // weak
@@ -14976,7 +14976,7 @@ char string_12CA94_12CA84[10]; // weak
 char string_12CA9E_12CA8E[10]; // weak
 char string_12CAA8_12CA98[10]; // weak
 char string_12CAB2_12CAA2[10]; // weak
-int dword_12CABC_12CAAC; // weak
+char string_12CABC_12CAAC[10]; // weak
 char string_12CAC6_12CAB6[10]; // weak
 char string_12CAD0_12CAC0[10]; // weak
 //int dword_12CADC; // weak
@@ -41344,8 +41344,8 @@ void TopProcedure_340B0_34470(int argc, const char** argv)//2050B0_205470
         if ( !str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u8_13327 )
           sub_34460_34820();
         sub_34B00_34EC0();//find here 205241
-        sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
-        sub_61610_61B20((Pathstruct*)"data/music0-0.dat");
+        sub_61610_61B20(&pathStrArray_258E00[PS25datasnds00dat]);
+        sub_61610_61B20(&pathStrArray_258E00[PS25datamusic00dat]);
         sub_41540_41880();
         if ( !str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u8_13327 )
         {
@@ -42055,7 +42055,7 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		str_AE400_AE3F0->set.var_u8_8600 = 40;
 		str_AE400_AE3F0->var_u16_10 = varPlayers;
 		strcpy(str_AE408_AE3F8->textBuffer_117, textBuffer3);
-		str_AE408_AE3F8->var_u8_29[0] = byte_A9058;
+		str_AE408_AE3F8->var_u8_29[0] = 0;
 		if (!varDetail)
 		{
 			str_AE400_AE3F0->set.reflections_8597 = 0;
@@ -54310,7 +54310,7 @@ LABEL_41:
 LABEL_63:
       byte_939E4 = 0;
       byte_939E5 = 0;
-      sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
+      sub_61610_61B20(&pathStrArray_258E00[PS25datasnds00dat]);
       return;
     }
     v7 = 1;
@@ -54329,7 +54329,7 @@ LABEL_63:
       sub_63C06();
       byte_939E4 = 0;
       byte_939E5 = 0;
-      sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
+      sub_61610_61B20(&pathStrArray_258E00[PS25datasnds00dat]);
       return;
     }
     sub_63C06();
@@ -54375,7 +54375,7 @@ LABEL_63:
   sub_6481C();
   byte_939E4 = 0;
   byte_939E5 = 0;
-  sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
+  sub_61610_61B20(&pathStrArray_258E00[PS25datasnds00dat]);
 }
 // 5CC03: using guessed type _DWORD printf(const char *, ...);
 // 61EF5: using guessed type _DWORD stricmp(_DWORD, _DWORD);
@@ -58172,9 +58172,9 @@ void sub_4AC70_4AFB0()//21BC70_
 					case 6:
 						if (sub_4B520())
 						{
-							sprintf((char*)&word_12CA20_12CA10, "%s", off_4A7B4[2 * (unsigned __int8)byte_12CBCB + 0]);
-							sprintf((char*)&dword_12CABC_12CAAC, "%s", off_4A7B4[2 * (unsigned __int8)byte_12CBCB + 1]);
-							if (!strcmp((const char*)&dword_12CABC_12CAAC, (const char*)&dword_A99A0_A99B8))
+							sprintf(string_12CA20_12CA10, "%s", off_4A7B4[2 * (unsigned __int8)byte_12CBCB + 0]);
+							sprintf(string_12CABC_12CAAC, "%s", off_4A7B4[2 * (unsigned __int8)byte_12CBCB + 1]);
+							if (!strcmp(string_12CABC_12CAAC, string_A99A0_A99B8))
 							{
 								sprintf(textBuffer, "%s%s\\sndsetup.inf", "C:", "\\carpet.cd");
 								FILE* file = fopen(textBuffer, "w");
@@ -58926,7 +58926,7 @@ LABEL_79:
           v2 = 1;
           dword_12CBB8 = str_AE408_AE3F8->var_u16_17;
           bool_96880 = true;
-          qmemcpy(&unk_12CA60, (const void *)(dword_AE400_AE3F0() + 15318), 0x18u);
+          qmemcpy(string_12CA60, (const void *)(dword_AE400_AE3F0() + 15318), 0x18u);
           v15 = dword_AE408_AE3F8();
           *(_WORD *)(dword_AE408_AE3F8() + 13) = 0;
           *(_BYTE *)(v15 + 161) = 3;
@@ -59214,7 +59214,7 @@ void sub_4C7E0()
   {
     v3 = (void *)(dword_AE400_AE3F0() + 15318);
     str_AE408_AE3F8->var_u16_17 = dword_12CBB8;
-    qmemcpy(v3, &unk_12CA60, 0x18u);
+    qmemcpy(v3, string_12CA60, 0x18u);
     byte_12CBD6_12CBC6 &= ~4u;
     str_AE408_AE3F8->var_u8_0 &= 0xDBu;
   }
@@ -61469,8 +61469,8 @@ bool sub_505A0_508E0()
       DataFileIO::Close(file);
     }
   }
-  dword_12CABC_12CAAC = dword_A99A0_A99B8;
-  word_12CA20_12CA10 = zeroChar_A9990_A99A8;
+  strcpy(string_12CABC_12CAAC,string_A99A0_A99B8);//fix it
+  string_12CA20_12CA10[0] = zeroChar_A9990_A99A8;
   return result;
 }
 
@@ -62042,7 +62042,7 @@ _DWORD *sub_513A0(_DWORD *a1)
 void sub_513E0()//2223E0_
 {
   dword_12CA78 = 0;
-  qmemcpy(unk_12C988, array_12C970, 0x18u);
+  qmemcpy(string_12C988, array_12C970, 0x18u);
 }
 // 12C970: using guessed type int dword_12C970;
 // 12CA78: using guessed type int dword_12CA78;
@@ -62051,7 +62051,7 @@ void sub_513E0()//2223E0_
 void sub_51400()
 {
   dword_12CA78 = 0;
-  qmemcpy(array_12C970, unk_12C988, 0x18u);
+  qmemcpy(array_12C970, string_12C988, 0x18u);
 }
 // 12C970: using guessed type int dword_12C970;
 // 12CA78: using guessed type int dword_12CA78;
@@ -70357,13 +70357,13 @@ int sub_5CEF0_5D400(unsigned __int16 a1)
 {
   if ( !byte_939CC )
     return 1;
-  sprintf((char*)"data/music0-0.dat", (char*)"data/music%d-%d.dat", a1, (unsigned __int8)byte_CBFEE);
-  sprintf(aDataMusic00Tab, "data/music%d-%d.tab", a1, (unsigned __int8)byte_CBFEE);
-  if ( (unsigned __int16)sub_634E0_639F0((Pathstruct*)"data/music0-0.dat") != 1 )
+  sprintf(pathStrArray_258E00[PS25datamusic00dat].path, (char*)"data/music%d-%d.dat", a1, (unsigned __int8)byte_CBFEE);
+  sprintf(pathStrArray_258E00[PS25datamusic00tab].path, "data/music%d-%d.tab", a1, (unsigned __int8)byte_CBFEE);
+  if ( sub_634E0_639F0(&pathStrArray_258E00[PS25datamusic00dat]) != 1 )
     return 1;
-  if ( (unsigned __int16)sub_634E0_639F0((Pathstruct*)aDataMusic00Tab) != 1 )
+  if ( sub_634E0_639F0(&pathStrArray_258E00[PS25datamusic00tab]) != 1 )
   {
-    sub_634A0_639B0((Pathstruct*)"data/music0-0.dat");
+    sub_634A0_639B0(&pathStrArray_258E00[PS25datamusic00dat]);
     return 1;
   }
   sub_5CFA4();
@@ -70420,13 +70420,13 @@ int sub_5D070_5D580(unsigned __int8 a1)
 {
   if ( !byte_939E4 )
     return 1;
-  sprintf((char*)"data/snds0-0.dat", (char*)"data/snds%d-%d.dat", a1, (unsigned __int8)byte_939EC);
-  sprintf(aDataSnds00Tab, (char*)"data/snds%d-%d.tab", a1, (unsigned __int8)byte_939EC);
-  if ( (unsigned __int16)sub_634E0_639F0((Pathstruct*)"data/snds0-0.dat") != 1 )
+  sprintf(pathStrArray_258E00[PS25datasnds00dat].path, (char*)"data/snds%d-%d.dat", a1, (unsigned __int8)byte_939EC);
+  sprintf(pathStrArray_258E00[PS25datasnds00tab].path, (char*)"data/snds%d-%d.tab", a1, (unsigned __int8)byte_939EC);
+  if ( sub_634E0_639F0(&pathStrArray_258E00[PS25datasnds00dat]) != 1 )
     return 1;
-  if ( (unsigned __int16)sub_634E0_639F0((Pathstruct*)aDataSnds00Tab) != 1 )
+  if ( sub_634E0_639F0(&pathStrArray_258E00[PS25datasnds00tab]) != 1 )
   {
-    sub_634A0_639B0((Pathstruct*)"data/snds0-0.dat");
+    sub_634A0_639B0(&pathStrArray_258E00[PS25datasnds00dat]);
     return 1;
   }
   sub_5D138();
@@ -73888,7 +73888,7 @@ void sub_61F90()
       sub_5D948();
     sub_64F78(dword_CC140, 1, 1);
     sub_6481C();
-    sub_61610_61B20((Pathstruct*)"data/snds0-0.dat");
+    sub_61610_61B20(&pathStrArray_258E00[PS25datasnds00dat]);
   }
 }
 // 939CC: using guessed type char byte_939CC;
@@ -73921,7 +73921,7 @@ void sub_62020()
     }
     if ( byte_9AF9C )
       free_62128_62638((void*)dword_12F07A);
-    sub_61610_61B20((Pathstruct*)"data/music0-0.dat");
+    sub_61610_61B20(&pathStrArray_258E00[PS25datamusic00dat]);
   }
 }
 // 939CC: using guessed type char byte_939CC;
