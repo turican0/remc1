@@ -5509,12 +5509,20 @@ Pathstruct pathStrArray_F1EF0[] = {
 { "", 0, 0, 0, 0 }
 };
 
+const int PS25datamusic00dat = 0;//pathStrArray_258E00[PS25datamusic00dat]
+const int PS25datamusic00tab = 1;//pathStrArray_258E00[PS25datamusic00tab]
+const int PS25datasnds00dat = 3;//pathStrArray_258E00[PS25datasnds00dat]
+const int PS25datasnds00tab = 4;//pathStrArray_258E00[PS25datasnds00tab]
+
+TypeStrFont music00Tab_289F60;
+TypeStrFont snds00Tab_2854A1;
+
 Pathstruct pathStrArray_258E00[] = {
-    { "data/music0-0.dat", 0, 0, 0, 0 },//music 0 0 dat
-    { "data/music0-0.tab", 0, 0, 0, 0 },//music 0 0 tab
+    { "data/music0-0.dat", &music00Tab_289F60.Dat, 0, 0, 0 },//music 0 0 dat
+    { "data/music0-0.tab", (uint8_t**)&music00Tab_289F60.bTab, (uint8_t**)&music00Tab_289F60.eTab, 0, 0 },//music 0 0 tab
     { "", 0, 0, 0, 0 },
-    { "data/snds0-0.dat", 0, 0, 0, 0 },//snds 0 0 dat
-    { "data/snds0-0.tab", 0, 0, 0, 0 },//snds 0 0 tab
+    { "data/snds0-0.dat", &snds00Tab_2854A1.Dat, 0, 0, 0 },//snds 0 0 dat
+    { "data/snds0-0.tab", (uint8_t**)&snds00Tab_2854A1.bTab, (uint8_t**)&snds00Tab_2854A1.eTab, 0, 0 },//snds 0 0 tab
     { "", 0, 0, 0, 0 }
 };
 
