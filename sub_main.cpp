@@ -584,7 +584,7 @@ char sub_33E10(unsigned __int16 a1, __int16 a2);
 unsigned __int16 sub_34070();
 // int TopProcedure_340B0_34470(int a1, __int16 a2, __int16 a3, unsigned __int16 a4, int a5);
 int sub_34460_34820();
-int sub_344F0();
+void sub_344F0();
 // void DrawAndEventsInGame_34530(__int16 a1, __int16 a2, __int16 a3);
 void GameLoop_34610_349D0();
 void sub_34690();
@@ -37668,6 +37668,7 @@ LABEL_61:
 // 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
+int counter_2FC50_2FC90 = 0;
 //----- (0002FC50) --------------------------------------------------------
 void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
@@ -37708,6 +37709,10 @@ void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   int a1 = 0;
   v33 = 0;
   //fix
+
+  //debug
+  counter_2FC50_2FC90++;
+  //debug
 
   result = a2x->haveSprite_36;
   do
@@ -41439,14 +41444,11 @@ int sub_34460_34820()//205460_
 // 12F02E: using guessed type __int16 typeResolution_12F02E_12F01E;
 
 //----- (000344F0) --------------------------------------------------------
-int sub_344F0()
+void sub_344F0()
 {
-  char *v1; // [esp-4h] [ebp-4h]
-
   FadeInOut_61CC0_621D0(0, 0x10u, 0);
-  v1 = (char *)begPalDat_AE428_AE418_26C428_26C418;
-  *(_DWORD *)(dword_AE400_AE3F0() + 581) = 0;
-  return sub_3EEA0_3F1E0((char*)"data/pal0-0.dat", (uint8_t*)v1);
+  str_AE400_AE3F0->var_u32_581 = 0;
+  sub_3EEA0_3F1E0((char*)"data/pal0-0.dat", (uint8*)begPalDat_AE428_AE418_26C428_26C418);
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
@@ -49643,7 +49645,7 @@ int sub_3EEA0_3F1E0(char* path, uint8_t* buffer)//20FEA0_
         counter_3EEA0_3F1E0++;
         counter_3EEA0_3F1E0--;
     }
-    if (counter_3EEA0_3F1E0 == 0x12)
+    if (counter_3EEA0_3F1E0 == 0x33)
     {
         counter_3EEA0_3F1E0++;
         counter_3EEA0_3F1E0--;
@@ -67158,7 +67160,12 @@ void sub_58B30_59040(unsigned __int16 a1)//229B30_
   for ( i = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8; i < 529; i++ )
   {
       //debug
-      if (counter_sub_58B30_59040_2==0xb2)
+      if (i == 0xfd)
+      {
+          counter_sub_58B30_59040_2++;
+          counter_sub_58B30_59040_2--;
+      }
+      if (counter_sub_58B30_59040_2==0xb5)
       {
           counter_sub_58B30_59040_2++;
           counter_sub_58B30_59040_2--;
@@ -74761,7 +74768,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
   //debug
 #ifdef debug1
-  if (compare_index_62D40_63250 == 0x00140b4b)
+  if (compare_index_62D40_63250 == 0x00143892)
   {
       compare_index_62D40_63250++;
       compare_index_62D40_63250--;
@@ -74769,7 +74776,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
   //add_compare(0x2439A7, true, true);
 
   
-  if (compare_index_62D40_63250>0x140b00)
+  if (compare_index_62D40_63250>0x143800)
   {
       uint8 origbyte20;
       uint8 remakebyte20;
@@ -74781,11 +74788,17 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
           && (compare_index_62D40_63250 != 0x000f3048)
           && (compare_index_62D40_63250 != 0x000f3049)
           && (compare_index_62D40_63250 != 0x00140b50)
-          && (compare_index_62D40_63250 != 0x00140b51))
+          && (compare_index_62D40_63250 != 0x00140b51)
+          && (compare_index_62D40_63250 != 0x00143893)
+          && (compare_index_62D40_63250 != 0x00143894)
+          && (compare_index_62D40_63250 != 0x00143895)
+          && (compare_index_62D40_63250 != 0x00143896))
         comp20 = compare_with_sequence("00233D42-0025914E", (uint8_t*)&word_9B14E, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
       if ((compare_index_62D40_63250 != 0x000f3049)
           && (compare_index_62D40_63250 != 0x00140b52)
-          && (compare_index_62D40_63250 != 0x00140b53))
+          && (compare_index_62D40_63250 != 0x00140b53)
+          && (compare_index_62D40_63250 != 0x00143895)
+          && (compare_index_62D40_63250 != 0x00143896))
         comp20 = compare_with_sequence("00233D42-0025914C", (uint8_t*)&word_9B14C, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);
       comp20 = compare_with_sequence("00233D42-FFFFFFF4", (uint8_t*)&a1, 0x233D40, compare_index_62D40_63250, 0x1, 0x1, &origbyte20, &remakebyte20, 0, 0);
 
@@ -74986,6 +74999,14 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
         if ((compare_index_62D40_63250 >= 0x0014388f) && (compare_index_62D40_63250 <= 0x00143892))
         {
             nextskip = 0x10 - 13;
+        }
+        if ((compare_index_62D40_63250 >= 0x00143893) && (compare_index_62D40_63250 <= 0x00143894))
+        {
+            nextskip = 0x10 - 14;
+        }
+        if ((compare_index_62D40_63250 >= 0x00143895) && (compare_index_62D40_63250 <= 0x00143896))
+        {
+            nextskip = 0x10 - 16;
         }
       comp20 = compare_with_sequence("00233D42-FFFFFF01", (uint8_t*)tempa2x, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0, nextskip);
       comp20 = compare_with_sequence("00233D42-FFFFFF03", (uint8_t*)CX_, 0x233D40, compare_index_62D40_63250, 0x2, 0x2, &origbyte20, &remakebyte20, 0, 0);

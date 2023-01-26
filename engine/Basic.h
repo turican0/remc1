@@ -538,7 +538,8 @@ typedef struct {//size 232713
 	uint8 var_u8_44[532];
 	un16_32 var_u32_576;
 	uint8 var_u8_580;
-	uint8 stub4b[12];
+	uint32 var_u32_581;
+	uint8 stub4b[8];
 	Type_AE400_29795* var_u32_593[1000];
 	int32 var_u32_4593;
 	Type_AE400_29795* var_u32_4597[1000];

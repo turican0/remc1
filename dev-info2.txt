@@ -47,3 +47,7 @@ byte_9B151 be versus 00
 
 0x000f3042
 
+0x00143893
+
+word_9B14E 0x25914E
+
