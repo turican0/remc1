@@ -50,4 +50,13 @@ byte_9B151 be versus 00
 0x00143893
 
 word_9B14E 0x25914E
+*(uint32*)dword_12DF8C_12DF7C[0xfd] .. 0x38323C
 
+sub_2FC50_2FC90(&tempBegBscreen[indexv76]);//fix it
+
+1e1228 10228 __int16 sub_101A1()
+1e1131 10131 __int16 sub_100B8()
+1e10a3  100A3 sub_1002D
+1e1ef0 10EF0 sub_10EB0
+22a114 59114 sub_590D0
+205554 34554 DrawAndEventsInGame_34530

@@ -1149,7 +1149,7 @@ void sub_58F00_59410();
 void sub_58F70_59480();
 void sub_58F90_594A0();
 bool sub_59050_59560(unsigned __int16 a1);
-char *sub_590D0();
+void sub_590D0();
 void sub_59140();
 void sub_59160(unsigned __int16 a1, unsigned __int16 a2, signed __int16 a3);
 void sub_591E0(unsigned __int16 a1);
@@ -37669,6 +37669,7 @@ LABEL_61:
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 int counter_2FC50_2FC90 = 0;
+int counter_2FC50_2FC90_2 = 0;
 //----- (0002FC50) --------------------------------------------------------
 void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
@@ -37717,6 +37718,9 @@ void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   result = a2x->haveSprite_36;
   do
   {
+      //debug
+      counter_2FC50_2FC90_2++;
+      //debug
     if ( result < 0x3E8u )
     {
       v3 = 164 * result + dword_AE400_AE3F0() + 29795;
@@ -67471,7 +67475,7 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 //----- (000590D0) --------------------------------------------------------
-char *sub_590D0()
+void sub_590D0()
 {
   unsigned __int16 i; // bx
   char *result; // eax
@@ -67502,7 +67506,6 @@ char *sub_590D0()
       }
     }
   }
-  return result;
 }
 // AE3E0: using guessed type int dword_AE3E0_AE3D0;
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
