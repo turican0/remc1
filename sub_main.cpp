@@ -552,7 +552,7 @@ void sub_2FC50_2FC90(Type_BegBscreen* a2);
 void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
 void setViewPort_30A70_30AB0(int a1);
-void sub_30B30();
+void sub_30B30_30B70();
 int sub_30D30_30D70(__int16 a1);
 void DrawWorld_30D90_30DD0(int a2, int a3, __int16 a4, int a5, int a6, int a7, int a8);
 void sub_315C0_31600();
@@ -585,9 +585,9 @@ unsigned __int16 sub_34070();
 // int TopProcedure_340B0_34470(int a1, __int16 a2, __int16 a3, unsigned __int16 a4, int a5);
 int sub_34460_34820();
 void sub_344F0();
-// void DrawAndEventsInGame_34530(__int16 a1, __int16 a2, __int16 a3);
+// void DrawAndEventsInGame_34530_348F0(__int16 a1, __int16 a2, __int16 a3);
 void GameLoop_34610_349D0();
-void sub_34690();
+void sub_34690_34A50();
 void sub_34B00_34EC0();
 void sub_34B40_34F00();
 void sub_34C60_35020();
@@ -830,7 +830,7 @@ int sub_3C510(int a1);
 int sub_3C540(int a1);
 void sub_3C570();
 void sub_3C800_sub_3CB40();
-void sub_3C9D0();
+void sub_3C9D0_3CD10();
 void sub_3DC90(TypeStrAE400_13323* a1, char a2);
 void sub_3DD10();
 void sub_3DD50();
@@ -884,9 +884,9 @@ int sub_411FD_4153D(void *a2, unsigned __int16 a3, char a4);
 void sub_41230_41570();
 void sub_41490_417D0();
 void sub_41540_41880();
-unsigned __int16 sub_415C0();
+unsigned __int16 sub_415C0_41900();
 void sub_416B0();
-void sub_41780();
+void sub_41780_41AC0();
 void sub_41B20(TypeStrAE400_13323* a1, Type_AE400_29795* a2);
 int sub_41C70_41FB0(Type_AE400_29795* event, axis_3d* position);
 // int sub_41CC0(__int16 a1, int a2, int a3);
@@ -1099,7 +1099,7 @@ int sub_54A90(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4);
 int sub_54BD0(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4);
 void sub_54F00();
 int sub_54F80(int a1);
-void sub_55100();
+void sub_55100_55630();
 void sub_55370_558A0(__int16 a1, __int16 a2, __int16 a3);
 bool sub_55870(int a1, int a2);
 void sub_55890(int a1, __int16 a2, __int16 a3);
@@ -1149,7 +1149,7 @@ void sub_58F00_59410();
 void sub_58F70_59480();
 void sub_58F90_594A0();
 bool sub_59050_59560(unsigned __int16 a1);
-void sub_590D0();
+void sub_590D0_595E0();
 void sub_59140();
 void sub_59160(unsigned __int16 a1, unsigned __int16 a2, signed __int16 a3);
 void sub_591E0(unsigned __int16 a1);
@@ -1205,7 +1205,7 @@ void sub_5A3C0_5A8D0(int fontIndex);
 // void sub_5A3E3(int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void sub_5A459_5A969();
 void sub_5A4EA_5A9FA();
-void sub_5A560();
+void sub_5A560_5AA70();
 void DrawStartGameTexts_5ACA0_5B1B0();
 void DrawTextLine_5AD10_5B220(char* text);
 int sub_5AD30_5B240();
@@ -38312,7 +38312,7 @@ void setViewPort_30A70_30AB0(int viewPortSize)//201A70_
 }
 
 //----- (00030B30) --------------------------------------------------------
-void sub_30B30()
+void sub_30B30_30B70()
 {
   int v0; // eax
   int v1; // ebp
@@ -41458,8 +41458,8 @@ void sub_344F0()
 // AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
 
 int counter_34530 = 0;
-//----- (00034530) --------------------------------------------------------
-void DrawAndEventsInGame_34530()//205530_
+
+void DrawAndEventsInGame_34530_348F0()//205530_
 {
     //debug
 #ifdef debug1
@@ -41467,14 +41467,14 @@ void DrawAndEventsInGame_34530()//205530_
 #endif debug1
         //debug
 	if (!str_AE400_AE3F0->set.mod3D_8603)
-		sub_34690();
+		sub_34690_34A50();
 	if ((str_AE408_AE3F8->var_u8_2 & 1) == 0)
-		sub_590D0();
+		sub_590D0_595E0();
 	if ((str_AE408_AE3F8->var_u8_0 & 4) == 0)
 		sub_17C20();
-	sub_3C9D0();
+	sub_3C9D0_3CD10();
 	if ((str_AE408_AE3F8->var_u8_2 & 1) == 0)
-		sub_415C0();
+		sub_415C0_41900();
 	switch (str_AE408_AE3F8->gameSpeed_150)
 	{
 	case 1:
@@ -41482,19 +41482,19 @@ void DrawAndEventsInGame_34530()//205530_
 		if (str_AE408_AE3F8->gameSpeed_150 <= 1u)
 		{
 			for (int i = 0; i < 4; i++)
-				sub_41780();
+				sub_41780_41AC0();
 		}
 		break;
 	}
 	case 2:
 	{
 		for (int j = 0; j < 16; j++)
-			sub_41780();
+			sub_41780_41AC0();
 		break;
 	}
 	default:
 	{
-		sub_41780();
+		sub_41780_41AC0();
 	}
 	}
     //2055C1
@@ -41503,7 +41503,7 @@ void DrawAndEventsInGame_34530()//205530_
         //add_compare(0x2055C1, true);
 #endif debug1
         //debug
-	sub_55100();
+	sub_55100_55630();
     //2055C6
             //debug
 #ifdef debug1
@@ -41523,8 +41523,8 @@ void DrawAndEventsInGame_34530()//205530_
         counter_34530++;
 #endif debug1
         //debug
-	str_AE408_AE3F8->var_u32_153 -= dword_AC5D4_AC5C4;
-	sub_5A560();
+        str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
+	sub_5A560_5AA70();
     //2055F4
             //debug
 #ifdef debug1
@@ -41532,11 +41532,8 @@ void DrawAndEventsInGame_34530()//205530_
 #endif debug1
         //debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4;
-	sub_30B30();
+	sub_30B30_30B70();
 }
-// AC5D4: using guessed type int dword_AC5D4_AC5C4;
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (00034610) --------------------------------------------------------
 void GameLoop_34610_349D0()//205610_
@@ -41567,14 +41564,14 @@ void GameLoop_34610_349D0()//205610_
     //result = 2049 * str_AE400_AE3F0->var_u16_8 + dword_AE400_AE3F0();
     if (str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u8_13327 || (str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].var_u16_13325 & 8) != 0 )
       break;
-    DrawAndEventsInGame_34530();
+    DrawAndEventsInGame_34530_348F0();
   }
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 // AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (00034690) --------------------------------------------------------
-void sub_34690()
+void sub_34690_34A50()
 {
   //int v0; // ebx
   //__int16 v1; // ax
@@ -48242,7 +48239,7 @@ void sub_3C800_sub_3CB40()
 // CC1BC: using guessed type int dword_CC1BC;
 
 //----- (0003C9D0) --------------------------------------------------------
-void sub_3C9D0()//20D9D0_
+void sub_3C9D0_3CD10()//20D9D0_
 {
   //int v0; // ebx
   //_BYTE *v1; // ebp
@@ -52034,7 +52031,7 @@ void sub_41540_41880()
 // AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (000415C0) --------------------------------------------------------
-unsigned __int16 sub_415C0()
+unsigned __int16 sub_415C0_41900()
 {
   unsigned __int16 result; // ax
   int v1; // edi
@@ -52131,7 +52128,7 @@ void sub_416B0()//2126B0_
 int compareindex_41780 = 0;
 int compareindex_41780_2 = 0;
 //----- (00041780) --------------------------------------------------------
-void sub_41780()//212780_
+void sub_41780_41AC0()//212780_
 {
   char v3; // dh
   Type_AE400_29795* v4; // edi
@@ -64960,7 +64957,7 @@ int sub_54F80(int a1)
 // AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (00055100) --------------------------------------------------------
-void sub_55100()
+void sub_55100_55630()
 {
   int result; // eax
   __int16 i; // di
@@ -67475,7 +67472,7 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 //----- (000590D0) --------------------------------------------------------
-void sub_590D0()
+void sub_590D0_595E0()
 {
   unsigned __int16 i; // bx
   char *result; // eax
@@ -68655,7 +68652,7 @@ void sub_5A4EA_5A9FA()
 // 12EC04: using guessed type __int16 word_12EC04;
 
 //----- (0005A560) --------------------------------------------------------
-void sub_5A560()
+void sub_5A560_5AA70()
 {
   __int16 v0; // bx
   __int16 v1; // bx
