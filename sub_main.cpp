@@ -16560,13 +16560,11 @@ void sub_10F10(Type_sub_AE3E0* a1x)
   }
 }
 
-//----- (00010FD0) --------------------------------------------------------
+//|SYNCHRONIZED WITH REMC1
 Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
 {
   Type_sub_AE3E0* result; // eax
   int v3; // edx
-
-  //allert_error();//test it
 
   //HIWORD(v3) = HIWORD(a1);
   result = a1x->var_2;
@@ -41458,14 +41456,14 @@ void sub_344F0()
 // AE428: using guessed type int begPalDat_AE428_AE418_26C428_26C418;
 
 int counter_34530 = 0;
-
+//SYNCHRONIZED WITH REMC1
 void DrawAndEventsInGame_34530_348F0()//205530_
 {
-    //debug
+	//debug
 #ifdef debug1
-        //add_compare(0x205530, true);
+		//add_compare(0x205530, true);
 #endif debug1
-        //debug
+		//debug
 	if (!str_AE400_AE3F0->set.mod3D_8603)
 		sub_34690_34A50();
 	if ((str_AE408_AE3F8->var_u8_2 & 1) == 0)
@@ -41479,11 +41477,8 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 	{
 	case 1:
 	{
-		if (str_AE408_AE3F8->gameSpeed_150 <= 1u)
-		{
-			for (int i = 0; i < 4; i++)
-				sub_41780_41AC0();
-		}
+		for (int i = 0; i < 4; i++)
+			sub_41780_41AC0();
 		break;
 	}
 	case 2:
@@ -41497,40 +41492,40 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 		sub_41780_41AC0();
 	}
 	}
-    //2055C1
-            //debug
+	//2055C1
+			//debug
 #ifdef debug1
-        //add_compare(0x2055C1, true);
+		//add_compare(0x2055C1, true);
 #endif debug1
-        //debug
+		//debug
 	sub_55100_55630();
-    //2055C6
-            //debug
+	//2055C6
+			//debug
 #ifdef debug1
-        //add_compare(0x2055C6, true);
+		//add_compare(0x2055C6, true);
 #endif debug1
-        //debug
+		//debug
 	DrawGameFrame_20FB0();
-    //2055DE
-            //debug
+	//2055DE
+		//debug
 #ifdef debug1
-    if (counter_34530 == 0x19)
-    {
-        counter_34530++;
-        counter_34530--;
-    }
-        add_compare(0x2055DE, true, true);
-        counter_34530++;
+	if (counter_34530 == 0x19)
+	{
+		counter_34530++;
+		counter_34530--;
+	}
+	add_compare(0x2055DE, true, true);
+	counter_34530++;
 #endif debug1
-        //debug
-        str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
+	//debug
+	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
 	sub_5A560_5AA70();
-    //2055F4
-            //debug
+	//2055F4
+			//debug
 #ifdef debug1
-        //add_compare(0x2055F4, true, true);
+		//add_compare(0x2055F4, true, true);
 #endif debug1
-        //debug
+		//debug
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4;
 	sub_30B30_30B70();
 }
@@ -42029,7 +42024,6 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
         		dword_12F080_12F070x = (vesa_str*)malloc_425C0_42900(sizeof(vesa_str));
 		str_AE400_AE3F0 = (Type_str_AE400_AE3F0*)malloc_42540_42880(sizeof(Type_str_AE400_AE3F0));
 		str_AE408_AE3F8 = (Type_str_AE408_AE3F8*)malloc_42540_42880(sizeof(Type_str_AE408_AE3F8));
-		str_AE400_AE3F0->set.var_u8_8621 = 1;
 		str_AE400_AE3F0->set.var_u8_8621 = 1;
 		str_AE400_AE3F0->set.var_u8_8622 = 1;
 		str_AE400_AE3F0->set.var_u8_8623 = 1;
@@ -67471,7 +67465,7 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
 // AE408: using guessed type int dword_AE408_AE3F8();
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
-//----- (000590D0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_590D0_595E0()
 {
   unsigned __int16 i; // bx
@@ -67504,8 +67498,6 @@ void sub_590D0_595E0()
     }
   }
 }
-// AE3E0: using guessed type int dword_AE3E0_AE3D0;
-// 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 //----- (00059140) --------------------------------------------------------
 void sub_59140()
