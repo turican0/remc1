@@ -56,7 +56,19 @@ sub_2FC50_2FC90(&tempBegBscreen[indexv76]);//fix it
 
 1e1228 10228 __int16 sub_101A1()
 1e1131 10131 __int16 sub_100B8()
-1e10a3  100A3 sub_1002D
-1e1ef0 10EF0 sub_10EB0
+1e10a3  100A3 sub_1002D - is
+1e1ef0 10EF0 sub_10EB0 - is
 22a114 59114 sub_590D0
 205554 34554 DrawAndEventsInGame_34530
+
+0x6108100
+0x610811C
+
+dword_AE3E0_AE3D0->var_2 .. 22A11B
+
+1C47493A 237975
+5A5
+
+(int)dword_AE3E0_AE3D0->var_2+0x36b0
+
+sub_10D40 - test it 

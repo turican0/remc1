@@ -244,7 +244,7 @@ void sub_10AB0();
 __int16 sub_10BD0();
 Type_AE3E0* sub_10CB0(unsigned __int16 a1);
 void sub_10D40(Type_AE3E0* a1, Type_sub168_2* a2, __int16 a3);
-int sub_10EB0(Type_sub_AE3E0* a1);
+void sub_10EB0(Type_sub_AE3E0* a1);
 void sub_10F10(Type_sub_AE3E0* a1);
 Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1, __int16 a2);
 void sub_11010(Type_AE3E0* a1);
@@ -16454,7 +16454,7 @@ Type_AE3E0* sub_10CB0(unsigned __int16 a1)
 }
 
 //SYNCHRONIZED WITH REMC1
-void sub_10D40(Type_AE3E0* a1x, Type_sub168_2* a2x, __int16 a3)
+void sub_10D40(Type_AE3E0* a1x, Type_sub168_2* a2x, __int16 a3)//1E1D40_
 {
   __int16 v3; // si
   __int16 v4; // di
@@ -16489,15 +16489,15 @@ void sub_10D40(Type_AE3E0* a1x, Type_sub168_2* a2x, __int16 a3)
   if ( v3 <= -1 )
     return;
   //v7 = (int)a2x->var_u32_0;
-  v8 = a2x->var_u32_0->y * a2x->var_u32_0->x;
+  v8 = a2x->var_u32_0->yy * a2x->var_u32_0->xx;
   //v11 = *(uint16*)&a2x->var_u32_0->data[v8];
   //v9 = 28 * v3;
   a1x->var_2[v3].var_4 = a2x;
   a1x->var_2[v3].var_12 = 6;
   a1x->var_2[v3].var_14 = v8 + 6;
-  a1x->var_2[v3].var_16 = *(uint16*)&a2x->var_u32_0->data[v8];
-  a1x->var_2[v3].var_18 = a2x->var_u32_0->x;
-  a1x->var_2[v3].var_20 = a2x->var_u32_0->y;
+  a1x->var_2[v3].var_16 = *(uint16*)&a2x->var_u32_0->datax[v8];
+  a1x->var_2[v3].var_18 = a2x->var_u32_0->xx;
+  a1x->var_2[v3].var_20 = a2x->var_u32_0->yy;
   a1x->var_2[v3].var_8 = v8 + 6;
   a1x->var_2[v3].var_22 = 1;
   a1x->var_2[v3].var_0 = 1;
@@ -16506,13 +16506,15 @@ void sub_10D40(Type_AE3E0* a1x, Type_sub168_2* a2x, __int16 a3)
 }
 
 //SYNCHRONIZED WITH REMC1
-int sub_10EB0(Type_sub_AE3E0* a1x)
+void sub_10EB0(Type_sub_AE3E0* a1x)//1E1EB0_
 {
   Type_sub168_2_2* v1; // esi
   int v2; // edi
   uint8_t* v3; // eax
   __int16 v4; // cx
   int result; // eax
+
+  //allert_error();//test it
 
   if (a1x->var_22 > a1x->var_16)
   {
@@ -16524,12 +16526,11 @@ int sub_10EB0(Type_sub_AE3E0* a1x)
   v2 = a1x->var_8;
   sub_10010(a1x->var_18, 0);
   //v1 += 6;
-  v3 = sub_1002D(&v1->data[v2], v1->data);
+  v3 = sub_1002D(&v1->datax[v2], v1->datax);
   v4 = a1x->var_22;
-  result = v3 - v1->data;
+  result = v3 - v1->datax;
   a1x->var_8 = result;
   a1x->var_22 = v4 + 1;
-  return result;
 }
 
 //SYNCHRONIZED WITH REMC1
@@ -16543,7 +16544,7 @@ void sub_10F10(Type_sub_AE3E0* a1x)
 }
 
 //SYNCHRONIZED WITH REMC1
-Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)
+Type_sub_AE3E0* sub_10FD0(Type_AE3E0* a1x, __int16 a2)//1E1FD0_
 {
   Type_sub_AE3E0* result; // eax
   int v3; // edx
@@ -67124,7 +67125,7 @@ void sub_58B30_59040(unsigned __int16 a1)//229B30_
           dword_12DF8C_12DF7C[i] = v3x;
           dword_12CF00_12CEF0[i] = v2;
           //v1 = *v3;
-          if ( (v3x->var_u32_0->x & 1) != 0 )
+          if ( (v3x->var_u32_0->var_0 & 1) != 0 )
             sub_10D40(dword_AE3E0_AE3D0, v3x, i);
         }
       }
@@ -67392,33 +67393,35 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
 // 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 //SYNCHRONIZED WITH REMC1
-void sub_590D0_595E0()
+void sub_590D0_595E0()//22A0D0_
 {
-  unsigned __int16 i; // bx
-  char *result; // eax
-  char **v2; // ecx
-  char v3; // cl
-  Type_sub_AE3E0* v4; // eax
+  //unsigned __int16 i; // bx
+  //char *result; // eax
+  //Type_sub168_2* v2x; // ecx
+  //char v3; // cl
+  //Type_sub_AE3E0* v4; // eax
 
   //fix
-  result = 0;
+  //result = 0;
   //fix
 
-  for ( i = 0; i < 0x211u; ++i )
+  //allert_error();//test it
+
+  for ( int i = 0; i < 529; i++ )
   {
-    result = (char *)(4 * i);
-    v2 = *(char ***)((char *)dword_12DF8C_12DF7C + (_DWORD)result);
-    if ( v2 )
+    //result = (char *)(4 * i);
+    //v2x = dword_12DF8C_12DF7C[i];
+    if (dword_12DF8C_12DF7C[i])
     {
-      result = *v2;
-      v3 = **v2;
-      if ( (v3 & 8) != 0 )
+      //result = *v2;
+      //v3 = dword_12DF8C_12DF7C[i]->var_u32_0->x;
+      if ( (dword_12DF8C_12DF7C[i]->var_u32_0->var_0 & 8) != 0 )
       {
-        *result = v3 & 0xF7;
-        if ( (v3 & 1) != 0 )
+        //*result = v3 & 0xF7;
+        if ( (dword_12DF8C_12DF7C[i]->var_u32_0->var_0 & 1) != 0 )
         {
-          v4 = sub_10FD0(dword_AE3E0_AE3D0, i);
-          result = (char *)sub_10EB0(v4);
+          //v4 = sub_10FD0(dword_AE3E0_AE3D0, i);
+          sub_10EB0(sub_10FD0(dword_AE3E0_AE3D0, i));
         }
       }
     }

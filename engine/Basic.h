@@ -76,9 +76,10 @@ typedef struct {//size 14
 } Type_99BA0;
 
 typedef struct {//size 14
-	uint16 x;
-	uint16 y;
-	uint8 data[];
+	uint16 var_0;
+	uint16 xx;
+	uint16 yy;
+	uint8 datax[];
 }
 Type_sub168_2_2;
 
