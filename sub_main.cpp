@@ -34639,7 +34639,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 				//  adress 1FC68A_
 				//debug
 #ifdef debug1
-				if (compare_index_1FC68A == 0x225)
+				if (compare_index_1FC68A == 0x603)
 				{
 					compare_index_1FC68A++;
 					compare_index_1FC68A--;
@@ -34649,8 +34649,11 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
                 uint8_t remakebyte20 = 0;
                 char buffer1[500];
                 sprintf(buffer1, "%08X-00273CA8", 0x1FC68A);
-                int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FC68A, compare_index_1FC68A - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
-
+                //int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FC68A, compare_index_1FC68A - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+                sprintf(buffer1, "%08X-FFFFFFF6", 0x1FC68A);
+                //comp20 = compare_with_sequence(buffer1, (uint8_t*)&tempBegBscreen[index109].haveSprite_36, 0x1FC68A, compare_index_1FC68A - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
+                //tempBegBscreen[index109].haveSprite_36 [ebx+0x24]
+                
 				//add_compare(0x1FC68A, true, true);
 				compare_index_1FC68A++;
 #endif debug1
@@ -35291,14 +35294,14 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
       counter_sub_2C410_2C450++;
       counter_sub_2C410_2C450--;
   }
-  add_compare(0x1FD410, true,true);
+  //add_compare(0x1FD410, true,true);
   // dword_B5CA8_B5C98 273CA8
   
             uint8_t origbyte20 = 0;
             uint8_t remakebyte20 = 0;
             char buffer1[500];
             sprintf(buffer1, "%08X-00273CA8", 0x1FD414);
-            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+            //int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
             
 #endif debug1
 
@@ -36756,25 +36759,25 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //adress 1FECB0_
   //debug
 #ifdef debug1
-  if (counter_sub_2DCB0_2DCF0 == 0x19)
+  if (counter_sub_2DCB0_2DCF0 == 0x5d)
   {
       counter_sub_2DCB0_2DCF0++;
       counter_sub_2DCB0_2DCF0--;
   }
-          add_compare(0x1FECB0, true, true);
+          //add_compare(0x1FECB0, true, true);
 
           //fixPosX_90710 .. 24e710
           uint8_t origbyte20 = 0;
           uint8_t remakebyte20 = 0;
           char buffer1[500];
           sprintf(buffer1, "%08X-0024e710", 0x1FECB0);
-          int comp20 = compare_with_sequence(buffer1, (uint8_t*)&fixPosX_90710, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+          //int comp20 = compare_with_sequence(buffer1, (uint8_t*)&fixPosX_90710, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
 
           origbyte20 = 0;
           remakebyte20 = 0;
           //char buffer1[500];
           sprintf(buffer1, "%08X-FFFFFFF4", 0x1FECBF);
-          comp20 = compare_with_sequence(buffer1, (uint8_t*)&a2x->haveSprite_36, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 1, 1, &origbyte20, &remakebyte20, 0, true);
+          //comp20 = compare_with_sequence(buffer1, (uint8_t*)&a2x->haveSprite_36, 0x1FECB0, counter_sub_2DCB0_2DCF0 - 0, 1, 1, &origbyte20, &remakebyte20, 0, true);
 
           counter_sub_2DCB0_2DCF0++;
 #endif debug1
@@ -36989,7 +36992,7 @@ LABEL_65:
                   remakebyte20 = 0;
                   //char buffer1[500];
                   sprintf(buffer1, "%08X-FFFFFFF4", 0x1FF64C);
-                  comp20 = compare_with_sequence(buffer1, (uint8_t*)a1 + 6, 0x1FF64C, counter_dword_B5CB0_B5CA0 - 0, 40, 40, &origbyte20, &remakebyte20, 0, true);
+                  //comp20 = compare_with_sequence(buffer1, (uint8_t*)a1 + 6, 0x1FF64C, counter_dword_B5CB0_B5CA0 - 0, 40, 40, &origbyte20, &remakebyte20, 0, true);
 
                   counter_dword_B5CB0_B5CA0++;
                   //debug
@@ -104474,10 +104477,10 @@ void DrawTriangle_729A3_72EB3(Type_RenderPoint* pnt1, Type_RenderPoint* pnt2, Ty
           uint8_t remakebyte20 = 0;
           char buffer1[500];
           sprintf(buffer1, "%08X-00273CA8", 0x2439A7);
-          int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x2439A7, compare_index_729A7 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+          //int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x2439A7, compare_index_729A7 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
   
   
-  add_compare(0x2439A7, true, true);
+  //add_compare(0x2439A7, true, true);
   //add_compare(0x2439A7, true, true, -1, false, 1000000, 0x2400);
   //uint8 origbyte20;
   //uint8 remakebyte20;
