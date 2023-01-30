@@ -72,3 +72,25 @@ dword_AE3E0_AE3D0->var_2 .. 22A11B
 (int)dword_AE3E0_AE3D0->var_2+0x36b0
 
 sub_10D40 - test it 
+-----------------------------
+(int)str_AE400_AE3F0+0x28 0x76 versus 0x77
+
+word_AE454_AE444 - diferece
+
+&str_AE400_AE3F0->str_29795[0x1dc].var_u32_29867_72
+&str_AE400_AE3F0->str_29795[0x1dc].var_u32_150
+&word_AE454_AE444
+
+0x4EB93
+
+esi(0x1F690)+0x7463+164*1+0x48
+esi(0x1F690)+0x7463+164*1+0x96
+
+esi(0x1F690)+0x7463+164*0x1dc+0x48
+esi(0x1F690)+0x7463+164*0x1dc+0x96
+0x39BE3 + 
+
+0x39c2b
+0x39c79
+0x39c11
+0x8f versus 0x8d

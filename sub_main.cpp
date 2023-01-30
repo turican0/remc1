@@ -41495,7 +41495,7 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 	//2055DE
 		//debug
 #ifdef debug1
-	if (counter_34530 == 0x19)
+	if (counter_34530 == 0x35)
 	{
 		counter_34530++;
 		counter_34530--;
@@ -52270,9 +52270,8 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x458)
-            //if (compareindex_41780_2 == 0x4e2)
-            //if (compareindex_41780_2 == 0x3702)
+            if (compareindex_41780_2 == 0x00002e27)
+            //if (compareindex_41780_2 == 0x00008648)
             {
                 compareindex_41780_2++;
                 compareindex_41780_2--;
@@ -52288,14 +52287,26 @@ LABEL_40:
             int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[jx].id_29819_24, 0xFFFFFFF6, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
             */
 
+            
+            uint8_t origbyte20 = 0;
+            uint8_t remakebyte20 = 0;
+            char buffer1[500];
+            sprintf(buffer1, "%08X-00039C2B", 0x212A70);
+            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u32_29867_72, 0x0003A1EF, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            sprintf(buffer1, "%08X-00039C79", 0x212A70);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u32_150, 0x0003A23D, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            sprintf(buffer1, "%08X-00039C11", 0x212A70);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u16_29841_46, 0x0003A23D, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
+            
+
             /*
             uint8_t origbyte20 = 0;
             uint8_t remakebyte20 = 0;
             char buffer1[500];
             sprintf(buffer1, "%08X-0003A1EF", 0x212A70);
-            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1e5].var_u32_29867_72, 0x0003A1EF, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u32_29867_72, 0x0003A1EF, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
             sprintf(buffer1, "%08X-0003A23D", 0x212A70);
-            comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1e5].var_u32_150, 0x0003A23D, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u32_150, 0x0003A23D, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
             sprintf(buffer1, "%08X-0026C454", 0x212A70);
             comp20 = compare_with_sequence(buffer1, (uint8_t*)&word_AE454_AE444, 0x0026C454, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
             */
