@@ -52270,7 +52270,7 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x00002e27)
+            if (compareindex_41780_2 == 0x00002bb1)
             //if (compareindex_41780_2 == 0x00008648)
             {
                 compareindex_41780_2++;
