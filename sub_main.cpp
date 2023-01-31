@@ -29836,9 +29836,11 @@ void sub_27030(Type_AE400_29795* event)//1F8030_
     //v14 = tempV13;
     if (tempV13 > word_AE454_AE444.z )
     {
-      event->var_u16_29841_46 = -((int)(event->var_u16_29841_46
+      int32 tempshl = __CFSHL__(((int32)event->var_u16_29841_46) >> 31, 2);
+      event->var_u16_29841_46 = -(((int32)event->var_u16_29841_46 - tempshl + (((int32)event->var_u16_29841_46) >> 31)) >> 2);
+      /*event->var_u16_29841_46 = -((int)(event->var_u16_29841_46
           - (__CFSHL__((unsigned __int64)event->var_u16_29841_46 >> 32, 2)
-              + 4 * ((unsigned __int64)event->var_u16_29841_46 >> 32))) >> 2);
+              + 4 * ((unsigned __int64)event->var_u16_29841_46 >> 32))) >> 2);*/
       if (event->var_u16_29841_46 <= 16 )
           event->var_u16_29841_46 = 0;
       word_AE454_AE444.z = tempV13;
@@ -41495,7 +41497,7 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 	//2055DE
 		//debug
 #ifdef debug1
-	if (counter_34530 == 0x35)
+	if (counter_34530 == 0x5b)
 	{
 		counter_34530++;
 		counter_34530--;
@@ -52287,7 +52289,7 @@ LABEL_40:
             int comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[jx].id_29819_24, 0xFFFFFFF6, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
             */
 
-            
+            /*
             uint8_t origbyte20 = 0;
             uint8_t remakebyte20 = 0;
             char buffer1[500];
@@ -52297,7 +52299,7 @@ LABEL_40:
             comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u32_150, 0x0003A23D, compareindex_41780_2 - 0, 6, 6, &origbyte20, &remakebyte20, 0, true);
             sprintf(buffer1, "%08X-00039C11", 0x212A70);
             comp20 = compare_with_sequence(buffer1, (uint8_t*)&str_AE400_AE3F0->str_29795[0x1dc].var_u16_29841_46, 0x0003A23D, compareindex_41780_2 - 0, 2, 2, &origbyte20, &remakebyte20, 0, true);
-            
+            */
 
             /*
             uint8_t origbyte20 = 0;
