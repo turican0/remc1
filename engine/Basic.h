@@ -75,7 +75,7 @@ typedef struct {//size 14
 	int8 var_13;
 } Type_99BA0;
 
-typedef struct {//size 14
+typedef struct {//size ?
 	uint16 var_0;
 	uint16 xx;
 	uint16 yy;

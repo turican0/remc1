@@ -548,7 +548,7 @@ void PrepRot_29C30_29C70(__int16 roll);
 void sub_2C410_2C450(unsigned int a1);
 void sub_2DCB0_2DCF0(Type_BegBscreen* a2);
 void sub_2F170_2F1B0(int a1, int a2);
-void sub_2FC50_2FC90(Type_BegBscreen* a2);
+void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2);
 void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
 void setViewPort_30A70_30AB0(int a1);
@@ -1150,7 +1150,7 @@ void sub_58F70_59480();
 void sub_58F90_594A0();
 bool sub_59050_59560(unsigned __int16 a1);
 void sub_590D0_595E0();
-void sub_59140_59140();
+void sub_59140_59650();
 void sub_59160(unsigned __int16 a1, unsigned __int16 a2, signed __int16 a3);
 void sub_591E0(unsigned __int16 a1);
 char sub_59230();
@@ -15332,7 +15332,7 @@ _DWORD settextposition(_DWORD a, _DWORD b) { return 0; };// weak
 
 //unsigned __int16 sub_2DCB0_2DCF0(int a1, int a2) { return 0; };
 //unsigned __int16 sub_2F170_2F1B0(int a1, int a2) { return 0; };
-//unsigned __int16 sub_2FC50_2FC90(int a1, int a2) { return 0; };
+//unsigned __int16 DrawSprite_2FC50_2FC90(int a1, int a2) { return 0; };
 //unsigned __int16 sub_32B90_sub_32F80(int a1, int a2) { return 0; };
 //char sub_33800_33BF0(char a1, char a2, unsigned __int16 a3, unsigned __int8 a4) { return 0; };
 //__int16 ProcessCommandLine_34DD0_35190(__int16 a1, unsigned __int16 a2, int a3) { return 0; };
@@ -33271,7 +33271,7 @@ LABEL_26:
                                 if (!*(_WORD*)(v71 + 36))
                                     goto LABEL_85;
                             LABEL_84:
-                                sub_2FC50_2FC90((Type_BegBscreen*)v71);
+                                DrawSprite_2FC50_2FC90((Type_BegBscreen*)v71);
                                 goto LABEL_85;
                             }
                             if (*(_WORD*)(v71 + 36))
@@ -33354,7 +33354,7 @@ LABEL_26:
                             }
                             if (*(_WORD*)(v84 + 36))
                                 LABEL_99:
-                            sub_2FC50_2FC90((Type_BegBscreen*)v84);
+                            DrawSprite_2FC50_2FC90((Type_BegBscreen*)v84);
                         }
                         else if (*(_WORD*)(v84 + 36))
                         {
@@ -34460,7 +34460,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						}
 					}
 					if (tempBegBscreen[index62].haveSprite_36)
-						sub_2FC50_2FC90(&tempBegBscreen[index62]);
+						DrawSprite_2FC50_2FC90(&tempBegBscreen[index62]);
 					index62++;
 				}
 				//int indexv76 = textColumns * textRows - 2;
@@ -34517,7 +34517,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					}
 					if (tempBegBscreen[indexv76].haveSprite_36)
 					{
-						sub_2FC50_2FC90(&tempBegBscreen[indexv76]);//fix it
+						DrawSprite_2FC50_2FC90(&tempBegBscreen[indexv76]);//fix it
 					}
 					//indexv76--;
 				}
@@ -37656,8 +37656,8 @@ LABEL_61:
 
 int counter_2FC50_2FC90 = 0;
 int counter_2FC50_2FC90_2 = 0;
-//----- (0002FC50) --------------------------------------------------------
-void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
+//SYNCHRONIZED WITH REMC1
+void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
   unsigned __int16 result; // ax
   int v3; // eax
@@ -37667,6 +37667,7 @@ void sub_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   int v7; // ebx
   int v8; // ebp
   int v9; // edx
+  //unsigned __int16 *v10; // esi
   Type_99BA0* v10x; // esi
   int v11; // ebx
   int v12; // ecx
@@ -37916,7 +37917,7 @@ LABEL_67:
               if ( !sub_59050_59560(v15) )
                 break;
               v15 = v10x->var_0;
-          LABEL_21:
+LABEL_21:
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v15].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
               v16 = (int *)dword_12DF8C_12DF7C[v10x->var_0];
               byte_B5D3E_B5D2E = 1;
@@ -37983,40 +37984,6 @@ LABEL_69:
   }
   while ( result );
 }
-// 30718: variable 'v33' is possibly undefined
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
-// B5CA4: using guessed type int dword_B5CA4_B5C94;
-// B5CA8: using guessed type int dword_B5CA8_B5C98;
-// B5CAC: using guessed type int dword_B5CAC_B5C9C;
-// B5CB0: using guessed type int dword_B5CB0_B5CA0;
-// B5CB4: using guessed type int dword_B5CB4_B5CA4;
-// B5CB8: using guessed type int dword_B5CB8_B5CA8;
-// B5CBC: using guessed type int dword_B5CBC_B5CAC;
-// B5CC8: using guessed type int dword_B5CC8_B5CB8;
-// B5CCC: using guessed type int dword_B5CCC_B5CCC;
-// B5CD0: using guessed type int dword_B5CD0_B5CC0;
-// B5CD4: using guessed type int dword_B5CD4_B5CC4;
-// B5CDC: using guessed type int dword_B5CDC_B5CCC;
-// B5CE4: using guessed type int heightViewPort_B5CE4_B5CD4;
-// B5CE8: using guessed type int dword_B5CE8_B5CD8;
-// B5CEC: using guessed type int dword_B5CEC_B5CDC;
-// B5CF0: using guessed type int dword_B5CF0_B5CE0;
-// B5CF8: using guessed type int posZ_B5CF8_B5CE8_B5CE8;
-// B5CFC: using guessed type int dword_B5CFC_B5CEC;
-// B5D00: using guessed type int dword_B5D00_B5CF0;
-// B5D08: using guessed type int dword_B5D08_B5CF8;
-// B5D0C: using guessed type int dword_B5D0C_B5CFC;
-// B5D10: using guessed type int dword_B5D10_B5D00;
-// B5D14: using guessed type int fowDist_B5D14_B5D04_B5D04;
-// B5D38: using guessed type __int16 yaw_B5D38_B5D28_B5D28;
-// B5D3A: using guessed type __int16 posY_B5D3A_B5D2A_B5D2A;
-// B5D3C: using guessed type __int16 posX_B5D3C_B5D2C_B5D2C;
-// B5D3E: using guessed type char byte_B5D3E_B5D2E;
-// 12CF00: using guessed type int dword_12CF00_12CEF0[529];
-// 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
-// 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
-
 
 void DrawSky_30730_30770(int16_t roll)
 {
@@ -43768,7 +43735,7 @@ void sub_37440(int a1, char a2)//208440_
   {
     str_AE400_AE3F0->str_232607.var_u32_232607 = 0;
     memset(str_AE400_AE3F0->str_232607.var_u8_232611, 0, 96);
-    sub_59140_59140();
+    sub_59140_59650();
     //for ( i = str_AE400_AE3F0->str_193795.var_u16_1090; i < &str_AE400_AE3F0->str_193795.var_u16_1090[1999]; i++ )
     for (int i = 1; i < 2000; i++)
     {
@@ -67312,7 +67279,7 @@ void sub_58F00_59410()//229F00
 {
   sub_36C10_36FD0(dword_AE3EC_AE3DC);
   sub_11010(dword_AE3E0_AE3D0);
-  sub_59140_59140();
+  sub_59140_59650();
   memset(dword_12DF8C_12DF7C, 0, sizeof(dword_12DF8C_12DF7C));
   memset(dword_12D748_12D738, 0, sizeof(dword_12D748_12D738));
   memset(dword_12CF00_12CEF0, 0, sizeof(dword_12CF00_12CEF0));
@@ -67445,7 +67412,7 @@ void sub_590D0_595E0()//22A0D0_
 }
 
 //----- (00059140) --------------------------------------------------------
-void sub_59140_59140()
+void sub_59140_59650()
 {
   memset(byte_12E9E1_12E9D1, 0, 529);
 }
