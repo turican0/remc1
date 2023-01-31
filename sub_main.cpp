@@ -37698,11 +37698,11 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   int v30; // ebp
   //char v31; // cl
   unsigned __int8 v32; // al
-  Type_AE400_29795* v33x; // [esp+4h] [ebp-14h]
+  //Type_AE400_29795* v33x; // [esp+4h] [ebp-14h]
 
   //fix
   Type_sub168_2_2* a1x = nullptr;
-  v33x = nullptr;
+  v3x = nullptr;
   //fix
 
   //debug
@@ -37710,7 +37710,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   //debug
 
   //result = a2x->haveSprite_36;
-  for(int result = a2x->haveSprite_36; result; result = v33x->var_u16_29815_20)
+  for(int result = a2x->haveSprite_36; result; result = v3x->var_u16_29815_20)
   {
       //debug
       counter_2FC50_2FC90_2++;
@@ -37719,7 +37719,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
     {
       v3x = &str_AE400_AE3F0->str_29795[result];
       //v3 = 164 * result + dword_AE400_AE3F0() + 29795;
-      v33x = v3x;
+      //v33x = v3x;
       if ( (v3x->var_29811_16.byte[0] & 0x21) == 0 )
       {
         v4 = (__int16)(v3x->var_u32_29867_72.x - posX_B5D3C_B5D2C);
@@ -37743,7 +37743,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
             dword_B5CA4_B5C94 = 0;
           }
           //v10 = (unsigned __int16 *)((char *)&unk_99BA0 + 14 * *(__int16 *)(v33 + 86));
-          v10x = &unk_99BA0x[v33x->var_u16_29881_86];
+          v10x = &unk_99BA0x[v3x->var_u16_29881_86];
           //v10x->var_0
           v11 = v7 * fowDist_B5D14_B5D04 / v8;
           v12 = v6 * fowDist_B5D14_B5D04 / v8 + dword_B5CFC_B5CEC;
@@ -37798,7 +37798,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
             case 16:
               goto LABEL_28;
             case 17:
-              v23 = (((v33x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v23 = (((v3x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v23 < 8 )
               {
                 if ( dword_12DF8C_12DF7C[v23 + v10x->var_0] )
@@ -37824,7 +37824,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
               v25 = v10x->var_0 + 15 - v23;
               goto LABEL_67;
             case 18:
-              v23 = (((v33x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v23 = (((v3x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               v26 = v23 + v10x->var_0;
               if ( dword_12DF8C_12DF7C[v26] )
               {
@@ -37845,7 +37845,7 @@ LABEL_48:
               }
               break;
             case 19:
-              v18 = (((v33x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v18 = (((v3x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v18 < 8 )
               {
                 v19 = v10x->var_0 + (unsigned __int8)byte_906E8[v18];
@@ -37879,7 +37879,7 @@ LABEL_48:
               v22 = (unsigned __int8)byte_906E8[v18];
               goto LABEL_66;
             case 20:
-              v27 = (((v33x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v27 = (((v3x->var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v27 >= 8 )
               {
                 v29 = v10x->var_0 + (unsigned __int8)byte_906F8[v27];
@@ -37956,11 +37956,11 @@ LABEL_28:
               }
               else
               {
-                if ( !sub_59050_59560(v10x->var_0 + v33x->var_u8_29883_88) )
+                if ( !sub_59050_59560(v10x->var_0 + v3x->var_u8_29883_88) )
                   break;
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v33x->var_u8_29883_88 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v3x->var_u8_29883_88 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
-              a1x = dword_12DF8C_12DF7C[v10x->var_0 + v33x->var_u8_29883_88]->var_u32_0;
+              a1x = dword_12DF8C_12DF7C[v10x->var_0 + v3x->var_u8_29883_88]->var_u32_0;
 LABEL_17:
               dword_B5CD0_B5CC0 = a1x->xx;
               dword_B5CCC_B5CCC = a1x->yy;
