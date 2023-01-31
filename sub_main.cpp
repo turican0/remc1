@@ -37749,12 +37749,12 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
             case 0:
               if ( dword_12DF8C_12DF7C[v10x->var_0] )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 goto LABEL_16;
               }
               if ( sub_59050_59560(v10x->var_0) )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
 LABEL_16:
                 a1 = *(_DWORD *)dword_12DF8C_12DF7C[v10x->var_0];
                 goto LABEL_17;
@@ -37763,13 +37763,13 @@ LABEL_16:
             case 1:
               if ( dword_12DF8C_12DF7C[v10x->var_0] )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               else
               {
                 if ( !sub_59050_59560(v10x->var_0) )
                   break;
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               a1 = *(_DWORD *)dword_12DF8C_12DF7C[v10x->var_0];
               goto LABEL_17;
@@ -37795,13 +37795,13 @@ LABEL_16:
               {
                 if ( dword_12DF8C_12DF7C[v23 + v10x->var_0] )
                 {
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 }
                 else
                 {
                   if ( !sub_59050_59560(v23 + v10x->var_0) )
                     break;
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 }
                 goto LABEL_48;
               }
@@ -37812,7 +37812,7 @@ LABEL_16:
                   break;
                 v24 = v10x->var_0 + 15 - v23;
               }
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v24].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v24].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               v25 = v10x->var_0 + 15 - v23;
               goto LABEL_67;
             case 18:
@@ -37820,12 +37820,12 @@ LABEL_16:
               v26 = v23 + v10x->var_0;
               if ( dword_12DF8C_12DF7C[v26] )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v26].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v26].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 goto LABEL_48;
               }
               if ( sub_59050_59560(v23 + v10x->var_0) )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
 LABEL_48:
                 a1 = *(_DWORD *)dword_12DF8C_12DF7C[v23 + v10x->var_0];
                 dword_B5CD0_B5CC0 = *(unsigned __int16 *)(a1 + 2);
@@ -37843,13 +37843,13 @@ LABEL_48:
                 v19 = v10x->var_0 + (unsigned __int8)byte_906E8[v18];
                 if ( dword_12DF8C_12DF7C[v19] )
                 {
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v19].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v19].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 }
                 else
                 {
                   if ( !sub_59050_59560(v10x->var_0 + (unsigned __int8)byte_906E8[v18]) )
                     break;
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0 + (unsigned __int8)byte_906E8[v18]].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0 + (unsigned __int8)byte_906E8[v18]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 }
                 a1 = *(_DWORD *)dword_12DF8C_12DF7C[v10x->var_0 + (unsigned __int8)byte_906E8[v18]];
                 dword_B5CD0_B5CC0 = *(unsigned __int16 *)(a1 + 2);
@@ -37867,7 +37867,7 @@ LABEL_48:
                   break;
                 v21 = v10x->var_0 + (unsigned __int8)byte_906E8[v18];
               }
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v21].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v21].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               v22 = (unsigned __int8)byte_906E8[v18];
               goto LABEL_66;
             case 20:
@@ -37881,7 +37881,7 @@ LABEL_48:
                     break;
                   v29 = v10x->var_0 + (unsigned __int8)byte_906F8[v27];
                 }
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v29].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v29].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 v22 = (unsigned __int8)byte_906F8[v27];
 LABEL_66:
                 v25 = v10x->var_0 + v22;
@@ -37902,7 +37902,7 @@ LABEL_67:
                     break;
                   v28 = v10x->var_0 + (unsigned __int8)byte_906F8[v27];
                 }
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v28].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v28].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 a1 = *(_DWORD *)dword_12DF8C_12DF7C[v10x->var_0 + (unsigned __int8)byte_906F8[v27]];
                 dword_B5CD0_B5CC0 = *(unsigned __int16 *)(a1 + 2);
                 dword_B5CCC_B5CCC = *(unsigned __int16 *)(a1 + 4);
@@ -37919,7 +37919,7 @@ LABEL_67:
                 break;
               v15 = v10x->var_0;
 LABEL_21:
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v15].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v15].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               v16 = (int *)dword_12DF8C_12DF7C[v10x->var_0];
               byte_B5D3E_B5D2E = 1;
               a1 = *v16;
@@ -37944,13 +37944,13 @@ LABEL_28:
               v17 = v10x->var_0 + v3x->var_u8_29883_88;
               if ( dword_12DF8C_12DF7C[v17] )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v17].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v17].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               else
               {
                 if ( !sub_59050_59560(v10x->var_0 + v33x->var_u8_29883_88) )
                   break;
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v33x->var_u8_29883_88 + v10x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v33x->var_u8_29883_88 + v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               a1 = *(_DWORD *)dword_12DF8C_12DF7C[v10x->var_0 + v33x->var_u8_29883_88];
 LABEL_17:
