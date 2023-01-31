@@ -36732,7 +36732,7 @@ void sub_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   int v36; // ecx
   char v37; // al
   int v38; // eax
-  int *v39; // esi
+  //int *v39; // esi
   int v40; // eax
   int v41; // edx
   int v42; // eax
@@ -37290,9 +37290,9 @@ LABEL_136:
             v38 = v34x->var_0;
 LABEL_87:
             dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v38].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
-            v39 = (int *)dword_12DF8C_12DF7C[v34x->var_0];
+            //v39 = (int *)dword_12DF8C_12DF7C[v34x->var_0];
             byte_B5D3E_B5D2E = 1;
-            a1 = *v39;
+            a1x = dword_12DF8C_12DF7C[v34x->var_0]->var_u32_0;
             goto LABEL_103;
           case 22:
           case 23:
@@ -37346,7 +37346,7 @@ void sub_2F170_2F1B0(/*int a1,*/ int a2)//200170_
   int v10; // esi
   int v11; // ecx
   int v12; // eax
-  int *v13; // edi
+  //int *v13; // edi
   int v14; // eax
   int v15; // esi
   int v16; // eax
@@ -37363,12 +37363,12 @@ void sub_2F170_2F1B0(/*int a1,*/ int a2)//200170_
   int v27; // edx
   int v28; // eax
   int v29; // eax
-  char v30; // al
+  //char v30; // al
   int v31; // esi
   int v32; // [esp+4h] [ebp-14h]
 
   //fix
-  Type_sub168_2_2* a1x;
+  Type_sub168_2_2* a1x = nullptr;
   //fix
 
   result = *(_WORD *)(a2 + 36);
@@ -37424,7 +37424,7 @@ LABEL_10:
                   break;
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v9x->var_0].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
               }
-              a1 = *(_DWORD *)dword_12DF8C_12DF7C[v9x->var_0];
+              a1x = dword_12DF8C_12DF7C[v9x->var_0]->var_u32_0;
               goto LABEL_31;
             case 2:
             case 3:
@@ -37504,7 +37504,7 @@ LABEL_41:
                   v16 = v9x->var_0 + (unsigned __int8)byte_906E8[v15];
                 }
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v16].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
-                a1 = dword_12DF8C_12DF7C[v9x->var_0 + (unsigned __int8)byte_906E8[v15]]->var_u32_0;
+                a1x = dword_12DF8C_12DF7C[v9x->var_0 + (unsigned __int8)byte_906E8[v15]]->var_u32_0;
                 goto LABEL_31;
               }
               v18 = (unsigned __int8)byte_906E8[v15] + v9x->var_0;
@@ -37570,9 +37570,9 @@ LABEL_59:
               v12 = v9x->var_0;
           LABEL_14:
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v12].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
-              v13 = (int *)dword_12DF8C_12DF7C[v9x->var_0];
+              //v13 = (int *)dword_12DF8C_12DF7C[v9x->var_0];
               byte_B5D3E_B5D2E = 1;
-              a1 = *v13;
+              a1x = dword_12DF8C_12DF7C[v9x->var_0]->var_u32_0;
               goto LABEL_31;
             case 22:
             case 23:
@@ -37602,21 +37602,21 @@ LABEL_21:
                   break;
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v9x->var_0 + *(unsigned __int8*)(v32 + 88)].var_8] = *(_DWORD *)(dword_AE408_AE3F8() + 4);
               }
-              a1 = *(_DWORD *)dword_12DF8C_12DF7C[v9x->var_0 + *(unsigned __int8 *)(v32 + 88)];
+              a1x = dword_12DF8C_12DF7C[v9x->var_0 + *(unsigned __int8 *)(v32 + 88)]->var_u32_0;
 LABEL_31:
-              dword_B5CD0_B5CC0 = *(unsigned __int16 *)(a1 + 2);
-              dword_B5CCC_B5CCC = *(unsigned __int16 *)(a1 + 4);
+              dword_B5CD0_B5CC0 = a1x->xx;
+              dword_B5CCC_B5CCC = a1x->yy;
               dword_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v9x->var_8) / v6;
               dword_B5CA8_B5C98 = dword_B5CC8_B5CB8 * dword_B5CD0_B5CC0 / dword_B5CCC_B5CCC;
               v17 = dword_B5CD0_B5CC0;
 LABEL_60:
               dword_B5CBC_B5CAC = v17;
 LABEL_61:
-              v30 = *(_BYTE *)a1 | 8;
+              //v30 = *(_BYTE *)a1 | 8;
               dword_B5CAC_B5C9C = 9;
               v31 = dword_B5CC8_B5CB8 + 1;
               ++dword_B5CA8_B5C98;
-              *(_BYTE *)a1 = v30;
+              a1x->var_0 |= 8;
               dword_B5CC8_B5CB8 = v31;
               dword_B5CB0_B5CA0 = a1x->datax;
               sub_2C410_2C450(1u);
