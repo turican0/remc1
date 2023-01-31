@@ -37666,7 +37666,7 @@ int counter_2FC50_2FC90_2 = 0;
 //SYNCHRONIZED WITH REMC1
 void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
-  unsigned __int16 result; // ax
+  //unsigned __int16 result; // ax
   Type_AE400_29795* v3x; // eax
   int v4; // edx
   int v5; // eax
@@ -37709,8 +37709,8 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
   counter_2FC50_2FC90++;
   //debug
 
-  result = a2x->haveSprite_36;
-  do
+  //result = a2x->haveSprite_36;
+  for(int result = a2x->haveSprite_36; result; result = v33x->var_u16_29815_20)
   {
       //debug
       counter_2FC50_2FC90_2++;
@@ -37757,12 +37757,13 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
               if ( dword_12DF8C_12DF7C[v10x->var_0] )
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                goto LABEL_16;
+                a1x = dword_12DF8C_12DF7C[v10x->var_0]->var_u32_0;
+                goto LABEL_17;
               }
               if ( sub_59050_59560(v10x->var_0) )
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v10x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-LABEL_16:
+//LABEL_16:
                 a1x = dword_12DF8C_12DF7C[v10x->var_0]->var_u32_0;
                 goto LABEL_17;
               }
@@ -37978,8 +37979,8 @@ LABEL_69:
               else
                 v32 = byte_906E2[v10x->var_10];
               dword_B5CAC_B5C9C = v32;
-              ++dword_B5CA8_B5C98;
-              ++dword_B5CC8_B5CB8;
+              dword_B5CA8_B5C98++;
+              dword_B5CC8_B5CB8++;
               sub_2C410_2C450(2u);
               break;
             default:
@@ -37988,9 +37989,9 @@ LABEL_69:
         }
       }
     }
-    result = v33x->var_u16_29815_20;
+    //result = v33x->var_u16_29815_20;
   }
-  while ( result );
+  //while ( result );
 }
 
 void DrawSky_30730_30770(int16_t roll)
