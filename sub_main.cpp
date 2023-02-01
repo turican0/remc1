@@ -36698,12 +36698,12 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //unsigned __int16 result; // ax
   //int v3; // ebp
   //__int16 v4; // bx
-  int v5; // ecx
+  //int v5; // ecx
   //int v6; // ebx
   //int v7; // edx
   Type_99BA0* v8x; // edi
-  int v9; // ebx
-  int v10; // ecx
+  //int v9; // ebx
+  //int v10; // ecx
   int v11; // eax
   int v12; // eax
   int v13; // ebx
@@ -36806,7 +36806,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
       {
         if ( !a2x->var_43 )
         {
-          v5 = sub_724C0_729D0(str_AE400_AE3F0->str_29795[result].var_u32_29867_72.x, str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y) - posZ_B5CF8_B5CE8;
+          int32 tempZ = sub_724C0_729D0(str_AE400_AE3F0->str_29795[result].var_u32_29867_72.x, str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y) - posZ_B5CF8_B5CE8;
           int32 xRot = (diffX * sin_B5CDC_B5CCC - diffY * cos_B5D10_B5D00) >> 16;
           int32 yRot = (diffX * cos_B5D10_B5D00 + diffY * sin_B5CDC_B5CCC) >> 16;
           int32 sqSize = yRot * yRot + xRot * xRot;
@@ -36820,11 +36820,11 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
             v8x = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
             if ( !v8x->var_10)
             {
-              v9 = xRot * fowDist_B5D14_B5D04 / yRot;
-              v10 = v5 * fowDist_B5D14_B5D04 / yRot + dword_B5CFC_B5CEC;
-              v60 = (v9 * cos_B5CE8_B5CD8 - v10 * sin_B5CD4_B5CC4) >> 16;
+              int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
+              int32 wRotZY = tempZ * fowDist_B5D14_B5D04 / yRot + dword_B5CFC_B5CEC;
+              v60 = (wRotXY * cos_B5CE8_B5CD8 - wRotZY * sin_B5CD4_B5CC4) >> 16;
               dword_B5CB8_B5CA8 = v60 + dword_B5D08_B5CF8;
-              dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((cos_B5CE8_B5CD8 * v10 + sin_B5CD4_B5CC4 * v9) >> 16);
+              dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((cos_B5CE8_B5CD8 * wRotZY + sin_B5CD4_B5CC4 * wRotXY) >> 16);
               byte_B5D3E_B5D2E = 0;
               switch (v8x->var_12)
               {
