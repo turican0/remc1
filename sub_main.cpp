@@ -547,7 +547,7 @@ void PrepRot_29C30_29C70(__int16 roll);
 // char sub_2A700_2A740(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8);
 void sub_2C410_2C450(unsigned int a1);
 void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2);
-void DrawSprite_59140_59650(/*int a1,*/ Type_BegBscreen* a2);
+void DrawSprite_2F170_2F1B0(Type_BegBscreen* a2);
 void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2);
 void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
@@ -15331,7 +15331,7 @@ _DWORD settextposition(_DWORD a, _DWORD b) { return 0; };// weak
 //void sub_10000() {}; // weak
 
 //unsigned __int16 sub_2DCB0_2DCF0(int a1, int a2) { return 0; };
-//unsigned __int16 DrawSprite_59140_59650(int a1, int a2) { return 0; };
+//unsigned __int16 DrawSprite_2F170_2F1B0(int a1, int a2) { return 0; };
 //unsigned __int16 DrawSprite_2FC50_2FC90(int a1, int a2) { return 0; };
 //unsigned __int16 sub_32B90_sub_32F80(int a1, int a2) { return 0; };
 //char sub_33800_33BF0(char a1, char a2, unsigned __int16 a3, unsigned __int8 a4) { return 0; };
@@ -33994,7 +33994,7 @@ LABEL_26:
                     }
                 }
                 if (*(_WORD*)(v157 + 36))
-                    DrawSprite_59140_59650(/*5120,*/ (Type_BegBscreen*)v157);
+                    DrawSprite_2F170_2F1B0(/*5120,*/ (Type_BegBscreen*)v157);
                 v149 = v157 + 44;
                 --v236;
             } while (v236);
@@ -34042,8 +34042,8 @@ LABEL_26:
                         }
                     }
                     if (*(_WORD*)(v167 + 36))
-                        //DrawSprite_59140_59650(5120, v167);
-                        DrawSprite_59140_59650((Type_BegBscreen*)v167);
+                        //DrawSprite_2F170_2F1B0(5120, v167);
+                        DrawSprite_2F170_2F1B0((Type_BegBscreen*)v167);
                     v159 = v167 - 44;
                 } while (v159 >= v158);
             }
@@ -35055,7 +35055,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					}
 				}
 				if (tempBegBscreen[index149].haveSprite_36)
-					DrawSprite_59140_59650(/*5120,*/ &tempBegBscreen[index149]);
+					DrawSprite_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index149]);
                 index149++;
 			}
 			if (index236)
@@ -35090,7 +35090,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						}
 					}
 					if (tempBegBscreen[index159].haveSprite_36)
-						DrawSprite_59140_59650(/*5120,*/ &tempBegBscreen[index159]);
+						DrawSprite_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index159]);
 					//index158--;
 				} //while (index158 >= 100/*v158*/);//fix it
 			}
@@ -35100,7 +35100,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 }
 
 int counter_sub_2C410_2C450 = 0;
-//SYNCHRONIZED WITH REMC2
+//SYNCHRONIZED WITH REMC1
 void sub_2C410_2C450(unsigned int a1)//1FD410_
 {
   int v1; // eax
@@ -37332,8 +37332,8 @@ LABEL_140:
   while ( result );
 }
 
-//----- (0002F170) --------------------------------------------------------
-void DrawSprite_59140_59650(/*int a1,*/ Type_BegBscreen* a2x)//200170_
+//SYNCHRONIZED WITH REMC1
+void DrawSprite_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
 {
   unsigned __int16 result; // ax
   int v3; // eax
@@ -37342,6 +37342,7 @@ void DrawSprite_59140_59650(/*int a1,*/ Type_BegBscreen* a2x)//200170_
   int v6; // ebp
   int v7; // esi
   //int v8; // eax
+  //unsigned __int16 *v9; // ebx
   Type_99BA0* v9x; // ebx
   int v10; // esi
   int v11; // ecx
@@ -37568,7 +37569,7 @@ LABEL_59:
               if ( !sub_59050_59560(v12) )
                 break;
               v12 = v9x->var_0;
-          LABEL_14:
+LABEL_14:
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v12].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               //v13 = (int *)dword_12DF8C_12DF7C[v9x->var_0];
               byte_B5D3E_B5D2E = 1;
@@ -37631,35 +37632,6 @@ LABEL_61:
   }
   while ( result );
 }
-// 2FBA1: variable 'v32' is possibly undefined
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
-// B5CA4: using guessed type int dword_B5CA4_B5C94;
-// B5CA8: using guessed type int dword_B5CA8_B5C98;
-// B5CAC: using guessed type int dword_B5CAC_B5C9C;
-// B5CB0: using guessed type int dword_B5CB0_B5CA0;
-// B5CB4: using guessed type int dword_B5CB4_B5CA4;
-// B5CB8: using guessed type int dword_B5CB8_B5CA8;
-// B5CBC: using guessed type int dword_B5CBC_B5CAC;
-// B5CC8: using guessed type int dword_B5CC8_B5CB8;
-// B5CCC: using guessed type int dword_B5CCC_B5CCC;
-// B5CD0: using guessed type int dword_B5CD0_B5CC0;
-// B5CD4: using guessed type int dword_B5CD4_B5CC4;
-// B5CDC: using guessed type int dword_B5CDC_B5CCC;
-// B5CE4: using guessed type int heightViewPort_B5CE4_B5CD4;
-// B5CE8: using guessed type int dword_B5CE8_B5CD8;
-// B5CF8: using guessed type int posZ_B5CF8_B5CE8_B5CE8;
-// B5CFC: using guessed type int dword_B5CFC_B5CEC;
-// B5D08: using guessed type int dword_B5D08_B5CF8;
-// B5D10: using guessed type int dword_B5D10_B5D00;
-// B5D14: using guessed type int fowDist_B5D14_B5D04_B5D04;
-// B5D38: using guessed type __int16 yaw_B5D38_B5D28_B5D28;
-// B5D3A: using guessed type __int16 posY_B5D3A_B5D2A_B5D2A;
-// B5D3C: using guessed type __int16 posX_B5D3C_B5D2C_B5D2C;
-// B5D3E: using guessed type char byte_B5D3E_B5D2E;
-// 12CF00: using guessed type int dword_12CF00_12CEF0[529];
-// 12D744: using guessed type int begTmapsTab_12D744_2EB744_2EB734;
-// 12DF8C: using guessed type int dword_12DF8C_12DF7C[529];
 
 int counter_2FC50_2FC90 = 0;
 int counter_2FC50_2FC90_2 = 0;
