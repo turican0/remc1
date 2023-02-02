@@ -7,6 +7,7 @@
 int modset_used_precount = 0;
 int modset_used_count = 0;
 int modset_key = 0x0;
+
 bool modset_key_alt = false;
 //#define COMPARE_WITH
 
@@ -36704,7 +36705,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //Type_99BA0* tempEntType; // edi
   //int v9; // ebx
   //int v10; // ecx
-  int v11; // eax
+  //int v11; // eax
   int v12; // eax
   int v13; // ebx
   int v14; // eax
@@ -36724,13 +36725,13 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //int v28; // eax
   //unsigned __int8 v29; // al
   //int v30; // edx
-  int v31; // ecx
-  int v32; // ebx
-  int v33; // edx
+  //int v31; // ecx
+  //int v32; // ebx
+  //int v33; // edx
   Type_99BA0* v34x; // edi
-  int v35; // ebx
-  int v36; // ecx
-  char v37; // al
+  //int v35; // ebx
+  //int v36; // ecx
+  //char v37; // al
   int v38; // eax
   //int *v39; // esi
   int v40; // eax
@@ -36757,7 +36758,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //int v61; // [esp+4h] [ebp-20h]
   //int v62; // [esp+8h] [ebp-1Ch]
   //int v63; // [esp+Ch] [ebp-18h]
-  int v64; // [esp+10h] [ebp-14h]
+  //int v64; // [esp+10h] [ebp-14h]
 
   //adress 1FECB0_
   //debug
@@ -37020,14 +37021,14 @@ LABEL_65:
                   }
                   break;
                 case 0x15:
-                  v11 = tempEntType->var_0;
-                  if ( dword_12DF8C_12DF7C[v11] )
+                  //v11 = tempEntType->var_0;
+                  if ( dword_12DF8C_12DF7C[tempEntType->var_0] )
                     goto LABEL_20;
-                  if ( !sub_59050_59560(v11) )
+                  if ( !sub_59050_59560(tempEntType->var_0) )
                     goto LABEL_140;
-                  v11 = tempEntType->var_0;
+                  //tempEntType->var_0 = tempEntType->var_0;
 LABEL_20:
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v11].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   a1x = dword_12DF8C_12DF7C[tempEntType->var_0]->var_u32_0;
                   goto LABEL_35;
                 case 0x16:
@@ -37064,19 +37065,19 @@ LABEL_28:
           }
         }
       }
-      v31 = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.z - posZ_B5CF8_B5CE8;
-      v32 = (diffX * sin_B5CDC_B5CCC - diffY * cos_B5D10_B5D00) >> 16;
-      v64 = (diffX * cos_B5D10_B5D00 + diffY * sin_B5CDC_B5CCC) >> 16;
-      v33 = v64 * v64 + v32 * v32;
-      if ( v64 > 64 && v33 < dword_B5D00_B5CF0 )
+      int32 tempZ = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.z - posZ_B5CF8_B5CE8;
+      int32 xRot = (diffX * sin_B5CDC_B5CCC - diffY * cos_B5D10_B5D00) >> 16;
+      int32 yRot = (diffX * cos_B5D10_B5D00 + diffY * sin_B5CDC_B5CCC) >> 16;
+      int32 sqSize = yRot * yRot + xRot * xRot;
+      if (yRot > 64 && sqSize < dword_B5D00_B5CF0 )
       {
-        if ( v33 <= dword_B5CF0_B5CE0 )
+        if (sqSize <= dword_B5CF0_B5CE0 )
         {
           dword_B5CA4_B5C94 = 0x2000;
         }
-        else if ( v33 < dword_B5D0C_B5CFC )
+        else if (sqSize < dword_B5D0C_B5CFC )
         {
-          dword_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - v33) / dword_B5CEC_B5CDC) << 8;
+          dword_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8;
         }
         else
         {
@@ -37084,14 +37085,14 @@ LABEL_28:
         }
         //v34 = (unsigned __int16 *)((char *)&unk_99BA0 + 14 * *(__int16 *)(v3 + 86));
         v34x = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
-        v35 = v32 * fowDist_B5D14_B5D04 / v64;
-        v36 = v31 * fowDist_B5D14_B5D04 / v64 + dword_B5CFC_B5CEC;
+        int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
+        int32 wRotZY = tempZ * fowDist_B5D14_B5D04 / yRot + dword_B5CFC_B5CEC;
         //v60 = (v35 * cos_B5CE8_B5CD8 - v36 * sin_B5CD4_B5CC4) >> 16;
-        dword_B5CB8_B5CA8 = ((v35 * cos_B5CE8_B5CD8 - v36 * sin_B5CD4_B5CC4) >> 16)+dword_B5D08_B5CF8;
-        dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((cos_B5CE8_B5CD8 * v36 + sin_B5CD4_B5CC4 * v35) >> 16);
-        v37 = v34x->var_12;
+        dword_B5CB8_B5CA8 = ((wRotXY * cos_B5CE8_B5CD8 - wRotZY * sin_B5CD4_B5CC4) >> 16)+dword_B5D08_B5CF8;
+        dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((cos_B5CE8_B5CD8 * wRotZY + sin_B5CD4_B5CC4 * wRotXY) >> 16);
+        //v37 = v34x->var_12;
         byte_B5D3E_B5D2E = 0;
-        switch ( v37 )
+        switch (v34x->var_12)
         {
           case 0:
             if ( dword_12DF8C_12DF7C[v34x->var_0] )
@@ -37183,7 +37184,7 @@ LABEL_114:
               a1x = dword_12DF8C_12DF7C[v50 + v34x->var_0]->var_u32_0;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
-              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / v64;
+              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               v45 = sprX_B5CD0_B5CC0;
               goto LABEL_135;
@@ -37205,7 +37206,7 @@ LABEL_114:
 LABEL_103:
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
-              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / v64;
+              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               v45 = sprX_B5CD0_B5CC0;
               goto LABEL_135;
@@ -37245,7 +37246,7 @@ LABEL_134:
               a1x = dword_12DF8C_12DF7C[v52]->var_u32_0;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
-              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / v64;
+              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               v45 = -sprX_B5CD0_B5CC0;
             }
@@ -37262,7 +37263,7 @@ LABEL_134:
               a1x = dword_12DF8C_12DF7C[v34x->var_0 + byte_906F8[v54]]->var_u32_0;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
-              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / v64;
+              scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               v45 = sprX_B5CD0_B5CC0;
             }
