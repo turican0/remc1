@@ -36712,12 +36712,12 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //int v15; // eax
   //int v16; // edx
   //int v17; // eax
-  int v18; // eax
-  int v19; // ebx
+  //int v18; // eax
+  //int v19; // ebx
   //int v20; // eax
-  int v21; // eax
-  int v22; // ebx
-  int v23; // eax
+  //int v21; // eax
+  //int v22; // ebx
+  //int v23; // eax
   //int v24; // ebx
   //int v25; // eax
   //int v26; // eax
@@ -36829,6 +36829,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
               byte_B5D3E_B5D2E = 0;
 
               int32 tmpSprFrameRot;
+              int32 tmpSprFrameRot2;
               switch (tempEntType->var_12)
               {
                 case 0:
@@ -36860,13 +36861,13 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
                 case 0x10:
                   goto LABEL_25;
                 case 0x11:
-                  v19 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-                  if ( v19 < 8 )
+                  tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+                  if (tmpSprFrameRot2 < 8 )
                   {
-                    if ( dword_12DF8C_12DF7C[v19 + tempEntType->var_0] || sub_59050_59560(v19 + tempEntType->var_0) )
+                    if ( dword_12DF8C_12DF7C[tmpSprFrameRot2 + tempEntType->var_0] || sub_59050_59560(tmpSprFrameRot2 + tempEntType->var_0) )
                     {
-                      dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v19 + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                      a1x = dword_12DF8C_12DF7C[v19 + tempEntType->var_0]->var_u32_0;
+                      dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                      a1x = dword_12DF8C_12DF7C[tmpSprFrameRot2 + tempEntType->var_0]->var_u32_0;
                       sprX_B5CD0_B5CC0 = a1x->xx;
                       sprY_B5CCC_B5CCC = a1x->yy;
                       scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -36877,31 +36878,32 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
                     goto LABEL_140;
                   }
                   //v20 = tempEntType->var_0 + 15 - v19;
-                  if ( dword_12DF8C_12DF7C[tempEntType->var_0 + 15 - v19] )
+                  if ( dword_12DF8C_12DF7C[tempEntType->var_0 + 15 - tmpSprFrameRot2] )
                   {
-                    dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + 15 - v19].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                    dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + 15 - tmpSprFrameRot2].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   }
                   else
                   {
-                    if ( !sub_59050_59560(tempEntType->var_0 + 15 - v19) )
+                    if ( !sub_59050_59560(tempEntType->var_0 + 15 - tmpSprFrameRot2) )
                       goto LABEL_140;
-                    dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + 15 - v19].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                    dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + 15 - tmpSprFrameRot2].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   }
-                  v21 = tempEntType->var_0 + 15 - v19;
+                  //v21 = tempEntType->var_0 + 15 - tmpSprFrameRot2;
+                  a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + 15 - tmpSprFrameRot2]->var_u32_0;
                   goto LABEL_63;
                 case 0x12:
-                  v22 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-                  v23 = v22 + tempEntType->var_0;
-                  if (!dword_12DF8C_12DF7C[v23])
+                  tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+                  //v23 = tmpSprFrameRot2 + tempEntType->var_0;
+                  if (!dword_12DF8C_12DF7C[tmpSprFrameRot2 + tempEntType->var_0])
                       //goto LABEL_52;
                   {
-                      if (!sub_59050_59560(v22 + tempEntType->var_0))
+                      if (!sub_59050_59560(tmpSprFrameRot2 + tempEntType->var_0))
                           goto LABEL_140;
-                      v23 = v22 + tempEntType->var_0;
+                      //v23 = tmpSprFrameRot2 + tempEntType->var_0;
                   }
 //LABEL_52:
-                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v23].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                  a1x = dword_12DF8C_12DF7C[v22 + tempEntType->var_0]->var_u32_0;
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                  a1x = dword_12DF8C_12DF7C[tmpSprFrameRot2 + tempEntType->var_0]->var_u32_0;
                   sprX_B5CD0_B5CC0 = a1x->xx;
                   sprY_B5CCC_B5CCC = a1x->yy;
                   scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -36941,7 +36943,7 @@ LABEL_35:
                     //v17 = tempEntType->var_0 + byte_906E8[tmpSprFrameRot];
                   }
                   dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot] + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                  v18 = byte_906E8[tmpSprFrameRot];
+                  //v18 = byte_906E8[tmpSprFrameRot];
                   goto LABEL_62;
                 case 0x14:
                   tmpSprFrameRot = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
@@ -36955,11 +36957,12 @@ LABEL_35:
                       //v26 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot];
                     }
                     dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + byte_906F8[tmpSprFrameRot]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                    v18 = byte_906F8[tmpSprFrameRot];
+                    //v18 = byte_906F8[tmpSprFrameRot];
 LABEL_62:
-                    v21 = tempEntType->var_0 + v18;
+                    //v21 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot];
+                    a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906F8[tmpSprFrameRot]]->var_u32_0;
 LABEL_63:
-                    a1x = dword_12DF8C_12DF7C[v21]->var_u32_0;
+                    //a1x = dword_12DF8C_12DF7C[v21]->var_u32_0;
                     sprX_B5CD0_B5CC0 = a1x->xx;
                     sprY_B5CCC_B5CCC = a1x->yy;
                     scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
