@@ -37216,21 +37216,13 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
               switch (temp_99BA0->var_12)
               {
               case 0:
-                  if (dword_12DF8C_12DF7C[temp_99BA0->var_0])
-                  {
-                      dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                      //goto LABEL_83;
-                      a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0]->var_u32_0;
-                      goto LABEL_103;
-                  }
-                  if (sub_59050_59560(temp_99BA0->var_0))
-                  {
-                      dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                  if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
+                      if (!sub_59050_59560(temp_99BA0->var_0))
+                          break;
+                  dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   //LABEL_83:
-                      a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0]->var_u32_0;
-                      goto LABEL_103;
-                  }
-                  break;
+                  a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0]->var_u32_0;
+                  goto LABEL_103;
               case 1:
                   if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
                       if (!sub_59050_59560(temp_99BA0->var_0))
