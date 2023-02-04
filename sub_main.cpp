@@ -14819,7 +14819,7 @@ int dword_B5CAC_B5C9C; // weak
 uint8* sprData_B5CB0_B5CA0; // weak
 int dword_B5CB4_B5CA4; // weak
 int dword_B5CB8_B5CA8; // weak
-int dword_B5CBC_B5CAC; // weak
+int signedSprX_B5CBC_B5CAC; // weak
 int dword_B5CC0_B5CB0; // weak
 int dword_B5CC4_B5CB4; // weak
 int scaledSprY_B5CC8_B5CB8; // weak
@@ -35680,9 +35680,9 @@ LABEL_172:
                   while ( v62 );
                 }
 LABEL_181:
-                v76 = (dword_B5CBC_B5CAC << 16) / v60;
+                v76 = (signedSprX_B5CBC_B5CAC << 16) / v60;
                 dword_B5CC4_B5CB4 = 0;
-                if ( dword_B5CBC_B5CAC < 0 )
+                if ( signedSprX_B5CBC_B5CAC < 0 )
                   dword_B5CC4_B5CB4 = -(v76 * (v60 - 1));
                 v170 = v60 - v184;
                 if ( v60 - v184 > 0 )
@@ -36283,7 +36283,7 @@ LABEL_321:
   if ( widthViewPort_93AD8 <= dword_B5CB8_B5CA8 )
     goto LABEL_404;
   v5 = scaledSprX_B5CA8_B5C98;
-  v6 = (dword_B5CBC_B5CAC << 16) / scaledSprX_B5CA8_B5C98;
+  v6 = (signedSprX_B5CBC_B5CAC << 16) / scaledSprX_B5CA8_B5C98;
   if ( -dword_B5CB8_B5CA8 < 0 || dword_B5CB8_B5CA8 == 0 )
   {
     dword_B5CC4_B5CB4 = 0;
@@ -36773,7 +36773,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -36800,7 +36800,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -36842,7 +36842,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -36871,7 +36871,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									sprY_B5CCC_B5CCC = a1x->yy;
 									scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 									scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-									dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+									signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 									sprData_B5CB0_B5CA0 = a1x->datax;
 									a1x->var_0 |= 8;
 									if (dword_B5CA4_B5C94 == 0x2000)
@@ -36899,7 +36899,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -36928,7 +36928,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -36959,7 +36959,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									sprY_B5CCC_B5CCC = a1x->yy;
 									scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 									scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-									dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+									signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 									sprData_B5CB0_B5CA0 = a1x->datax;
 									a1x->var_0 |= 8;
 									if (dword_B5CA4_B5C94 == 0x2000)
@@ -36987,7 +36987,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -37018,7 +37018,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									sprY_B5CCC_B5CCC = a1x->yy;
 									scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 									scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-									dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+									signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 								}
 								else
 								{
@@ -37034,7 +37034,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									sprY_B5CCC_B5CCC = a1x->yy;
 									scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 									scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-									dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+									signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								}
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
@@ -37062,7 +37062,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -37105,7 +37105,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								sprY_B5CCC_B5CCC = a1x->yy;
 								scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
 								scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-								dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
 								if (dword_B5CA4_B5C94 == 0x2000)
@@ -37180,7 +37180,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37215,7 +37215,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37238,7 +37238,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							sprY_B5CCC_B5CCC = a1x->yy;
 							scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 							scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-							dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
 							if (dword_B5CA4_B5C94 == 0x2000)
@@ -37259,7 +37259,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37281,7 +37281,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37305,7 +37305,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							sprY_B5CCC_B5CCC = a1x->yy;
 							scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 							scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-							dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
 							if (dword_B5CA4_B5C94 == 0x2000)
@@ -37326,7 +37326,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37350,7 +37350,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							sprY_B5CCC_B5CCC = a1x->yy;
 							scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 							scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-							dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+							signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						}
 						else
 						{
@@ -37363,7 +37363,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							sprY_B5CCC_B5CCC = a1x->yy;
 							scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 							scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-							dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						}
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
@@ -37385,7 +37385,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37421,7 +37421,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						sprY_B5CCC_B5CCC = a1x->yy;
 						scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)temp_99BA0->var_8) / yRot;
 						scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-						dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
 						if (dword_B5CA4_B5C94 == 0x2000)
@@ -37453,9 +37453,9 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 //SYNCHRONIZED WITH REMC1
 void DrawSprite_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
 {
-  unsigned __int16 result; // ax
-  int v3; // eax
-  int v4; // edx
+  //unsigned __int16 result; // ax
+  //int v3; // eax
+  //int v4; // edx
   int v5; // ecx
   int v6; // ebp
   int v7; // esi
@@ -37484,31 +37484,32 @@ void DrawSprite_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
   int v29; // eax
   //char v30; // al
   int v31; // esi
-  int v32; // [esp+4h] [ebp-14h]
+  //int v32; // [esp+4h] [ebp-14h]
 
   //fix
   Type_sub168_2_2* a1x = nullptr;
   //fix
 
-  result = a2x->haveSprite_36;
-  do
+  //result = a2x->haveSprite_36;
+  //do
+  for (int result = a2x->haveSprite_36; result; result = str_AE400_AE3F0->str_29795[result].var_u16_29815_20)
   {
     if ( result < 0x3E8u )
     {
-      v3 = 164 * result + dword_AE400_AE3F0() + 29795;
-      v32 = v3;
-      if ( (*(_BYTE *)(v3 + 16) & 0x21) == 0 )
+      //v3 = 164 * result + dword_AE400_AE3F0() + 29795;
+      //v32 = v3;
+      if ( (str_AE400_AE3F0->str_29795[result].var_29811_16.byte[0] & 0x21) == 0 )
       {
-        v4 = (__int16)(*(_WORD *)(v3 + 72) - posX_B5D3C_B5D2C);
-        v5 = *(__int16 *)(v3 + 76) - posZ_B5CF8_B5CE8;
-        v6 = (cos_B5D10_B5D00 * v4 + sin_B5CDC_B5CCC * (__int16)(posY_B5D3A_B5D2A - *(_WORD *)(v3 + 74))) >> 16;
-        v7 = (v4 * sin_B5CDC_B5CCC - (__int16)(posY_B5D3A_B5D2A - *(_WORD *)(v3 + 74)) * cos_B5D10_B5D00) >> 16;
+        int16 diffX = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.x - posX_B5D3C_B5D2C;
+        v5 = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y - posZ_B5CF8_B5CE8;
+        v6 = (cos_B5D10_B5D00 * diffX + sin_B5CDC_B5CCC * (__int16)(posY_B5D3A_B5D2A - str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y)) >> 16;
+        v7 = (diffX * sin_B5CDC_B5CCC - (__int16)(posY_B5D3A_B5D2A - str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y) * cos_B5D10_B5D00) >> 16;
         if ( v6 > 64 )
         {
           //v8 = 14 * *(__int16 *)(v3 + 86);
           dword_B5CA4_B5C94 = 0x400000 - 350 * (5120 - v6);
           //v9 = (unsigned __int16 *)((char *)&unk_99BA0 + 14 * *(__int16*)(v3 + 86));
-          v9x = &unk_99BA0x[*(__int16*)(v3 + 86)];
+          v9x = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u32_29867_72.z];
           v10 = v7 * fowDist_B5D14_B5D04 / v6;
           v11 = v5 * fowDist_B5D14_B5D04 / v6 + dword_B5CFC_B5CEC;
           dword_B5CB8_B5CA8 = ((v10 * cos_B5CE8_B5CD8 - v11 * sin_B5CD4_B5CC4) >> 16) + dword_B5D08_B5CF8;
@@ -37562,7 +37563,7 @@ LABEL_10:
             case 16:
               goto LABEL_21;
             case 17:
-              v20 = (((*(unsigned __int16 *)(v32 + 30) - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v20 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v20 < 8 )
               {
                 if ( dword_12DF8C_12DF7C[v20 + v9x->var_0] )
@@ -37591,7 +37592,7 @@ LABEL_10:
               }
               break;
             case 18:
-              v20 = (((*(unsigned __int16 *)(v32 + 30) - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v20 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               v25 = v20 + v9x->var_0;
               if ( dword_12DF8C_12DF7C[v25] )
               {
@@ -37612,7 +37613,7 @@ LABEL_41:
               }
               break;
             case 19:
-              v15 = (((*(unsigned __int16 *)(v32 + 30) - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v15 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v15 < 8 )
               {
                 v16 = v9x->var_0 + byte_906E8[v15];
@@ -37637,7 +37638,7 @@ LABEL_41:
               v19 = byte_906E8[v15];
               goto LABEL_58;
             case 20:
-              v26 = (((*(unsigned __int16 *)(v32 + 30) - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+              v26 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if ( v26 >= 8 )
               {
                 v29 = byte_906F8[v26] + v9x->var_0;
@@ -37710,18 +37711,18 @@ LABEL_14:
             case 36:
               byte_B5D3E_B5D2E = 1;
 LABEL_21:
-              v14 = *(unsigned __int8 *)(v32 + 88) + v9x->var_0;
+              v14 = str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v9x->var_0;
               if ( dword_12DF8C_12DF7C[v14] )
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v14].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               else
               {
-                if ( !sub_59050_59560(v9x->var_0 + *(unsigned __int8 *)(v32 + 88)) )
+                if ( !sub_59050_59560(v9x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88) )
                   break;
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v9x->var_0 + *(unsigned __int8*)(v32 + 88)].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v9x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
-              a1x = dword_12DF8C_12DF7C[v9x->var_0 + *(unsigned __int8 *)(v32 + 88)]->var_u32_0;
+              a1x = dword_12DF8C_12DF7C[v9x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88]->var_u32_0;
 LABEL_31:
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
@@ -37729,7 +37730,7 @@ LABEL_31:
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               v17 = sprX_B5CD0_B5CC0;
 LABEL_60:
-              dword_B5CBC_B5CAC = v17;
+              signedSprX_B5CBC_B5CAC = v17;
 LABEL_61:
               //v30 = *(_BYTE *)a1 | 8;
               dword_B5CAC_B5C9C = 9;
@@ -37746,9 +37747,9 @@ LABEL_61:
         }
       }
     }
-    result = *(_WORD *)(v32 + 20);
+    //result = *(_WORD *)(v32 + 20);
   }
-  while ( result );
+  //while ( result );
 }
 
 int counter_2FC50_2FC90 = 0;
@@ -37861,7 +37862,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+              signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               sprData_B5CB0_B5CA0 = a1x->datax;
               a1x->var_0 |= 8;
               if (dword_B5CA4_B5C94 == 0x2000)
@@ -37889,7 +37890,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+              signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               sprData_B5CB0_B5CA0 = a1x->datax;
               a1x->var_0 |= 8;
               if (dword_B5CA4_B5C94 == 0x2000)
@@ -37959,7 +37960,7 @@ LABEL_48:
                 sprY_B5CCC_B5CCC = a1x->yy;
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-                dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+                signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
                 //goto LABEL_68;
                 sprData_B5CB0_B5CA0 = a1x->datax;
                 a1x->var_0 |= 8;
@@ -37993,7 +37994,7 @@ LABEL_48:
                 sprY_B5CCC_B5CCC = a1x->yy;
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-                dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+                signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
                 //goto LABEL_68;
                 sprData_B5CB0_B5CA0 = a1x->datax;
                 a1x->var_0 |= 8;
@@ -38038,7 +38039,7 @@ LABEL_67:
                 sprY_B5CCC_B5CCC = a1x->yy;
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-                dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
+                signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
               }
               else
               {
@@ -38055,7 +38056,7 @@ LABEL_67:
                 sprY_B5CCC_B5CCC = a1x->yy;
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-                dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+                signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               }
               //goto LABEL_68;
               sprData_B5CB0_B5CA0 = a1x->datax;
@@ -38085,7 +38086,7 @@ LABEL_21:
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+              signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               sprData_B5CB0_B5CA0 = a1x->datax;
               a1x->var_0 |= 8;
               if (dword_B5CA4_B5C94 == 0x2000)
@@ -38130,9 +38131,9 @@ LABEL_28:
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
+              signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 //LABEL_68:
-//              ;// dword_B5CBC_B5CAC = v14;
+//              ;// signedSprX_B5CBC_B5CAC = v14;
 //LABEL_69:
               //v30 = dword_B5CA4_B5C94;
               //v31 = a1x->var_0 | 8;
