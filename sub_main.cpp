@@ -36732,22 +36732,22 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
   //int v35; // ebx
   //int v36; // ecx
   //char v37; // al
-  int v38; // eax
+  //int v38; // eax
   //int *v39; // esi
-  int v40; // eax
-  int v41; // edx
-  int v42; // eax
-  int v43; // ebx
-  int v44; // eax
-  int v45; // eax
-  int v46; // edx
-  int v47; // eax
-  int v48; // eax
-  int v49; // edx
-  int v50; // ebx
-  int v51; // eax
-  int v52; // eax
-  int v53; // eax
+  //int v40; // eax
+  //int v41; // edx
+  //int v42; // eax
+  //int v43; // ebx
+  //int v44; // eax
+  //int v45; // eax
+  //int v46; // edx
+  //int v47; // eax
+  //int v48; // eax
+  //int v49; // edx
+  //int v50; // ebx
+  //int v51; // eax
+  //int v52; // eax
+  //int v53; // eax
   int v54; // ebx
   int v55; // eax
   int v56; // eax
@@ -37097,6 +37097,8 @@ LABEL_28:
         dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((cos_B5CE8_B5CD8 * wRotZY + sin_B5CD4_B5CC4 * wRotXY) >> 16);
         //v37 = v34x->var_12;
         byte_B5D3E_B5D2E = 0;
+
+        int32 tmpSprFrameRot2;
         switch (v34x->var_12)
         {
           case 0:
@@ -37114,19 +37116,19 @@ LABEL_83:
             }
             break;
           case 1:
-            if ( dword_12DF8C_12DF7C[v34x->var_0] )
-            {
-              v40 = begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8;
-              v41 = str_AE408_AE3F8->var_u32_4.dword;
-            }
-            else
-            {
+            if ( !dword_12DF8C_12DF7C[v34x->var_0] )
+            //{
+              //v40 = begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8;
+              //v41 = str_AE408_AE3F8->var_u32_4.dword;
+            //}
+            //else
+            //{
               if ( !sub_59050_59560(v34x->var_0) )
                 break;
-              v40 = begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8;
-              v41 = str_AE408_AE3F8->var_u32_4.dword;
-            }
-            dword_12CF00_12CEF0[v40] = v41;
+              //v40 = begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8;
+              //v41 = str_AE408_AE3F8->var_u32_4.dword;
+            //}
+            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
             a1x = dword_12DF8C_12DF7C[v34x->var_0]->var_u32_0;
             goto LABEL_103;
           case 2:
@@ -37146,90 +37148,94 @@ LABEL_83:
           case 16:
             goto LABEL_94;
           case 17:
-            v50 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-            if ( v50 < 8 )
+              tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+            if (tmpSprFrameRot2 < 8 )
             {
-              if ( dword_12DF8C_12DF7C[v50 + v34x->var_0] )
+              if ( dword_12DF8C_12DF7C[tmpSprFrameRot2 + v34x->var_0] )
               {
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v50 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               else
               {
-                if ( !sub_59050_59560(v50 + v34x->var_0) )
+                if ( !sub_59050_59560(tmpSprFrameRot2 + v34x->var_0) )
                   break;
-                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v50 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               goto LABEL_114;
             }
-            v51 = v34x->var_0 + 15 - v50;
-            if ( dword_12DF8C_12DF7C[v51] )
+            //v51 = v34x->var_0 + 15 - tmpSprFrameRot2;
+            if ( dword_12DF8C_12DF7C[v34x->var_0 + 15 - tmpSprFrameRot2] )
             {
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v51].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0 + 15 - tmpSprFrameRot2].var_8] = str_AE408_AE3F8->var_u32_4.dword;
             }
             else
             {
-              if ( !sub_59050_59560(v34x->var_0 + 15 - v50) )
+              if ( !sub_59050_59560(v34x->var_0 + 15 - tmpSprFrameRot2) )
                 break;
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0 + 15 - v50].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0 + 15 - tmpSprFrameRot2].var_8] = str_AE408_AE3F8->var_u32_4.dword;
             }
-            v52 = v34x->var_0 + 15 - v50;
+            //v52 = v34x->var_0 + 15 - tmpSprFrameRot2;
+            a1x = dword_12DF8C_12DF7C[v34x->var_0 + 15 - tmpSprFrameRot2]->var_u32_0;
             goto LABEL_134;
           case 18:
-            v50 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-            v53 = v50 + v34x->var_0;
-            if ( dword_12DF8C_12DF7C[v53] )
+              tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+            //v53 = tmpSprFrameRot2 + v34x->var_0;
+            if ( dword_12DF8C_12DF7C[tmpSprFrameRot2 + v34x->var_0] )
             {
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v53].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               goto LABEL_114;
             }
-            if ( sub_59050_59560(v50 + v34x->var_0) )
+            if ( sub_59050_59560(tmpSprFrameRot2 + v34x->var_0) )
             {
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v50 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
 LABEL_114:
-              a1x = dword_12DF8C_12DF7C[v50 + v34x->var_0]->var_u32_0;
+              a1x = dword_12DF8C_12DF7C[tmpSprFrameRot2 + v34x->var_0]->var_u32_0;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              v45 = sprX_B5CD0_B5CC0;
+              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               goto LABEL_135;
             }
             break;
           case 19:
-            v43 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-            if ( v43 < 8 )
+            tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
+            if (tmpSprFrameRot2 < 8 )
             {
-              v44 = byte_906E8[v43] + v34x->var_0;
-              if ( !dword_12DF8C_12DF7C[v44] )
+              //v44 = byte_906E8[tmpSprFrameRot2] + v34x->var_0;
+              if ( !dword_12DF8C_12DF7C[byte_906E8[tmpSprFrameRot2] + v34x->var_0] )
               {
-                if ( !sub_59050_59560(v34x->var_0 + byte_906E8[v43]) )
+                if ( !sub_59050_59560(v34x->var_0 + byte_906E8[tmpSprFrameRot2]) )
                   break;
-                v44 = v34x->var_0 + byte_906E8[v43];
+                //v44 = v34x->var_0 + byte_906E8[tmpSprFrameRot2];
               }
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v44].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-              a1x = dword_12DF8C_12DF7C[v34x->var_0 + byte_906E8[v43]]->var_u32_0;
+              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot2] + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+              a1x = dword_12DF8C_12DF7C[v34x->var_0 + byte_906E8[tmpSprFrameRot2]]->var_u32_0;
 LABEL_103:
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              v45 = sprX_B5CD0_B5CC0;
+              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               goto LABEL_135;
             }
-            v46 = byte_906E8[v43];
-            v47 = v46 + v34x->var_0;
-            if ( dword_12DF8C_12DF7C[v47] )
-            {
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v47].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-            }
-            else
-            {
-              if ( !sub_59050_59560(v34x->var_0 + (unsigned __int8)v46) )
+            //v46 = byte_906E8[tmpSprFrameRot2];
+            //v47 = byte_906E8[tmpSprFrameRot2] + v34x->var_0;
+            if ( !dword_12DF8C_12DF7C[byte_906E8[tmpSprFrameRot2] + v34x->var_0] )
+            //{
+              //dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot2] + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+            //}
+            //else
+            //{
+              if ( !sub_59050_59560(v34x->var_0 + byte_906E8[tmpSprFrameRot2]) )
                 break;
-              dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[v43] + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-            }
-            v48 = byte_906E8[v43];
-            v49 = v34x->var_0;
+              //dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot2] + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+            //}
+            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot2] + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+            //v48 = byte_906E8[tmpSprFrameRot2];
+            //v49 = v34x->var_0;
+            //v52 = v34x->var_0 + byte_906E8[tmpSprFrameRot2];
+            a1x = dword_12DF8C_12DF7C[v34x->var_0 + byte_906E8[tmpSprFrameRot2]]->var_u32_0;
             goto LABEL_133;
           case 20:
             v54 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
@@ -37243,17 +37249,19 @@ LABEL_103:
                 v56 = v34x->var_0 + byte_906F8[v54];
               }
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v56].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-              v49 = byte_906F8[v54];
-              v48 = v34x->var_0;
+              //v49 = byte_906F8[v54];
+              //v48 = v34x->var_0;
+              //v52 = byte_906F8[v54] + v34x->var_0;
+              a1x = dword_12DF8C_12DF7C[byte_906F8[v54] + v34x->var_0]->var_u32_0;
 LABEL_133:
-              v52 = v49 + v48;
+              //v52 = v49 + v48;
 LABEL_134:
-              a1x = dword_12DF8C_12DF7C[v52]->var_u32_0;
+              //a1x = dword_12DF8C_12DF7C[v52]->var_u32_0;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              v45 = -sprX_B5CD0_B5CC0;
+              dword_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
             }
             else
             {
@@ -37270,10 +37278,10 @@ LABEL_134:
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)v34x->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
-              v45 = sprX_B5CD0_B5CC0;
+              dword_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
             }
 LABEL_135:
-            dword_B5CBC_B5CAC = v45;
+            //dword_B5CBC_B5CAC = v45;
 LABEL_136:
             //v57 = *(_BYTE *)a1 | 8;
 
@@ -37291,14 +37299,14 @@ LABEL_136:
             sub_2C410_2C450(1u);
             break;
           case 21:
-            v38 = v34x->var_0;
-            if ( dword_12DF8C_12DF7C[v38] )
+            //v38 = v34x->var_0;
+            if ( dword_12DF8C_12DF7C[v34x->var_0] )
               goto LABEL_87;
-            if ( !sub_59050_59560(v38) )
+            if ( !sub_59050_59560(v34x->var_0) )
               break;
-            v38 = v34x->var_0;
+            //v38 = v34x->var_0;
 LABEL_87:
-            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v38].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
             //v39 = (int *)dword_12DF8C_12DF7C[v34x->var_0];
             byte_B5D3E_B5D2E = 1;
             a1x = dword_12DF8C_12DF7C[v34x->var_0]->var_u32_0;
@@ -37320,14 +37328,14 @@ LABEL_87:
           case 36:
             byte_B5D3E_B5D2E = 1;
         LABEL_94:
-            v42 = str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v34x->var_0;
-            if ( dword_12DF8C_12DF7C[v42] )
+            //v42 = str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v34x->var_0;
+            if ( dword_12DF8C_12DF7C[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v34x->var_0] )
               goto LABEL_97;
             if ( !sub_59050_59560(v34x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88) )
               break;
-            v42 = v34x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88;
+            //v42 = str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v34x->var_0;
 LABEL_97:
-            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[v42].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+            dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + v34x->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
             a1x = dword_12DF8C_12DF7C[v34x->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88]->var_u32_0;
             goto LABEL_103;
           default:
