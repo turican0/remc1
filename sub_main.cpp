@@ -37216,13 +37216,13 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
               switch (temp_99BA0->var_12)
               {
               case 0:
-                  if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
+                  /*if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
                       if (!sub_59050_59560(temp_99BA0->var_0))
                           break;
                   dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   //LABEL_83:
                   a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0]->var_u32_0;
-                  goto LABEL_103;
+                  goto LABEL_103;*/
               case 1:
                   if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
                       if (!sub_59050_59560(temp_99BA0->var_0))
@@ -37250,16 +37250,16 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
                   tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
                   if (tmpSprFrameRot2 < 8)
                   {
-                      if (dword_12DF8C_12DF7C[tmpSprFrameRot2 + temp_99BA0->var_0])
-                      {
-                          dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                      }
-                      else
-                      {
+                      if (!dword_12DF8C_12DF7C[tmpSprFrameRot2 + temp_99BA0->var_0])
+                      //{
+                          //dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                      //}
+                      //else
+                      //{
                           if (!sub_59050_59560(tmpSprFrameRot2 + temp_99BA0->var_0))
                               break;
-                          dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                      }
+                          //dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
+                      //}
                       goto LABEL_114;
                   }
                   if (dword_12DF8C_12DF7C[temp_99BA0->var_0 + 15 - tmpSprFrameRot2])
@@ -37344,10 +37344,8 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
                   if (tmpSprFrameRot2 >= 8)
                   {
                       if (!dword_12DF8C_12DF7C[temp_99BA0->var_0 + byte_906F8[tmpSprFrameRot2]])
-                      {
                           if (!sub_59050_59560(temp_99BA0->var_0 + byte_906F8[tmpSprFrameRot2]))
                               break;
-                      }
                       dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0 + byte_906F8[tmpSprFrameRot2]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                       a1x = dword_12DF8C_12DF7C[byte_906F8[tmpSprFrameRot2] + temp_99BA0->var_0]->var_u32_0;
                   LABEL_133:
@@ -37384,11 +37382,11 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
                   sub_2C410_2C450(1u);
                   break;
               case 21:
-                  if (dword_12DF8C_12DF7C[temp_99BA0->var_0])
-                      goto LABEL_87;
+                  if (!dword_12DF8C_12DF7C[temp_99BA0->var_0])
+                      //goto LABEL_87;
                   if (!sub_59050_59560(temp_99BA0->var_0))
                       break;
-              LABEL_87:
+              //LABEL_87:
                   dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   byte_B5D3E_B5D2E = 1;
                   a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0]->var_u32_0;
@@ -37410,11 +37408,11 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
               case 36:
                   byte_B5D3E_B5D2E = 1;
               LABEL_94:
-                  if (dword_12DF8C_12DF7C[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + temp_99BA0->var_0])
-                      goto LABEL_97;
-                  if (!sub_59050_59560(temp_99BA0->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88))
-                      break;
-              LABEL_97:
+                  if (!dword_12DF8C_12DF7C[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + temp_99BA0->var_0])
+                      //goto LABEL_97;
+                      if (!sub_59050_59560(temp_99BA0->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88))
+                          break;
+              //LABEL_97:
                   dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + temp_99BA0->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                   a1x = dword_12DF8C_12DF7C[temp_99BA0->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88]->var_u32_0;
                   goto LABEL_103;
