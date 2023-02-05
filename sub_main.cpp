@@ -37757,50 +37757,14 @@ int counter_2FC50_2FC90_2 = 0;
 //SYNCHRONIZED WITH REMC1
 void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 {
-  //unsigned __int16 result; // ax
-  //Type_AE400_29795* v3x; // eax
-  //int v4; // edx
-  //int v5; // eax
-  //int v6; // ecx
-  //int v7; // ebx
-  //int v8; // ebp
-  //int v9; // edx
-  //unsigned __int16 *v10; // esi
-  //Type_99BA0* tempEntType; // esi
-  //int v11; // ebx
-  //int v12; // ecx
-  //char v13; // al
-  //int v14; // eax
-  //int v15; // eax
-  //int *v16; // edi
-  //int v17; // eax
-  //int v18; // ebx
-  //int v19; // eax
-  //int v20; // edx
-  //int v21; // eax
-  //int v22; // eax
-  //int v23; // ebx
-  //int v24; // eax
-  //int v25; // eax
-  //int v26; // eax
-  //int v27; // ebx
-  //int v28; // eax
-  //int v29; // eax
-  //int v30; // ebp
-  //char v31; // cl
-  //unsigned __int8 v32; // al
-  //Type_AE400_29795* v33x; // [esp+4h] [ebp-14h]
-
   //fix
   Type_sub168_2_2* a1x = nullptr;
-  //v3x = nullptr;
   //fix
 
   //debug
   counter_2FC50_2FC90++;
   //debug
 
-  //result = a2x->haveSprite_36;
   for(int result = a2x->haveSprite_36; result; result = str_AE400_AE3F0->str_29795[result].var_u16_29815_20)
   {
       //debug
@@ -37808,9 +37772,6 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
       //debug
     if ( result < 0x3E8u )
     {
-      //v3x = &str_AE400_AE3F0->str_29795[result];
-      //v3 = 164 * result + dword_AE400_AE3F0() + 29795;
-      //v33x = v3x;
       if ( (str_AE400_AE3F0->str_29795[result].var_29811_16.byte[0] & 0x21) == 0 )
       {
         int16 diffX = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.x - posX_B5D3C_B5D2C;
@@ -37833,16 +37794,12 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
           {
             dword_B5CA4_B5C94 = 0;
           }
-          //v10 = (unsigned __int16 *)((char *)&unk_99BA0 + 14 * *(__int16 *)(v33 + 86));
           Type_99BA0* tempEntType = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
-          //tempEntType->var_0
           int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
           int32 wRotZY = tempZ * fowDist_B5D14_B5D04 / yRot + dword_B5CFC_B5CEC;
           dword_B5CB8_B5CA8 = dword_B5D08_B5CF8 + ((wRotXY * cos_B5CE8_B5CD8 - wRotZY * sin_B5CD4_B5CC4) >> 16);
           dword_B5CB4_B5CA4 = heightViewPort_B5CE4_B5CD4 - ((wRotXY * sin_B5CD4_B5CC4 + wRotZY * cos_B5CE8_B5CD8) >> 16);
-          //v13 = tempEntType->var_12;
           byte_B5D3E_B5D2E = 0;
-          int32 tmpSprFrameRot;
           int32 tmpSprFrameRot2;
           switch (tempEntType->var_12)
           {
@@ -37851,7 +37808,6 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 a1x = dword_12DF8C_12DF7C[tempEntType->var_0]->var_u32_0;
-                //goto LABEL_17;
               }
               else
                   if ( sub_59050_59560(tempEntType->var_0) )
@@ -37859,7 +37815,6 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
                     dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;    //LABEL_16:
                     a1x = dword_12DF8C_12DF7C[tempEntType->var_0]->var_u32_0;
                   }
-              //goto LABEL_17;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -37887,7 +37842,6 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               a1x = dword_12DF8C_12DF7C[tempEntType->var_0]->var_u32_0;
-              //goto LABEL_17;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -37935,20 +37889,16 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
                 }
                 goto LABEL_48;
               }
-              //v24 = tempEntType->var_0 + 15 - tmpSprFrameRot2;
               if ( !dword_12DF8C_12DF7C[tempEntType->var_0 + 15 - tmpSprFrameRot2] )
               {
                 if ( !sub_59050_59560(tempEntType->var_0 + 15 - tmpSprFrameRot2) )
                   break;
-                //v24 = tempEntType->var_0 + 15 - tmpSprFrameRot2;
               }
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + 15 - tmpSprFrameRot2].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-              //v25 = tempEntType->var_0 + 15 - v23;
               a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + 15 - tmpSprFrameRot2]->var_u32_0;
               goto LABEL_67;
             case 18:
               tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
-              //v26 = tmpSprFrameRot2 + tempEntType->var_0;
               if ( dword_12DF8C_12DF7C[tmpSprFrameRot2 + tempEntType->var_0] )
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tmpSprFrameRot2 + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
@@ -37964,7 +37914,6 @@ LABEL_48:
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
                 signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
-                //goto LABEL_68;
                 sprData_B5CB0_B5CA0 = a1x->datax;
                 a1x->var_0 |= 8;
                 if (dword_B5CA4_B5C94 == 0x2000)
@@ -37981,7 +37930,6 @@ LABEL_48:
               tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if (tmpSprFrameRot2 < 8 )
               {
-                //v19 = tempEntType->var_0 + byte_906E8[tmpSprFrameRot2];
                 if ( dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906E8[tmpSprFrameRot2]] )
                 {
                   dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + byte_906E8[tmpSprFrameRot2]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
@@ -37998,7 +37946,6 @@ LABEL_48:
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
                 signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
-                //goto LABEL_68;
                 sprData_B5CB0_B5CA0 = a1x->datax;
                 a1x->var_0 |= 8;
                 if (dword_B5CA4_B5C94 == 0x2000)
@@ -38010,38 +37957,27 @@ LABEL_48:
                 sub_2C410_2C450(2u);
                 break;
               }
-              //v20 = byte_906E8[tmpSprFrameRot2];
-              //v21 = byte_906E8[tmpSprFrameRot2] + tempEntType->var_0;
               if ( !dword_12DF8C_12DF7C[byte_906E8[tmpSprFrameRot2] + tempEntType->var_0] )
               {
                 if ( !sub_59050_59560(tempEntType->var_0 + byte_906E8[tmpSprFrameRot2]) )
                   break;
-                //v21 = tempEntType->var_0 + byte_906E8[tmpSprFrameRot2];
               }
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[byte_906E8[tmpSprFrameRot2] + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-              //v22 = byte_906E8[tmpSprFrameRot2];
-              //v25 = tempEntType->var_0 + byte_906E8[tmpSprFrameRot2];
               a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906E8[tmpSprFrameRot2]]->var_u32_0;
               goto LABEL_66;
             case 20:
                 tmpSprFrameRot2 = (((str_AE400_AE3F0->str_29795[result].var_u16_29825_30 - (unsigned __int16)yaw_B5D38_B5D28) >> 3) & 0xF0) >> 4;
               if (tmpSprFrameRot2 >= 8 )
               {
-                //v29 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot2];
                 if ( !dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]] )
                 {
                   if ( !sub_59050_59560(tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]) )
                     break;
-                  //v29 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot2];
                 }
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-                //v22 = byte_906F8[v27];
-                //v25 = tempEntType->var_0 + byte_906F8[v27];
                 a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]]->var_u32_0;
 LABEL_66:
-                //v25 = tempEntType->var_0 + v22;
 LABEL_67:
-                //a1x = dword_12DF8C_12DF7C[v25]->var_u32_0;
                 sprX_B5CD0_B5CC0 = a1x->xx;
                 sprY_B5CCC_B5CCC = a1x->yy;
                 scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -38050,12 +37986,10 @@ LABEL_67:
               }
               else
               {
-                //v28 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot2];
                 if ( !dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]] )
                 {
                   if ( !sub_59050_59560(tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]) )
                     break;
-                  //v28 = tempEntType->var_0 + byte_906F8[tmpSprFrameRot2];
                 }
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]].var_8] = str_AE408_AE3F8->var_u32_4.dword;
                 a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + byte_906F8[tmpSprFrameRot2]]->var_u32_0;
@@ -38065,7 +37999,6 @@ LABEL_67:
                 scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
                 signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
               }
-              //goto LABEL_68;
               sprData_B5CB0_B5CA0 = a1x->datax;
               a1x->var_0 |= 8;
               if (dword_B5CA4_B5C94 == 0x2000)
@@ -38077,18 +38010,14 @@ LABEL_67:
               sub_2C410_2C450(2u);
               break;
             case 21:
-              //v15 = tempEntType->var_0;
               if ( dword_12DF8C_12DF7C[tempEntType->var_0] )
                 goto LABEL_21;
               if ( !sub_59050_59560(tempEntType->var_0) )
                 break;
-              //v15 = tempEntType->var_0;
 LABEL_21:
               dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
-              //v16 = (int *)dword_12DF8C_12DF7C[tempEntType->var_0];
               byte_B5D3E_B5D2E = 1;
               a1x = dword_12DF8C_12DF7C[tempEntType->var_0]->var_u32_0;
-              //goto LABEL_17;
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
@@ -38121,7 +38050,6 @@ LABEL_21:
             case 36:
               byte_B5D3E_B5D2E = 1;
 LABEL_28:
-              //v17 = tempEntType->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88;
               if ( dword_12DF8C_12DF7C[tempEntType->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88] )
               {
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[tempEntType->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88].var_8] = str_AE408_AE3F8->var_u32_4.dword;
@@ -38133,24 +38061,17 @@ LABEL_28:
                 dword_12CF00_12CEF0[begTmapsTab_12D744_12D734_2EB744_2EB734x[str_AE400_AE3F0->str_29795[result].var_u8_29883_88 + tempEntType->var_0].var_8] = str_AE408_AE3F8->var_u32_4.dword;
               }
               a1x = dword_12DF8C_12DF7C[tempEntType->var_0 + str_AE400_AE3F0->str_29795[result].var_u8_29883_88]->var_u32_0;
-//LABEL_17:
               sprX_B5CD0_B5CC0 = a1x->xx;
               sprY_B5CCC_B5CCC = a1x->yy;
               scaledSprY_B5CC8_B5CB8 = (__int64)(fowDist_B5D14_B5D04 * (unsigned __int64)tempEntType->var_8) / yRot;
               scaledSprX_B5CA8_B5C98 = scaledSprY_B5CC8_B5CB8 * sprX_B5CD0_B5CC0 / sprY_B5CCC_B5CCC;
               signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
-//LABEL_68:
-//              ;// signedSprX_B5CBC_B5CAC = v14;
-//LABEL_69:
-              //v30 = dword_B5CA4_B5C94;
-              //v31 = a1x->var_0 | 8;
               sprData_B5CB0_B5CA0 = a1x->datax;
-              a1x->var_0 |= 8;// v31;
+              a1x->var_0 |= 8;
               if (dword_B5CA4_B5C94 == 0x2000 )
                   dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
               else
                   dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
-              //dword_B5CAC_B5C9C = v32;
               scaledSprX_B5CA8_B5C98++;
               scaledSprY_B5CC8_B5CB8++;
               sub_2C410_2C450(2u);
@@ -38170,9 +38091,7 @@ LABEL_28:
         }
       }
     }
-    //result = v33x->var_u16_29815_20;
   }
-  //while ( result );
 }
 
 void DrawSky_30730_30770(int16_t roll)
