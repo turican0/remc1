@@ -3,7 +3,7 @@
 #define debug1
 #define autostart
 
-//#define MODIFY_SETTINGS
+#define MODIFY_SETTINGS
 int modset_used_precount = 0;
 int modset_used_count = 0;
 int modset_key = 0x0;
@@ -548,7 +548,7 @@ void PrepRot_29C30_29C70(__int16 roll);
 // char sub_2A700_2A740(int a1, __int16 a2, __int16 a3, __int16 a4, int a5, int a6, __int16 a7, int a8);
 void sub_2C410_2C450(unsigned int a1);
 void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2);
-void DrawSprite_2F170_2F1B0(Type_BegBscreen* a2);
+void DrawSprite3D_2F170_2F1B0(Type_BegBscreen* a2);
 void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2);
 void DrawSky_30730_30770(int16_t roll);
 void sub_309D0_30A10(int a1);
@@ -33995,7 +33995,7 @@ LABEL_26:
                     }
                 }
                 if (*(_WORD*)(v157 + 36))
-                    DrawSprite_2F170_2F1B0(/*5120,*/ (Type_BegBscreen*)v157);
+                    DrawSprite3D_2F170_2F1B0(/*5120,*/ (Type_BegBscreen*)v157);
                 v149 = v157 + 44;
                 --v236;
             } while (v236);
@@ -34044,7 +34044,7 @@ LABEL_26:
                     }
                     if (*(_WORD*)(v167 + 36))
                         //DrawSprite_2F170_2F1B0(5120, v167);
-                        DrawSprite_2F170_2F1B0((Type_BegBscreen*)v167);
+                        DrawSprite3D_2F170_2F1B0((Type_BegBscreen*)v167);
                     v159 = v167 - 44;
                 } while (v159 >= v158);
             }
@@ -35056,7 +35056,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 					}
 				}
 				if (tempBegBscreen[index149].haveSprite_36)
-					DrawSprite_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index149]);
+					DrawSprite3D_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index149]);
                 index149++;
 			}
 			if (index236)
@@ -35091,7 +35091,7 @@ void DrawSkyTerrainParticles_2A700_2A740(__int16 posX, __int16 posY, __int16 yaw
 						}
 					}
 					if (tempBegBscreen[index159].haveSprite_36)
-						DrawSprite_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index159]);
+						DrawSprite3D_2F170_2F1B0(/*5120,*/ &tempBegBscreen[index159]);
 					//index158--;
 				} //while (index158 >= 100/*v158*/);//fix it
 			}
@@ -36696,7 +36696,7 @@ int counter_dword_B5CB0_B5CA0 = 0;
 //SYNCHRONIZED WITH REMC1
 void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 {
-	//adress 1FECB0_
+    //adress 1FECB0_
 	//debug
 #ifdef debug1
 	if (counter_sub_2DCB0_2DCF0 == 0x5d)
@@ -37451,7 +37451,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 }
 
 //SYNCHRONIZED WITH REMC1
-void DrawSprite_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
+void DrawSprite3D_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
 {
   //unsigned __int16 result; // ax
   //int v3; // eax
@@ -37509,7 +37509,7 @@ void DrawSprite_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
           //v8 = 14 * *(__int16 *)(v3 + 86);
           dword_B5CA4_B5C94 = 0x400000 - 350 * (5120 - v6);
           //v9 = (unsigned __int16 *)((char *)&unk_99BA0 + 14 * *(__int16*)(v3 + 86));
-          v9x = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u32_29867_72.z];
+          v9x = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
           v10 = v7 * fowDist_B5D14_B5D04 / v6;
           v11 = v5 * fowDist_B5D14_B5D04 / v6 + dword_B5CFC_B5CEC;
           dword_B5CB8_B5CA8 = ((v10 * cos_B5CE8_B5CD8 - v11 * sin_B5CD4_B5CC4) >> 16) + dword_B5D08_B5CF8;
@@ -41611,10 +41611,16 @@ void GameLoop_34610_349D0()//205610_
   //int result; // eax
 #ifdef MODIFY_SETTINGS
     //modset_used_precount = 20;
+    /* // for load/save
     modset_used_count = 1;
     modset_key = 0x26;//load
     //modset_key = 0x1f;//save
     modset_key_alt = true;
+    */
+    
+    //for 3D
+    modset_used_count = 2;
+    modset_key = 0x44;
 
     //byte_90754 = 1;// str_AE400_AE3F0->mod3D_8603 = 1;
 
@@ -74790,7 +74796,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
   }
   //add_compare(0x2439A7, true, true);
 
-  
+  /*
   if (compare_index_62D40_63250>0x143800)
   {
       uint8 origbyte20;
@@ -75028,7 +75034,7 @@ __int16 BitRead_62D40_63250(uint16* CX_, uint8 a1, uint8** a2x)//233D40_
 
       comp20 = compare_with_sequence("00233D42-00258FC0", (uint8_t*)rncRaw_9AFC0, 0x233D40, compare_index_62D40_63250, 0x10, 0x10, &origbyte20, &remakebyte20, 0, 0);
   }
-  
+  */
   compare_index_62D40_63250++;
 #endif debug1
   //debug
