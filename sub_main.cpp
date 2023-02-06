@@ -35293,7 +35293,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   //debug
 #ifdef debug1
-  if (counter_sub_2C410_2C450 == 0x67)
+  if (counter_sub_2C410_2C450 == 0xe2)
   {
       counter_sub_2C410_2C450++;
       counter_sub_2C410_2C450--;
@@ -35305,8 +35305,13 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
             uint8_t remakebyte20 = 0;
             char buffer1[500];
             sprintf(buffer1, "%08X-00273CA8", 0x1FD414);
-            //int comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CA8_B5C98, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+            int comp20 = compare_with_sequence(buffer1, (uint8_t*)&scaledSprX_B5CA8_B5C98, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
             
+            origbyte20 = 0;
+            remakebyte20 = 0;
+            sprintf(buffer1, "%08X-0026C404", 0x1FD414);
+            comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_sub_2C410_2C450 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+
 #endif debug1
 
   counter_sub_2C410_2C450++;
@@ -38887,7 +38892,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
         uint8_t remakebyte20 = 0;
         char buffer1[500];
         sprintf(buffer1, "%08X-0026C404", 0x20206F);
-        int comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_30D90_30DD0 - 0, 320*200, 8, &origbyte20, &remakebyte20, 0, true);
+        int comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_30D90_30DD0 - 0, 320*200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
         counter_30D90_30DD0++;
         //debug
 		int maxEyeDistanceInPixels = 64;//can be fixed for bigger resolutions
@@ -38908,7 +38913,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
             origbyte20 = 0;
             remakebyte20 = 0;
             sprintf(buffer1, "%08X-00251ACC", 0x202109);
-            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
             //debug
 
 			int index33 = widthViewPort_93AD8 / 2;
@@ -38927,7 +38932,7 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
             origbyte20 = 0;
             remakebyte20 = 0;
             sprintf(buffer1, "%08X-00251ACC", 0x202181);
-            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
             counter_30D90_30DD0_2++;
             //debug
 
@@ -38944,11 +38949,16 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                     origbyte20 = 0;
                     remakebyte20 = 0;
                     sprintf(buffer1, "%08X-00251ACC", 0x2021CE);
-                    comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+                    comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
                     origbyte20 = 0;
                     remakebyte20 = 0;
                     sprintf(buffer1, "%08X-002ECFF4", 0x2021CE);
-                    comp20 = compare_with_sequence(buffer1, begWscreen_2ECFF4_2ECFE4, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+                    comp20 = compare_with_sequence(buffer1, begWscreen_2ECFF4_2ECFE4, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+                    if (counter_30D90_30DD0_3==0x00004de4)
+                    {
+                        counter_30D90_30DD0_3++;
+                        counter_30D90_30DD0_3--;
+                    }
                     counter_30D90_30DD0_3++;
                     //debug
                     index40--;

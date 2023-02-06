@@ -117,6 +117,11 @@ begWscreen_2ECFF4_2ECFE4+0xa797
 
 1c0f0f1d
 0f0f1d00
+-----------------------------
+blurBuffer_AE404_AE3F4+0xa656
+0x26C404+0xa656
+0x2f versus 0x40
+
 
 
 
