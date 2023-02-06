@@ -108,5 +108,19 @@ EAX 0xFFE0,EDX 0xFFFC
 
 begWscreen_2ECFF4_2ECFE4+0xb22d
 
+----------------
+begWscreen_2ECFF4_2ECFE4+0xa797
+0x2ECFF4 -> 0x065be0
+0xf91a19fe versus 0x1b
+
+0x1b - drawworld blurbuffer
+
+1c0f0f1d
+0f0f1d00
+
+
+
+
+
 
 

@@ -3766,7 +3766,7 @@ int32 cos_9134C[(256 + 256 + 256 + 256) * 2] = {
 };
 //void (*off_9134C[2])() = { &sub_10000, &sub_10000 }; // weak
 
-Type_IntPointer dword_9334C[256 + 256] =
+Type_IntPointer dword_9334C[256 + 256] = //0x25134C
 {
 0x00000000,0x00000020,0x00000040,0x00000060,
 0x00000080,0x000000A0,0x000000C0,0x000000E0,
@@ -4209,7 +4209,7 @@ int dword_93AAC = -80; // weak
 int dword_93AB0 = 80; // weak
 __int16 word_93AB4 = -4; // weak
 uint8* beginPrevLineFrame_93AC8 = nullptr; // weak
-uint8* beginFrame_93ACC = nullptr; // weak
+uint8* beginFrame_93ACC = nullptr; // weak //0x251ACC
 uint8* actTexture_93AD0 = nullptr; // weak
 int pitchViewPort_93AD4 = 0; // weak
 uint16 widthViewPort_93AD8 = 0; // weak
@@ -14953,7 +14953,7 @@ int16_t mapEntityIndex_10C1E0_10C1D0[0x10000]; // weak
 //_UNKNOWN unk_123333; // weak
 //_UNKNOWN unk_1234DC; // weak
 
-uint16 word_12C1E0_12C1D0; // weak
+uint16 pseudoRand_12C1E0_12C1D0; // weak
 __int16 word_12C1F0[256]; // weak
 __int16 word_12C1F2[959]; // weak
 int array_12C970[6]; // weak
@@ -38541,6 +38541,9 @@ while (videoMode != videoModes_12F080[i])
   return 1;*/
 }
 
+int counter_30D90_30DD0;
+int counter_30D90_30DD0_2;
+int counter_30D90_30DD0_3;
 //SYNCHRONIZED WITH REMC1
 void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch, int roll, int fow)//201D90_
 {
@@ -38878,19 +38881,35 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 		SetViewPort2_79495_799A5(blurBuffer_AE404_AE3F4, 0, 0, 0, 0);
 		DrawSkyTerrainParticles_2A700_2A740(tempFixPosX, tempFixPosY, tempYaw, posZ, pitch, roll, fow);
 		SetViewPort2_79495_799A5(tempBeginFrame, 0, 0, 0, 0);
-
+        //adress 0x20206F
+        //debug
+        uint8_t origbyte20 = 0;
+        uint8_t remakebyte20 = 0;
+        char buffer1[500];
+        sprintf(buffer1, "%08X-0026C404", 0x20206F);
+        int comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_30D90_30DD0 - 0, 320*200, 8, &origbyte20, &remakebyte20, 0, true);
+        counter_30D90_30DD0++;
+        //debug
 		int maxEyeDistanceInPixels = 64;//can be fixed for bigger resolutions
 		int index27 = widthViewPort_93AD8 / 2 - maxEyeDistanceInPixels;
 		if (heightViewPort_93ADC)
 		{
 			for (int index26 = heightViewPort_93ADC; index26; index26--)//add noise
 			{
-				word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-				int index29 = 256 * (index26 & 0x1F) + word_12C1E0_12C1D0 % 7u;
+				pseudoRand_12C1E0_12C1D0 = 9377 * pseudoRand_12C1E0_12C1D0 + 9439;
+				int index29 = 256 * (index26 & 0x1F) + pseudoRand_12C1E0_12C1D0 % 7u;
 				for (int index28 = maxEyeDistanceInPixels; index28; index28--)
 					beginFrame_93ACC[index27++] = dword_9334C[148].p[index29++];
 				index27 += pitchViewPort_93AD4 - maxEyeDistanceInPixels;
 			}
+
+            //adress 0x202109
+            //debug
+            origbyte20 = 0;
+            remakebyte20 = 0;
+            sprintf(buffer1, "%08X-00251ACC", 0x202109);
+            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+            //debug
 
 			int index33 = widthViewPort_93AD8 / 2;
 			for (int index32 = heightViewPort_93ADC; index32; index32--)//extend to right
@@ -38903,6 +38922,15 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 				index33 += pitchViewPort_93AD4 - widthViewPort_93AD8 / 2;
 			}
 
+            //adress 0x202181
+            //debug
+            origbyte20 = 0;
+            remakebyte20 = 0;
+            sprintf(buffer1, "%08X-00251ACC", 0x202181);
+            comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+            counter_30D90_30DD0_2++;
+            //debug
+
             int index40 = widthViewPort_93AD8 / 2;
             int index41 = widthViewPort_93AD8 / 2;
             for (int index39 = heightViewPort_93ADC; index39; index39--)
@@ -38911,9 +38939,22 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 index40 -= oldDiff;
                 for (int index43 = widthViewPort_93AD8 / 2 - blurBuffer_AE404_AE3F4[index41]; index43; index43--)
                 {
+                    //adress 0x2021CE
+                    //debug
+                    origbyte20 = 0;
+                    remakebyte20 = 0;
+                    sprintf(buffer1, "%08X-00251ACC", 0x2021CE);
+                    comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+                    origbyte20 = 0;
+                    remakebyte20 = 0;
+                    sprintf(buffer1, "%08X-002ECFF4", 0x2021CE);
+                    comp20 = compare_with_sequence(buffer1, begWscreen_2ECFF4_2ECFE4, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 8, &origbyte20, &remakebyte20, 0, true);
+                    counter_30D90_30DD0_3++;
+                    //debug
                     index40--;
                     index41--;
                     beginFrame_93ACC[index40] = beginFrame_93ACC[index40 + blurBuffer_AE404_AE3F4[index41]];
+
                 }
                 index40 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2;
                 index41 += pitchViewPort_93AD4 + widthViewPort_93AD8 / 2 - oldDiff;
@@ -39162,7 +39203,7 @@ void sub_31A60_31AA0()//202A60_
 //----- (00031AA0) --------------------------------------------------------
 void sub_31AA0(int a1)//202AA0_
 {
-  word_12C1E0_12C1D0 = *(_WORD *)(a1 + 4);
+  pseudoRand_12C1E0_12C1D0 = *(_WORD *)(a1 + 4);
   str_AE400_AE3F0->rand_4 = *(_DWORD *)(a1 + 4);
   if ( sub_3EEA0_3F1E0((char*)"c:/carpet.cd/save/scanned.rmd", (uint8_t*)mapHeightmap_DC1E0_DC1D0) != 0x10000 )
   {
@@ -39172,7 +39213,7 @@ void sub_31AA0(int a1)//202AA0_
       //add_compare(0x202AF1, true);
 #endif debug1
   //debug
-    sub_725C8(word_12C1E0_12C1D0, *(_WORD *)(a1 + 8), *(_WORD *)(a1 + 12));
+    sub_725C8(pseudoRand_12C1E0_12C1D0, *(_WORD *)(a1 + 8), *(_WORD *)(a1 + 12));
     //202AF7 
       //debug
 #ifdef debug1
@@ -39262,7 +39303,7 @@ void sub_31AA0(int a1)//202AA0_
 // 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
 // AE400: using guessed type int dword_AE400_AE3F0();
 // 10C1E0: using guessed type __int16 mapEntityIndex_10C1E0_10C1D0[7953];
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 
 //----- (00031BB0) --------------------------------------------------------
 unsigned __int16 sub_31BB0()
@@ -40072,8 +40113,8 @@ char sub_32560()//203560_
       v74 = result;
       if ( result )
       {
-        word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-        v64 = (unsigned __int16)word_12C1E0_12C1D0 % (unsigned __int16)((unsigned __int8)result + 1);
+        pseudoRand_12C1E0_12C1D0 = 9377 * pseudoRand_12C1E0_12C1D0 + 9439;
+        v64 = (unsigned __int16)pseudoRand_12C1E0_12C1D0 % (unsigned __int16)((unsigned __int8)result + 1);
         if ( v64 >= v74 )
           v64 = 0;
         v65 = v64 + v3 + 25 * v63;
@@ -40092,7 +40133,7 @@ char sub_32560()//203560_
   return result;
 }
 // B5D40: using guessed type char byte_B5D40;
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 // 12EFF4: using guessed type int dword_12EFF4;
 
 //----- (000329C0) --------------------------------------------------------
@@ -40105,7 +40146,7 @@ void sub_329C0()
   unsigned __int16 v4; // tt
 
   v0 = 0;
-  word_12C1E0_12C1D0 = 0;
+  pseudoRand_12C1E0_12C1D0 = 0;
   do
   {
     LOBYTE(v0) = v0 + 1;
@@ -40120,8 +40161,8 @@ void sub_329C0()
     HIBYTE(v0) = HIBYTE(v0) + 1;
     if ( (_BYTE)result == 32 )
     {
-      result = 9377 * (unsigned __int16)word_12C1E0_12C1D0;
-      word_12C1E0_12C1D0 = result + 9439;
+      result = 9377 * (unsigned __int16)pseudoRand_12C1E0_12C1D0;
+      pseudoRand_12C1E0_12C1D0 = result + 9439;
       v4 = result + 9439;
       BYTE1(result) = (unsigned __int16)(result + 9439) / 0x900u;
       LOBYTE(result) = v4 % 9u + 28;
@@ -40140,7 +40181,7 @@ void sub_329C0()
   }
   while ( v0 );
 }
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 
 //----- (00032A50) --------------------------------------------------------
 int sub_32A50()//203A50_
@@ -40210,18 +40251,18 @@ LABEL_12:
     while ( 1 )
     {
       v6 = 0xFFFF;
-      word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
+      pseudoRand_12C1E0_12C1D0 = 9377 * pseudoRand_12C1E0_12C1D0 + 9439;
       HIWORD(v5) = 0;
-      LOBYTE(v6) = mapHeightmap_DC1E0_DC1D0[(unsigned __int16)word_12C1E0_12C1D0 % 0xFFFFu];
+      LOBYTE(v6) = mapHeightmap_DC1E0_DC1D0[(unsigned __int16)pseudoRand_12C1E0_12C1D0 % 0xFFFFu];
       if ( !--v4 )
         break;
       if ( (unsigned __int8)v6 > a2 )
       {
-        LOWORD(v5) = (unsigned __int16)word_12C1E0_12C1D0 % 0xFFFFu;
+        LOWORD(v5) = (unsigned __int16)pseudoRand_12C1E0_12C1D0 % 0xFFFFu;
         if ( mapAngle_FC1E0_FC1D0[v5] )
         {
           --a1;
-          sub_32B90_sub_32F80(v6, (unsigned __int16)word_12C1E0_12C1D0 % 0xFFFFu);
+          sub_32B90_sub_32F80(v6, (unsigned __int16)pseudoRand_12C1E0_12C1D0 % 0xFFFFu);
           goto LABEL_12;
         }
       }
@@ -40235,7 +40276,7 @@ LABEL_12:
   while ( v3 );
   return result;
 }
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 
 //----- (00032B90) --------------------------------------------------------
 unsigned __int16 sub_32B90_sub_32F80(int a1, int a2)
@@ -41112,8 +41153,8 @@ void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)//204B90_
 				}
 				else
 				{
-                    word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-                    nextAngle = (mapAngle_FC1E0_FC1D0[tempAxis.word] & 0x87) + 16 * ((uint16_t)word_12C1E0_12C1D0 % 7u);
+                    pseudoRand_12C1E0_12C1D0 = 9377 * pseudoRand_12C1E0_12C1D0 + 9439;
+                    nextAngle = (mapAngle_FC1E0_FC1D0[tempAxis.word] & 0x87) + 16 * ((uint16_t)pseudoRand_12C1E0_12C1D0 % 7u);
 				}
                 mapAngle_FC1E0_FC1D0[tempAxis.word] = nextAngle;
 			}
@@ -41158,7 +41199,7 @@ void sub_33B90(uaxis_2d inAxis2dA, uaxis_2d inAxis2dB)//204B90_
 		}
 	}
 }
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 
 //----- (00033E10) --------------------------------------------------------
 char sub_33E10(unsigned __int16 a1, __int16 a2)
@@ -41273,8 +41314,8 @@ char sub_33E10(unsigned __int16 a1, __int16 a2)
           else
           {
             v26 = mapAngle_FC1E0_FC1D0[v10] & 0x87;
-            word_12C1E0_12C1D0 = 9377 * word_12C1E0_12C1D0 + 9439;
-            LOBYTE(v9) = v26 + 16 * ((unsigned __int16)word_12C1E0_12C1D0 % 7u);
+            pseudoRand_12C1E0_12C1D0 = 9377 * pseudoRand_12C1E0_12C1D0 + 9439;
+            LOBYTE(v9) = v26 + 16 * ((unsigned __int16)pseudoRand_12C1E0_12C1D0 % 7u);
           }
           mapAngle_FC1E0_FC1D0[v10] = v9;
         }
@@ -41328,7 +41369,7 @@ char sub_33E10(unsigned __int16 a1, __int16 a2)
   }
   return v9;
 }
-// 12C1E0: using guessed type __int16 word_12C1E0_12C1D0;
+// 12C1E0: using guessed type __int16 pseudoRand_12C1E0_12C1D0;
 
 //----- (00034070) --------------------------------------------------------
 unsigned __int16 sub_34070()//205070_
@@ -41583,7 +41624,7 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 	//2055DE
 		//debug
 #ifdef debug1
-	if (counter_34530 == 0x5b)
+	if (counter_34530 == 0x1)
 	{
 		counter_34530++;
 		counter_34530--;
@@ -41595,7 +41636,7 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 	str_AE408_AE3F8->var_u32_153 = dword_AC5D4_AC5C4 - str_AE408_AE3F8->var_u32_153;
 	sub_5A560_5AA70();
 	//2055F4
-			//debug
+	    //debug
 #ifdef debug1
 		//add_compare(0x2055F4, true, true);
 #endif debug1
