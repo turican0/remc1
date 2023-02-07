@@ -35293,7 +35293,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   //debug
 #ifdef debug1
-  if (counter_sub_2C410_2C450 == 0xe2)
+  if (counter_sub_2C410_2C450 == 0xe0)
   {
       counter_sub_2C410_2C450++;
       counter_sub_2C410_2C450--;
@@ -35312,6 +35312,10 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
             sprintf(buffer1, "%08X-00273CC8", 0x1FD414);
             comp20 = compare_with_sequence(buffer1, (uint8_t*)&scaledSprY_B5CC8_B5CB8, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
 
+            origbyte20 = 0;
+            remakebyte20 = 0;
+            sprintf(buffer1, "%08X-00273CB4", 0x1FD414);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&dword_B5CB4_B5CA4, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
 
             origbyte20 = 0;
             remakebyte20 = 0;
