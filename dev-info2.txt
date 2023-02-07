@@ -123,6 +123,12 @@ blurBuffer_AE404_AE3F4+0xa656
 0x2f versus 0x40
 adr 0x1FE237 2F
 0x1FE237 2D237 sub_2C410_2C450
+------------------------------
+blurBuffer_AE404_AE3F4+0xe734
+0x26C404+0xe734
+0x36 versus 0x40
+
+dword_B5CB4_B5CA4 ??
 
 
 

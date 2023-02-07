@@ -35309,6 +35309,12 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
             
             origbyte20 = 0;
             remakebyte20 = 0;
+            sprintf(buffer1, "%08X-00273CC8", 0x1FD414);
+            comp20 = compare_with_sequence(buffer1, (uint8_t*)&scaledSprY_B5CC8_B5CB8, 0x1FD414, counter_sub_2C410_2C450 - 0, 4, 4, &origbyte20, &remakebyte20, 0, true);
+
+
+            origbyte20 = 0;
+            remakebyte20 = 0;
             sprintf(buffer1, "%08X-0026C404", 0x1FD414);
             comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_sub_2C410_2C450 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
 
