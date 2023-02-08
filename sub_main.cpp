@@ -35300,7 +35300,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   }
   //add_compare(0x1FD410, true,true);
   // dword_B5CA8_B5C98 273CA8
-  
+  /*
             uint8_t origbyte20 = 0;
             uint8_t remakebyte20 = 0;
             char buffer1[500];
@@ -35321,7 +35321,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
             remakebyte20 = 0;
             sprintf(buffer1, "%08X-0026C404", 0x1FD414);
             comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_sub_2C410_2C450 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
-
+            */
 #endif debug1
 
   counter_sub_2C410_2C450++;
@@ -37516,7 +37516,7 @@ void DrawSprite3D_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
       if ( (str_AE400_AE3F0->str_29795[result].var_29811_16.byte[0] & 0x21) == 0 )
       {
         int16 diffX = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.x - posX_B5D3C_B5D2C;
-        v5 = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y - posZ_B5CF8_B5CE8;
+        v5 = str_AE400_AE3F0->str_29795[result].var_u32_29867_72.z - posZ_B5CF8_B5CE8;
         v6 = (cos_B5D10_B5D00 * diffX + sin_B5CDC_B5CCC * (__int16)(posY_B5D3A_B5D2A - str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y)) >> 16;
         v7 = (diffX * sin_B5CDC_B5CCC - (__int16)(posY_B5D3A_B5D2A - str_AE400_AE3F0->str_29795[result].var_u32_29867_72.y) * cos_B5D10_B5D00) >> 16;
         if ( v6 > 64 )
@@ -38956,14 +38956,14 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
                 {
                     //adress 0x2021CE
                     //debug
-                    origbyte20 = 0;
-                    remakebyte20 = 0;
-                    sprintf(buffer1, "%08X-00251ACC", 0x2021CE);
-                    comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
-                    origbyte20 = 0;
-                    remakebyte20 = 0;
-                    sprintf(buffer1, "%08X-002ECFF4", 0x2021CE);
-                    comp20 = compare_with_sequence(buffer1, begWscreen_2ECFF4_2ECFE4, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+                    //origbyte20 = 0;
+                    //remakebyte20 = 0;
+                    //sprintf(buffer1, "%08X-00251ACC", 0x2021CE);
+                    //comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+                    //origbyte20 = 0;
+                    //remakebyte20 = 0;
+                    //sprintf(buffer1, "%08X-002ECFF4", 0x2021CE);
+                    //comp20 = compare_with_sequence(buffer1, begWscreen_2ECFF4_2ECFE4, 0x251ACC, counter_30D90_30DD0_3 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
                     if (counter_30D90_30DD0_3==0x00004de4)
                     {
                         counter_30D90_30DD0_3++;
