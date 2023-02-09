@@ -131,6 +131,17 @@ blurBuffer_AE404_AE3F4+0xe734
 &dword_B5CB4_B5CA4 ?? 0x15D 0x104 0xfffffd71
 versus 273CB4  0x15D 0x104 0xcf
 adr 2002b8 2F2B8
+-------------------------------
+sub_58AD0_58FE0
+sub_369D0_36D90
+sub_58C30_59140
+sub_58B30_59040
+
+sub_58A00_58F10
+sub_58910_58E20
+sub_10F10
+sub_10FD0
+sub_36A90_36E50
 
 
 
