@@ -67507,18 +67507,14 @@ void sub_58F90_594A0()//229F90_
 //SYNCHRONIZED WITH REMC1
 bool sub_59050_59560(unsigned __int16 a1)//22A050_
 {
-  int v1; // eax
-  int v2; // esi
-  unsigned __int16 v4; // ax
-
-  v1 = sub_58AD0_58FE0(a1);
-  v2 = 0;
+  int32 v1 = sub_58AD0_58FE0(a1);
+  int32 v2 = 0;
   int i = 0;
   for ( i = v1 - sub_369D0_36D90(dword_AE3EC_AE3DC) + 20; i > 0; i -= sub_58C30_59140(i) )
   {
-    v4 = v2++;
-    if ( v4 >= 4u )
+    if (v2 >= 4u )
       break;
+    v2++;
   }
   if ( i <= 0 )
   {
