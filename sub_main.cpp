@@ -35104,9 +35104,9 @@ int counter_sub_2C410_2C450 = 0;
 //SYNCHRONIZED WITH REMC1
 void sub_2C410_2C450(unsigned int a1)//1FD410_
 {
-  int v1; // eax
-  int v2; // edx
-  int v3; // ecx
+  //int v1; // eax
+  //int v2; // edx
+  //int v3; // ecx
   int v4; // ebx
   int v5; // edi
   int v6; // esi
@@ -35158,7 +35158,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   char v52; // al
   char v53; // al
   int result; // eax
-  int v55; // esi
+  //int v55; // esi
   int v56; // esi
   int v57; // edx
   int v58; // ecx
@@ -35340,10 +35340,10 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
     {
       if ( a1 <= 1 )
       {
-        dword_B5CB8_B5CA8 -= (((scaledSprX_B5CA8_B5C98 * cos_B5CE8_B5CD8) >> 1) + sin_B5CD4_B5CC4 * scaledSprY_B5CC8_B5CB8) >> 16;
-        v55 = dword_B5CB4_B5CA4 - ((cos_B5CE8_B5CD8 * scaledSprY_B5CC8_B5CB8 - ((sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16);
-LABEL_136:
-        dword_B5CB4_B5CA4 = v55;
+        dword_B5CB8_B5CA8 -= (sin_B5CD4_B5CC4 * scaledSprY_B5CC8_B5CB8 + ((scaledSprX_B5CA8_B5C98 * cos_B5CE8_B5CD8) >> 1)) >> 16;
+        //v55 = dword_B5CB4_B5CA4 - ((cos_B5CE8_B5CD8 * scaledSprY_B5CC8_B5CB8 - ((sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16);
+//LABEL_136:
+        dword_B5CB4_B5CA4 -= (cos_B5CE8_B5CD8 * scaledSprY_B5CC8_B5CB8 - ((sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16;
         goto LABEL_137;
       }
       if ( a1 != 2 )
@@ -36252,7 +36252,7 @@ LABEL_325:
           if ( v138 >> 16 >= 0 )
             break;
           v144 = -v143;
-          *v139 = 0;
+          v139[0] = 0;
           v139[1] = v60 - v144;
           v139[2] = v144;
           if ( v144 < v184 )
@@ -36266,7 +36266,7 @@ LABEL_322:
             goto LABEL_325;
         }
         v139[2] = 0;
-        *v139 = v143;
+        v139[0] = v143;
         v144 = 0;
         v139[1] = v60;
 LABEL_321:
@@ -36274,24 +36274,26 @@ LABEL_321:
         goto LABEL_322;
       }
     }
-    v55 = dword_B5CB4_B5CA4 - (-(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17);
+    //v55 = dword_B5CB4_B5CA4 - (-(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17);
     dword_B5CB8_B5CA8 -= (cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 17;
-    goto LABEL_136;
+    //goto LABEL_136;
+    dword_B5CB4_B5CA4 -= -(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17;
+    goto LABEL_137;
   }
-  v1 = (scaledSprY_B5CC8_B5CB8 + scaledSprX_B5CA8_B5C98) >> 2;
+  int32 scaledXY = (scaledSprY_B5CC8_B5CB8 + scaledSprX_B5CA8_B5C98) >> 2;
   if ( a1 )
   {
-    v2 = (v1 * cos_B5CE8_B5CD8) >> 16;
-    v3 = (v1 * sin_B5CD4_B5CC4) >> 16;
+    int32 scaledCosXY = (scaledXY * cos_B5CE8_B5CD8) >> 16;
+    int32 scaledSinXY = (scaledXY * sin_B5CD4_B5CC4) >> 16;
     if ( a1 <= 1 )
     {
-      dword_B5CB8_B5CA8 += -v3 - v1;
-      dword_B5CB4_B5CA4 += -v2 - v1;
+      dword_B5CB8_B5CA8 += -scaledSinXY - scaledXY;
+      dword_B5CB4_B5CA4 += -scaledCosXY - scaledXY;
     }
     else if ( a1 == 2 )
     {
-      dword_B5CB8_B5CA8 += v3 - v1;
-      dword_B5CB4_B5CA4 += v2 - v1;
+      dword_B5CB8_B5CA8 += scaledSinXY - scaledXY;
+      dword_B5CB4_B5CA4 += scaledCosXY - scaledXY;
     }
   }
   v4 = widthViewPort_93AD8;
@@ -38877,9 +38879,11 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
         //debug
         uint8_t origbyte20 = 0;
         uint8_t remakebyte20 = 0;
+        int comp20;
         char buffer1[500];
-        sprintf(buffer1, "%08X-0026C404", 0x20206F);
-        int comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_30D90_30DD0 - 0, 320*200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+        //sprintf(buffer1, "%08X-0026C404", 0x20206F);
+        //int comp20 = compare_with_sequence(buffer1, blurBuffer_AE404_AE3F4, 0x26C404, counter_30D90_30DD0 - 0, 320*200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+        
         counter_30D90_30DD0++;
         //debug
 		int maxEyeDistanceInPixels = 64;//can be fixed for bigger resolutions
@@ -38897,10 +38901,12 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 
             //adress 0x202109
             //debug
+            /*
             origbyte20 = 0;
             remakebyte20 = 0;
             sprintf(buffer1, "%08X-00251ACC", 0x202109);
             comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+            */
             //debug
 
 			int index33 = widthViewPort_93AD8 / 2;
@@ -38916,10 +38922,11 @@ void DrawWorld_30D90_30DD0(int posX, int posY, __int16 yaw, int posZ, int pitch,
 
             //adress 0x202181
             //debug
-            origbyte20 = 0;
+            /*origbyte20 = 0;
             remakebyte20 = 0;
             sprintf(buffer1, "%08X-00251ACC", 0x202181);
             comp20 = compare_with_sequence(buffer1, beginFrame_93ACC, 0x251ACC, counter_30D90_30DD0_2 - 0, 320 * 200, 320 * 200, &origbyte20, &remakebyte20, 0, true);
+            */
             counter_30D90_30DD0_2++;
             //debug
 
@@ -67158,35 +67165,35 @@ char sub_58A00_58F10(unsigned __int16 a1)
 {
   unsigned __int16 v1; // di
   unsigned __int16 v2; // bx
-  _BYTE **v3; // ecx
-  Type_sub_AE3E0* v4; // eax
+  //Type_sub168_2* v3; // ecx
+  //Type_sub_AE3E0* v4; // eax
 
   v1 = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8;
   if ( !dword_12DF8C_12DF7C[v1] )
     return 0;
   v2 = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8;
-  if ( v1 < 0x211u )
+  if ( v1 < 529 )
   {
     do
     {
       if ( v1 != begTmapsTab_12D744_12D734_2EB744_2EB734x[v2].var_8)
         break;
-      v3 = (_BYTE **)dword_12DF8C_12DF7C[v2];
-      if ( v3 )
+      //v3 = dword_12DF8C_12DF7C[v2];
+      if (dword_12DF8C_12DF7C[v2])
       {
-        if ( (**v3 & 1) != 0 )
+        if ( (dword_12DF8C_12DF7C[v2]->var_u32_0->var_0 & 1) != 0 )
         {
-          v4 = sub_10FD0(dword_AE3E0_AE3D0, v2);
-          sub_10F10(v4);
+          //v4 = sub_10FD0(dword_AE3E0_AE3D0, v2);
+          sub_10F10(sub_10FD0(dword_AE3E0_AE3D0, v2));
         }
         sub_36A90_36E50(dword_AE3EC_AE3DC, dword_12D748_12D738[v2]);
         dword_12DF8C_12DF7C[v2] = 0;
         dword_12D748_12D738[v2] = 0;
         dword_12CF00_12CEF0[v2] = 0;
       }
-      ++v2;
+      v2++;
     }
-    while ( v2 < 0x211u );
+    while ( v2 < 529);
   }
   return 1;
 }
@@ -67194,19 +67201,15 @@ char sub_58A00_58F10(unsigned __int16 a1)
 //SYNCHRONIZED WITH REMC1
 int sub_58AD0_58FE0(unsigned __int16 a1)
 {
-  unsigned __int16 v1; // ax
-  int v2; // ebx
-  unsigned __int16 i; // si
-
-  v1 = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8;
-  v2 = 0;
-  for ( i = v1; v1 < 0x211u; v1++ )
+  int first = begTmapsTab_12D744_12D734_2EB744_2EB734x[a1].var_8;
+  int suma = 0;
+  for (int i = first; i < 529; i++ )
   {
-    if ( i != begTmapsTab_12D744_12D734_2EB744_2EB734x[v1].var_8)
+    if (first != begTmapsTab_12D744_12D734_2EB744_2EB734x[i].var_8)
       break;
-    v2 += begTmapsTab_12D744_12D734_2EB744_2EB734x[v1].var_0;
+    suma += begTmapsTab_12D744_12D734_2EB744_2EB734x[i].var_0;
   }
-  return v2;
+  return suma;
 }
 
 int counter_sub_58B30_59040 = 0;
@@ -67506,15 +67509,11 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
 {
   int v1; // eax
   int v2; // esi
-  signed int i; // ebx
   unsigned __int16 v4; // ax
-
-  //fix
-  i = 0;
-  //fix
 
   v1 = sub_58AD0_58FE0(a1);
   v2 = 0;
+  int i = 0;
   for ( i = v1 - sub_369D0_36D90(dword_AE3EC_AE3DC) + 20; i > 0; i -= sub_58C30_59140(i) )
   {
     v4 = v2++;
@@ -67524,7 +67523,7 @@ bool sub_59050_59560(unsigned __int16 a1)//22A050_
   if ( i <= 0 )
   {
     sub_58B30_59040(a1);
-    *(_BYTE *)(dword_AE408_AE3F8() + 149) = 5;
+    str_AE408_AE3F8->var_u8_149 = 5;
   }
   return dword_12DF8C_12DF7C[a1] != 0;
 }

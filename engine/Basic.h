@@ -596,7 +596,7 @@ typedef struct {//size 36478
 	Type_AE408_93 str_93;// len 16
 	uint8 stubb[8];
 	char textBuffer_117[32];//fix size
-	uint8 stubc[1];
+	uint8 var_u8_149;
 	uint8 gameSpeed_150;
 	uint8 var_u8_151;
 	uint8 var_u8_152;
