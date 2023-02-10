@@ -14847,7 +14847,7 @@ int dword_B5D1C_B5D0C; // weak
 int dword_B5D20_B5D10; // weak
 int dword_B5D24_B5D14; // weak
 int dword_B5D28_B5D18; // weak
-int dword_B5D2C_B5D1C; // weak
+int hwViewPort_B5D2C_B5D1C; // weak
 int whViewPortA_B5D30_B5D20; // weak
 int whViewPortB_B5D34_B5D24; // weak
 __int16 yaw_B5D38_B5D28; // weak
@@ -31807,12 +31807,12 @@ void PrepRot_29C30_29C70_old(__int16 roll)
             --v93;
         } while (v93);
         dword_B5D24_B5D14 = v10;
-        dword_B5D2C_B5D1C = -v10;
+        hwViewPort_B5D2C_B5D1C = -v10;
         v12 = heightViewPort_93ADC - v10;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
         v13 = heightViewPort_93ADC + widthViewPort_93AD8;
-        v14 = -1 - dword_B5D2C_B5D1C;
+        v14 = -1 - hwViewPort_B5D2C_B5D1C;
         goto LABEL_62;
     case 1:
         sinRoll_B5D18_B5D08 = sin_90B4C[v1];
@@ -31838,7 +31838,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v94;
             } while (v94);
             dword_B5D24_B5D14 = heightViewPort_93ADC;
-            dword_B5D2C_B5D1C = -heightViewPort_93ADC;
+            hwViewPort_B5D2C_B5D1C = -heightViewPort_93ADC;
         }
         else
         {
@@ -31868,14 +31868,14 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v94;
             } while (v94);
             dword_B5D24_B5D14 = v25;
-            dword_B5D2C_B5D1C = -v25;
+            hwViewPort_B5D2C_B5D1C = -v25;
         }
-        dword_B5D1C_B5D0C = widthViewPort_93AD8 + dword_B5D2C_B5D1C;
+        dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
         dword_B5D04_B5CF4 = -1;
-        dword_B5CD8_B5CC8 = 4 * (-1 - dword_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
+        dword_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 2:
         v26 = sin_90B4C[v3];
@@ -31910,7 +31910,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
             --v95;
         } while (v95);
         dword_B5D24_B5D14 = v33;
-        dword_B5D2C_B5D1C = -v33;
+        hwViewPort_B5D2C_B5D1C = -v33;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -31944,7 +31944,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v96;
             } while (v96);
             dword_B5D24_B5D14 = widthViewPort_93AD8;
-            dword_B5D2C_B5D1C = -widthViewPort_93AD8;
+            hwViewPort_B5D2C_B5D1C = -widthViewPort_93AD8;
         }
         else
         {
@@ -31974,13 +31974,13 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v96;
             } while (v96);
             dword_B5D24_B5D14 = v46;
-            dword_B5D2C_B5D1C = -v46;
+            hwViewPort_B5D2C_B5D1C = -v46;
         }
-        dword_B5D1C_B5D0C = heightViewPort_93ADC + dword_B5D2C_B5D1C;
+        dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-        dword_B5CD8_B5CC8 = 4 * (-1 - dword_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
+        dword_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         v47 = -pitchViewPort_93AD4;
         goto LABEL_63;
     case 4:
@@ -32014,7 +32014,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
             --v97;
         } while (v97);
         dword_B5D24_B5D14 = v53;
-        dword_B5D2C_B5D1C = -v53;
+        hwViewPort_B5D2C_B5D1C = -v53;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -32046,7 +32046,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v98;
             } while (v98);
             dword_B5D24_B5D14 = heightViewPort_93ADC;
-            dword_B5D2C_B5D1C = -heightViewPort_93ADC;
+            hwViewPort_B5D2C_B5D1C = -heightViewPort_93ADC;
         }
         else
         {
@@ -32076,14 +32076,14 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v98;
             } while (v98);
             dword_B5D24_B5D14 = v64;
-            dword_B5D2C_B5D1C = -v64;
+            hwViewPort_B5D2C_B5D1C = -v64;
         }
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-        dword_B5D1C_B5D0C = widthViewPort_93AD8 + dword_B5D2C_B5D1C;
+        dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
         dword_B5D04_B5CF4 = 1;
-        dword_B5CD8_B5CC8 = 4 * (-1 - dword_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
+        dword_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         break;
     case 6:
         sinRoll_B5D18_B5D08 = sin_90B4C[v4];
@@ -32116,7 +32116,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
             --v99;
         } while (v99);
         dword_B5D24_B5D14 = v70;
-        dword_B5D2C_B5D1C = -v70;
+        hwViewPort_B5D2C_B5D1C = -v70;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
         dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -32148,7 +32148,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v100;
             } while (v100);
             dword_B5D24_B5D14 = widthViewPort_93AD8;
-            dword_B5D2C_B5D1C = -widthViewPort_93AD8;
+            hwViewPort_B5D2C_B5D1C = -widthViewPort_93AD8;
         }
         else
         {
@@ -32178,13 +32178,13 @@ void PrepRot_29C30_29C70_old(__int16 roll)
                 --v100;
             } while (v100);
             dword_B5D24_B5D14 = v81;
-            dword_B5D2C_B5D1C = -v81;
+            hwViewPort_B5D2C_B5D1C = -v81;
         }
-        v12 = heightViewPort_93ADC + dword_B5D2C_B5D1C;
+        v12 = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
         v13 = heightViewPort_93ADC + widthViewPort_93AD8;
-        v14 = -1 - dword_B5D2C_B5D1C;
+        v14 = -1 - hwViewPort_B5D2C_B5D1C;
     LABEL_62:
         dword_B5D20_B5D10 = v13;
         dword_B5CD8_B5CC8 = 4 * v14 + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -32251,11 +32251,11 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 			par4++;
 		}
 		dword_B5D24_B5D14 = par2;
-		dword_B5D2C_B5D1C = -par2;
+		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
+		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		dword_B5D1C_B5D0C = heightViewPort_93ADC - par2;
 		dword_B5D04_B5CF4 = pitchViewPort_93AD4;
 		break;
@@ -32280,7 +32280,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = heightViewPort_93ADC;
-			dword_B5D2C_B5D1C = -heightViewPort_93ADC;
+			hwViewPort_B5D2C_B5D1C = -heightViewPort_93ADC;
 		}
 		else
 		{
@@ -32307,14 +32307,14 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = par2;
-			dword_B5D2C_B5D1C = -par2;
+			hwViewPort_B5D2C_B5D1C = -par2;
 		}
-		dword_B5D1C_B5D0C = widthViewPort_93AD8 + dword_B5D2C_B5D1C;
+		dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
 		dword_B5D04_B5CF4 = -1;
-		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
+		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		break;
 	case 2:
 		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 512];
@@ -32342,7 +32342,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 			par4++;
 		}
 		dword_B5D24_B5D14 = par2;
-		dword_B5D2C_B5D1C = -par2;
+		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -32371,7 +32371,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = widthViewPort_93AD8;
-			dword_B5D2C_B5D1C = -widthViewPort_93AD8;
+			hwViewPort_B5D2C_B5D1C = -widthViewPort_93AD8;
 		}
 		else
 		{
@@ -32398,13 +32398,13 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = par2;
-			dword_B5D2C_B5D1C = -par2;
+			hwViewPort_B5D2C_B5D1C = -par2;
 		}
-		dword_B5D1C_B5D0C = heightViewPort_93ADC + dword_B5D2C_B5D1C;
+		dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
+		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		dword_B5D04_B5CF4 = -pitchViewPort_93AD4;
 		break;
 	case 4:
@@ -32433,7 +32433,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 			par4++;
 		}
 		dword_B5D24_B5D14 = par2;
-		dword_B5D2C_B5D1C = -par2;
+		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -32462,7 +32462,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = heightViewPort_93ADC;
-			dword_B5D2C_B5D1C = -heightViewPort_93ADC;
+			hwViewPort_B5D2C_B5D1C = -heightViewPort_93ADC;
 		}
 		else
 		{
@@ -32489,14 +32489,14 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = par2;
-			dword_B5D2C_B5D1C = -par2;
+			hwViewPort_B5D2C_B5D1C = -par2;
 		}
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-		dword_B5D1C_B5D0C = widthViewPort_93AD8 + dword_B5D2C_B5D1C;
+		dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
 		dword_B5D04_B5CF4 = 1;
-		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
+		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		break;
 	case 6:
 		sinRoll_B5D18_B5D08 = sin_90B4C[(roll & 0x7FF) - 1536];
@@ -32524,7 +32524,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 			par4++;
 		}
 		dword_B5D24_B5D14 = par2;
-		dword_B5D2C_B5D1C = -par2;
+		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
@@ -32553,7 +32553,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = widthViewPort_93AD8;
-			dword_B5D2C_B5D1C = -widthViewPort_93AD8;
+			hwViewPort_B5D2C_B5D1C = -widthViewPort_93AD8;
 		}
 		else
 		{
@@ -32580,13 +32580,13 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 				par4++;
 			}
 			dword_B5D24_B5D14 = par2;
-			dword_B5D2C_B5D1C = -par2;
+			hwViewPort_B5D2C_B5D1C = -par2;
 		}
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
 		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
-		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - dword_B5D2C_B5D1C];
-		dword_B5D1C_B5D0C = heightViewPort_93ADC + dword_B5D2C_B5D1C;
+		dword_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
+		dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
 		dword_B5D04_B5CF4 = pitchViewPort_93AD4;
 		break;
 	default:
@@ -35163,8 +35163,8 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v61; // esi
   //int v62; // edx
   //int *v63; // eax
-  int v64; // edx
-  int v65; // ecx
+  //int v64; // edx
+  //int v65; // ecx
   int v66; // ebx
   int v67; // ebx
   int v68; // ebx
@@ -35341,6 +35341,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int32 tempRot;
   int32 sinY;
   int32 yRotMinusSinXrot;
+  int32 rotYfromEnd;
 
   Type_32bitAxis* points;
 
@@ -35384,16 +35385,16 @@ LABEL_137:
             sinY = sinRoll_B5D18_B5D08 * scaledSprY_B5CC8_B5CB8 / yDivSC;
             yRotMinusSinXrot = yRot_B5CB4_B5CA4 - ((sinDivCos_B5CF4_B5CE4 * xRot_B5CB8_B5CA8) >> 16);
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            if (yRotMinusSinXrot >= dword_B5D2C_B5D1C )
+            if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_146;
-            v64 = dword_B5D2C_B5D1C - yRotMinusSinXrot;
-            yDivSC -= v64;
+            rotYfromEnd = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
+            yDivSC -= rotYfromEnd;
             if (yDivSC <= 0 )
               goto LABEL_404;
-            dword_B5CC0_B5CB0 += v64 * yDivYdivSC;
-            v65 = tempRot - sinY * v64;
-            yRotMinusSinXrot = dword_B5D2C_B5D1C;
-            tempRot = v65;
+            dword_B5CC0_B5CB0 += rotYfromEnd * yDivYdivSC;
+            //v65 = tempRot - sinY * rotYfromEnd;
+            yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
+            tempRot -= sinY * rotYfromEnd;
 LABEL_146:
             v186 = yRotMinusSinXrot * pitchViewPort_93AD4 + beginFrame_93ACC;
             goto LABEL_147;
@@ -35420,7 +35421,7 @@ LABEL_146:
             v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if ( v175 < whViewPortA_B5D30_B5D20 )
             {
-              if ( v175 < dword_B5D2C_B5D1C )
+              if ( v175 < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
@@ -35456,15 +35457,15 @@ LABEL_146:
             sinY = sinRoll_B5D18_B5D08 * scaledSprY_B5CC8_B5CB8 / yDivSC;
             yRotMinusSinXrot = whViewPortA_B5D30_B5D20 - xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * yRot_B5CB4_B5CA4) >> 16);
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            if (yRotMinusSinXrot >= dword_B5D2C_B5D1C )
+            if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_354;
-            v156 = dword_B5D2C_B5D1C - yRotMinusSinXrot;
+            v156 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
             yDivSC -= v156;
             if (yDivSC <= 0 )
               goto LABEL_404;
             dword_B5CC0_B5CB0 += v156 * yDivYdivSC;
             v157 = tempRot - sinY * v156;
-            yRotMinusSinXrot = dword_B5D2C_B5D1C;
+            yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v157;
 LABEL_354:
             v186 = whViewPortA_B5D30_B5D20 + beginFrame_93ACC - 1 - yRotMinusSinXrot;
@@ -35492,7 +35493,7 @@ LABEL_354:
             v138 = (whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8) << 16;
             if ( v175 < whViewPortA_B5D30_B5D20 )
             {
-              if ( v175 < dword_B5D2C_B5D1C )
+              if ( v175 < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
@@ -35528,15 +35529,15 @@ LABEL_354:
             sinY = sinRoll_B5D18_B5D08 * scaledSprY_B5CC8_B5CB8 / yDivSC;
             yRotMinusSinXrot = whViewPortA_B5D30_B5D20 - yRot_B5CB4_B5CA4 - (((whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8) * sinDivCos_B5CF4_B5CE4) >> 16);
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            if (yRotMinusSinXrot >= dword_B5D2C_B5D1C )
+            if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_373;
-            v159 = dword_B5D2C_B5D1C - yRotMinusSinXrot;
+            v159 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
             yDivSC -= v159;
             if (yDivSC <= 0 )
               goto LABEL_404;
             dword_B5CC0_B5CB0 += v159 * yDivYdivSC;
             v160 = tempRot - sinY * v159;
-            yRotMinusSinXrot = dword_B5D2C_B5D1C;
+            yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v160;
 LABEL_373:
             v186 = whViewPortB_B5D34_B5D24 + beginFrame_93ACC + pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - yRotMinusSinXrot - 1) - 1;
@@ -35565,7 +35566,7 @@ LABEL_373:
             v175 = v161;
             if ( v161 < whViewPortA_B5D30_B5D20 )
             {
-              if ( v161 < dword_B5D2C_B5D1C )
+              if ( v161 < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
@@ -35604,24 +35605,24 @@ LABEL_310:
             v163 = xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             yRotMinusSinXrot = v163;
-            if ( v163 >= dword_B5D2C_B5D1C )
+            if ( v163 >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_392;
-            v164 = dword_B5D2C_B5D1C - v163;
-            yDivSC -= dword_B5D2C_B5D1C - v163;
+            v164 = hwViewPort_B5D2C_B5D1C - v163;
+            yDivSC -= hwViewPort_B5D2C_B5D1C - v163;
             if (yDivSC <= 0 )
               goto LABEL_404;
             dword_B5CC0_B5CB0 += v164 * yDivYdivSC;
             v165 = tempRot - sinY * v164;
-            yRotMinusSinXrot = dword_B5D2C_B5D1C;
+            yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v165;
 LABEL_392:
             v186 = yRotMinusSinXrot + beginFrame_93ACC + pitchViewPort_93AD4 * (whViewPortB_B5D34_B5D24 - 1);
 LABEL_147:
-            v66 = whViewPortA_B5D30_B5D20 - dword_B5D2C_B5D1C;
+            v66 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             if (yRotMinusSinXrot <= 0 )
             {
               if (yDivSC > v66 )
-                  yDivSC = whViewPortA_B5D30_B5D20 - dword_B5D2C_B5D1C;
+                  yDivSC = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             }
             else if ( v66 < yDivSC + yRotMinusSinXrot)
             {
@@ -36154,7 +36155,7 @@ LABEL_159:
             v175 = v167;
             if ( v167 < whViewPortA_B5D30_B5D20 )
             {
-              if ( v167 < dword_B5D2C_B5D1C )
+              if ( v167 < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
@@ -36169,11 +36170,11 @@ LABEL_159:
             }
             v186 = pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - v175) + beginFrame_93ACC;
 LABEL_311:
-            v142 = whViewPortA_B5D30_B5D20 - dword_B5D2C_B5D1C;
+            v142 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             if ( v175 < whViewPortA_B5D30_B5D20 )
             {
               if (yDivSC > v142 )
-                  yDivSC = whViewPortA_B5D30_B5D20 - dword_B5D2C_B5D1C;
+                  yDivSC = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             }
             else if ( v142 < yDivSC + v175 - whViewPortA_B5D30_B5D20 )
             {
@@ -36215,12 +36216,12 @@ LABEL_325:
                 goto LABEL_181;
               v149 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920 + 12 * v175);
               v177 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
-              v150 = v175 - yDivSC - dword_B5D2C_B5D1C;
+              v150 = v175 - yDivSC - hwViewPort_B5D2C_B5D1C;
               v151 = yDivSC - v175;
               if ( v150 < 0 )
               {
-                  yDivSC = v175 - dword_B5D2C_B5D1C;
-                if ( v175 - dword_B5D2C_B5D1C <= 0 )
+                  yDivSC = v175 - hwViewPort_B5D2C_B5D1C;
+                if ( v175 - hwViewPort_B5D2C_B5D1C <= 0 )
                   goto LABEL_404;
                 v151 += v150;
               }
