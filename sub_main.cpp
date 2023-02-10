@@ -35103,17 +35103,17 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v1; // eax
   //int v2; // edx
   //int v3; // ecx
-  int v4; // ebx
-  int v5; // edi
-  int v6; // esi
-  int v7; // ecx
-  int v8; // ebx
-  int v9; // edi
-  int v10; // ecx
-  _DWORD *v11; // ebx
+  //int v4; // ebx
+  //int v5; // edi
+  //int v6; // esi
+  //int v7; // ecx
+  //int v8; // ebx
+  //int v9; // edi
+  //int v10; // ecx
+  //_DWORD *v11; // ebx
   char *v12; // ebx
   int v13; // eax
-  _DWORD *v14; // esi
+  //_DWORD *v14; // esi
   _BYTE *v15; // edi
   int v16; // ecx
   char v17; // cf
@@ -35352,6 +35352,12 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int32 tempPoint2 = 0;
   uint32* begInt32Adress;
   int32 yCount;
+
+  int32 tempViewPort;
+
+  int32 signXdivsprX;
+
+  uint32* points4;
 
   if ( !byte_B5D3E_B5D2E )
   {
@@ -35814,7 +35820,7 @@ LABEL_204:
                             v84 += 3;
                             goto LABEL_214;
                           }
-                          ++v97;
+                          v97++;
                           while ( 1 )
                           {
                             LOBYTE(v96) = *v94;
@@ -36317,71 +36323,71 @@ LABEL_321:
       yRot_B5CB4_B5CA4 += scaledCosXY - scaledXY;
     }
   }
-  v4 = widthViewPort_93AD8;
+  tempViewPort = widthViewPort_93AD8;
   if ( widthViewPort_93AD8 <= xRot_B5CB8_B5CA8 )
     goto LABEL_404;
-  v5 = scaledSprX_B5CA8_B5C98;
-  v6 = (signedSprX_B5CBC_B5CAC << 16) / scaledSprX_B5CA8_B5C98;
+  //v5 = scaledSprX_B5CA8_B5C98;
+  signXdivsprX = (signedSprX_B5CBC_B5CAC << 16) / scaledSprX_B5CA8_B5C98;
   if ( -xRot_B5CB8_B5CA8 < 0 || xRot_B5CB8_B5CA8 == 0 )
   {
     dword_B5CC4_B5CB4 = 0;
     if ( scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8 - widthViewPort_93AD8 <= 0 )
       goto LABEL_16;
-    v4 = widthViewPort_93AD8 - xRot_B5CB8_B5CA8;
+    tempViewPort = widthViewPort_93AD8 - xRot_B5CB8_B5CA8;
     goto LABEL_15;
   }
-  v7 = scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8;
+  //v7 = scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8;
   scaledSprX_B5CA8_B5C98 += xRot_B5CB8_B5CA8;
-  if ( v5 + xRot_B5CB8_B5CA8 <= 0 )
+  if (scaledSprX_B5CA8_B5C98 <= 0 )
     goto LABEL_404;
-  dword_B5CC4_B5CB4 = v6 * -xRot_B5CB8_B5CA8;
+  dword_B5CC4_B5CB4 = signXdivsprX * -xRot_B5CB8_B5CA8;
   xRot_B5CB8_B5CA8 = 0;
-  if ( widthViewPort_93AD8 <= v7 )
+  if ( widthViewPort_93AD8 <= scaledSprX_B5CA8_B5C98)
 LABEL_15:
-    scaledSprX_B5CA8_B5C98 = v4;
+    scaledSprX_B5CA8_B5C98 = tempViewPort;
 LABEL_16:
-  v8 = heightViewPort_93ADC;
+    tempViewPort = heightViewPort_93ADC;
   if ( heightViewPort_93ADC <= yRot_B5CB4_B5CA4 )
     goto LABEL_404;
-  v9 = scaledSprY_B5CC8_B5CB8;
+  //v9 = scaledSprY_B5CC8_B5CB8;
   v172 = (sprY_B5CCC_B5CCC << 16) / scaledSprY_B5CC8_B5CB8;
   if ( -yRot_B5CB4_B5CA4 < 0 || yRot_B5CB4_B5CA4 == 0 )
   {
     dword_B5CC0_B5CB0 = 0;
     if ( yRot_B5CB4_B5CA4 + scaledSprY_B5CC8_B5CB8 - heightViewPort_93ADC <= 0 )
       goto LABEL_24;
-    v8 = heightViewPort_93ADC - yRot_B5CB4_B5CA4;
+    tempViewPort = heightViewPort_93ADC - yRot_B5CB4_B5CA4;
     goto LABEL_23;
   }
-  v10 = scaledSprY_B5CC8_B5CB8 + yRot_B5CB4_B5CA4;
+  //v10 = scaledSprY_B5CC8_B5CB8 + yRot_B5CB4_B5CA4;
   scaledSprY_B5CC8_B5CB8 += yRot_B5CB4_B5CA4;
-  if ( v9 + yRot_B5CB4_B5CA4 <= 0 )
+  if (scaledSprY_B5CC8_B5CB8 <= 0 )
     goto LABEL_404;
   dword_B5CC0_B5CB0 = -yRot_B5CB4_B5CA4 * v172;
   yRot_B5CB4_B5CA4 = 0;
-  if ( heightViewPort_93ADC <= v10 )
+  if ( heightViewPort_93ADC <= scaledSprY_B5CC8_B5CB8)
 LABEL_23:
-    scaledSprY_B5CC8_B5CB8 = v8;
+    scaledSprY_B5CC8_B5CB8 = tempViewPort;
 LABEL_24:
-  v11 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
-  for ( k = scaledSprX_B5CA8_B5C98; k; --k )
+  begInt32Adress = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960];
+  for ( k = scaledSprX_B5CA8_B5C98; k; k-- )
   {
-    v11[1] = dword_B5CC4_B5CB4 >> 16;
-    if ( v11 == (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960) )
-      *(_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960) = 22;
+      begInt32Adress[1] = dword_B5CC4_B5CB4 >> 16;
+    if (begInt32Adress == (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960])
+      *(uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960] = 22;
     else
-      *v11 = v11[1] - *(v11 - 1);
-    v11 += 2;
-    dword_B5CC4_B5CB4 += v6;
+        begInt32Adress[0] = begInt32Adress[1] - begInt32Adress[-1];
+    begInt32Adress += 2;
+    dword_B5CC4_B5CB4 += signXdivsprX;
   }
-  v185 = pitchViewPort_93AD4 * yRot_B5CB4_B5CA4 + xRot_B5CB8_B5CA8 + beginFrame_93ACC;
+  v185 = &beginFrame_93ACC[pitchViewPort_93AD4 * yRot_B5CB4_B5CA4 + xRot_B5CB8_B5CA8];
   if ( !scaledSprY_B5CC8_B5CB8 )
     goto LABEL_404;
   do
   {
     v12 = (char *)(*(_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36964) + sprData_B5CB0_B5CA0 + sprX_B5CD0_B5CC0 * (dword_B5CC0_B5CB0 >> 16));
     v13 = dword_B5CAC_B5C9C;
-    v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
+    points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960];
     switch ( dword_B5CAC_B5C9C )
     {
       case 0:
@@ -36393,12 +36399,12 @@ LABEL_24:
           v18 = scaledSprX_B5CA8_B5C98 >> 2;
           if ( v17 )
           {
-            ++v18;
-            v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36952);
+            v18++;
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
             v15 = (_BYTE *)(v185 - 2);
             goto LABEL_42;
           }
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+          points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_38;
         }
         v19 = v16 + 2;
@@ -36406,34 +36412,34 @@ LABEL_24:
         v18 = v19 >> 1;
         if ( !v17 )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36944);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
           v15 = (_BYTE *)(v185 - 3);
           goto LABEL_44;
         }
         v15 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
-          v21 = *v12;
-          v12 += v14[2];
+          v21 = v12[0];
+          v12 += points4[2];
           if ( v21 )
             v15[1] = v21;
 LABEL_42:
-          v22 = *v12;
-          v12 += v14[4];
+          v22 = v12[0];
+          v12 += points4[4];
           if ( v22 )
             v15[2] = v22;
 LABEL_44:
-          v23 = *v12;
-          v12 += v14[6];
+          v23 = v12[0];
+          v12 += points4[6];
           if ( v23 )
             v15[3] = v23;
           v15 += 4;
-          v14 += 8;
+          points4 += 8;
           if ( !--v18 )
             break;
 LABEL_38:
-          v20 = *v12;
-          v12 += *v14;
+          v20 = v12[0];
+          v12 += points4[0];
           if ( v20 )
             *v15 = v20;
         }
@@ -36444,24 +36450,24 @@ LABEL_38:
         v26 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_51;
         }
-        ++v26;
+        v26++;
         v24 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           LOBYTE(v25) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( (_BYTE)v25 )
             v24[1] = strPal.fog_B7934_B7924[v25];
           v24 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v26 )
             break;
 LABEL_51:
           LOBYTE(v25) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( (_BYTE)v25 )
             *v24 = strPal.fog_B7934_B7924[v25];
         }
@@ -36472,27 +36478,27 @@ LABEL_51:
         v29 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_60;
         }
-        ++v29;
+        v29++;
         v27 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           BYTE1(v28) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( BYTE1(v28) )
           {
             LOBYTE(v28) = v27[1];
             v27[1] = strPal.byte_BB934_BB924[v28];
           }
           v27 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v29 )
             break;
 LABEL_60:
           BYTE1(v28) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( BYTE1(v28) )
           {
             LOBYTE(v28) = *v27;
@@ -36506,27 +36512,27 @@ LABEL_60:
         v32 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_69;
         }
-        ++v32;
+        v32++;
         v30 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           LOBYTE(v31) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( (_BYTE)v31 )
           {
             BYTE1(v31) = v30[1];
             v30[1] = strPal.byte_BB934_BB924[v31];
           }
           v30 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v32 )
             break;
 LABEL_69:
           LOBYTE(v31) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( (_BYTE)v31 )
           {
             BYTE1(v31) = *v30;
@@ -36540,24 +36546,24 @@ LABEL_69:
         v34 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_78;
         }
-        ++v34;
+        v34++;
         v33 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           LOBYTE(v13) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( (_BYTE)v13 )
             v33[1] = strPal.byte_BB934_BB924[v13];
           v33 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v34 )
             break;
 LABEL_78:
           LOBYTE(v13) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( (_BYTE)v13 )
             *v33 = strPal.byte_BB934_BB924[v13];
         }
@@ -36567,24 +36573,24 @@ LABEL_78:
         v36 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_87;
         }
-        ++v36;
+        v36++;
         v35 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           BYTE1(v13) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( BYTE1(v13) )
             v35[1] = strPal.byte_BB934_BB924[v13];
           v35 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v36 )
             break;
 LABEL_87:
           BYTE1(v13) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( BYTE1(v13) )
             *v35 = strPal.byte_BB934_BB924[v13];
         }
@@ -36596,15 +36602,15 @@ LABEL_87:
         v40 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_96;
         }
-        ++v40;
+        v40++;
         v37 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           BYTE1(v39) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( BYTE1(v39) )
           {
             LOBYTE(v39) = v37[1];
@@ -36612,12 +36618,12 @@ LABEL_87:
             v37[1] = strPal.fog_B7934_B7924[v38];
           }
           v37 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v40 )
             break;
 LABEL_96:
           BYTE1(v39) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( BYTE1(v39) )
           {
             LOBYTE(v39) = *v37;
@@ -36633,15 +36639,15 @@ LABEL_96:
         v44 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_105;
         }
-        ++v44;
+        v44++;
         v41 = (_BYTE *)(v185 - 1);
         while ( 1 )
         {
           LOBYTE(v43) = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( (_BYTE)v43 )
           {
             BYTE1(v43) = v41[1];
@@ -36649,12 +36655,12 @@ LABEL_96:
             v41[1] = strPal.fog_B7934_B7924[v42];
           }
           v41 += 2;
-          v14 += 4;
+          points4 += 4;
           if ( !--v44 )
             break;
 LABEL_105:
           LOBYTE(v43) = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( (_BYTE)v43 )
           {
             BYTE1(v43) = *v41;
@@ -36673,12 +36679,12 @@ LABEL_105:
           v48 = scaledSprX_B5CA8_B5C98 >> 2;
           if ( v17 )
           {
-            ++v48;
-            v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36952);
+            v48++;
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
             v45 = (_BYTE *)(v185 - 2);
             goto LABEL_122;
           }
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36968);
+          points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_118;
         }
         v49 = v47 + 2;
@@ -36686,7 +36692,7 @@ LABEL_105:
         v48 = v49 >> 1;
         if ( !v17 )
         {
-          v14 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36944);
+            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
           v45 = (_BYTE *)(v185 - 3);
           goto LABEL_124;
         }
@@ -36694,26 +36700,26 @@ LABEL_105:
         while ( 1 )
         {
           v51 = *v12;
-          v12 += v14[2];
+          v12 += points4[2];
           if ( v51 )
             v45[1] = BYTE1(v46);
 LABEL_122:
           v52 = *v12;
-          v12 += v14[4];
+          v12 += points4[4];
           if ( v52 )
             v45[2] = BYTE1(v46);
 LABEL_124:
           v53 = *v12;
-          v12 += v14[6];
+          v12 += points4[6];
           if ( v53 )
             v45[3] = BYTE1(v46);
           v45 += 4;
-          v14 += 8;
+          points4 += 8;
           if ( !--v48 )
             break;
 LABEL_118:
           v50 = *v12;
-          v12 += *v14;
+          v12 += points4[0];
           if ( v50 )
             *v45 = BYTE1(v46);
         }
