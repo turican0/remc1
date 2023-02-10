@@ -35172,9 +35172,9 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_DWORD *v70; // eax
   //_DWORD *v71; // ebx
   //int v72; // ecx
-  _DWORD *v73; // eax
-  _DWORD *v74; // ebx
-  int v75; // ecx
+  //_DWORD *v73; // eax
+  //_DWORD *v74; // ebx
+  //int v75; // ecx
   int v76; // ebx
   int i; // eax
   int v78; // ecx
@@ -35691,26 +35691,26 @@ LABEL_172:
                 }
                 if (yRotMinusSinXrot < 0 )
                 {
-                  v73 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-                  v74 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360 + 4 * (-1 - yRotMinusSinXrot));
+                    points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
+                    begInt32Adress = &(((uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[59360])[-1 - yRotMinusSinXrot]);
                   do
                   {
-                    if ( *v74 > *v73 )
+                    if (begInt32Adress[0] > points->a)
                     {
-                      if ( *v74 <= v73[1] + *v73 )
+                      if (begInt32Adress[0] <= points->b + points->a)
                       {
-                        v75 = *v74 - *v73;
-                        *v73 = *v74;
-                        v73[2] += v75;
-                        v73[1] -= v75;
+                        //v75 = begInt32Adress[0] - points->a;                        
+                        points->c += begInt32Adress[0] - points->a;
+                        points->b -= begInt32Adress[0] - points->a;
+                        points->a = begInt32Adress[0];
                       }
                       else
                       {
-                        v73[1] = 0;
+                          points->b = 0;
                       }
                     }
-                    --v74;
-                    v73 += 3;
+                    begInt32Adress--;
+                    points++;
                     yRotMinusSinXrot++;
                   }
                   while (yRotMinusSinXrot);
@@ -35882,7 +35882,7 @@ LABEL_224:
                             v84 += 3;
                             goto LABEL_234;
                           }
-                          ++v103;
+                          v103++;
                           while ( 1 )
                           {
                             LOBYTE(v83) = *v101;
@@ -35919,7 +35919,7 @@ LABEL_234:
                             v84 += 3;
                             goto LABEL_244;
                           }
-                          ++v107;
+                          v107++;
                           while ( 1 )
                           {
                             LOBYTE(v106) = *v104;
@@ -35950,7 +35950,7 @@ LABEL_244:
                             v84 += 3;
                             goto LABEL_254;
                           }
-                          ++v111;
+                          v111++;
                           while ( 1 )
                           {
                             BYTE1(v110) = *v108;
@@ -35990,7 +35990,7 @@ LABEL_254:
                             v114 += *v116;
                             v115 += 2;
                             v116 += 3;
-                            --v171;
+                            v171--;
                           }
                           while ( v171 );
                           break;
@@ -36014,7 +36014,7 @@ LABEL_254:
                             v119 += *v121;
                             v120 += 2;
                             v121 += 3;
-                            --v171;
+                            v171--;
                           }
                           while ( v171 );
                           break;
@@ -36029,7 +36029,7 @@ LABEL_254:
                             v84 += 3;
                             goto LABEL_274;
                           }
-                          ++v125;
+                          v125++;
                           while ( 1 )
                           {
                             v127 = *v122;
@@ -36066,7 +36066,7 @@ LABEL_274:
                             v132 = v171 >> 2;
                             if ( v17 )
                             {
-                              ++v132;
+                              v132++;
                               v82 -= 2;
                               v84 -= 3;
                               goto LABEL_293;
@@ -36218,8 +36218,8 @@ LABEL_325:
                       if ( (int)v146[1] < 0 )
                         v146[1] = 0;
                     }
-                    --v147;
-                    --v148;
+                    v147--;
+                    v148--;
                   }
                   while ( v148 );
                 }
@@ -36257,8 +36257,8 @@ LABEL_325:
                       v149[2] += v154;
                     }
                   }
-                  --v153;
-                  ++v177;
+                  v153--;
+                  v177++;
                 }
               }
               goto LABEL_181;
@@ -36724,7 +36724,7 @@ LABEL_118:
     result = pitchViewPort_93AD4;
     dword_B5CC0_B5CB0 += v172;
     v185 += pitchViewPort_93AD4;
-    --scaledSprY_B5CC8_B5CB8;
+    scaledSprY_B5CC8_B5CB8--;
   }
   while ( scaledSprY_B5CC8_B5CB8 );
 }
