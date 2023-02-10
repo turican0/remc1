@@ -14846,7 +14846,7 @@ int sinRoll_B5D18_B5D08; // weak
 int dword_B5D1C_B5D0C; // weak
 int dword_B5D20_B5D10; // weak
 int dword_B5D24_B5D14; // weak
-int dword_B5D28_B5D18; // weak
+int roll_B5D28_B5D18; // weak
 int hwViewPort_B5D2C_B5D1C; // weak
 int whViewPortA_B5D30_B5D20; // weak
 int whViewPortB_B5D34_B5D24; // weak
@@ -31769,7 +31769,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
     //fix
 
     v1 = roll & 0x7FF;
-    dword_B5D28_B5D18 = v1 >> 8;
+    roll_B5D28_B5D18 = v1 >> 8;
     v102 = v1 - 512;
     v2 = v1 - 1024;
     v3 = v1 - 512;
@@ -32220,7 +32220,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 	int par2;
 	__int16 par5;
 
-	dword_B5D28_B5D18 = (roll & 0x7FF) >> 8;
+	roll_B5D28_B5D18 = (roll & 0x7FF) >> 8;
 	int* tempBegBscreen = (int*)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC;
 
 	switch ((roll & 0x7FF) >> 8)
@@ -35237,10 +35237,10 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   char v135; // al
   char v136; // al
   char v137; // al
-  int v138; // ecx
-  int *v139; // eax
-  int v140; // edx
-  uint8* v141; // edx
+  //int v138; // ecx
+  //int *v139; // eax
+  //int v140; // edx
+  //uint8* v141; // edx
   int v142; // edx
   int v143; // ebx
   int v144; // ebx
@@ -35255,26 +35255,26 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int v153; // edx
   int v154; // ebx
   int v155; // ecx
-  int v156; // edx
-  int v157; // ecx
-  int v158; // edx
-  int v159; // edx
-  int v160; // ecx
-  int v161; // edx
+  //int v156; // edx
+  //int v157; // ecx
+  //int v158; // edx
+  //int v159; // edx
+  //int v160; // ecx
+  //int v161; // edx
   int v162; // edx
   int v163; // ebx
   int v164; // edx
   int v165; // ecx
   int v166; // edx
-  int v167; // edx
-  int v168; // edx
+  //int v167; // edx
+  //int v168; // edx
   int k; // [esp+0h] [ebp-50h]
   int v170; // [esp+0h] [ebp-50h]
   int v171; // [esp+0h] [ebp-50h]
   int v172; // [esp+10h] [ebp-40h]
-  int v173; // [esp+14h] [ebp-3Ch]
+  //int v173; // [esp+14h] [ebp-3Ch]
   //int v174; // [esp+18h] [ebp-38h]
-  int v175; // [esp+1Ch] [ebp-34h]
+  //int v175; // [esp+1Ch] [ebp-34h]
   //int v176; // [esp+20h] [ebp-30h]
   _DWORD *v177; // [esp+24h] [ebp-2Ch]
   int v178; // [esp+28h] [ebp-28h]
@@ -35345,6 +35345,10 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   Type_32bitAxis* points;
   uint8* beginFrameAdress;
+  int32 someXYtemp;
+
+  int32 cosRollY;
+  int32 xRotMinusSinYrot;
 
   if ( !byte_B5D3E_B5D2E )
   {
@@ -35363,7 +35367,7 @@ LABEL_137:
         tempCosScaledSprY = scaledSprY_B5CC8_B5CB8 << 16;
         tempSprY = sprY_B5CCC_B5CCC << 16;
         sinScaledX = (sinRoll_B5D18_B5D08 * scaledSprX_B5CA8_B5C98) >> 16;
-        switch ( dword_B5D28_B5D18 )
+        switch ( roll_B5D28_B5D18 )
         {
           case 0:
             scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35385,7 +35389,7 @@ LABEL_137:
             tempRot = xRot_B5CB8_B5CA8 << 16;
             sinY = sinRoll_B5D18_B5D08 * scaledSprY_B5CC8_B5CB8 / yDivSC;
             yRotMinusSinXrot = yRot_B5CB4_B5CA4 - ((sinDivCos_B5CF4_B5CE4 * xRot_B5CB8_B5CA8) >> 16);
-            points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
+            points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
             if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_146;
             rotYfromEnd = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
@@ -35416,26 +35420,27 @@ LABEL_146:
               dword_B5CC0_B5CB0 = (yDivSC - 1) * yDivYdivSC;
               yDivYdivSC = -yDivYdivSC;
             }
-            v138 = yRot_B5CB4_B5CA4 << 16;
-            v173 = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
-            v175 = xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * yRot_B5CB4_B5CA4) >> 16);
-            v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            if ( v175 < whViewPortA_B5D30_B5D20 )
+            someXYtemp = yRot_B5CB4_B5CA4 << 16;
+            cosRollY = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
+            xRotMinusSinYrot = xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * yRot_B5CB4_B5CA4) >> 16);
+            points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
+            if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
-              if ( v175 < hwViewPort_B5D2C_B5D1C )
+              if (xRotMinusSinYrot < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
             {
-              v140 = v175 - whViewPortA_B5D30_B5D20;
-              yDivSC -= v175 - whViewPortA_B5D30_B5D20;
+              //v140 = xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
+              yDivSC -= xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
               if (yDivSC <= 0 )
                 goto LABEL_404;
-              dword_B5CC0_B5CB0 += v140 * yDivYdivSC;
-              v138 += v173 * v140;
-              v175 = whViewPortA_B5D30_B5D20;
+              dword_B5CC0_B5CB0 += (xRotMinusSinYrot - whViewPortA_B5D30_B5D20) * yDivYdivSC;
+              someXYtemp += cosRollY * (xRotMinusSinYrot - whViewPortA_B5D30_B5D20);
+              xRotMinusSinYrot = whViewPortA_B5D30_B5D20;
             }
-            v141 = v175 + beginFrame_93ACC;
+            //v141 = xRotMinusSinYrot + beginFrame_93ACC;
+            beginFrameAdress = &beginFrame_93ACC[xRotMinusSinYrot];
             goto LABEL_310;
           case 2:
               scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35460,14 +35465,14 @@ LABEL_146:
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_354;
-            v156 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
-            yDivSC -= v156;
+            //v156 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
+            yDivSC -= hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
             if (yDivSC <= 0 )
               goto LABEL_404;
-            dword_B5CC0_B5CB0 += v156 * yDivYdivSC;
-            v157 = tempRot - sinY * v156;
+            dword_B5CC0_B5CB0 += (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot) * yDivYdivSC;
+            //v157 = tempRot - sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
-            tempRot = v157;
+            tempRot -= sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
 LABEL_354:
             beginFrameAdress = &beginFrame_93ACC[whViewPortA_B5D30_B5D20 - 1 - yRotMinusSinXrot];
             goto LABEL_147;
@@ -35488,26 +35493,26 @@ LABEL_354:
               dword_B5CC0_B5CB0 = (yDivSC - 1) * yDivYdivSC;
               yDivYdivSC = -yDivYdivSC;
             }
-            v173 = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
-            v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            v175 = yRot_B5CB4_B5CA4 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8)) >> 16);
-            v138 = (whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8) << 16;
-            if ( v175 < whViewPortA_B5D30_B5D20 )
+            cosRollY = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
+            points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
+            xRotMinusSinYrot = yRot_B5CB4_B5CA4 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8)) >> 16);
+            someXYtemp = (whViewPortB_B5D34_B5D24 - xRot_B5CB8_B5CA8) << 16;
+            if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
-              if ( v175 < hwViewPort_B5D2C_B5D1C )
+              if (xRotMinusSinYrot < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
             {
-              v158 = v175 - whViewPortA_B5D30_B5D20;
-              yDivSC -= v175 - whViewPortA_B5D30_B5D20;
+              //v158 = xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
+              yDivSC -= xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
               if (yDivSC <= 0 )
                 goto LABEL_404;
-              dword_B5CC0_B5CB0 += v158 * yDivYdivSC;
-              v138 += v173 * v158;
-              v175 = whViewPortA_B5D30_B5D20;
+              dword_B5CC0_B5CB0 += (xRotMinusSinYrot - whViewPortA_B5D30_B5D20) * yDivYdivSC;
+              someXYtemp += cosRollY * (xRotMinusSinYrot - whViewPortA_B5D30_B5D20);
+              xRotMinusSinYrot = whViewPortA_B5D30_B5D20;
             }
-            beginFrameAdress = &beginFrame_93ACC[whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * v175 - 1];
+            beginFrameAdress = &beginFrame_93ACC[whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * xRotMinusSinYrot - 1];
             goto LABEL_311;
           case 4:
               scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35532,14 +35537,14 @@ LABEL_354:
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
               goto LABEL_373;
-            v159 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
-            yDivSC -= v159;
+            //v159 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
+            yDivSC -= hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
             if (yDivSC <= 0 )
               goto LABEL_404;
-            dword_B5CC0_B5CB0 += v159 * yDivYdivSC;
-            v160 = tempRot - sinY * v159;
+            dword_B5CC0_B5CB0 += (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot) * yDivYdivSC;
+            //v160 = tempRot - sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
-            tempRot = v160;
+            tempRot -= sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
 LABEL_373:
             beginFrameAdress = &beginFrame_93ACC[whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - yRotMinusSinXrot - 1) - 1];
             goto LABEL_147;
@@ -35560,29 +35565,30 @@ LABEL_373:
               dword_B5CC0_B5CB0 = (yDivSC - 1) * yDivYdivSC;
               yDivYdivSC = -yDivYdivSC;
             }
-            v173 = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
-            v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            v138 = (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4) << 16;
-            v161 = whViewPortA_B5D30_B5D20 - xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
-            v175 = v161;
-            if ( v161 < whViewPortA_B5D30_B5D20 )
+            cosRollY = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
+            points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
+            someXYtemp = (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4) << 16;
+            //v161 = whViewPortA_B5D30_B5D20 - xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
+            xRotMinusSinYrot = whViewPortA_B5D30_B5D20 - xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
+            if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
-              if ( v161 < hwViewPort_B5D2C_B5D1C )
+              if (xRotMinusSinYrot < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
             {
-              v162 = v161 - whViewPortA_B5D30_B5D20;
+              v162 = xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
               yDivSC -= v162;
               if (yDivSC <= 0 )
                 goto LABEL_404;
               dword_B5CC0_B5CB0 += v162 * yDivYdivSC;
-              v138 += v173 * v162;
-              v175 = whViewPortA_B5D30_B5D20;
+              someXYtemp += cosRollY * v162;
+              xRotMinusSinYrot = whViewPortA_B5D30_B5D20;
             }
-            v141 = (whViewPortB_B5D34_B5D24 - 1) * pitchViewPort_93AD4 + whViewPortA_B5D30_B5D20 + beginFrame_93ACC - 1 - v175;
+            //v141 = (whViewPortB_B5D34_B5D24 - 1) * pitchViewPort_93AD4 + whViewPortA_B5D30_B5D20 + beginFrame_93ACC - 1 - xRotMinusSinYrot;
+            beginFrameAdress = &beginFrame_93ACC[(whViewPortB_B5D34_B5D24 - 1) * pitchViewPort_93AD4 + whViewPortA_B5D30_B5D20 - 1 - xRotMinusSinYrot];
 LABEL_310:
-            beginFrameAdress = v141;
+            //beginFrameAdress = v141;
             goto LABEL_311;
           case 6:
               scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -36149,37 +36155,37 @@ LABEL_159:
               yDivYdivSC = -yDivYdivSC;
               dword_B5CC0_B5CB0 = v166;
             }
-            v138 = xRot_B5CB8_B5CA8 << 16;
-            v173 = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
-            v139 = (int *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-            v167 = whViewPortA_B5D30_B5D20 - yRot_B5CB4_B5CA4 - ((xRot_B5CB8_B5CA8 * sinDivCos_B5CF4_B5CE4) >> 16);
-            v175 = v167;
-            if ( v167 < whViewPortA_B5D30_B5D20 )
+            someXYtemp = xRot_B5CB8_B5CA8 << 16;
+            cosRollY = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
+            points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
+            //v167 = whViewPortA_B5D30_B5D20 - yRot_B5CB4_B5CA4 - ((xRot_B5CB8_B5CA8 * sinDivCos_B5CF4_B5CE4) >> 16);
+            xRotMinusSinYrot = whViewPortA_B5D30_B5D20 - yRot_B5CB4_B5CA4 - ((xRot_B5CB8_B5CA8 * sinDivCos_B5CF4_B5CE4) >> 16);
+            if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
-              if ( v167 < hwViewPort_B5D2C_B5D1C )
+              if (xRotMinusSinYrot < hwViewPort_B5D2C_B5D1C )
                 goto LABEL_404;
             }
             else
             {
-              v168 = v167 - whViewPortA_B5D30_B5D20;
-              yDivSC -= v168;
+              //v168 = xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
+              yDivSC -= xRotMinusSinYrot - whViewPortA_B5D30_B5D20;
               if (yDivSC <= 0 )
                 goto LABEL_404;
-              dword_B5CC0_B5CB0 += v168 * yDivYdivSC;
-              v138 += v173 * v168;
-              v175 = whViewPortA_B5D30_B5D20;
+              dword_B5CC0_B5CB0 += (xRotMinusSinYrot - whViewPortA_B5D30_B5D20) * yDivYdivSC;
+              someXYtemp += cosRollY * (xRotMinusSinYrot - whViewPortA_B5D30_B5D20);
+              xRotMinusSinYrot = whViewPortA_B5D30_B5D20;
             }
-            beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - v175)];
+            beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - xRotMinusSinYrot)];
 LABEL_311:
             v142 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
-            if ( v175 < whViewPortA_B5D30_B5D20 )
+            if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
               if (yDivSC > v142 )
                   yDivSC = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             }
-            else if ( v142 < yDivSC + v175 - whViewPortA_B5D30_B5D20 )
+            else if ( v142 < yDivSC + xRotMinusSinYrot - whViewPortA_B5D30_B5D20 )
             {
-                yDivSC = v142 - v175 + whViewPortA_B5D30_B5D20;
+                yDivSC = v142 - xRotMinusSinYrot + whViewPortA_B5D30_B5D20;
               if (yDivSC <= 0 )
                 goto LABEL_404;
             }
@@ -36188,13 +36194,13 @@ LABEL_311:
             if ( !yDivSC)
             {
 LABEL_325:
-              v145 = v175 + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 + 1;
+              v145 = xRotMinusSinYrot + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 + 1;
               if ( v145 > 0 )
               {
                 v146 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920 + 12 * v145);
                 v147 = (_DWORD *)dword_B5CD8_B5CC8;
-                v148 = v175 + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 + 2;
-                if ( v175 + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 != -2 )
+                v148 = xRotMinusSinYrot + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 + 2;
+                if (xRotMinusSinYrot + dword_B5D24_B5D14 - whViewPortA_B5D30_B5D20 != -2 )
                 {
                   do
                   {
@@ -36213,16 +36219,16 @@ LABEL_325:
                   while ( v148 );
                 }
               }
-              if ( v175 - yDivSC >= 0 )
+              if (xRotMinusSinYrot - yDivSC >= 0 )
                 goto LABEL_181;
-              v149 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920 + 12 * v175);
+              v149 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920 + 12 * xRotMinusSinYrot);
               v177 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360);
-              v150 = v175 - yDivSC - hwViewPort_B5D2C_B5D1C;
-              v151 = yDivSC - v175;
+              v150 = xRotMinusSinYrot - yDivSC - hwViewPort_B5D2C_B5D1C;
+              v151 = yDivSC - xRotMinusSinYrot;
               if ( v150 < 0 )
               {
-                  yDivSC = v175 - hwViewPort_B5D2C_B5D1C;
-                if ( v175 - hwViewPort_B5D2C_B5D1C <= 0 )
+                  yDivSC = xRotMinusSinYrot - hwViewPort_B5D2C_B5D1C;
+                if (xRotMinusSinYrot - hwViewPort_B5D2C_B5D1C <= 0 )
                   goto LABEL_404;
                 v151 += v150;
               }
@@ -36258,27 +36264,27 @@ LABEL_325:
         }
         while ( 1 )
         {
-          v143 = v138 >> 16;
-          if ( v138 >> 16 >= 0 )
+          v143 = someXYtemp >> 16;
+          if (someXYtemp >> 16 >= 0 )
             break;
           v144 = -v143;
-          v139[0] = 0;
-          v139[1] = scScaledX - v144;
-          v139[2] = v144;
+          points->a = 0;
+          points->b = scScaledX - v144;
+          points->c = v144;
           if ( v144 < v184 )
             goto LABEL_321;
 LABEL_322:
-          if ( v139[1] + *v139 > whViewPortB_B5D34_B5D24 )
-            v139[1] = whViewPortB_B5D34_B5D24 - *v139;
-          v139 += 3;
-          v138 += v173;
+          if (points->b + points->a > whViewPortB_B5D34_B5D24 )
+              points->b = whViewPortB_B5D34_B5D24 - points->a;
+          points++;
+          someXYtemp += cosRollY;
           if ( !--v179 )
             goto LABEL_325;
         }
-        v139[2] = 0;
-        v139[0] = v143;
+        points->c = 0;
+        points->a = v143;
         v144 = 0;
-        v139[1] = scScaledX;
+        points->b = scScaledX;
 LABEL_321:
         v184 = v144;
         goto LABEL_322;
