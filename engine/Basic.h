@@ -25,6 +25,12 @@
 
 #pragma pack (1)
 
+typedef struct {
+	int32 a;
+	int32 b;
+	int32 c;
+} Type_32bitAxis;
+
 typedef struct {//size 44
 	char text[14];
 	uint16 x;//14
