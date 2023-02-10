@@ -35285,7 +35285,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   _DWORD *v183; // [esp+3Ch] [ebp-14h]
   int v184; // [esp+40h] [ebp-10h]
   uint8* v185; // [esp+44h] [ebp-Ch]
-  uint8* v186; // [esp+48h] [ebp-8h]
+  //uint8* v186; // [esp+48h] [ebp-8h]
 
   //debug
 #ifdef debug1
@@ -35344,6 +35344,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int32 rotYfromEnd;
 
   Type_32bitAxis* points;
+  uint8* beginFrameAdress;
 
   if ( !byte_B5D3E_B5D2E )
   {
@@ -35396,7 +35397,7 @@ LABEL_137:
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot -= sinY * rotYfromEnd;
 LABEL_146:
-            v186 = yRotMinusSinXrot * pitchViewPort_93AD4 + beginFrame_93ACC;
+            beginFrameAdress = &beginFrame_93ACC[yRotMinusSinXrot * pitchViewPort_93AD4];
             goto LABEL_147;
           case 1:
               scScaledX = (sinRoll_B5D18_B5D08 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35468,7 +35469,7 @@ LABEL_146:
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v157;
 LABEL_354:
-            v186 = whViewPortA_B5D30_B5D20 + beginFrame_93ACC - 1 - yRotMinusSinXrot;
+            beginFrameAdress = &beginFrame_93ACC[whViewPortA_B5D30_B5D20 - 1 - yRotMinusSinXrot];
             goto LABEL_147;
           case 3:
               scScaledX = (sinRoll_B5D18_B5D08 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35506,7 +35507,7 @@ LABEL_354:
               v138 += v173 * v158;
               v175 = whViewPortA_B5D30_B5D20;
             }
-            v186 = whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * v175 - 1 + beginFrame_93ACC;
+            beginFrameAdress = &beginFrame_93ACC[whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * v175 - 1];
             goto LABEL_311;
           case 4:
               scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35540,7 +35541,7 @@ LABEL_354:
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v160;
 LABEL_373:
-            v186 = whViewPortB_B5D34_B5D24 + beginFrame_93ACC + pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - yRotMinusSinXrot - 1) - 1;
+            beginFrameAdress = &beginFrame_93ACC[whViewPortB_B5D34_B5D24 + pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - yRotMinusSinXrot - 1) - 1];
             goto LABEL_147;
           case 5:
               scScaledX = (sinRoll_B5D18_B5D08 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35581,7 +35582,7 @@ LABEL_373:
             }
             v141 = (whViewPortB_B5D34_B5D24 - 1) * pitchViewPort_93AD4 + whViewPortA_B5D30_B5D20 + beginFrame_93ACC - 1 - v175;
 LABEL_310:
-            v186 = v141;
+            beginFrameAdress = v141;
             goto LABEL_311;
           case 6:
               scScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
@@ -35616,7 +35617,7 @@ LABEL_310:
             yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
             tempRot = v165;
 LABEL_392:
-            v186 = yRotMinusSinXrot + beginFrame_93ACC + pitchViewPort_93AD4 * (whViewPortB_B5D34_B5D24 - 1);
+            beginFrameAdress = &beginFrame_93ACC[yRotMinusSinXrot + pitchViewPort_93AD4 * (whViewPortB_B5D34_B5D24 - 1)];
 LABEL_147:
             v66 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             if (yRotMinusSinXrot <= 0 )
@@ -35738,7 +35739,7 @@ LABEL_181:
                       {
                         case 0:
                           v85 = (char *)(v83 + v82[1]);
-                          v86 = (_BYTE *)(v84[1] + v186);
+                          v86 = &beginFrameAdress[v84[1]];
                           v87 = v171 >> 1;
                           if ( !(v171 & 1) )
                           {
@@ -35793,7 +35794,7 @@ LABEL_204:
                           break;
                         case 1:
                           v94 = (_BYTE *)(v83 + v82[1]);
-                          v95 = (_BYTE *)(v84[1] + v186);
+                          v95 = &beginFrameAdress[v84[1]];
                           v96 = dword_B5CA4_B5C94;
                           v97 = v171 >> 1;
                           if ( !(v171 & 1) )
@@ -35824,7 +35825,7 @@ LABEL_214:
                           break;
                         case 2:
                           v98 = (_BYTE *)(v83 + v82[1]);
-                          v99 = (_BYTE *)(v84[1] + v186);
+                          v99 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v100 = v171 >> 1;
                           if ( !(v171 & 1) )
@@ -35861,7 +35862,7 @@ LABEL_224:
                           break;
                         case 3:
                           v101 = (_BYTE *)(v83 + v82[1]);
-                          v102 = (_BYTE *)(v84[1] + v186);
+                          v102 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v103 = v171 >> 1;
                           if ( !(v171 & 1) )
@@ -35898,7 +35899,7 @@ LABEL_234:
                           break;
                         case 4:
                           v104 = (_BYTE *)(v83 + v82[1]);
-                          v105 = (_BYTE *)(v84[1] + v186);
+                          v105 = &beginFrameAdress[v84[1]];
                           v106 = 0;
                           v107 = v171 >> 1;
                           if ( !(v171 & 1) )
@@ -35929,7 +35930,7 @@ LABEL_244:
                           break;
                         case 5:
                           v108 = (_BYTE *)(v83 + v82[1]);
-                          v109 = (_BYTE *)(v84[1] + v186);
+                          v109 = &beginFrameAdress[v84[1]];
                           v110 = 0;
                           v111 = v171 >> 1;
                           if ( !(v171 & 1) )
@@ -35961,7 +35962,7 @@ LABEL_254:
                         case 6:
                           v112 = (_BYTE *)(v83 + v82[1]);
                           v113 = dword_B5CA4_B5C94;
-                          v114 = (_BYTE *)(v84[1] + v186);
+                          v114 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v115 = v82 + 2;
                           v116 = v84 + 3;
@@ -35985,7 +35986,7 @@ LABEL_254:
                         case 7:
                           v117 = (_BYTE *)(v83 + v82[1]);
                           v118 = dword_B5CA4_B5C94;
-                          v119 = (_BYTE *)(v84[1] + v186);
+                          v119 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v120 = v82 + 2;
                           v121 = v84 + 3;
@@ -36009,7 +36010,7 @@ LABEL_254:
                         case 8:
                           v122 = (char *)(v83 + v82[1]);
                           v123 = dword_B5CA4_B5C94;
-                          v124 = (_BYTE *)(v84[1] + v186);
+                          v124 = &beginFrameAdress[v84[1]];
                           v125 = v171 >> 1;
                           if ( !(v171 & 1) )
                           {
@@ -36046,7 +36047,7 @@ LABEL_274:
                         case 9:
                           v128 = (char *)(v83 + v82[1]);
                           v129 = dword_B5CA4_B5C94 >> 8;
-                          v130 = (_BYTE *)(v84[1] + v186);
+                          v130 = &beginFrameAdress[v84[1]];
                           v131 = v171 >> 1;
                           if ( !(v171 & 1) )
                           {
@@ -36104,7 +36105,7 @@ LABEL_293:
                       }
                     }
                     dword_B5CC0_B5CB0 += yDivYdivSC;
-                    v186 += dword_B5D04_B5CF4;
+                    beginFrameAdress += dword_B5D04_B5CF4;
                     v183 += 3;
                   }
                 }
@@ -36168,7 +36169,7 @@ LABEL_159:
               v138 += v173 * v168;
               v175 = whViewPortA_B5D30_B5D20;
             }
-            v186 = pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - v175) + beginFrame_93ACC;
+            beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - v175)];
 LABEL_311:
             v142 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             if ( v175 < whViewPortA_B5D30_B5D20 )
