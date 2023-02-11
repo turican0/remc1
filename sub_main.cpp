@@ -35181,7 +35181,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v79; // edx
   //int v80; // edi
   _BOOL1 j; // zf
-  _DWORD *v82; // esi
+  //_DWORD *v82; // esi
   int v83; // eax
   _DWORD *v84; // edi
   char *v85; // ebx
@@ -35751,13 +35751,13 @@ LABEL_181:
                     int32 tempPointB = points->b;
                     if (tempPointB > 0 )
                     {
-                      v82 = (_DWORD *)(8 * (points->c - tempPoint1) + begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
+                      begInt32Adress = (_DWORD *)(8 * (points->c - tempPoint1) + begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
                       v83 = (dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0 + (int)sprData_B5CB0_B5CA0;
                       v84 = (_DWORD *)(dword_B3EA0_B3E90x[points->a]);
                       switch ( dword_B5CAC_B5C9C )
                       {
                         case 0:
-                          v85 = (char *)(v83 + v82[1]);
+                          v85 = (char *)(v83 + begInt32Adress[1]);
                           v86 = &beginFrameAdress[v84[1]];
                           v87 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
@@ -35767,11 +35767,11 @@ LABEL_181:
                             if ( v17 )
                             {
                               ++v88;
-                              v82 -= 2;
+                              begInt32Adress -= 2;
                               v84 -= 3;
                               goto LABEL_204;
                             }
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_198;
                           }
@@ -35780,45 +35780,45 @@ LABEL_181:
                           v88 = v89 >> 1;
                           if ( v17 )
                             goto LABEL_201;
-                          v82 -= 4;
+                          begInt32Adress -= 4;
                           for ( v84 -= 6; ; v86 += v84[6] )
                           {
                             v93 = *v85;
-                            v85 += v82[6];
+                            v85 += begInt32Adress[6];
                             if ( v93 )
                               *v86 = v93;
                             v86 += v84[9];
-                            v82 += 8;
+                            begInt32Adress += 8;
                             v84 += 12;
                             if ( !--v88 )
                               break;
 LABEL_198:
                             v90 = *v85;
-                            v85 += *v82;
+                            v85 += *begInt32Adress;
                             if ( v90 )
                               *v86 = v90;
                             v86 += *v84;
 LABEL_201:
                             v91 = *v85;
-                            v85 += v82[2];
+                            v85 += begInt32Adress[2];
                             if ( v91 )
                               *v86 = v91;
                             v86 += v84[3];
 LABEL_204:
                             v92 = *v85;
-                            v85 += v82[4];
+                            v85 += begInt32Adress[4];
                             if ( v92 )
                               *v86 = v92;
                           }
                           break;
                         case 1:
-                          v94 = (_BYTE *)(v83 + v82[1]);
+                          v94 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v95 = &beginFrameAdress[v84[1]];
                           v96 = dword_B5CA4_B5C94;
                           v97 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_214;
                           }
@@ -35826,30 +35826,30 @@ LABEL_204:
                           while ( 1 )
                           {
                             LOBYTE(v96) = *v94;
-                            v94 += v82[2];
+                            v94 += begInt32Adress[2];
                             if ( (_BYTE)v96 )
                               *v95 = strPal.fog_B7934_B7924[v96];
                             v95 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v97 )
                               break;
 LABEL_214:
                             LOBYTE(v96) = *v94;
-                            v94 += *v82;
+                            v94 += *begInt32Adress;
                             if ( (_BYTE)v96 )
                               *v95 = strPal.fog_B7934_B7924[v96];
                             v95 += *v84;
                           }
                           break;
                         case 2:
-                          v98 = (_BYTE *)(v83 + v82[1]);
+                          v98 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v99 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v100 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_224;
                           }
@@ -35857,20 +35857,20 @@ LABEL_214:
                           while ( 1 )
                           {
                             BYTE1(v83) = *v98;
-                            v98 += v82[2];
+                            v98 += begInt32Adress[2];
                             if ( BYTE1(v83) )
                             {
                               LOBYTE(v83) = *v99;
                               *v99 = strPal.byte_BB934_BB924[v83];
                             }
                             v99 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v100 )
                               break;
 LABEL_224:
                             BYTE1(v83) = *v98;
-                            v98 += *v82;
+                            v98 += *begInt32Adress;
                             if ( BYTE1(v83) )
                             {
                               LOBYTE(v83) = *v99;
@@ -35880,13 +35880,13 @@ LABEL_224:
                           }
                           break;
                         case 3:
-                          v101 = (_BYTE *)(v83 + v82[1]);
+                          v101 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v102 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
                           v103 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_234;
                           }
@@ -35894,20 +35894,20 @@ LABEL_224:
                           while ( 1 )
                           {
                             LOBYTE(v83) = *v101;
-                            v101 += v82[2];
+                            v101 += begInt32Adress[2];
                             if ( (_BYTE)v83 )
                             {
                               BYTE1(v83) = *v102;
                               *v102 = strPal.byte_BB934_BB924[v83];
                             }
                             v102 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v103 )
                               break;
 LABEL_234:
                             LOBYTE(v83) = *v101;
-                            v101 += *v82;
+                            v101 += *begInt32Adress;
                             if ( (_BYTE)v83 )
                             {
                               BYTE1(v83) = *v102;
@@ -35917,13 +35917,13 @@ LABEL_234:
                           }
                           break;
                         case 4:
-                          v104 = (_BYTE *)(v83 + v82[1]);
+                          v104 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v105 = &beginFrameAdress[v84[1]];
                           v106 = 0;
                           v107 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_244;
                           }
@@ -35931,30 +35931,30 @@ LABEL_234:
                           while ( 1 )
                           {
                             LOBYTE(v106) = *v104;
-                            v104 += v82[2];
+                            v104 += begInt32Adress[2];
                             if ( (_BYTE)v106 )
                               *v105 = strPal.byte_BB934_BB924[v106];
                             v105 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v107 )
                               break;
 LABEL_244:
                             LOBYTE(v106) = *v104;
-                            v104 += *v82;
+                            v104 += *begInt32Adress;
                             if ( (_BYTE)v106 )
                               *v105 = strPal.byte_BB934_BB924[v106];
                             v105 += *v84;
                           }
                           break;
                         case 5:
-                          v108 = (_BYTE *)(v83 + v82[1]);
+                          v108 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v109 = &beginFrameAdress[v84[1]];
                           v110 = 0;
                           v111 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_254;
                           }
@@ -35962,28 +35962,28 @@ LABEL_244:
                           while ( 1 )
                           {
                             BYTE1(v110) = *v108;
-                            v108 += v82[2];
+                            v108 += begInt32Adress[2];
                             if ( BYTE1(v110) )
                               *v109 = strPal.byte_BB934_BB924[v110];
                             v109 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v111 )
                               break;
 LABEL_254:
                             BYTE1(v110) = *v108;
-                            v108 += *v82;
+                            v108 += *begInt32Adress;
                             if ( BYTE1(v110) )
                               *v109 = strPal.byte_BB934_BB924[v110];
                             v109 += *v84;
                           }
                           break;
                         case 6:
-                          v112 = (_BYTE *)(v83 + v82[1]);
+                          v112 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v113 = dword_B5CA4_B5C94;
                           v114 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
-                          v115 = v82 + 2;
+                          v115 = begInt32Adress + 2;
                           v116 = v84 + 3;
                           do
                           {
@@ -36003,11 +36003,11 @@ LABEL_254:
                           while (tempPointB);
                           break;
                         case 7:
-                          v117 = (_BYTE *)(v83 + v82[1]);
+                          v117 = (_BYTE *)(v83 + begInt32Adress[1]);
                           v118 = dword_B5CA4_B5C94;
                           v119 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
-                          v120 = v82 + 2;
+                          v120 = begInt32Adress + 2;
                           v121 = v84 + 3;
                           do
                           {
@@ -36027,13 +36027,13 @@ LABEL_254:
                           while (tempPointB);
                           break;
                         case 8:
-                          v122 = (char *)(v83 + v82[1]);
+                          v122 = (char *)(v83 + begInt32Adress[1]);
                           v123 = dword_B5CA4_B5C94;
                           v124 = &beginFrameAdress[v84[1]];
                           v125 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_274;
                           }
@@ -36041,20 +36041,20 @@ LABEL_254:
                           while ( 1 )
                           {
                             v127 = *v122;
-                            v122 += v82[2];
+                            v122 += begInt32Adress[2];
                             if ( v127 )
                             {
                               LOBYTE(v123) = *v124;
                               *v124 = strPal.fog_B7934_B7924[v123];
                             }
                             v124 += v84[3];
-                            v82 += 4;
+                            begInt32Adress += 4;
                             v84 += 6;
                             if ( !--v125 )
                               break;
 LABEL_274:
                             v126 = *v122;
-                            v122 += *v82;
+                            v122 += *begInt32Adress;
                             if ( v126 )
                             {
                               LOBYTE(v123) = *v124;
@@ -36064,7 +36064,7 @@ LABEL_274:
                           }
                           break;
                         case 9:
-                          v128 = (char *)(v83 + v82[1]);
+                          v128 = (char *)(v83 + begInt32Adress[1]);
                           v129 = dword_B5CA4_B5C94 >> 8;
                           v130 = &beginFrameAdress[v84[1]];
                           v131 = tempPointB >> 1;
@@ -36075,11 +36075,11 @@ LABEL_274:
                             if ( v17 )
                             {
                               v132++;
-                              v82 -= 2;
+                              begInt32Adress -= 2;
                               v84 -= 3;
                               goto LABEL_293;
                             }
-                            v82 += 2;
+                            begInt32Adress += 2;
                             v84 += 3;
                             goto LABEL_287;
                           }
@@ -36088,33 +36088,33 @@ LABEL_274:
                           v132 = v133 >> 1;
                           if ( v17 )
                             goto LABEL_290;
-                          v82 -= 4;
+                          begInt32Adress -= 4;
                           for ( v84 -= 6; ; v130 += v84[6] )
                           {
                             v137 = *v128;
-                            v128 += v82[6];
+                            v128 += begInt32Adress[6];
                             if ( v137 )
                               *v130 = BYTE1(v129);
                             v130 += v84[9];
-                            v82 += 8;
+                            begInt32Adress += 8;
                             v84 += 12;
                             if ( !--v132 )
                               break;
 LABEL_287:
                             v134 = *v128;
-                            v128 += *v82;
+                            v128 += *begInt32Adress;
                             if ( v134 )
                               *v130 = BYTE1(v129);
                             v130 += *v84;
 LABEL_290:
                             v135 = *v128;
-                            v128 += v82[2];
+                            v128 += begInt32Adress[2];
                             if ( v135 )
                               *v130 = BYTE1(v129);
                             v130 += v84[3];
 LABEL_293:
                             v136 = *v128;
-                            v128 += v82[4];
+                            v128 += begInt32Adress[4];
                             if ( v136 )
                               *v130 = BYTE1(v129);
                           }
