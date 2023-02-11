@@ -14844,7 +14844,7 @@ int cos_B5D10_B5D00; // weak
 int fowDist_B5D14_B5D04; // weak
 int sinRoll_B5D18_B5D08; // weak
 int dword_B5D1C_B5D0C; // weak
-int dword_B5D20_B5D10; // weak
+int widthPlusHeightVP_B5D20_B5D10; // weak
 int dword_B5D24_B5D14; // weak
 int roll_B5D28_B5D18; // weak
 int hwViewPort_B5D2C_B5D1C; // weak
@@ -31872,7 +31872,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
         dword_B5D04_B5CF4 = -1;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -31913,7 +31913,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         hwViewPort_B5D2C_B5D1C = -v33;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         dword_B5D04_B5CF4 = -1;
         dword_B5D1C_B5D0C = widthViewPort_93AD8 - v33;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (v33 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -31979,7 +31979,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         v47 = -pitchViewPort_93AD4;
         goto LABEL_63;
@@ -32017,7 +32017,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         hwViewPort_B5D2C_B5D1C = -v53;
         whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
         whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         dword_B5D1C_B5D0C = heightViewPort_93ADC - v53;
         v47 = -pitchViewPort_93AD4;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (v53 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -32080,7 +32080,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         }
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
         dword_B5D04_B5CF4 = 1;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (-1 - hwViewPort_B5D2C_B5D1C) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -32119,7 +32119,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         hwViewPort_B5D2C_B5D1C = -v70;
         whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
         whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-        dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+        widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
         dword_B5D1C_B5D0C = widthViewPort_93AD8 - v70;
         dword_B5D04_B5CF4 = 1;
         begBscreenAdress_B5CD8_B5CC8 = 4 * (v70 - 1) + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
@@ -32186,7 +32186,7 @@ void PrepRot_29C30_29C70_old(__int16 roll)
         v13 = heightViewPort_93ADC + widthViewPort_93AD8;
         v14 = -1 - hwViewPort_B5D2C_B5D1C;
     LABEL_62:
-        dword_B5D20_B5D10 = v13;
+        widthPlusHeightVP_B5D20_B5D10 = v13;
         begBscreenAdress_B5CD8_B5CC8 = 4 * v14 + (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 59360;
         v47 = pitchViewPort_93AD4;
         dword_B5D1C_B5D0C = v12;
@@ -32254,7 +32254,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		dword_B5D1C_B5D0C = heightViewPort_93ADC - par2;
 		dword_B5D04_B5CF4 = pitchViewPort_93AD4;
@@ -32311,7 +32311,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
 		dword_B5D04_B5CF4 = -1;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
@@ -32345,7 +32345,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		dword_B5D04_B5CF4 = -1;
 		dword_B5D1C_B5D0C = widthViewPort_93AD8 - par2;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 + par2];
@@ -32403,7 +32403,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		dword_B5D04_B5CF4 = -pitchViewPort_93AD4;
 		break;
@@ -32436,7 +32436,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		dword_B5D1C_B5D0C = heightViewPort_93ADC - par2;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 + par2];
 		dword_B5D04_B5CF4 = -pitchViewPort_93AD4;
@@ -32493,7 +32493,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		dword_B5D1C_B5D0C = widthViewPort_93AD8 + hwViewPort_B5D2C_B5D1C;
 		dword_B5D04_B5CF4 = 1;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
@@ -32527,7 +32527,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		hwViewPort_B5D2C_B5D1C = -par2;
 		whViewPortA_B5D30_B5D20 = widthViewPort_93AD8;
 		whViewPortB_B5D34_B5D24 = heightViewPort_93ADC;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		dword_B5D1C_B5D0C = widthViewPort_93AD8 - par2;
 		dword_B5D04_B5CF4 = 1;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 + par2];
@@ -32584,7 +32584,7 @@ void PrepRot_29C30_29C70(__int16 roll)//1FAC30_
 		}
 		whViewPortA_B5D30_B5D20 = heightViewPort_93ADC;
 		whViewPortB_B5D34_B5D24 = widthViewPort_93AD8;
-		dword_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
+		widthPlusHeightVP_B5D20_B5D10 = heightViewPort_93ADC + widthViewPort_93AD8;
 		begBscreenAdress_B5CD8_B5CC8 = tempBegBscreen[14840 - 1 - hwViewPort_B5D2C_B5D1C];
 		dword_B5D1C_B5D0C = heightViewPort_93ADC + hwViewPort_B5D2C_B5D1C;
 		dword_B5D04_B5CF4 = pitchViewPort_93AD4;
@@ -35175,7 +35175,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_DWORD *v73; // eax
   //_DWORD *v74; // ebx
   //int v75; // ecx
-  int v76; // ebx
+  //int v76; // ebx
   int i; // eax
   int v78; // ecx
   int v79; // edx
@@ -35269,7 +35269,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v167; // edx
   //int v168; // edx
   int k; // [esp+0h] [ebp-50h]
-  int v170; // [esp+0h] [ebp-50h]
+  //int v170; // [esp+0h] [ebp-50h]
   int v171; // [esp+0h] [ebp-50h]
   int v172; // [esp+10h] [ebp-40h]
   //int v173; // [esp+14h] [ebp-3Ch]
@@ -35358,6 +35358,8 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int32 signXdivsprX;
 
   uint32* points4;
+
+  int32 tempAxis1;
 
   if ( !byte_B5D3E_B5D2E )
   {
@@ -35722,22 +35724,22 @@ LABEL_172:
                   while (yRotMinusSinXrot);
                 }
 LABEL_181:
-                v76 = (signedSprX_B5CBC_B5CAC << 16) / scScaledX;
+                //v76 = (signedSprX_B5CBC_B5CAC << 16) / scScaledX;
                 dword_B5CC4_B5CB4 = 0;
                 if ( signedSprX_B5CBC_B5CAC < 0 )
-                  dword_B5CC4_B5CB4 = -(v76 * (scScaledX - 1));
-                v170 = scScaledX - tempPoint1;
+                  dword_B5CC4_B5CB4 = -(((signedSprX_B5CBC_B5CAC << 16) / scScaledX) * (scScaledX - 1));
+                tempAxis1 = scScaledX - tempPoint1;
                 if (scScaledX - tempPoint1 > 0 )
                 {
-                  if ( v170 > dword_B5D20_B5D10 )
-                    v170 = dword_B5D20_B5D10;
-                  dword_B5CC4_B5CB4 += v76 * tempPoint1;
-                  for ( i = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960; v170 >= 0; --v170 )
+                  if (tempAxis1 > widthPlusHeightVP_B5D20_B5D10 )
+                      tempAxis1 = widthPlusHeightVP_B5D20_B5D10;
+                  dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) * tempPoint1;
+                  for ( i = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960; tempAxis1 >= 0; tempAxis1--)
                   {
                     v78 = *(_DWORD *)(i - 4);
                     i += 8;
                     v79 = dword_B5CC4_B5CB4 >> 16;
-                    v80 = v76 + dword_B5CC4_B5CB4;
+                    v80 = ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) + dword_B5CC4_B5CB4;
                     *(_DWORD *)(i - 4) = dword_B5CC4_B5CB4 >> 16;
                     dword_B5CC4_B5CB4 = v80;
                     *(_DWORD *)(i - 8) = v79 - v78;
