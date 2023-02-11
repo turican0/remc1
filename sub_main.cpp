@@ -35183,7 +35183,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   _BOOL1 j; // zf
   //_DWORD *v82; // esi
   //int v83; // eax
-  _DWORD *v84; // edi
+  //_DWORD *v84; // edi
   uint8* v85; // ebx
   _BYTE *v86; // edx
   int v87; // ecx
@@ -35753,13 +35753,14 @@ LABEL_181:
                     {
                       begInt32Adress = &(((uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960])[2 * (points->c - tempPoint1)]);
                       uint8* tempSprData = &sprData_B5CB0_B5CA0[(dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0];
-                      v84 = (_DWORD *)(dword_B3EA0_B3E90x[points->a]);
+                      uint32* tempB3adr = dword_B3EA0_B3E90x[points->a];
+                      //uint32* v84 = tempB3adr;
                       int v83x;
                       switch ( dword_B5CAC_B5C9C )
                       {
                         case 0:
                           v85 = &tempSprData[begInt32Adress[1]];
-                          v86 = &beginFrameAdress[v84[1]];
+                          v86 = &beginFrameAdress[tempB3adr[1]];
                           v87 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
@@ -35767,13 +35768,13 @@ LABEL_181:
                             v88 = tempPointB >> 2;
                             if ( v17 )
                             {
-                              ++v88;
+                              v88++;
                               begInt32Adress -= 2;
-                              v84 -= 3;
+                              tempB3adr -= 3;
                               goto LABEL_204;
                             }
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_198;
                           }
                           v89 = v87 + 2;
@@ -35782,15 +35783,15 @@ LABEL_181:
                           if ( v17 )
                             goto LABEL_201;
                           begInt32Adress -= 4;
-                          for ( v84 -= 6; ; v86 += v84[6] )
+                          for (tempB3adr -= 6; ; v86 += tempB3adr[6] )
                           {
                             v93 = *v85;
                             v85 += begInt32Adress[6];
                             if ( v93 )
                               *v86 = v93;
-                            v86 += v84[9];
+                            v86 += tempB3adr[9];
                             begInt32Adress += 8;
-                            v84 += 12;
+                            tempB3adr += 12;
                             if ( !--v88 )
                               break;
 LABEL_198:
@@ -35798,13 +35799,13 @@ LABEL_198:
                             v85 += *begInt32Adress;
                             if ( v90 )
                               *v86 = v90;
-                            v86 += *v84;
+                            v86 += tempB3adr[0];
 LABEL_201:
                             v91 = *v85;
                             v85 += begInt32Adress[2];
                             if ( v91 )
                               *v86 = v91;
-                            v86 += v84[3];
+                            v86 += tempB3adr[3];
 LABEL_204:
                             v92 = *v85;
                             v85 += begInt32Adress[4];
@@ -35814,13 +35815,13 @@ LABEL_204:
                           break;
                         case 1:
                           v94 = &tempSprData[begInt32Adress[1]];
-                          v95 = &beginFrameAdress[v84[1]];
+                          v95 = &beginFrameAdress[tempB3adr[1]];
                           v96 = dword_B5CA4_B5C94;
                           v97 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_214;
                           }
                           v97++;
@@ -35830,9 +35831,9 @@ LABEL_204:
                             v94 += begInt32Adress[2];
                             if ( (_BYTE)v96 )
                               *v95 = strPal.fog_B7934_B7924[v96];
-                            v95 += v84[3];
+                            v95 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v97 )
                               break;
 LABEL_214:
@@ -35840,21 +35841,21 @@ LABEL_214:
                             v94 += *begInt32Adress;
                             if ( (_BYTE)v96 )
                               *v95 = strPal.fog_B7934_B7924[v96];
-                            v95 += *v84;
+                            v95 += tempB3adr[0];
                           }
                           break;
                         case 2:
                           v98 = &tempSprData[begInt32Adress[1]];
-                          v99 = &beginFrameAdress[v84[1]];
+                          v99 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v100 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_224;
                           }
-                          ++v100;
+                          v100++;
                           while ( 1 )
                           {
                             BYTE1(v83x) = *v98;
@@ -35864,9 +35865,9 @@ LABEL_214:
                               LOBYTE(v83x) = *v99;
                               *v99 = strPal.byte_BB934_BB924[v83x];
                             }
-                            v99 += v84[3];
+                            v99 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v100 )
                               break;
 LABEL_224:
@@ -35877,18 +35878,18 @@ LABEL_224:
                               LOBYTE(v83x) = *v99;
                               *v99 = strPal.byte_BB934_BB924[v83x];
                             }
-                            v99 += *v84;
+                            v99 += tempB3adr[0];
                           }
                           break;
                         case 3:
                           v101 = &tempSprData[begInt32Adress[1]];
-                          v102 = &beginFrameAdress[v84[1]];
+                          v102 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v103 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_234;
                           }
                           v103++;
@@ -35901,9 +35902,9 @@ LABEL_224:
                               BYTE1(v83x) = *v102;
                               *v102 = strPal.byte_BB934_BB924[v83x];
                             }
-                            v102 += v84[3];
+                            v102 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v103 )
                               break;
 LABEL_234:
@@ -35914,18 +35915,18 @@ LABEL_234:
                               BYTE1(v83x) = *v102;
                               *v102 = strPal.byte_BB934_BB924[v83x];
                             }
-                            v102 += *v84;
+                            v102 += tempB3adr[0];
                           }
                           break;
                         case 4:
                           v104 = &tempSprData[begInt32Adress[1]];
-                          v105 = &beginFrameAdress[v84[1]];
+                          v105 = &beginFrameAdress[tempB3adr[1]];
                           v106 = 0;
                           v107 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_244;
                           }
                           v107++;
@@ -35935,9 +35936,9 @@ LABEL_234:
                             v104 += begInt32Adress[2];
                             if ( (_BYTE)v106 )
                               *v105 = strPal.byte_BB934_BB924[v106];
-                            v105 += v84[3];
+                            v105 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v107 )
                               break;
 LABEL_244:
@@ -35945,18 +35946,18 @@ LABEL_244:
                             v104 += *begInt32Adress;
                             if ( (_BYTE)v106 )
                               *v105 = strPal.byte_BB934_BB924[v106];
-                            v105 += *v84;
+                            v105 += tempB3adr[0];
                           }
                           break;
                         case 5:
                           v108 = &tempSprData[begInt32Adress[1]];
-                          v109 = &beginFrameAdress[v84[1]];
+                          v109 = &beginFrameAdress[tempB3adr[1]];
                           v110 = 0;
                           v111 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_254;
                           }
                           v111++;
@@ -35966,9 +35967,9 @@ LABEL_244:
                             v108 += begInt32Adress[2];
                             if ( BYTE1(v110) )
                               *v109 = strPal.byte_BB934_BB924[v110];
-                            v109 += v84[3];
+                            v109 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v111 )
                               break;
 LABEL_254:
@@ -35976,16 +35977,16 @@ LABEL_254:
                             v108 += *begInt32Adress;
                             if ( BYTE1(v110) )
                               *v109 = strPal.byte_BB934_BB924[v110];
-                            v109 += *v84;
+                            v109 += tempB3adr[0];
                           }
                           break;
                         case 6:
                           v112 = &tempSprData[begInt32Adress[1]];
                           v113 = dword_B5CA4_B5C94;
-                          v114 = &beginFrameAdress[v84[1]];
+                          v114 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v115 = begInt32Adress + 2;
-                          v116 = v84 + 3;
+                          v116 = &tempB3adr[3];
                           do
                           {
                             BYTE1(v83x) = *v112;
@@ -36006,10 +36007,10 @@ LABEL_254:
                         case 7:
                           v117 = &tempSprData[begInt32Adress[1]];
                           v118 = dword_B5CA4_B5C94;
-                          v119 = &beginFrameAdress[v84[1]];
+                          v119 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v120 = begInt32Adress + 2;
-                          v121 = v84 + 3;
+                          v121 = &tempB3adr[3];
                           do
                           {
                             LOBYTE(v83x) = *v117;
@@ -36030,12 +36031,12 @@ LABEL_254:
                         case 8:
                           v122 = &tempSprData[begInt32Adress[1]];
                           v123 = dword_B5CA4_B5C94;
-                          v124 = &beginFrameAdress[v84[1]];
+                          v124 = &beginFrameAdress[tempB3adr[1]];
                           v125 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_274;
                           }
                           v125++;
@@ -36048,9 +36049,9 @@ LABEL_254:
                               LOBYTE(v123) = *v124;
                               *v124 = strPal.fog_B7934_B7924[v123];
                             }
-                            v124 += v84[3];
+                            v124 += tempB3adr[3];
                             begInt32Adress += 4;
-                            v84 += 6;
+                            tempB3adr += 6;
                             if ( !--v125 )
                               break;
 LABEL_274:
@@ -36061,13 +36062,13 @@ LABEL_274:
                               LOBYTE(v123) = *v124;
                               *v124 = strPal.fog_B7934_B7924[v123];
                             }
-                            v124 += *v84;
+                            v124 += tempB3adr[0];
                           }
                           break;
                         case 9:
                           v128 = &tempSprData[begInt32Adress[1]];
                           v129 = dword_B5CA4_B5C94 >> 8;
-                          v130 = &beginFrameAdress[v84[1]];
+                          v130 = &beginFrameAdress[tempB3adr[1]];
                           v131 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
@@ -36077,11 +36078,11 @@ LABEL_274:
                             {
                               v132++;
                               begInt32Adress -= 2;
-                              v84 -= 3;
+                              tempB3adr -= 3;
                               goto LABEL_293;
                             }
                             begInt32Adress += 2;
-                            v84 += 3;
+                            tempB3adr += 3;
                             goto LABEL_287;
                           }
                           v133 = v131 + 2;
@@ -36090,15 +36091,15 @@ LABEL_274:
                           if ( v17 )
                             goto LABEL_290;
                           begInt32Adress -= 4;
-                          for ( v84 -= 6; ; v130 += v84[6] )
+                          for (tempB3adr -= 6; ; v130 += tempB3adr[6] )
                           {
                             v137 = *v128;
                             v128 += begInt32Adress[6];
                             if ( v137 )
                               *v130 = BYTE1(v129);
-                            v130 += v84[9];
+                            v130 += tempB3adr[9];
                             begInt32Adress += 8;
-                            v84 += 12;
+                            tempB3adr += 12;
                             if ( !--v132 )
                               break;
 LABEL_287:
@@ -36106,13 +36107,13 @@ LABEL_287:
                             v128 += *begInt32Adress;
                             if ( v134 )
                               *v130 = BYTE1(v129);
-                            v130 += *v84;
+                            v130 += tempB3adr[0];
 LABEL_290:
                             v135 = *v128;
                             v128 += begInt32Adress[2];
                             if ( v135 )
                               *v130 = BYTE1(v129);
-                            v130 += v84[3];
+                            v130 += tempB3adr[3];
 LABEL_293:
                             v136 = *v128;
                             v128 += begInt32Adress[4];
