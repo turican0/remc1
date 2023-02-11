@@ -35187,11 +35187,11 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //uint8* v85; // ebx
   //_BYTE *v86; // edx
   //int v87; // ecx
-  int v88; // ecx
+  //int v88; // ecx
   //int v89; // ecx
-  char v90; // al
-  char v91; // al
-  char v92; // al
+  //char v90; // al
+  //char v91; // al
+  //char v92; // al
   //char v93; // al
   uint8* v94; // ebx
   _BYTE *v95; // edx
@@ -35758,62 +35758,107 @@ LABEL_181:
                       int v83x;
                       uint8* sprData;
                       uint8* frameAdress;
+                      int32 tempPindex;
+
                       switch ( dword_B5CAC_B5C9C )
                       {
                         case 0:
+                            /*
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+
+                            tempPointBIsOdd = tempPointB & 1;
+                            tempPindex = tempPointB >> (tempPointBIsOdd ? 1 : 2);
+                            if (!tempPointBIsOdd) {
+                                if ((tempPointB >> 1) & 1) {
+                                    tempPindex++;
+                                    begInt32Adress -= 2;
+                                    tempB3adr -= 3;
+                                }
+                                else {
+                                    begInt32Adress += 2;
+                                    tempB3adr += 3;
+                                }
+                            }
+                            else {
+                                tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                            }
+
+                            tempPindexIsOdd = ((tempPointB >> 1) + 2) & 1;
+                            if (!tempPointBIsOdd || tempPindexIsOdd) {
+                                begInt32Adress -= 4;
+                            }
+
+                            shouldBreak = false;
+                            while (!shouldBreak) {
+                                if (sprData[0]) frameAdress[0] = sprData[0];
+                                sprData += begInt32Adress[tempPindexIsOdd ? 6 : 0];
+                                frameAdress += tempB3adr[tempPindexIsOdd ? 9 : 0];
+                                begInt32Adress += tempPindexIsOdd ? 8 : 0;
+                                tempB3adr += tempPindexIsOdd ? 12 : 0;
+                                tempPindexIsOdd = !tempPindexIsOdd;
+                                if (tempPindexIsOdd) {
+                                    if (sprData[0]) frameAdress[0] = sprData[0];
+                                    sprData += begInt32Adress[2];
+                                    frameAdress += tempB3adr[3];
+                                }
+                                else if (--tempPindex == 0) {
+                                    shouldBreak = true;
+                                }
+                            }
+                            */
+                           
                           sprData = &tempSprData[begInt32Adress[1]];
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
-                          //v87 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                              //v17 = (tempPointB >> 1) & 1;
-                            v88 = tempPointB >> 2;
+                            tempPindex = tempPointB >> 2;
                             if ((tempPointB >> 1) & 1)
                             {
-                              v88++;
+                                tempPindex++;
                               begInt32Adress -= 2;
                               tempB3adr -= 3;
                               goto LABEL_204;
                             }
-                            begInt32Adress += 2;
-                            tempB3adr += 3;
-                            goto LABEL_198;
+                            else
+                            {
+                                begInt32Adress += 2;
+                                tempB3adr += 3;
+                                goto LABEL_198;
+                            }
                           }
-                          //v89 = (tempPointB >> 1) + 2;
-                          //v17 = ((tempPointB >> 1) + 2) & 1;
-                          v88 = ((tempPointB >> 1) + 2) >> 1;
-                          if (((tempPointB >> 1) + 2) & 1)
-                            goto LABEL_201;
-                          begInt32Adress -= 4;
+                          else
+                          {
+                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                              if (((tempPointB >> 1) + 2) & 1)
+                                  goto LABEL_201;
+                              else
+                                begInt32Adress -= 4;
+                          }
                           for (tempB3adr -= 6; ; frameAdress += tempB3adr[6] )
                           {
-                            //v93 = sprData[0];
-                            
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[6];
                             frameAdress += tempB3adr[9];
                             begInt32Adress += 8;
                             tempB3adr += 12;
-                            if ( !--v88 )
+                            if ( !--tempPindex)
                               break;
 LABEL_198:
-                            v90 = sprData[0];
+                            if (sprData[0])
+                                frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[0];
-                            if ( v90 )
-                                frameAdress[0] = v90;
                             frameAdress += tempB3adr[0];
 LABEL_201:
-                            v91 = sprData[0];
+                            if (sprData[0])
+                                frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[2];
-                            if ( v91 )
-                                frameAdress[0] = v91;
                             frameAdress += tempB3adr[3];
 LABEL_204:
-                            v92 = sprData[0];
+                            if (sprData[0])
+                                frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[4];
-                            if ( v92 )
-                                frameAdress[0] = v92;
                           }
                           break;
                         case 1:
