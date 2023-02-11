@@ -35182,9 +35182,9 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v80; // edi
   _BOOL1 j; // zf
   //_DWORD *v82; // esi
-  int v83; // eax
+  //int v83; // eax
   _DWORD *v84; // edi
-  char *v85; // ebx
+  uint8* v85; // ebx
   _BYTE *v86; // edx
   int v87; // ecx
   int v88; // ecx
@@ -35193,41 +35193,41 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   char v91; // al
   char v92; // al
   char v93; // al
-  _BYTE *v94; // ebx
+  uint8* v94; // ebx
   _BYTE *v95; // edx
   int v96; // eax
   int v97; // ecx
-  _BYTE *v98; // ebx
+  uint8* v98; // ebx
   _BYTE *v99; // edx
   int v100; // ecx
-  _BYTE *v101; // ebx
+  uint8* v101; // ebx
   _BYTE *v102; // edx
   int v103; // ecx
-  _BYTE *v104; // ebx
+  uint8* v104; // ebx
   _BYTE *v105; // edx
   int v106; // eax
   int v107; // ecx
-  _BYTE *v108; // ebx
+  uint8* v108; // ebx
   _BYTE *v109; // edx
   int v110; // eax
   int v111; // ecx
-  _BYTE *v112; // ebx
+  uint8* v112; // ebx
   int v113; // ecx
   _BYTE *v114; // edx
   _DWORD *v115; // esi
   _DWORD *v116; // edi
-  _BYTE *v117; // ebx
+  uint8* v117; // ebx
   int v118; // ecx
   _BYTE *v119; // edx
   _DWORD *v120; // esi
   _DWORD *v121; // edi
-  char *v122; // ebx
+  uint8* v122; // ebx
   int v123; // eax
   _BYTE *v124; // edx
   int v125; // ecx
   char v126; // al
   char v127; // al
-  char *v128; // ebx
+  uint8* v128; // ebx
   int v129; // eax
   _BYTE *v130; // edx
   int v131; // ecx
@@ -35752,12 +35752,13 @@ LABEL_181:
                     if (tempPointB > 0 )
                     {
                       begInt32Adress = &(((uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960])[2 * (points->c - tempPoint1)]);
-                      v83 = (dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0 + (int)sprData_B5CB0_B5CA0;
+                      uint8* tempSprData = &sprData_B5CB0_B5CA0[(dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0];
                       v84 = (_DWORD *)(dword_B3EA0_B3E90x[points->a]);
+                      int v83x;
                       switch ( dword_B5CAC_B5C9C )
                       {
                         case 0:
-                          v85 = (char *)(v83 + begInt32Adress[1]);
+                          v85 = &tempSprData[begInt32Adress[1]];
                           v86 = &beginFrameAdress[v84[1]];
                           v87 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
@@ -35812,7 +35813,7 @@ LABEL_204:
                           }
                           break;
                         case 1:
-                          v94 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v94 = &tempSprData[begInt32Adress[1]];
                           v95 = &beginFrameAdress[v84[1]];
                           v96 = dword_B5CA4_B5C94;
                           v97 = tempPointB >> 1;
@@ -35843,9 +35844,9 @@ LABEL_214:
                           }
                           break;
                         case 2:
-                          v98 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v98 = &tempSprData[begInt32Adress[1]];
                           v99 = &beginFrameAdress[v84[1]];
-                          HIWORD(v83) = 0;
+                          HIWORD(v83x) = 0;
                           v100 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
@@ -35856,12 +35857,12 @@ LABEL_214:
                           ++v100;
                           while ( 1 )
                           {
-                            BYTE1(v83) = *v98;
+                            BYTE1(v83x) = *v98;
                             v98 += begInt32Adress[2];
-                            if ( BYTE1(v83) )
+                            if ( BYTE1(v83x) )
                             {
-                              LOBYTE(v83) = *v99;
-                              *v99 = strPal.byte_BB934_BB924[v83];
+                              LOBYTE(v83x) = *v99;
+                              *v99 = strPal.byte_BB934_BB924[v83x];
                             }
                             v99 += v84[3];
                             begInt32Adress += 4;
@@ -35869,20 +35870,20 @@ LABEL_214:
                             if ( !--v100 )
                               break;
 LABEL_224:
-                            BYTE1(v83) = *v98;
+                            BYTE1(v83x) = *v98;
                             v98 += *begInt32Adress;
-                            if ( BYTE1(v83) )
+                            if ( BYTE1(v83x) )
                             {
-                              LOBYTE(v83) = *v99;
-                              *v99 = strPal.byte_BB934_BB924[v83];
+                              LOBYTE(v83x) = *v99;
+                              *v99 = strPal.byte_BB934_BB924[v83x];
                             }
                             v99 += *v84;
                           }
                           break;
                         case 3:
-                          v101 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v101 = &tempSprData[begInt32Adress[1]];
                           v102 = &beginFrameAdress[v84[1]];
-                          HIWORD(v83) = 0;
+                          HIWORD(v83x) = 0;
                           v103 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
@@ -35893,12 +35894,12 @@ LABEL_224:
                           v103++;
                           while ( 1 )
                           {
-                            LOBYTE(v83) = *v101;
+                            LOBYTE(v83x) = *v101;
                             v101 += begInt32Adress[2];
-                            if ( (_BYTE)v83 )
+                            if ( (_BYTE)v83x)
                             {
-                              BYTE1(v83) = *v102;
-                              *v102 = strPal.byte_BB934_BB924[v83];
+                              BYTE1(v83x) = *v102;
+                              *v102 = strPal.byte_BB934_BB924[v83x];
                             }
                             v102 += v84[3];
                             begInt32Adress += 4;
@@ -35906,18 +35907,18 @@ LABEL_224:
                             if ( !--v103 )
                               break;
 LABEL_234:
-                            LOBYTE(v83) = *v101;
+                            LOBYTE(v83x) = *v101;
                             v101 += *begInt32Adress;
-                            if ( (_BYTE)v83 )
+                            if ( (_BYTE)v83x)
                             {
-                              BYTE1(v83) = *v102;
-                              *v102 = strPal.byte_BB934_BB924[v83];
+                              BYTE1(v83x) = *v102;
+                              *v102 = strPal.byte_BB934_BB924[v83x];
                             }
                             v102 += *v84;
                           }
                           break;
                         case 4:
-                          v104 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v104 = &tempSprData[begInt32Adress[1]];
                           v105 = &beginFrameAdress[v84[1]];
                           v106 = 0;
                           v107 = tempPointB >> 1;
@@ -35948,7 +35949,7 @@ LABEL_244:
                           }
                           break;
                         case 5:
-                          v108 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v108 = &tempSprData[begInt32Adress[1]];
                           v109 = &beginFrameAdress[v84[1]];
                           v110 = 0;
                           v111 = tempPointB >> 1;
@@ -35979,20 +35980,20 @@ LABEL_254:
                           }
                           break;
                         case 6:
-                          v112 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v112 = &tempSprData[begInt32Adress[1]];
                           v113 = dword_B5CA4_B5C94;
                           v114 = &beginFrameAdress[v84[1]];
-                          HIWORD(v83) = 0;
+                          HIWORD(v83x) = 0;
                           v115 = begInt32Adress + 2;
                           v116 = v84 + 3;
                           do
                           {
-                            BYTE1(v83) = *v112;
+                            BYTE1(v83x) = *v112;
                             v112 += *v115;
-                            if ( BYTE1(v83) )
+                            if ( BYTE1(v83x) )
                             {
-                              LOBYTE(v83) = *v114;
-                              LOBYTE(v113) = strPal.byte_BB934_BB924[v83];
+                              LOBYTE(v83x) = *v114;
+                              LOBYTE(v113) = strPal.byte_BB934_BB924[v83x];
                               *v114 = strPal.fog_B7934_B7924[v113];
                             }
                             v114 += *v116;
@@ -36003,20 +36004,20 @@ LABEL_254:
                           while (tempPointB);
                           break;
                         case 7:
-                          v117 = (_BYTE *)(v83 + begInt32Adress[1]);
+                          v117 = &tempSprData[begInt32Adress[1]];
                           v118 = dword_B5CA4_B5C94;
                           v119 = &beginFrameAdress[v84[1]];
-                          HIWORD(v83) = 0;
+                          HIWORD(v83x) = 0;
                           v120 = begInt32Adress + 2;
                           v121 = v84 + 3;
                           do
                           {
-                            LOBYTE(v83) = *v117;
+                            LOBYTE(v83x) = *v117;
                             v117 += *v120;
-                            if ( (_BYTE)v83 )
+                            if ( (_BYTE)v83x)
                             {
-                              BYTE1(v83) = *v119;
-                              LOBYTE(v118) = strPal.byte_BB934_BB924[v83];
+                              BYTE1(v83x) = *v119;
+                              LOBYTE(v118) = strPal.byte_BB934_BB924[v83x];
                               *v119 = strPal.fog_B7934_B7924[v118];
                             }
                             v119 += *v121;
@@ -36027,7 +36028,7 @@ LABEL_254:
                           while (tempPointB);
                           break;
                         case 8:
-                          v122 = (char *)(v83 + begInt32Adress[1]);
+                          v122 = &tempSprData[begInt32Adress[1]];
                           v123 = dword_B5CA4_B5C94;
                           v124 = &beginFrameAdress[v84[1]];
                           v125 = tempPointB >> 1;
@@ -36064,7 +36065,7 @@ LABEL_274:
                           }
                           break;
                         case 9:
-                          v128 = (char *)(v83 + begInt32Adress[1]);
+                          v128 = &tempSprData[begInt32Adress[1]];
                           v129 = dword_B5CA4_B5C94 >> 8;
                           v130 = &beginFrameAdress[v84[1]];
                           v131 = tempPointB >> 1;
