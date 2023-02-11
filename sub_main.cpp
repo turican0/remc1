@@ -35277,7 +35277,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v175; // [esp+1Ch] [ebp-34h]
   //int v176; // [esp+20h] [ebp-30h]
   _DWORD *v177; // [esp+24h] [ebp-2Ch]
-  int v178; // [esp+28h] [ebp-28h]
+  //int v178; // [esp+28h] [ebp-28h]
   int v179; // [esp+2Ch] [ebp-24h]
   //int v180; // [esp+30h] [ebp-20h]
   //int v181; // [esp+34h] [ebp-1Ch]
@@ -35744,9 +35744,9 @@ LABEL_181:
                     begInt32Adress[-2] = (dword_B5CC4_B5CB4 >> 16)- begInt32Adress[-3];
                     dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX);
                   }
-                  v178 = yDivSC;
+                  int32 tempYdivSC = yDivSC;
                   v183 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
-                  for ( j = yDivSC == 0; !j; j = v178-- == 1 )
+                  for ( j = yDivSC == 0; !j; j = tempYdivSC-- == 1 )
                   {
                     v171 = v183[1];
                     if ( v171 > 0 )
