@@ -35751,7 +35751,7 @@ LABEL_181:
                     int32 tempPointB = points->b;
                     if (tempPointB > 0 )
                     {
-                      begInt32Adress = (_DWORD *)(8 * (points->c - tempPoint1) + begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
+                      begInt32Adress = &(((uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960])[2 * (points->c - tempPoint1)]);
                       v83 = (dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0 + (int)sprData_B5CB0_B5CA0;
                       v84 = (_DWORD *)(dword_B3EA0_B3E90x[points->a]);
                       switch ( dword_B5CAC_B5C9C )
