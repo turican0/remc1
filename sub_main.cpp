@@ -35179,7 +35179,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int i; // eax
   int v78; // ecx
   int v79; // edx
-  int v80; // edi
+  //int v80; // edi
   _BOOL1 j; // zf
   _DWORD *v82; // esi
   int v83; // eax
@@ -35739,9 +35739,9 @@ LABEL_181:
                     v78 = begInt32Adress[-1];
                     begInt32Adress += 2;
                     v79 = dword_B5CC4_B5CB4 >> 16;
-                    v80 = ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) + dword_B5CC4_B5CB4;
+                    //v80 = ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) + dword_B5CC4_B5CB4;
                     begInt32Adress[-1] = dword_B5CC4_B5CB4 >> 16;
-                    dword_B5CC4_B5CB4 = v80;
+                    dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX);
                     begInt32Adress[-2] = v79 - v78;
                   }
                   v178 = yDivSC;
