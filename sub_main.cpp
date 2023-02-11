@@ -35176,7 +35176,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_DWORD *v74; // ebx
   //int v75; // ecx
   //int v76; // ebx
-  int i; // eax
+  //int i; // eax
   int v78; // ecx
   int v79; // edx
   int v80; // edi
@@ -35734,15 +35734,15 @@ LABEL_181:
                   if (tempAxis1 > widthPlusHeightVP_B5D20_B5D10 )
                       tempAxis1 = widthPlusHeightVP_B5D20_B5D10;
                   dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) * tempPoint1;
-                  for ( i = (int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960; tempAxis1 >= 0; tempAxis1--)
+                  for ( begInt32Adress = (uint32*)((int)begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960); tempAxis1 >= 0; tempAxis1--)
                   {
-                    v78 = *(_DWORD *)(i - 4);
-                    i += 8;
+                    v78 = *(_DWORD *)(begInt32Adress - 1);
+                    begInt32Adress += 2;
                     v79 = dword_B5CC4_B5CB4 >> 16;
                     v80 = ((signedSprX_B5CBC_B5CAC << 16) / scScaledX) + dword_B5CC4_B5CB4;
-                    *(_DWORD *)(i - 4) = dword_B5CC4_B5CB4 >> 16;
+                    *(_DWORD *)(begInt32Adress - 1) = dword_B5CC4_B5CB4 >> 16;
                     dword_B5CC4_B5CB4 = v80;
-                    *(_DWORD *)(i - 8) = v79 - v78;
+                    *(_DWORD *)(begInt32Adress - 2) = v79 - v78;
                   }
                   v178 = yDivSC;
                   v183 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
