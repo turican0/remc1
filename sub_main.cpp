@@ -35270,7 +35270,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v168; // edx
   int k; // [esp+0h] [ebp-50h]
   //int v170; // [esp+0h] [ebp-50h]
-  int v171; // [esp+0h] [ebp-50h]
+  //int v171; // [esp+0h] [ebp-50h]
   int v172; // [esp+10h] [ebp-40h]
   //int v173; // [esp+14h] [ebp-3Ch]
   //int v174; // [esp+18h] [ebp-38h]
@@ -35282,7 +35282,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v180; // [esp+30h] [ebp-20h]
   //int v181; // [esp+34h] [ebp-1Ch]
   //int v182; // [esp+38h] [ebp-18h]
-  _DWORD *v183; // [esp+3Ch] [ebp-14h]
+  //_DWORD *v183; // [esp+3Ch] [ebp-14h]
   //int v184; // [esp+40h] [ebp-10h]
   uint8* v185; // [esp+44h] [ebp-Ch]
   //uint8* v186; // [esp+48h] [ebp-8h]
@@ -35745,25 +35745,25 @@ LABEL_181:
                     dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX);
                   }
                   int32 tempYdivSC = yDivSC;
-                  v183 = (_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
+                  points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
                   for ( j = yDivSC == 0; !j; j = tempYdivSC-- == 1 )
                   {
-                    v171 = v183[1];
-                    if ( v171 > 0 )
+                    int32 tempPointB = points->b;
+                    if (tempPointB > 0 )
                     {
-                      v82 = (_DWORD *)(8 * (v183[2] - tempPoint1) + begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
+                      v82 = (_DWORD *)(8 * (points->c - tempPoint1) + begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36960);
                       v83 = (dword_B5CC0_B5CB0 >> 16) * sprX_B5CD0_B5CC0 + (int)sprData_B5CB0_B5CA0;
-                      v84 = (_DWORD *)(dword_B3EA0_B3E90x[*v183]);
+                      v84 = (_DWORD *)(dword_B3EA0_B3E90x[points->a]);
                       switch ( dword_B5CAC_B5C9C )
                       {
                         case 0:
                           v85 = (char *)(v83 + v82[1]);
                           v86 = &beginFrameAdress[v84[1]];
-                          v87 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v87 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v17 = v87 & 1;
-                            v88 = v171 >> 2;
+                            v88 = tempPointB >> 2;
                             if ( v17 )
                             {
                               ++v88;
@@ -35815,8 +35815,8 @@ LABEL_204:
                           v94 = (_BYTE *)(v83 + v82[1]);
                           v95 = &beginFrameAdress[v84[1]];
                           v96 = dword_B5CA4_B5C94;
-                          v97 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v97 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -35846,8 +35846,8 @@ LABEL_214:
                           v98 = (_BYTE *)(v83 + v82[1]);
                           v99 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
-                          v100 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v100 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -35883,8 +35883,8 @@ LABEL_224:
                           v101 = (_BYTE *)(v83 + v82[1]);
                           v102 = &beginFrameAdress[v84[1]];
                           HIWORD(v83) = 0;
-                          v103 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v103 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -35920,8 +35920,8 @@ LABEL_234:
                           v104 = (_BYTE *)(v83 + v82[1]);
                           v105 = &beginFrameAdress[v84[1]];
                           v106 = 0;
-                          v107 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v107 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -35951,8 +35951,8 @@ LABEL_244:
                           v108 = (_BYTE *)(v83 + v82[1]);
                           v109 = &beginFrameAdress[v84[1]];
                           v110 = 0;
-                          v111 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v111 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -35998,9 +35998,9 @@ LABEL_254:
                             v114 += *v116;
                             v115 += 2;
                             v116 += 3;
-                            v171--;
+                            tempPointB--;
                           }
-                          while ( v171 );
+                          while (tempPointB);
                           break;
                         case 7:
                           v117 = (_BYTE *)(v83 + v82[1]);
@@ -36022,16 +36022,16 @@ LABEL_254:
                             v119 += *v121;
                             v120 += 2;
                             v121 += 3;
-                            v171--;
+                            tempPointB--;
                           }
-                          while ( v171 );
+                          while (tempPointB);
                           break;
                         case 8:
                           v122 = (char *)(v83 + v82[1]);
                           v123 = dword_B5CA4_B5C94;
                           v124 = &beginFrameAdress[v84[1]];
-                          v125 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v125 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v82 += 2;
                             v84 += 3;
@@ -36067,11 +36067,11 @@ LABEL_274:
                           v128 = (char *)(v83 + v82[1]);
                           v129 = dword_B5CA4_B5C94 >> 8;
                           v130 = &beginFrameAdress[v84[1]];
-                          v131 = v171 >> 1;
-                          if ( !(v171 & 1) )
+                          v131 = tempPointB >> 1;
+                          if ( !(tempPointB & 1) )
                           {
                             v17 = v131 & 1;
-                            v132 = v171 >> 2;
+                            v132 = tempPointB >> 2;
                             if ( v17 )
                             {
                               v132++;
@@ -36125,7 +36125,7 @@ LABEL_293:
                     }
                     dword_B5CC0_B5CB0 += yDivYdivSC;
                     beginFrameAdress += dword_B5D04_B5CF4;
-                    v183 += 3;
+                    points++;
                   }
                 }
 LABEL_404:
