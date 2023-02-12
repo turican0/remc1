@@ -35200,13 +35200,13 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //uint8* v98; // ebx
   //_BYTE *v99; // edx
   //int v100; // ecx
-  uint8* v101; // ebx
-  _BYTE *v102; // edx
-  int v103; // ecx
-  uint8* v104; // ebx
-  _BYTE *v105; // edx
-  int v106; // eax
-  int v107; // ecx
+  //uint8* v101; // ebx
+  //_BYTE *v102; // edx
+  //int v103; // ecx
+  //uint8* v104; // ebx
+  //_BYTE *v105; // edx
+  //int v106; // eax
+  //int v107; // ecx
   uint8* v108; // ebx
   _BYTE *v109; // edx
   int v110; // eax
@@ -35760,6 +35760,7 @@ LABEL_181:
                       uint8* frameAdress;
                       int32 tempPindex;
                       int32 tempPointBhalf;
+                      Type_dword_0x0_0 tempZx;
 
                       switch ( dword_B5CAC_B5C9C )
                       {
@@ -35841,7 +35842,6 @@ LABEL_181:
                         case 1:
                           sprData = &tempSprData[begInt32Adress[1]];
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
-                          Type_dword_0x0_0 tempZx;
                           tempZx.dword= zx2000_B5CA4_B5C94;
                           tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
@@ -35879,110 +35879,130 @@ LABEL_181:
                         case 2:
                             sprData = &tempSprData[begInt32Adress[1]];
                             frameAdress = &beginFrameAdress[tempB3adr[1]];
-                          HIWORD(v83x) = 0;
+                            tempZx.word[1] = 0;
                           tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
-                            goto LABEL_224;
                           }
                           else
                           {
-                              tempPointBhalf++;
+                              tempZx.byte[1] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              if (tempZx.byte[1])
+                              {
+                                  tempZx.byte[0] = frameAdress[0];
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              }
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
                           }
-                          while ( 1 )
+                          while (tempPointBhalf)
                           {
-                            BYTE1(v83x) = sprData[0];
-                            sprData += begInt32Adress[2];
-                            if ( BYTE1(v83x) )
+                              tempZx.byte[1] = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (tempZx.byte[1])
                             {
-                              LOBYTE(v83x) = frameAdress[0];
-                              frameAdress[0] = strPal.byte_BB934_BB924[v83x];
+                                tempZx.byte[0] = frameAdress[0];
+                              frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                            }
+                            frameAdress += tempB3adr[0];
+                            tempZx.byte[1] = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (tempZx.byte[1])
+                            {
+                                tempZx.byte[0] = frameAdress[0];
+                                frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
                             }
                             frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
                             tempPointBhalf--;
-                            if ( !tempPointBhalf)
-                              break;
-LABEL_224:
-                            BYTE1(v83x) = sprData[0];
-                            sprData += *begInt32Adress;
-                            if ( BYTE1(v83x) )
-                            {
-                              LOBYTE(v83x) = frameAdress[0];
-                              frameAdress[0] = strPal.byte_BB934_BB924[v83x];
-                            }
-                            frameAdress += tempB3adr[0];
                           }
                           break;
                         case 3:
-                          v101 = &tempSprData[begInt32Adress[1]];
-                          v102 = &beginFrameAdress[tempB3adr[1]];
-                          HIWORD(v83x) = 0;
-                          v103 = tempPointB >> 1;
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                            tempZx.word[1] = 0;
+                          tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
-                            goto LABEL_234;
                           }
-                          v103++;
-                          while ( 1 )
+                          else
                           {
-                            LOBYTE(v83x) = *v101;
-                            v101 += begInt32Adress[2];
-                            if ( (_BYTE)v83x)
+                              tempZx.byte[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              if (tempZx.byte[0])
+                              {
+                                  tempZx.byte[1] = frameAdress[0];
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              }
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                          }
+                          while (tempPointBhalf)
+                          {
+                              tempZx.byte[0] = sprData[0];
+                              sprData += begInt32Adress[0];
+                              if (tempZx.byte[0])
+                              {
+                                  tempZx.byte[1] = frameAdress[0];
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              }
+                              frameAdress += tempB3adr[0];
+                              tempZx.byte[0] = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (tempZx.byte[0])
                             {
-                              BYTE1(v83x) = *v102;
-                              *v102 = strPal.byte_BB934_BB924[v83x];
+                                tempZx.byte[1] = frameAdress[0];
+                              frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
                             }
-                            v102 += tempB3adr[3];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v103 )
-                              break;
-LABEL_234:
-                            LOBYTE(v83x) = *v101;
-                            v101 += *begInt32Adress;
-                            if ( (_BYTE)v83x)
-                            {
-                              BYTE1(v83x) = *v102;
-                              *v102 = strPal.byte_BB934_BB924[v83x];
-                            }
-                            v102 += tempB3adr[0];
+                            tempPointBhalf--;
                           }
                           break;
                         case 4:
-                          v104 = &tempSprData[begInt32Adress[1]];
-                          v105 = &beginFrameAdress[tempB3adr[1]];
-                          v106 = 0;
-                          v107 = tempPointB >> 1;
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                          tempZx.dword = 0;
+                          tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
-                            goto LABEL_244;
                           }
-                          v107++;
-                          while ( 1 )
+                          else
                           {
-                            LOBYTE(v106) = *v104;
-                            v104 += begInt32Adress[2];
-                            if ( (_BYTE)v106 )
-                              *v105 = strPal.byte_BB934_BB924[v106];
-                            v105 += tempB3adr[3];
+                              tempZx.byte[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              if (tempZx.byte[0])
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                          }
+                          while (tempPointBhalf)
+                          {
+                            tempZx.byte[0] = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (tempZx.byte[0])
+                                frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                            frameAdress += tempB3adr[0];
+                            tempZx.byte[0] = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (tempZx.byte[0])
+                                frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v107 )
-                              break;
-LABEL_244:
-                            LOBYTE(v106) = *v104;
-                            v104 += *begInt32Adress;
-                            if ( (_BYTE)v106 )
-                              *v105 = strPal.byte_BB934_BB924[v106];
-                            v105 += tempB3adr[0];
+                            tempPointBhalf--;
                           }
                           break;
                         case 5:
