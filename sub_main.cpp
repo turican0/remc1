@@ -35767,25 +35767,29 @@ LABEL_181:
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
                           switch (tempPointB % 4) {
                           case 0:
-                              tempPindex = tempPointB >> 2;
+                              tempPindex = tempPointB >> 2;//0 1 2
                               begInt32Adress += 2;
                               tempB3adr += 3;
-                              goto LABEL_198;//1|0 0(2+0=2)
+                              //goto LABEL_198;//1|0 0(2+0=2)
                               break;
                           case 1:
-                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                              begInt32Adress -= 4;
-                              tempB3adr -= 6;
-                              goto LABEL_ZEROx;//4|6 9(6-4=2)
+                              tempPindex = (tempPointB >> 2) + 1;//1 2
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                              tempPindex--;
                               break;
                           case 2:
-                              tempPindex = (tempPointB >> 2) + 1;
+                              tempPindex = (tempPointB >> 2) + 1;//1 2
                               begInt32Adress -= 2;
                               tempB3adr -= 3;
                               goto LABEL_204;//3|4 6(4-2=2)
                               break;
                           case 3:
-                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                              tempPindex = (tempPointB >> 2) + 1;//1 2
                               goto LABEL_201;//2|2 3(2=2)
                               break;
                           }
@@ -35822,9 +35826,9 @@ LABEL_181:
                                   goto LABEL_ZEROx;//4|6 9(6-4=2)
                               }
                           }*/
-                          for (; ;  )
+                          while (tempPindex)
                           {
-LABEL_198:
+//LABEL_198:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[0];
@@ -35839,7 +35843,7 @@ LABEL_204:
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[4];
                             frameAdress += tempB3adr[6];
-LABEL_ZEROx:
+//LABEL_ZEROx:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[6];
@@ -35848,8 +35852,8 @@ LABEL_ZEROx:
                             begInt32Adress += 8;
                             tempB3adr += 12;
                             tempPindex--;
-                            if (!tempPindex)
-                                break;
+                            //if (!tempPindex)
+                                //break;
                           }
                           break;
                         case 1:
