@@ -35207,20 +35207,20 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_BYTE *v105; // edx
   //int v106; // eax
   //int v107; // ecx
-  uint8* v108; // ebx
-  _BYTE *v109; // edx
-  int v110; // eax
-  int v111; // ecx
-  uint8* v112; // ebx
-  int v113; // ecx
-  _BYTE *v114; // edx
-  _DWORD *v115; // esi
-  _DWORD *v116; // edi
-  uint8* v117; // ebx
-  int v118; // ecx
-  _BYTE *v119; // edx
-  _DWORD *v120; // esi
-  _DWORD *v121; // edi
+  //uint8* v108; // ebx
+  //_BYTE *v109; // edx
+  //int v110; // eax
+  //int v111; // ecx
+  //uint8* v112; // ebx
+  //int v113; // ecx
+  //_BYTE *v114; // edx
+  //_DWORD *v115; // esi
+  //_DWORD *v116; // edi
+  //uint8* v117; // ebx
+  //int v118; // ecx
+  //_BYTE *v119; // edx
+  //_DWORD *v120; // esi
+  //_DWORD *v121; // edi
   uint8* v122; // ebx
   int v123; // eax
   _BYTE *v124; // edx
@@ -35761,6 +35761,7 @@ LABEL_181:
                       int32 tempPindex;
                       int32 tempPointBhalf;
                       Type_dword_0x0_0 tempZx;
+                      Type_dword_0x0_0 tempZx2;
 
                       switch ( dword_B5CAC_B5C9C )
                       {
@@ -36006,80 +36007,86 @@ LABEL_181:
                           }
                           break;
                         case 5:
-                          v108 = &tempSprData[begInt32Adress[1]];
-                          v109 = &beginFrameAdress[tempB3adr[1]];
-                          v110 = 0;
-                          v111 = tempPointB >> 1;
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                            tempZx.dword = 0;
+                            tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
-                            goto LABEL_254;
                           }
-                          v111++;
-                          while ( 1 )
                           {
-                            BYTE1(v110) = *v108;
-                            v108 += begInt32Adress[2];
-                            if ( BYTE1(v110) )
-                              *v109 = strPal.byte_BB934_BB924[v110];
-                            v109 += tempB3adr[3];
+                              tempZx.byte[1] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              if (tempZx.byte[1])
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                          }
+                          while (tempPointBhalf)
+                          {
+                              tempZx.byte[1] = sprData[0];
+                              sprData += begInt32Adress[0];
+                              if (tempZx.byte[1])
+                                  frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                              frameAdress += tempB3adr[0];
+                              tempZx.byte[1] = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (tempZx.byte[1])
+                                frameAdress[0] = strPal.byte_BB934_BB924[tempZx.dword];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v111 )
-                              break;
-LABEL_254:
-                            BYTE1(v110) = *v108;
-                            v108 += *begInt32Adress;
-                            if ( BYTE1(v110) )
-                              *v109 = strPal.byte_BB934_BB924[v110];
-                            v109 += tempB3adr[0];
+                            tempPointBhalf--;
                           }
                           break;
                         case 6:
-                          v112 = &tempSprData[begInt32Adress[1]];
-                          v113 = zx2000_B5CA4_B5C94;
-                          v114 = &beginFrameAdress[tempB3adr[1]];
-                          HIWORD(v83x) = 0;
-                          v115 = begInt32Adress + 2;
-                          v116 = &tempB3adr[3];
-                          do
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                            tempZx2.dword = 0;//fix
+                            tempZx.dword = zx2000_B5CA4_B5C94;
+                            tempZx.word[1] = 0;
+                          begInt32Adress += 2;
+                          tempB3adr += 3;
+                          while (tempPointB);
                           {
-                            BYTE1(v83x) = *v112;
-                            v112 += *v115;
-                            if ( BYTE1(v83x) )
+                            tempZx2.byte[1] = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (tempZx2.byte[1])
                             {
-                              LOBYTE(v83x) = *v114;
-                              LOBYTE(v113) = strPal.byte_BB934_BB924[v83x];
-                              *v114 = strPal.fog_B7934_B7924[v113];
+                              tempZx2.byte[0] = frameAdress[0];
+                              tempZx.byte[0] = strPal.byte_BB934_BB924[tempZx2.dword];
+                              frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
                             }
-                            v114 += *v116;
-                            v115 += 2;
-                            v116 += 3;
+                            frameAdress += tempB3adr[0];
+                            begInt32Adress += 2;
+                            tempB3adr += 3;
                             tempPointB--;
                           }
-                          while (tempPointB);
                           break;
                         case 7:
-                          v117 = &tempSprData[begInt32Adress[1]];
-                          v118 = zx2000_B5CA4_B5C94;
-                          v119 = &beginFrameAdress[tempB3adr[1]];
-                          HIWORD(v83x) = 0;
-                          v120 = begInt32Adress + 2;
-                          v121 = &tempB3adr[3];
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                            tempZx.dword = zx2000_B5CA4_B5C94;
+                            tempZx2.dword = 0;//fix
+                          //HIWORD(v83x) = 0;
+                          begInt32Adress += 2;
+                          tempB3adr += 3;
                           do
                           {
-                            LOBYTE(v83x) = *v117;
-                            v117 += *v120;
-                            if ( (_BYTE)v83x)
+                              tempZx2.byte[0] = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (tempZx2.byte[0])
                             {
-                              BYTE1(v83x) = *v119;
-                              LOBYTE(v118) = strPal.byte_BB934_BB924[v83x];
-                              *v119 = strPal.fog_B7934_B7924[v118];
+                                tempZx2.byte[1] = frameAdress[0];
+                              tempZx.byte[0] = strPal.byte_BB934_BB924[tempZx2.dword];
+                              frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
                             }
-                            v119 += *v121;
-                            v120 += 2;
-                            v121 += 3;
+                            frameAdress += tempB3adr[0];
+                            begInt32Adress += 2;
+                            tempB3adr += 3;
                             tempPointB--;
                           }
                           while (tempPointB);
