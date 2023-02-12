@@ -35230,7 +35230,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //uint8* v128; // ebx
   //int v129; // eax
   //_BYTE *v130; // edx
-  int v131; // ecx
+  //int v131; // ecx
   int v132; // ecx
   int v133; // ecx
   char v134; // al
@@ -36142,12 +36142,12 @@ LABEL_181:
                             sprData = &tempSprData[begInt32Adress[1]];
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
                           tempZx.dword = zx2000_B5CA4_B5C94 >> 8;
-                          v131 = tempPointB >> 1;
+                          //v131 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             //v17 = v131 & 1;
                             v132 = tempPointB >> 2;
-                            if (v131 & 1)
+                            if ((tempPointB >> 1) & 1)
                             {
                               v132++;
                               begInt32Adress -= 2;
@@ -36158,7 +36158,7 @@ LABEL_181:
                             tempB3adr += 3;
                             goto LABEL_287;
                           }
-                          v133 = v131 + 2;
+                          v133 = (tempPointB >> 1)+2;
                           //v17 = v133 & 1;
                           v132 = v133 >> 1;
                           if (v133 & 1)
