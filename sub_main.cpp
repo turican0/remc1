@@ -36144,10 +36144,10 @@ LABEL_181:
                           //v131 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
-                            //v17 = v131 & 1;
-                              tempPindex = tempPointB >> 2;
+                            //v17 = v131 & 1;                              
                             if ((tempPointB >> 1) & 1)
                             {
+                                tempPindex = tempPointB >> 2;
                                 tempPindex++;
                               begInt32Adress -= 2;
                               tempB3adr -= 3;
@@ -36155,25 +36155,30 @@ LABEL_181:
                             }
                             else
                             {
+                                tempPindex = tempPointB >> 2;
                                 begInt32Adress += 2;
                                 tempB3adr += 3;
                                 goto LABEL_287;
                             }
                           }
                           else
-                          {
-                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                          {                              
                               if (((tempPointB >> 1) + 2) & 1)
                               {
+                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
                                   goto LABEL_290;
                               }
                               else
                               {
+                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
                                   begInt32Adress -= 4;
+                                  tempB3adr -= 6;
+                                  goto LABEL_290aaaa;
                               }
                           }
-                          for (tempB3adr -= 6; ; frameAdress += tempB3adr[6] )
+                          for (; ; )
                           {
+LABEL_290aaaa:
                             v137 = sprData[0];
                             sprData += begInt32Adress[6];
                             if ( v137 )
@@ -36200,6 +36205,7 @@ LABEL_293:
                             sprData += begInt32Adress[4];
                             if ( v136 )
                                 frameAdress[0] = tempZx.byte[1];
+                            frameAdress += tempB3adr[6];
                           }
                           break;
                         default:
