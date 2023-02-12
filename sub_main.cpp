@@ -14813,7 +14813,7 @@ uint16 unk_B3AA0_B3A90x[2][256]; // weak
 //uint16 unk_B3CA0_B3C90[256]; // weak
 uint32 dword_B3EA0_B3E90x[4096][3]; // for 4K
 int dword_B5CA0_B5C90; // weak
-int dword_B5CA4_B5C94; // weak
+int zx2000_B5CA4_B5C94; // weak
 int scaledSprX_B5CA8_B5C98; // weak
 int dword_B5CAC_B5C9C; // weak
 uint8* sprData_B5CB0_B5CA0; // weak
@@ -35193,10 +35193,10 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //char v91; // al
   //char v92; // al
   //char v93; // al
-  uint8* v94; // ebx
-  _BYTE *v95; // edx
-  int v96; // eax
-  int v97; // ecx
+  //uint8* v94; // ebx
+  //_BYTE *v95; // edx
+  //int v96; // eax
+  //int v97; // ecx
   uint8* v98; // ebx
   _BYTE *v99; // edx
   int v100; // ecx
@@ -35759,6 +35759,7 @@ LABEL_181:
                       uint8* sprData;
                       uint8* frameAdress;
                       int32 tempPindex;
+                      int32 tempPointBhalf;
 
                       switch ( dword_B5CAC_B5C9C )
                       {
@@ -35770,7 +35771,6 @@ LABEL_181:
                               tempPindex = tempPointB >> 2;//0 1 2
                               begInt32Adress += 2;
                               tempB3adr += 3;
-                              //goto LABEL_198;//1|0 0(2+0=2)
                               break;
                           case 1:
                               tempPindex = (tempPointB >> 2) + 1;//1 2
@@ -35784,107 +35784,96 @@ LABEL_181:
                               break;
                           case 2:
                               tempPindex = (tempPointB >> 2) + 1;//1 2
-                              begInt32Adress -= 2;
-                              tempB3adr -= 3;
-                              goto LABEL_204;//3|4 6(4-2=2)
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              frameAdress += tempB3adr[3];
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[4];
+                              frameAdress += tempB3adr[6];
+                              begInt32Adress += 6;
+                              tempB3adr += 9;
+                              tempPindex--;
                               break;
                           case 3:
                               tempPindex = (tempPointB >> 2) + 1;//1 2
-                              goto LABEL_201;//2|2 3(2=2)
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              frameAdress += tempB3adr[3];
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[4];
+                              frameAdress += tempB3adr[6];
+                              if (sprData[0])
+                                  frameAdress[0] = sprData[0];
+                              sprData += begInt32Adress[6];
+                              frameAdress += tempB3adr[9];
+                              begInt32Adress += 8;
+                              tempB3adr += 12;
+                              tempPindex--;
                               break;
                           }
-                          /*if (!(tempPointB & 1))//0 2 4 6 8 10
-                          {
-                            
-                            if ((tempPointB >> 1) & 1)//2 6 10
-                            {
-                              tempPindex = (tempPointB >> 2)+1;
-                              begInt32Adress -= 2;
-                              tempB3adr -= 3;
-                              goto LABEL_204;//3|4 6(4-2=2)
-                            }
-                            else//0 4 8
-                            {
-                                tempPindex = tempPointB >> 2;
-                                begInt32Adress += 2;
-                                tempB3adr += 3;
-                                goto LABEL_198;//1|0 0(2+0=2)
-                            }
-                          }//1 3 5 7 9 11
-                          else
-                          {                              
-                              if ((tempPointB >> 1) & 1)//3 7 11
-                              {
-                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                                  goto LABEL_201;//2|2 3(2=2)
-                              }
-                              else//1 5 9
-                              {
-                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                                  begInt32Adress -= 4;
-                                  tempB3adr -= 6;
-                                  goto LABEL_ZEROx;//4|6 9(6-4=2)
-                              }
-                          }*/
                           while (tempPindex)
                           {
-//LABEL_198:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[0];
                             frameAdress += tempB3adr[0];
-LABEL_201:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[2];
                             frameAdress += tempB3adr[3];
-LABEL_204:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[4];
                             frameAdress += tempB3adr[6];
-//LABEL_ZEROx:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[6];
                             frameAdress += tempB3adr[9];
-
                             begInt32Adress += 8;
                             tempB3adr += 12;
                             tempPindex--;
-                            //if (!tempPindex)
-                                //break;
                           }
                           break;
                         case 1:
-                          v94 = &tempSprData[begInt32Adress[1]];
-                          v95 = &beginFrameAdress[tempB3adr[1]];
-                          v96 = dword_B5CA4_B5C94;
-                          v97 = tempPointB >> 1;
+                          sprData = &tempSprData[begInt32Adress[1]];
+                          frameAdress = &beginFrameAdress[tempB3adr[1]];
+                          Type_dword_0x0_0 tempZx;
+                          tempZx.dword= zx2000_B5CA4_B5C94;
+                          tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
-                            goto LABEL_214;
                           }
-                          v97++;
-                          while ( 1 )
+                          else
                           {
-                            LOBYTE(v96) = *v94;
-                            v94 += begInt32Adress[2];
-                            if ( (_BYTE)v96 )
-                              *v95 = strPal.fog_B7934_B7924[v96];
-                            v95 += tempB3adr[3];
+                              tempZx.byte[0] = sprData[0];
+                              sprData += begInt32Adress[2];
+                              if (tempZx.byte[0])
+                                  frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
+                              frameAdress += tempB3adr[3];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                          }
+                          while (tempPointBhalf)
+                          {
+                            tempZx.byte[0] = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (tempZx.byte[0])
+                                frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
+                            frameAdress += tempB3adr[0];
+                            tempZx.byte[0] = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (tempZx.byte[0])
+                                frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v97 )
-                              break;
-LABEL_214:
-                            LOBYTE(v96) = *v94;
-                            v94 += *begInt32Adress;
-                            if ( (_BYTE)v96 )
-                              *v95 = strPal.fog_B7934_B7924[v96];
-                            v95 += tempB3adr[0];
+                            tempPointBhalf--;
                           }
                           break;
                         case 2:
@@ -36025,7 +36014,7 @@ LABEL_254:
                           break;
                         case 6:
                           v112 = &tempSprData[begInt32Adress[1]];
-                          v113 = dword_B5CA4_B5C94;
+                          v113 = zx2000_B5CA4_B5C94;
                           v114 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v115 = begInt32Adress + 2;
@@ -36049,7 +36038,7 @@ LABEL_254:
                           break;
                         case 7:
                           v117 = &tempSprData[begInt32Adress[1]];
-                          v118 = dword_B5CA4_B5C94;
+                          v118 = zx2000_B5CA4_B5C94;
                           v119 = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
                           v120 = begInt32Adress + 2;
@@ -36073,7 +36062,7 @@ LABEL_254:
                           break;
                         case 8:
                           v122 = &tempSprData[begInt32Adress[1]];
-                          v123 = dword_B5CA4_B5C94;
+                          v123 = zx2000_B5CA4_B5C94;
                           v124 = &beginFrameAdress[tempB3adr[1]];
                           v125 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
@@ -36110,7 +36099,7 @@ LABEL_274:
                           break;
                         case 9:
                           v128 = &tempSprData[begInt32Adress[1]];
-                          v129 = dword_B5CA4_B5C94 >> 8;
+                          v129 = zx2000_B5CA4_B5C94 >> 8;
                           v130 = &beginFrameAdress[tempB3adr[1]];
                           v131 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
@@ -36493,7 +36482,7 @@ LABEL_38:
         break;
       case 1:
         v24 = (_BYTE *)v185;
-        v25 = dword_B5CA4_B5C94;
+        v25 = zx2000_B5CA4_B5C94;
         v26 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36644,7 +36633,7 @@ LABEL_87:
         break;
       case 6:
         v37 = (_BYTE *)v185;
-        v38 = dword_B5CA4_B5C94;
+        v38 = zx2000_B5CA4_B5C94;
         HIWORD(v39) = 0;
         v40 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36681,7 +36670,7 @@ LABEL_96:
         break;
       case 7:
         v41 = (_BYTE *)v185;
-        v42 = dword_B5CA4_B5C94;
+        v42 = zx2000_B5CA4_B5C94;
         HIWORD(v43) = 0;
         v44 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36718,7 +36707,7 @@ LABEL_105:
         break;
       case 9:
         v45 = (_BYTE *)v185;
-        v46 = dword_B5CA4_B5C94 >> 8;
+        v46 = zx2000_B5CA4_B5C94 >> 8;
         v47 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36836,9 +36825,9 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 					if (yRot > 64 && sqSize < dword_B5D00_B5CF0)
 					{
 						if (sqSize <= dword_B5CF0_B5CE0)
-							dword_B5CA4_B5C94 = 0x2000;
+							zx2000_B5CA4_B5C94 = 0x2000;
 						else
-							dword_B5CA4_B5C94 = sqSize < dword_B5D0C_B5CFC ? (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8 : 0;
+							zx2000_B5CA4_B5C94 = sqSize < dword_B5D0C_B5CFC ? (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8 : 0;
 						Type_99BA0* tempEntType = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
 						if (!tempEntType->var_10)
 						{
@@ -36867,7 +36856,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -36875,7 +36864,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -36894,7 +36883,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -36902,7 +36891,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -36936,7 +36925,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -36944,7 +36933,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 							case 0x11:
@@ -36965,7 +36954,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 									sprData_B5CB0_B5CA0 = a1x->datax;
 									a1x->var_0 |= 8;
-									if (dword_B5CA4_B5C94 == 0x2000)
+									if (zx2000_B5CA4_B5C94 == 0x2000)
 										dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 									else
 										dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -36973,7 +36962,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 									{
 										dword_B5CAC_B5C9C = 8;
-										dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+										zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 										sub_2C410_2C450(0);
 									}
 									break;
@@ -36993,7 +36982,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37001,7 +36990,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37022,7 +37011,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37030,7 +37019,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37053,7 +37042,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 									sprData_B5CB0_B5CA0 = a1x->datax;
 									a1x->var_0 |= 8;
-									if (dword_B5CA4_B5C94 == 0x2000)
+									if (zx2000_B5CA4_B5C94 == 0x2000)
 										dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 									else
 										dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37061,7 +37050,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 									if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 									{
 										dword_B5CAC_B5C9C = 8;
-										dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+										zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 										sub_2C410_2C450(0);
 									}
 									break;
@@ -37081,7 +37070,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37089,7 +37078,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37129,7 +37118,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								}
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37137,7 +37126,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37156,7 +37145,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37164,7 +37153,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37199,7 +37188,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37207,14 +37196,14 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
 							default:
 								sprData_B5CB0_B5CA0 = a1x->datax;
 								a1x->var_0 |= 8;
-								if (dword_B5CA4_B5C94 == 0x2000)
+								if (zx2000_B5CA4_B5C94 == 0x2000)
 									dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 								else
 									dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37222,7 +37211,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 								if (scaledSprX_B5CA8_B5C98 > 0 && scaledSprY_B5CC8_B5CB8 > 0)
 								{
 									dword_B5CAC_B5C9C = 8;
-									dword_B5CA4_B5C94 = (dword_B5CA4_B5C94 >> 2) + 0x2000;
+									zx2000_B5CA4_B5C94 = (zx2000_B5CA4_B5C94 >> 2) + 0x2000;
 									sub_2C410_2C450(0);
 								}
 								break;
@@ -37241,15 +37230,15 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 				{
 					if (sqSize <= dword_B5CF0_B5CE0)
 					{
-						dword_B5CA4_B5C94 = 0x2000;
+						zx2000_B5CA4_B5C94 = 0x2000;
 					}
 					else if (sqSize < dword_B5D0C_B5CFC)
 					{
-						dword_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8;
+						zx2000_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8;
 					}
 					else
 					{
-						dword_B5CA4_B5C94 = 0;
+						zx2000_B5CA4_B5C94 = 0;
 					}
 					Type_99BA0* temp_99BA0 = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
 					int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
@@ -37274,7 +37263,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37309,7 +37298,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37332,7 +37321,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
-							if (dword_B5CA4_B5C94 == 0x2000)
+							if (zx2000_B5CA4_B5C94 == 0x2000)
 								dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 							else
 								dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37353,7 +37342,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37375,7 +37364,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37399,7 +37388,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
-							if (dword_B5CA4_B5C94 == 0x2000)
+							if (zx2000_B5CA4_B5C94 == 0x2000)
 								dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 							else
 								dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37420,7 +37409,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37458,7 +37447,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						}
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37479,7 +37468,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37515,7 +37504,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37526,7 +37515,7 @@ void DrawSprite_2DCB0_2DCF0(Type_BegBscreen* a2x)//1FECB0_
 					default:
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[temp_99BA0->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[temp_99BA0->var_10];
@@ -37561,7 +37550,7 @@ void DrawSprite3D_2F170_2F1B0(/*int a1,*/ Type_BegBscreen* a2x)//200170_
 				int32 yRot = (diffX * cos_B5D10_B5D00 + diffY * sin_B5CDC_B5CCC) >> 16;
 				if (yRot > 64)
 				{
-					dword_B5CA4_B5C94 = 0x400000 - 350 * (5120 - yRot);
+					zx2000_B5CA4_B5C94 = 0x400000 - 350 * (5120 - yRot);
 					Type_99BA0* tempEntType = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
 					int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
 					int32 wRotZY = tempZ * fowDist_B5D14_B5D04 / yRot + dword_B5CFC_B5CEC;
@@ -37852,15 +37841,15 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 				{
 					if (sqSize <= dword_B5CF0_B5CE0)
 					{
-						dword_B5CA4_B5C94 = 0x2000;
+						zx2000_B5CA4_B5C94 = 0x2000;
 					}
 					else if (sqSize < dword_B5D0C_B5CFC)
 					{
-						dword_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8;
+						zx2000_B5CA4_B5C94 = (32 * (dword_B5D0C_B5CFC - sqSize) / dword_B5CEC_B5CDC) << 8;
 					}
 					else
 					{
-						dword_B5CA4_B5C94 = 0;
+						zx2000_B5CA4_B5C94 = 0;
 					}
 					Type_99BA0* tempEntType = &unk_99BA0x[str_AE400_AE3F0->str_29795[result].var_u16_29881_86];
 					int32 wRotXY = xRot * fowDist_B5D14_B5D04 / yRot;
@@ -37884,7 +37873,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37904,7 +37893,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37939,7 +37928,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37963,7 +37952,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
-							if (dword_B5CA4_B5C94 == 0x2000)
+							if (zx2000_B5CA4_B5C94 == 0x2000)
 								dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 							else
 								dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -37984,7 +37973,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38006,7 +37995,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38030,7 +38019,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 							signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 							sprData_B5CB0_B5CA0 = a1x->datax;
 							a1x->var_0 |= 8;
-							if (dword_B5CA4_B5C94 == 0x2000)
+							if (zx2000_B5CA4_B5C94 == 0x2000)
 								dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 							else
 								dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38051,7 +38040,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = -sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38089,7 +38078,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						}
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38110,7 +38099,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38146,7 +38135,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 						signedSprX_B5CBC_B5CAC = sprX_B5CD0_B5CC0;
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
@@ -38157,7 +38146,7 @@ void DrawSprite_2FC50_2FC90(Type_BegBscreen* a2x)//200C50_
 					default:
 						sprData_B5CB0_B5CA0 = a1x->datax;
 						a1x->var_0 |= 8;
-						if (dword_B5CA4_B5C94 == 0x2000)
+						if (zx2000_B5CA4_B5C94 == 0x2000)
 							dword_B5CAC_B5C9C = byte_906DC[tempEntType->var_10];
 						else
 							dword_B5CAC_B5C9C = byte_906E2[tempEntType->var_10];
