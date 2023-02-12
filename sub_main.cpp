@@ -35830,17 +35830,21 @@ LABEL_181:
                           else
                           {
                               tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                              if (((tempPointB >> 1) + 2) & 1)
+                              if ((tempPointB >> 1) & 1)
                                   goto LABEL_201;
                               else
-                                begInt32Adress -= 4;
+                              {
+                                  begInt32Adress -= 4;
+                                  tempB3adr -= 6;
+                              }
                           }
-                          for (tempB3adr -= 6; ; frameAdress += tempB3adr[6] )
+                          for (; ;  )
                           {
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[6];
                             frameAdress += tempB3adr[9];
+
                             begInt32Adress += 8;
                             tempB3adr += 12;
                             if ( !--tempPindex)
@@ -35859,6 +35863,7 @@ LABEL_204:
                             if (sprData[0])
                                 frameAdress[0] = sprData[0];
                             sprData += begInt32Adress[4];
+                            frameAdress += tempB3adr[6];
                           }
                           break;
                         case 1:
