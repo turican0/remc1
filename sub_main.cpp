@@ -35233,15 +35233,15 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v131; // ecx
   //int v132; // ecx
   //int v133; // ecx
-  char v134; // al
-  char v135; // al
-  char v136; // al
-  char v137; // al
+  //char v134; // al
+  //char v135; // al
+  //char v136; // al
+  //char v137; // al
   //int v138; // ecx
   //int *v139; // eax
   //int v140; // edx
   //uint8* v141; // edx
-  int v142; // edx
+  //int v142; // edx
   int v143; // ebx
   int v144; // ebx
   int v145; // ebx
@@ -35265,7 +35265,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v163; // ebx
   //int v164; // edx
   //int v165; // ecx
-  int v166; // edx
+  //int v166; // edx
   //int v167; // edx
   //int v168; // edx
   int k; // [esp+0h] [ebp-50h]
@@ -36141,71 +36141,77 @@ LABEL_181:
                             sprData = &tempSprData[begInt32Adress[1]];
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
                           tempZx.dword = zx2000_B5CA4_B5C94 >> 8;
-                          //v131 = tempPointB >> 1;
-                          if ( !(tempPointB & 1) )
+                          switch (tempPointB%4)
                           {
-                            //v17 = v131 & 1;                              
-                            if ((tempPointB >> 1) & 1)
-                            {
-                                tempPindex = tempPointB >> 2;
-                                tempPindex++;
-                              begInt32Adress -= 2;
-                              tempB3adr -= 3;
-                              goto LABEL_293;
-                            }
-                            else
-                            {
-                                tempPindex = tempPointB >> 2;
-                                begInt32Adress += 2;
-                                tempB3adr += 3;
-                                goto LABEL_287;
-                            }
+                          case 0:
+                              tempPindex = tempPointB >> 2;
+                              begInt32Adress += 2;
+                              tempB3adr += 3;
+                              break;
+                          case 1:
+                              tempPindex = (tempPointB >> 2) + 1;
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              frameAdress += tempB3adr[3];
+                              sprData += begInt32Adress[2];
+                              begInt32Adress += 4;
+                              tempB3adr += 6;
+                              tempPindex--;
+                              break;
+                          case 2:
+                              tempPindex = (tempPointB >> 2) + 1;
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              sprData += begInt32Adress[2];
+                              frameAdress += tempB3adr[3];
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              frameAdress += tempB3adr[6];
+                              sprData += begInt32Adress[4];
+                              begInt32Adress += 6;
+                              tempB3adr += 9;
+                              tempPindex--;
+                              break;
+                          case 3:
+                              tempPindex = (tempPointB >> 2) + 1;
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              sprData += begInt32Adress[2];
+                              frameAdress += tempB3adr[3];
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              sprData += begInt32Adress[4];
+                              frameAdress += tempB3adr[6];
+                              if (sprData[0])
+                                  frameAdress[0] = tempZx.byte[1];
+                              frameAdress += tempB3adr[9];
+                              sprData += begInt32Adress[6];
+                              begInt32Adress += 8;
+                              tempB3adr += 12;
+                              tempPindex--;
+                              break;
                           }
-                          else
-                          {                              
-                              if (((tempPointB >> 1) + 2) & 1)
-                              {
-                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                                  goto LABEL_290;
-                              }
-                              else
-                              {
-                                  tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                                  begInt32Adress -= 4;
-                                  tempB3adr -= 6;
-                                  goto LABEL_290aaaa;
-                              }
-                          }
-                          for (; ; )
+                          while (tempPindex)
                           {
-LABEL_290aaaa:
-                            v137 = sprData[0];
-                            sprData += begInt32Adress[6];
-                            if ( v137 )
+                            if (sprData[0])
+                                frameAdress[0] = tempZx.byte[1];
+                            sprData += begInt32Adress[0];
+                            frameAdress += tempB3adr[0];
+                            if (sprData[0])
+                                frameAdress[0] = tempZx.byte[1];
+                            sprData += begInt32Adress[2];
+                            frameAdress += tempB3adr[3];
+                            if (sprData[0])
+                                frameAdress[0] = tempZx.byte[1];
+                            sprData += begInt32Adress[4];
+                            frameAdress += tempB3adr[6];
+                            if (sprData[0])
                                 frameAdress[0] = tempZx.byte[1];
                             frameAdress += tempB3adr[9];
+                            sprData += begInt32Adress[6];
                             begInt32Adress += 8;
                             tempB3adr += 12;
-                            if ( !--tempPindex)
-                              break;
-LABEL_287:
-                            v134 = sprData[0];
-                            sprData += begInt32Adress[0];
-                            if ( v134 )
-                                frameAdress[0] = tempZx.byte[1];
-                            frameAdress += tempB3adr[0];
-LABEL_290:
-                            v135 = sprData[0];
-                            sprData += begInt32Adress[2];
-                            if ( v135 )
-                                frameAdress[0] = tempZx.byte[1];
-                            frameAdress += tempB3adr[3];
-LABEL_293:
-                            v136 = sprData[0];
-                            sprData += begInt32Adress[4];
-                            if ( v136 )
-                                frameAdress[0] = tempZx.byte[1];
-                            frameAdress += tempB3adr[6];
+                            tempPindex--;
                           }
                           break;
                         default:
@@ -36253,9 +36259,9 @@ LABEL_159:
             }
             else
             {
-              v166 = (yDivSC - 1) * yDivYdivSC;
+              dword_B5CC0_B5CB0 = (yDivSC - 1) * yDivYdivSC;
               yDivYdivSC = -yDivYdivSC;
-              dword_B5CC0_B5CB0 = v166;
+              //dword_B5CC0_B5CB0 = v166;
             }
             someXYtemp = xRot_B5CB8_B5CA8 << 16;
             cosRollY = cosRoll_B5CE0_B5CD0 * scaledSprY_B5CC8_B5CB8 / yDivSC;
@@ -36279,15 +36285,15 @@ LABEL_159:
             }
             beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * (whViewPortA_B5D30_B5D20 - 1 - xRotMinusSinYrot)];
 LABEL_311:
-            v142 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
+            //v142 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             if (xRotMinusSinYrot < whViewPortA_B5D30_B5D20 )
             {
-              if (yDivSC > v142 )
+              if (yDivSC > whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C)
                   yDivSC = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
             }
-            else if ( v142 < yDivSC + xRotMinusSinYrot - whViewPortA_B5D30_B5D20 )
+            else if (2 * whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C - xRotMinusSinYrot < yDivSC )
             {
-                yDivSC = v142 - xRotMinusSinYrot + whViewPortA_B5D30_B5D20;
+                yDivSC = 2 * whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C - xRotMinusSinYrot;
               if (yDivSC <= 0 )
                 goto LABEL_404;
             }
