@@ -35765,40 +35765,63 @@ LABEL_181:
                         case 0:
                           sprData = &tempSprData[begInt32Adress[1]];
                           frameAdress = &beginFrameAdress[tempB3adr[1]];
-                          if ( !(tempPointB & 1) )
-                          {
-                            
-                            if ((tempPointB >> 1) & 1)
-                            {
+                          switch (tempPointB % 4) {
+                          case 0:
                               tempPindex = tempPointB >> 2;
-                              tempPindex++;
+                              begInt32Adress += 2;
+                              tempB3adr += 3;
+                              goto LABEL_198;//1|0 0(2+0=2)
+                              break;
+                          case 1:
+                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                              begInt32Adress -= 4;
+                              tempB3adr -= 6;
+                              goto LABEL_ZEROx;//4|6 9(6-4=2)
+                              break;
+                          case 2:
+                              tempPindex = (tempPointB >> 2) + 1;
                               begInt32Adress -= 2;
                               tempB3adr -= 3;
-                              goto LABEL_204;
+                              goto LABEL_204;//3|4 6(4-2=2)
+                              break;
+                          case 3:
+                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                              goto LABEL_201;//2|2 3(2=2)
+                              break;
+                          }
+                          /*if (!(tempPointB & 1))//0 2 4 6 8 10
+                          {
+                            
+                            if ((tempPointB >> 1) & 1)//2 6 10
+                            {
+                              tempPindex = (tempPointB >> 2)+1;
+                              begInt32Adress -= 2;
+                              tempB3adr -= 3;
+                              goto LABEL_204;//3|4 6(4-2=2)
                             }
-                            else
+                            else//0 4 8
                             {
                                 tempPindex = tempPointB >> 2;
                                 begInt32Adress += 2;
                                 tempB3adr += 3;
-                                goto LABEL_198;
+                                goto LABEL_198;//1|0 0(2+0=2)
                             }
-                          }
+                          }//1 3 5 7 9 11
                           else
                           {                              
-                              if ((tempPointB >> 1) & 1)
+                              if ((tempPointB >> 1) & 1)//3 7 11
                               {
                                   tempPindex = ((tempPointB >> 1) + 2) >> 1;
-                                  goto LABEL_201;
+                                  goto LABEL_201;//2|2 3(2=2)
                               }
-                              else
+                              else//1 5 9
                               {
                                   tempPindex = ((tempPointB >> 1) + 2) >> 1;
                                   begInt32Adress -= 4;
                                   tempB3adr -= 6;
-                                  goto LABEL_ZEROx;
+                                  goto LABEL_ZEROx;//4|6 9(6-4=2)
                               }
-                          }
+                          }*/
                           for (; ;  )
                           {
 LABEL_198:
