@@ -35197,9 +35197,9 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_BYTE *v95; // edx
   //int v96; // eax
   //int v97; // ecx
-  uint8* v98; // ebx
-  _BYTE *v99; // edx
-  int v100; // ecx
+  //uint8* v98; // ebx
+  //_BYTE *v99; // edx
+  //int v100; // ecx
   uint8* v101; // ebx
   _BYTE *v102; // edx
   int v103; // ecx
@@ -35877,40 +35877,44 @@ LABEL_181:
                           }
                           break;
                         case 2:
-                          v98 = &tempSprData[begInt32Adress[1]];
-                          v99 = &beginFrameAdress[tempB3adr[1]];
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
                           HIWORD(v83x) = 0;
-                          v100 = tempPointB >> 1;
+                          tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
                             goto LABEL_224;
                           }
-                          v100++;
+                          else
+                          {
+                              tempPointBhalf++;
+                          }
                           while ( 1 )
                           {
-                            BYTE1(v83x) = *v98;
-                            v98 += begInt32Adress[2];
+                            BYTE1(v83x) = sprData[0];
+                            sprData += begInt32Adress[2];
                             if ( BYTE1(v83x) )
                             {
-                              LOBYTE(v83x) = *v99;
-                              *v99 = strPal.byte_BB934_BB924[v83x];
+                              LOBYTE(v83x) = frameAdress[0];
+                              frameAdress[0] = strPal.byte_BB934_BB924[v83x];
                             }
-                            v99 += tempB3adr[3];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v100 )
+                            tempPointBhalf--;
+                            if ( !tempPointBhalf)
                               break;
 LABEL_224:
-                            BYTE1(v83x) = *v98;
-                            v98 += *begInt32Adress;
+                            BYTE1(v83x) = sprData[0];
+                            sprData += *begInt32Adress;
                             if ( BYTE1(v83x) )
                             {
-                              LOBYTE(v83x) = *v99;
-                              *v99 = strPal.byte_BB934_BB924[v83x];
+                              LOBYTE(v83x) = frameAdress[0];
+                              frameAdress[0] = strPal.byte_BB934_BB924[v83x];
                             }
-                            v99 += tempB3adr[0];
+                            frameAdress += tempB3adr[0];
                           }
                           break;
                         case 3:
