@@ -35221,15 +35221,15 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //_BYTE *v119; // edx
   //_DWORD *v120; // esi
   //_DWORD *v121; // edi
-  uint8* v122; // ebx
-  int v123; // eax
-  _BYTE *v124; // edx
-  int v125; // ecx
-  char v126; // al
-  char v127; // al
-  uint8* v128; // ebx
+  //uint8* v122; // ebx
+  //int v123; // eax
+  //_BYTE *v124; // edx
+  //int v125; // ecx
+  //char v126; // al
+  //char v127; // al
+  //uint8* v128; // ebx
   int v129; // eax
-  _BYTE *v130; // edx
+  //_BYTE *v130; // edx
   int v131; // ecx
   int v132; // ecx
   int v133; // ecx
@@ -35762,6 +35762,7 @@ LABEL_181:
                       int32 tempPointBhalf;
                       Type_dword_0x0_0 tempZx;
                       Type_dword_0x0_0 tempZx2;
+                      char boolSprData;
 
                       switch ( dword_B5CAC_B5C9C )
                       {
@@ -36092,46 +36093,46 @@ LABEL_181:
                           while (tempPointB);
                           break;
                         case 8:
-                          v122 = &tempSprData[begInt32Adress[1]];
-                          v123 = zx2000_B5CA4_B5C94;
-                          v124 = &beginFrameAdress[tempB3adr[1]];
-                          v125 = tempPointB >> 1;
+                            sprData = &tempSprData[begInt32Adress[1]];
+                            frameAdress = &beginFrameAdress[tempB3adr[1]];
+                            tempZx.dword = zx2000_B5CA4_B5C94;
+                            tempPointBhalf = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
                             begInt32Adress += 2;
                             tempB3adr += 3;
                             goto LABEL_274;
                           }
-                          v125++;
+                          tempPointBhalf++;
                           while ( 1 )
                           {
-                            v127 = *v122;
-                            v122 += begInt32Adress[2];
-                            if ( v127 )
+                              boolSprData = sprData[0];
+                            sprData += begInt32Adress[2];
+                            if (boolSprData)
                             {
-                              LOBYTE(v123) = *v124;
-                              *v124 = strPal.fog_B7934_B7924[v123];
+                                tempZx.byte[0] = frameAdress[0];
+                              frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
                             }
-                            v124 += tempB3adr[3];
+                            frameAdress += tempB3adr[3];
                             begInt32Adress += 4;
                             tempB3adr += 6;
-                            if ( !--v125 )
+                            if ( !--tempPointBhalf)
                               break;
 LABEL_274:
-                            v126 = *v122;
-                            v122 += *begInt32Adress;
-                            if ( v126 )
+                            boolSprData = sprData[0];
+                            sprData += begInt32Adress[0];
+                            if (boolSprData)
                             {
-                              LOBYTE(v123) = *v124;
-                              *v124 = strPal.fog_B7934_B7924[v123];
+                                tempZx.byte[0] = frameAdress[0];
+                              frameAdress[0] = strPal.fog_B7934_B7924[tempZx.dword];
                             }
-                            v124 += tempB3adr[0];
+                            frameAdress += tempB3adr[0];
                           }
                           break;
                         case 9:
-                          v128 = &tempSprData[begInt32Adress[1]];
+                            sprData = &tempSprData[begInt32Adress[1]];
+                          frameAdress = &beginFrameAdress[tempB3adr[1]];
                           v129 = zx2000_B5CA4_B5C94 >> 8;
-                          v130 = &beginFrameAdress[tempB3adr[1]];
                           v131 = tempPointB >> 1;
                           if ( !(tempPointB & 1) )
                           {
@@ -36154,34 +36155,34 @@ LABEL_274:
                           if (v133 & 1)
                             goto LABEL_290;
                           begInt32Adress -= 4;
-                          for (tempB3adr -= 6; ; v130 += tempB3adr[6] )
+                          for (tempB3adr -= 6; ; frameAdress += tempB3adr[6] )
                           {
-                            v137 = *v128;
-                            v128 += begInt32Adress[6];
+                            v137 = sprData[0];
+                            sprData += begInt32Adress[6];
                             if ( v137 )
-                              *v130 = BYTE1(v129);
-                            v130 += tempB3adr[9];
+                                frameAdress[0] = BYTE1(v129);
+                            frameAdress += tempB3adr[9];
                             begInt32Adress += 8;
                             tempB3adr += 12;
                             if ( !--v132 )
                               break;
 LABEL_287:
-                            v134 = *v128;
-                            v128 += *begInt32Adress;
+                            v134 = sprData[0];
+                            sprData += *begInt32Adress;
                             if ( v134 )
-                              *v130 = BYTE1(v129);
-                            v130 += tempB3adr[0];
+                                frameAdress[0] = BYTE1(v129);
+                            frameAdress += tempB3adr[0];
 LABEL_290:
-                            v135 = *v128;
-                            v128 += begInt32Adress[2];
+                            v135 = sprData[0];
+                            sprData += begInt32Adress[2];
                             if ( v135 )
-                              *v130 = BYTE1(v129);
-                            v130 += tempB3adr[3];
+                                frameAdress[0] = BYTE1(v129);
+                            frameAdress += tempB3adr[3];
 LABEL_293:
-                            v136 = *v128;
-                            v128 += begInt32Adress[4];
+                            v136 = sprData[0];
+                            sprData += begInt32Adress[4];
                             if ( v136 )
-                              *v130 = BYTE1(v129);
+                                frameAdress[0] = BYTE1(v129);
                           }
                           break;
                         default:
