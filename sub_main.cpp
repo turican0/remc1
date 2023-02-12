@@ -35231,8 +35231,8 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v129; // eax
   //_BYTE *v130; // edx
   //int v131; // ecx
-  int v132; // ecx
-  int v133; // ecx
+  //int v132; // ecx
+  //int v133; // ecx
   char v134; // al
   char v135; // al
   char v136; // al
@@ -36075,7 +36075,7 @@ LABEL_181:
                           //HIWORD(v83x) = 0;
                           begInt32Adress += 2;
                           tempB3adr += 3;
-                          do
+                          while (tempPointB);
                           {
                               tempZx2.byte[0] = sprData[0];
                             sprData += begInt32Adress[0];
@@ -36090,7 +36090,6 @@ LABEL_181:
                             tempB3adr += 3;
                             tempPointB--;
                           }
-                          while (tempPointB);
                           break;
                         case 8:
                             sprData = &tempSprData[begInt32Adress[1]];
@@ -36146,24 +36145,33 @@ LABEL_181:
                           if ( !(tempPointB & 1) )
                           {
                             //v17 = v131 & 1;
-                            v132 = tempPointB >> 2;
+                              tempPindex = tempPointB >> 2;
                             if ((tempPointB >> 1) & 1)
                             {
-                              v132++;
+                                tempPindex++;
                               begInt32Adress -= 2;
                               tempB3adr -= 3;
                               goto LABEL_293;
                             }
-                            begInt32Adress += 2;
-                            tempB3adr += 3;
-                            goto LABEL_287;
+                            else
+                            {
+                                begInt32Adress += 2;
+                                tempB3adr += 3;
+                                goto LABEL_287;
+                            }
                           }
-                          v133 = (tempPointB >> 1)+2;
-                          //v17 = v133 & 1;
-                          v132 = v133 >> 1;
-                          if (v133 & 1)
-                            goto LABEL_290;
-                          begInt32Adress -= 4;
+                          else
+                          {
+                              tempPindex = ((tempPointB >> 1) + 2) >> 1;
+                              if (((tempPointB >> 1) + 2) & 1)
+                              {
+                                  goto LABEL_290;
+                              }
+                              else
+                              {
+                                  begInt32Adress -= 4;
+                              }
+                          }
                           for (tempB3adr -= 6; ; frameAdress += tempB3adr[6] )
                           {
                             v137 = sprData[0];
@@ -36173,11 +36181,11 @@ LABEL_181:
                             frameAdress += tempB3adr[9];
                             begInt32Adress += 8;
                             tempB3adr += 12;
-                            if ( !--v132 )
+                            if ( !--tempPindex)
                               break;
 LABEL_287:
                             v134 = sprData[0];
-                            sprData += *begInt32Adress;
+                            sprData += begInt32Adress[0];
                             if ( v134 )
                                 frameAdress[0] = tempZx.byte[1];
                             frameAdress += tempB3adr[0];
