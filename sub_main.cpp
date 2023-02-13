@@ -35111,7 +35111,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v9; // edi
   //int v10; // ecx
   //_DWORD *v11; // ebx
-  char *v12; // ebx
+  //char *v12; // ebx
   int v13; // eax
   //_DWORD *v14; // esi
   _BYTE *v15; // edi
@@ -35271,7 +35271,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   int k; // [esp+0h] [ebp-50h]
   //int v170; // [esp+0h] [ebp-50h]
   //int v171; // [esp+0h] [ebp-50h]
-  int v172; // [esp+10h] [ebp-40h]
+  //int v172; // [esp+10h] [ebp-40h]
   //int v173; // [esp+14h] [ebp-3Ch]
   //int v174; // [esp+18h] [ebp-38h]
   //int v175; // [esp+1Ch] [ebp-34h]
@@ -35284,7 +35284,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v182; // [esp+38h] [ebp-18h]
   //_DWORD *v183; // [esp+3Ch] [ebp-14h]
   //int v184; // [esp+40h] [ebp-10h]
-  uint8* v185; // [esp+44h] [ebp-Ch]
+  //uint8* v185; // [esp+44h] [ebp-Ch]
   //uint8* v186; // [esp+48h] [ebp-8h]
 
   //debug
@@ -35343,6 +35343,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   Type_32bitAxis* points;
   uint8* beginFrameAdress;
+  uint8* beginFrameAdress2;
   int32 someXYtemp;
 
   int32 cosRollY;
@@ -35363,6 +35364,8 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   int32 hwIndex;
   int32 hwIndex2;
+
+  int32 yDivY;
 
   if ( !byte_B5D3E_B5D2E )
   {
@@ -36455,7 +36458,7 @@ LABEL_16:
   if ( heightViewPort_93ADC <= yRot_B5CB4_B5CA4 )
     goto LABEL_404;
   //v9 = scaledSprY_B5CC8_B5CB8;
-  v172 = (sprY_B5CCC_B5CCC << 16) / scaledSprY_B5CC8_B5CB8;
+  yDivY = (sprY_B5CCC_B5CCC << 16) / scaledSprY_B5CC8_B5CB8;
   if ( -yRot_B5CB4_B5CA4 < 0 || yRot_B5CB4_B5CA4 == 0 )
   {
     dword_B5CC0_B5CB0 = 0;
@@ -36468,7 +36471,7 @@ LABEL_16:
   scaledSprY_B5CC8_B5CB8 += yRot_B5CB4_B5CA4;
   if (scaledSprY_B5CC8_B5CB8 <= 0 )
     goto LABEL_404;
-  dword_B5CC0_B5CB0 = -yRot_B5CB4_B5CA4 * v172;
+  dword_B5CC0_B5CB0 = -yRot_B5CB4_B5CA4 * yDivY;
   yRot_B5CB4_B5CA4 = 0;
   if ( heightViewPort_93ADC <= scaledSprY_B5CC8_B5CB8)
 LABEL_23:
@@ -36485,18 +36488,18 @@ LABEL_24:
     begInt32Adress += 2;
     dword_B5CC4_B5CB4 += signXdivsprX;
   }
-  v185 = &beginFrame_93ACC[pitchViewPort_93AD4 * yRot_B5CB4_B5CA4 + xRot_B5CB8_B5CA8];
+  beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * yRot_B5CB4_B5CA4 + xRot_B5CB8_B5CA8];
   if ( !scaledSprY_B5CC8_B5CB8 )
     goto LABEL_404;
   do
-  {
-    v12 = (char *)(*(_DWORD *)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 36964) + sprData_B5CB0_B5CA0 + sprX_B5CD0_B5CC0 * (dword_B5CC0_B5CB0 >> 16));
+  {    
     v13 = dword_B5CAC_B5C9C;
     points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960];
+    beginFrameAdress2 = &sprData_B5CB0_B5CA0[points4[1] + sprX_B5CD0_B5CC0 * (dword_B5CC0_B5CB0 >> 16)];
     switch ( dword_B5CAC_B5C9C )
     {
       case 0:
-        v15 = (_BYTE *)v185;
+        v15 = beginFrameAdress;
         v16 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36506,7 +36509,7 @@ LABEL_24:
           {
             v18++;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
-            v15 = (_BYTE *)(v185 - 2);
+            v15 = &beginFrameAdress[- 2];
             goto LABEL_42;
           }
           points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
@@ -36518,24 +36521,24 @@ LABEL_24:
         if (!(v19 & 1))
         {
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
-          v15 = (_BYTE *)(v185 - 3);
+          v15 = &beginFrameAdress[ - 3];
           goto LABEL_44;
         }
-        v15 = (_BYTE *)(v185 - 1);
+        v15 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          v21 = v12[0];
-          v12 += points4[2];
+          v21 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( v21 )
             v15[1] = v21;
 LABEL_42:
-          v22 = v12[0];
-          v12 += points4[4];
+          v22 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[4];
           if ( v22 )
             v15[2] = v22;
 LABEL_44:
-          v23 = v12[0];
-          v12 += points4[6];
+          v23 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[6];
           if ( v23 )
             v15[3] = v23;
           v15 += 4;
@@ -36543,14 +36546,14 @@ LABEL_44:
           if ( !--v18 )
             break;
 LABEL_38:
-          v20 = v12[0];
-          v12 += points4[0];
+          v20 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( v20 )
             *v15 = v20;
         }
         break;
       case 1:
-        v24 = (_BYTE *)v185;
+        v24 = beginFrameAdress;
         v25 = zx2000_B5CA4_B5C94;
         v26 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36559,11 +36562,11 @@ LABEL_38:
           goto LABEL_51;
         }
         v26++;
-        v24 = (_BYTE *)(v185 - 1);
+        v24 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          LOBYTE(v25) = *v12;
-          v12 += points4[2];
+          LOBYTE(v25) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( (_BYTE)v25 )
             v24[1] = strPal.fog_B7934_B7924[v25];
           v24 += 2;
@@ -36571,14 +36574,14 @@ LABEL_38:
           if ( !--v26 )
             break;
 LABEL_51:
-          LOBYTE(v25) = *v12;
-          v12 += points4[0];
+          LOBYTE(v25) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( (_BYTE)v25 )
             *v24 = strPal.fog_B7934_B7924[v25];
         }
         break;
       case 2:
-        v27 = (_BYTE *)v185;
+        v27 = beginFrameAdress;
         HIWORD(v28) = 0;
         v29 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36587,11 +36590,11 @@ LABEL_51:
           goto LABEL_60;
         }
         v29++;
-        v27 = (_BYTE *)(v185 - 1);
+        v27 = &beginFrameAdress[- 1];
         while ( 1 )
         {
-          BYTE1(v28) = *v12;
-          v12 += points4[2];
+          BYTE1(v28) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( BYTE1(v28) )
           {
             LOBYTE(v28) = v27[1];
@@ -36602,8 +36605,8 @@ LABEL_51:
           if ( !--v29 )
             break;
 LABEL_60:
-          BYTE1(v28) = *v12;
-          v12 += points4[0];
+          BYTE1(v28) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( BYTE1(v28) )
           {
             LOBYTE(v28) = *v27;
@@ -36612,7 +36615,7 @@ LABEL_60:
         }
         break;
       case 3:
-        v30 = (_BYTE *)v185;
+        v30 = beginFrameAdress;
         HIWORD(v31) = 0;
         v32 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36621,11 +36624,11 @@ LABEL_60:
           goto LABEL_69;
         }
         v32++;
-        v30 = (_BYTE *)(v185 - 1);
+        v30 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          LOBYTE(v31) = *v12;
-          v12 += points4[2];
+          LOBYTE(v31) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( (_BYTE)v31 )
           {
             BYTE1(v31) = v30[1];
@@ -36636,8 +36639,8 @@ LABEL_60:
           if ( !--v32 )
             break;
 LABEL_69:
-          LOBYTE(v31) = *v12;
-          v12 += points4[0];
+          LOBYTE(v31) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( (_BYTE)v31 )
           {
             BYTE1(v31) = *v30;
@@ -36646,7 +36649,7 @@ LABEL_69:
         }
         break;
       case 4:
-        v33 = (_BYTE *)v185;
+        v33 = beginFrameAdress;
         BYTE1(v13) = dword_B5CAC_B5C9C;
         v34 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36655,11 +36658,11 @@ LABEL_69:
           goto LABEL_78;
         }
         v34++;
-        v33 = (_BYTE *)(v185 - 1);
+        v33 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          LOBYTE(v13) = *v12;
-          v12 += points4[2];
+          LOBYTE(v13) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( (_BYTE)v13 )
             v33[1] = strPal.byte_BB934_BB924[v13];
           v33 += 2;
@@ -36667,14 +36670,14 @@ LABEL_69:
           if ( !--v34 )
             break;
 LABEL_78:
-          LOBYTE(v13) = *v12;
-          v12 += points4[0];
+          LOBYTE(v13) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( (_BYTE)v13 )
             *v33 = strPal.byte_BB934_BB924[v13];
         }
         break;
       case 5:
-        v35 = (_BYTE *)v185;
+        v35 = beginFrameAdress;
         v36 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36682,11 +36685,11 @@ LABEL_78:
           goto LABEL_87;
         }
         v36++;
-        v35 = (_BYTE *)(v185 - 1);
+        v35 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          BYTE1(v13) = *v12;
-          v12 += points4[2];
+          BYTE1(v13) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( BYTE1(v13) )
             v35[1] = strPal.byte_BB934_BB924[v13];
           v35 += 2;
@@ -36694,14 +36697,14 @@ LABEL_78:
           if ( !--v36 )
             break;
 LABEL_87:
-          BYTE1(v13) = *v12;
-          v12 += points4[0];
+          BYTE1(v13) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( BYTE1(v13) )
             *v35 = strPal.byte_BB934_BB924[v13];
         }
         break;
       case 6:
-        v37 = (_BYTE *)v185;
+        v37 = beginFrameAdress;
         v38 = zx2000_B5CA4_B5C94;
         HIWORD(v39) = 0;
         v40 = scaledSprX_B5CA8_B5C98 >> 1;
@@ -36711,11 +36714,11 @@ LABEL_87:
           goto LABEL_96;
         }
         v40++;
-        v37 = (_BYTE *)(v185 - 1);
+        v37 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          BYTE1(v39) = *v12;
-          v12 += points4[2];
+          BYTE1(v39) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( BYTE1(v39) )
           {
             LOBYTE(v39) = v37[1];
@@ -36727,8 +36730,8 @@ LABEL_87:
           if ( !--v40 )
             break;
 LABEL_96:
-          BYTE1(v39) = *v12;
-          v12 += points4[0];
+          BYTE1(v39) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( BYTE1(v39) )
           {
             LOBYTE(v39) = *v37;
@@ -36738,7 +36741,7 @@ LABEL_96:
         }
         break;
       case 7:
-        v41 = (_BYTE *)v185;
+        v41 = beginFrameAdress;
         v42 = zx2000_B5CA4_B5C94;
         HIWORD(v43) = 0;
         v44 = scaledSprX_B5CA8_B5C98 >> 1;
@@ -36748,11 +36751,11 @@ LABEL_96:
           goto LABEL_105;
         }
         v44++;
-        v41 = (_BYTE *)(v185 - 1);
+        v41 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          LOBYTE(v43) = *v12;
-          v12 += points4[2];
+          LOBYTE(v43) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( (_BYTE)v43 )
           {
             BYTE1(v43) = v41[1];
@@ -36764,8 +36767,8 @@ LABEL_96:
           if ( !--v44 )
             break;
 LABEL_105:
-          LOBYTE(v43) = *v12;
-          v12 += points4[0];
+          LOBYTE(v43) = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( (_BYTE)v43 )
           {
             BYTE1(v43) = *v41;
@@ -36775,7 +36778,7 @@ LABEL_105:
         }
         break;
       case 9:
-        v45 = (_BYTE *)v185;
+        v45 = beginFrameAdress;
         v46 = zx2000_B5CA4_B5C94 >> 8;
         v47 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
@@ -36786,7 +36789,7 @@ LABEL_105:
           {
             v48++;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
-            v45 = (_BYTE *)(v185 - 2);
+            v45 = &beginFrameAdress[ - 2];
             goto LABEL_122;
           }
           points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
@@ -36798,24 +36801,24 @@ LABEL_105:
         if (!(v49 & 1))
         {
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
-          v45 = (_BYTE *)(v185 - 3);
+          v45 = &beginFrameAdress[ - 3];
           goto LABEL_124;
         }
-        v45 = (_BYTE *)(v185 - 1);
+        v45 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          v51 = *v12;
-          v12 += points4[2];
+          v51 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[2];
           if ( v51 )
             v45[1] = BYTE1(v46);
 LABEL_122:
-          v52 = *v12;
-          v12 += points4[4];
+          v52 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[4];
           if ( v52 )
             v45[2] = BYTE1(v46);
 LABEL_124:
-          v53 = *v12;
-          v12 += points4[6];
+          v53 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[6];
           if ( v53 )
             v45[3] = BYTE1(v46);
           v45 += 4;
@@ -36823,8 +36826,8 @@ LABEL_124:
           if ( !--v48 )
             break;
 LABEL_118:
-          v50 = *v12;
-          v12 += points4[0];
+          v50 = beginFrameAdress2[0];
+          beginFrameAdress2 += points4[0];
           if ( v50 )
             *v45 = BYTE1(v46);
         }
@@ -36833,8 +36836,8 @@ LABEL_118:
         break;
     }
     result = pitchViewPort_93AD4;
-    dword_B5CC0_B5CB0 += v172;
-    v185 += pitchViewPort_93AD4;
+    dword_B5CC0_B5CB0 += yDivY;
+    beginFrameAdress += pitchViewPort_93AD4;
     scaledSprY_B5CC8_B5CB8--;
   }
   while ( scaledSprY_B5CC8_B5CB8 );
