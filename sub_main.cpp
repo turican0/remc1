@@ -35278,7 +35278,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v176; // [esp+20h] [ebp-30h]
   _DWORD *v177; // [esp+24h] [ebp-2Ch]
   //int v178; // [esp+28h] [ebp-28h]
-  int v179; // [esp+2Ch] [ebp-24h]
+  //int v179; // [esp+2Ch] [ebp-24h]
   //int v180; // [esp+30h] [ebp-20h]
   //int v181; // [esp+34h] [ebp-1Ch]
   //int v182; // [esp+38h] [ebp-18h]
@@ -35744,7 +35744,7 @@ LABEL_181:
                     begInt32Adress[-2] = (dword_B5CC4_B5CB4 >> 16)- begInt32Adress[-3];
                     dword_B5CC4_B5CB4 += ((signedSprX_B5CBC_B5CAC << 16) / scScaledX);
                   }
-                  int32 tempYdivSC = yDivSC;
+                  tempYdivSC = yDivSC;
                   points = (Type_32bitAxis*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[45920];
                   for ( j = yDivSC == 0; !j; j = tempYdivSC-- == 1 )
                   {
@@ -36297,7 +36297,7 @@ LABEL_311:
               if (yDivSC <= 0 )
                 goto LABEL_404;
             }
-            v179 = yDivSC;
+            tempYdivSC = yDivSC;
             tempPoint1 = 9999999;
             if ( !yDivSC)
             {
@@ -36386,7 +36386,8 @@ LABEL_322:
               points->b = whViewPortB_B5D34_B5D24 - points->a;
           points++;
           someXYtemp += cosRollY;
-          if ( !--v179 )
+          tempYdivSC--;
+          if ( !tempYdivSC)
             goto LABEL_325;
         }
         points->c = 0;
