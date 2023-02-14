@@ -35114,7 +35114,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //char *v12; // ebx
   //int v13; // eax
   //_DWORD *v14; // esi
-  _BYTE *v15; // edi
+  //_BYTE *v15; // edi
   int v16; // ecx
   //char v17; // cf
   int v18; // ecx
@@ -36500,7 +36500,7 @@ LABEL_24:
     switch ( dword_B5CAC_B5C9C )
     {
       case 0:
-        v15 = beginFrameAdress;
+          beginFrameAdress2 = beginFrameAdress;
         v16 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36510,7 +36510,7 @@ LABEL_24:
           {
             v18++;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
-            v15 = &beginFrameAdress[- 2];
+            beginFrameAdress2 = &beginFrameAdress[- 2];
             goto LABEL_42;
           }
           points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
@@ -36522,27 +36522,27 @@ LABEL_24:
         if (!(v19 & 1))
         {
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
-          v15 = &beginFrameAdress[ - 3];
+            beginFrameAdress2 = &beginFrameAdress[ - 3];
           goto LABEL_44;
         }
-        v15 = &beginFrameAdress[ - 1];
+        beginFrameAdress2 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
           v21 = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
           if ( v21 )
-            v15[1] = v21;
+              beginFrameAdress2[1] = v21;
 LABEL_42:
           v22 = beginFrameAdress2[0];
           beginFrameAdress2 += points4[4];
           if ( v22 )
-            v15[2] = v22;
+              beginFrameAdress2[2] = v22;
 LABEL_44:
           v23 = beginFrameAdress2[0];
           beginFrameAdress2 += points4[6];
           if ( v23 )
-            v15[3] = v23;
-          v15 += 4;
+              beginFrameAdress2[3] = v23;
+          beginFrameAdress2 += 4;
           points4 += 8;
           if ( !--v18 )
             break;
@@ -36550,7 +36550,7 @@ LABEL_38:
           v20 = beginFrameAdress2[0];
           beginFrameAdress2 += points4[0];
           if ( v20 )
-            *v15 = v20;
+              beginFrameAdress2[0] = v20;
         }
         break;
       case 1:
