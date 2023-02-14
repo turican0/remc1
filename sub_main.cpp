@@ -35112,7 +35112,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v10; // ecx
   //_DWORD *v11; // ebx
   //char *v12; // ebx
-  int v13; // eax
+  //int v13; // eax
   //_DWORD *v14; // esi
   _BYTE *v15; // edi
   int v16; // ecx
@@ -36491,9 +36491,10 @@ LABEL_24:
   beginFrameAdress = &beginFrame_93ACC[pitchViewPort_93AD4 * yRot_B5CB4_B5CA4 + xRot_B5CB8_B5CA8];
   if ( !scaledSprY_B5CC8_B5CB8 )
     goto LABEL_404;
+  Type_dword_0x0_0 tempDw;
   do
-  {    
-    v13 = dword_B5CAC_B5C9C;
+  { 
+    tempDw.dword = dword_B5CAC_B5C9C;
     points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960];
     beginFrameAdress2 = &sprData_B5CB0_B5CA0[points4[1] + sprX_B5CD0_B5CC0 * (dword_B5CC0_B5CB0 >> 16)];
     switch ( dword_B5CAC_B5C9C )
@@ -36650,7 +36651,7 @@ LABEL_69:
         break;
       case 4:
         v33 = beginFrameAdress;
-        BYTE1(v13) = dword_B5CAC_B5C9C;
+        tempDw.byte[1] = dword_B5CAC_B5C9C;
         v34 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
@@ -36661,19 +36662,19 @@ LABEL_69:
         v33 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          LOBYTE(v13) = beginFrameAdress2[0];
+            tempDw.byte[0] = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
-          if ( (_BYTE)v13 )
-            v33[1] = strPal.byte_BB934_BB924[v13];
+          if (tempDw.byte[0])
+            v33[1] = strPal.byte_BB934_BB924[tempDw.dword];
           v33 += 2;
           points4 += 4;
           if ( !--v34 )
             break;
 LABEL_78:
-          LOBYTE(v13) = beginFrameAdress2[0];
+          tempDw.byte[0] = beginFrameAdress2[0];
           beginFrameAdress2 += points4[0];
-          if ( (_BYTE)v13 )
-            *v33 = strPal.byte_BB934_BB924[v13];
+          if (tempDw.byte[0])
+            *v33 = strPal.byte_BB934_BB924[tempDw.dword];
         }
         break;
       case 5:
@@ -36688,19 +36689,19 @@ LABEL_78:
         v35 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          BYTE1(v13) = beginFrameAdress2[0];
+            tempDw.byte[1] = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
-          if ( BYTE1(v13) )
-            v35[1] = strPal.byte_BB934_BB924[v13];
+          if (tempDw.byte[1])
+            v35[1] = strPal.byte_BB934_BB924[tempDw.dword];
           v35 += 2;
           points4 += 4;
           if ( !--v36 )
             break;
 LABEL_87:
-          BYTE1(v13) = beginFrameAdress2[0];
+          tempDw.byte[1] = beginFrameAdress2[0];
           beginFrameAdress2 += points4[0];
-          if ( BYTE1(v13) )
-            *v35 = strPal.byte_BB934_BB924[v13];
+          if (tempDw.byte[1])
+            *v35 = strPal.byte_BB934_BB924[tempDw.dword];
         }
         break;
       case 6:
