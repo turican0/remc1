@@ -35115,14 +35115,14 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   //int v13; // eax
   //_DWORD *v14; // esi
   //_BYTE *v15; // edi
-  int v16; // ecx
+  //int v16; // ecx
   //char v17; // cf
   int v18; // ecx
-  int v19; // ecx
-  char v20; // al
-  char v21; // al
-  char v22; // al
-  char v23; // al
+  //int v19; // ecx
+  //char v20; // al
+  //char v21; // al
+  //char v22; // al
+  //char v23; // al
   _BYTE *v24; // edi
   int v25; // eax
   int v26; // ecx
@@ -36492,6 +36492,7 @@ LABEL_24:
   if ( !scaledSprY_B5CC8_B5CB8 )
     goto LABEL_404;
   Type_dword_0x0_0 tempDw;
+  uint8 tempBeginFrameAdress;
   do
   { 
     tempDw.dword = dword_B5CAC_B5C9C;
@@ -36501,12 +36502,12 @@ LABEL_24:
     {
       case 0:
           beginFrameAdress2 = beginFrameAdress;
-        v16 = scaledSprX_B5CA8_B5C98 >> 1;
+        //v16 = scaledSprX_B5CA8_B5C98 >> 1;
         if ( !(scaledSprX_B5CA8_B5C98 & 1) )
         {
           //v17 = v16 & 1;
           v18 = scaledSprX_B5CA8_B5C98 >> 2;
-          if (v16 & 1)
+          if ((scaledSprX_B5CA8_B5C98 >> 1) & 1)
           {
             v18++;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
@@ -36516,10 +36517,10 @@ LABEL_24:
           points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
           goto LABEL_38;
         }
-        v19 = v16 + 2;
+        //v19 = (scaledSprX_B5CA8_B5C98 >> 1) + 2;
         //v17 = v19 & 1;
-        v18 = v19 >> 1;
-        if (!(v19 & 1))
+        v18 = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+        if (!(((scaledSprX_B5CA8_B5C98 >> 1) + 2) & 1))
         {
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
             beginFrameAdress2 = &beginFrameAdress[ - 3];
@@ -36528,29 +36529,29 @@ LABEL_24:
         beginFrameAdress2 = &beginFrameAdress[ - 1];
         while ( 1 )
         {
-          v21 = beginFrameAdress2[0];
+          tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
-          if ( v21 )
-              beginFrameAdress2[1] = v21;
+          if (tempBeginFrameAdress)
+              beginFrameAdress2[1] = tempBeginFrameAdress;
 LABEL_42:
-          v22 = beginFrameAdress2[0];
+          tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[4];
-          if ( v22 )
-              beginFrameAdress2[2] = v22;
+          if (tempBeginFrameAdress)
+              beginFrameAdress2[2] = tempBeginFrameAdress;
 LABEL_44:
-          v23 = beginFrameAdress2[0];
+          tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[6];
-          if ( v23 )
-              beginFrameAdress2[3] = v23;
+          if (tempBeginFrameAdress)
+              beginFrameAdress2[3] = tempBeginFrameAdress;
           beginFrameAdress2 += 4;
           points4 += 8;
           if ( !--v18 )
             break;
 LABEL_38:
-          v20 = beginFrameAdress2[0];
+          tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[0];
-          if ( v20 )
-              beginFrameAdress2[0] = v20;
+          if (tempBeginFrameAdress)
+              beginFrameAdress2[0] = tempBeginFrameAdress;
         }
         break;
       case 1:
