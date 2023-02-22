@@ -35650,17 +35650,24 @@ LABEL_354:
             //v163 = xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
             points = (Type_32bitAxis*)(begBscreen_AE3FC_AE3EC_26C3FC_26C3EC + 45920);
             yRotMinusSinXrot = xRot_B5CB8_B5CA8 - ((sinDivCos_B5CF4_B5CE4 * (whViewPortB_B5D34_B5D24 - yRot_B5CB4_B5CA4)) >> 16);
-            if (yRotMinusSinXrot >= hwViewPort_B5D2C_B5D1C )
-              goto LABEL_392;
-            //v164 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
-            yDivSC -= hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
-            if (yDivSC <= 0 )
-                return;
-            dword_B5CC0_B5CB0 += (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot) * yDivYdivSC;
-            //v165 = tempRot - sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
-            yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
-            tempRot -= sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
-LABEL_392:
+            if (yRotMinusSinXrot < hwViewPort_B5D2C_B5D1C)
+                //goto LABEL_392;
+            //{
+            //    beginFrameAdress = &beginFrame_93ACC[yRotMinusSinXrot + pitchViewPort_93AD4 * (whViewPortB_B5D34_B5D24 - 1)];
+            //    goto LABEL_147;
+            //}
+            //else
+            {
+                //v164 = hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
+                yDivSC -= hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot;
+                if (yDivSC <= 0)
+                    return;
+                dword_B5CC0_B5CB0 += (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot) * yDivYdivSC;
+                //v165 = tempRot - sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
+                yRotMinusSinXrot = hwViewPort_B5D2C_B5D1C;
+                tempRot -= sinY * (hwViewPort_B5D2C_B5D1C - yRotMinusSinXrot);
+                //LABEL_392:
+            }
             beginFrameAdress = &beginFrame_93ACC[yRotMinusSinXrot + pitchViewPort_93AD4 * (whViewPortB_B5D34_B5D24 - 1)];
 LABEL_147:
             //v66 = whViewPortA_B5D30_B5D20 - hwViewPort_B5D2C_B5D1C;
