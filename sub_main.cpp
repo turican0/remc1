@@ -35372,17 +35372,36 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
 
   if ( !byte_B5D3E_B5D2E )
   {
-    if ( a1 )//1 2 3 4
-    {
-      if ( a1 <= 1 )//1
+    //if ( a1 )//1 2 3 4
+    //{
+      switch (a1)
+      {
+      case 0:
+          xRot_B5CB8_B5CA8 -= (cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 17;
+          yRot_B5CB4_B5CA4 -= -(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17;
+          break;
+      case 1:
+          xRot_B5CB8_B5CA8 -= (sin_B5CD4_B5CC4 * scaledSprY_B5CC8_B5CB8 + ((cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16;
+          yRot_B5CB4_B5CA4 -= (cos_B5CE8_B5CD8 * scaledSprY_B5CC8_B5CB8 - ((sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16;
+
+          break;
+      }
+      /*
+          if (a1 == 0)
+          {
+              xRot_B5CB8_B5CA8 -= (cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 17;
+              yRot_B5CB4_B5CA4 -= -(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17;
+          }
+          else
+      if ( a1 == 1 )//1
       {
         xRot_B5CB8_B5CA8 -= (sin_B5CD4_B5CC4 * scaledSprY_B5CC8_B5CB8 + ((cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16;
         yRot_B5CB4_B5CA4 -= (cos_B5CE8_B5CD8 * scaledSprY_B5CC8_B5CB8 - ((sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 1)) >> 16;
         //goto LABEL_137;
-      }
+      }*/
       //if ( a1 != 2 )//1
-      {
-LABEL_137:
+      //{
+//LABEL_137:
         cosScaledX = (cosRoll_B5CE0_B5CD0 * scaledSprX_B5CA8_B5C98) >> 16;
         tempCosScaledSprY = scaledSprY_B5CC8_B5CB8 << 16;
         tempSprY = sprY_B5CCC_B5CCC << 16;
@@ -36410,13 +36429,15 @@ LABEL_322:
 //LABEL_321:
         tempPoint1 = points->c;
         goto LABEL_322;
-      }
-    }
+      //}
+    //}
+    /*
     //v55 = yRot_B5CB4_B5CA4 - (-(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17);
     xRot_B5CB8_B5CA8 -= (cos_B5CE8_B5CD8 * scaledSprX_B5CA8_B5C98) >> 17;
     //goto LABEL_136;
     yRot_B5CB4_B5CA4 -= -(sin_B5CD4_B5CC4 * scaledSprX_B5CA8_B5C98) >> 17;
     goto LABEL_137;
+    */
   }
   int32 scaledXY = (scaledSprY_B5CC8_B5CB8 + scaledSprX_B5CA8_B5C98) >> 2;
   if ( a1 )
