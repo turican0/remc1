@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Piano</title>
+    <style>
+      /* Styling for the piano keys */
+      .piano-key {
+        width: 50px;
+        height: 200px;
+        background-color: white;
+        border: 1px solid black;
+        display: inline-block;
+        margin-right: -1px;
+        position: relative;
+      }
+      
+      .piano-key.black {
+        background-color: black;
+        width: 30px;
+        height: 120px;
+        margin-top: -120px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Piano</h1>
+    <div id="piano">
+      <div class="piano-key white" data-note="5"></div>
+      <div class="piano-key black" style="margin-left: 35px;" data-note="5.5"></div>
+      <div class="piano-key white" data-note="6"></div>
+      <div class="piano-key black" style="margin-left: 85px;" data-note="6.5"></div>
+      <div class="piano-key white" data-note="7"></div>
+      <div class="piano-key white" data-note="8"></div>
+      <div class="piano-key black" style="margin-left: 35px;" data-note="8.5"></div>
+      <div class="piano-key white" data-note="9"></div>
+      <div class="piano-key black" style="margin-left: 85px;" data-note="9.5"></div>
+      <div class="piano-key white" data-note="10"></div>
+      <div class="piano-key black" style="margin-left: 35px;" data-note="10.5"></div>
+      <div class="piano-key white" data-note="11"></div>
+    </div>
+    <script>
+      // Get all the piano keys
+      const keys = document.querySelectorAll('.piano-key');
+      
+      // Map of key codes to notes
+      const keyMap = {
+        '65': '4',
+        '87': '5.5',
+        '83': '5',
+        '69': '6.5',
+        '68': '6',
+        '70': '7',
+        '84': '7.5',
+        '71': '8',
+        '89': '8.5',
+        '72': '9',
+        '85': '9.5',
+        '74': '10'
+      };
+      
+      // Play a note when a piano key is clicked or a key is pressed
+      function playNote() {
+        const note = this.dataset.note;
+        const audio = new Audio(`https://awiclass.monoame.com/pianosound/set/${note}.wav`);
+        audio.play();
+      }
+      
+      // Add event listeners to the piano keys
+      keys.forEach(key => {
+        key.addEventListener('mousedown', playNote);
+        key.addEventListener('touchstart', playNote);
+      });
+      
+      // Play a note when a key is pressed
+      document.addEventListener('keydown', event => {
+        const note = keyMap[event.keyCode];
+        if (note) {
+          const pianoKey = document.querySelector(`.piano-key[data-note="${note}"]`);
+          pianoKey.classList.add('active');
+const audio = new Audio(`https://awiclass.monoame.com/pianosound/set/${note}.wav`);
+audio.play();
+}
+});
+
+  // Remove the 'active' class when a key is released
+  document.addEventListener('keyup', event => {
+    const note = keyMap[event.keyCode];
+    if (note) {
+      const pianoKey = document.querySelector(`.piano-key[data-note="${note}"]`);
+      pianoKey.classList.remove('active');
+    }
+  });
+</script>
+  </body>
+</html>
