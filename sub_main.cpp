@@ -35354,7 +35354,7 @@ void sub_2C410_2C450(unsigned int a1)//1FD410_
   uint32* begInt32Adress;
   int32 yCount;
 
-  int32 tempViewPort;
+  //int32 tempViewPort;
 
   int32 signXdivsprX;
 
@@ -36408,8 +36408,16 @@ LABEL_325:
         while ( 1 )
         {
           //v143 = someXYtemp >> 16;
-          if (someXYtemp >> 16 >= 0 )
-            break;
+            if (someXYtemp >> 16 >= 0)
+            {
+                points->c = 0;
+                points->a = someXYtemp >> 16;
+                //v144 = 0;
+                points->b = scScaledX;
+                //LABEL_321:
+                tempPoint1 = points->c;
+                goto LABEL_322;
+            }
           //v144 = -v143;
           points->a = 0;
           points->b = scScaledX - (-(someXYtemp >> 16));
@@ -36428,13 +36436,6 @@ LABEL_322:
           if ( !tempYdivSC)
             goto LABEL_325;
         }
-        points->c = 0;
-        points->a = someXYtemp >> 16;
-        //v144 = 0;
-        points->b = scScaledX;
-//LABEL_321:
-        tempPoint1 = points->c;
-        goto LABEL_322;
       //}
     //}
     /*
@@ -36461,7 +36462,7 @@ LABEL_322:
       yRot_B5CB4_B5CA4 += scaledCosXY - scaledXY;
     }
   }
-  tempViewPort = widthViewPort_93AD8;
+  //tempViewPort = widthViewPort_93AD8;
   if ( widthViewPort_93AD8 <= xRot_B5CB8_B5CA8 )
       return;
   //v5 = scaledSprX_B5CA8_B5C98;
@@ -36469,25 +36470,30 @@ LABEL_322:
   if ( -xRot_B5CB8_B5CA8 < 0 || xRot_B5CB8_B5CA8 == 0 )
   {
     dword_B5CC4_B5CB4 = 0;
-    if ( scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8 - widthViewPort_93AD8 <= 0 )
-      goto LABEL_16;
-    tempViewPort = widthViewPort_93AD8 - xRot_B5CB8_B5CA8;
-    //goto LABEL_15;
-//LABEL_15:
-    scaledSprX_B5CA8_B5C98 = tempViewPort;
-    goto LABEL_16;
+    if (scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8 - widthViewPort_93AD8 > 0)
+        //goto LABEL_16;
+    {
+        //tempViewPort = widthViewPort_93AD8 - xRot_B5CB8_B5CA8;
+        //goto LABEL_15;
+    //LABEL_15:
+        scaledSprX_B5CA8_B5C98 = widthViewPort_93AD8 - xRot_B5CB8_B5CA8;
+    }
+    //goto LABEL_16;
   }
-  //v7 = scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8;
-  scaledSprX_B5CA8_B5C98 += xRot_B5CB8_B5CA8;
-  if (scaledSprX_B5CA8_B5C98 <= 0 )
-      return;
-  dword_B5CC4_B5CB4 = signXdivsprX * -xRot_B5CB8_B5CA8;
-  xRot_B5CB8_B5CA8 = 0;
-  if ( widthViewPort_93AD8 <= scaledSprX_B5CA8_B5C98)
-//LABEL_15:
-    scaledSprX_B5CA8_B5C98 = tempViewPort;
-LABEL_16:
-    tempViewPort = heightViewPort_93ADC;
+  else
+  {
+      //v7 = scaledSprX_B5CA8_B5C98 + xRot_B5CB8_B5CA8;
+      scaledSprX_B5CA8_B5C98 += xRot_B5CB8_B5CA8;
+      if (scaledSprX_B5CA8_B5C98 <= 0)
+          return;
+      dword_B5CC4_B5CB4 = signXdivsprX * -xRot_B5CB8_B5CA8;
+      xRot_B5CB8_B5CA8 = 0;
+      if (widthViewPort_93AD8 <= scaledSprX_B5CA8_B5C98)
+          //LABEL_15:
+          scaledSprX_B5CA8_B5C98 = widthViewPort_93AD8;
+  }
+//LABEL_16:
+    //tempViewPort = heightViewPort_93ADC;
   if ( heightViewPort_93ADC <= yRot_B5CB4_B5CA4 )
       return;
   //v9 = scaledSprY_B5CC8_B5CB8;
@@ -36495,24 +36501,27 @@ LABEL_16:
   if ( -yRot_B5CB4_B5CA4 < 0 || yRot_B5CB4_B5CA4 == 0 )
   {
     dword_B5CC0_B5CB0 = 0;
-    if ( yRot_B5CB4_B5CA4 + scaledSprY_B5CC8_B5CB8 - heightViewPort_93ADC <= 0 )
-      goto LABEL_24;
-    tempViewPort = heightViewPort_93ADC - yRot_B5CB4_B5CA4;
+    if ( yRot_B5CB4_B5CA4 + scaledSprY_B5CC8_B5CB8 - heightViewPort_93ADC > 0 )
+      //goto LABEL_24;
+    //tempViewPort = heightViewPort_93ADC - yRot_B5CB4_B5CA4;
     //goto LABEL_23;
     //LABEL_23:
-    scaledSprY_B5CC8_B5CB8 = tempViewPort;
-    goto LABEL_24;
+    scaledSprY_B5CC8_B5CB8 = heightViewPort_93ADC - yRot_B5CB4_B5CA4;
+    //goto LABEL_24;
   }
-  //v10 = scaledSprY_B5CC8_B5CB8 + yRot_B5CB4_B5CA4;
-  scaledSprY_B5CC8_B5CB8 += yRot_B5CB4_B5CA4;
-  if (scaledSprY_B5CC8_B5CB8 <= 0 )
-      return;
-  dword_B5CC0_B5CB0 = -yRot_B5CB4_B5CA4 * yDivY;
-  yRot_B5CB4_B5CA4 = 0;
-  if ( heightViewPort_93ADC <= scaledSprY_B5CC8_B5CB8)
-//LABEL_23:
-    scaledSprY_B5CC8_B5CB8 = tempViewPort;
-LABEL_24:
+  else
+  {
+      //v10 = scaledSprY_B5CC8_B5CB8 + yRot_B5CB4_B5CA4;
+      scaledSprY_B5CC8_B5CB8 += yRot_B5CB4_B5CA4;
+      if (scaledSprY_B5CC8_B5CB8 <= 0)
+          return;
+      dword_B5CC0_B5CB0 = -yRot_B5CB4_B5CA4 * yDivY;
+      yRot_B5CB4_B5CA4 = 0;
+      if (heightViewPort_93ADC <= scaledSprY_B5CC8_B5CB8)
+          //LABEL_23:
+          scaledSprY_B5CC8_B5CB8 = heightViewPort_93ADC;
+  }
+//LABEL_24:
   begInt32Adress = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36960];
   for ( int k = scaledSprX_B5CA8_B5C98; k; k-- )
   {
@@ -36540,43 +36549,82 @@ LABEL_24:
     {
       case 0:
           beginFrameAdress2 = beginFrameAdress;
-        //v16 = scaledSprX_B5CA8_B5C98 >> 1;
-        if ( !(scaledSprX_B5CA8_B5C98 & 1) )
-        {
-          //v17 = v16 & 1;
-            tempIndex = scaledSprX_B5CA8_B5C98 >> 2;
-          if ((scaledSprX_B5CA8_B5C98 >> 1) & 1)
+        if ( !(scaledSprX_B5CA8_B5C98 & 1) )// 1 3 5 7 9 11
+        {          
+          if ((scaledSprX_B5CA8_B5C98 >> 1) & 1)//3 7 11
           {
-              tempIndex++;
+            tempIndex = (scaledSprX_B5CA8_B5C98 >> 2) + 1;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
             beginFrameAdress2 = &beginFrameAdress[- 2];
-            goto LABEL_42;
+            tempBeginFrameAdress = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[4];
+            if (tempBeginFrameAdress)
+                beginFrameAdress2[2] = tempBeginFrameAdress;
+            tempBeginFrameAdress = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[6];
+            if (tempBeginFrameAdress)
+                beginFrameAdress2[3] = tempBeginFrameAdress;
+            beginFrameAdress2 += 4;
+            points4 += 8;
+            tempIndex--;
           }
-          points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
-          goto LABEL_38;
+          else//1 5 9
+          {
+              tempIndex = scaledSprX_B5CA8_B5C98 >> 2;
+              points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
+          }
         }
-        //v19 = (scaledSprX_B5CA8_B5C98 >> 1) + 2;
-        //v17 = v19 & 1;
-        tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
-        if (!(((scaledSprX_B5CA8_B5C98 >> 1) + 2) & 1))
-        {
-            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
-            beginFrameAdress2 = &beginFrameAdress[ - 3];
-          goto LABEL_44;
+        else//0 2 4 8 10 12
+        {            
+            if (!(((scaledSprX_B5CA8_B5C98 >> 1) + 2) & 1))//2 8 12
+            {
+                tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+                points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
+                beginFrameAdress2 = &beginFrameAdress[-3];
+                tempBeginFrameAdress = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[6];
+                if (tempBeginFrameAdress)
+                    beginFrameAdress2[3] = tempBeginFrameAdress;
+                beginFrameAdress2 += 4;
+                points4 += 8;
+                tempIndex--;
+            }
+            else//0 4 10
+            {
+                tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+                beginFrameAdress2 = &beginFrameAdress[-1];
+                tempBeginFrameAdress = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[2];
+                if (tempBeginFrameAdress)
+                    beginFrameAdress2[1] = tempBeginFrameAdress;
+                tempBeginFrameAdress = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[4];
+                if (tempBeginFrameAdress)
+                    beginFrameAdress2[2] = tempBeginFrameAdress;
+                tempBeginFrameAdress = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[6];
+                if (tempBeginFrameAdress)
+                    beginFrameAdress2[3] = tempBeginFrameAdress;
+
+                beginFrameAdress2 += 4;
+                points4 += 8;
+                tempIndex--;
+            }
         }
-        beginFrameAdress2 = &beginFrameAdress[ - 1];
-        while ( 1 )
+        while (tempIndex > 0)
         {
+            tempBeginFrameAdress = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[0];
+            if (tempBeginFrameAdress)
+                beginFrameAdress2[0] = tempBeginFrameAdress;
           tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
           if (tempBeginFrameAdress)
               beginFrameAdress2[1] = tempBeginFrameAdress;
-LABEL_42:
           tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[4];
           if (tempBeginFrameAdress)
               beginFrameAdress2[2] = tempBeginFrameAdress;
-LABEL_44:
           tempBeginFrameAdress = beginFrameAdress2[0];
           beginFrameAdress2 += points4[6];
           if (tempBeginFrameAdress)
@@ -36584,13 +36632,6 @@ LABEL_44:
           beginFrameAdress2 += 4;
           points4 += 8;
           tempIndex--;
-          if ( !tempIndex)
-            break;
-LABEL_38:
-          tempBeginFrameAdress = beginFrameAdress2[0];
-          beginFrameAdress2 += points4[0];
-          if (tempBeginFrameAdress)
-              beginFrameAdress2[0] = tempBeginFrameAdress;
         }
         break;
       case 1:
