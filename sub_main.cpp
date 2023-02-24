@@ -36978,43 +36978,143 @@ LABEL_322:
       case 9:
           beginFrameAdress2 = beginFrameAdress;
           tempDW.dword = zx2000_B5CA4_B5C94 >> 8;
-        //v47 = scaledSprX_B5CA8_B5C98 >> 1;
-        if ( !(scaledSprX_B5CA8_B5C98 & 1) )
-        {
-          //v17 = v47 & 1;
-            tempIndex = scaledSprX_B5CA8_B5C98 >> 2;
-            if ((scaledSprX_B5CA8_B5C98 >> 1) & 1)
+          switch (scaledSprX_B5CA8_B5C98 % 4)
           {
-              tempIndex++;
+          case 0:
+              tempIndex = scaledSprX_B5CA8_B5C98 >> 2;
+              points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
+              break;
+          case 1:
+              tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+              points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
+              beginFrameAdress2 = &beginFrameAdress[-3];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[6];
+              if (tempByte)
+                  beginFrameAdress2[3] = tempDW.byte[1];
+              beginFrameAdress2 += 4;
+              points4 += 8;
+              tempIndex--;
+              break;
+          case 2:
+              tempIndex = (scaledSprX_B5CA8_B5C98 >> 2) + 1;
+              points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
+              beginFrameAdress2 = &beginFrameAdress[-2];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[4];
+              if (tempByte)
+                  beginFrameAdress2[2] = tempDW.byte[1];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[6];
+              if (tempByte)
+                  beginFrameAdress2[3] = tempDW.byte[1];
+              beginFrameAdress2 += 4;
+              points4 += 8;
+              tempIndex--;
+              break;
+          case 3:
+              tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+              beginFrameAdress2 = &beginFrameAdress[-1];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[2];
+              if (tempByte)
+                  beginFrameAdress2[1] = tempDW.byte[1];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[4];
+              if (tempByte)
+                  beginFrameAdress2[2] = tempDW.byte[1];
+              tempByte = beginFrameAdress2[0];
+              beginFrameAdress2 += points4[6];
+              if (tempByte)
+                  beginFrameAdress2[3] = tempDW.byte[1];
+              beginFrameAdress2 += 4;
+              points4 += 8;
+              tempIndex--;
+              break;
+          }
+          /*
+        if ( !(scaledSprX_B5CA8_B5C98 & 1) )//0 2 4 8 10 12
+        {
+             if ((scaledSprX_B5CA8_B5C98 >> 1) & 1)//2 8 12
+          {
+                tempIndex = (scaledSprX_B5CA8_B5C98 >> 2)+1;
             points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36952];
             beginFrameAdress2 = &beginFrameAdress[ - 2];
-            goto LABEL_122;
+            tempByte = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[4];
+            if (tempByte)
+                beginFrameAdress2[2] = tempDW.byte[1];
+            //LABEL_124:
+            tempByte = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[6];
+            if (tempByte)
+                beginFrameAdress2[3] = tempDW.byte[1];
+            beginFrameAdress2 += 4;
+            points4 += 8;
+            tempIndex--;
           }
-          points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
-          goto LABEL_118;
+            else//0 4 8
+            {
+                tempIndex = scaledSprX_B5CA8_B5C98 >> 2;
+                points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36968];
+                //goto LABEL_118;
+            }
         }
-        //v49 = (scaledSprX_B5CA8_B5C98 >> 1)+2;
-        //v17 = v49 & 1;
-        tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
-        if (!(((scaledSprX_B5CA8_B5C98 >> 1) + 2) & 1))
+        else// 1 3 5 7 9 11
+        {            
+            if (!(((scaledSprX_B5CA8_B5C98 >> 1) + 2) & 1))//1 5 9
+            {
+                tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+                points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
+                beginFrameAdress2 = &beginFrameAdress[-3];
+                tempByte = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[6];
+                if (tempByte)
+                    beginFrameAdress2[3] = tempDW.byte[1];
+                beginFrameAdress2 += 4;
+                points4 += 8;
+                tempIndex--;
+            }
+            else//3 7 11
+            {
+                tempIndex = ((scaledSprX_B5CA8_B5C98 >> 1) + 2) >> 1;
+                beginFrameAdress2 = &beginFrameAdress[-1];
+                tempByte = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[2];
+                if (tempByte)
+                    beginFrameAdress2[1] = tempDW.byte[1];
+                //LABEL_122:
+                tempByte = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[4];
+                if (tempByte)
+                    beginFrameAdress2[2] = tempDW.byte[1];
+                //LABEL_124:
+                tempByte = beginFrameAdress2[0];
+                beginFrameAdress2 += points4[6];
+                if (tempByte)
+                    beginFrameAdress2[3] = tempDW.byte[1];
+                beginFrameAdress2 += 4;
+                points4 += 8;
+                tempIndex--;
+            }
+        }*/
+        while (tempIndex)
         {
-            points4 = (uint32*)&begBscreen_AE3FC_AE3EC_26C3FC_26C3EC[36944];
-            beginFrameAdress2 = &beginFrameAdress[ - 3];
-          goto LABEL_124;
-        }
-        beginFrameAdress2 = &beginFrameAdress[ - 1];
-        while ( 1 )
-        {
+            tempByte = beginFrameAdress2[0];
+            beginFrameAdress2 += points4[0];
+            if (tempByte)
+                beginFrameAdress2[0] = tempDW.byte[1];
+        //LABEL_124xxxx:
             tempByte = beginFrameAdress2[0];
           beginFrameAdress2 += points4[2];
           if (tempByte)
               beginFrameAdress2[1] = tempDW.byte[1];
-LABEL_122:
+//LABEL_122:
           tempByte = beginFrameAdress2[0];
           beginFrameAdress2 += points4[4];
           if (tempByte)
               beginFrameAdress2[2] = tempDW.byte[1];
-LABEL_124:
+//LABEL_124:
           tempByte = beginFrameAdress2[0];
           beginFrameAdress2 += points4[6];
           if (tempByte)
@@ -37022,13 +37122,6 @@ LABEL_124:
           beginFrameAdress2 += 4;
           points4 += 8;
           tempIndex--;
-          if ( !tempIndex)
-            break;
-LABEL_118:
-          tempByte = beginFrameAdress2[0];
-          beginFrameAdress2 += points4[0];
-          if (tempByte)
-              beginFrameAdress2[0] = tempDW.byte[1];
         }
         break;
       default:
