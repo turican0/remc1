@@ -144,7 +144,27 @@ sub_10FD0
 sub_36A90_36E50
 
 sub_2C410_2C450
+--------------------------
+0x51/0x50 - 81 back 0x51 0xe0
+0x52 - 80 up
+0x50 - 79 left
+0x4f - 78 right
+actEvent->var_u32_29955_160->dw_0.dword
 
+//synchronize void sub_45C90_45FD0(int a1)
+sub_45C10_45F50-OK
+sub_11950-OK
+sub_118C0-OK
+sub_46840_46B80
+sub_455D0_45910-OK
+sub_46B00_46E40-OK
+sub_46540_46880-OK
+sub_46520_46860
+sub_44BE0_44F20
+sub_42340_42680-OK
+sub_42180_424C0
+sub_11640-OK
+sub_1BD20-rozdelane
 
 
 

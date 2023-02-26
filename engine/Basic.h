@@ -165,13 +165,13 @@ typedef union {
 }Type_dword_0x0_0;
 
 typedef struct {//size 946
-	Type_dword_0x0_0 dw_0;
+	Type_dword_0x0_0 dw_0;//setting retybe to dword 6 (move)
 	uint16 word_0x4_4;
 	uint16 word_0x6_6;
 	uint8 stub_a0[4];
-	uint16 v_12;
+	uint16 v_12;//speed Y
 	uint16 v_14;
-	uint16 v_16;
+	uint16 v_16;//speed X
 	uint8 stub_a1[4];
 	uint16 v_22;
 	uint16 v_24;
@@ -429,7 +429,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint16 var_u16_29925_130;//130
 	uint16 var_u16_29927_132;//132
 	uint8_t stub3[2];
-	uint32 var_u32_29931;//136
+	uint32 var_u32_29931_136;//136
 	uint32 var_u32_29935_140;//140
 	uint16 var_u16_29939_144;//144
 	uint16 var_u16_29941_146;//146 //index entity
