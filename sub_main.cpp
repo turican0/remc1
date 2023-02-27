@@ -17673,7 +17673,7 @@ int sub_127E0(Type_AE400_29795* a1x, char a2, unsigned __int16 a3)
 // AE408: using guessed type int dword_AE408_AE3F8();
 // 10C1E0: using guessed type __int16 mapEntityIndex_10C1E0_10C1D0[7953];
 
-//----- (00012B50) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 int sub_12B50(Type_AE400_29795* a1x, int a2, unsigned __int8 a3, unsigned __int16 a4)
 {
   int v4; // eax
@@ -21394,7 +21394,7 @@ LABEL_3:
   }
 }
 
-//----- (00019B10) --------------------------------------------------------
+//SYNCHONIZED WITH REMC1
 void sub_19B10(Type_AE400_29795* a1x, char a2)
 {
   unsigned int v2; // edx
@@ -21413,10 +21413,6 @@ void sub_19B10(Type_AE400_29795* a1x, char a2)
   unsigned int v15; // [esp+0h] [ebp-20h]
   int v16; // [esp+4h] [ebp-1Ch]
   Type_AE400_29795* v17x; // [esp+8h] [ebp-18h]
-
-  //fix
-  //v17 = 0;
-  //fix
 
   v2 = 0;
   if (a1x->var_u8_29853_58)
@@ -21507,11 +21503,8 @@ LABEL_31:
     }
   }
 }
-// 19BDE: conditional instruction was optimized away because edx.4==2
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
-//----- (00019D70) --------------------------------------------------------
+//SYNCHONIZED WITH REMC1
 void sub_19D70(Type_AE400_29795* a1x, char a2)
 {
   unsigned int v2; // ebp
@@ -21669,11 +21662,8 @@ LABEL_42:
     }
   }
 }
-// 19E3D: conditional instruction was optimized away because ebp.4==2
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
-//----- (0001A120) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 int sub_1A120(Type_AE400_29795* a1x, char a2, unsigned __int16 (*a3)(Type_AE400_29795*, int))
 {
   int v3; // esi
@@ -21769,10 +21759,8 @@ LABEL_26:
   }
   return v15;
 }
-// 1A1F2: conditional instruction was optimized away because edi.4==2
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001A390) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1A390(Type_AE400_29795* a1x, unsigned __int16 a2)
 {
   char v2; // al
@@ -21909,16 +21897,13 @@ LABEL_24:
         }
         v13 = *(_DWORD *)v13;
       }
-      //v10 = v3x->var_u16_29925_130 + v3x->actSpeed_29921_126;
-      a1x->actSpeed_29921_126 *= v3x->var_u16_29925_130;
+      //v10 = v3x->acceleration_29925_130 + v3x->actSpeed_29921_126;
+      a1x->actSpeed_29921_126 += v3x->acceleration_29925_130;
     }
   }
 }
-// 1A4A3: conditional instruction was optimized away because di.2==2
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
-//----- (0001A6C0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1A6C0(Type_AE400_29795* a1x, char a2)
 {
   Type_AE400_29795* ix; // ebx
@@ -21952,7 +21937,6 @@ void sub_1A6C0(Type_AE400_29795* a1x, char a2)
   }
   sub_424F0_42830(a1x, a2 + 5);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
 //SYNCHRONIZED WITH REMC1
 void sub_1A800(Type_AE400_29795* a1x)
@@ -22061,7 +22045,7 @@ void sub_1AA40(Type_AE400_29795* a1x, int a2)
   }
 }
 
-//----- (0001AB10) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 int sub_1AB10(Type_AE400_29795* a1x, int a2)
 {
   int v2; // ebx
@@ -22265,29 +22249,28 @@ int sub_1AEE0(Type_AE400_29795* a1x, Type_AE400_29795* a2x)
   return v3;
 }
 
-//----- (0001B060) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B060(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 0);
 }
 
-//----- (0001B070) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B070(Type_AE400_29795* a1x)
 {
   sub_19D70(a1x, 0);
-  return sub_1B120(a1x);
+  sub_1B120(a1x);
 }
 
-//----- (0001B090) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B090(Type_AE400_29795* a1x)
 {
   if ( (unsigned __int16)sub_1A120(a1x, 0, (unsigned __int16 (*)(Type_AE400_29795*, int))sub_1A8E0) )
     sub_55370_558A0(a1x - str_AE400_AE3F0->str_29795, -1, 8);
   sub_1B120(a1x);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B0E0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B0E0(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0);
@@ -22300,13 +22283,13 @@ void sub_1B100(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 0);
 }
 
-//----- (0001B110) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B110(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001B120) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B120(Type_AE400_29795* a1x)
 {
   __int16 v1; // ax
@@ -22322,7 +22305,7 @@ void sub_1B120(Type_AE400_29795* a1x)
       a1x->var_u16_29821_26 = 150;
 }
 
-//----- (0001B160) --------------------------------------------------------
+//SYNCHONIZED WITH REMC1
 void sub_1B160(Type_AE400_29795* a1x)
 {
   //__int16 result; // ax
@@ -22331,29 +22314,25 @@ void sub_1B160(Type_AE400_29795* a1x)
   sub_19B10(a1x, 6);
   sub_196E0(a1x);
   //HIBYTE(result) = a1x->var_u8_29865_70;
-  if (a1x->var_u8_29865_70 == 6 )
+  if ( a1x->var_u8_29865_70 == 6 )
   {
-    //result = a1x->var_u8_29858_63 / a1x->var_u32_29951_156->v_26;
     if ( !(a1x->var_u8_29858_63 % a1x->var_u32_29951_156->v_26) )
     {
       v2 = 164 * a1x->var_u16_29941_146 + dword_AE400_AE3F0() + 29795;
       if ( *(_BYTE *)(v2 + 64) )
       {
-        //result = sub_42150_42490(&a1x->var_u32_29867_72, (axis_3d*)(_WORD *)(v2 + 72));
         a1x->var_u16_29829_34 = sub_42150_42490(&a1x->var_u32_29867_72, (axis_3d*)(_WORD*)(v2 + 72));
       }
       else
       {
         a1x->var_u16_29941_146 = 0;
         sub_424F0_42830(a1x, 7u);
-        //return;
       }
     }
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B200) --------------------------------------------------------
+//SYNCHONIZED WITH REMC1
 void sub_1B200(Type_AE400_29795* a1x)
 {
   //int v1; // esi
@@ -22394,8 +22373,6 @@ void sub_1B200(Type_AE400_29795* a1x)
     }
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (0001B2D0) --------------------------------------------------------
 void sub_1B2D0(Type_AE400_29795* a1x)
@@ -22405,7 +22382,7 @@ void sub_1B2D0(Type_AE400_29795* a1x)
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B320) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B320(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 6u);
@@ -22417,13 +22394,13 @@ void sub_1B330(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 6);
 }
 
-//----- (0001B340) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B340(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001B350) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B350(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 12);
@@ -22431,7 +22408,7 @@ void sub_1B350(Type_AE400_29795* a1x)
       a1x->var_u16_29821_26 = 1;
 }
 
-//----- (0001B370) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B370(Type_AE400_29795* a1x)
 {
   sub_19D70(a1x, 12);
@@ -22441,9 +22418,8 @@ void sub_1B370(Type_AE400_29795* a1x)
     a1x->var_u16_29821_26 = 1;
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B3C0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B3C0(Type_AE400_29795* a1x)
 {
   __int16 v1; // dx
@@ -22468,7 +22444,7 @@ void sub_1B3C0(Type_AE400_29795* a1x)
   if ( result )
   {
     sub_55370_558A0(a1x - str_AE400_AE3F0->str_29795, -1, 13);
-    a1x->actSpeed_29921_126 = -a1x->var_u16_29925_130;
+    a1x->actSpeed_29921_126 = -a1x->acceleration_29925_130;
     result = 3 * a1x->var_u32_29951_156->v_26;
     a1x->var_u16_29821_26 = result;
   }
@@ -22478,9 +22454,8 @@ void sub_1B3C0(Type_AE400_29795* a1x)
     a1x->actSpeed_29921_126 = result;
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B4C0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B4C0(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0xCu);
@@ -22488,57 +22463,56 @@ void sub_1B4C0(Type_AE400_29795* a1x)
       a1x->var_u16_29821_26 = 1;
 }
 
-//----- (0001B4E0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B4E0(Type_AE400_29795* a1x)
 {
   sub_1A6C0(a1x, 12);
 }
 
-//----- (0001B4F0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B4F0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001B500) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B500(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 18);
 }
 
-//----- (0001B510) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B510(Type_AE400_29795* a1x)
 {
   sub_19D70(a1x, 18);
 }
 
-//----- (0001B520) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B520(Type_AE400_29795* a1x)
 {
   if ( (unsigned __int16)sub_1A120(a1x, 18, (unsigned __int16 (*)(Type_AE400_29795*, int))sub_1A8E0) )
     sub_55370_558A0(a1x - str_AE400_AE3F0->str_29795, -1, 8);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001B570) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B570(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x12u);
 }
 
-//----- (0001B580) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B580(Type_AE400_29795* a1x)
 {
   sub_1A6C0(a1x, 18);
 }
 
-//----- (0001B590) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B590(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001B5A0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B5A0(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 24);
@@ -22546,7 +22520,7 @@ void sub_1B5A0(Type_AE400_29795* a1x)
     sub_1BC50(a1x);
 }
 
-//----- (0001B5D0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1B5D0(Type_AE400_29795* a1x)
 {
   unsigned int v1; // edx
@@ -22803,10 +22777,6 @@ void sub_1B5D0(Type_AE400_29795* a1x)
   if (a1x->var_u8_29865_70 == 26 )
     sub_1BC50(a1x);
 }
-// 1B6B7: conditional instruction was optimized away because edx.4==2
-// 1B8A8: conditional instruction was optimized away because %var_38.4!=0
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (0001BB20) --------------------------------------------------------
 void sub_1BB20(Type_AE400_29795* a1x)
@@ -22836,7 +22806,7 @@ void sub_1BB20(Type_AE400_29795* a1x)
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001BBE0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1BBE0(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x18u);
@@ -22853,7 +22823,7 @@ void sub_1BC10(Type_AE400_29795* a1x)
     sub_1A6C0(a1x, 24);
 }
 
-//----- (0001BC40) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1BC40(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -23217,19 +23187,19 @@ void sub_1C3C0(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 30);
 }
 
-//----- (0001C3D0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1C3D0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001C490) --------------------------------------------------------
+//SYNCHRONIZED EITH REMC1
 void sub_1C490(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 36);
 }
 
-//----- (0001C4A0) --------------------------------------------------------
+//SYNCHRONIZED EITH REMC1
 void sub_1C4A0(Type_AE400_29795* a1x)
 {
   sub_19D70(a1x, 36);
@@ -23237,7 +23207,6 @@ void sub_1C4A0(Type_AE400_29795* a1x)
     sub_55370_558A0(a1x - str_AE400_AE3F0->str_29795, -1, 37);
   a1x->actSpeed_29921_126 = 30;
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
 //SYNCHRONIZED EITH REMC1
 void sub_1C4F0(Type_AE400_29795* a1x)
@@ -23389,7 +23358,7 @@ LABEL_30:
   }
 }
 
-//----- (0001C880) --------------------------------------------------------
+//SYNCHRONIZED EITH REMC1
 void sub_1C880(Type_AE400_29795* a1x)
 {
   char v1; // ah
@@ -23400,7 +23369,6 @@ void sub_1C880(Type_AE400_29795* a1x)
   if ( v1 == 38 )
     sub_55370_558A0(a1x - str_AE400_AE3F0->str_29795, -1, 37);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (0001C8D0) --------------------------------------------------------
 void sub_1C8D0(Type_AE400_29795* a1x)
@@ -23408,19 +23376,19 @@ void sub_1C8D0(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 36);
 }
 
-//----- (0001C8E0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1C8E0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001C8F0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1C8F0(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 42);
 }
 
-//----- (0001C900) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1C900(Type_AE400_29795* a1x)
 {
   bool v1; // eax
@@ -23463,7 +23431,7 @@ void sub_1C960(Type_AE400_29795* a1x)
     {
       sub_36FA0(a1x, 198);
       a1x->var_u16_29821_26 = 30;
-      result = a1x->var_u16_29925_130;
+      result = a1x->acceleration_29925_130;
       a1x->actSpeed_29921_126 = result;
     }
   }
@@ -23479,7 +23447,7 @@ void sub_1C960(Type_AE400_29795* a1x)
   }
 }
 
-//----- (0001CA00) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1CA00(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x2Au);
@@ -23493,13 +23461,13 @@ void sub_1CA20(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 42);
 }
 
-//----- (0001CA30) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1CA30(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
 }
 
-//----- (0001CA40) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1CA40(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 48);
@@ -23694,7 +23662,7 @@ void sub_1CE30(Type_AE400_29795* a1x)
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001CF50) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1CF50(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x30u);
@@ -23712,7 +23680,7 @@ void sub_1CF60(Type_AE400_29795* a1x)
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001CFE0) --------------------------------------------------------
+//SYNCHRONIZED REMC1
 void sub_1CFE0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -24255,7 +24223,7 @@ LABEL_50:
 // AE408: using guessed type int dword_AE408_AE3F8();
 // AE454: using guessed type __int16 word_AE454_AE444;
 
-//----- (0001DA60) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DA60(Type_AE400_29795* a1x)
 {
   int v1; // esi
@@ -24267,12 +24235,7 @@ void sub_1DA60(Type_AE400_29795* a1x)
   int v7; // ecx
   char v8; // cl
   int v9; // edi
-  //Type_156* v10x; // ebp
   unsigned int v11; // ebp
-
-  //fix
-  //v10 = 0;
-  //fix
 
   v1 = dword_AE400_AE3F0();
   v2 = 0;
@@ -24339,7 +24302,6 @@ LABEL_29:
   }
   if ( !(a1x->var_u8_29858_63 % 10) )
       a1x->var_u16_29829_34 = sub_42150_42490(&a1x->var_u32_29867_72, (axis_3d*)(_WORD *)(v9 + 72));
-  //v10x = a1x->var_u32_29951_156;
   if ( !(a1x->var_u8_29858_63 % a1x->var_u32_29951_156->v_26) )
   {
     v11 = a1x->var_u32_29951_156->v_28;
@@ -24356,10 +24318,8 @@ LABEL_31:
   if (a1x->var_u8_29865_70 != 56 )
     sub_1DD50(a1x);
 }
-// 1DB2C: conditional instruction was optimized away because edi.4==2
-// AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001DC80) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DC80(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x36u);
@@ -24373,7 +24333,7 @@ void sub_1DCB0(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 54);
 }
 
-//----- (0001DCC0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DCC0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -24429,13 +24389,13 @@ void sub_1DDB0(Type_AE400_29795* a1x)
   sub_36FA0(a1x, 201);
 }
 
-//----- (0001DDD0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DDD0(Type_AE400_29795* a1x)
 {
   sub_19B10(a1x, 60);
 }
 
-//----- (0001DDE0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DDE0(Type_AE400_29795* a1x)
 {
   sub_19D70(a1x, 60);
@@ -24447,10 +24407,10 @@ int sub_1DDF0(Type_AE400_29795* a1x)
   return sub_1A120(a1x, 60, (unsigned __int16 (*)(Type_AE400_29795*, int))sub_1A990);
 }
 
-//----- (0001DE10) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DE10(Type_AE400_29795* a1x)
 {
-  return sub_1A390(a1x, 0x3Cu);
+  sub_1A390(a1x, 0x3Cu);
 }
 
 //----- (0001DE20) --------------------------------------------------------
@@ -24459,7 +24419,7 @@ void sub_1DE20(Type_AE400_29795* a1x)
   return sub_1A6C0(a1x, 60);
 }
 
-//----- (0001DE30) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1DE30(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -24860,7 +24820,7 @@ LABEL_38:
 // 1E459: conditional instruction was optimized away because esi.4==2
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001E6F0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1E6F0(Type_AE400_29795* a1x)
 {
   sub_1A390(a1x, 0x42u);
@@ -24872,7 +24832,7 @@ void sub_1E700(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 66);
 }
 
-//----- (0001E710) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1E710(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -25459,7 +25419,7 @@ void sub_1F5A0(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 72);
 }
 
-//----- (0001F5B0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1F5B0(Type_AE400_29795* a1x)
 {
   int v1; // eax
@@ -25469,7 +25429,6 @@ void sub_1F5B0(Type_AE400_29795* a1x)
     *(_WORD *)(*(_DWORD *)(dword_AE400_AE3F0() + 164 * a1x->var_u16_29833_38 + 29955) + 528) = 200;
   sub_1A800(a1x);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (0001F640) --------------------------------------------------------
 void sub_1F640(Type_AE400_29795* a1x)
@@ -25576,7 +25535,7 @@ void sub_1F640(Type_AE400_29795* a1x)
         {
 LABEL_36:
             a1x->var_u16_29941_146 = 0;
-          LOWORD(j) = a1x->var_u16_29925_130;
+          LOWORD(j) = a1x->acceleration_29925_130;
           a1x->actSpeed_29921_126 = j;
           return;
         }
@@ -25647,7 +25606,7 @@ void sub_1FA00(Type_AE400_29795* a1x)
 }
 // AE400: using guessed type int dword_AE400_AE3F0();
 
-//----- (0001FAA0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1FAA0(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -25758,7 +25717,7 @@ void sub_1FAC0(Type_AE400_29795* a1x)
         {
 LABEL_37:
             a1x->var_u16_29941_146 = 0;
-          LOWORD(j) = a1x->var_u16_29925_130;
+          LOWORD(j) = a1x->acceleration_29925_130;
           a1x->actSpeed_29921_126 = j;
           return;
         }
@@ -25816,7 +25775,7 @@ void sub_1FE90(Type_AE400_29795* a1x)
     sub_1A6C0(a1x, 84);
 }
 
-//----- (0001FEC0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1FEC0(Type_AE400_29795* a1x)
 {
   int v1; // eax
@@ -25826,7 +25785,6 @@ void sub_1FEC0(Type_AE400_29795* a1x)
     *(_WORD *)(*(_DWORD *)(dword_AE400_AE3F0() + 164 * a1x->var_u16_29833_38 + 29955) + 528) = 200;
   sub_1A800(a1x);
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
 
 //----- (0001FF40) --------------------------------------------------------
 // positive sp value has been detected, the output may be wrong!
@@ -25847,7 +25805,7 @@ void sub_1FF40(char a1, Type_AE400_29795* a2x, char a3, int a4, int a5)
 // 1FF47: positive sp value 8 has been found
 // 1FF41: variable 'v6' is possibly undefined
 
-//----- (0001FF60) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_1FF60(Type_AE400_29795* a1x)
 {
   unsigned int v1; // ebp
@@ -25868,7 +25826,6 @@ void sub_1FF60(Type_AE400_29795* a1x)
   unsigned int v16; // [esp+Ch] [ebp-14h]
 
   v1 = 0;
-  //a1x->var_u16_29835_40
   if (a1x->var_u8_29853_58)
   {
     if (a1x->str_29885_90.var_u16_29889_94)
@@ -25914,14 +25871,13 @@ void sub_1FF60(Type_AE400_29795* a1x)
       goto LABEL_34;
     }
     v6 = dword_AE400_AE3F0() + 164 * a1x->var_u16_29835_40;
-    if ( *(_BYTE *)(v6 + 29859) != 3 || *(_WORD *)(v6 + 29819) == a1x->id_29819_24)
+    if ( *(_BYTE *)(v6 + 29859) != 3 || *(_WORD *)(v6 + 29819) == a1x->id_29819_24 )
       goto LABEL_34;
     LOWORD(v7) = a1x->var_u16_29835_40;
     goto LABEL_33;
   }
   sub_20480(a1x);
-  //v8 = a1x->var_u32_29951_156;
-  if ( !(a1x->var_u8_29858_63 % a1x->var_u32_29951_156->v_26) && a1x->var_u8_29853_58)
+  if ( !(a1x->var_u8_29858_63 % a1x->var_u32_29951_156->v_26) && a1x->var_u8_29853_58 )
   {
     v9 = -1;
     v14 = a1x->var_u32_29951_156->v_28 * a1x->var_u32_29951_156->v_28;
@@ -25948,7 +25904,7 @@ void sub_1FF60(Type_AE400_29795* a1x)
     if ( v16 )
     {
       v7 = (int)(v16 - (dword_AE400_AE3F0() + 29795)) / 164;
-  LABEL_33:
+LABEL_33:
       a1x->var_u16_29941_146 = v7;
       sub_424F0_42830(a1x, 0x5Cu);
     }
@@ -25957,9 +25913,6 @@ LABEL_34:
   if (a1x->var_u8_29865_70 == 92 )
     sub_20410(a1x);
 }
-// 2002B: conditional instruction was optimized away because ebp.4==2
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (000201D0) --------------------------------------------------------
 void sub_201D0(Type_AE400_29795* a1x)
@@ -26071,7 +26024,7 @@ void sub_203F0(Type_AE400_29795* a1x)
   sub_1A6C0(a1x, 90);
 }
 
-//----- (00020400) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_20400(Type_AE400_29795* a1x)
 {
   sub_1A800(a1x);
@@ -26213,7 +26166,7 @@ void sub_20700(Type_AE400_29795* a1x)
   sub_19B10(a1x, 96);
 }
 
-//----- (00020710) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_20710(Type_AE400_29795* a1x)
 {
   //int v1; // esi
@@ -26253,8 +26206,6 @@ void sub_20710(Type_AE400_29795* a1x)
     }
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (000207E0) --------------------------------------------------------
 void sub_207E0(Type_AE400_29795* a1x)
@@ -44092,7 +44043,7 @@ void sub_37030(Type_AE400_29795* a1x, __int16 a2)
 // 99BA6: using guessed type __int16 word_99BA6[];
 // 99BA8: using guessed type __int16 word_99BA8[];
 
-//----- (000370A0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_370A0_37460(Type_AE400_29795* a1x, __int16 a2)
 {
   sub_36FA0(a1x, a2);
@@ -52942,7 +52893,7 @@ void sub_41DD0_42110(Type_AE400_29795* a2)
   }
 }
 
-//----- (00041E80) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_41E80_421C0(Type_AE400_29795* event)
 {
     event->var_29811_16.byte[1] |= 4u;
@@ -53194,7 +53145,7 @@ int sub_42410(_WORD *a1, _WORD *a2)
   return v2 * v2 + (__int16)(*a2 - *a1) * (__int16)(*a2 - *a1);
 }
 
-//----- (000424F0) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_424F0_42830(Type_AE400_29795* a1x, unsigned __int8 a2)
 {
   a1x->var_u8_29865_70 = a2;
