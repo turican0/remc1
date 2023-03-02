@@ -872,7 +872,7 @@ void sub_40440_40780(Pathstruct* pathstruct);
 void sub_40550_40890();
 void sub_407A0_40AE0();
 void sub_408D0_40C10();
-_BOOL1 sub_409E0(unsigned __int16 a1);
+_BOOL1 sub_409E0_40D20(unsigned __int16 a1);
 char sub_40A10_40D50(__int16 a1, __int16 a2, __int16 a3, char a4);
 int sub_40D30_41070(Type_AE400_29795* a1, __int16 a2, __int16 a3, __int16 a4, char a5);
 int nullsub_3(_DWORD); // weak
@@ -1099,7 +1099,7 @@ void sub_54480(int a1);
 int sub_54520(int a1);
 int sub_54A90(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4);
 int sub_54BD0(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4);
-void sub_54F00();
+void sub_54F00_55430();
 int sub_54F80(int a1);
 void sub_55100_55630();
 void sub_55370_558A0(__int16 a1, __int16 a2, __int16 a3);
@@ -42323,7 +42323,7 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 				byte_90B23 |= 0x20u;
 			}
 		}
-        		dword_12F080_12F070x = (vesa_str*)malloc_425C0_42900(sizeof(vesa_str));
+        dword_12F080_12F070x = (vesa_str*)malloc_425C0_42900(sizeof(vesa_str));
 		str_AE400_AE3F0 = (Type_str_AE400_AE3F0*)malloc_42540_42880(sizeof(Type_str_AE400_AE3F0));
 		str_AE408_AE3F8 = (Type_str_AE408_AE3F8*)malloc_42540_42880(sizeof(Type_str_AE408_AE3F8));
 		str_AE400_AE3F0->set.var_u8_8621 = 1;
@@ -42354,7 +42354,7 @@ int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 		str_AE400_AE3F0->set.var_u8_8600 = 40;
 		str_AE400_AE3F0->var_u16_10 = varPlayers;
 		strcpy(str_AE408_AE3F8->textBuffer_117, textBuffer3);
-		str_AE408_AE3F8->var_u8_29[0] = 0;
+        str_AE408_AE3F8->var_u8_29[0] = 0;
 		if (!varDetail)
 		{
 			str_AE400_AE3F0->set.reflections_8597 = 0;
@@ -51678,6 +51678,7 @@ void sub_407A0_40AE0()//2117A0_
   //debug
 }
 
+//SYNCHRONIZED WITH REMC1
 void sub_408D0_40C10()
 {
   char temp939E5 = byte_939E5;
@@ -51697,8 +51698,8 @@ void sub_408D0_40C10()
   sub_48230_48570(&str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333]);
 }
 
-//----- (000409E0) --------------------------------------------------------
-_BOOL1 sub_409E0(unsigned __int16 a1)
+//SYNCHRONIZED WITH REMC1
+_BOOL1 sub_409E0_40D20(unsigned __int16 a1)
 {
   char v1; // al
 
@@ -51706,7 +51707,7 @@ _BOOL1 sub_409E0(unsigned __int16 a1)
   return v1 != 5 && v1 != 2 && v1 != 3;
 }
 
-//----- (00040A10) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 char sub_40A10_40D50(__int16 a1, __int16 a2, __int16 a3, char a4)
 {
   __int16 v4; // bx
@@ -51742,28 +51743,28 @@ char sub_40A10_40D50(__int16 a1, __int16 a2, __int16 a3, char a4)
   {
     LOBYTE(v6) = a1 - 1;
     HIBYTE(v6) = a2 - 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     LOBYTE(v6) = v6 + 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     LOBYTE(v6) = v6 + 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     HIBYTE(v6) = a2;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     LOBYTE(v6) = v6 - 2;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     HIBYTE(v6) = a2 + 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     LOBYTE(v6) = v6 + 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     LOBYTE(v6) = v6 + 1;
-    if ( !sub_409E0(v6) )
+    if ( !sub_409E0_40D20(v6) )
       goto LABEL_24;
     v5 = mapAngle_FC1E0_FC1D0[v9] & 0xF0;
   }
@@ -51814,7 +51815,7 @@ int sub_40D30_41070(Type_AE400_29795* a1x, __int16 a2, __int16 a3, __int16 a4, c
   return nullsub_3(v8);
 }
 
-//----- (00040E20) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 int sub_40E20_41160(unsigned __int16 a1, unsigned __int16 a2)
 {
   int v2; // eax
@@ -51854,10 +51855,8 @@ int sub_40E20_41160(unsigned __int16 a1, unsigned __int16 a2)
   }
   return result;
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
-// 10C1E0: using guessed type __int16 mapEntityIndex_10C1E0_10C1D0[7953];
 
-//----- (00040EDC) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 char sub_40EDC_4121C(_BYTE *a1, _BYTE *a2, char a3, char a4, char a5, __int16 a6, __int16 a7, __int16 a8)
 {
   _BYTE *v8; // esi
@@ -51904,7 +51903,6 @@ char sub_40EDC_4121C(_BYTE *a1, _BYTE *a2, char a3, char a4, char a5, __int16 a6
   while ( v20 );
   return result;
 }
-// 40F6E: variable 'v18' is possibly undefined
 
 //----- (00040F87) --------------------------------------------------------
 __int16 sub_40F87_412C7(__int16 a1, __int16 a2)
@@ -52285,7 +52283,7 @@ void sub_416B0()//2126B0_
 
 int compareindex_41780 = 0;
 int compareindex_41780_2 = 0;
-//----- (00041780) --------------------------------------------------------
+//SYNCHRONIZED WITH REMC1
 void sub_41780_41AC0()//212780_
 {
   char v3; // dh
@@ -52333,26 +52331,22 @@ void sub_41780_41AC0()//212780_
   str_AE408_AE3F8->var_u32_36462[0] = nullptr;
   v26 = nullptr;
   str_AE408_AE3F8->var_u32_36462[3] = nullptr;
-  //str_AE400_AE3F0->str_29795[1]
   //v9 = (int *)(v6 + 29959);
   //while ( (unsigned int)v9 < v6 + 193795 )
   for(int v9x = 1 ; v9x < 1000 ; v9x++)
   {
-      //str_AE400_AE3F0->str_29795[v9x].str_12.u32_12
     v10 = str_AE400_AE3F0->str_29795[v9x].var_u8_29859_64;
     if ( !v10 )
       goto LABEL_40;
     switch ( v10 )
     {
       case 3:
-          //str_AE400_AE3F0->str_29795[v9x].var_29811_16.dword
         if (str_AE400_AE3F0->str_29795[v9x].actLife_29807_12 >= 0 && (str_AE400_AE3F0->str_29795[v9x].var_29811_16.dword & 0x10) == 0 )
         {
           if ( v7 )
             v7->next = &str_AE400_AE3F0->str_29795[v9x];
           else
-              str_AE408_AE3F8->var_u32_36462[0] = &str_AE400_AE3F0->str_29795[v9x];
-          //v13 = (int)&str_AE400_AE3F0->str_29795;
+            str_AE408_AE3F8->var_u32_36462[0] = &str_AE400_AE3F0->str_29795[v9x];
           v13 = str_AE400_AE3F0->str_29795;
           v7 = &str_AE400_AE3F0->str_29795[v9x];
           goto LABEL_39;
@@ -52365,7 +52359,7 @@ void sub_41780_41AC0()//212780_
           if ( v11 )
             v11->next = &str_AE400_AE3F0->str_29795[v9x];
           else
-              str_AE408_AE3F8->var_u32_36462[str_AE400_AE3F0->str_29795[v9x].var_u8_29860_65] = &str_AE400_AE3F0->str_29795[v9x];
+            str_AE408_AE3F8->var_u32_36462[str_AE400_AE3F0->str_29795[v9x].var_u8_29860_65] = &str_AE400_AE3F0->str_29795[v9x];
           //*v9 = v6 + 29795;
           str_AE400_AE3F0->str_29795[v9x].next = str_AE400_AE3F0->str_29795;
           v25[str_AE400_AE3F0->str_29795[v9x].var_u8_29860_65] = &str_AE400_AE3F0->str_29795[v9x];
@@ -52375,7 +52369,7 @@ void sub_41780_41AC0()//212780_
         if ( v8 )
           v8->next = &str_AE400_AE3F0->str_29795[v9x];
         else
-            str_AE408_AE3F8->var_u32_36462[3] = &str_AE400_AE3F0->str_29795[v9x];
+          str_AE408_AE3F8->var_u32_36462[3] = &str_AE400_AE3F0->str_29795[v9x];
         //*v9 = v6 + 29795;
         str_AE400_AE3F0->str_29795[v9x].next = str_AE400_AE3F0->str_29795;
         v8 = &str_AE400_AE3F0->str_29795[v9x];
@@ -52389,7 +52383,7 @@ void sub_41780_41AC0()//212780_
           if ( v4 )
             v4->next = &str_AE400_AE3F0->str_29795[v9x];
           else
-              str_AE408_AE3F8->var_u32_36462[1] = &str_AE400_AE3F0->str_29795[v9x];
+            str_AE408_AE3F8->var_u32_36462[1] = &str_AE400_AE3F0->str_29795[v9x];
           //v13 = v6 + 29795;
           v13 = str_AE400_AE3F0->str_29795;
           v4 = &str_AE400_AE3F0->str_29795[v9x];
@@ -52400,7 +52394,7 @@ void sub_41780_41AC0()//212780_
           if ( v26 )
             v26->next = &str_AE400_AE3F0->str_29795[v9x];
           else
-              str_AE408_AE3F8->var_u32_36462[2] = &str_AE400_AE3F0->str_29795[v9x];
+            str_AE408_AE3F8->var_u32_36462[2] = &str_AE400_AE3F0->str_29795[v9x];
           //v13 = v6 + 29795;
           v13 = str_AE400_AE3F0->str_29795;
           v26 = &str_AE400_AE3F0->str_29795[v9x];
@@ -52418,9 +52412,8 @@ LABEL_40:
   //v15 = str_AE408_AE3F8->var_u8_0;
   //dword_AE400_AE3F0(v6);
   if ( (str_AE408_AE3F8->var_u8_0 & 0x10) == 0 )
-    sub_54F00();
+    sub_54F00_55430();
   sub_16540();
-
   sub_48230_48570(&str_AE400_AE3F0->str_29795[str_AE400_AE3F0->str_13323[str_AE400_AE3F0->var_u16_8].playIndex_13333]);
   for ( int jx = 1; jx < 1000; jx++ )
   {
@@ -52516,16 +52509,6 @@ LABEL_52:
   if (pressedKeys_12EEF0_12EEE0[20] && pressedKeys_12EEF0_12EEE0[38])//byte_12EF04 t  byte_12EF16 l
     nullsub_3(0);
 }
-// 40DF0: using guessed type int nullsub_3(_DWORD);
-// 5CC30: using guessed type _DWORD memset(_DWORD, _DWORD, _DWORD);
-// 60CAC: using guessed type _DWORD sprintf(_DWORD, _DWORD, ...);
-// 96902: using guessed type int dword_96902;
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
-// 12EF04: using guessed type char byte_12EF04;
-// 12EF16: using guessed type char byte_12EF16;
-// 41780: using guessed type int var_68[20];
-// 41780: using guessed type char var_168[256];
 
 //SYNCHRONIZED WITH REMC1
 void sub_41B20_41E60(TypeStrAE400_13323* a1x, Type_AE400_29795* a2x)//212B20_
@@ -64871,7 +64854,7 @@ int sub_54BD0(__int16 *a1, int a2, unsigned __int16 a3, unsigned __int16 a4)
 // 9134C: using guessed type void (*off_9134C[2])();
 
 //----- (00054F00) --------------------------------------------------------
-void sub_54F00()
+void sub_54F00_55430()
 {
   __int16 i; // si
   unsigned int j; // ebx
