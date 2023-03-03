@@ -19706,7 +19706,6 @@ LABEL_42:
   return -1;
 }
 
-//----- (00016540) --------------------------------------------------------
 void sub_16540()
 {
   Type_AE400_29795* i; // edi
@@ -42139,6 +42138,7 @@ int StrToInt(char* a1)//232f36_
     return result;
 }
 
+//SYNCHRONIZED WITH REMC1
 int ProcessCommandLine_34DD0_35190(int argc, char** argv)//205DD0_
 {
 	char textBuffer4[32];

@@ -19706,7 +19706,6 @@ LABEL_42:
   return -1;
 }
 
-//----- (00016540) --------------------------------------------------------
 void sub_16540()
 {
   Type_AE400_29795* i; // edi
@@ -19844,8 +19843,6 @@ LABEL_49:
     }
   }
 }
-// AE400: using guessed type int dword_AE400_AE3F0();
-// AE408: using guessed type int dword_AE408_AE3F8();
 
 //----- (00016800) --------------------------------------------------------
 unsigned int sub_16800(unsigned int a1, int a2)
