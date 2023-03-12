@@ -165,6 +165,13 @@ sub_42340_42680-OK
 sub_42180_424C0
 sub_11640-OK
 sub_1BD20-rozdelane
+-------------------------
+case 6://arrows
+sub_3C9D0_3CD10
+//20EB27
+actEvent->var_u32_29955_160->dw_0.dword
+
+sub_455D0_45910 - move
 
 
 
