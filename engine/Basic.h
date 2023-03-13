@@ -196,7 +196,7 @@ typedef struct {//size 946
 	uint8 u8_333[8];
 	uint16 u16_341;
 	uint8 stub_b3[8];
-	uint32 u32_351;
+	int32 u32_351;
 	uint8 stub_c4[4];
 	uint32 u32_359;
 	uint8 stub_c[16];
@@ -221,7 +221,7 @@ typedef struct {//size 946
 	uint16 u16_522;
 	uint16 u16_524;
 	uint16 u16_526;
-	uint16 u16_528;
+	int16 u16_528;
 	uint8 stub_cc[2];
 	int32 var_14958_1635_532[24];
 	uint8 stub_ccxx[48];

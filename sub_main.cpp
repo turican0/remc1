@@ -7,8 +7,12 @@
 int modset_used_precount = 0;
 int modset_used_count = 0;
 int modset_key = 0x0;
-
 bool modset_key_alt = false;
+
+int modset_used_precount2 = 0;
+int modset_used_count2 = 0;
+int modset_key2 = 0x0;
+bool modset_key_alt2 = false;
 //#define COMPARE_WITH
 
 #define FIX_MOUSE
@@ -19941,6 +19945,21 @@ void ProcessKeys_16B00()//1E7B00_
             modset_used_count--;
         }
     }
+    else
+        if (modset_used_count2)
+        {
+            if (modset_used_precount2)
+                modset_used_precount2--;
+            else
+            {
+                lastPressedKey_12EF70_12EF60 = modset_key2;
+                if (modset_key_alt2)
+                    pressedKeys_12EEF0_12EEE0[56] = 1;
+                else
+                    pressedKeys_12EEF0_12EEE0[lastPressedKey_12EF70_12EF60 & 0x7F] = lastPressedKey_12EF70_12EF60;
+                modset_used_count2--;
+            }
+        }
 #endif
 
 	if (str_AE400_AE3F0->var_29715[str_AE400_AE3F0->var_u16_8][0])
@@ -41718,9 +41737,11 @@ void GameLoop_34610_349D0()//205610_
     modset_key = 0x44;
     */
 
-    //for move back
-    modset_used_count = 20;
+    //for move back and front
+    modset_used_count = 1;
     modset_key = 0x50;
+    modset_used_count2 = 1;
+    modset_key2 = 0x48;
 
     //byte_90754 = 1;// str_AE400_AE3F0->mod3D_8603 = 1;
 
@@ -52328,7 +52349,7 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x00004eb)
+            if (compareindex_41780_2 == 0x00009d7)
             //if (compareindex_41780_2 == 0x00008648)
             {
                 compareindex_41780_2++;
@@ -55295,19 +55316,19 @@ void sub_45C90_45FD0(Type_AE400_29795* a1x)
   //int v1; // eax
   //int v2; // eax
   //int v3; // eax
-  unsigned __int8 v4; // dh
+  //unsigned __int8 v4; // dh
   //int v5; // edx
   //int v6; // eax
-  int v7; // ebp
-  int v8; // edi
-  int v9; // edx
+  //int v7; // ebp
+  //int v8; // edi
+  //int v9; // edx
   //int v10; // eax
-  int v11; // ecx
+  //int v11; // ecx
   //int v12; // eax
-  __int16 v13; // cx
-  char v14; // [esp+0h] [ebp-14h]
+  //__int16 v13; // cx
+  //char v14; // [esp+0h] [ebp-14h]
 
-  v14 = 0;
+  bool bool1 = false;
   if ( (str_AE408_AE3F8->var_u8_2 & 1) == 0 )
     sub_45C10_45F50(a1x);
   a1x->actSpeed_29923_128 = dword_93A90;
@@ -55316,11 +55337,11 @@ void sub_45C90_45FD0(Type_AE400_29795* a1x)
     if (a1x->var_u32_29955_160->var_50)
     {
       if ( sub_11950(a1x, &str_AE400_AE3F0->str_29795[a1x->var_u32_29955_160->var_50]))
-        v14 = 1;
+          bool1 = true;
     }
   }
   sub_46840_46B80(a1x);
-  if ( (str_AE408_AE3F8->var_u8_2 & 1) == 0 && v14 )
+  if ( (str_AE408_AE3F8->var_u8_2 & 1) == 0 && bool1 )
   {
     if (a1x->str_29885_90.var_u16_29889_94)
     {
@@ -55343,9 +55364,9 @@ void sub_45C90_45FD0(Type_AE400_29795* a1x)
     {
       sub_46540_46880(a1x);
     }
-    v4 = a1x->var_u32_29955_160->u8_326;
-    if ( v4 < 0xC8u )
-        a1x->var_u32_29955_160->u8_326 = v4 + 1;
+    //v4 = a1x->var_u32_29955_160->u8_326;
+    if (a1x->var_u32_29955_160->u8_326 < 0xC8u )
+        a1x->var_u32_29955_160->u8_326++;
   }
   sub_455D0_45910(a1x);
   if (a1x->actLife_29807_12 >= 0 )
@@ -55353,28 +55374,28 @@ void sub_45C90_45FD0(Type_AE400_29795* a1x)
     if ( (str_AE408_AE3F8->var_u8_2 & 1) == 0 )
     {
       a1x->var_u32_29935_140 += a1x->var_u16_29927_132;
-      v7 = a1x->var_u32_29955_160->u32_383;
-      if ( v7 )
-          a1x->var_u32_29955_160->u32_383 = v7 - 1;
+      //v7 = a1x->var_u32_29955_160->u32_383;
+      if (a1x->var_u32_29955_160->u32_383)
+          a1x->var_u32_29955_160->u32_383--;
       else
           a1x->actLife_29807_12 += a1x->var_u32_29955_160->u16_341;
       if (a1x->var_u32_29935_140 < 0 )
           a1x->var_u32_29935_140 = 0;
-      v8 = a1x->var_u32_29931_136;
-      if (a1x->var_u32_29935_140 > v8 )
-        a1x->var_u32_29935_140 = v8;
+      //v8 = a1x->var_u32_29931_136;
+      if (a1x->var_u32_29935_140 > a1x->var_u32_29931_136)
+        a1x->var_u32_29935_140 = a1x->var_u32_29931_136;
       if (a1x->actLife_29807_12 < -1 )
           a1x->actLife_29807_12 = -1;
-      v9 = a1x->maxLife_29803_8;
-      if (a1x->actLife_29807_12 > v9 )
-          a1x->actLife_29807_12 = v9;
-      v11 = a1x->var_u32_29955_160->u32_351;
-      if ( v11 )
-          a1x->var_u32_29955_160->u32_351 = v11 - 1;
-      v13 = a1x->var_u32_29955_160->u16_528;
-      if ( v13 )
-          a1x->var_u32_29955_160->u16_528 = v13 - 1;
-      if ( v14 || (a1x->var_29811_16.byte[1] & 0x10) != 0 )
+      //v9 = a1x->maxLife_29803_8;
+      if (a1x->actLife_29807_12 > a1x->maxLife_29803_8)
+          a1x->actLife_29807_12 = a1x->maxLife_29803_8;
+      //v11 = a1x->var_u32_29955_160->u32_351;
+      if (a1x->var_u32_29955_160->u32_351)
+          a1x->var_u32_29955_160->u32_351--;
+      //v13 = a1x->var_u32_29955_160->u16_528;
+      if (a1x->var_u32_29955_160->u16_528)
+          a1x->var_u32_29955_160->u16_528--;
+      if (bool1 || (a1x->var_29811_16.byte[1] & 0x10) != 0 )
       {
           a1x->var_u16_29927_132 = a1x->var_u32_29931_136 / 200;
         a1x->var_u32_29955_160->u16_341 = a1x->maxLife_29803_8 / 250;
