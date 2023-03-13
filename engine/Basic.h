@@ -169,9 +169,9 @@ typedef struct {//size 946
 	uint16 word_0x4_4;
 	uint16 word_0x6_6;
 	uint8 stub_a0[4];
-	uint16 v_12;//speed Y
-	uint16 v_14;
-	uint16 v_16;//speed X
+	int16 v_12;//speed Y
+	int16 v_14;
+	int16 v_16;//speed X
 	uint8 stub_a1[4];
 	uint16 v_22;
 	uint16 v_24;
@@ -210,9 +210,9 @@ typedef struct {//size 946
 	uint32 u32_396;
 	uint32 u32_400;
 	uint8 stub_c3[4];
-	uint16 u16_408;
-	uint16 u16_410;
-	uint16 u16_412;
+	uint16 u16_408;//x speed
+	uint16 u16_410;//y speed
+	uint16 u16_412;//z speed
 	uint8 stub_c4xx[1];
 	uint8 var_415;
 	uint8 stub_c4x[40];	

@@ -173,6 +173,13 @@ actEvent->var_u32_29955_160->dw_0.dword
 
 sub_455D0_45910 - move
 
+str_AE400_AE3F0->str_29795[0x276].var_u32_29867_72
+  sub_455D0_45910(a1x);
+sub_41C70_41FB0(a1x, &word_AE454_AE444);
+//adress 212A70
+
+a1x->var_u32_29955_160->v_12
+
 
 
 

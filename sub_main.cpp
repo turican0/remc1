@@ -1,9 +1,9 @@
 #include "sub_main.h"
 
-//#define debug1
+#define debug1
 #define autostart
 
-//#define MODIFY_SETTINGS
+#define MODIFY_SETTINGS
 int modset_used_precount = 0;
 int modset_used_count = 0;
 int modset_key = 0x0;
@@ -41682,7 +41682,7 @@ void DrawAndEventsInGame_34530_348F0()//205530_
 		counter_34530++;
 		counter_34530--;
 	}
-	add_compare(0x2055DE, true, true);
+	//add_compare(0x2055DE, true, true);
 	counter_34530++;
 #endif debug1
 	//debug
@@ -52328,7 +52328,7 @@ LABEL_40:
             //adress 212A70
             //debug
 #ifdef debug1
-            if (compareindex_41780_2 == 0x00002bb1)
+            if (compareindex_41780_2 == 0x00004eb)
             //if (compareindex_41780_2 == 0x00008648)
             {
                 compareindex_41780_2++;
@@ -55096,8 +55096,8 @@ void sub_455D0_45910(Type_AE400_29795* a1x)//2165D0_
   int v15; // eax
   __int64 v16; // rax
   //_WORD *v17; // eax
-  __int16 v18; // si
-  __int16 v19; // dx
+  //__int16 v18; // si
+  //__int16 v19; // dx
   unsigned int v20; // edi
   signed int v21; // ebp
   int v22; // ecx
@@ -55187,11 +55187,11 @@ void sub_455D0_45910(Type_AE400_29795* a1x)//2165D0_
     if ( (int)((HIDWORD(v16) ^ v16) - HIDWORD(v16)) < 4 )
         a1x->var_u32_29955_160->v_22 = 0;
   }
-  v18 = a1x->var_u32_29955_160->u16_410 + word_AE454_AE444.y;
-  v19 = a1x->var_u32_29955_160->u16_412;
+  //v18 = a1x->var_u32_29955_160->u16_410 + word_AE454_AE444.y;
+  //v19 = a1x->var_u32_29955_160->u16_412;
   word_AE454_AE444.x += a1x->var_u32_29955_160->u16_408;
-  word_AE454_AE444.y = v18;
-  word_AE454_AE444.z += v19;
+  word_AE454_AE444.y += a1x->var_u32_29955_160->u16_410;
+  word_AE454_AE444.z += a1x->var_u32_29955_160->u16_412;
   a1x->var_u32_29955_160->u16_408 = 0;
   a1x->var_u32_29955_160->u16_410 = 0;
   a1x->var_u32_29955_160->u16_412 = 0;
