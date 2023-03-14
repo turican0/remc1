@@ -19941,11 +19941,14 @@ void ProcessKeys_16B00()//1E7B00_
             if (modset_key_alt)
                 pressedKeys_12EEF0_12EEE0[56] = 1;
             else
-                pressedKeys_12EEF0_12EEE0[lastPressedKey_12EF70_12EF60 & 0x7F] = lastPressedKey_12EF70_12EF60;
+                pressedKeys_12EEF0_12EEE0[(modset_key & 0x7F)] = lastPressedKey_12EF70_12EF60;
             modset_used_count--;
         }
     }
     else
+    {
+        pressedKeys_12EEF0_12EEE0[56] = 0;
+        pressedKeys_12EEF0_12EEE0[(modset_key & 0x7F)] = 0;
         if (modset_used_count2)
         {
             if (modset_used_precount2)
@@ -19956,10 +19959,16 @@ void ProcessKeys_16B00()//1E7B00_
                 if (modset_key_alt2)
                     pressedKeys_12EEF0_12EEE0[56] = 1;
                 else
-                    pressedKeys_12EEF0_12EEE0[lastPressedKey_12EF70_12EF60 & 0x7F] = lastPressedKey_12EF70_12EF60;
+                    pressedKeys_12EEF0_12EEE0[(modset_key2 & 0x7F)] = lastPressedKey_12EF70_12EF60;
                 modset_used_count2--;
             }
         }
+        else
+        {
+            pressedKeys_12EEF0_12EEE0[56] = 0;
+            pressedKeys_12EEF0_12EEE0[(modset_key2 & 0x7F)] = 0;
+        }
+    }
 #endif
 
 	if (str_AE400_AE3F0->var_29715[str_AE400_AE3F0->var_u16_8][0])
