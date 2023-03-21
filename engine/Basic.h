@@ -710,20 +710,20 @@ typedef struct _Type_dword_96884 {
 
 typedef struct {//size 44
 	int32 x_0;
-	int32 var_4;
-	int32 var_8;
+	int32 alt_4;
+	int32 alt2_8;
 	int32 y_12;
 	int32 pnt1_16;
 	int32 pnt2_20;
 	int32 pnt3_24;
 	int32 pnt4_28;
 	int32 pnt5_32;
-	uint16 haveSprite_36;
-	uaxis_2d triangleDir_38;
-	uint8 stubc[1];
-	uint8 haveTexture_41;
-	uint8 var_42;
-	uint8 var_43;
+	int16 haveBillboard_36;
+	uint16 triangleFeatures_38;
+	int8 var_40;
+	uint8 textIndex_41;
+	int8 textUV_42;
+	bool textAtyp_43;
 } Type_BegBscreen;
 
 typedef struct {//size 4*5
