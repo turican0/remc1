@@ -423,9 +423,9 @@ typedef struct _Type_AE400_29795 {// len 164
 	uint8_t stub3axx[24];*/
 	//end of struct
 
-	uint16 actSpeed_29921_126;//126
+	int16 actSpeed_29921_126;//126
 
-	uint16 actSpeed_29923_128;//128 // pre actspeed
+	int16 actSpeed_29923_128;//128 // pre actspeed
 	uint16 acceleration_29925_130;//130 //acceleration
 	uint16 var_u16_29927_132;//132
 	uint8_t stub3[2];

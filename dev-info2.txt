@@ -175,11 +175,16 @@ sub_455D0_45910 - move
 
 &str_AE400_AE3F0->str_29795[0x276].var_u32_29867_72
 versus 0x3FED3
+&word_AE454_AE444 versus 0x26c454
+a1x->actSpeed_29921_126 versus 0x3fe8b
+0xffe0 versus 0
   sub_455D0_45910(a1x);
 sub_41C70_41FB0(a1x, &word_AE454_AE444);
 //adress 212A70
 
 str_AE400_AE3F0->str_29795[0x276].var_u32_29955_160->v_12
+
+a1x->actSpeed_29921_126 signed?
 
 
 
