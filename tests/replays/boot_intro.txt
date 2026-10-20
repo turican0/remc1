@@ -1,0 +1,3 @@
+# Boot with language preset: confirm the sound-setup book, then 600 frames of the intro FMV.
+#! --exit-after-frames 700
+60 lclick 580 266

@@ -1,0 +1,96 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "vcpkg",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "windows",
+      "hidden": true,
+      "inherits": "vcpkg",
+      "generator": "Visual Studio 17 2022",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "win-x64",
+      "displayName": "Windows x64 (VS 2022, vcpkg)",
+      "inherits": "windows",
+      "architecture": "x64",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "win-x64-asan",
+      "displayName": "Windows x64 with AddressSanitizer",
+      "inherits": "win-x64",
+      "cacheVariables": {
+        "REMC1_ASAN": "ON"
+      }
+    },
+    {
+      "name": "win-arm64",
+      "displayName": "Windows ARM64 (VS 2022 ARM64 build tools, vcpkg)",
+      "inherits": "windows",
+      "architecture": "ARM64",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-windows"
+      }
+    },
+    {
+      "name": "linux",
+      "displayName": "Linux (Ninja, system packages)",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "macos",
+      "displayName": "macOS (Ninja, Homebrew packages)",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "win-x64-debug", "configurePreset": "win-x64", "configuration": "Debug" },
+    { "name": "win-x64-release", "configurePreset": "win-x64", "configuration": "RelWithDebInfo" },
+    { "name": "win-x64-asan", "configurePreset": "win-x64-asan", "configuration": "Debug" },
+    { "name": "win-arm64-debug", "configurePreset": "win-arm64", "configuration": "Debug" },
+    { "name": "win-arm64-release", "configurePreset": "win-arm64", "configuration": "RelWithDebInfo" },
+    { "name": "linux-debug", "configurePreset": "linux", "configuration": "Debug" },
+    { "name": "linux-release", "configurePreset": "linux", "configuration": "RelWithDebInfo" },
+    { "name": "macos-debug", "configurePreset": "macos", "configuration": "Debug" },
+    { "name": "macos-release", "configurePreset": "macos", "configuration": "RelWithDebInfo" }
+  ],
+  "testPresets": [
+    { "name": "win-x64-debug", "configurePreset": "win-x64", "configuration": "Debug", "output": { "outputOnFailure": true } },
+    { "name": "win-x64-release", "configurePreset": "win-x64", "configuration": "RelWithDebInfo", "output": { "outputOnFailure": true } },
+    { "name": "linux-debug", "configurePreset": "linux", "configuration": "Debug", "output": { "outputOnFailure": true } },
+    { "name": "linux-release", "configurePreset": "linux", "configuration": "RelWithDebInfo", "output": { "outputOnFailure": true } },
+    { "name": "macos-debug", "configurePreset": "macos", "configuration": "Debug", "output": { "outputOnFailure": true } },
+    { "name": "macos-release", "configurePreset": "macos", "configuration": "RelWithDebInfo", "output": { "outputOnFailure": true } }
+  ]
+}

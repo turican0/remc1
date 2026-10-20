@@ -1,18 +1,15 @@
-#include <boost/algorithm/string/predicate.hpp>
 #include "fcaseopen.h"
 
-#ifdef __linux__
-#include <stdlib.h>
-#include <string.h>
+#include <ctype.h>
 
-#include <dirent.h>
-#include <errno.h>
-#include <unistd.h>
-
-#include <iostream>
-#include <filesystem>
-#include <boost/algorithm/string.hpp>
-
+static bool our_iequals(const std::string& a, const std::string& b) {
+	if (a.size() != b.size())
+		return false;
+	for (size_t i = 0; i < a.size(); ++i)
+		if (tolower((unsigned char)a[i]) != tolower((unsigned char)b[i]))
+			return false;
+	return true;
+}
 
 std::vector<std::string> GetTokensFromPath(const std::string &path) {
     size_t pos = 0;
@@ -29,30 +26,47 @@ std::vector<std::string> GetTokensFromPath(const std::string &path) {
     return tokens;
 }
 
-std::string casepath(const std::string &path)
-{
-    // returns either a path that has upper/lower case fixed and points to an / existing file or returns the input path
+#if !defined(_WIN32)
+#include <filesystem>
 
-    // split original path
+std::string casepath(const std::string &inPath)
+{
+    // the path with the case of every existing leading component fixed; the components after the first
+    // missing one are kept as written (a file or folder about to be created)
+    // DOS code uses '\' separators; normalise first
+    std::string path = inPath;
+    for (auto& c : path)
+        if (c == '\\')
+            c = '/';
+
     std::vector<std::string> tokens = GetTokensFromPath(path);
 
-    // iterate through directories and check if we find case-insensitive matches to the path
-    // NOTE: the first match will be taken
+    // NOTE: the first case-insensitive match is taken
     std::string result {""};
-    if (path[0] == '/')
+    if (!path.empty() && path[0] == '/')
         result = "/";
+    else if (path.size() >= 2 && path[0] == '.' && path[1] == '/')
+        result = "./";
 
-    for (int i = 0; i < tokens.size(); ++i) {
+    size_t start_i = 0;
+    if (!tokens.empty() && tokens[0] == ".")
+        start_i = 1;
+
+    for (size_t i = start_i; i < tokens.size(); ++i) {
         std::string token = tokens[i];
         std::string current = result + token;
 
         if (!std::filesystem::exists(current)) {
-            if (!std::filesystem::exists(result))
-                return path;
+            std::string dir = result;
+            if (dir.empty())
+                dir = ".";
+            else if (dir.size() > 1 && dir.back() == '/')
+                dir.pop_back();
 
-            for (const auto &entry: std::filesystem::directory_iterator(result)) {
-                std::string test = GetTokensFromPath(entry.path().string()).back();
-                if (boost::iequals(token, test)) {
+            std::error_code ec;
+            for (const auto &entry : std::filesystem::directory_iterator(dir, ec)) {
+                std::string test = entry.path().filename().string();
+                if (our_iequals(token, test)) {
                     current = result + test;
                     break;
                 }
@@ -62,22 +76,21 @@ std::string casepath(const std::string &path)
         result = current + ((i != tokens.size()-1) ? "/" : "");
     }
 
-    if (!std::filesystem::exists(result))
-        result = path;
-
     return result;
 }
 #endif
 
 FILE* fcaseopen(char const* path, char const* mode)
 {
+#if defined(_WIN32)
+    return fopen(path, mode);
+#else
     FILE* f = fopen(path, mode);
-#ifdef __linux__
     if (!f)
     {
         std::string r = casepath(path);
         f = fopen(r.c_str(), mode);
     }
-#endif
     return f;
+#endif
 }

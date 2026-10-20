@@ -1,4 +1,5 @@
 #pragma once
+#include "ptr32.h" // ptr32<T>: 4-byte pointer slots in the packed DOS-layout structs below
 
 #include "portability/port_filesystem.h"
 #include "portability/port_sdl_vga_mouse.h"
@@ -50,11 +51,13 @@ typedef struct {
 	int16_t z;
 }axis_3du;
 
+/// Entity collision box (entity +78): centre is (x, y, z + zOffset), half-extents radiusX/Y/Z.
+/// Two boxes collide when every axis distance is below the sum of the radii (sub_118C0).
 typedef struct {
-	uint16_t var_u16_29873_78;//78
-	uint16_t var_u16_29875_80;//80 //speed
-	uint16_t var_u16_29877_82;//82
-	uint16_t var_u16_29879_84;//84
+	int16_t zOffset_29873_78;//78  PORT: signed (castles use -8192); was uint16_t, so nothing ever hit a castle
+	uint16_t radiusX_29875_80;//80
+	uint16_t radiusY_29877_82;//82
+	uint16_t radiusZ_29879_84;//84
 }axis_4d;
 
 typedef struct {//size 10
@@ -90,23 +93,23 @@ typedef struct {//size ?
 Type_sub168_2_2;
 
 typedef struct {//size 14
-	Type_sub168_2_2* var_u32_0;
+	ptr32<Type_sub168_2_2> var_u32_0;
 	uint32 var_u32_4;
 	uint16 var_u16_8[3];
 }
 Type_sub168_2;
 
 typedef struct {//size 4
-	Type_sub168_2* var_u32_0;
+	ptr32<Type_sub168_2> var_u32_0;
 }
 Type_sub168_3;
 
 typedef struct {//size 26
 	uint32 var_0;
 	int32 var_4x;
-	Type_sub168_2* var_8;
-	Type_sub168_3* var_12;
-	uint8* var_16;
+	ptr32<Type_sub168_2> var_8;
+	ptr32<Type_sub168_3> var_12;
+	ptr32<uint8> var_16;
 	uint16 var_20;
 	uint16 var_22;
 	uint16 var_24;
@@ -124,7 +127,7 @@ Type_168;
 
 typedef struct {//size 28
 	uint32 var_0;
-	Type_sub168_2* var_4; //size 6?
+	ptr32<Type_sub168_2> var_4; //size 6?
 	uint32 var_8;
 	uint16 var_12;
 	uint16 var_14;
@@ -138,7 +141,7 @@ typedef struct {//size 28
 
 typedef struct {//size 6
 	uint16_t var_0;//count
-	Type_sub_AE3E0* var_2;
+	ptr32<Type_sub_AE3E0> var_2;
 }Type_AE3E0;
 
 
@@ -155,7 +158,7 @@ typedef struct {//size 48
 
 typedef union {
 	uint32 dw;
-	uint8* p;
+	ptr32<uint8> p;
 }Type_IntPointer;
 
 typedef union {
@@ -166,8 +169,8 @@ typedef union {
 
 typedef struct {//size 946
 	Type_dword_0x0_0 dw_0;//setting retybe to dword 6 (move)
-	uint16 word_0x4_4;
-	uint16 word_0x6_6;
+	int16 word_0x4_4;// roll rate (signed)
+	int16 word_0x6_6;// pitch rate (signed)
 	uint8 stub_a0[4];
 	int16 v_12;//speed Y
 	int16 v_14;
@@ -179,10 +182,10 @@ typedef struct {//size 946
 	uint16 v_28;
 	uint8 stub_a2[16];
 	uint16 v_46;
-	uint32 var_48;
+	int16 var_48;// PORT: was uint32, which shifted var_50/var_52 by 2 bytes; code reads *(int16*)(+48) and *(uint16*)(+50)
 	uint16 var_50;
 	uint16 var_52[4];//fix size 4?
-	uint8 stub_aa[246];
+	uint8 stub_aa[248];
 	uint32 u32_308;
 	uint8 stub_b[2];
 	uint16 u16_314;
@@ -190,8 +193,8 @@ typedef struct {//size 946
 	uint32 u32_318;
 	uint32 u32_322;
 	uint8 u8_326;
-	uint16 u16_327;
-	uint16 u16_329;
+	int16 u16_327;// roll (signed) PORT: was uint16
+	int16 u16_329;// pitch (signed) PORT: was uint16 - negative pitch (looking up) made 2*input-pitch run away and the camera spin
 	uint16 u16_331;
 	uint8 u8_333[8];
 	uint16 u16_341;
@@ -256,8 +259,8 @@ typedef struct {//size 946
 typedef struct {//14
 	axis_3d axis;
 	uint16 yaw_6;
-	uint16 pitch_8;
-	uint16 roll_10;
+	int16 pitch_8;// PORT: was uint16; DrawWorld takes it as a signed int (negative = looking up)
+	uint16 roll_10;// unsigned on purpose: the renderer takes roll as a 0..65535 angle (quadrant = roll>>8&7); pitch_8 must be signed
 	uint16 fov_12;
 } Type_13895;
 
@@ -318,7 +321,7 @@ typedef struct {// len 20
 	uint8_t stub[20];
 }
 Type_AE400_20;
-typedef struct {// len 48
+typedef struct {// 8 bytes; str_9177[8] spans 64 (offset 9177..9241)
 	axis_3d v_9177;
 	uint16 v_9181;
 }
@@ -330,16 +333,16 @@ typedef union {
 } Type_29811;
 
 
-typedef struct {// len 32
+typedef struct {// len 32 - creature movement profile (creatureTypes_98F38[])
 	uint16 v_0;//?
 	uint16 v_2;//?
 	uint16 v_4;//?
 	uint16 v_6;//?
 	uint16 v_8;//?
-	int16 v_10;
-	int16 v_12;
-	int16 v_14;
-	uint16 v_16;
+	int16 maxHeight_10; // max height above ground (KeepHeightAboveGround_42000_42340)
+	int16 minHeight_12; // min height above ground
+	int16 vertSpeed_14; // vertical speed towards the allowed band (negative = sinks)
+	uint16 maxSlope_16; // steepest terrain slope it can move onto (MoveCreature_196E0)
 	uint16 v_18;
 	uint32 v_20;
 	uint16 v_22;
@@ -366,7 +369,7 @@ uint8_t stub3axx3[6];
 Type_29885_90;
 
 typedef struct _Type_AE400_29795 {// len 164
-	_Type_AE400_29795* next;
+	ptr32<_Type_AE400_29795> next;
 	uint32 rand_29799_4;//4
 	uint32 maxLife_29803_8;//8
 	int32 actLife_29807_12;//12 //act live?
@@ -407,7 +410,7 @@ typedef struct _Type_AE400_29795 {// len 164
 	axis_3d var_u32_29867_72;//72
 	//uint16_t var_u16_29871_76;//76
 
-	axis_4d var_u16_29873_78;
+	axis_4d collisionBox_29873_78;
 
 	uint16_t var_u16_29881_86;//86
 	uint8_t var_u8_29883_88;//88
@@ -427,17 +430,19 @@ typedef struct _Type_AE400_29795 {// len 164
 
 	int16 actSpeed_29923_128;//128 // pre actspeed
 	uint16 acceleration_29925_130;//130 //acceleration
-	uint16 var_u16_29927_132;//132
-	uint8_t stub3[2];
-	uint32 var_u32_29931_136;//136
-	uint32 var_u32_29935_140;//140
+	// PORT: these three are signed 32-bit in the original (signed compares/idiv); +132 was a uint16 (+ stub)
+	// and +136/+140 uint32: negative mana changes (spell costs) were added as ~65000 and a mana value
+	// below 0 wrapped and was clamped to the capacity - mana never ran out (tools/diff_tick.py).
+	int32 manaDelta_29927_132;//132 per-tick mana change: regeneration, or minus a spell's cost
+	int32 manaMax_29931_136;//136 mana capacity
+	int32 mana_29935_140;//140 current mana
 	uint16 var_u16_29939_144;//144
 	uint16 var_u16_29941_146;//146 //index entity
 	uint8_t stub4[2];
 	axis_3du var_u32_150;
 	//uint16 var_u16_154;
-	Type_156* var_u32_29951_156;//156
-	Type_160* var_u32_29955_160;//160
+	ptr32<Type_156> var_u32_29951_156;//156
+	ptr32<Type_160> var_u32_29955_160;//160
 }
 Type_AE400_29795;
 typedef struct {// len 106
@@ -547,9 +552,9 @@ typedef struct {//size 232713
 	uint8 var_u8_580;
 	uint32 var_u32_581;
 	uint8 stub4b[8];
-	Type_AE400_29795* var_u32_593[1000];
+	ptr32<Type_AE400_29795> var_u32_593[1000];
 	int32 var_u32_4593;
-	Type_AE400_29795* var_u32_4597[1000];
+	ptr32<Type_AE400_29795> var_u32_4597[1000];
 
 	Type_settings set;
 
@@ -588,7 +593,7 @@ typedef struct {//size 36478
 	uint8 var_u8_3;
 	Type_29811 var_u32_4;
 	uint8 var_u8_8;
-	FILE* var_u32_9;
+	extptr32<FILE> var_u32_9;
 	uint16 var_u16_13;
 	uint16 var_u16_15;
 	uint16 var_u16_17;
@@ -611,7 +616,7 @@ typedef struct {//size 36478
 	uint8 var_u8_161;
 	int32 var_u32_162;
 	uint16 var_u16_166;
-	Type_168* var_u32_168;
+	ptr32<Type_168> var_u32_168;
 	uint32 var_u32_172;
 	uint8 stubd[8];
 	Type_AE408_184 str_184;// len 14
@@ -620,8 +625,8 @@ typedef struct {//size 36478
 	uint32 var_u32_210;
 	uint8 stubf[36164];
 	uint32 var_u32_36378;
-	Type_AE400_29795* str_36382x[20];// len 80
-	Type_AE400_29795* var_u32_36462[4];
+	ptr32<Type_AE400_29795> str_36382x[20];// len 80  creature (class 5) lists, one per model, rebuilt each tick by sub_41780_41AC0
+	ptr32<Type_AE400_29795> var_u32_36462[4];// 0 wizards/castles (class 3), 1 effects 10/39-40, 2 effects 10/45, 3 missiles (class 9). DOS: struct ends here (size 36478)
 	//uint32 var_u32_36466;
 	//uint32 var_u32_36470;
 	//uint32 var_u32_36474;
@@ -637,11 +642,11 @@ Type_str_9398C;
 */
 
 typedef union {
-	uint8_t* p;
+	ptr32<uint8_t> p;
 	uint32_t align;
 } p64align;
 
-typedef struct {//lenght 66(changed to 70)
+typedef struct {// NetBIOS NCB, port-specific layout (DOS original was 66 bytes)
 	uint8_t ncb_command_0;
 	uint8_t ncb_retcode_1;
 	uint8_t ncb_lsn_2;
@@ -658,7 +663,7 @@ myNCB;
 
 typedef struct {//44 lenght
 	char path[28];
-	uint8_t** colorPalette_var28;//1C // Palette
+	uint8_t** colorPalette_var28;//1C // Palette (port-side table, accessed by name: real pointers)
 	uint8_t** var32_end_buffer;//20 // maybe buffer
 	int32_t var36_size_buffer;//24 //maybe file size
 	uint32_t var40_alloc_type;//28
@@ -689,19 +694,19 @@ typedef struct {
 } TypeTabDimm;
 
 typedef struct {
-	uint8_t* Tab_0;//0
+	ptr32<uint8_t> Tab_0;//0
 	TypeTabDimm dim;//4	
 } TypeTab;
 
 typedef struct {
-	TypeTab* bTab;
+	TypeTab* bTab; // PORT: real pointers - loader targets in the path tables (Pathstruct), accessed by name
 	TypeTab* eTab;
 	uint8_t* Dat;
 } TypeStrFont;
 
 typedef struct _Type_dword_96884 {
 	//Type_sub_96884* var32_0;
-	TypeTab* next;
+	ptr32<TypeTab> next;
 	uint8_t var8_4;
 	uint8_t var8_5;
 	uint8_t var8_6;
@@ -743,18 +748,18 @@ typedef struct {//size 4*5
 } Type_RenderPoint2;
 
 typedef struct {//size 6
-	uint8* pointer_0;
+	ptr32<uint8> pointer_0;
 	uint16 pos_4;
 }
 Type_AD008_ACFF8;
 
-typedef struct {//size 6*4
-	int32 stub_0;
-	int32 stub_1;
-	int32 stub_2;
-	int32 stub_3;
-	Type_AD008_ACFF8* stub_4;
-	uint8* stub_5;
+typedef struct {//size 6*4 - ring iterator (BeginRingIter_11410 / NextRingOffset_114B0)
+	int32 firstRing_0;
+	int32 lastRing_4;
+	int32 ring_8; // current ring, -1 = iterator free
+	int32 indexInRing_12;
+	ptr32<Type_AD008_ACFF8> ringDesc_16; // current ring: offsets + count
+	ptr32<uint8> offsets_20; // next (dx, dy) signed byte pair, 4 bytes per entry
 }
 Type_AC5F0;
 

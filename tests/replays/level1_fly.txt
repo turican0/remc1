@@ -1,0 +1,13 @@
+# Sound setup -> main menu -> globe (new game) -> level 1: fly forward, turn, cast both hands.
+# Mouse centre in the 320x200 game mode is (320,200) in game mouse space.
+#! --exit-after-frames 900
+60 lclick 580 266
+150 key Escape
+250 lclick 55 125
+380 mouse 320 200
+400 keydown Up
+600 keyup Up
+620 mouse 220 200
+700 mouse 320 200
+720 lclick
+780 rclick

@@ -1,5 +1,6 @@
 #include "port_filesystem.h"
 #include "../engine/CommandLineParser.h"
+#include "Settings.h"
 #include <string>
 #include <vector>
 #include <filesystem>
@@ -41,7 +42,7 @@ bool firstrun = true;
 std::string get_exe_path() {
 #ifdef _MSC_VER
 	LPWSTR buffer = new WCHAR[MAX_PATH];
-	GetModuleFileName(NULL, buffer, MAX_PATH);
+	GetModuleFileNameW(NULL, buffer, MAX_PATH);
 	std::string locstr = utf8_encode(buffer);
 	delete[] buffer;
 	std::string::size_type pos = std::string(locstr).find_last_of("\\/");
@@ -57,32 +58,6 @@ std::string get_exe_path() {
 	}
 	return strpathx;
 #endif
-};
-
-long my_findfirst(char* path, _finddata_t* c_file){
-	#ifdef DEBUG_START
-		debug_printf("my_findfirst:%s\n", path);
-	#endif //DEBUG_START
-	#ifdef DEBUG_START
-		debug_printf("my_findfirst:fixed:%s\n", path);
-	#endif //DEBUG_START
-	long result= _findfirst(path, c_file);
-	#ifdef DEBUG_START
-			debug_printf("my_findfirst:end:%d\n", result);
-	#endif //DEBUG_START
-	return result;
-}
-
-long my_findnext(long hFile, _finddata_t* c_file){
-	long result = _findnext(hFile, c_file);
-	#ifdef DEBUG_START
-		debug_printf("my_findnext:end:%d\n", result);
-	#endif //DEBUG_START
-	return result;
-}
-
-void my_findclose(long hFile){
-	_findclose(hFile);
 };
 
 bool file_exists(const char * filename) {
@@ -114,38 +89,31 @@ FILE* mycreate(const char* path, uint32_t  /*flags*/) {
 	return fp;
 };
 
-FILE* debug_output;
+FILE* debug_output = nullptr;
 
-bool debug_first = false;
-const char* debug_filename = "../debug.txt";
-std::string path = {};
-
+// Only active with --debug-log (or "debug": {"log": true}); written next to the executable,
+// truncated once per run and flushed per line so it survives crashes.
 void debug_printf(const char* format, ...) {
+	if (!g_settings.debugLog)
+		return;
 	char prbuffer[1024];
-#ifndef FLATPAK
 	va_list arg;
-	//int done;
 	va_start(arg, format);
-	vsprintf(prbuffer, format, arg);
+	vsnprintf(prbuffer, sizeof(prbuffer), format, arg);
 	va_end(arg);
 
-	std::string exepath = get_exe_path();
-	path = exepath + "/" + debug_filename;
-
-	if (debug_first)
+	if (!debug_output)
 	{
-		debug_output = fcaseopen(path.c_str(), "wt");
-		debug_first = false;
+		std::string path = get_exe_path() + "/debug.txt";
+		debug_output = fopen(path.c_str(), "wt");
+		if (!debug_output)
+			return;
 	}
-	else
-		debug_output = fcaseopen(path.c_str(), "at");
-
-	fprintf(debug_output, "%s", prbuffer);
-	fclose(debug_output);
+	fputs(prbuffer, debug_output);
+	fflush(debug_output);
 	#ifdef DEBUG_PRINT_DEBUG_TO_SCREEN
-		printf(prbuffer);
+		printf("%s", prbuffer);
 	#endif
-#endif
 }
 
 int32_t myaccess(const char* path, uint32_t  /*flags*/) {
@@ -224,7 +192,7 @@ FILE* myopen(const char* path, int pmode, uint32_t flags) {
 	//bool localDrive::FileOpen(DOS_File * * file, const char * name, uint32_t flags) {
 	const char * type;
 	if ((pmode == 0x222) && (flags == 0x40))type = "rb+";
-	else if ((pmode == 0x200) && (flags == 0x40))type = "rb+";
+	else if ((pmode == 0x200) && (flags == 0x40))type = "rb"; // O_BINARY|O_RDONLY: data may be read-only
 	else if (pmode == 0x202) type = "rb+";
 	else
 		exit(1);//error - DOSSetError(DOSERR_ACCESS_CODE_INVALID);
@@ -347,91 +315,11 @@ int dos_getdrive(int* a) {
 	return *a;
 };
 
-#ifdef _MSC_VER
-struct space_info
-{
-	// all values are byte counts
-	unsigned long capacity;
-	unsigned long free;      // <= capacity
-	unsigned long available; // <= free
-};
-//BOOST_FILESYSTEM_DECL
-space_info space(char* path, int* ec)
-{
-#   ifdef BOOST_POSIX_API
-	struct BOOST_STATVFS vfs;
-	space_info info;
-	if (!error(::BOOST_STATVFS(path, &vfs) ? BOOST_ERRNO : 0,
-		p, ec, "boost::filesystem::space"))
-	{
-		info.capacity
-			= static_cast<boost::uintmax_t>(vfs.f_blocks)* BOOST_STATVFS_F_FRSIZE;
-		info.free
-			= static_cast<boost::uintmax_t>(vfs.f_bfree)* BOOST_STATVFS_F_FRSIZE;
-		info.available
-			= static_cast<boost::uintmax_t>(vfs.f_bavail)* BOOST_STATVFS_F_FRSIZE;
-	}
-
-#   else
-	ULARGE_INTEGER avail, total, free;
-	space_info info;
-
-	//std::string charstring = "hello, world";
-
-	std::wstring widestring;
-
-	for (uint32_t i = 0; i < strlen(path); i++)
-		widestring += (wchar_t)path[i];
-
-	LPCWSTR lpcwpath = widestring.c_str();
-
-
-	if (GetDiskFreeSpaceExW(lpcwpath, &avail, &total, &free) != 0)
-	{
-		info.capacity
-			= ((total.HighPart) << 32)
-			+ total.LowPart;
-		info.free
-			= ((free.HighPart) << 32)
-			+ free.LowPart;
-		info.available
-			= ((avail.HighPart) << 32)
-			+ avail.LowPart;
-	}
-
-#   endif
-
-	else
-	{
-		info.capacity = info.free = info.available = 0;
-	}
-	return info;
-}
-
+// DOS _dos_getdiskfree: 0 = success. The game's drives are folders on the host, assumed to have room
+// (the old Windows-only version decided on an uninitialised error code).
 uint64_t dos_getdiskfree(uint8_t a, int16_t a2) {
-	return dos_getdiskfree(0,0,a,0);
-};
-
-unsigned __int64 dos_getdiskfree(__int16 a1, __int16 a2, uint8_t a, short* b) {
-	unsigned long wanted_size = 0;//fix it
-	char drivename[10];
-	sprintf(drivename, "%c:", (uint8_t)(a + 64));
-	int ec;
-	space_info myspaceinfo = space(drivename, &ec);
-	if (ec)
-		if (myspaceinfo.free > wanted_size)return 0;
-		else return 1;
-	else return 1;
-	/*
-	if ( (_WORD)b == -1 )
-	return _set_EINVAL(b, a3);
-	a4[0] = a;
-	a4[1] = a2;
-	a4[2] = b;
-	a4[3] = a1;
-	*/
-};
-#endif
+	return 0;
+}
 
 void AdvReadfile(const char* path, uint8_t* buffer) {
 	std::string pathexe = get_exe_path();
@@ -499,17 +387,17 @@ std::string getExistingDataPath(std::filesystem::path path)
 	if (env_xdg_data_home_dir) xdg_data_home_dir = env_xdg_data_home_dir;
 
 	if (std::filesystem::exists(xdg_data_home_dir)) {
-		file_locations.emplace_back(xdg_data_home_dir / "remc2" / path);
+		file_locations.emplace_back(xdg_data_home_dir / "remc1" / path);
 	}
 	if (std::filesystem::exists(home_dir)) {
-		file_locations.emplace_back(home_dir / ".local" / "share" / "remc2" / path);
+		file_locations.emplace_back(home_dir / ".local" / "share" / "remc1" / path);
 	}
 #else //__linux__
 	auto home_drive = std::getenv("HOMEDRIVE");
 	auto home_path =  std::getenv("HOMEPATH");
 	if (home_drive && home_path) {
 		std::filesystem::path home_dir(std::string(home_drive) + "/" + std::string(home_path));
-		file_locations.push_back((home_dir / "remc2" / path).string());
+		file_locations.push_back((home_dir / "remc1" / path).string());
 	}
 #endif //__linux__
 	file_locations.push_back(get_exe_path() + "/" + path.string());

@@ -1,5 +1,16 @@
 #include "Compare.h"
 
+#include <cstdio>
+#include <cstdlib>
+#include <set>
+#if defined(_MSC_VER)
+#include <intrin.h>
+#define REMC1_DEBUG_BREAK() __debugbreak()
+#else
+#define _ReturnAddress() __builtin_return_address(0)
+#define REMC1_DEBUG_BREAK() __builtin_trap()
+#endif
+
 std::string regressionsDataPath = "c:/prenos/remc1/Debug/regressions/";
 
 
@@ -59,10 +70,16 @@ void CompareWith(char* name, int value, int len, uint8* sequence)
 	}
 };
 
+// Decompiler "test it" probe: marks code paths the original authors had not verified. It used to
+// divide by zero (a crash in Debug builds, optimised away in Release). PORT: log each call site
+// once; set REMC1_ALERT_BREAK=1 to break into the debugger instead.
 void allert_error() {
-	int a = 10;
-	int b = 0;
-	int c = a / b;//this is generate error
+	static std::set<void*> seen;
+	void* site = _ReturnAddress();
+	if (getenv("REMC1_ALERT_BREAK"))
+		REMC1_DEBUG_BREAK();
+	if (seen.insert(site).second)
+		fprintf(stderr, "allert_error: unverified code path reached (caller %p)\n", site);
 }
 
 //for debuging

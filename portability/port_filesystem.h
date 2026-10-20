@@ -16,10 +16,8 @@
 	#include <io.h>
 	#include "dirent-x.h"
 #else
-	#include "dirent.h"
-	extern "C" {
-    	#include "findfirst.h"
-	}
+	#include <dirent.h>
+	#include <unistd.h>
 	#include <limits.h>
 
 	#define MAX_PATH PATH_MAX
@@ -42,9 +40,6 @@ extern char cdFolder[512];
 extern char bigGraphicsFolder[512];
 
 
-long my_findfirst(char* path, _finddata_t* c_file);
-long my_findnext(long hFile, _finddata_t* c_file);
-void my_findclose(long hFile);
 bool file_exists(const char * filename);
 FILE* mycreate(const char* path, uint32_t flags);
 int32_t myaccess(const char* path, uint32_t flags);
@@ -81,7 +76,6 @@ std::string get_exe_path();
 uint64_t dos_getdiskfree(uint8_t a, int16_t a2);
 
 #ifdef _MSC_VER
-uint64_t dos_getdiskfree(int16_t a1, int16_t a2, uint8_t a, short* b);
 #endif
 
 void debug_printf(const char* format, ...);

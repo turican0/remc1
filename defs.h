@@ -33,6 +33,28 @@
 #else
   #error "unknown compiler"
 #endif
+// PORT: MSVC names used by the decompiled code, for GCC/Clang
+#if !defined(_MSC_VER)
+  #include <errno.h>
+  #include <stdio.h>
+  #include <string.h>
+  #include <strings.h>
+  #define __cdecl
+  #define __stdcall
+  #define __fastcall
+  #define stricmp strcasecmp
+  #define strnicmp strncasecmp
+  #define _set_errno(e) (errno = (e), 0)
+  #define gets_s(buf) fgets((buf), sizeof(buf), stdin)
+  static inline unsigned char _BitScanReverse(unsigned long* index, unsigned long mask)
+  {
+    if (!mask)
+      return 0;
+    *index = 31 - __builtin_clz((unsigned int)mask);
+    return 1;
+  }
+#endif
+
 typedef unsigned int uint;
 typedef unsigned char uchar;
 typedef unsigned short ushort;
@@ -98,7 +120,21 @@ typedef int bool;       // we want to use bool in our C programs
 #endif
 
 // Some convenience macros to make partial accesses nicer
+#ifdef __cplusplus
+// PORT: HIBYTE/HIWORD/SHIWORD/... index from the END of the object. Hex-Rays applied them to scalars;
+// when the port later retyped a variable as a struct (e.g. word_AE454_AE444 -> axis_3d) they silently
+// started reading the last field (HIBYTE(pos) gave HIBYTE(pos.z), not HIBYTE(pos.x)). Reject that.
+template <unsigned long long ObjSize, unsigned long long PartSize>
+constexpr unsigned long long Remc1LastIndex()
+{
+	static_assert(ObjSize == 1 || ObjSize == 2 || ObjSize == 4 || ObjSize == 8,
+		"LO*/HI* macro applied to a struct or array: access the intended field instead");
+	return ObjSize / PartSize - 1;
+}
+#define LAST_IND(x,part_type)    Remc1LastIndex<sizeof(x), sizeof(part_type)>()
+#else
 #define LAST_IND(x,part_type)    (sizeof(x)/sizeof(part_type) - 1)
+#endif
 #if defined(__BYTE_ORDER) && __BYTE_ORDER == __BIG_ENDIAN
 #  define LOW_IND(x,part_type)   LAST_IND(x,part_type)
 #  define HIGH_IND(x,part_type)  0
@@ -386,8 +422,18 @@ inline typename std::enable_if<sizeof(T) <= sizeof(F), T>::type __coerce(F f)
 #define COERCE_UNSIGNED_INT(v) __coerce<unsigned int>(v)
 #define COERCE_UNSIGNED_INT64(v) __coerce<uint64>(v)
 
-//#define __CFSHL__(x, y) printf("invalid_operation:__CFSHL__(x, y)") // Generate carry flag for (x<<y)
-#define __CFSHL__(x, y) (x<<y)
+// carry flag of (x << y): the last bit shifted out of x's width.
+// PORT: was "#define __CFSHL__(x, y) (x<<y)" - the shifted VALUE instead of one bit. Hex-Rays emits it
+// for signed division by 2^y rounding toward zero, (v - (__CFSHL__(v >> 31, y) + (v >> 31 << y))) >> y:
+// with the macro every such division of a negative number was off (player pitch -5 instead of -7,
+// headings, ... 87 sites; found by tools/diff_tick.py --stepwise).
+template<class T> int8 __CFSHL__(T x, int y)
+{
+  if ( y <= 0 || y > int(8 * sizeof(T)) )
+    return 0;
+  typedef typename std::make_unsigned<T>::type U;
+  return int8((U(x) >> (8 * sizeof(T) - y)) & 1);
+}
 #else // C++
 // For C, we just provide macros, they are not quite correct.
 #define __ROL__(x, y) __rotl__(x, y)      // Rotate left

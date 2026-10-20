@@ -1,0 +1,15 @@
+{
+  "name": "remc1",
+  "version": "0.1.0",
+  "description": "Cross-platform port of Bullfrog's Magic Carpet 1 based on the REMC1 decompilation",
+  "dependencies": [
+    "sdl2",
+    "sdl2-mixer",
+    "nlohmann-json",
+    "gtest"
+  ],
+  "builtin-baseline": "ef7dbf94b9198bc58f45951adcf1f041fcbc5ea0",
+  "overrides": [
+    { "name": "sdl2", "version": "2.32.8" }
+  ]
+}
