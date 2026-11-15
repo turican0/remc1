@@ -497,7 +497,8 @@ class, type)`). The state index is global within a class, not per type.
 | 10 | 18 | volcano eruption emitter (128 ticks, then removes itself) | `sub_25EC0` |
 | 10 | 19 | created by each eruption start, index in game state +38 | |
 | 10 | 27 | terrain-raising level-build step | `RaiseTerrainStrip*` |
-| 10 | 39 | mana ball | mana at +140 |
+| 10 | 39 | mana ball | mana at +140; +144 = owner (adds its mana to the owner's +136 every tick) |
+| 10 | 40 | death marker of a wizard: holds its mana balls until it respawns (state 42) | `sub_275C0`, original-bugs #12 |
 | 10 | 52 | crab spawn timer (state 0x38) | |
 | 11 | 2 | trigger (marked by standing stones on level 26; not recyclable) | life 300 |
 | 12 | 0..23 | spell, type = spell number (0 fireball, 2 speed, 16 castle) | states below |
