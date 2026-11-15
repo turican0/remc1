@@ -1146,6 +1146,10 @@ Known open issues:
   entity's max mana 0. The port now skips stale entries (first triggers at tick 9127 of the recording,
   so the recording replays exactly only up to there). Also pattern #65 (flag OR truncated to a byte)
   and the harmless `JUMPOUT(0x36079)` in `sub_36080_36440` (a shared epilogue) removed.
+- Fixed 2026-11-15: computer wizards chose other mana balls than the original (pattern #50):
+  `sub_15080` and `sub_145B0` compare `50000 - maxMana/10*k/255` signed (`idiv`, `jge`/`jle`), the
+  port unsigned via `_DWORD`, so targets owned by a wizard with a lot of mana took the other branch.
+  Found in `possession_spell_bug.recording` (frames 56995, 59853), which now desyncs from frame 18360.
 - Fixed 2026-11-04: the heal spell cost no mana while the caster's mana delta was not negative (pattern
   #68; `level30.recording`, frame 46500).
 - Fixed 2026-11-04: flaky access violations when a replay or game ended with AdLib music: only realtime

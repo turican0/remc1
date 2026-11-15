@@ -17416,7 +17416,7 @@ int sub_145B0(int a1)
         *(_WORD *)PTR(a1 + 148) = sub_15420(i);
         return 1;
       }
-      if ( 50000 - *(__int16 *)PTR(v4 + 522) * (*(_DWORD *)PTR(i + 136) / 10) / 255 <= *(unsigned __int16 *)PTR(v5 + 460)
+      if ( 50000 - *(__int16 *)PTR(v4 + 522) * (*(int *)PTR(i + 136) / 10) / 255 <= (int)*(unsigned __int16 *)PTR(v5 + 460) // PORT: signed (idiv/jle at 0x146C8-0x146E8); _DWORD made it unsigned
         || !*(_WORD *)PTR(v3 + 50)
         && GetWizardSpell_14E60(i, 0x10u)
         && *(_DWORD *)PTR(i + 140) + 32 * (255 - *(__int16 *)PTR(*(_DWORD *)PTR(a1 + 160) + 522)) < *(_DWORD *)PTR(a1 + 140) )
@@ -17744,7 +17744,9 @@ unsigned int sub_15080(int a1)
     }
     if ( v3 == *(__int16 *)PTR(a1 + 24) )
       goto LABEL_19;
-    if ( 50000 - *(_DWORD *)PTR(v4 + 29931) / 10 * *(__int16 *)PTR(*(_DWORD *)PTR(a1 + 160) + 522) / 255 < *(unsigned __int16 *)PTR(*(_DWORD *)PTR(a1 + 160) + 8 * *(__int16 *)PTR(*(_DWORD *)PTR(v4 + 29955) + 48) + 460) )
+    // PORT: signed (idiv/jge at 0x1514D-0x15171); _DWORD made it unsigned, so when the left side went negative
+    // (a target owned by a wizard with a lot of mana) it took the other branch (computer wizards picked other mana balls; possession_spell_bug.recording)
+    if ( 50000 - *(int *)PTR(v4 + 29931) / 10 * *(__int16 *)PTR(*(_DWORD *)PTR(a1 + 160) + 522) / 255 < (int)*(unsigned __int16 *)PTR(*(_DWORD *)PTR(a1 + 160) + 8 * *(__int16 *)PTR(*(_DWORD *)PTR(v4 + 29955) + 48) + 460) )
     {
       v5 = sub_42410_42750((_WORD *)PTR(v9 + 72), (_WORD *)PTR(v2 + 72));
       if ( v5 >= v1 )
