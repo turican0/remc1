@@ -34757,7 +34757,7 @@ LABEL_181:
                             tempZx.word[1] = 0;
                           begInt32Adress += 2;
                           tempB3adr += 3;
-                          while (tempPointB);
+                          while (tempPointB) // PORT: was "while (tempPointB);" - an empty loop that hung (asm: dec [ebp-50h]; jne at 0x2D11B)
                           {
                             tempZx2.byte[1] = sprData[0];
                             sprData += begInt32Adress[0];
@@ -34781,7 +34781,7 @@ LABEL_181:
                           //HIWORD(v83x) = 0;
                           begInt32Adress += 2;
                           tempB3adr += 3;
-                          while (tempPointB);
+                          while (tempPointB) // PORT: was "while (tempPointB);" - an empty loop that hung (asm: dec [ebp-50h]; jne at 0x2D163)
                           {
                               tempZx2.byte[0] = sprData[0];
                             sprData += begInt32Adress[0];

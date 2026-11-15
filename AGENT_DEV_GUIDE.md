@@ -814,6 +814,11 @@ positions, unowned, 45 frames after a death; the code that does that is not iden
     already negative. Found by `diff_funcs` (`entity 720 +132: original 24 port 15`) after a 2-byte
     `diff_tick` difference in the player's mana. Grep for `//fix` / commented-out assignments and check
     them against `tools/orig_disasm.py`.
+69. **Stray semicolon after `while (...)`.** `sub_2C410_2C450` cases 6 and 7 (rotated sprites with
+    fog and transparency) read `while (tempPointB);` followed by the loop body in braces: an endless
+    empty loop whenever the count was not 0 (`level50-freeze.recording` froze). The original is
+    `do { } while (--count)`. Find them with an awk over the sources for a `while/if/for (...);` line
+    followed by a line holding only `{` (only these two existed, 2026-11-15).
 
 The MC2 renderer in remc2 (`GameRenderOriginal.cpp`, e.g. `DrawSprite_41BD3`) is structurally the
 same code as MC1's `sub_2C410_2C450`/`DrawSprite_*` and uses the same scratch offsets in the BScreen
@@ -1147,6 +1152,8 @@ Known open issues:
   entity's max mana 0. The port now skips stale entries (first triggers at tick 9127 of the recording,
   so the recording replays exactly only up to there). Also pattern #65 (flag OR truncated to a byte)
   and the harmless `JUMPOUT(0x36079)` in `sub_36080_36440` (a shared epilogue) removed.
+- Fixed 2026-11-15: freeze at the end of `level50-freeze.recording`: the rotated-sprite blitter's fog +
+  transparency cases looped forever (pattern #69). The frame's `DrawWorld` now matches the original.
 - Fixed 2026-11-15: computer wizards chose other mana balls than the original (pattern #50):
   `sub_15080` and `sub_145B0` compare `50000 - maxMana/10*k/255` signed (`idiv`, `jge`/`jle`), the
   port unsigned via `_DWORD`, so targets owned by a wizard with a lot of mana took the other branch.
