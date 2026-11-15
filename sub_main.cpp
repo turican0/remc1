@@ -58656,8 +58656,9 @@ void sub_4D560_4D8A0()
   v1 = str_AE400_AE3F0->var_u16_8;
   bool_96880 = true;
   *(_BYTE *)PTR(dword_AE400_AE3F0() + 2049 * v1 + 13327) = 1;
-  while ( 1 )
-    ;
+  // PORT: was "while ( 1 ) ;" (game hung after the ending FMV); the original waits 480 ticks (0x4D662-0x4D674)
+  for ( unsigned int start = dword_AC5D4_AC5C4; (unsigned int)(dword_AC5D4_AC5C4 - start) < 0x1E0; )
+    PortTimer_Yield();
 }
 
 //SYNCHRONIZED WITH REMC1

@@ -819,6 +819,11 @@ positions, unowned, 45 frames after a death; the code that does that is not iden
     empty loop whenever the count was not 0 (`level50-freeze.recording` froze). The original is
     `do { } while (--count)`. Find them with an awk over the sources for a `while/if/for (...);` line
     followed by a line holding only `{` (only these two existed, 2026-11-15).
+70. **Busy-wait on the timer turned into `while (1);`.** `sub_4D560_4D8A0` (after the ending FMV) waits
+    until `dword_AC5D4` has advanced 480 ticks (`mov edx,[AC5D4]` once, then `mov eax,[AC5D4]; sub; cmp
+    eax,1E0h; jb` at 0x4D662-0x4D674). Hex-Rays saw no write to the counter inside the loop and emitted
+    `while ( 1 ) ;`, so the game hung after the outro. Port tick waits call `PortTimer_Yield()` in the
+    loop. No other `while ( 1 ) ;` is left (2026-11-15).
 
 The MC2 renderer in remc2 (`GameRenderOriginal.cpp`, e.g. `DrawSprite_41BD3`) is structurally the
 same code as MC1's `sub_2C410_2C450`/`DrawSprite_*` and uses the same scratch offsets in the BScreen
@@ -1152,6 +1157,9 @@ Known open issues:
   entity's max mana 0. The port now skips stale entries (first triggers at tick 9127 of the recording,
   so the recording replays exactly only up to there). Also pattern #65 (flag OR truncated to a byte)
   and the harmless `JUMPOUT(0x36079)` in `sub_36080_36440` (a shared epilogue) removed.
+- Fixed 2026-11-15: hang after the ending FMV (`level50-end-freeze.recording`, pattern #70). As in the
+  original, finishing level 50 plays the outro, waits 4 s, sets the quit flag (+13327 of the player's
+  `str_13323` entry) and the game exits.
 - Fixed 2026-11-15: freeze at the end of `level50-freeze.recording`: the rotated-sprite blitter's fog +
   transparency cases looped forever (pattern #69). The frame's `DrawWorld` now matches the original.
 - Fixed 2026-11-15: computer wizards chose other mana balls than the original (pattern #50):
